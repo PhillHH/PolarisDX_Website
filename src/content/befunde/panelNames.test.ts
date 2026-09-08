@@ -2,7 +2,7 @@
 // Reine Logik ohne DOM — die jsdom-Umgebung waere hier nur Ballast.
 import { describe, it, expect } from 'vitest'
 import { PANELS, resolvePanelNames } from './panelNames'
-import { BEFUNDE, BEFUND_ORDER } from './index'
+import { BEFUND_ORDER, BEFUND_PANEL_NAMES } from './meta'
 
 /**
  * Die Bindung an die Quelle. PANELS ist ausgeschrieben, damit das
@@ -14,11 +14,9 @@ describe('PANELS deckt die Musterbefunde ab', () => {
     expect(PANELS.map((p) => p.slug)).toEqual([...BEFUND_ORDER])
   })
 
-  it('fuehrt je Panel den deutschen und den englischen Namen', () => {
+  it('bezieht die Namen aus der JSON-freien Family-Metadatenquelle', () => {
     for (const panel of PANELS) {
-      const quelle = BEFUNDE[panel.slug]
-      const erwartet = [...new Set([quelle.de.panel, quelle.en.panel])]
-      expect(panel.names).toEqual(erwartet)
+      expect(panel.names).toBe(BEFUND_PANEL_NAMES[panel.slug])
     }
   })
 })

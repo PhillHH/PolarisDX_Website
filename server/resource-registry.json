@@ -1,0 +1,408 @@
+{
+  "generatedFrom": "src/content/resources/resourceInventory.ts",
+  "assets": [
+    {
+      "id": "rsc-epi-001",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/00_Portfolio_Uebersicht_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 80798,
+          "sha256": "50b3df18530833db8add931ce09d09acfb6d6c6476305e870b525b2d53164ac1"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/00_Portfolio_Overview_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 80231,
+          "sha256": "596b40f351326fa78dc595af9659b82b3f96409e87d1b3e03dcefa2f5979a728"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-002",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/01_Metabolic_Health_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 82637,
+          "sha256": "32fedd31dc617be107652e988e6d4d727d6af631059c36007f72d79fc7e071c1"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/01_Metabolic_Health_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 81560,
+          "sha256": "d62e961213de532ebda62171f2454245bd1feda18fd65cb3f63adb7bec8cc9f6"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-003",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/02_Healthy_Aging_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 75500,
+          "sha256": "7e8b7188fe808d5eaa0b5b966b7b7b3e2fe816069670dfb7f211feb0699c7557"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/02_Healthy_Aging_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 74331,
+          "sha256": "2c87718703faeb8cb7630868d74ae0af09e21c7e3232abcdd5985f96dec70c0d"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-004",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/03_Biologisches_Alter_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 81378,
+          "sha256": "a9dcd7318291efb12500953e8f38c445302295463e894d0f75296f71161de2be"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/03_Biological_Age_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 80636,
+          "sha256": "7ffd670f56acf30e3724bdad38ac0c752fc793b90fad8394190f782592602a76"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-005",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/04_Telomer_Analyse_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 74794,
+          "sha256": "aeb33d918c5f66fada8c3338d0a7ca000232092bcebbf3a07594dd7fbc86c5bf"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/04_Telomere_Analysis_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 74037,
+          "sha256": "e3fc4fb021bd98d1a76047abbae934b3196d3746d9ce7e538192b285f72892ce"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-006",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/05_Stress_Monitor_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 80758,
+          "sha256": "9ec4754fe1249957e72e988dc8ddc886fd1663a3b620db168d8d3ae0850e62ef"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/05_Stress_Monitor_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 80126,
+          "sha256": "f12217da9611ff3fe055f739c8d3e367baf694cf29c51c1cd9ff3da5dc08d820"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-007",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/06_Healthy_Sport_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 82939,
+          "sha256": "eaa6d0b3b78a112ad35b314b1bdadfa21ad6ca24e7e54a2f3be7abc363fe8558"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/06_Healthy_Sport_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 82076,
+          "sha256": "864b01a01e55a88059ce0b9209258e57a3f45453068d3ad7215a7d0054810b9c"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-008",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/07_Konditionen_Anfrage_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 71642,
+          "sha256": "e1bed1a3c9ba07b5e8143c56b1e441ce6466f548b3463a8d90a717e52738c469"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/07_Terms_Enquiry_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 71358,
+          "sha256": "73fcc52d4ec0d3dc9b09fa0fcd460376308b18ba2671f429eac4973e70d69653"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-009",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/08_Evidenz_Studienlage_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 81339,
+          "sha256": "71704a9c4957444f083eb7622f600fbd4ee7a013faaad6083e34de1359e5991a"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/en/08_Evidence_Base_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 79858,
+          "sha256": "6abac0b680e4669c85d4989ea0ddaefe87f7ed3084c1d550fce9a015ea88081e"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-010",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/10_Musterbefund_Metabolic_Health_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 1018990,
+          "sha256": "d6f94479f044dde02f8d65ce592826106059606c4cf5cfeb0f205a3dca5803da"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-011",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/11_Musterbefund_Healthy_Aging_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 725693,
+          "sha256": "bd36712833b06390c86f58ec4bbe856117c736824c49da4f9750c99a41fc8571"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-012",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/12_Musterbefund_Biologische_Altersuhr_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 699325,
+          "sha256": "bc67a00123b7715e57399ae08b3d0e6d931e533bdda11164005984f412a65793"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-013",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/13_Musterbefund_Telomer_Analyse_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 640247,
+          "sha256": "b3e602c67072bb18400363ccb0c01e2c563ca156073b158bce1f117a4101647b"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-014",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/14_Musterbefund_Stress_Monitor_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 716851,
+          "sha256": "0a472712d8402c3fe075d0dc867cbcb9df37515c5f904122c4ddffb39955f43c"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-015",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/15_Musterbefund_Healthy_Sport_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 842658,
+          "sha256": "3cc422b7d68cc9901c1fed2e1aaf0877c4c54b03b4c983218b085cd1c7a34ac1"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-016",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/16_Parameteruebersicht_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 322248,
+          "sha256": "9e4bed36a1bf45dfa1c5d7582273322f53ab02f5491909802701d6f93641f706"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-017",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/de/17_Werte_verstehen_PolarisDX.pdf",
+          "mime": "application/pdf",
+          "bytes": 400320,
+          "sha256": "508c9d47717c9820aa15e6c0fc0cabb7ef5021d7385c1859f4c744e12471aad9"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-018",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/PolarisDX_Unterlagen_DE.zip",
+          "mime": "application/zip",
+          "bytes": 603986,
+          "sha256": "15ad5c69b62ddd1d27e2a26b196666fec680b9a0c94f0d0e5cd288f4ce8ebd21"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "epigenetics/PolarisDX_Unterlagen_EN.zip",
+          "mime": "application/zip",
+          "bytes": 595985,
+          "sha256": "f0a5526af77e968c340b9e86d2b2ec707dbe4f6efee71731fac95a6e08668c29"
+        }
+      ]
+    },
+    {
+      "id": "rsc-epi-019",
+      "deliveryClass": "GATED",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PROTECTED",
+          "path": "epigenetics/PolarisDX_Musterbefunde_DE.zip",
+          "mime": "application/zip",
+          "bytes": 4262171,
+          "sha256": "648280b58aced8bb15519c1cc5d15f7d785119dbb3a5ed92df8a77f9e27e0fb4"
+        }
+      ]
+    },
+    {
+      "id": "rsc-prd-001",
+      "deliveryClass": "FREE_PUBLIC",
+      "lifecycle": "ACTIVE_VISIBLE",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "vitamin-d3-spray-de.pdf",
+          "mime": "application/pdf",
+          "bytes": 1045006,
+          "sha256": "1adb74b43e5c27fb4eda5ad1340893dbd70d8c8cc76fd58f7d5676e62a044c68"
+        },
+        {
+          "language": "en",
+          "storage": "PUBLIC_STATIC",
+          "path": "vitamin-d3-spray-en.pdf",
+          "mime": "application/pdf",
+          "bytes": 1014799,
+          "sha256": "f0fef6de37fd5135291521ebacfc6f1e7970c817b4404dba285c7ae02a10c704"
+        }
+      ]
+    },
+    {
+      "id": "rsc-prd-002",
+      "deliveryClass": "NOT_LAUNCH_VISIBLE",
+      "lifecycle": "LEGACY_ORPHAN",
+      "variants": [
+        {
+          "language": "de",
+          "storage": "PUBLIC_STATIC",
+          "path": "igloo-pro-flyer.pdf",
+          "mime": "application/pdf",
+          "bytes": 494862,
+          "sha256": "ae726928cf750b21df3d409469df97c5f5e55cd11a0b25c938fda680b24a8f7b"
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,7 @@ import { cn } from '../../lib/utils'
 import { useContactForm } from '../../hooks/useContactForm'
 import { resolvePanelNames } from '../../content/befunde/panelNames'
 import { normalizeLanguage } from '../../i18n'
+import { resolveHomepageSalesContext } from '../../lib/homepageConversion'
 
 const INTENT_KEYS = ['consultation', 'quote', 'product', 'support', 'other'] as const
 const FIELD_KEYS = [
@@ -61,14 +62,11 @@ export const ContactForm = () => {
   // Liste. Die Laengengrenze steckt in resolvePanelNames.
   const panels = resolvePanelNames(searchParams.get('panel'))
   const panelText = panels.join(', ')
+  const homepageSalesContext = resolveHomepageSalesContext(searchParams)
   // Auch die Herkunft geht ungefiltert in die Benachrichtigung — sie hat
   // genau einen Wert, also wird sie wie `intent` gegen ihn geprueft.
   const sourceParam = searchParams.get('source')?.trim() === 'epigenetics' ? 'epigenetics' : ''
-  const submissionSource = sourceParam
-    ? panelText
-      ? `${sourceParam} · ${panelText}`
-      : sourceParam
-    : ''
+  const submissionSource = homepageSalesContext?.source || sourceParam
 
   // Der Hinweis oberhalb des Formulars nennt alle vorgemerkten Panels: wer aus
   // einem Musterbefund kommt, sah bisher nur den vorbelegten Freitext und
@@ -84,6 +82,8 @@ export const ContactForm = () => {
   const [phone, setPhone] = useState('')
   const [requirements, setRequirements] = useState(panelText)
   const [consent, setConsent] = useState(false)
+  // Marketing-Consent ist optional und strikt getrennt vom Processing-Consent.
+  const [marketingConsent, setMarketingConsent] = useState(false)
   const [hp, setHp] = useState('')
   const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
 
@@ -130,6 +130,7 @@ export const ContactForm = () => {
     setPhone('')
     setRequirements(panelText)
     setConsent(false)
+    setMarketingConsent(false)
     setHp('')
     setErrors({})
   }
@@ -139,7 +140,8 @@ export const ContactForm = () => {
   // abgeworfen), bei einem Transportfehler auf die Fehlermeldung.
   useEffect(() => {
     if (submitStatus === 'success') successRef.current?.focus()
-    if (submitStatus === 'error') errorRef.current?.focus()
+    if (submitStatus === 'retryable-error' || submitStatus === 'terminal-error')
+      errorRef.current?.focus()
   }, [submitStatus])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -168,7 +170,7 @@ export const ContactForm = () => {
       return
     }
 
-    const success = await submit({
+    const result = await submit({
       intent,
       intentLabel: t(`contact.form.intent.options.${intent}`),
       name: name.trim(),
@@ -179,12 +181,27 @@ export const ContactForm = () => {
       fieldLabel: t(`contact.form.field.options.${field}`),
       requirements: requirements.trim(),
       source: submissionSource || undefined,
+      journey: homepageSalesContext?.journey,
+      section: homepageSalesContext?.section,
       consent,
+      marketingConsent,
       _hp: hp,
       locale: normalizeLanguage(i18n.resolvedLanguage),
     })
 
-    if (success) resetForm()
+    if (result.ok) {
+      resetForm()
+    } else if (result.fields.length > 0) {
+      // Server-Feldfehler (400) direkt im Handler mappen und fokussieren —
+      // vorher synchron im Effect (react-hooks/set-state-in-effect).
+      const next: Partial<Record<ErrorKey, string>> = {}
+      if (result.fields.includes('name')) next.name = t('contact.form.errors.name')
+      if (result.fields.includes('email')) next.email = t('contact.form.errors.email')
+      setErrors((prev) => ({ ...prev, ...next }))
+      const first = ERROR_ORDER.find((key) => next[key])
+      if (first === 'name') nameRef.current?.focus()
+      if (first === 'email') emailRef.current?.focus()
+    }
   }
 
   const pillClass = (active: boolean) =>
@@ -249,14 +266,17 @@ export const ContactForm = () => {
             className="h-full rounded-full bg-accent transition-all duration-500 ease-out"
             style={{ width: `${pct}%` }}
             role="progressbar"
+            aria-labelledby="contact-progress-message"
             aria-valuenow={done}
             aria-valuemin={0}
             aria-valuemax={total}
           />
         </div>
         <div className="mt-2 flex items-center justify-between text-xs">
-          <span className="text-gray-500">{progressMessage}</span>
-          <span className="text-gray-400">
+          <span id="contact-progress-message" className="text-ui-field">
+            {progressMessage}
+          </span>
+          <span className="text-ui-field">
             <span className="font-semibold text-heading">{done}</span>/{total}
           </span>
         </div>
@@ -408,7 +428,7 @@ export const ContactForm = () => {
           {t('contact.form.success')}
         </Alert>
       )}
-      {submitStatus === 'error' && (
+      {(submitStatus === 'retryable-error' || submitStatus === 'terminal-error') && (
         <Alert
           ref={errorRef}
           role="alert"
@@ -416,7 +436,9 @@ export const ContactForm = () => {
           className={alertFocusClass}
           variant="destructive"
         >
-          {t('contact.form.error')}
+          {submitStatus === 'retryable-error'
+            ? t('contact.form.error_retryable')
+            : t('contact.form.error')}
         </Alert>
       )}
 
@@ -452,6 +474,21 @@ export const ContactForm = () => {
           </p>
         )}
 
+        {/* Marketing-Consent: optional, ablehnen blockiert die Anfrage nicht. */}
+        <div className="flex items-start gap-3">
+          <input
+            id="marketing-consent"
+            name="marketingConsent"
+            type="checkbox"
+            checked={marketingConsent}
+            onChange={(e) => setMarketingConsent(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
+          />
+          <label htmlFor="marketing-consent" className="text-sm leading-relaxed text-gray-600">
+            {t('contact.form.marketing_consent')}
+          </label>
+        </div>
+
         <div className="space-y-2">
           <button
             type="submit"
@@ -461,7 +498,7 @@ export const ContactForm = () => {
             {isSubmitting ? t('contact.form.sending') : t(`contact.form.submit.${intent}`)}
             {!isSubmitting && <ArrowRight className="h-4 w-4" aria-hidden />}
           </button>
-          <p className="text-xs text-gray-400">{t('contact.form.microcopy')}</p>
+          <p className="text-xs text-ui-field">{t('contact.form.microcopy')}</p>
         </div>
       </div>
     </form>

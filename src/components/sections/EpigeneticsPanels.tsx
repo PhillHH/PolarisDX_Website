@@ -28,12 +28,18 @@
 
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import ResourceLanguageBadge from '../ui/ResourceLanguageBadge'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Reveal, { REVEAL_STAGGER } from '../ui/Reveal'
 import SectionHeader from '../ui/SectionHeader'
 import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../../assets/epigenetics/befundImages'
 import { MerkButton, Merkliste } from '../befund/Merkliste'
+import {
+  musterbefundHref,
+  type EpigeneticsFocus,
+  type EpigeneticsPanel,
+} from '../../lib/epigeneticsContext'
+import ResourceGateTrigger from '../resources/ResourceGateTrigger'
+import { SAMPLE_BUNDLE_ASSET_ID } from '../../content/resources/leadMagnetCandidates'
 
 interface AnalysisItem {
   num: string
@@ -58,10 +64,14 @@ const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxe
 // unterschiedlicher Hoehe. [&>div]:h-full reicht sie durch, ohne Reveal selbst
 // anzufassen (die Komponente wird seitenweit benutzt).
 const STRETCH = 'h-full [&>div]:h-full'
-/** Wie in EpigeneticsPage: die PDFs liegen unter public/downloads/epigenetics/. */
-const ASSET_BASE = '/downloads/epigenetics/'
 
-const EpigeneticsPanels = () => {
+const EpigeneticsPanels = ({
+  activePanel,
+  focus,
+}: {
+  activePanel: EpigeneticsPanel | null
+  focus: EpigeneticsFocus | null
+}) => {
   const { t } = useTranslation('epigenetics')
 
   const analyses = asArray<AnalysisItem>(t('analyses.items', { returnObjects: true }))
@@ -95,7 +105,15 @@ const EpigeneticsPanels = () => {
             delay={(index % 3) * REVEAL_STAGGER}
             className={STRETCH}
           >
-            <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            <article
+              data-panel-slug={sample.slug}
+              data-panel-active={activePanel === sample.slug ? 'true' : 'false'}
+              className={`flex h-full flex-col overflow-hidden rounded-3xl bg-white transition-shadow ${
+                activePanel === sample.slug
+                  ? 'border-2 border-brand-primary shadow-lg ring-2 ring-brand-primary/20'
+                  : 'border-2 border-slate-200'
+              }`}
+            >
               {BEFUND_IMAGES[sample.slug] ? (
                 <img
                   src={BEFUND_IMAGES[sample.slug].src}
@@ -121,7 +139,7 @@ const EpigeneticsPanels = () => {
                   {/* Sprachhinweis. Stand vor dem Umbau in der Pille, die jetzt
                       analysis.num traegt — ohne ihn laden neun Locales ein
                       deutsches PDF ohne Hinweis am Knopf. */}
-                  <span className="text-sm text-gray-500">{t('samples.badge')}</span>
+                  <span className="text-sm text-gray-600">{t('samples.badge')}</span>
                 </div>
 
                 <h3 className="mt-4 text-xl font-semibold tracking-tight text-heading">
@@ -164,7 +182,7 @@ const EpigeneticsPanels = () => {
                     Browser dieses Geraets, siehe src/lib/merkliste.ts. */}
                 <div className="mt-auto space-y-3 pt-6">
                   <Link
-                    to={`/epigenetics/musterbefund/${sample.slug}`}
+                    to={musterbefundHref(sample.slug as EpigeneticsPanel, focus)}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
                   >
                     {t('samples.btn')}
@@ -191,16 +209,12 @@ const EpigeneticsPanels = () => {
       <Reveal width="100%">
         <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-sm leading-relaxed text-gray-600">{t('samples.note')}</p>
-          <a
-            href={`${ASSET_BASE}${t('samples.zipFile')}`}
-            download
-            hrefLang="de"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-          >
-            <Download className="h-4 w-4" aria-hidden="true" />
-            {t('samples.zipLabel')}
-            <ResourceLanguageBadge language="de" format="zip" className="text-white/80" />
-          </a>
+          {/* AP19 PT19.4: Gate statt Dateilink — siehe Unterlagen-Seite. */}
+          <ResourceGateTrigger
+            assetId={SAMPLE_BUNDLE_ASSET_ID}
+            label={t('samples.zipLabel')}
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          />
         </div>
       </Reveal>
     </div>

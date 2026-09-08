@@ -55,7 +55,8 @@
       "submitting": "Verzenden...",
       "success": "Hartelijk dank! We hebben uw supportaanvraag ontvangen en geregistreerd. Wij nemen zo snel mogelijk contact met u op.",
       "error": "Er is een fout opgetreden. Probeer het later opnieuw.",
-      "microcopy": "We reageren doorgaans binnen één werkdag."
+      "microcopy": "We reageren doorgaans binnen één werkdag.",
+      "error_retryable": "Het is net niet gelukt. Je gegevens zijn er nog — probeer het zo opnieuw."
     },
     "info": {
       "title": "Supportinformatie",

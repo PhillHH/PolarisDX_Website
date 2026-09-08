@@ -26,13 +26,11 @@ import { Breadcrumbs } from '../ui/Breadcrumbs'
 import ChapterNav, { type Chapter } from '../ui/ChapterNav'
 import PageTransition from '../ui/PageTransition'
 import Reveal from '../ui/Reveal'
-import { LABEL, metaDescription, VERTIEFUNGEN } from './tokens'
-import { isEnglishFallback } from '../../lib/translationStatus'
+import { getVertiefung, LABEL, metaDescription, VERTIEFUNGEN, type VertiefungKey } from './tokens'
 import { useScrollDepth } from '../../lib/useScrollDepth'
+import { epigeneticsInquiryHref } from '../../lib/epigeneticsContext'
 
 interface EpiSubpageProps {
-  /** Pfad ohne Sprachpraefix, z.B. '/epigenetics/grundlagen'. */
-  path: string
   /** Bestehender Locale-Schluessel fuer den Seitentitel, z.B. 'basics.title'. */
   title: string
   /** Bestehender Locale-Schluessel fuer den Kicker ueber der Ueberschrift. */
@@ -63,12 +61,11 @@ interface EpiSubpageProps {
    * Welche der drei Seiten die Anfrage ausgeloest hat, gehoert in die Messung,
    * nicht in den Herkunftsvertrag.
    */
-  source: string
+  source: VertiefungKey
   children: ReactNode
 }
 
 const EpiSubpage = ({
-  path,
   title,
   caption,
   lead,
@@ -79,14 +76,11 @@ const EpiSubpage = ({
 }: EpiSubpageProps) => {
   const { t, i18n } = useTranslation('epigenetics')
   // Der Weiterlesen-Titel ist Bedienoberflaeche und liegt im Namensraum
-  // `common` — dort ist er in allen zehn Sprachen echt uebersetzt, waehrend
-  // `epigenetics` in acht davon auf Englisch laeuft.
+  // `common`; sowohl er als auch der Epigenetics-Webcontent sind x10.
   const { t: tCommon } = useTranslation('common')
   useScrollDepth('epigenetics')
-  // Acht Sprachen zeigen diesen Namensraum auf Englisch. Ohne Auszeichnung
-  // liest ein tschechischer Screenreader den englischen Text mit tschechischer
-  // Phonetik vor — WCAG 3.1.2, Level AA.
-  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
+  const vertiefung = getVertiefung(source)
+  const path = vertiefung.to
 
   const seoTitle = t(title)
   // Der Einleitungssatz ist der beste vorhandene Beschreibungstext; auf der
@@ -113,7 +107,11 @@ const EpiSubpage = ({
         ]}
       />
 
-      <div className="bg-slate-50 text-heading" lang={englishFallback ? 'en' : undefined}>
+      <div
+        className="bg-slate-50 text-heading"
+        data-epigenetics-subpage={source}
+        data-route-id={vertiefung.routeId}
+      >
         {/* Kopf der Vertiefungsseiten. Deutlich flacher als der Hero der
             Programmseite: hier ist nichts auszuwaehlen, hier wird gelesen.
             Dieselbe Flaeche haelt die Strecke optisch zusammen.
@@ -173,7 +171,7 @@ const EpiSubpage = ({
           back={{ to: '/epigenetics', label: t('befund.navBack') }}
           actions={[
             {
-              to: '/contact?intent=quote&source=epigenetics#kontaktformular',
+              to: epigeneticsInquiryHref(null, null, source),
               label: t('hero.ctaQuote'),
               // AP01 PT01.2: Die Quelle meldet hier zusaetzlich ein
               // `epigenetics_request`-Ereignis ueber main's `trackEvent`.

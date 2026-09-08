@@ -18,14 +18,24 @@ import pt from '../../content/befunde/biologische-altersuhr.pt.json'
 import da from '../../content/befunde/biologische-altersuhr.da.json'
 import nl from '../../content/befunde/biologische-altersuhr.nl.json'
 import cs from '../../content/befunde/biologische-altersuhr.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
+const befunde = defineBefundFamily('biologische-altersuhr', {
+  de,
+  en,
+  pl,
+  fr,
+  it,
+  es,
+  pt,
+  da,
+  nl,
+  cs,
+})
+
 const BiologischeAltersuhr = () => (
-  <MusterbefundPage
-    slug="biologische-altersuhr"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
+  <MusterbefundPage slug="biologische-altersuhr" befunde={befunde} />
 )
 
 export default BiologischeAltersuhr

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Check } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { SUPPORTED_LANGUAGES } from '../../i18n'
+import { getHomepageSalesTarget, type HomepageSalesSection } from '../../lib/homepageConversion'
 
 /**
  * FinalCtaSection — Full-width dunkle Schluss-CTA (B2B-Abschluss der HomePage).
@@ -46,9 +47,26 @@ const normalizeRoiTo = (value: string): string => {
   return `${path}${hash}`
 }
 
-const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) => {
+const FinalCtaSection = ({
+  roiHref = '/#roi-rechner',
+  homepageSalesSection,
+}: {
+  roiHref?: string
+  homepageSalesSection?: HomepageSalesSection
+}) => {
   const { t } = useTranslation('home')
   const roiTo = normalizeRoiTo(roiHref)
+  const primaryTarget = homepageSalesSection
+    ? getHomepageSalesTarget(homepageSalesSection)
+    : '/contact'
+  const homepageAttribution = homepageSalesSection
+    ? {
+        'data-cta-intent': 'GENERAL_SALES',
+        'data-cta-source': 'homepage',
+        'data-cta-journey': 'general_sales',
+        'data-cta-section': homepageSalesSection,
+      }
+    : {}
 
   return (
     <section
@@ -65,13 +83,14 @@ const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) =>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
           {t(
             'final_cta.subtitle',
-            'Sprechen Sie mit unserem Team oder berechnen Sie Ihr Einsparpotenzial — herstellerübergreifend, IVDR/CE-konform und in 3–5 Werktagen einsatzbereit.',
+            'Sprechen Sie mit unserem Team über eine passende Point-of-Care-Lösung oder prüfen Sie Ihre eigenen Annahmen im unverbindlichen ROI-Rechner.',
           )}
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button
-            to="/contact"
+            to={primaryTarget}
             variant="secondary"
+            {...homepageAttribution}
             className="!bg-accent-strong hover:!brightness-110 focus-visible:!ring-accent"
           >
             {t('final_cta.cta_primary', 'Angebot anfragen')}
@@ -83,15 +102,15 @@ const FinalCtaSection = ({ roiHref = '/#roi-rechner' }: { roiHref?: string }) =>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
             <Check size={13} className="text-accent-line" aria-hidden />
-            {t('final_cta.chips.free', 'Kostenlos & unverbindlich')}
+            {t('final_cta.chips.free', 'Unverbindliche Anfrage')}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
             <Check size={13} className="text-accent-line" aria-hidden />
-            {t('final_cta.chips.reply', 'Antwort < 24 h')}
+            {t('final_cta.chips.reply', 'Persönliche Beratung')}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
             <Check size={13} className="text-accent-line" aria-hidden />
-            {t('final_cta.chips.delivery', 'Lieferung in 3–5 Werktagen')}
+            {t('final_cta.chips.delivery', 'In 10 Sprachen verfügbar')}
           </span>
         </div>
       </div>

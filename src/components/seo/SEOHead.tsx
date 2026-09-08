@@ -15,6 +15,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { DEFAULT_LANGUAGE, normalizeLanguage, type SupportedLanguage } from '../../i18n'
+import { resolveCanonicalRoute } from '../../routing/routeRegistry'
 import {
   PUBLIC_SEO_ORIGIN,
   SEO_ROUTE_SOURCE,
@@ -171,6 +172,13 @@ export function SEOHead({
     throw new Error('SEOHead received contradictory indexability props')
   }
   const state = indexability || legacyState
+  const registryRoute = resolveCanonicalRoute(path)
+  if (registryRoute && registryRoute.indexability !== state) {
+    throw new Error(
+      `SEOHead indexability conflicts with route registry for ${path}: ` +
+        `${state} vs ${registryRoute.indexability}`,
+    )
+  }
   const isNotFound = state === 'NOT_FOUND'
   const hasCanonical = !['NOT_FOUND', 'REDIRECT_SOURCE', 'NON_PUBLIC'].includes(state)
   const hasAlternates = state === 'INDEX_FOLLOW'

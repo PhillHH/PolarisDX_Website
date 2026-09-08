@@ -1,16 +1,18 @@
 {
   "hero": {
-    "title": "Rychlá diagnostika POC",
-    "caption": "Next Gen Diagnostics",
-    "description": "Vaše řídicí centrum.",
+    "title": "IglooPro pro profesionální Point-of-Care workflow",
+    "caption": "IglooPro · Point-of-Care čtečka",
+    "description": "IglooPro je samostatná Point-of-Care čtečka pro ordinace a kliniky. Společně upřesníme, jaké podporované nastavení a portfolio testů odpovídají vašemu pracovnímu postupu.",
     "cta_order": "Vyžádat nabídku",
+    "cta_secondary": "Otevřít kalkulačku ROI",
     "cta_datasheet": "Datový list (PDF, DE)",
-    "subline": "Zdarma a nezávazně · Odpověď do 24 h",
+    "subline": "Pro ordinace a kliniky · Osobní konzultace namísto standardního balíčku",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
     "chip_cross": "Nezávislý na výrobci",
     "visual": {
-      "device_alt": "POC čtečka IglooPro, pohled zepředu",
+      "device_alt": "Point-of-Care čtečka IglooPro, pohled zepředu",
+      "context": "IglooPro jako samostatná Point-of-Care čtečka",
       "portable_val": "600 g",
       "portable_label": "přenosný",
       "cv_val": "CV < 2 %",
@@ -18,6 +20,63 @@
       "time_val": "3–15 Min.",
       "time_label": "na test"
     }
+  },
+  "proof": {
+    "aria_label": "Ověřený kontext produktu",
+    "eyebrow": "OVĚŘENÝ KONTEXT PRODUKTU",
+    "title": "Co dnes můžete spolehlivě posoudit",
+    "description": "Tyto informace popisují současný produkt a cestu poptávky. Technické specifikace a regulatorní tvrzení jsou dokládány samostatně.",
+    "items": {
+      "reader": { "title": "Samostatná POC čtečka", "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow." },
+      "audience": { "title": "Pro ordinace a kliniky", "text": "Produktová cesta je určena profesionálním týmům, které posuzují vhodný POC workflow." },
+      "enquiry": { "title": "Skutečná cesta poptávky", "text": "Vaše poptávka vede na existující kontaktní formulář — bez simulované rezervace nebo checkoutu." }
+    }
+  },
+  "product_story": {
+    "eyebrow": "PRODUKT V KONTEXTU",
+    "title": "Tři doložitelné vlastnosti",
+    "description": "IglooPro je zde popsán pouze vlastnostmi, které podporuje současný produkt a cesta poptávky.",
+    "items": {
+      "reader": { "title": "Samostatná POC čtečka", "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow." },
+      "context": { "title": "Profesionální prostředí", "text": "Produktová cesta je určena ordinacím, klinikám a jejich profesionálním týmům." },
+      "scope": { "title": "Rozsah se ověřuje", "text": "Podporované nastavení a portfolio testů se pro konkrétní workflow upřesňují během poptávky." }
+    }
+  },
+  "workflow": {
+    "eyebrow": "PŘED ROZHODNUTÍM",
+    "title": "Jak se ověřuje vhodnost",
+    "description": "Současná cesta je transparentní proces poptávky, nikoli automaticky nakonfigurovaná produktová nabídka.",
+    "steps": {
+      "context": { "title": "Popište prostředí použití", "text": "Typ pracoviště, zamýšlený Point-of-Care kontext a otevřené požadavky tvoří výchozí bod." },
+      "scope": { "title": "Ověřte podporovaný rozsah", "text": "Nastavení, portfolio testů a relevantní provozní otázky se potvrzují před doporučením produktu." },
+      "decision": { "title": "Dohodněte další krok", "text": "Stávající kontaktní cesta vede k osobnímu upřesnění a případně k nabídce." }
+    },
+    "boundary": "Obsluha, práce se vzorkem a zpracování výsledků jsou popisovány pouze podle schválené produktové dokumentace; tato stránka nevytváří smyšlenou automatizaci."
+  },
+  "compatibility": {
+    "eyebrow": "OVĚŘTE KOMPATIBILITU",
+    "title": "Před integrací potvrďte čtyři body",
+    "description": "Kompatibilita vyžaduje konkrétní ověření. Tyto otázky strukturují poptávku bez předpokladu technické podpory.",
+    "boundary": "V současnosti není deklarována obecná podpora konkrétních testů, rozhraní, softwaru ordinace ani úrovní služeb.",
+    "items": {
+      "portfolio": { "title": "Portfolio testů", "text": "Které testy a materiály jsou pro zamýšlené použití skutečně podporovány?" },
+      "setting": { "title": "Pracovní a provozní prostředí", "text": "Jaké organizační a prostorové požadavky musí nastavení splnit?" },
+      "data": { "title": "Cesta dat a systémů", "text": "Jaké přenosy dat nebo systémová připojení jsou potřebné a aktuálně potvrzené?" },
+      "service": { "title": "Podpora a provoz", "text": "Jaké školení, dokumentace a podpora budou pro konkrétní použití dohodnuty?" }
+    },
+    "links_label": "Další odkazy IglooPro",
+    "links_title": "Skutečné další cíle",
+    "links": { "poc": "Systémová řešení POC", "compatibility": "Kompatibilita a integrace", "downloads": "Produktové materiály", "support": "Požadavek na podporu", "contact": "Vyžádat nabídku" }
+  },
+  "specification": {
+    "eyebrow": "TECHNICKÁ SPECIFIKACE",
+    "title": "Uzamčené produktové a obsahové tvrzení",
+    "description": "Toto zobrazení dokumentuje formulaci uzamčenou pro projekt. Nejde o nezávislé vědecké ověření.",
+    "caption": "Stav specifikace IglooPro",
+    "headers": { "metric": "Ukazatel", "value": "Hodnota", "context": "Kontext" },
+    "metric": "Variační koeficient (CV)",
+    "value": "CV < 2 %",
+    "context": "Produktové/obsahové rozhodnutí; repozitář nezávisle neověřuje vědeckou správnost."
   },
   "intro": {
     "title": "Laboratorní kvalita v ruční velikosti",
@@ -107,9 +166,10 @@
     "request_cta": "Vyžádat aktuální seznam testů"
   },
   "cta_bottom": {
-    "title": "Rozšiřte možnosti",
-    "description": "Pro lékárny a ordinace.",
+    "title": "Posuďte IglooPro pro svůj workflow",
+    "description": "Popište své prostředí použití. Společně upřesníme aktuálně podporovaný rozsah a vhodný další krok.",
     "button": "Vyžádat nabídku",
+    "resources": "Otevřít kalkulačku ROI",
     "datasheet": "Datový list (PDF, DE)",
     "chips": {
       "free": "Zdarma a nezávazně",
@@ -118,8 +178,8 @@
     }
   },
   "seo": {
-    "title": "IglooPro POC reader: specifikace a technologie",
-    "description": "IglooPro POC reader dodá laboratorní hodnoty u křesla za 3–15 minut z kapilární krve: vitamin D, CRP, HbA1c, TSH aj. Imunofluorescence, CV < 2 %, 600 g přenosný."
+    "title": "IglooPro Point-of-Care reader | PolarisDX",
+    "description": "IglooPro pro profesionální Point-of-Care workflow: s PolarisDX vyjasněte kontext produktu, podporovaný rozsah a skutečnou cestu poptávky."
   },
   "help": {
     "title": "Nejste si jisti, zda IglooPro zapadne do vašeho pracovního postupu?",

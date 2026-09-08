@@ -1,102 +1,70 @@
 import { useTranslation } from 'react-i18next'
 import Eyebrow from '../ui/Eyebrow'
-import { Button } from '../ui/Button'
 
-/**
- * StepsSection —"So einfach starten Sie": validierte POC-Diagnostik in 3 Schritten.
- * Helle Sektion (bg-slate-50), zentrierter Kopf + 3 nummerierte Karten mit Teal-Badge,
- * darunter zentrierter gefüllt-Teal CTA zur Kontaktseite.
- * i18n-Namespace 'home', Keys unter steps.*. SSR-sicher (kein window/localStorage).
- */
-type Step = {
+type ProcessStep = {
+  id: 'application' | 'result' | 'context'
   number: string
-  badge: string
-  title: string
-  text: string
 }
 
+const processSteps: ProcessStep[] = [
+  { id: 'application', number: '01' },
+  { id: 'result', number: '02' },
+  { id: 'context', number: '03' },
+]
+
+/**
+ * A semantic, non-interactive Point-of-Care workflow. The DOM order is the
+ * reading order on every breakpoint and visible numbers keep it independent
+ * from icon or colour perception.
+ */
 const StepsSection = () => {
   const { t } = useTranslation('home')
 
-  const steps: Step[] = [
-    {
-      number: '1',
-      badge: t('steps.step1.badge', 'Bedarf klären'),
-      title: t('steps.step1.title', 'Kostenloses Erstgespräch'),
-      text: t(
-        'steps.step1.text',
-        'Wir analysieren Ihren Praxisalltag und zeigen, welche POC-Tests sich für Ihr Patientenspektrum wirtschaftlich lohnen.',
-      ),
-    },
-    {
-      number: '2',
-      badge: t('steps.step2.badge', 'Einrichten'),
-      title: t('steps.step2.title', 'Reader und Schulung vor Ort'),
-      text: t(
-        'steps.step2.text',
-        'Sie erhalten Gerät und Assays inklusive Einweisung — nach kurzer Schulung ist Ihr Team startklar für die erste Messung.',
-      ),
-    },
-    {
-      number: '3',
-      badge: t('steps.step3.badge', 'Loslegen'),
-      title: t('steps.step3.title', 'Validierte Ergebnisse in Minuten'),
-      text: t(
-        'steps.step3.text',
-        'Ab dem ersten Tag messen Sie direkt am Behandlungsplatz und besprechen den nächsten Schritt im selben Termin.',
-      ),
-    },
-  ]
-
   return (
-    <section id="ablauf" className="bg-slate-50">
+    <section id="ablauf" aria-labelledby="process-title" className="bg-white">
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
-        {/* Kopf */}
-        <div className="mb-14 text-center">
-          <Eyebrow className="mb-4">{t('steps.caption', 'SO EINFACH STARTEN SIE')}</Eyebrow>
-          <h2 className="text-3xl font-medium tracking-tight text-heading sm:text-4xl">
-            {t('steps.title', 'Validierte POC-Diagnostik in 3 Schritten')}
+        <div className="max-w-3xl">
+          <Eyebrow className="mb-4">{t('steps.caption', 'Der POC-Prozess')}</Eyebrow>
+          <h2
+            id="process-title"
+            className="text-3xl font-medium tracking-tight text-heading sm:text-4xl"
+          >
+            {t('steps.title', 'Von der Anwendung zur fachlichen Einordnung')}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-700">
+          <p className="mt-4 max-w-2xl leading-relaxed text-gray-700">
             {t(
               'steps.intro',
-              'Vom ersten Gespräch bis zur Messung am Behandlungsplatz begleiten wir Sie — ohne Laborversand, ohne lange Wartezeit.',
+              'Ein klarer Ablauf macht Messinformationen im Praxisalltag nutzbar und lässt die medizinische Verantwortung bei den behandelnden Fachpersonen.',
             )}
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7"
+        <ol className="mt-12 grid gap-6 md:grid-cols-3" aria-label={t('steps.aria_label')}>
+          {processSteps.map(({ id, number }) => (
+            <li
+              key={id}
+              data-process-step={id}
+              className="relative border-t-2 border-accent-strong pt-7 md:min-h-64"
             >
-              <div className="flex items-center justify-between">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-deep font-medium text-white">
-                  {step.number}
-                </span>
-                <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-                  {step.badge}
-                </span>
-              </div>
-              <h3 className="mt-4 font-medium text-heading">{step.title}</h3>
-              <p className="mt-2 t-small">{step.text}</p>
-            </div>
+              <span className="text-sm font-semibold tracking-[0.12em] text-accent-strong">
+                {number}
+              </span>
+              <h3 className="mt-5 text-xl font-medium text-heading">
+                {t(`steps.items.${id}.title`)}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-700">
+                {t(`steps.items.${id}.text`)}
+              </p>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <Button
-            to="/contact"
-            variant="secondary"
-            size="sm"
-            className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
-          >
-            {t('steps.cta', 'Angebot anfragen')}
-          </Button>
-        </div>
+        <p className="mt-10 max-w-3xl border-l-2 border-accent-strong pl-5 text-sm leading-relaxed text-gray-700">
+          {t(
+            'steps.safety_note',
+            'Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson.',
+          )}
+        </p>
       </div>
     </section>
   )

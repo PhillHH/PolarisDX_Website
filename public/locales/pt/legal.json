@@ -149,6 +149,14 @@
       "gdprLabel": "conforme",
       "euValue": "EU",
       "euLabel": "Alojamento"
+    },
+    "section6": {
+      "title": "6. Formulários, consentimentos e fluxos de dados",
+      "consent_mode": "Este site utiliza o Google Consent Mode v2 (modo básico): as ferramentas de análise e marketing (por exemplo, Google Analytics 4 através do Google Tag Manager) só são carregadas após o seu consentimento no banner de cookies. Antes do consentimento, e em caso de recusa, nenhum fornecedor de análise ou marketing é contactado.",
+      "support_title": "Formulário de suporte e anexos",
+      "support_content": "As informações enviadas através do formulário de suporte (nome, endereço de e-mail, UDI do dispositivo, versão do software, descrição do problema) são primeiro guardadas numa base de dados no nosso servidor e só depois enviadas por e-mail para a nossa equipa de suporte. Os anexos opcionais (documentos e imagens em formatos permitidos) são guardados com um nome gerado automaticamente, inacessível ao público, e associados exclusivamente ao caso de suporte; o prazo de eliminação previsto é de 90 dias. Não são transmitidos a terceiros.",
+      "marketing_title": "Consentimentos separados",
+      "marketing_content": "Para os formulários de contacto e de suporte é necessário apenas o consentimento para o tratamento dos seus dados a fim de responder ao pedido. O consentimento de cookies de análise ou marketing não é necessário e não afeta o funcionamento dos formulários. O consentimento opcional para a newsletter de produtos é registado separadamente e pode ser retirado a qualquer momento."
     }
   },
   "agb": {

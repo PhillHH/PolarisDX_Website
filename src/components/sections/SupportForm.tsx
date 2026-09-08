@@ -17,8 +17,8 @@ export const SupportForm = () => {
     const formData = new FormData(e.currentTarget)
     const issueType = String(formData.get('issueType') || '')
     const issueTypeLabel = issueType ? t(`support.form.issue_types.${issueType}`) : ''
-    const success = await submit(formData, normalizeLanguage(i18n.resolvedLanguage), issueTypeLabel)
-    if (success) {
+    const result = await submit(formData, normalizeLanguage(i18n.resolvedLanguage), issueTypeLabel)
+    if (result.ok) {
       e.currentTarget.reset()
       setFileName('')
     }
@@ -163,9 +163,23 @@ export const SupportForm = () => {
         </div>
       </div>
 
-      {submitStatus === 'success' && <Alert variant="success">{t('support.form.success')}</Alert>}
+      {submitStatus === 'success' && (
+        <Alert variant="success" role="status" tabIndex={-1}>
+          {t('support.form.success')}
+        </Alert>
+      )}
 
-      {submitStatus === 'error' && <Alert variant="destructive">{t('support.form.error')}</Alert>}
+      {(submitStatus === 'validation-error' || submitStatus === 'terminal-error') && (
+        <Alert variant="destructive" role="alert" tabIndex={-1}>
+          {t('support.form.error')}
+        </Alert>
+      )}
+
+      {submitStatus === 'retryable-error' && (
+        <Alert variant="destructive" role="alert" tabIndex={-1}>
+          {t('support.form.error_retryable')}
+        </Alert>
+      )}
 
       <div className="space-y-5 pt-2">
         <div className="flex items-start gap-3">

@@ -149,6 +149,14 @@
       "gdprLabel": "conforme",
       "euValue": "EU",
       "euLabel": "Hébergement"
+    },
+    "section6": {
+      "title": "6. Formulaires, consentements et flux de données",
+      "consent_mode": "Ce site utilise Google Consent Mode v2 (mode basique) : les outils d'analyse et de marketing (par ex. Google Analytics 4 via Google Tag Manager) ne sont chargés qu'après votre consentement dans la bannière de cookies. Avant le consentement, et en cas de refus, aucun fournisseur d'analyse ou de marketing n'est contacté.",
+      "support_title": "Formulaire de support et pièces jointes",
+      "support_content": "Les informations transmises via le formulaire de support (nom, adresse e-mail, UDI de l’appareil, version du logiciel, description du problème) sont d’abord stockées dans une base de données sur notre serveur, puis transmises par e-mail à notre équipe support. Les pièces jointes facultatives (documents et images aux formats autorisés) sont enregistrées sous un nom généré automatiquement, inaccessible au public, et associées exclusivement au dossier de support ; la période de suppression prévue est de 90 jours. Elles ne sont pas transmises à des tiers.",
+      "marketing_title": "Consentements séparés",
+      "marketing_content": "Pour les formulaires de contact et de support, seul le consentement au traitement de vos données pour traiter la demande est requis. Le consentement aux cookies d'analyse ou de marketing n'est pas nécessaire et n'affecte pas le fonctionnement des formulaires. Le consentement facultatif à la newsletter produit est enregistré séparément et peut être retiré à tout moment."
     }
   },
   "agb": {

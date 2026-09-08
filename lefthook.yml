@@ -18,7 +18,7 @@ pre-commit:
     shell-i18n:
       run: node scripts/check-shell-i18n.mjs
     nav-targets:
-      run: node scripts/check-nav-targets.mjs
+      run: npm run check:nav-targets
     search-index:
       run: npm run check:search-index
     internal-findability:

@@ -15,9 +15,12 @@ import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 import { DEFAULT_LANGUAGE, getLanguageFromPathname, type SupportedLanguage } from './src/i18n'
-import { generateSitemapXml, getSitemapRouteFamilies } from './src/components/seo/sitemap'
-import { services } from './src/data/services'
-import { getLegacyRedirectTarget } from './src/routing/legacyRedirects'
+import { generateSitemapXml } from './src/components/seo/sitemap'
+import {
+  getRegistryRedirectTarget,
+  isKnownCanonicalPath,
+  normalizeRoutePath,
+} from './src/routing/routeRegistry'
 
 import type { Request, Response, NextFunction } from 'express'
 import type { ViteDevServer } from 'vite'
@@ -30,6 +33,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isProduction = process.env.NODE_ENV === 'production'
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000'
+const CLIENT_DIST_DIR = process.env.POLARIS_CLIENT_DIST_DIR
+  ? path.resolve(process.env.POLARIS_CLIENT_DIST_DIR)
+  : path.resolve(__dirname, 'dist/client')
+const SERVER_DIST_DIR = process.env.POLARIS_SERVER_DIST_DIR
+  ? path.resolve(process.env.POLARIS_SERVER_DIST_DIR)
+  : path.resolve(__dirname, 'dist/server')
 
 /**
  * Preload-Tag fuer den Latin-Subset von Inter.
@@ -43,7 +52,7 @@ let fontPreloadTag: string | undefined
 function getFontPreloadTag(): string {
   if (fontPreloadTag === undefined) {
     try {
-      const assetDir = path.resolve(__dirname, 'dist/client/assets')
+      const assetDir = path.resolve(CLIENT_DIST_DIR, 'assets')
       const file = fs
         .readdirSync(assetDir)
         .find((f) => /^inter-latin-wght-normal-.*\.woff2$/.test(f))
@@ -116,66 +125,8 @@ function isStaticAsset(pathname: string): boolean {
 }
 
 // =============================================================================
-// LEGACY PATHS AND ROUTE KNOWLEDGE
+// ROUTE KNOWLEDGE
 // =============================================================================
-
-const SITEMAP_ROUTE_FAMILIES = getSitemapRouteFamilies()
-const LEGACY_SERVICE_SLUGS = new Set<string>(services.map((service) => service.id))
-
-/**
- * Routes that exist but are deliberately not in the sitemap source.
- * Everything else is derived from the sitemap, so a new sitemap entry is known
- * automatically. MIRRORS src/App.tsx: a <Route> added there without an entry
- * here renders fine but answers 404.
- */
-const EXTRA_KNOWN_PATHS: string[] = [
-  '/support', // reachable from the header, intentionally unlisted
-  '/privacy', // noindex legal route; excluded from sitemap
-  '/imprint', // noindex legal route; excluded from sitemap
-  '/terms', // noindex legal route; excluded from sitemap
-]
-
-const KNOWN_PATHS = new Set<string>([
-  ...SITEMAP_ROUTE_FAMILIES.map((route) => route.path),
-  ...EXTRA_KNOWN_PATHS,
-])
-
-/**
- * True when the path (WITHOUT language prefix) matches a route of the React
- * app. Used to answer a real 404 instead of 200 for unknown URLs.
- *
- * Legacy redirect sources are deliberately not known application paths. The
- * redirect middleware validates them separately before SSR.
- */
-function isKnownPath(pathWithoutLangPrefix: string): boolean {
-  const p = pathWithoutLangPrefix.replace(/\/+$/, '') || '/'
-  if (KNOWN_PATHS.has(p)) {
-    return true
-  }
-  return false
-}
-
-function normalizeRoutePath(pathname: string): string {
-  return pathname.replace(/\/+$/, '') || '/'
-}
-
-/**
- * Maps only real, currently known legacy service URLs to canonical routes.
- * Unknown slugs intentionally return null so they become a real 404 instead of
- * a misleading 301 whose target is a 404.
- */
-function getLegacyServiceTarget(pathWithoutLang: string): string | null {
-  const normalized = normalizeRoutePath(pathWithoutLang)
-  if (normalized === '/services') {
-    return '/diagnostics'
-  }
-
-  const match = /^\/services\/([^/]+)$/.exec(normalized)
-  if (!match || !LEGACY_SERVICE_SLUGS.has(match[1])) {
-    return null
-  }
-  return `/diagnostics/${match[1]}`
-}
 
 /**
  * The app flags a soft 404 (catch-all route, unknown article slug) by emitting
@@ -218,7 +169,7 @@ async function createServer() {
     // Hashed Assets (mit Content-Hash im Dateinamen) - langfristiges Caching
     app.use(
       '/assets',
-      express.static(path.resolve(__dirname, 'dist/client/assets'), {
+      express.static(path.resolve(CLIENT_DIST_DIR, 'assets'), {
         maxAge: '1y',
         immutable: true,
       }),
@@ -226,7 +177,7 @@ async function createServer() {
 
     // Andere statische Assets aus dist/client
     app.use(
-      express.static(path.resolve(__dirname, 'dist/client'), {
+      express.static(CLIENT_DIST_DIR, {
         index: false, // Kein automatisches index.html serving
         // Public asset directories may share a name with an application route
         // (currently /downloads). Express' default directory redirect would
@@ -346,19 +297,10 @@ async function createServer() {
     // -------------------------------------------------------------------------
     const pathWithoutLang = langPrefix ? pathname.slice(3) || '/' : pathname
     const normalizedPathWithoutLang = normalizeRoutePath(pathWithoutLang)
-    const legacyTarget = getLegacyRedirectTarget(normalizedPathWithoutLang)
+    const legacyTarget = getRegistryRedirectTarget(normalizedPathWithoutLang)
     if (legacyTarget) {
       const targetLang = langPrefix || DEFAULT_LANGUAGE
       res.redirect(301, `/${targetLang}${legacyTarget}${query}`)
-      return
-    }
-
-    // /services is a hard migration. Resolve the hub and real service slugs
-    // directly to /diagnostics in one hop; never redirect an unknown slug.
-    const serviceTarget = getLegacyServiceTarget(normalizedPathWithoutLang)
-    if (serviceTarget) {
-      const targetLang = langPrefix || DEFAULT_LANGUAGE
-      res.redirect(301, `/${targetLang}${serviceTarget}${query}`)
       return
     }
 
@@ -370,7 +312,7 @@ async function createServer() {
     // Only known public pages are canonicalized to DE. Unknown paths are
     // internally rendered in the default locale so their original URL answers
     // 404 directly instead of becoming a 301 -> 404 soft migration.
-    if (isKnownPath(normalizedPathWithoutLang)) {
+    if (isKnownCanonicalPath(normalizedPathWithoutLang)) {
       const redirectPath = `/${DEFAULT_LANGUAGE}${pathname === '/' ? '/' : pathname}${query}`
       res.redirect(301, redirectPath)
       return
@@ -431,10 +373,10 @@ async function createServer() {
         // -----------------------------------------------------------------------
         // PRODUCTION
         // -----------------------------------------------------------------------
-        template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8')
+        template = fs.readFileSync(path.resolve(CLIENT_DIST_DIR, 'index.html'), 'utf-8')
         template = template.replace('</head>', `${getFontPreloadTag()}</head>`)
 
-        const serverEntryPath = path.resolve(__dirname, 'dist/server/entry-server.js')
+        const serverEntryPath = path.resolve(SERVER_DIST_DIR, 'entry-server.js')
         const ssrModule = (await import(/* @vite-ignore */ serverEntryPath)) as RenderModule
 
         render = ssrModule.render
@@ -455,12 +397,21 @@ async function createServer() {
         const titleInner = titleHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)
         return !!titleInner && titleInner[1].trim().length > 0
       }
+      // A production cold start can resolve several AP15 route chunks in
+      // parallel (Hub + deep pages + report entries). The former 50 ms budget
+      // was shorter than that real import window and could still emit the
+      // shell-only fallback. Keep the established bounded retry and extend it
+      // only for the current Epigenetics family; the global lazy-SSR debt stays
+      // with its existing rendering owner.
+      const isEpigeneticsRequest =
+        pathname === `/${lang}/epigenetics` || pathname.startsWith(`/${lang}/epigenetics/`)
+      const maxHeadRenderAttempts = isEpigeneticsRequest ? 80 : 5
       for (
         let headRenderAttempt = 0;
-        headRenderAttempt < 5 && !hasRealHelmetTitle(helmet.title.toString());
+        headRenderAttempt < maxHeadRenderAttempts && !hasRealHelmetTitle(helmet.title.toString());
         headRenderAttempt += 1
       ) {
-        await new Promise<void>((resolve) => setTimeout(resolve, 10))
+        await new Promise<void>((resolve) => setTimeout(resolve, 25))
         ;({ html: appHtml, helmet } = await render(routerUrl, lang))
       }
 
@@ -470,13 +421,13 @@ async function createServer() {
       // Unbekannte Pfade rendern die 404-Seite, wurden aber mit 200 ausgeliefert
       // — fuer Crawler war die Fehlerseite damit eine gueltige Seite. Zwei
       // unabhaengige Signale entscheiden jetzt:
-      //   1. der Pfad passt auf keine Route (isKnownPath)
+      //   1. der Pfad ist kein konkreter Registry-Known-Path
       //   2. die App selbst meldet einen Soft-404 (Marker-Meta aus <SEOHead
       //      notFound>) — deckt unbekannte Artikel-Slugs ab, die die Pfadliste
       //      nicht kennen kann
       const pathWithoutLang = pathname.slice(3) || '/'
       const isNotFound =
-        !isKnownPath(pathWithoutLang) || NOT_FOUND_MARKER.test(helmet.meta.toString())
+        !isKnownCanonicalPath(pathWithoutLang) || NOT_FOUND_MARKER.test(helmet.meta.toString())
 
       // React 19 "Float": renderToString() emits <link rel="preload"> hints
       // at the beginning of the output for images encountered during render.

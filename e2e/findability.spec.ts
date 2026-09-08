@@ -46,7 +46,7 @@ test.describe('PT07.3 internal findability', () => {
     }
     for (const slug of reportSlugs) {
       await expect(
-        page.locator(`main a[href="/de/epigenetics/musterbefund/${slug}"]`),
+        page.locator(`main a[href="/de/epigenetics/musterbefund/${slug}?panel=${slug}"]`),
       ).toBeVisible()
     }
     await expect(page.locator('#musterbefunde')).toHaveCount(1)
@@ -55,7 +55,9 @@ test.describe('PT07.3 internal findability', () => {
 
   test('report and events pages retain real contextual exits', async ({ page }) => {
     await page.goto('/de/epigenetics/musterbefund/metabolic-health')
-    await expect(page.locator('a[href="/de/epigenetics#musterbefunde"]').first()).toBeVisible()
+    await expect(
+      page.locator('a[href="/de/epigenetics?panel=metabolic-health#musterbefunde"]').first(),
+    ).toBeVisible()
 
     await page.goto('/de/events')
     await expect(page.locator('main a[href="/de/contact"]').first()).toBeVisible()

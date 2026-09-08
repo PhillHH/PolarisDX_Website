@@ -3,21 +3,39 @@
     "caption": "CHI SIAMO",
     "title": "Ridefinire la diagnostica",
     "description": "PolarisDX è sinonimo di innovazione, precisione e affidabilità nella tecnologia medica. Incontra le persone dietro la nostra missione.",
-    "primary_cta": "Conosci il team",
+    "primary_cta": "Richiedi un preventivo",
     "chips": {
       "ivdr": "Conforme IVDR · CE",
       "partner": "Partner di distribuzione DX365",
       "reach": "Sedi a Londra e Amburgo"
     },
     "visual": {
-      "c1": { "value": "2 sedi", "label": "Londra e Amburgo" },
-      "c2": { "value": "15+ paesi", "label": "Mercati attivi" },
-      "c3": { "value": "100+ dispositivi", "label": "Installati" }
+      "c1": {
+        "value": "2 sedi",
+        "label": "Londra e Amburgo"
+      },
+      "c2": {
+        "value": "15+ paesi",
+        "label": "Mercati attivi"
+      },
+      "c3": {
+        "value": "100+ dispositivi",
+        "label": "Installati"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Sedi" },
-      "countries": { "value": "15+", "label": "Paesi" },
-      "devices": { "value": "100+", "label": "Dispositivi installati" }
+      "locations": {
+        "value": "2",
+        "label": "Sedi"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Paesi"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Dispositivi installati"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Sedi: Londra e Amburgo" },
-    "s2": { "value": "15+", "label": "Paesi con installazioni attive" },
-    "s3": { "value": "100+", "label": "Lettori IglooPro installati" },
-    "s4": { "value": "< 24 h", "label": "Tempo di risposta del supporto" }
+    "s1": {
+      "value": "2",
+      "label": "Sedi: Londra e Amburgo"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Paesi con installazioni attive"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Lettori IglooPro installati"
+    },
+    "s4": {
+      "value": "< 24 h",
+      "label": "Tempo di risposta del supporto"
+    }
   },
   "dx365_partner": {
     "caption": "Il nostro partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "Chi è PolarisDX: il tuo partner per la diagnostica POC",
     "description": "Innovazione, precisione e affidabilità nella tecnologia medicale: scopri il team di PolarisDX e la nostra missione nella diagnostica point-of-care in Europa."
+  },
+  "pillars": {
+    "caption": "Tre pilastri di attività",
+    "title": "Tre percorsi per la diagnostica e l’uso professionale",
+    "intro": "PolarisDX riunisce la diagnostica point-of-care, il lettore IglooPro e l’epigenetica in aree chiaramente distinte.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostica",
+        "text": "Diagnostica point-of-care e applicazioni specialistiche per studi e strutture mediche.",
+        "cta": "Scopri la diagnostica"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "Il lettore IglooPro analizza test rapidi compatibili direttamente al point of care.",
+        "cta": "Scopri IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetica",
+        "text": "Un’area autonoma per analisi epigenetiche e genetiche e i relativi referti di esempio.",
+        "cta": "Conosci l’epigenetica"
+      }
+    }
   }
 }

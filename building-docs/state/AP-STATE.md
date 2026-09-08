@@ -8,13 +8,739 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: **AP10 — Redirect-, URL- und HTTP-Semantik-System**
-- Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Predecessor: **AP09 COMPLETE / Closure PASS (50/50, 2026-08-28)**
-- Last completed task: **PT10.2 — Alt-URL-Migration (PASS, 2026-08-28)**
-- PT10.1: **PASS** · PT10.2: **PASS** · PT10.3: **NOT STARTED** · PT10.4: **NOT STARTED** ·
-  AP10 Closure: **NOT STARTED**
-- Next task: **PT10.3 — Route Registry / Known Paths**
+- Work package: **AP20 — About, Contact, Support und Legal**
+- Status: **COMPLETE** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Predecessor: **AP19 COMPLETE / Closure PASS (RES 40/40 · C19 50/50, 2026-09-02)**
+- Last completed task: **AP20-CLOSURE (PASS, 2026-09-08)**
+- Last completed PT: **PT20.4 (PASS, 2026-09-07)** · AP20 Closure: **PASS (2026-09-08)**
+- PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** · AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)** · Next work package: **AP21 (NOT STARTED, nicht gestartet)** ·
+  AP21: **NOT STARTED** (Voraussetzung AP20-CLOSURE PASS erfuellt — Start nur mit Owner-Freigabe)
+- PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
+  PT19.5: **PASS** · AP19 Closure: **PASS (RES 40/40 · C19 50/50, 2026-09-02)**
+- AP15 Closure: **PASS (EPI 40/40 · C15 50/50, 2026-09-01)**
+- AP16: **COMPLETE (BEF 40/40 · C16 50/50, 2026-09-01)**
+- AP17: **COMPLETE (ART 40/40 · C17 50/50, 2026-09-01)**
+- AP18: **COMPLETE (EVT 40/40 · C18 50/50, 2026-09-01)**
+- AP19: **COMPLETE (RES 40/40 · C19 50/50, 2026-09-02)**
+- AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
+  unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
+  Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
+- AP21: **NOT STARTED**
+- About PT20.1: **PASS (2026-09-02, Fast-Delta V2)** — About-Seite als zehnsprachige
+  Trust-/Positionierungsseite fertiggestellt. Bounded AP20-Discovery ausgefuehrt und in
+  `building-docs/CORPORATE-CONTACT-LEGAL-CONTRACT.md` konsolidiert. Aenderungen: neue
+  `AboutPillarsSection` stellt Diagnostik, IglooPro und Epigenetik als drei eigenstaendige
+  Geschaeftssaeulen dar (Copy = freigegebene Homepage-Pillar-Wahrheit HCL-007..HCL-009 aus
+  home.json, x10 in about.json, keine erfundenen Aussagen); Hero-CTA aller zehn Locales auf die
+  freigegebene CTA-Wahrheit gesetzt (DE exakt `Angebot anfragen`, CORP-06); reale
+  Kontrast-Fixes im About-Scope (DX365-Link, Stat-Strip, TeamSection, ImagePlaceholder
+  text-slate-600). x10 ohne Dauerfallback belegt: identische Schluesselstruktur in 10/10
+  about.json, G4-i18n-Guard PASS. Tests: task-owned `about.x10.test.ts` 7/7 (Key-Paritaet x10,
+  CTA exakt, Epigenetik-Saeule, Registry-Linkziele canonical/INDEX_FOLLOW); Playwright
+  `about-pt201.spec.ts` 23/23 gegen Dev-SSR (10/10 Locales 200 + canonical + hreflang x11
+  inkl. x-default de, DE-CTA exakt + Ziel /de/contact, Pillar-Links 200 ohne Redirect,
+  Axe serious/critical 0 auf de/en/pl, kein horizontaler Overflow 390/768/1440 auf de/cs,
+  Pre-Consent-Analytics-Requests 0); dazu Typecheck clean, `check:nav-targets` PASS,
+  `check:i18n` G4 PASS. Kein Full Production Build (Fast-Delta V2). Kein PT20.2+-Vorgriff,
+  kein AP21-Start. Ehrlich offen: vorbestehende Baselines (`lint`, `format:check`,
+  `check:colors`, 37 jsdom-Dateien unter Node 18) bleiben AP20-fremd rot; PT20.2-Handoff
+  siehe CONTRACT."
+- Contact PT20.2: **PASS (2026-09-07, Fast-Delta V2)** — Kontaktformular als eigene Lead-Journey auf lead-foundation: neuer `server/contact-lead.js` (validate → Processing-Consent → createLead journey contact → processNext; SendGridTeamMailAdapter retryable bei 5xx/ETIMEDOUT/ECONNRESET; NO_PROVIDER_CONFIGURED ehrlich; Spray-Bestell-Marker routet an ulrikes@; Attribution allowlisted; Honeypot → ignored). `/api/contact` in server.js ersetzt: 202 `{accepted,leadId,journey,status,deliveryPending,providerConfigured}`, 400 + fields, 409, formLimiter/Honeypot bleiben. Client: `src/api/contact.ts` (Idempotency-Key-Header, ok/retryable/terminal), `useContactForm.ts` neu (Statusmaschine, Key pro Instanz, Double-Submit-Block per inFlightRef — Stale-Closure-Befund aus dem Testlauf gefixt —, Marketing-Consent strikt getrennt, Pflicht-Consent), ContactForm.tsx (Success/Retryable/Terminal-Branches, `#marketing-consent`, serverFields-Mapping), PraxisOrderForm an neue API angepasst. Locale-Delta x10: form.marketing_consent + form.error_retryable in contact.json. `vite.config.ts` Dev-Proxy zieht BACKEND_URL. Tests: `contact-lead.test.js` 10/10 + `contact-lead.endpoint.test.js` 9/9 (SENDGRID:''-Fork); Dependencies lead-foundation/epigenetics-inquiry/content-download 41/41; `useContactForm.test.ts` 6/6 unter Node 20 (nvm); Playwright `contact-pt202.spec.ts` 17/17 gegen Dev-SSR (x10 Render + getrennter Marketing-Consent, Consent-Pflicht, persistierter Success, Pre-Consent-Analytics 0, Axe de/en/pl 0, Overflow 390px de); tsc clean, check:i18n G4 PASS, check:nav-targets PASS. Kein Full Build (Fast-Delta V2). Kein PT20.3-Vorgriff, kein AP21-Start. Ehrlich offen: 1 reale Test-Mail im fruehen Smoke (synthetische Daten, eigene Mailbox, seitdem DRY_RUN/gefaekste Keys); jsdom-Hook-Test braucht Node >= 20; PT20.3-Handoff siehe CONTRACT.
+- Support PT20.3: **PASS (2026-09-07, Fast-Delta V2)** — Support als eigene persistente Journey (Igloo Reader) auf lead-foundation: neuer `server/support-case.js` (validate inkl. Attachment-Gates → Processing-Consent → Attachments opak auf Disk → createLead journey support → processNext; SendGridSupportMailAdapter: Team-Mail HIGH PRIORITY inkl. Attachments von Disk + lokalisierte Bestaetigung x10 ohne Attachments, retryable bei 5xx/ETIMEDOUT/ECONNRESET; NO_PROVIDER_CONFIGURED ehrlich; Honeypot → ignored). Attachment-Security: Allowlist pdf/png/jpeg/gif/text-plain, Extension↔MIME-Konsistenz, Magic-Byte-Check (Spoofed-MIME beide Richtungen), max 3 Dateien / 5 MB je Datei / 10 MB gesamt, Traversal-Reject, Originalname nur Display, generierte Storage-IDs, Storage `server/storage/support-uploads/<caseDir>/` ohne jede Auslieferungs-Route (3 Wege 404), Singulaeres Legacy-attachment akzeptiert. Idempotency: Key Pflicht, Replay gleiche leadId (caseDir/storageId deterministisch aus Key), Konflikt 409. Retention-METADATEN am Case (90 Tage, deleteAfter) — globaler Delete-Job bewusst AP22, nicht operational complete. `/api/support` in server.js ersetzt: 202/400/409, formLimiter bleibt. repository.js normalizeContext um caseDir/attachments/retention erweitert. Client: `src/api/support.ts` (Idempotency-Key, ok/retryable/terminal), `useSupportForm.ts` neu (Statusmaschine, Double-Submit-Block per inFlightRef, Attachment-Guards), SupportForm.tsx (role=status/alert-Branches), support.json x10 + form.error_retryable. Tests: `support-case.test.js` 18/18 + `support-case.endpoint.test.js` 9/9 (SENDGRID:''-Fork, temp Upload-Dir, freier Port via net-server); Dependencies lead-foundation/epigenetics-inquiry/content-download/contact-lead 38/38; Playwright `support-pt203.spec.ts` 17/17 gegen Dev-SSR (x10 Render, Consent-Pflicht, Submit inkl. PDF-Attachment → persistierter Success, Pre-Consent-Analytics 0, Axe de/en/pl 0, Overflow 390px de); tsc clean, check:i18n G4 PASS. Kein Full Build (Fast-Delta V2). Kein PT20.4-Vorgriff, kein AP21-Start. Ehrlich offen: kein Malware-Scanner im Fundament (Allowlist+Magic statt Neubau, ClamAV = AP22/spaeter); Mail-Replay at-least-once (Case idempotent, Mail-Paarung nicht dedupliziert); PT20.4-Handoff siehe CONTRACT.
+- Legal PT20.4: **PASS (2026-09-07, Fast-Delta V2 + erstmals FULL Production Build)** — Legal-Freigabe verifiziert (legal.json x10 vollstaendig, Imprint 7 Sektionen, Privacy 6, AGB mit TOC+Datum, ~25–31k chars, keine Placeholder; BLOCKED_CONTENT_APPROVAL entfaellt — Legacy-Stand = freigegebene Fassung). Delta: Privacy-Seite um faktenbasierte Architektur-Section 6 erweitert (Consent Mode v2, Supportformular inkl. Attachments, Marketing-DENIED, Retention 90 Tage als vorgesehene Loeschfrist — Delete-Job bleibt AP22), `privacy.section6.*` x10 (DE autoritaer, x9 fachlich uebersetzt — juristische Gegenlesung = Owner-Empfehlung); LegalLayout Meta-Badge Kontrast-Fix (3.32:1 → 4.86:1, axe-serious color-contrast auf terms behoben). Registry NOINDEX_NOFOLLOW + sitemap:false x10, /agb 301 → /de/terms live gemessen. Guards: tsc clean, G1/G3(via check:routes)/G4 PASS (G9 kein eigenes Script identifizierbar — begruendet im Contract). Server-Suites 46/46 (contact-lead 10/10 + endpoint 9/9, support-case 18/18 + endpoint 9/9, lead-foundation-Deps). FULL Production Build im Scratch ok, Prod-SSR + Prod-Backend (DRY_RUN, SG.-Fake) — Production-E2E 70/70 PASS (legal-pt204 36/36 inkl. axe serious/critical 0 de/en/pl + Overflow 390px, contact-pt202 17/17, support-pt203 17/17). Legal-CTA 0 im main-Content. Kein AP21-Start. Ehrlich offen: axe-moderate region-Finding (Legal-Content ausserhalb Landmarks) als Folgekandidat; Rate-Limiter verursacht E2E-Rerun-Flakiness (Final-Lauf mit Backend-Restart sauber); AP20-fremde Baselines bleiben rot; AP20-CLOSURE als naechster Task.
+- AP20-CLOSURE: **PASS (2026-09-08)** — unabhaengiger finaler Paket-Gate, alles neu gemessen (kein PT-PASS blind uebernommen): Start-Gate eigenverifiziert (AP19 COMPLETE, PT20.1–20.4 PASS, Locks 18/18 LOCKED in DECISIONS.md §3, Branch/HEAD ok). Guards tsc clean, G1/G3/G4/G9(check:seo erstmals gelaufen, 0 findings)/lead-foundation 13/13 PASS. Server-Suites 46/46 (vitest) + Dependencies/about.x10 58/58 + useContactForm 6/6 (Node 20). FULL Prod Build + Prod-SSR/Backend (DRY_RUN, frische DB) — E2E neu: About 23/23 (Dev-SSR), Prod legal+contact+support 70/70, Closure-Smoke 22/22 (Keyboard C20-45, Responsive C20-46 de/cs x 390/768/1280, Performance C20-47 Third-Party 0/eager-Upload 0). False-Ready-Audit sauber (kein Mail-only-CRM, Retention ehrlich als Metadaten, AP22 nicht komplett behauptet). /agb 301 live. Axe serious/critical = 0 im AP20-Scope. CORP-01..40 PASS, C20-01..50 PASS, Definition of Done 54/54. Offen dokumentiert (kein Fail): axe-moderate Landmarks-Finding (Empfehlung: mit AP24 buendeln), Enter-Activation Upload-Button headless-timingsensitiv (Space/Maus stabil, kein Source-Befund). **AP20 = COMPLETE. Next: AP21 (NOT STARTED, nicht gestartet).**
+- AP22: **NOT STARTED / SHARED FOUNDATION PARTIALLY IMPLEMENTED EARLY** — Cross-Journey Lead
+  Platform ausdruecklich NICHT als vollstaendig behauptet
+- Decision Locks: **18/18 LOCKED**
+- Resource/Lead-Magnet Closure: **PASS / AP19 COMPLETE** — die unabhaengige Reverifikation
+  bestaetigt RES 40/40 und C19 50/50. Neu gemessen statt uebernommen: beide Ablagen wurden
+  eigenstaendig gehasht (32/32 Dateien, 0 Abweichungen bei Groesse, SHA-256, MIME, Seitenzahl und
+  Datum), der PDF-Textinhalt neu extrahiert (26/26 Sprachen erwartungsgemaess, 0 Konflikte) und
+  jede Dateireferenz aus den zehn Locale-Dateien gegen die Registry aufgeloest (0 Abweichungen,
+  kein stiller Fallback). Zehn oeffentliche Umgehungsformen und zwoelf Resolver-Angriffe gegen den
+  laufenden Produktionsserver liefern 0-mal HTTP 200 und 0 Byte Dateiinhalt; Ablauf, Widerruf und
+  Verbrauch werden serverseitig mit 410/403/410 durchgesetzt. Die direkt gelesene SQLite belegt
+  7 Leads zu 7 Outbox-Zeilen mit vollstaendigem Asset-/Sprach-/Consent-Kontext und der Ereigniskette
+  LEAD_RECEIVED → LEAD_PERSISTED → HANDOFF_PENDING → HANDOFF_ATTEMPT → HANDOFF_FAILED_TERMINAL →
+  ENTITLEMENT_ISSUED, also Persistenz vor jedem Handoff. Doppel-Submit ergibt identische leadId und
+  entitlementId, Konflikt 409, Honeypot 200 ohne Vorgang, Rate Limit 5×202 dann 429. Das
+  vollstaendige Backend- und SSR-Log enthaelt 0 Treffer fuer Token, Entitlement-ID, E-Mail,
+  Idempotency-Key und Authorization. Der Abruf liefert die echte Datei mit 4.262.171 Byte und
+  inventargleichem SHA-256. Ein Befund wurde in der Closure behoben: die Sicherheitsheader galten
+  nur auf dem Erfolgspfad und stehen jetzt auch auf Ablehnungen. Reverifizierte Laeufe:
+  Integrationsgate 13/13 gegen frischen Produktionsbuild, breiter Regressionslauf 190/190 ueber 21
+  Suiten, AP15-Golden-Path 1/1 mit eigenem Harness, Unit/Node 204/204, 17 Guards gruen sowie ESLint
+  und Prettier auf allen 86 AP19-Dateien. False-ready 0 ueber elf Pruefpunkte. Ehrlich offen und
+  AP19-fremd: `lint`, `format:check` und `check:colors` sind im Baseline rot und 37 jsdom-Dateien
+  starten unter Node 18 nicht — die Schnittmenge mit den AP19-Aenderungen ist leer. AP22 bleibt
+  Owner der Cross-Journey Lead Platform; Mail-Zustellung, CRM-Adapter und Hintergrund-Worker sind
+  ausdruecklich nicht gebaut. AP20 ist das naechste Arbeitspaket und bleibt NOT STARTED.
+- AP19 Integrationsgate: **ACTIVE / PT19.5 PASS** — der breite Lauf gegen den Produktionsbuild
+  bestaetigt Resource Center und gegatete Auslieferung als ein System. 13/13 Integrationsfaelle:
+  x10 HTTP 200 mit echten Kategorien und ohne Vorschau-Host, Asset-Sprachmatrix fuer jede sichtbare
+  Ressource ueber zehn Locales mit 0 stillem Fallback, FREE-E2E ueber ALLE 19 freien Ressourcen mit
+  Byte-Laenge und SHA-256, GATED-E2E mit der echten 4.262.171-Byte-Datei, Sicherheitsnegative
+  (Bypass, Traversal, kodierte Traversal, Token-Manipulation, fremdes Asset, fehlerhafte Anfragen),
+  Missbrauch (Doppel-Submit, Replay, Honeypot, Rate Limit), Consent mit 0 Provider-Requests und
+  funktionierendem Ablauf ohne Analytics, SEO x10 samt noindex-Grenzen fuer geschuetzte URLs, A11y
+  in Resource Center, geoeffnetem Gate, Erfolgs- und Fehleransicht mit Axe serious/critical 0,
+  Responsive 390/768/1440 in de/cs/pl bei offenem Gate und 0 eager Nutzlast. Dazu 190/190 im breiten
+  Regressionslauf ueber 21 Suiten, 1/1 AP15-Golden-Path mit eigenem Harness und 204/204
+  Node-Unit-Tests. Alle G1/G3/G4/G9- und Ressourcen-Guards sind gruen; die kumulierten
+  Negativnachweise umfassen 34 Mutationen ueber vier Guards. PT19.5 hat zusaetzlich die letzte
+  Parallelliste `src/content/downloads.json` stillgelegt, die inerten Locale-Referenzen und zwei
+  ungenutzte Schluessel entfernt und den AP14-Claim-Guard repariert, der unter Node 18 nie starten
+  konnte. Ehrlich offen und AP19-fremd: `lint`, `format:check` und `check:colors` sind im Baseline
+  rot und 37 jsdom-Testdateien starten unter Node 18 nicht — keine der betroffenen Dateien wurde von
+  AP19 angefasst. AP22 bleibt Owner der Cross-Journey-Plattform; Mail-Zustellung, CRM-Adapter und
+  Hintergrund-Worker sind ausdruecklich NICHT gebaut. `RESOURCES-CONTRACT.md` ist konsolidiert.
+  AP19 bleibt IN_PROGRESS, AP19-CLOSURE ist die naechste Aufgabe und AP20 bleibt NOT STARTED.
+- Lead-Magnet-Kandidaten: **ACTIVE / PT19.4 PASS** — neun reale Kandidaten sind klassifiziert und
+  gegen das Inventar abgeglichen: 1 GATED_LAUNCH_ACTIVE, 5 FREE_LAUNCH_ACTIVE, 1 READY_NOT_ACTIVE,
+  2 DEFERRED, 0 erfundene. Aktiver Lead-Magnet ist `rsc-epi-019`, das Musterbefund-Paket — bewusst
+  der einzige Kandidat, bei dem ein Gate nichts wegnimmt: alle acht enthaltenen Dokumente bleiben
+  einzeln FREE_PUBLIC und frei abrufbar, gegatet ist die Bequemlichkeit eines Downloads, nicht die
+  Information. Die Datei liegt seit PT19.4 ausschliesslich unter storage/protected/ und nicht mehr
+  unter public/downloads/; die in PT19.3 gesetzte .gitignore-Regel wurde dabei zurueckgenommen,
+  weil ein aus der Versionierung genommenes Asset beim ersten Deploy verloren waere. Der volle Pfad
+  laeuft im Browser gegen einen echten Express-Backend mit echter Registry, echter Datei und echter
+  SQLite: Resource Center → gegatete Karte ohne Datei-URL → Gate mit Asset-Kontext → Submit →
+  geschuetzter Link → HTTP 200 mit 4.262.171 Byte und inventargleichem SHA-256. Ohne
+  Verarbeitungs-Consent gibt es keinen Download; Deutsch und Polnisch loesen die Sprache
+  unterschiedlich auf und legen beides sichtbar offen; sieben oeffentliche URL-Formen liefern weder
+  200 noch ZIP-Bytes; die Gate-Copy steht in allen zehn Locales; das geoeffnete Gate hat Axe
+  serious/critical 0. Auf API-Ebene sind Providerausfall mit Retry (derselbe Lead, ein
+  Outbox-Eintrag, keine doppelte Auslieferung) und sieben Entitlement-Negative belegt. Der
+  ROI-Report ist ehrlich als DEFERRED gefuehrt: er existiert real, erzeugt aber kein statisches
+  Asset, hat keine Asset-ID und seine Umstellung auf die geteilte Foundation gehoert zu AP22.
+  `DEC-RL-014` ist damit erfuellt. Guard `check:lead-magnets` ist gegen sieben Mutationen negativ
+  belegt; 47/47 Server-Tests, der PT19.4-Browser-Gate 8/8 und der PT19.2-Browser-Gate 9/9 laufen
+  ohne Regression. Kein Full Production Build. AP19 bleibt IN_PROGRESS, PT19.5 ist die naechste
+  Aufgabe und AP20 bleibt NOT STARTED.
+- Lead-Magnet-Plattform: **ACTIVE / PT19.3 PASS** — der `content_download` Vertical Slice laeuft
+  auf der bestehenden Shared Lead Foundation, nicht neben ihr: `LeadRepository`, `lead_outbox`,
+  `LeadHandoffWorker` und `CrmRouter` bleiben die Primitive, das CRM-Ziel `resources` war bereits
+  registriert. Die Reihenfolge validieren → Asset aus der Allowlist aufloesen → Consent →
+  PERSISTIEREN → CRM/Outbox → Entitlement ist im Test am Provider-Aufruf belegt
+  (LEAD_RECEIVED/LEAD_PERSISTED/HANDOFF_PENDING/HANDOFF_ATTEMPT) und zusaetzlich im Quelltext
+  erzwungen. Ein temporaerer Providerfehler haelt den Lead in RETRY_PENDING, liefert dem Leser
+  trotzdem den Link und wird beim naechsten Worker-Lauf DELIVERED; ohne Provider wird
+  `NO_PROVIDER_CONFIGURED` ehrlich gemeldet statt Erfolg behauptet. Doppel-Submit ergibt genau
+  einen Lead, ein Outbox-Item, einen Handoff und einen Anspruch, ein abweichender Wiederholer 409.
+  Die geschuetzte Auslieferung nimmt ausschliesslich eine Asset-ID und loest sie gegen die aus
+  `resourceInventory.ts` abgeleitete Registry auf — zehn Traversal-Formen inklusive kodierter,
+  absoluter, Backslash- und Nullbyte-Varianten enden alle in UNKNOWN_ASSET. Entitlements sind an
+  Lead und Asset gebunden, nur als SHA-256 gespeichert (die SQLite-Datei enthaelt das Token binaer
+  nachweislich nicht), befristet, widerrufbar, abrufbegrenzt und rotieren beim Wiederholer.
+  Ausgeliefert wird mit no-store, no-referrer, nosniff, noindex und attachment; protokolliert
+  werden nur Fehlerklasse und Asset-ID. Processing-Consent ist Pflicht und getrennt vom
+  Marketing-Consent, und das Gate importiert kein Tracking — der Ablauf haengt an keiner
+  Analytics-Einwilligung. Die Public-Bypass-Regel greift bereits jetzt: eine GATED Datei, die
+  zusaetzlich unter `public/downloads/` liegt, laesst den Guard scheitern. Bewusst NICHT passiert:
+  kein Launch-Asset wurde gegatet, GATED bleibt 0 — die Kandidatenauswahl ist PT19.4. Der
+  Auslieferungspfad ist trotzdem bewiesen, weil dieselbe Logik gegen ein reales Fixture-Asset
+  ausserhalb von `public/` laeuft. 28/28 PT19.3-Tests, Guard `check:content-download` gegen acht
+  Mutationen negativ belegt, `check:lead-foundation` 13/13, Epigenetik-Endpunkt 10/10 und der
+  PT19.2-Browser-Gate 9/9 ohne Regression. Kein Full Production Build. AP22 bleibt Owner der
+  Cross-Journey-Plattform. AP19 bleibt IN_PROGRESS, PT19.4 ist die naechste Aufgabe und AP20 bleibt
+  NOT STARTED.
+- Resource Center: **ACTIVE / PT19.2 PASS** — `/downloads` zeigte zwei von 21 Ressourcen aus einer
+  eigenen Katalogliste; die Seite fuehrt jetzt keine Liste mehr und rendert 20/20 launchsichtbare
+  Ressourcen aus `resourceInventory.ts`. Vier Anzeigegruppen aus sieben realen Kategorien
+  (info-sheets 10 · sample-reports 7 · guides 2 · product-flyers 1), 0 leere und 0 erfundene
+  Kategorien, 0 Duplikate, und der entlinkte IglooPro-Flyer bleibt samt Dateipfad unsichtbar. Ueber
+  alle zehn Locales loesen Gruppenueberschrift, Titel und Beschreibung zu echtem Text auf; jede
+  Karte nennt die Sprache der ausgelieferten Datei, und die 9 Karten je Nicht-DE-Locale, die
+  Deutsch liefern, sagen das sichtbar — stiller Fallback 0. Alle 20 freien Ressourcen sind direkt
+  abrufbar (HTTP 200, Content-Type und Byte-Groesse gegen das Inventar geprueft); GATED ist 0, im
+  Markup steht keine gegatete Datei-URL, und der Gate-Zweig ist ueber einen synthetischen Datensatz
+  bewiesen: die CTA traegt Asset-ID, angefragtes Locale und Sprache, nie einen Dateipfad.
+  `GATE_ENTRY_ROUTE` ist `null` und `resourceCenter.ts` wirft, sobald eine GATED Ressource ohne
+  Gate-Einstieg launchsichtbar wuerde — `DEC-RL-014` bleibt offen bei PT19.3/PT19.4. SEO x10
+  (Canonical, 10 hreflang, x-default de, Sitemap, Suchindex), Axe serious/critical 0, Zugang als
+  Text statt nur Farbe, Tastaturfokus, 390/768/1440 Ueberlauf 0, 0 eager PDF-/ZIP-Requests und 0
+  Provider-Requests vor der Einwilligung. Drei reale Befunde wurden im Testlauf gefunden und
+  behoben: durchgereichte i18n-Schluessel durch JSON-Pointer-Syntax, ein SSR-Locale-Pfad, der
+  `POLARIS_CLIENT_DIST_DIR` ignorierte und isolierte Builds still gegen alte Copy testen liess, und
+  drei Kontrastwerte unter 4,5:1. Guard `check:resource-center` ist gegen neun Mutationen negativ
+  belegt, der PT19.2-Browser-Gate ist 9/9 gegen einen isolierten Client-/SSR-Build (kein
+  `npm run build`, `dist/` unberuehrt). `check:colors` ist im Baseline rot durch zwei nicht
+  angefasste Hero-Dateien. AP19 bleibt IN_PROGRESS, PT19.3 ist die naechste Aufgabe und AP20 bleibt
+  NOT STARTED.
+- Resource Inventory: **ACTIVE / PT19.1 PASS** — `src/content/resources/resourceInventory.ts` ist
+  die einzige kanonische Resource-Wahrheit: 21 Ressourcen mit stabiler, pfad-, sprach- und
+  titelunabhängiger Asset-ID über 32 Varianten und 32 physische Dateien, 0 doppelte IDs, 0 doppelt
+  zugeordnete und 0 unklassifizierte Dateien. Größe, SHA-256, MIME und Seitenzahl sind gemessen;
+  26 PDF- und 3 ZIP-Daten stammen aus der Datei, drei bildbasierte Flyer tragen ehrlich `date: null`
+  statt des unbelegten Katalogdatums `2025-01-20`. Keine Version wird erfunden. Die Sprachmatrix ist
+  real: 11 Ressourcen zweisprachig, 10 nur DE, 29 Varianten `TEXT_VERIFIED` am extrahierten
+  PDF-Text, 3 nur `CATALOG_ASSERTED`; falsche Sprachzuordnung über 10 Locales und stiller Fallback
+  sind 0. Auslieferung ist eindeutig — FREE_PUBLIC 20, GATED 0, NOT_LAUNCH_VISIBLE 1 (`rsc-prd-002`
+  IglooPro-Flyer als einziger LEGACY_ORPHAN, weiterhin `OWNER_BOUND_AP14`); sichtbare kaputte Links
+  0 und 170 sichtbare Größen-/Seitenangaben decken sich mit der Datei. `DEC-RL-014` ist
+  ausdrücklich noch **nicht** erfüllt: es gibt 0 gegatete Ressourcen und keine geschützte Ablage —
+  Owner bleibt PT19.3/PT19.4. Die Shared Lead Foundation führt `content_download` bereits in
+  `LEAD_JOURNEYS` samt Persistenz, Idempotency, Retry und CRM-Routing; ein Endpunkt fehlt noch.
+  `RESOURCES-CONTRACT.md` hält Inventar, Sprachmatrix, Bestandsklassen und die exakten Dateikarten
+  für PT19.2/PT19.3. Guard `npm run check:resource-inventory` ist gegen zehn Mutationen negativ
+  belegt; `check:assets`, `check:epigenetics-resources`, Typecheck, Lint und Prettier bleiben grün.
+  Kein Full Production Build (Fast-Delta V2). AP19 bleibt IN_PROGRESS, PT19.2 ist die nächste
+  Aufgabe und AP20 bleibt NOT STARTED.
+- Event Closure: **PASS / AP18 COMPLETE** — independent current-tree evidence confirms five current
+  and four historical stable IDs, complete x10 ID/copy parity, strict positive/negative validation,
+  date-only Europe/Berlin semantics and inclusive multi-day boundaries. Fixed-clock Production SSR
+  and hydrated-client parity is 10/10; Unit/Validation/Schema/Consent is 55/55 and the broad
+  production-like Browser gate is 23/23. Upcoming/Past/Highlight, stable-ID dedupe, x10 SEO,
+  Sitemap/Search, true unknown-detail 404, native consent-independent navigation, providerrequests
+  fresh/denied 0, Axe serious/critical 0, responsive visual QA, lightweight chunking and isolated
+  Client/SSR Build all pass. Event Schema, Calendar and event-specific outbound tracking remain
+  truthfully not required for the current zero-link/incomplete-schema inventory. False-ready findings
+  are 0; AP19 is next and remains NOT STARTED.
+- Event Data Foundation: **ACTIVE / PT18.1 PASS** — five stable current IDs and four historical IDs
+  are validated against strict date-only all-day semantics and complete x10 i18n identity. The
+  injected Europe/Berlin clock classifies single- and multi-day boundaries deterministically,
+  upcoming/past ordering has stable tie-breaks, and the real `dgi_jahreskongress` highlight is
+  eligible only until its inclusive end day with no invented fallback. Invalid dates, reversed
+  ranges, duplicate IDs, unsafe links and phantom highlights hard-fail. PT18.1 remains PASS; AP19
+  remains NOT STARTED.
+- Event Upcoming/Ongoing: **ACTIVE / PT18.2 PASS** — at fixed `2026-09-01`, `kite_education` is
+  ongoing and `dgi_jahreskongress` upcoming/eligible; the full two-event list remains chronological
+  while the same real highlight record is featured without a second data copy. All ten locales
+  render real titles/descriptions, partner/location truth is preserved, stale highlight behavior is
+  safely empty, and 0 unsubstantiated external/calendar CTAs are emitted for the current zero-link
+  inventory. Browser 4/4, Axe serious/critical 0, 390/768/1440 overflow 0 and pre-consent provider
+  requests 0. PT18.2 remains PASS; AP19 remains NOT STARTED.
+- Event Rückblick: **ACTIVE / PT18.3 PASS** — automatically expired current events merge with static
+  history through one stable-ID projection. Inclusive end-day and day-after boundaries are fixed-
+  clock tested, exact-end ordering is deterministic, duplicate IDs are eliminated without fuzzy
+  title/date merging, and month/year-only history gains no invented day. At `2026-09-01`, all 7
+  real archive entries render across x10; arbitrary 8-card truncation and the unsupported recap
+  contact link are gone. Browser 4/4, Axe serious/critical 0 and 390/768/1440 overflow 0. PT18.3
+  remains PASS; AP19 remains NOT STARTED.
+- Event SEO/Tracking Integration: **ACTIVE / PT18.4 PASS** — fixed-now full-page boundaries 9/9,
+  x10 SSR title/description/Self-Canonical/hreflang/x-default/Sitemap and real unknown-detail 404
+  are PASS. Runtime emits Breadcrumb only and deliberately 0 BusinessEvent entities because
+  organizer/address/attendance/detail-URL truth is insufficient. Current event external/calendar
+  actions are 0/0, so no speculative tracking taxonomy was added; fresh/denied providerrequests are
+  0 and explicit analytics grant uses the existing bootstrap. Unit 55/55, production-like Browser
+  23/23, Axe serious/critical 0, responsive overflow 0, G1/G3/G4/Search/Findability, Typecheck,
+  scoped Lint/Prettier and isolated Client/SSR Production Build PASS. AP18 remains IN_PROGRESS;
+  AP18-CLOSURE is next and AP19 remains NOT STARTED.
+- Article/Knowledge Closure: **PASS / AP17 COMPLETE** — independent current-tree evidence confirms
+  exactly six published launch articles and three non-public locale remnants, 60/60 x10 bodies,
+  published-only Index/Search/Sitemap, stable slug identity, 60 one-hop ID migrations, true unknown
+  and retired 404 responses, visible-truth ISO dates/authors/schema, deterministic reading time,
+  canonical Related/Service/Epigenetics/CTA links and zero invented reviewer/source/modified fields.
+  ART 40/40 and C17 50/50 pass. The fresh isolated client/SSR build retains six lazy body chunks;
+  49/49 targeted tests and 20/20 production-like browser cases pass with Axe serious/critical 0,
+  keyboard reachability and responsive 390/768/1440 visual QA. DEC-RL-010 remains BACKLOG. AP18 is
+  next and remains NOT STARTED.
+- Article Index: **ACTIVE / PT17.1 PASS** — the published-only projection exposes exactly six real
+  canonical articles and excludes three locale-only non-public remnants plus redirect sources.
+  All six have title, teaser and body across the ten project locales (60/60) without exact DE/EN
+  document fallback. Cards use canonical 200 targets, four real lazy images and honest decorative
+  no-image states for two records; absent reviewer/modified metadata is not invented. Production
+  browser QA confirms 60/60 targets, responsive 390/768/1440 layouts and Axe serious/critical 0.
+  Pagination/filtering is not required at the current volume. The PT17.1 handoff target was PT17.2;
+  after PT17.2 PASS the current next task is PT17.3. AP18 remains NOT STARTED.
+- Article Template: **ACTIVE / PT17.2 PASS** — all six published routes use one semantic template
+  with real Breadcrumb/H1/lead/body, visible-truth publication/author metadata, deterministic x10
+  reading time, conditional real images/sources, taxonomy-derived related articles and
+  Registry-backed service/Epigenetics links. Reviewer and modified date remain absent rather than
+  invented. The German primary CTA is `Angebot anfragen` and consumes the existing general-sales
+  target. Six slug-specific x10 body modules now lazy-load independently; 60/60 production SSR
+  article-locale routes return 200, unknown slugs 404, and the PT17.2 browser gate is 6/6 with Axe
+  serious/critical 0 and no pre-consent provider request. AP17 remains IN_PROGRESS; next task is
+  PT17.3. AP18 remains NOT STARTED.
+- Article Slug/ID/SEO Consistency: **ACTIVE / PT17.3 PASS** — exactly six canonical public slugs
+  feed Registry, Search and the 60-URL Sitemap matrix. The six internal IDs are non-canonical and
+  remain only evidenced, locale-preserving one-hop 301 sources with query retention; targets are
+  direct 200/self-canonical pages and redirect chains are 0. Three retired locale-only IDs and
+  arbitrary slugs return direct HTTP 404 without canonical, hreflang or Article schema. The legacy
+  prerender script is disabled and contains no path mirror. G1, G3, G9 and the article-specific
+  production SSR gate pass; AP17 remains IN_PROGRESS, PT17.4 is next and AP18 remains NOT STARTED.
+- Article Launch Metadata/Integration: **ACTIVE / PT17.4 PASS** — six published launch records use
+  canonical ISO publication dates across visible `<time>`, Article Schema and Sitemap; absent
+  modified dates, reviewers and normalized sources remain truthfully omitted. The 60/60 x10
+  HTTP/SEO and Schema matrices, published-only index order, Search/Sitemap, canonical slug/redirect/
+  404 semantics, related links and conversion targets pass. The fresh client/SSR production build
+  keeps six lazy body chunks; the final browser gate is 20/20 with Axe serious/critical 0,
+  responsive 390/768/1440 layouts and no pre-consent provider request. DEC-RL-010 remains BACKLOG;
+  the AP17 Closure handoff; AP17 is now COMPLETE and AP18 remains NOT STARTED.
+- Musterbefund Closure: **PASS / AP16 COMPLETE** — die unabhängige Closure-Reverifikation
+  bestätigt BEF 40/40 und C16 50/50: sechs reale Families, 60/60 x10 Webfälle, positive und
+  negative Datenvalidierung, echte Unknown-Slug-404-Semantik, 14/14 semantische Blocktypen,
+  kanonische Chartwerte mit Textalternativen, Navigation/Legacy-Anker/Inquiry-Kontext,
+  60/60 SEO/Sitemap, ehrliche DE-PDF-Sprachdisclosure, Axe serious/critical 0, Responsive/Print,
+  sechs getrennte Lazy-Chunks sowie Client-/SSR-Production-Build. Der frische production-like
+  Browser-Gate ist 33/33 PASS und der Golden Path endet nach persist-before-handoff mit genau einem
+  CRM-gerouteten `DELIVERED` Lead. AP17 ist das nächste Arbeitspaket und bleibt NOT STARTED.
+- Musterbefund Data/Route Foundation: **ACTIVE / PT16.1 PASS** — genau sechs kanonische Slugs und
+  60/60 Locale-Dokumente werden durch ein diskriminiertes Blockmodell sowie einen produktiven
+  Build-Guard validiert. Die Registry leitet sechs explizite Route-Einträge ohne zweite Route-SSOT
+  ab; 60/60 Production-SSR-Routen liefern 200 und ein unbekannter Slug echten 404. Sechs getrennte
+  Client-/SSR-Family-Chunks belegen slugweises Lazy Loading. `BEFUNDE-CONTRACT.md` dokumentiert
+  Family-/Block-/Chart-/Locale-/Anchor-Evidenz. PT16.1 bleibt PASS; AP17 bleibt NOT STARTED.
+- Musterbefund Blocks/Charts: **ACTIVE / PT16.2 PASS** — alle 14 produktiven Blocktypen werden
+  exhaustiv gerendert; unbekannte Typen brechen hart ab. Tabellen besitzen Caption-, Spalten- und
+  Zeilenkopfsemantik sowie einen benannten Keyboard-Scrollbereich. Radarwerte werden aus denselben
+  kanonischen Vektoren als SVG und exakte Textalternative ausgegeben; Serien unterscheiden sich
+  zusätzlich durch solid/dashed bzw. hollow/filled. Mobile/Tablet/Desktop sind ohne horizontalen
+  Overflow und repräsentativ Axe serious/critical 0. Der Druckpfad öffnet Kapitel temporär und
+  erhält Pflichttexte, Tabellen, Charts und Alternativen. PT16.2 bleibt PASS; AP17 bleibt
+  NOT STARTED.
+- Musterbefund Navigation: **ACTIVE / PT16.3 PASS** — lineares Previous/Next ohne Wrap wird aus der
+  kanonischen `BEFUND_ORDER` abgeleitet; jede Seite verlinkt exakt fünf Geschwister sowie reale
+  locale-aware Breadcrumb-/Hub-Ziele. Report-CTAs verwenden ausschließlich die bestehende AP15
+  `epigenetics_inquiry` Journey und persistieren `source=musterbefund`, Panel/Report, Focus,
+  Campaign und Language über die vorhandene Shared Lead Foundation. Belegte Legacy-Hashes öffnen
+  ihr stabiles Ziel; unbekannte Hashes bleiben sicher. 60/60 produktionsgebaute Browserfälle,
+  Direct Reload und Dead-Link-Smoke sind PASS. PT16.3 bleibt PASS; AP17 bleibt NOT STARTED.
+- Musterbefund SEO: **ACTIVE / PT16.4 PASS** — 60/60 SSR-Heads besitzen sechsfach differenzierte
+  x10 Titles/Descriptions, Self-Canonical, zehn reale hreflang-Ziele plus x-default de, 60/60
+  Registry-Sitemap-Mitgliedschaft sowie findbare canonical Search-Ziele. OG/Twitter verwenden je
+  Familie reale gehashte 1200×800-Befundbilder mit lokalisiertem Alt. Structured Data bleibt
+  konservativ bei Article + BreadcrumbList; medizinische/kommerzielle Schema-Amplification und
+  Preview-/Dev-Leakage sind 0. Ein unbekannter Slug liefert echten HTTP 404/noindex ohne Canonical,
+  hreflang oder Schema. PT16.4 bleibt PASS; AP17 bleibt NOT STARTED.
+- Musterbefund Integration: **ACTIVE / PT16.5 PASS** — 60/60 Webfälle, 6/6 gerenderte
+  Daten-/Chart-Parität, sechs reale DE-PDF-Ziele mit x10 Sprachdisclosure, 14/14 Blocktypen,
+  Previous/Next/Siblings/Legacy-Anker, Axe serious/critical 0 auf 6/6, 18 Responsive-Fälle, drei
+  Print-Varianten sowie Lazy-/Pre-Consent-Network-Smoke sind PASS. Der production-like Golden Path
+  persistiert `source=musterbefund`, Panel, Locale und Consent Evidence vor realem CRM-Handoff;
+  der finale Playwright-Gate ist 33/33 PASS. Isolierte Client-/SSR-Production-Builds sind PASS.
+  AP16 bleibt IN_PROGRESS; nächster Task ist ausschließlich AP16-CLOSURE; AP17 bleibt NOT STARTED.
+- Epigenetics Pillar: **ACTIVE / AP15 COMPLETE** — x10 Integration, Regulatory/Claim Safety,
+  Resource Truth, dedicated Inquiry Journey, Lead Persistence, Retry/Audit, CRM Routing and the
+  production Golden Path are independently Closure-verified PASS. AP16 is now IN_PROGRESS through
+  PT16.5; AP17 remains NOT STARTED.
+- Epigenetics Hub IA: **ACTIVE / PT15.1 PASS** — Registry-ID `epigenetics`, kanonischer Pfad
+  `/epigenetics`, Route-Typ `EPIGENETICS`, x10/Search/Sitemap aktiv; eigener x10 Header-Einstieg,
+  eigene Footer-Spalte und gleichrangiger Homepage-Pillar führen locale-aware auf den eigenständigen
+  Hub. Die bestehende Hub-Journey verbindet Auswahl, sechs Panels, Ablauf, FAQ, reale Vertiefungen
+  und `GENERAL_SALES`, während Diagnostics nur als klar abgegrenzter Crosslink erhalten bleibt.
+  Der Hub besitzt keine produktive EN-/DE-Ersatzcopy; die Vergleichstabelle ist keyboard-scrollbar
+  und der Workflow behält valide Listensemantik. `EPIGENETICS-CONTRACT.md` dokumentiert den
+  PT15.1-Evidenzstand ohne Route-/Content-SSOT zu duplizieren.
+- Epigenetics Deep Pages: **ACTIVE / PT15.2 PASS** — Registry-IDs `epigenetics-grundlagen`,
+  `epigenetics-studienlage` und `epigenetics-unterlagen` liefern 3×10 kanonische, indexierbare
+  Locale-Routen. `EpiSubpage` löst seine Pfade aus der AP10 Registry auf; die vorhandene selektive
+  AP01-Übernahme bleibt Sales-Machine-/AP09-/Consent-kompatibel und enthält keine alte Shell- oder
+  Parallelplattform. Reale x10 Webcopy ersetzt jede breite Fallback-Annahme; DE/EN-Downloads werden
+  sprachlich transparent ausgewiesen. `EPIGENETICS-CONTRACT.md` dokumentiert Herkunft, Content-
+  Wahrheit und die 30-URL-Matrix.
+- Epigenetics Panels/Report Entrances: **ACTIVE / PT15.3 PASS** — sechs vorhandene, x10
+  differenzierte Panelkarten führen auf sechs reale Registry-Reports; die 6×10 Zielmatrix liefert
+  60/60 HTTP 200 ohne Redirect. Der kleine allowlist-basierte URL-Adapter trägt `panel` und `focus`
+  deterministisch über Hub, Report, Rückweg und bestehende Contact-Inquiry, verwirft Fremdwerte und
+  erzeugt keine Route-/Content-SSOT. Direkter Reload rekonstruiert die Auswahl, Canonical/SEO bleiben
+  query-frei, Report-Payloads bleiben lazy und die Auswahl führt nun in die eigene persistente
+  Epigenetics Inquiry. AP16 bleibt NOT STARTED.
+- Epigenetics Claim/Regulatory Safety: **ACTIVE / PT15.4 PASS** — freigegebene GenDG-,
+  Beispieldaten-, Nicht-Diagnose- und CE-/Labordienstleistungsgrenzen sind x10 sichtbar; alle 60
+  Musterbefunde tragen vier Rechtshinweise. Unsubstantiated-/Guarantee-, CE/IVDR-Misclassification-,
+  Partnername-, Preis-, Turnaround- und Schema-Amplification-Findings sind 0. 29 reale Downloadziele
+  sind inventarisiert und 26/26 PDFs textuell geprüft.
+- Epigenetics Resources: **ACTIVE / PT15.5 PASS** — 29/29 launch-sichtbare Dateien (26 PDFs, drei
+  ZIPs) sind mit exakter Größe, tatsächlicher Sprache, Kategorie und Linkstatus inventarisiert;
+  19 sind DE, 10 EN, Broken Links und leere Dateien 0. Alle direkten öffentlichen Assets sind
+  eindeutig `FREE_PUBLIC`; bestehende Gate-Runtime und sichere Gate-Behauptungen bleiben 0. Die
+  Unterlagen-Seite zeigt den vorhandenen x10 Frei-/Ohne-Anmeldung-Hinweis, Fremdsprachen bleiben
+  sichtbar, drei ZIPs stimmen mit 26/26 Mitgliedern überein und der AP19-Handoff bewahrt Gate-
+  Kandidaten ohne Resource-/Delivery-/CRM-Plattform vorzuziehen.
+- Historical PT15.6 Discovery: **BLOCKED_DEPENDENCY / Owner AP22 Lead Platform** — zum Discovery-
+  Zeitpunkt besaß die Runtime keine Lead-Persistenz, kein Persist-before-Handoff, keine Queue/Outbox,
+  keinen Retry-/Dead-Letter-Pfad, kein Audit-/Statusmodell, keine serverseitige Idempotenz und keinen
+  CRM-Adapter. `/api/contact` sendet weiterhin als nicht migrierter Legacy-Pfad synchron über SendGrid;
+  ein Providerfehler endet dort ohne
+  persistierten Lead als HTTP 500. Der bestehende x10 Contact-Flow und der allowlist-basierte
+  Panel-/Focus-URL-Kontext sind Discovery-Evidenz, aber keine fertige eigene Epigenetics Journey.
+  Kein UI-/Backend-Sonderpfad wurde gebaut; PT15.7 und AP15 Closure bleiben gesperrt.
+- Shared Lead Foundation Recovery: **PASS / AVAILABLE** — eine journey-neutrale,
+  SQLite-basierte Foundation stellt stabile Lead-IDs, Shared Journey-/Statusmodell, persist-before-
+  handoff, durable CRM-/Mail-Outbox, bounded Retry, terminale Failure-Evidence, durable Idempotenz,
+  Audit-Events, Consent Evidence sowie strukturierten Locale-/Source-/Campaign-/Panel-/Focus-/Route-
+  Kontext bereit. `CrmAdapter`/`CrmRouter` bilden die gemeinsame Providergrenze; fehlende Provider
+  enden wahrheitsgemäß als `NO_PROVIDER_CONFIGURED`, nie als Erfolg. Ein benanntes Compose-Volume
+  hält `LEAD_DB_PATH` außerhalb des vergänglichen Containers. Bestehende Journeys wurden nicht
+  migriert, keine Epigenetics-UI gebaut und AP22 nicht gestartet.
+- Epigenetics Inquiry: **ACTIVE / PT15.6 PASS** — die x10 Hub-UI und der dedizierte
+  `/api/epigenetics-inquiry`-Pfad modellieren genau `epigenetics_inquiry` auf der Shared Lead
+  Foundation. Name/E-Mail/Organisation/Einrichtungstyp, optionale Qualifizierung sowie
+  Locale/Source/Campaign/Panel/Focus/Origin Route und versionierte Processing-Consent-Evidence werden
+  vor dem zentralen CRM-Handoff persistent gespeichert. Durable Idempotenz schützt Double Click,
+  Browser/API-/Worker-Replay; transienter Providerfehler bleibt retryfähig, unbekanntes Ergebnis
+  terminal. Ohne CRM-Konfiguration bleibt der Vorgang wahrheitsgemäß gespeichert mit
+  `NO_PROVIDER_CONFIGURED`, niemals Fake-Success. SendGrid ist nicht Source of Truth; die Business-
+  Verarbeitung funktioniert ohne Analytics-Consent. AP22 bleibt NOT STARTED.
+- Epigenetics x10 Integration: **ACTIVE / PT15.7 PASS** — die explizite Hub-/Deep-/Report-Matrix
+  bestätigt 100/100 locale-spezifische Kernfälle mit HTTP 200, self-canonical, hreflang x10 plus
+  x-default de und Sitemap-Mitgliedschaft. Der reale Produktions-Golden-Path führt von
+  Homepage/Header über Hub, Panel und Musterbefund in die dedizierte Inquiry und endet nach echter
+  SQLite-/Outbox-/Audit-Persistenz mit genau einem CRM-routbaren `DELIVERED`-Status am lokalen
+  HTTP-Adaptertestziel; pre-consent Providerrequests bleiben 0. Die frische AP15-Browsersuite ist
+  34/34 PASS, Axe serious/critical repräsentativ 0 und die Responsive-Smokes bei
+  390/768/1024/1440 px sind PASS. AP15 bleibt IN_PROGRESS; AP15-CLOSURE ist der nächste Task.
+- Quality PT15.6: Journey-/HTTP-/Context-Tests **12/12** · Browser-Fast-Delta **2/2** · x10 UI,
+  Servervalidation, Consent Evidence, Persist-before-Handoff, CRM Routing/No-Provider, Retry,
+  Unknown-Result, Idempotency/Replay PASS · Pre-Consent-Google-Providerrequests 0 · Axe
+  serious/critical 0 · Typecheck/scoped ESLint/Prettier PASS · kein Full Build, da keine Build-/SSR-
+  Infrastruktur geändert; PT15.7 ist für den breiten Production Gate freigegeben.
+- Quality Shared Lead Foundation Recovery: Migration zweimal idempotent PASS · Foundation-Suite
+  **13/13** · relevante Backend-Suite **50/50** plus isolierte Node-i18n-Suite **12/12** · scoped
+  ESLint/Syntax PASS · Typecheck PASS · beide Compose-Konfigurationen valide · Node-20-Backendimage
+  Build PASS · Race/Stale-Claim/Replay, Retry/Terminal, No-Provider, PII-Log und unbekannter Provider-
+  Ergebniszustand automatisiert abgedeckt · neue SQLite-Abhängigkeit ohne npm-Audit-Finding.
+- Quality PT15.6 Capability Gate: read-only Runtime-/Dependency-/Contract-Audit PASS als
+  Blocker-Nachweis · fünf aktuelle Backend-POST-Routen · sechs Runtime-Abhängigkeiten · 0
+  DB-/ORM-/Persistenzpfade · 0 Queue/Outbox/Worker · 0 CRM-Adapter · 0 Endpoint-Integrationstests ·
+  `epigenetics_inquiry` Runtime-Identifier 0. Kein Typecheck/Build erforderlich, da produktiver Code
+  unverändert blieb.
+- Quality PT15.5: Typecheck PASS · scoped ESLint/Prettier PASS · Resource-Hard-Guard **29/29** ·
+  PDF-Claim-Sweep **26/26** · G1/G3/G4/Search/Asset-Guards PASS · Production Client/SSR Build PASS ·
+  task-eigene No-Retry-Browsermatrix **5/5** · angrenzende Deep-Page-/Claim-Suite **12/12** ·
+  10/10 SSR Resource Disclosure · 29/29 Asset HTTP 200 · DE/EN/CS Overflow <= 1 px · Axe
+  serious/critical 0 · eager PDF/ZIP Requests 0 · Pre-Consent-Providerrequests beim Download 0.
+- Quality PT15.4: Claim-/Regulatory-Hard-Guard PASS (40/40 Pflichttexte, 60/60 Reports, 29/29 Assets,
+  vier Negativ-Selbsttests) · Node-22-Typecheck PASS · scoped ESLint/Prettier PASS · fokussierte
+  Unit-/Schema-Suite **25/25** · G1/G3/G4/Search PASS · Production Client/SSR Build PASS · task-eigene
+  Browser-/Axe-Suite **3/3 ohne Retry** · x10 SSR Required-Text-/Schema-Parität · DE/CS Overflow <= 1
+  px · Axe serious/critical 0.
+- Quality PT15.3: Node-22-Typecheck PASS · scoped ESLint/Prettier PASS · fokussierte Unit-/Registry-/
+  Search-Suite **20/20** · G1/G3/G4/Search/Findability/Nav PASS · Production Client/SSR Build PASS ·
+  task-eigene No-Retry-Browsermatrix **4/4** · Hub/Findability-Regression **7/7** · PL-Mobile
+  Overflow <= 1 px · Axe serious/critical 0 · sechs schwere sluglokale Report-Chunks auf dem Hub 0.
+  Bestehende Hub-Kleintextrollen nutzen nach dem unmodifizierten Axe-Lauf den vorhandenen
+  `text-gray-600`-Kontrasttoken.
+- Quality PT15.2: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · fokussierte
+  Registry/Search/Schema-Unit-Suite **17/17** · G1/G3/G4/Search/Findability/Asset-Guards PASS ·
+  Production Client/SSR Build PASS · finale serielle No-Retry-Browsermatrix **5/5** · 30/30 reale
+  Deep-URLs HTTP 200 mit x10 Canonical/hreflang/Sitemap/OG/Twitter/Breadcrumb · unbekannte Deep-Slugs
+  echte 404 · DE/PL/CS Axe serious/critical 0 und Overflow <= 1 px. Ein im ersten Lauf gefundener
+  `text-gray-500`-Kontrastbefund in den Unterlagen-Metadaten wurde tasklokal auf den bestehenden
+  `text-gray-600`-Token korrigiert; AP16 bleibt NOT STARTED.
+- Quality PT15.1: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS (ein unveränderter
+  Header-Hook-Baselinehinweis, 0 Fehler) · fokussierte Unit/Component/SEO-Suite **87/87** ·
+  G1/G3/G4/Search/Findability PASS · Production Client/SSR Build PASS · task-eigene
+  Browser-/Axe-Suite **3/3** · breiter Header/Footer/Home/Diagnostics-Nachbarschaftslauf **64/65**
+  plus reproduzierter vorbestehender First-Hydration-Race ausschließlich im alten
+  `navigation.spec.ts`-Keyboardtest; Header/Footer-Produktionscode durch PT15.1 unverändert,
+  zugehörige Unit-Tests 51/51 und alle übrigen Keyboard-/Mobile-/x10-Fälle PASS · AP16 NOT STARTED
+- IglooPro Product Journey: **ACTIVE / CLOSURE PASS** — Registry-ID/Slug `igloo-pro`, Route-Typ
+  `PRODUCT`, x10/Search/Sitemap bestätigt; sichere B2B-POC-Positionierung, reale Primary-/Secondary-
+  Conversion-Ziele, Ownership-/Brand-Klassifikation, Claim-/Download-Baseline und offene
+  Owner-Bestätigungen sind im `IGLOOPRO-CONTRACT.md` dokumentiert; der helle x10 Hero nutzt das reale
+  dimensionierte Produkt-WebP und `GENERAL_SALES`, der direkte Proof enthält ausschließlich
+  belastbaren Produkt-/Zielgruppen-/Anfragekontext ohne numerische oder regulatorische Fake-Signale;
+  die Folgesektionen zeigen drei belegte Produktmerkmale, einen dreistufigen Anfrage-/Prüfworkflow
+  und vier offene Kompatibilitätsfragen statt unbestätigter Specs, Interfaces oder SLA-Versprechen
+  sowie eine semantische x10 Spezifikationstabelle mit dem gelockten Produkt-/Content-Claim
+  `CV < 2 %` und expliziter Grenze zur unabhängigen wissenschaftlichen Validierung. Aktive SEO-Copy
+  verstärkt keine unbestätigten Specs; der visuell auditierte Legacy-Flyer ist ownergebunden und aus
+  dem produktiven Download-Katalog entlinkt. Product JSON-LD nutzt ausschließlich die AP09-Schicht,
+  ist x10 self-canonical und locale-aware, verwendet das reale Produktbild und lässt die unbelegte
+  Produktmarke, den unbestätigten Hersteller sowie sämtliche Commercial-/Rating-/Identifier-/
+  QuantitativeValue-Felder claim-safe aus. Primary `GENERAL_SALES` führt x10 zur realen
+  Kontaktstrecke; die Secondary Actions führen mit wahrer x10 Beschriftung zum bestehenden
+  Homepage-ROI-Rechner statt nicht vorhandene IglooPro-Produktunterlagen vorzutäuschen
+- Quality AP14 Closure verification: unabhängiger Node-22-Typecheck PASS · AP14-scoped ESLint/Prettier PASS ·
+  vollständige Unit/Component/Server-Suite **370/370** · G1/G3/G4/Search/Findability/Asset- und
+  Claim-Hard-Guard PASS · x10 Product-Matrix **10/10 HTTP 200** · unbekannte Varianten echte 404 ·
+  produktive `CV < 2 %`-Vorkommen **20** · produktive `<5 %`-Treffer **0** · Product Schema x10
+  claim-safe · Production Client/SSR Build PASS · finale serielle No-Retry-Chromium-Suite **89/89** ·
+  Fresh/Denied Provider-Requests und GA collect **0/0**, Granted GTM/gtag/collect jeweils 1 ohne
+  doppelten Bootstrap · IglooPro/Contact Axe serious/critical **0/0** · Visual QA DE/EN/PL/FR/CS und
+  x10 Overflow PASS · C14 50/50 · IGLOO 40/40 · AP14-owned P0/P1 Blocker 0 · AP15 NOT STARTED
+- Quality AP14 Closure Remediation: Root Causes IGLOO-24/35 minimal behoben · statischer GTM-Loader
+  und noscript-Iframe entfernt · Google-Provider-Lifecycle zentral consent-gated · Fresh/Denied
+  Provider-Requests **0/0**, GA collect **0/0** · Granted drei erwartete Google-Requests
+  (GTM/gtag/collect jeweils 1) ohne doppelten Bootstrap · Progressbar sichtbar benannt · drei kleine
+  Kontrastrollen auf bestehenden `ui-field`-Token gehärtet · IglooPro/Contact Axe serious/critical
+  **0/0** · 25/25 fokussierte Unit-/Component-Tests · 8/8 Production-Browserfälle · beim
+  Remediation-Handoff blieb AP14 IN_PROGRESS und Closure NEEDS_RERUN · AP15 NOT STARTED
+- Quality PT14.1: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · G1/G3/G4/Search/
+  Findability PASS · fokussierter Production Client/SSR Browser-Smoke **2/2 ohne Retry** · 10/10
+  IglooPro-Locale-Routen HTTP 200, H1/CTA/Canonical/hreflang/Sitemap/Product-/Breadcrumb-Schema und
+  öffentlicher Flyer-Pfad PASS · produktive `<5 %`-Treffer 0 · AP15 NOT STARTED
+- Quality PT14.2: Node-22 Component-/x10-Content-Guards **4/4** · Typecheck PASS · taskbezogenes
+  ESLint/Prettier PASS · x10 JSON-/SSR-Hero-/Proof-Guard PASS · Production Client/SSR Build PASS ·
+  finale serielle Browsermatrix **6/6 ohne Retry**
+  (DE Mobile, PL Tablet, FR Desktop, CS Wide, x10 SSR und EN Axe) · Overflow ≤ 1 px, CLS < 0,1,
+  Axe serious/critical 0 · AP15 NOT STARTED
+- Quality PT14.3: Node-22 Component-/x10-Content-Guards gemeinsam mit PT14.2 **9/9** · Typecheck PASS ·
+  taskbezogenes ESLint/Prettier PASS · G1/G3/G4/Search/Findability PASS · Production Client/SSR Build
+  PASS · finale serielle No-Retry-Browsermatrix **6/6** (DE Mobile, PL Tablet, FR Desktop, CS Wide,
+  x10 SSR plus Related-Target-/EN-Axe-Gate) · fünf Registry-Ziele HTTP 200 · Overflow <= 1 px ·
+  CLS < 0,1 · Axe serious/critical 0 · Consent/Tracking unverändert · AP15 NOT STARTED
+- Quality PT14.4: Claim-Hard-Guard PASS · produktive Claim-Matrix **20/20** · produktive `<5 %`-
+  Treffer **0** · injizierter Hard-Failure-Selbsttest PASS · Product-/Homepage-Locale-Kontext x10 ·
+  IglooPro-Download-Links **0** bei einem explizit ownergebundenen Audit-Asset · Resource Guard
+  **31/31 + 1/1** · G4 i18n PASS · Node-22 Component-/Schema-Guards gemeinsam mit PT14.1–PT14.3
+  **14/14** · Typecheck/Lint/Prettier PASS · Production Client/SSR Build PASS · finale serielle
+  No-Retry-Browser-/SSR-Matrix **14/14** (x10 SSR, DE/PL/FR/CS Viewports, EN Axe und Vorgänger-
+  Regressionen) · AP15 NOT STARTED
+- Quality PT14.5: zentrale Product-/Specification-Schema-Tests **10/10** · x10 Product-JSON-LD-
+  Matrix **10/10** mit eindeutiger locale-aware `@id`, Self-URL, realem Public-Image und ohne
+  Brand/Manufacturer/Commercial/QuantitativeValue/Claim-Amplification · Product-Markup auf
+  repräsentativen Diagnostics-/Downloads-Seiten **0/2** · G3 SEO 39 Familien / 390 URLs PASS ·
+  G4 i18n PASS · Claim-Hard-Guard 20/20, `<5 %` 0 · Node-22-Typecheck/Lint/Prettier PASS ·
+  Production Client/SSR Build PASS · finale serielle No-Retry-Schema-/SEO-Regressionssuite
+  **13/13** · Consent/Tracking unverändert · AP15 NOT STARTED
+- Quality PT14.6: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · vollständige
+  Unit/Component/Server-Suite **368/368** · G1/G3/G4/Search/Findability/Claim-Hard-Guard PASS ·
+  produktive `<5 %`-Treffer 0 · Production Client/SSR Build PASS · finale fokussierte
+  Chromium-Integrationssuite **37/37** · x10 Product-/Contact-/ROI-Ziele HTTP 200 ohne Redirect ·
+  Unknown-Variant 404 DE/EN/CS · x10 Mobile-Overflow <= 1 px · Visuals DE/EN/PL/FR/CS · IglooPro
+  Axe serious/critical 0 · kein product-local Tracking/Attribution · bestehende Contact-Content-
+  und Contact-A11y-Schuld reproduzierbar AP20/AP24-ownergebunden · beim PT14.6-Handoff waren AP14
+  Closure und AP15 NOT STARTED
+- AP12 publication truth: **NOT EXECUTED** — der separate AP12-PUBLISH-PREVIEW-Versuch war wegen
+  des geschützten nicht sauberen Working Trees blockiert; Preview/Production wurden nicht berührt
+- Service Detail Template: **ACTIVE / 9_OF_9_SERVICE_CONTENT_COMPLETE / CLOSURE_PASS** — neun kanonische Service Records
+  werden auf die AP10-Registry-Familie `service-detail` projiziert; Page Shell, Hero, required/
+  optional Sections, Workflow, Proof, visible-only FAQ, Crosslinks, CTA und Disclaimer sind als
+  kleine datengetriebene Komponenten verfügbar, ohne zweite Service-/Route-/SEO-SSOT
+- Service Detail i18n/SEO: **x10-ready / AP09-integrated** — bestehender `services`-Namespace bleibt
+  x10 vollständig; SEOHead, Self-Canonical/hreflang/Sitemap, Service/Breadcrumb und optionales FAQ
+  Schema konsumieren die vorhandenen Plattformen
+- Quality AP13 Closure: unabhängiger Node-22-Typecheck PASS · AP13-scoped ESLint/Prettier PASS ·
+  vollständige Unit/Component/Server-Suite **356/356** · G1/G3/G4/Search/Findability PASS ·
+  Production Client/SSR Build PASS · finale serielle No-Retry-Service-Suite **249/249** · 90/90
+  kanonische Locale-Routen HTTP 200 · Unknown-Slug-404 3/3 · neun Family-Axe-Prüfungen ohne
+  WCAG-A/AA-Verstoß · Visual QA DE/EN/PL/FR/CS bei 360/768/1024/1440/1920 px PASS · C13 50/50 ·
+  SERV 40/40 · AP13-owned Blocker 0 · AP14 war beim AP13-Handoff NOT STARTED
+- Quality PT13.1: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **28/28** (Template-/Datenmodell-Subset **8/8**) · G1/G4/Search/Findability PASS ·
+  Production Client/SSR Build PASS · finale serielle No-Retry-Template-Browsermatrix **10/10** · drei
+  reale Slugs, x10-SSR-Fixture, FAQ/Schema, H1/Breadcrumb/CTA, unbekannter Slug HTTP 404,
+  Mobile/Desktop-Overflow PASS
+- PT13.1 environment note: lokales Default-Node 18 startet jsdom wegen der vorbestehenden
+  dokumentierten ESM/CJS-Asymmetrie nicht; derselbe gezielte Lauf ist mit isoliert aufgerufenem
+  Node 22 ohne Package-/Lockfile-Änderung vollständig PASS
+- Dental detail: **PASS / x10 normalized** — `dental.detail` befüllt das gemeinsame Template mit
+  eigenständigem Hero, Problem-/Zielgruppen-/Fragestellungs-Slots, vier belegten Parameterlabels,
+  drei Workflow-Schritten, drei visible-only FAQ, Registry-Crosslinks, realen Artikeln, CTA,
+  Disclaimer und service-spezifischem SEO; der alte `richContent`-Renderpfad ist für Dental entfernt
+- Quality PT13.2: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **16/16** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build PASS · finale
+  serielle No-Retry-Dental-Browsermatrix **14/14** plus gemeinsame Template-Regression **10/10** ·
+  x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, reale Crosslinks, Mobile/Desktop und Focus PASS
+- Beauty detail: **PASS / x10 normalized** — `beauty.detail` befüllt das gemeinsame Template mit
+  eigenständigem Hero, professioneller Problem-/Zielgruppen-/Fragestellungs-Copy, Vitamin D,
+  Ferritin, TSH und CRP, drei Workflow-Schritten, drei visible-only FAQ, Registry-IglooPro-Crosslink,
+  CTA, Disclaimer und service-spezifischem SEO; Proof und Related Content sind ehrlich ausgelassen
+- Quality PT13.3: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **15/15** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build PASS · finale
+  serielle No-Retry-Beauty-Browsermatrix **14/14** plus gemeinsame Template-Regression **10/10** ·
+  x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, IglooPro-Crosslink, Mobile/Desktop und Focus PASS
+- Longevity detail: **PASS / x10 normalized** — `longevity.detail` befüllt das gemeinsame Template
+  mit eigenständigem präventivem Hero, Verlaufs-/Zielgruppen-/Fragestellungs-Copy, HbA1c,
+  Lipidprofil, CRP, TSH und Vitamin D, drei Monitoring-Schritten, drei visible-only FAQ, realem
+  Artikel, Registry-Epigenetik-Crosslink, CTA, Disclaimer und service-spezifischem SEO; Proof ist
+  ehrlich ausgelassen
+- Quality PT13.4: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **16/16** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build PASS · finale
+  serielle No-Retry-Longevity-Browsermatrix **14/14** plus gemeinsame Template-Regression **10/10** ·
+  x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, Artikel/Epigenetik, Mobile/Desktop und Focus PASS
+- POC-Systemlösungen detail: **PASS / x10 normalized** — `poc_systemloesungen.detail` befüllt das
+  gemeinsame Template mit eigenständigem System-/Workflow-Hero, drei Einsatzkontexten, drei
+  Auswahlfragen, vier Systembausteinen, drei Einführungs-Schritten, drei visible-only FAQ, drei realen
+  Artikeln, Registry-IglooPro-Crosslink, CTA, Disclaimer und service-spezifischem SEO; Proof und
+  medizinische Markerlisten sind ehrlich ausgelassen
+- Quality PT13.5: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **17/17** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build PASS · finale
+  serielle No-Retry-POC-Browsermatrix **14/14** plus gemeinsame Template-Regression **10/10** · x10
+  HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, Artikel/IglooPro, Mobile/Desktop und Focus PASS
+- Präventions-Checks detail: **PASS / x10 normalized** — `praeventions_checks.detail` befüllt das
+  gemeinsame Template mit eigenständigem Präventions-Hero, drei professionellen Einsatzkontexten,
+  drei Auswahlfragen, sechs belegten Messwerten, drei Check-Schritten, drei visible-only FAQ, zwei
+  realen Artikeln, CTA, Disclaimer und service-spezifischem SEO; Proof und Crosslinks sind ehrlich
+  ausgelassen
+- Quality PT13.6: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Node-22 Unit/Component/SEO/
+  Registry **18/18** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build PASS · finale
+  serielle No-Retry-Präventions-Checks-Browsermatrix **14/14** plus gemeinsame Template-Regression
+  **10/10** · x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, reale Artikel, Mobile/Desktop und
+  Focus PASS
+- Infektion & Entzündung detail: **PASS / x10 normalized** — `infektion_entzuendung.detail` befüllt
+  das gemeinsame Template mit eigenständigem Marker-/Kontext-Hero, drei professionellen
+  Versorgungskontexten, drei Auswahlfragen, CRP/PCT/IL-6/Ferritin, drei Workflow-Schritten, drei
+  visible-only FAQ, einem realen Artikel, CTA, Disclaimer und service-spezifischem SEO; Proof und
+  Crosslinks sind ehrlich ausgelassen
+- Quality PT13.7: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · gezielte
+  Unit/Component/SEO/Registry **27/27** · G1/G4/G3/Search/Findability PASS · Production Client/SSR
+  Build PASS · finale serielle No-Retry-Infektion-/Entzündung-Browsermatrix **14/14** plus gemeinsame
+  Template-Regression **10/10** · x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, realer Artikel,
+  Mobile/Desktop und Focus PASS
+- Stoffwechsel & Herz detail: **PASS / x10 normalized** — `stoffwechsel_herz.detail` befüllt das
+  gemeinsame Template mit eigenständigem Stoffwechsel-/Herz-Kontext-Hero, drei professionellen
+  Einsatzkontexten, drei Auswahlfragen, HbA1c/Cholesterin/D-Dimer, drei Workflow-Schritten, drei
+  visible-only FAQ, CTA, Disclaimer und service-spezifischem SEO; Proof, Related Content und
+  Crosslinks sind mangels kanonischer Evidenz ehrlich ausgelassen
+- Quality PT13.8: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · gezielte
+  Unit/Component/SEO/Registry **28/28** · G1/G4/G3/Search/Findability PASS · Production Client/SSR
+  Build PASS · finale serielle No-Retry-Stoffwechsel-/Herz-Browsermatrix **14/14** plus gemeinsame
+  Template-Regression **10/10** · x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, ausgelassene
+  unbelegte Links, Mobile/Desktop und Focus PASS
+- Hormon-Tests detail: **PASS / x10 normalized** — `hormon_tests.detail` befüllt das gemeinsame
+  Template mit eigenständigem Hormon-Kontext-Hero, drei professionellen Einsatzkontexten, drei
+  Auswahlfragen, TSH/AMH, drei Workflow-Schritten, drei visible-only FAQ, CTA, Disclaimer und
+  service-spezifischem SEO; Proof, Related Content und Crosslinks sind mangels kanonischer Evidenz
+  ehrlich ausgelassen
+- Quality PT13.9: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · gezielte
+  Unit/Component/SEO/Registry **29/29** · G1/G4/G3/Search/Findability PASS · Production Client/SSR
+  Build PASS · finale serielle No-Retry-Hormon-Tests-Browsermatrix **14/14** plus gemeinsame
+  Template-Regression **10/10** · x10 HTTP/lang/H1/SEO, FAQ/Schema, GENERAL_SALES, ausgelassene
+  unbelegte Links, Mobile/Desktop und Focus PASS
+- Kompatibilität & Integration detail: **PASS / x10 normalized** —
+  `kompatibilitaet_integration.detail` befüllt das gemeinsame Template mit eigenständigem
+  Anforderungs-/Verifikations-Hero, drei professionellen Integrationskontexten, drei
+  Anforderungsfragen, vier technischen/organisatorischen Prüfthemen, drei Workflow-Schritten, drei
+  visible-only FAQ, einem realen Artikel, CTA, Disclaimer und service-spezifischem SEO; Proof und
+  unbelegte Crosslinks sind ehrlich ausgelassen
+- Quality PT13.10: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · vollständige
+  Unit/Component-Suite **356/356** · G1/G4/G3/Search/Findability PASS · Production Client/SSR Build
+  PASS · finale serielle No-Retry-9×10-Matrix **99/99** (kanonische URLs **90/90**, Sitemap,
+  Unknown-Slug-404 **3/3**, Viewports/Locales **5/5**) · Compatibility plus Shared-Template
+  Browsermatrix **24/24** · family-spezifische No-Retry-Browsermatrix **126/126** · 9/9
+  differenzierte strukturierte Family-Modelle, 0 Legacy-`/services/*`-Inlinks
+- Diagnostics service truth: **PASS / 9/9** — `src/data/services.tsx` bleibt die kanonische
+  Service-Quelle; Hub-Projektion und AP10 Registry liefern neun eindeutige reale
+  `/diagnostics/<slug>`-Ziele, Legacy-`/services/*`-Hubziele 0, Search Coverage 9/9
+- Diagnostics information hierarchy: **PASS / x10** — fachlich vorsichtige POC-/erweiterte-
+  Diagnostik-/Labor-Einordnung, drei belegte priorisierte Praxis-/Fachkontexte und sechs
+  Workflow-/Fragestellungs-Einstiege; keine pauschale Ersatz-, Überlegenheits-, Outcome- oder
+  Garantieaussage
+- Diagnostics Hub data contract: **PASS** — minimales Source-Metadatenmodell für Kategorie,
+  Priorität und Specialty Tags; beide bestehenden Hub-Flächen konsumieren Service-Quelle plus
+  Registry statt zwei lokaler Service-/Route-Spiegel; `DIAGNOSTICS-HUB-CONTRACT.md` führt Slugs,
+  Mapping, Registry, Search, Homepage-Inlinks, Hub-Status und Owner 9/9
+- Quality PT12.1: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Unit/Component/
+  Contract **11/11** · G1/Search/Findability/G4/G3 PASS · Production Client/SSR Build PASS ·
+  SSR/x10/Mobile Playwright **11/11 ohne Retry** · Ziele HTTP 200 **90/90** · Mobile Fokus/Overflow
+  PASS · Main-axe serious/critical 0 · Visual QA 1440 DE und 390 PL PASS · CLS 0.0053 · neue
+  PT12.1-Bilder/Third Parties 0
+- Diagnostics Hub Hero: **PASS / x10** — heller Sales-Machine-Einstieg mit locale-aware Breadcrumb,
+  genau einem konkreten H1, B2B-Zielgruppe, `GENERAL_SALES` (`Angebot anfragen`) auf dem Registry-
+  Contact-Pfad und getrenntem Sprungziel `#diagnostics-services`; drei Trust-/Kontextsignale leiten
+  sich ausschließlich aus 9/9 Service-Wahrheit, professioneller Zielgruppe und PT12.1-Landschaft ab
+- Diagnostics Hero visual/LCP: **PASS** — ein bestehendes reales IglooPro-WebP, 18.512 Byte,
+  intrinsisch 650×650, einziges eager Medium mit high priority; kein Slider/Autoplay/Third Party,
+  Overflow 0 und CLS 0–0,0064 auf 1440/768/390/360 px
+- Quality PT12.2: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Hero + PT12.1-
+  Contract Unit **10/10** · G1/G4 PASS · Production Client/SSR Build PASS · x10 Hero + geschützte
+  PT12.1 Browsermatrix **22/22 ohne Retry** · Hero Axe serious/critical 0 · Visual QA DE
+  Desktop/Tablet + PL/CS Mobile PASS · Contact-Ziel HTTP 200 je geprüfter Locale
+- Diagnostics Service Cards: **PASS / 9/9 / x10** — ein gemeinsamer Card-/Grid-Consumer für die
+  kanonische 3+6-Projektion; neun eindeutige locale-aware Registry-Ziele, ein semantischer Link je
+  Karte, keine verschachtelte Interaktion, einheitliche Lucide-Icons, sichtbarer Fokus und
+  1-/2-/3-Spaltenvertrag für Mobile/Tablet/Desktop/Wide; Legacy-`/services/*`-Ziele 0
+- Quality PT12.3: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · PT12.1/PT12.3 Unit/
+  Component **8/8** · G1/G4 PASS · Production Client/SSR Build PASS · x10/Responsive/Keyboard/
+  Locale-Switch/HTTP Playwright **17/17** · direkte kanonische Zielmatrix 9/9 HTTP 200 · Main-axe
+  serious/critical 0 · Visual QA DE 390 und PL 1440 PASS · Overflow 0 · CLS 0–0,0053 · Card-Bilder/
+  neue Third Parties 0
+- Diagnostics Focus/Specialty: **PASS / 6/6 / x10** — Dental, Beauty, Longevity, Prävention,
+  POC-Systemlösungen und Integration werden aus der kanonischen Service-/Registry-Projektion als
+  echte Use-Case-Einstiege gerendert; IglooPro bleibt separater Produktkontext, Epigenetik separate
+  Geschäftssäule, Legacy-`/services/*`-Ziele 0 und neue medizinische/kommerzielle Claims 0
+- Quality PT12.4: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · PT12.1–PT12.4 Unit/
+  Component **11/11** · G1/G4/Search/Findability PASS · Production Client/SSR Build PASS · x10/
+  Responsive/Keyboard/HTTP Playwright **15/15** · acht Fokus-/Boundary-Ziele HTTP 200 · Section-Axe
+  WCAG A/AA 0 · Visual QA DE 390 und PL 1440 PASS · Overflow 0 · CLS 0 · neue Bilder/Third Parties/
+  Tracking Calls 0
+- Diagnostics SEO/findability: **PASS / x10** — locale-spezifische Hub-Titel/-Descriptions und
+  Social-Alttexte über `SEOHead`, Self-Canonical auf `polarisdx.net`, 10 hreflang plus x-default de,
+  Sitemap 10/10 und lokalisierte AP09-Breadcrumb-Daten; neun sichtbare Service-Deep-Links sowie drei
+  source-/registry-validierte veröffentlichte Artikel, Legacy-`/services/*`-Ziele 0
+- Quality PT12.5: Node-22-Typecheck PASS · taskbezogenes ESLint/Prettier PASS · PT12.1–PT12.5 Unit/
+  Component **14/14** · G1/G3/G4/Search/Findability PASS · Production Client/SSR Build PASS · x10
+  SEO/Route/Content, Sitemap/Inlinks, fünf Viewports und Keyboard Playwright **17/17** · Full-main Axe
+  WCAG A/AA 0 · Visual QA DE 390, EN 768, PL 1024, FR 1280, CS 1440 PASS · Overflow/CLS 0 ·
+  Related-WebPs lazy/below-fold und keine neuen Tracking Calls/Third Parties
+- Tracking/consent PT12.5: **NO NEW REGRESSION** — der neue Hub-Consumer enthält weder `gtag` noch
+  `dataLayer.push` oder Telemetrie. Ein frischer Denied-/No-Consent-Probe reproduziert den bereits in
+  `TRACKING-CONTRACT.md` als `NON_COMPLIANT` / `TD-*` geführten globalen GTM-Baselinepfad; unverändert
+  ownergebunden an AP23 und nicht als PT12.5-ready behauptet
+- AP12 Closure: **PASS / independent current evidence** — `C12-01`–`C12-50` 50/50 und
+  `HUB-01`–`HUB-40` 40/40 PASS; Risiken `R12-01`–`R12-12` mitigiert oder ownergebunden,
+  False-ready Claims 0 und offene AP12-owned P0/P1-Blocker 0
+- Quality AP12 Closure: Node-22-Typecheck PASS · AP12/Closure ESLint/Prettier PASS · vollständige
+  Unit/Component/Server-Suite **338/338** · Registry/Search/Findability/G3/G4/Asset Guards PASS ·
+  Production Client/SSR Build PASS · serielle No-Retry Browser-/SSR-/Route-/SEO-/x10-/A11y-/
+  Performance-Matrix **141/141** · 90/90 locale-aware Serviceziele direkt HTTP 200 · Axe Full-main
+  WCAG A/AA 0 · sechs Viewports 360–1920 visuell PASS · AP13 NOT STARTED
+- Homepage Hero: **PASS / x10** — statische SSR-first B2B-Positionierung, genau ein H1; primärer
+  `GENERAL_SALES` CTA `Angebot anfragen` auf das reale locale-aware Kontaktformular, sekundärer
+  Diagnostics-Intent auf die reale Registry-Route
+- Hero visual/LCP: **PASS** — ein vorhandenes produktnahes 18,512-Byte-WebP, React-19-SSR-Preload,
+  intrinsische `650×650`-Dimensionen, kein Slider/Autoplay und kein konkurrierendes eager Hero-Medium
+- Hero accessibility/mobile: **PASS** — semantische Links, sichtbarer Fokus/44-px-Buttonvertrag,
+  locale-aware Alt x10, DOM-/Mobile-Reihenfolge Inhalt → Primary → Secondary → Visual, Overflow 0
+- Hero claim safety: **PASS** — keine neuen Quantitäts-, Wirksamkeits-, Umsatz-, Verfügbarkeits-,
+  Zertifizierungs- oder Garantieclaims; Claim Register in `HOMEPAGE-CONTRACT.md` initialisiert
+- Quality PT11.1: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Hero Unit/Component **5/5** ·
+  Production-Build im gezielten Browserlauf PASS · SSR/x10/Mobile Playwright **11/11** · Desktop- und
+  Mobile-Screenshot-Sichtprüfung PASS
+- Homepage TrustBar: **PASS / x10** — vier source-gebundene Produktmerkmale (`HCL-002`–`HCL-005`),
+  kein Partnerlogo/-claim; `CV < 2 %` exakt, IVDR/CE-Bestandsaussage nicht erweitert, Kompatibilität
+  ohne früheren Prozentclaim
+- Homepage Proof: **PASS / x10** — genau eine bestehende namentliche Praxisreferenz
+  (`bastian_wessing`) mit realem 300×300-WebP und claim-reduziertem Schulungs-/Support-Zitat;
+  Rating/Review-Zahlen, Sterne, Carousel/Autoplay und nicht belegte weitere Referenz-Ausgabe 0
+- Quality PT11.2: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Trust/Proof Unit **3/3** · G4
+  i18n PASS · Production-Build im Browserlauf PASS · SSR/x10/Mobile Playwright **11/11** ·
+  Desktop-/Mobile-Sichtprüfung PASS
+- Homepage Business Pillars: **PASS / x10** — Diagnostik, IglooPro und Epigenetik als drei
+  gleichgewichtete eigenständige Karten; kanonische Ziele aus der zentralen Route Registry,
+  Epigenetik weder visuell noch semantisch unter Diagnostics verschachtelt
+- Homepage Core Services: **PASS / 3 reale Source Records** — Dental, Beauty und Longevity aus
+  `services.tsx`, Ziele aus der dynamischen Registry-Familie; vollständige neun Service-Inhalte nicht
+  auf der Homepage dupliziert, Legacy-`/services*`-Ziele 0, Broken Deep Links 0
+- Quality PT11.3: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Pillar/Registry Unit **4/4** ·
+  G4 i18n PASS · Production-Build im Browserlauf PASS · SSR/x10/Mobile Playwright **11/11** ·
+  Desktop-/Mobile-Sichtprüfung PASS
+- Homepage Why POC: **PASS / x10** — Informationszugang, Workflow-Einbindung und Gesprächsgrundlage
+  fachlich defensiv erklärt; Praxis- und Patienten-/Anwendernutzen semantisch getrennt, kein Umsatz-,
+  Gewinn-, Garantie-, Behandlungs- oder Outcome-Versprechen
+- Homepage POC Process: **PASS / x10** — echtes geordnetes DOM von Anwendung/Messung über Ergebnis
+  zur fachlichen Einordnung; sichtbare Nummerierung, Mobile-/Screenreader-Reihenfolge identisch,
+  automatische medizinische Schlussfolgerung ausdrücklich ausgeschlossen
+- Quality PT11.4: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · Process/Benefits Unit **3/3** ·
+  G4 i18n PASS · Production-Build im Browserlauf PASS · SSR/x10/Mobile Playwright **11/11** ·
+  Desktop-/Mobile-Sichtprüfung PASS
+- Homepage Conversion: **PASS / x10** — genau drei bewusst platzierte `GENERAL_SALES`-Aktionen in
+  Hero, ROI-Kontext und Final CTA; `source=homepage`, `journey=general_sales`, Locale und feste
+  Section deterministisch im bestehenden Contact-Payload, nicht aus Buttontext oder Tracking abgeleitet
+- Homepage Secondary Conversion: **PASS / real safe state** — bestehender nutzereingabe-basierter
+  ROI-Rechner mit Consent-gatetem `/api/roi-report` und drei reale Article-Teaser plus Registry-validem
+  Knowledge-Hub; keine Fake-Datei, Fake-Mail, CRM-Persistenz oder Garantiezusage
+- DG11-01: **READY_FOR_OWNER / AP19** — finale Secondary-Conversion-/Resource-/Delivery-Integration;
+  kein AP11-Closure-Blocker im dokumentierten realen Safe State, Launch-Relevanz gemäß AP19-Entscheid
+- Quality PT11.5: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · gezielte Unit/Component/Server
+  **19/19** · Production Client/SSR Build PASS · SSR/x10/Mobile Playwright **11/11** · reale Contact-,
+  Article- und ROI-Ziele sowie Consent/Fokus/Overflow PASS
+- Homepage FAQ/SEO: **PASS / x10** — vier sichtbare, claim-sichere FAQ je Locale aus derselben Quelle
+  wie AP09 `FAQPage`; locale-aware Title/Description/Social Alt, Self-Canonical, hreflang x10,
+  `x-default=de`, OG/Twitter-Canonical-Parität und Preview-/Dev-Leakage 0
+- Homepage Abschlussintegration: **PASS** — genau ein H1, kontinuierliche Heading-Hierarchie,
+  Diagnostics/IglooPro/Epigenetics HTTP 200 ×10, sichtbarer Accordion-Fokus, geschlossene Panels aus
+  dem Accessibility Tree entfernt, Main-axe serious/critical 0 und horizontales Overflow 0
+- Quality PT11.6: Typecheck PASS · taskbezogenes ESLint/Prettier PASS · AP11/SEO Unit **39/39** · G4
+  PASS · G3 PASS · Production Client/SSR Build PASS · breite AP11/SEO Playwright-Matrix **79/79** ·
+  Visual QA 1440 DE, 1280 PL, 768 DE und 390 PL PASS
+- Quality AP11-CLOSURE: unabhängiger Node-22-Typecheck PASS · Full Unit/Component/Server **319/319** ·
+  G1/Navigation/Search/Findability/G4/G3/Assets PASS · Production Client/SSR Build PASS · AP11/SEO/
+  i18n/HTTP Playwright **144/144 ohne Retry** · x10-Home SSR 200/H1/Self-Canonical **10/10** ·
+  Homepage-main Axe serious/critical 0 · Visual QA 1440/1280/1024/768/390/360 **6/6** · Broken
+  Homepage Deep Links 0 · direkte Homepage-Tracking-Bypässe 0
+- AP11 Closure: **PASS** — `C11-01`–`C11-50` **50/50**, `HOME-01`–`HOME-40` **40/40**, Risiken
+  `R11-01`–`R11-12` mitigiert bzw. ownergebunden, offene AP11-owned P0/P1-Blocker 0; `DG11-01`
+  bleibt ehrlich `READY_FOR_OWNER / AP19`; AP12 bleibt `NOT STARTED`
+
+### AP10 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
+
+- PT10.1: **PASS** · PT10.2: **PASS** · PT10.3: **PASS** · PT10.4: **PASS** ·
+  AP10 Closure: **PASS (C10 50/50 · ROUTE 40/40, 2026-08-28)**
 - Redirect status contract: **PASS** — bekannte unpräfixierte Seiten, `/services*`, `/agb` und
   `/s3-leitlinie` liefern direkte locale-aware HTTP 301 mit Query-Erhalt; Ziel 200, Loops 0,
   unnötige Chains 0
@@ -29,14 +755,50 @@ kein `work-packages/APxx-STATE.md`).
   `DEFERRED_MIGRATION_DISCOVERY`, Owner AP29, kein AP10-Closure-Blocker
 - Anchor compatibility: **PASS** — HTTP behauptet keine Fragment-Migration; alle 6 Befund-Familien
   behalten ihre belegten Altanker clientseitig, repräsentativer realer Altanker browsergetestet
+- Central Route Registry: **ACTIVE** — `src/routing/routeRegistry.ts`, 25 Families, 43 konkrete
+  kanonische Pfade, 22 statische/3 dynamische Families; dynamische Slugs aus 9 Services, 6 Articles
+  und 6 Befund-Metadaten statt Kopien
+- Registry consumers: **PASS** — App-Routen, Server Known Paths/Redirects, Sitemap (39), Search (35),
+  SEOHead-Indexability, Navigation-Targets und Route-Testmatrix konsumieren dieselbe Pfadwahrheit
+- G1 Route Registry Parity: **PASS / CI ACTIVE** — 43 Canonical Paths, 30 Redirect Sources,
+  duplicate IDs/Patterns/Paths 0, unbekannte Redirect Targets 0, stale Route Mirrors 0;
+  `scripts/prerender.mjs` ist `LEGACY_NON_AUTHORITATIVE`, disabled und route-list-free
+- HTTP Status Matrix: **PASS** — 43 Registry-Pfade × 10 = 430/430 HTTP 200; generierte unbekannte
+  statische/dynamische Fälle 40/40 HTTP 404; intentional no-successor 90/90 HTTP 404; alle 30
+  Redirect-Quellen × 10 plus unpräfixierte bekannte Pfade echte Ein-Hop-301; Soft-404 0, Loops 0,
+  unnötige Chains 0
+- G2 Real HTTP 404 / G9 Redirect Status: **PASS / CI ACTIVE** — gemeinsamer kanonischer Befehl
+  `npm run check:http-status`; 404 `noindex, follow`, Canonical/hreflang/x-default jeweils 0,
+  Registry-/NotFound-Marker-/Serverstatus synchron; production SSR Header-Vertrag erhalten
+- DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **RESOLVED** durch AP10 PT10.3 · ehemaliger Launch-Blocker
+  geschlossen
 - Quality PT10.2: Typecheck PASS · taskbezogenes Lint/Prettier PASS · Unit/Component **291/291** ·
   URL-/Redirect-Smoke **54/54** · AP08 Routing-/Locale-Regression **35/35** · 20 Map-Quellen × 10
   Locales plus unpräfixiertes DE · intentional 404 ohne Home-Softmigration · Production Build PASS ·
   G3/Search/Findability PASS;
   repositoryweite unveränderte Baseline **120 ESLint errors + 3 warnings / 34 Prettier-Dateien**
-- ROUTING-CONTRACT: **current through PT10.2** · vollständige heute bekannte Alt-URL-Klassifikation:
-  **PASS** · zentrale Route Registry/DG09-01-Auflösung in PT10.3: **NOT STARTED**
-- AP11: **NOT STARTED** · Decision Locks: **18/18 LOCKED**
+- Quality PT10.3: Typecheck PASS · Registry/Redirect/Sitemap/SEOHead/Search Unit **37/37** · Full
+  Unit/Component **296/296** · Registry-derived URL-/Redirect-Smoke **80/80** · AP08 x10 plus AP09
+  SEO/Sitemap Regression **45/45** · G1/G3/Search/Findability PASS · Production Client/SSR Build PASS ·
+  geänderte Dateien Lint/Prettier PASS; breite integrierte Statusmatrix bleibt PT10.4
+- Quality PT10.4: Typecheck PASS · Full Unit/Component **296/296** · G1/G2/G9/G3/Search/Findability
+  PASS · HTTP Playwright **50/50** · AP08/AP09/Search/Findability Playwright **54/54** · Production
+  Client/SSR Build PASS · PT10.4-Dateien Lint/Prettier PASS; unveränderte Full-Lint-Baseline 120
+  Fehler/3 Warnungen und Full-Prettier-Bestand 35 Dateien, keine davon im PT10.4-Delta
+- Quality AP10-CLOSURE: unabhängiger Typecheck PASS · Full Unit/Component **296/296** · G1/G2/G9/G3/
+  Search/Findability PASS · HTTP Playwright **50/50** · AP08/AP09/Search/Findability Playwright
+  **54/54** mit isoliertem No-Retry-Nachweis **1/1** für einen einmaligen Locator-Flake · Production
+  Client/SSR Build PASS · AP10-Dateien Lint/Prettier PASS; unveränderte Full-Lint-Baseline 120
+  Fehler/3 Warnungen und Full-Prettier-Bestand 34 Dateien, keine davon im AP10-Delta
+- AP10 Closure: **PASS** — `C10-01`–`C10-50` **50/50**, `ROUTE-01`–`ROUTE-40` **40/40**, Risiken
+  12/12 mitigiert bzw. AP29-ownergebunden, offene AP10-Blocker 0; Route Registry/Parity, Redirect Map,
+  HTTP 200/301/404, G1/G2/G9 und CI `PASS/ACTIVE`; Soft-404/Loops/Chains 0
+- ROUTING-CONTRACT: **current through AP10-CLOSURE** · Registry-Schema/Consumer/Dynamic Sources/G1/G2/
+  G9/CI/200-/301-/404-/Soft-404-Evidenz, Mirror-Elimination, DG09-01-Auflösung und AP29-Handoff
+  dokumentiert
+- AP11: **COMPLETE** · PT11.1/PT11.2/PT11.3/PT11.4/PT11.5/PT11.6: **PASS** · AP11 Closure:
+  **PASS (C11 50/50 · HOME 40/40)** · Next work package: **AP12** · AP12: **NOT STARTED** ·
+  Decision Locks: **18/18 LOCKED**
 
 ### AP09 (abgeschlossen, unverändert als Vorgänger-Handoff erhalten)
 
@@ -70,11 +832,10 @@ kein `work-packages/APxx-STATE.md`).
   Consumer Noindex Regression: **0**
 - Consumer Internal Findability: **PASS** über reale locale-aware gegenseitige Inlinks;
   `CONSUMER_HUB = NOT_REQUIRED`; AP07 `DSI-04` bleibt OPEN / Owner AP21 ohne False Ready
-- SEO route-source: **registry-ready** — pfadlistenfreier SEOHead-Adapter plus der bestehende, aus
-  `server.ts` herausgelöste Sitemap-Spiegel; dynamische Slugs werden aus Content-Daten abgeleitet;
-  keine zentrale oder fünfte Route Registry gebaut
-- DG09-01 `ROUTE_REGISTRY_INTEGRATION`: **READY_FOR_OWNER** · Owner **AP10 PT10.3** · AP09 Closure
-  blocker **NO** bei grünen AP09-Gates · Launch blocker **YES**
+- SEO route-source: **registry-integrated by AP10 PT10.3** — pfadlistenfreier SEOHead-Adapter bleibt;
+  SEOHead-Indexability und Sitemap-Pfadwahrheit konsumieren die zentrale AP10 Registry
+- DG09-01 `ROUTE_REGISTRY_INTEGRATION`: AP09-Handoff **fulfilled / RESOLVED by AP10 PT10.3** ·
+  AP09 Closure blieb korrekt unverändert; Launch-Blocker geschlossen
 - SEO-CONTRACT: **current through AP09-CLOSURE** · G3: **PASS / CI ACTIVE** · SEO Guards CI:
   **ACTIVE** ·
   Decision Locks: **18/18 LOCKED** ·
@@ -415,11 +1176,13 @@ kein `work-packages/APxx-STATE.md`).
   legacy classification: recorded · final clean build evidence: recorded · **closure evidence: recorded**
   (`building-docs/AP01-RECONCILIATION-RESULT.md` §1–§9)
 - Current branch: `console/10-15-2026-08-28T08-18-27`
-- Current HEAD: `89a6778901389705c5914477ef9d3705358e56a9` — empirischer PT10.2-Start-HEAD;
-  Working Tree war am PT10.2-Start vollständig clean und enthält ausschließlich die ungestagten
-  PT10.2-Implementierungs-, Test-, Contract- und State-Änderungen
+- Current HEAD: `8a142173a5e2f89de09af2e76a1ce28ea243782e` — empirischer AP10-Closure-HEAD; beim Closure-Start
+  waren die AP10-Primärtask-Änderungen sowie die fremden Spezifikationen
+  `building-docs/work-packages/AP11.md` und `building-docs/work-packages/AP12.md` bereits gestagt.
+  Closure hat das Staging und beide fremden Spezifikationen nicht verändert; ausschließlich
+  `ROUTING-CONTRACT.md` und diese State-Datei tragen das separate Closure-Dokumentdelta
 - Started: 2026-08-24 (AP02); AP01 gestartet und abgeschlossen 2026-08-24
-- Last updated: 2026-08-28 (AP10 IN_PROGRESS; PT10.1–PT10.2 PASS; next PT10.3)
+- Last updated: 2026-09-01 (PT15.5 PASS; AP15 IN_PROGRESS; next PT15.6; AP16 NOT STARTED)
 
 <!-- AP00-HEAD-Historie: f8692c0 = PT00.1, bf125d2 = PT00.2, cad9b6c = PT00.3, 0c58d44 = PT00.4,
      a0fac9c = Closure. Danach Pre-AP01-Hygiene: 9ee8199, d98a6b7, 5f6fc3b, Merge 4f70801.
@@ -430,6 +1193,171 @@ kein `work-packages/APxx-STATE.md`).
 ## Completed Work
 
 <!-- Eine Zeile pro abgeschlossenem Primärtask: `PTxx.y — Ergebnis in einem Satz`. Keine Reports. -->
+
+- PT15.5 — alle 29 Epigenetics-Assets mit tatsächlicher DE/EN-Sprache, Größe, Kategorie,
+  Launch-Sichtbarkeit und ehrlicher `FREE_PUBLIC`-Klasse inventarisiert, 29/29 Downloadziele sowie
+  3/3 ZIP-Inhalte geprüft, PDF-Claim-Sweep auf 26/26 vervollständigt und den AP19-Gate-Handoff ohne
+  Gate-/Resource-/CRM-Plattform dokumentiert; nächster Task PT15.6.
+
+- PT15.4 — vorhandene freigegebene GenDG-/Beispieldaten-/Nicht-Diagnose-/CE-Grenzen x10 und in
+  60/60 Musterbefunden reproduzierbar abgesichert, Quellen-/Schema-/Social-/Download-Kontexte geprüft
+  und Claim-, Misclassification-, Partner-, Preis- sowie Turnaround-Findings auf 0 bestätigt; die
+  vollständige Asset-Sprachinventur bleibt seriell PT15.5.
+
+- PT15.3 — sechs reale, x10 differenzierte Panels mit 60/60 HTTP-200-Musterbefund-Einstiegen
+  verbunden, `panel`-/`focus`-Kontext allowlist-validiert und reload-/share-fähig über Hub, Reports
+  und bestehende Inquiry erhalten sowie Lazy-Payload-, A11y-/Responsive- und Findability-Gates
+  verifiziert; AP16-Tiefenarbeit blieb unangetastet, nächster Task PT15.4.
+
+- PT15.2 — die selektiv reimplementierten Grundlagen-, Studienlage- und Unterlagen-Seiten an ihre
+  drei AP10-Registry-IDs gebunden, die falsche breite EN-Fallback-Annahme entfernt, reale DE/EN-
+  Assetsprachen sichtbar ausgewiesen und 30/30 x10 HTTP-/SEO-/Search-/Sitemap-Fälle plus echte
+  Unknown-Slug-404 und repräsentative A11y-/Viewport-Smokes verifiziert; nächster Task PT15.3.
+
+- PT15.1 — Epigenetik als eigenständigen x10 Header-/Footer-/Homepage-Pillar und registry-validen
+  Hub konsolidiert, Hub-Journey/Crosslinks/Search verifiziert und page-level List-/Tabellen-A11y
+  gehärtet; AP15 bleibt IN_PROGRESS.
+
+- AP14-CLOSURE — unabhängiger finaler Gate mit C14 50/50, IGLOO 40/40, x10 HTTP/SSR/SEO/Schema,
+  produktiven `<5 %`-Treffern 0, Fresh/Denied Google-Requests 0, IglooPro-/Contact-Axe 0/0,
+  Production Client/SSR Build und serieller No-Retry-Browsermatrix 89/89 bestanden; AP14 ist
+  COMPLETE, AP15 bleibt NOT STARTED.
+
+- PT14.6 — `GENERAL_SALES` x10 gegen die reale Kontaktstrecke verifiziert, den irreführenden
+  Produktunterlagen-CTA durch den realen Homepage-ROI-Rechner ersetzt und Route/SEO/Search/Sitemap/
+  Schema/Claim/Consent/A11y/Visual/Build/SSR breit integriert; PT14.1–PT14.6 sind PASS, AP14 bleibt
+  bis zur unabhängigen Closure `IN_PROGRESS`.
+
+- PT14.1 — kanonische `igloo-pro`-Produktroute, x10-/Search-/Sitemap-Wahrheit, sichere professionelle
+  POC-Positionierung, reale Anfrage-/Download-/ROI-Ziele, Product-Ownership-/Brand-Klassen sowie die
+  initiale Claim-/PDF-Baseline im `IGLOOPRO-CONTRACT.md` festgehalten; stärkere technische,
+  regulatorische, Ownership- und Performance-Aussagen bleiben bis Owner-/Folgetask-Evidenz offen,
+  produktive `<5 %`-Treffer sind 0 und PT14.2 ist der einzige freigegebene nächste Task.
+
+- AP13-CLOSURE — unabhängiger Full-Package-Gate mit 9/9 Families, 90/90 Locale-Routen, C13 50/50,
+  SERV 40/40, Claim-/Parameter-Findings 0, Production Client/SSR Build und finaler No-Retry-
+  Browsermatrix 249/249 bestanden; AP14 bleibt NOT STARTED.
+
+- PT13.10 — Kompatibilität & Integration x10 in das gemeinsame strukturierte Service-Template
+  überführt; Anforderungen, versions-/dokumentationsgebundene Kompatibilitätsprüfung,
+  Datenübergabe und Verantwortlichkeiten sowie GENERAL_SALES integriert und anschließend 9/9
+  Families × 10 Locales mit 90/90 kanonischen Responses verifiziert, ohne API-, Schnittstellen-,
+  Security-, SLA-, Performance-, Zertifizierungs- oder Garantiebehauptungen.
+
+- PT13.9 — Hormon-Tests x10 in das gemeinsame strukturierte Service-Template überführt;
+  professionelle Einsatzkontexte, TSH/AMH, verantwortlicher Auswahl-/Messworkflow und FAQ sowie
+  GENERAL_SALES integriert, ohne Diagnose-, Therapie-, Medikations-, Dosierungs-, Outcome-,
+  Fertilitäts-, Genauigkeits-, Geschwindigkeits- oder Laborvergleichsversprechen.
+
+- PT13.8 — Stoffwechsel & Herz x10 in das gemeinsame strukturierte Service-Template überführt;
+  professionelle Einsatzkontexte, drei belegte Messwerte, verantwortlicher Monitoring-Workflow und
+  FAQ sowie GENERAL_SALES integriert, ohne Diagnose-, Prognose-, Therapie-, Outcome-, Referenzwert-,
+  Akut-Ausschluss-, Genauigkeits-, Geschwindigkeits- oder Laborvergleichsversprechen.
+
+- PT13.7 — Infektion & Entzündung x10 in das gemeinsame strukturierte Service-Template überführt;
+  vier belegte Marker, professionelle Versorgungskontexte, kontextgebundener Messworkflow und FAQ,
+  ein realer Artikel sowie GENERAL_SALES integriert, ohne Diagnose-, Therapie-, Dringlichkeits-,
+  Schwellenwert-, Antibiotika-, Geschwindigkeits-, Laborvergleichs- oder Integrationsversprechen.
+
+- PT13.6 — Präventions-Checks x10 in das gemeinsame strukturierte Service-Template überführt;
+  professionelle Einsatzkontexte, sechs belegte Messwerte, verantwortlicher Check-Workflow und FAQ,
+  zwei reale Artikel sowie GENERAL_SALES integriert, ohne Diagnose-, Ausschluss-, Früherkennungs-,
+  Krankheitsvermeidungs-, Paket-, Effizienz-, Umsatz- oder Genauigkeitsversprechen.
+
+- PT13.5 — POC-Systemlösungen x10 in das gemeinsame strukturierte Service-Template überführt;
+  Hardware-/Test-/Dokumentations-/Softwareumgebungs-Grenzen, sicherer Einführungsworkflow und FAQ,
+  reale Artikel, Registry-IglooPro-Crosslink sowie GENERAL_SALES integriert, ohne automatische/
+  nahtlose Integration, SLA, feste Setup-Zeit, Demo-/Booking-Runtime oder AP14/AP22-Vorgriff.
+
+- PT13.4 — Longevity x10 in das gemeinsame strukturierte Service-Template überführt; präventive
+  Verlaufslogik, fünf belegte Messwerte, sicherer Monitoring-Workflow und FAQ, realer Artikel,
+  Registry-Epigenetik-Crosslink sowie GENERAL_SALES integriert, ohne Lebensverlängerungs-, Outcome-,
+  Risiko-, Interventionswirkungs- oder AP15-Fachjourney-Claims.
+
+- PT13.3 — Beauty x10 in das gemeinsame strukturierte Service-Template überführt; professionelle
+  medizinisch-ästhetische Einordnung, vier bereits belegte Messwerte, sicherer Workflow und FAQ,
+  Registry-IglooPro-Crosslink sowie GENERAL_SALES integriert, während Proof, Related Content und
+  kosmetische Ergebnis-/Anti-Aging-/Abrechnungsclaims bewusst nicht übernommen wurden.
+
+- PT13.2 — Dental x10 aus dem claim-riskanten langen HTML-Renderpfad in das gemeinsame strukturierte
+  Service-Template überführt; vier belegte Parameter, drei Workflow-Schritte, sichere visible-only
+  FAQ, reale Artikel sowie Registry-Crosslinks zu Implantologie/IglooPro und GENERAL_SALES integriert,
+  ohne Proof-/Outcome-/Umsatzclaims, AP14-Vorgriff oder andere Family-Normalisierung.
+
+- PT13.1 — die monolithische ServicePage in eine Registry-/Service-source-projizierte gemeinsame
+  Template-Architektur mit optionalen fachlichen Slots, x10-View-Model, AP09 SEO/Structured Data,
+  `GENERAL_SALES`, echtem 404-Safe-State sowie gezielter Unit-/Production-Browser-Evidenz zerlegt;
+  neun Fachseiteninhalte und AP14-Arbeit wurden nicht vorgezogen.
+
+- AP12-CLOSURE — den aktuellen Diagnostics-Hub unabhängig mit 40/40 HUB-Invarianten, 50/50
+  Closure-Gates, 12/12 Risiken, 338 Unit-/Component-/Serverfällen, 141 seriellen Production-
+  Browserfällen, 90/90 direkten Locale-Service-Zielen sowie x10-, SEO-, A11y-, Performance- und
+  Visual-Evidenz geschlossen; Veröffentlichung bleibt dem separaten AP12-PUBLISH-PREVIEW-Step
+  vorbehalten und AP13 bleibt NOT STARTED.
+
+- PT12.5 — den Diagnostics Hub x10 über die bestehende SEO-/Registry-/Sitemap-/Search-Plattform
+  final integriert, 9/9 Service-Deep-Links und drei reale veröffentlichte Related-Article-Einstiege
+  verifiziert sowie Canonical/hreflang, Inlinks, A11y, Performance und fünf Viewports produktiv
+  gegatet; globale Consent-Baselineschuld bleibt ehrlich AP23-ownergebunden.
+
+- PT12.4 — sechs x10-Fokusbereiche aus Service-Quelle und Registry auf reale kanonische Ziele
+  abgebildet und als semantisches responsives Use-Case-System umgesetzt; IglooPro und Epigenetik
+  bleiben getrennte ownergebundene Pfade, Claims/Legacy-Ziele/AP13-Detailarbeit wurden nicht ergänzt.
+
+- PT12.3 — alle neun Registry-projizierten Diagnostics Services in einen gemeinsamen semantischen,
+  x10-locale-aware und responsiven Card-/Grid-Vertrag überführt; Link-/Fokus-/Icon-/Content-Balance,
+  vier Viewports, Tastaturreihenfolge und 9/9 reale Ziele sind verifiziert, ohne PT12.4 oder AP13
+  vorzuziehen.
+
+- PT12.2 — den Diagnostics Hero als hellen x10-B2B-Einstieg mit Breadcrumb, einem konkreten H1,
+  registry-validem GENERAL_SALES, getrenntem Service-Anker und source-gebundenem Trust-Kontext
+  umgesetzt; das einzige reale 18.512-Byte-Visual ist dimensionsfest/LCP-sicher, alte kontextlose
+  Kennzahlen sind aus dem Hub entfernt und Card-/Specialty-/SEO-/AP13-Arbeit blieb unangetastet.
+
+- PT12.1 — reale neun Service-Familien aus `services.tsx` über die zentrale Registry in eine
+  bewusste 3+6-Hub-Hierarchie projiziert, POC und ergänzende Diagnostik-/Laborwege fachlich vorsichtig
+  x10 eingeordnet, lokale Route-Spiegel entfernt und Coverage/Priority/Specialty/Search/Homepage-/
+  Owner-Evidenz im `DIAGNOSTICS-HUB-CONTRACT.md` gegatet; AP13 blieb NOT STARTED.
+
+- AP11-CLOSURE — unabhängiger finaler Package Gate PASS: `C11-01`–`C11-50` 50/50,
+  `HOME-01`–`HOME-40` 40/40 und Risiken `R11-01`–`R11-12` mitigiert bzw. ownergebunden; x10-Homepage,
+  Conversion-/Claim-/Deep-Link-/FAQ-/SEO-Vertrag, Homepage-main A11y/Performance, sechs Viewports,
+  319 Unit- und 144 No-Retry-Production-Browserfälle sowie Node-22-Production-Build grün; AP12 nicht
+  gestartet.
+
+- PT11.5 — die Homepage-Conversion-Hierarchie auf drei explizite x10-`GENERAL_SALES`-Einstiege
+  vereinheitlicht, Journey-Kontext durch den bestehenden Contact-Payload allowlisted transportiert,
+  realen ROI-/Article-Secondary-Entry integriert, unbelegte Antwort-/Lieferzeitversprechen entfernt
+  und die finale AP19-Integration als `DG11-01 READY_FOR_OWNER` abgegrenzt.
+
+- PT11.4 — Why POC als fachlich defensive x10-Nutzenargumentation mit getrenntem Praxis- und
+  Patienten-/Anwendernutzen umgesetzt und den POC-Ablauf als zugängliche geordnete Sequenz von
+  Anwendung/Messung über Ergebnisverfügbarkeit zur verantwortlichen fachlichen Einordnung aufgebaut;
+  Umsatz-/Gewinn-/Garantie-/Outcome-Claims und Conversion-Vorgriff entfernt.
+
+- PT11.3 — Diagnostik, IglooPro und Epigenetik als registry-getriebene gleichgewichtete x10-
+  Geschäftssäulen integriert und Dental, Beauty sowie Longevity als drei source-/registry-validierte
+  Diagnostics-Einstiege priorisiert; alte ungleichgewichtete Detailteaser aus dem Homepage-Output
+  entfernt, Deep-Link-/Claim-Matrix aktualisiert und Broken-/Legacy-Ziele auf 0 gegatet.
+
+- PT11.2 — die TrustBar auf vier source-gebundene x10-Produktsignale reduziert und eine bestehende
+  namentliche Praxisreferenz mit realem Bild und claim-reduziertem Schulungs-/Support-Zitat statisch
+  integriert; unbelegte Partner-/Prozentclaims, Rating-Sterne und Carousel-Ausgabe entfernt sowie
+  Claim Register `HCL-002`–`HCL-006` und Content-Matrix aktualisiert.
+
+- PT11.1 — den Homepage-Hero als statische SSR-first B2B-Positionierung x10 umgesetzt; der reale
+  GENERAL_SALES-Kontaktpfad und Diagnostics-Secondary-Link sind locale-aware, das einzelne
+  produktnahe LCP-WebP ist dimensioniert/preloaded, Slider-/Claim-Risiken sind entfernt und der
+  initiale `HOMEPAGE-CONTRACT` ist mit Mobile-, CTA-, LCP- und Claim-Safe-State dokumentiert.
+
+- AP10-CLOSURE — unabhängiger finaler Package Gate PASS: `C10-01`–`C10-50` 50/50,
+  `ROUTE-01`–`ROUTE-40` 40/40, 12/12 Risiken mitigiert bzw. AP29-ownergebunden; zentrale operative
+  Registry und App/SSR/Sitemap/Search/Redirect/SEO/Test-Parität, reale 200/301/404-Semantik,
+  Soft-404/Loops/Chains 0, G1/G2/G9 und CI aktiv, DG09-01 resolved, AP11 nicht gestartet.
+
+- PT10.4 — die Registry-generierte 43×10-HTTP-200-Matrix, alle 301-Migrationen und systematische
+  statische/dynamische 404-Fälle gegen Production SSR gegatet; G2/G9 inklusive 404-SEO, Soft-404- und
+  Header-Nichtregression in der Relaunch-CI aktiviert, AP07/AP09-Regressionssuite grün.
 
 - PT10.2 — alle aktuell repository-bekannten Alt-URLs als Redirect, intentional 404, current canonical
   oder AP29-deferred klassifiziert; Article-ID-/Slug- und Service-Unterstrich-/Bindestrich-Wechsel als
@@ -1361,6 +2289,212 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 ## Files Changed by Current AP
 
+**AP18-CLOSURE — unabhängige Reverification:**
+
+- `e2e/ap18-fixed-clock.cjs`, `e2e/ap18-closure-boundary.spec.ts`,
+  `e2e/ap18-closure.config.ts` — ausschließlich testseitige Fixed-Clock-Production-SSR-/Hydration-
+  Matrix über zehn reale Boundary-Zeitpunkte; keine Produktzeit oder Eventdaten werden überschrieben
+- `building-docs/EVENTS-CONTRACT.md`, diese State-Datei — unabhängige 40/40-EVT-, 50/50-C18-,
+  Quality-, False-ready-, Scope- und serieller AP19-Handoff-Evidenz
+
+**PT15.4 — Claims und regulatorische Leitplanken:**
+
+- `scripts/check-epigenetics-claim-contract.mjs` — x10 Pflichttext-/Quellen-, 60-Report-,
+  Claim-/CE-/Preis-/Turnaround-/Schema- und verlinkte-Asset-Matrix mit negativen Hard-Failure-Tests
+- `e2e/epigenetics-claims-regulatory.spec.ts` — x10 Production-SSR-Sichtbarkeit,
+  Schema-/Social-Parität sowie repräsentative Responsive-/Axe-Evidenz
+- `building-docs/EPIGENETICS-CONTRACT.md`, diese State-Datei — PT15.4 Claim-/Regulatory-Evidence und
+  serieller Handoff ausschließlich auf PT15.5
+
+**PT15.3 — Panels und Musterbefunde:**
+
+- `src/lib/epigeneticsContext.ts`, `src/pages/EpigeneticsPage.tsx`,
+  `src/components/sections/EpigeneticsPanels.tsx`, `src/pages/MusterbefundPage.tsx` — validierter,
+  teilbarer `panel`-/`focus`-Kontext über die bestehenden Hub-/Report-/Contact-Routen
+- `src/lib/epigeneticsContext.test.ts`, `e2e/epigenetics-panels-context.spec.ts`,
+  `e2e/findability.spec.ts`, `scripts/check-internal-findability.ts` — URL-Serialisierung,
+  6×10-HTTP, Reload/Handoff, Fremdwert-, Lazy-Payload-, Axe-/Responsive- und Findability-Evidenz
+- `building-docs/EPIGENETICS-CONTRACT.md`, diese State-Datei — PT15.3 Matrix und serieller Handoff
+
+**PT15.2 — Vertiefungsseiten importieren und integrieren:**
+
+- `src/components/epigenetics/EpiSubpage.tsx`, `src/components/epigenetics/tokens.ts` — gemeinsame
+  Deep-Page-Shell an Registry-IDs gebunden, Pfad-Duplikate und falsche EN-Fallback-Semantik entfernt
+- `src/pages/Epigenetics{Basics,Evidence,Docs}Page.tsx` — Registry-Pfadprops entfernt,
+  Studienlage-Assetsprachhinweis ergänzt und PDF-Metadatenkontrast mit bestehendem Token gehärtet
+- `e2e/epigenetics-deep-pages.spec.ts` — 3×10 HTTP-/i18n-/SEO-/Sitemap-/Search-/Link-Matrix,
+  Unknown-Slug-404 sowie repräsentative Keyboard-/Overflow-/Axe-Gates
+- `building-docs/EPIGENETICS-CONTRACT.md`, diese State-Datei — PT15.2 Evidence und serieller Handoff
+
+**PT13.9 — Hormon-Tests:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges
+  Hormon-Tests-`detail`-Modell x10 mit Kontext-Hero, Einsatzkontexten, Auswahlfragen, TSH/AMH,
+  Messablauf, sicherer FAQ, CTA-/Disclaimer- und SEO-Copy
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,hormon-tests}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Hormon-Tests-Evidence,
+  `SD13-09` resolved und serieller Handoff ausschließlich auf PT13.10
+
+**PT13.8 — Stoffwechsel & Herz:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges
+  Stoffwechsel-/Herz-`detail`-Modell x10 mit Kontext-Hero, Einsatzkontexten, Auswahlfragen, drei
+  belegten Messwerten, Monitoring-Ablauf, sicherer FAQ, CTA-/Disclaimer- und SEO-Copy
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,stoffwechsel-herz}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Stoffwechsel-/Herz-Evidence,
+  `SD13-08` resolved und serieller Handoff ausschließlich auf PT13.9
+
+**PT13.7 — Infektion & Entzündung:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges
+  Infektion-/Entzündung-`detail`-Modell x10 mit Marker-/Kontext-Hero, Versorgungskontexten,
+  Auswahlfragen, vier belegten Markern, Messablauf, sicherer FAQ, CTA-/Disclaimer- und SEO-Copy
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,infektion-entzuendung}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA/Artikel, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Infektion-/Entzündung-Evidence,
+  `SD13-07` resolved und serieller Handoff ausschließlich auf PT13.8
+
+**PT13.6 — Präventions-Checks:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges
+  Präventions-Checks-`detail`-Modell x10 mit Informationsbasis-Hero, Einsatzkontexten, Auswahlfragen,
+  sechs belegten Messwerten, Check-Ablauf, sicherer FAQ, CTA-/Disclaimer- und SEO-Copy
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,praeventions-checks}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA/Artikel, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Präventions-Evidence,
+  `SD13-06` resolved und serieller Handoff ausschließlich auf PT13.7
+
+**PT13.5 — POC-Systemlösungen:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges POC-`detail`-Modell
+  x10 mit System-/Workflow-Hero, Einsatzkontexten, Auswahlfragen, vier Systembausteinen,
+  Einführungsablauf, sicherer FAQ, Crosslink-/CTA-/Disclaimer- und SEO-Copy
+- `src/data/services.tsx` — minimaler Registry-vermittelter IglooPro-Kontextlink und strukturierter
+  Hero-Title-Consumer am kanonischen POC-Service-Record; keine lokale Route Map oder Service-SSOT
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,poc-systemloesungen}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA/Artikel/Crosslink, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — POC Evidence, `SD13-05` resolved
+  und serieller Handoff ausschließlich auf PT13.6
+
+**PT13.4 — Longevity:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges Longevity-`detail`-
+  Modell x10 mit präventivem Hero, Verlaufs-Einordnung, Zielgruppen, Fragen, fünf bestehenden
+  Messwerten, Monitoring, sicherer FAQ, Crosslink-/CTA-/Disclaimer- und SEO-Copy
+- `src/types/models.ts`, `src/data/serviceDetail.ts`, `src/data/services.tsx` — generische
+  Registry-Crosslink-Unterstützung um die bereits kanonische Epigenetik-Route erweitert und am
+  Longevity-Service-Record projiziert; keine lokale Route Map oder neue Service-SSOT
+- `src/data/serviceDetail.test.ts`, `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,longevity}.spec.ts` — x10 Datenmodell,
+  HTTP/SSR/SEO/Schema/CTA/Artikel/Crosslink, Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Longevity Evidence, `SD13-04`
+  resolved und serieller Handoff ausschließlich auf PT13.5
+
+**PT13.3 — Beauty:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges Beauty-`detail`-
+  Modell x10 mit eigenständigem Hero, Einordnung, Zielgruppen, Fragen, vier bestehenden Messwerten,
+  Workflow, sicherer FAQ, Crosslink-/CTA-/Disclaimer- und SEO-Copy
+- `src/data/services.tsx` — minimaler Registry-vermittelter IglooPro-Kontextlink am kanonischen
+  Beauty-Service-Record; keine lokale Route Map oder neue Service-SSOT
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,beauty}.spec.ts` — x10 Datenmodell, HTTP/SSR/SEO/Schema/CTA/Crosslink,
+  Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Beauty Evidence, `SD13-03`
+  resolved und serieller Handoff ausschließlich auf PT13.4
+
+**PT13.2 — Dental:**
+
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — vollständiges Dental-`detail`-
+  Modell x10 mit eigenständigem Hero, Einordnung, Zielgruppen, Fragen, vier bestehenden Parametern,
+  Workflow, sicherer FAQ, Crosslink-/CTA-/Disclaimer- und SEO-Copy
+- `src/components/service-detail/useServiceDetailViewModel.tsx`, `src/data/serviceDetail.ts`,
+  `src/data/services.tsx`, `src/types/models.ts` — generische strukturierte Slot-Projektion,
+  Dental-RichContent-Unterdrückung und Registry-Auflösung für reale Article-/Implantology-/IglooPro-
+  Ziele ohne lokale Route Map oder Dental-Slug-Switch
+- `src/components/service-detail/ServiceDetailTemplate.test.tsx`,
+  `e2e/service-detail-{template,dental}.spec.ts` — x10 Datenmodell, HTTP/SSR/SEO/Schema/CTA/Crosslink,
+  Claim-, H1-, Focus- und Responsive-Evidenz
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, diese State-Datei — Dental Evidence, `SD13-02`
+  resolved und serieller Handoff ausschließlich auf PT13.3
+
+**PT13.1 — gemeinsames Service-Template:**
+
+- `src/data/serviceDetail.ts`, `src/data/serviceDetail.test.ts`, `src/data/services.tsx`,
+  `src/types/models.ts` — kanonische 9-Service-/Registry-Projektion, minimale Template-Metadaten und
+  reproduzierbarer 9/9-/GENERAL_SALES-Vertrag ohne zweite SSOT
+- `src/components/service-detail/**`, `src/pages/ServicePage.tsx`,
+  `src/components/sections/SubpageHero.tsx`, `src/components/sections/PageSidebar.tsx` — kleine Page-/
+  Hero-/Section-/Workflow-/Proof-/FAQ-/CTA-/404-Komponenten, typisiertes optionales View-Model,
+  dünne Slug-Composition und Registry-projizierte Sidebar-Ziele
+- `e2e/service-detail-template.spec.ts` — drei reale Varianten, x10 Fixture, FAQ/Schema, H1/
+  Breadcrumb/CTA, Canonical, Legacy-Link- und Responsive-Smokes
+- `building-docs/SERVICE-DETAIL-CONTRACT.md`, `building-docs/CONTEXT-INDEX.md`, diese State-Datei —
+  Template-/Daten-/Ownervertrag und serieller Handoff ausschließlich auf PT13.2
+
+**AP12-CLOSURE — unabhängiger Paket-Gate:**
+
+- `e2e/diagnostics-closure.spec.ts` — aktuelle x10-, 90-Service-, SEO-, Viewport-, CLS-, Axe-,
+  Keyboard-, History- und Locale-Closure-Matrix gegen den Production-SSR-Server
+- `src/components/ui/Breadcrumbs.tsx`, `src/components/sections/DiagnosticsHero.tsx` — kleine
+  Closure-eigene Kontrast-/Tokenkorrekturen am sichtbaren Diagnostics-Hero ohne neue Design- oder
+  Routinglogik
+- `building-docs/DIAGNOSTICS-HUB-CONTRACT.md`, `building-docs/state/AP-STATE.md` — 40/40 HUB-,
+  50/50 C12-, Risiko-/False-ready-/Production-Evidenz und State-Transition auf `COMPLETE`; keine
+  Publication und kein AP13-Start
+
+**PT12.5 — SEO & interne Links:**
+
+- `src/pages/ServicesOverviewPage.tsx`, `src/components/sections/DiagnosticsRelatedArticlesSection.tsx`,
+  `src/data/diagnosticsHub.ts` — x10 Hub-Metadaten/Social-Asset, localized Breadcrumb and eine
+  Registry-/Article-source-validierte Related-Knowledge-Projektion mit drei realen Publikationen
+- `public/locales/{de,en,pl,fr,it,es,pt,da,nl,cs}/services.json` — spezifische claim-safe Hub-SEO-,
+  Social-Alt- und Related-Knowledge-Copy in allen zehn Locales
+- `src/data/diagnosticsHub.test.tsx`, `e2e/diagnostics-seo-integration.spec.ts` — Source-/Registry-
+  Konsistenz, x10 SEO/Canonical/hreflang/Structured Data, Sitemap/Inlinks, Deep Links, Keyboard und
+  Responsive-Matrix
+- `building-docs/DIAGNOSTICS-HUB-CONTRACT.md`, `building-docs/state/AP-STATE.md` — PT12.5-Evidenz,
+  ehrliche AP23-Consent-Grenze und serieller Handoff ausschließlich auf AP12-CLOSURE
+
+**PT10.4 — HTTP-Status-Regression:**
+
+- `src/routing/routeRegistry.ts`, `src/routing/routeRegistry.test.ts` — sichere, aus den dynamischen
+  Families abgeleitete unbekannte 404-Testfälle als Teil derselben kanonischen Testmatrix
+- `e2e/url-smoke.spec.ts` — G2/G9: vollständige 43×10-200-Matrix, systematische statische/dynamische
+  und intentional 404, 404-SEO/Sitemap/Soft-404, alle Redirect-Quellen, Ein-Hop-Ziele und enger
+  Headervertrag
+- `package.json`, `.github/workflows/ci.yml` — kanonischer `check:http-status`-Befehl und reale
+  Ausführung nach Production Build im unabhängigen AP10-Routing-CI-Job
+- `building-docs/ROUTING-CONTRACT.md`, `building-docs/state/AP-STATE.md` — aktuelle G2/G9-/Matrix-/
+  CI-Evidenz und serieller Handoff ausschließlich auf AP10-CLOSURE
+
+**PT10.3 — Route Registry / Known Paths:**
+
+- `src/routing/routeRegistry.ts`, `src/routing/index.ts` — zentrale typisierte Registry,
+  dynamische Source-Adapter, konkrete Known-Path-/Sitemap-/Search-/Redirect-/Testmatrix-Ableitungen
+- `src/App.tsx`, `server.ts` — Registry-getriebene App-Routen, Known Paths und Redirect-Ausführung;
+  exhaustive Komponentenbindung erhält Lazy-/Shell-Architektur
+- `src/components/seo/sitemap.ts`, `sitemapGuard.ts`, `SEOHead.tsx`, `seoRouteSource.ts`,
+  `scripts/check-seo.ts` — Sitemap-/G3-/SEO-Registry-Integration ohne zweite Meta-Plattform
+- `src/hooks/useSearch.ts`, `scripts/check-search-index.ts` — Search-Pfade/Eligibility aus der
+  Registry; Search-Copy/Typ/Gewichtung bleiben eigene Metadaten
+- `scripts/check-route-registry.ts`, `scripts/check-nav-targets.mjs`, `package.json`,
+  `.github/workflows/ci.yml` — kanonischer G1 inklusive Navigation und reale CI-Aktivierung
+- `scripts/prerender.mjs` — obsolete Route-Liste entfernt; fail-fast
+  `LEGACY_NON_AUTHORITATIVE`/disabled
+- `src/routing/routeRegistry.test.ts`, `legacyRedirects.test.ts`, `e2e/url-smoke.spec.ts` —
+  Registry-Parität, dynamische Sources, Redirect Targets und Registry-generierte 200/301/404-Matrix
+- `building-docs/ROUTING-CONTRACT.md`, `building-docs/SEO-CONTRACT.md`,
+  `building-docs/state/AP-STATE.md` — Schema/Consumer/G1/CI/Mirror-Elimination, DG09-01 `RESOLVED` und
+  serieller Handoff ausschließlich auf PT10.4
+
 **PT10.2 — Alt-URL-Migration:**
 
 - `src/routing/legacyRedirects.ts` — kleine typisierte Redirect-Map aus Primäraliasen und realen
@@ -1775,6 +2909,23 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Jeweils: ID/Kurztitel · was blockiert ist · was zur Auflösung gebraucht wird. -->
 
+- **Keine offenen PT15.5-owned Blocker.** 29/29 Assets und 3/3 ZIPs sind vollständig inventarisiert,
+  Broken Links 0, Sprachdisclosure 10/10, Klassen 29× `FREE_PUBLIC` und PDF-Bodies 26/26 textuell
+  geprüft. Die echte Gate-/Delivery-Plattform bleibt AP19, Inquiry-Persistenz/CRM/Retry PT15.6/AP22
+  und die tiefe Report-Plattform AP16.
+
+- **Keine offenen PT13.7-owned Blocker.** `SD13-07` ist gelöst: Infektion & Entzündung konsumiert das
+  x10-`detail`-Modell und rendert die claim-riskanten Legacy-Sections/-FAQ nicht mehr. `SD13-01`
+  ordnet die verbleibende family-spezifische Content-Normalisierung seriell PT13.8–PT13.10 zu; keine
+  davon wurde vorgezogen.
+  Der lokale Node-18/jsdom-Startfehler ist als vorbestehender Toolchain-Befund reproduziert; der
+  Node-Runner-Unit-Test und Production-Browserpfad sind grün.
+
+- **Keine offenen PT12.5-Blocker.** Hub SEO, x10 Canonical/hreflang/sitemap, 9/9 Service-Deep-Links,
+  reale Related Articles, interne Inlinks, A11y/Performance und Visual QA sind verifiziert. Der
+  repository-weite, bereits in `TRACKING-CONTRACT.md` dokumentierte globale Pre-Consent-GTM-Pfad ist
+  keine neue AP12-Regression und bleibt offen bei AP23; PT12.5 fügt keinen Tracking-Consumer hinzu.
+
 - **Keine offenen PT10.2-Blocker.** Alle heute repository-bekannten Altpfade sind entschieden;
   reale Nachfolger antworten nach locale-/query-treuem Ein-Hop-301 mit 200, ersatzlose Quellen direkt
   404 ohne Home-Softmigration. `DEFERRED_MIGRATION_DISCOVERY` bleibt ownergebunden bei AP29 und ist kein
@@ -1971,11 +3122,41 @@ referenzielle Korrektur war nicht erforderlich.
 
 <!-- Nur Abweichungen/Ergänzungen zu CONTEXT-INDEX.md, plus konkrete Repo-Dateien, die der nächste Lauf braucht. -->
 
-- **Nächster Primärtask ist PT10.3 — Route Registry / Known Paths.** PT10.1 und PT10.2 sind `PASS`;
-  AP10 bleibt `IN_PROGRESS`. Verbindlich sind Redirect-/Statusregeln und die vollständige aktuelle
-  Map in `ROUTING-CONTRACT.md` §2.1–§2.2 sowie `src/routing/legacyRedirects.ts`. Externe, nur durch
-  Crawl/Search-Console/Backlinks auffindbare Quellen bleiben als `DEFERRED_MIGRATION_DISCOVERY` bei
-  AP29. PT10.3 wurde nicht vorgezogen; AP11 bleibt `NOT STARTED`.
+- **Nächstes Arbeitspaket ist AP19.** AP18 ist `COMPLETE`, AP18-CLOSURE und PT18.1–PT18.4 sind
+  `PASS`; AP19 bleibt bis zu seinem eigenen Start `NOT STARTED`. `EVENTS-CONTRACT.md` ist der
+  verbindliche AP18-Handoff: fünf aktuelle plus vier historische stabile IDs, x10-Key-Parität,
+  Date-only-/Europe-Berlin-/Clock-/Boundary-Vertrag, automatische deduplizierte Archivierung,
+  nicht-stales Highlight und x10 Event-SEO bleiben geschützt. Event Schema, Kalender und
+  eventbezogenes Outbound Tracking sind im aktuellen Datenbestand bewusst nicht erforderlich und
+  dürfen nicht durch AP19-Daten erfunden werden. AP23 bleibt Owner der globalen Tracking-Governance.
+
+- **Nächster Task ist `PT15.6 RERUN`.** Der formale PT15.6-Status bleibt bis zu diesem Rerun
+  `BLOCKED_DEPENDENCY`, aber `AP15-LEAD-FOUNDATION-UNBLOCK` ist PASS und die Foundation-Abhängigkeit
+  ist technisch gelöst. `EPIGENETICS-CONTRACT.md` §18 ist der verbindliche Recovery-Handoff. PT15.6
+  darf jetzt die dedizierte Journey auf `server/lead-foundation/` komponieren; es darf weder
+  `NO_PROVIDER_CONFIGURED` als Erfolg behandeln noch andere Journeys migrieren. AP15 bleibt
+  IN_PROGRESS, PT15.7 NOT RELEASED, AP16 NOT STARTED und AP22 NOT STARTED / Foundation teilweise
+  vorgezogen. Die 29 Resource-Assets bleiben `FREE_PUBLIC`.
+
+- **Nächstes Arbeitspaket ist AP15.** AP14 ist `COMPLETE`, PT14.1–PT14.6 und AP14 Closure sind
+  `PASS`; AP15 bleibt bis zu seinem eigenen Start `NOT STARTED`. Zwingend den aktuellen Stand im
+  `IGLOOPRO-CONTRACT.md` konsumieren: Hero/Proof, evidence-bounded Produktmerkmale,
+  Anfrage-/Prüfworkflow, Kompatibilitätsfragen, Registry-Related-Targets und die semantische x10
+  Claim-Tabelle sind geschützt. Der aktive Claim lautet exakt `CV < 2 %`, wird nicht in Genauigkeit
+  oder wissenschaftliche Validierung umgedeutet und erscheint nicht im Product JSON-LD. Das
+  Product-Schema nutzt allein den AP09-Helper, ist x10 locale-aware/self-canonical und lässt Brand,
+  Manufacturer, Commercial-/Rating-/Identifier-/QuantitativeValue-Felder mangels verifizierter
+  Produktwahrheit aus. Der Legacy-Flyer bleibt ownergebunden und produktiv entlinkt. Die Primary
+  Conversion nutzt x10 die bestehende Kontaktstrecke, die Secondary Conversion den realen
+  Homepage-ROI-Rechner; keine AP19-/AP22-/AP23-Gesamtplattform wurde vorgezogen. Fresh/Denied senden
+  keine Google-Provider-Requests, Granted bootstrapt genau einmal; IglooPro und Contact sind in der
+  finalen Closure ohne serious/critical Axe-Befunde.
+
+- **Historischer AP13→AP14-Handoff, durch PT14.1 konsumiert:** AP13 ist `COMPLETE`, PT13.1–PT13.10
+  und AP13 Closure sind `PASS`; AP14 ist inzwischen durch PT14.1 korrekt `IN_PROGRESS`. Die
+  AP13-Service-Templates, neun Families, Route-/SEO-/i18n-SSOT und ownergebundenen Grenzen bleiben
+  unverändert; AP15+ nicht vorziehen. AP12 Closure bleibt PASS. AP12-PUBLISH-PREVIEW wurde nicht
+  ausgeführt und ist keine implizite Publikationsbehauptung dieses Handoffs.
 
 - **Nächstes Arbeitspaket ist AP08.** AP07 ist `COMPLETE`, Closure `PASS (43/43)`; AP08 bleibt bis zu
   seinem eigenen Start `NOT STARTED`. PT07.1-Index, PT07.2-SearchModal, PT07.3-Findability sowie
@@ -2032,14 +3213,283 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
 
 ## Handoff
 
-- **AP10: `IN_PROGRESS` · PT10.1–PT10.2 `PASS` · PT10.3–PT10.4 `NOT STARTED`.** Bekannte
+- **AP18-CLOSURE: `PASS` (2026-09-01).** Unabhängige Reverification bestätigt EVT 40/40 und
+  C18 50/50: 5 aktuelle + 4 historische stabile IDs, x10 i18n-Parität, harte Negativvalidierung,
+  sichere Date-only-/Europe-Berlin-Semantik, inklusive Multi-Day-Endtage, automatische ID-basierte
+  Archivdeduplizierung und ein nicht-stales reales Highlight. Fixed-clock Production SSR/Client
+  ist 10/10, Unit/Validation/Schema/Consent 55/55 und der breite production-like Browserlauf 23/23;
+  G1/G3/G4, Search/Sitemap, Build, A11y/Responsive/Performance und Consent-Network-Gate sind PASS.
+  Event Schema, Calendar und eventbezogenes Outbound Tracking bleiben für die aktuelle belegte
+  Daten-/Aktionslage `NOT_REQUIRED`; es wurden keine Felder oder Aktionen erfunden. AP18 ist
+  COMPLETE; AP19 ist das nächste Arbeitspaket und bleibt NOT STARTED.
+
+- **AP15-CLOSURE: `PASS` (2026-09-01).** Unabhängige Reverification bestätigt EPI 40/40 und
+  C15 50/50, die x10 Kernmatrix 100/100, G1/G3/G4/Search/Sitemap, Claim-/Resource-Hard-Gates,
+  reale SQLite-Persistenz vor Handoff, Retry/Audit/Idempotenz, zentrales CRM-Routing sowie den
+  nicht gemockten Produktions-Golden-Path. Foundation 13/13, Inquiry 12/12, fokussierte Units 15/15,
+  finale AP15-Browsersuite 34/34 und separater Fresh/Denied/Granted-Consent-Networklauf 3/3 sind
+  PASS; Axe serious/critical 0, Visual/Overflow und Production Client/SSR Build PASS. Ein im ersten
+  Closure-Lauf sichtbarer SSR-Hydrationstest-Race wurde durch Warten auf den settled Network-State
+  im Test deterministisch geschlossen; Produktnavigation und Gates blieben unverändert. AP15 ist
+  COMPLETE; AP16 ist das nächste Arbeitspaket und bleibt NOT STARTED. AP22 bleibt NOT STARTED mit
+  der früh innerhalb AP15 gelieferten Shared Foundation; seine volle Plattformarbeit bleibt offen.
+
+- **PT15.7: `PASS` (2026-09-01).** Die finalen AP15-Primärtasks sind als zusammenhängendes
+  Produktionssystem verifiziert: explizite Hub-/Deep-/Report-Matrix 100/100 für HTTP, Canonical,
+  hreflang und Sitemap; reale Search-/Findability-Ziele; Claim-/Resource-Gates ohne Hard Finding;
+  x10 Inquiry sowie ein nicht gemockter Full-Stack-Golden-Path mit SQLite-Persistenz, Outbox, Audit,
+  zentralem CRM-Routing und genau einem HTTP-Handoff. Die frische Produktions-Browsersuite ist
+  34/34 PASS, Typecheck/Lint/Prettier und Production Build sind PASS, Axe serious/critical
+  repräsentativ 0 und fünf Responsive-/Visual-Smokes sind PASS. Die optionale repo-weite
+  Sitemap-Browserprobe reproduziert ausschließlich die bekannte `/de/articles` Cold-SSR-Baseline
+  `RD-11` (AP25/AP27); AP15 ist nicht verschlechtert. AP15 bleibt IN_PROGRESS, AP15-CLOSURE ist der
+  nächste Task; AP16/AP22 bleiben NOT STARTED.
+
+- **PT15.6 RERUN: `PASS` (2026-09-01).** Die eigene x10 Epigenetics Inquiry bindet genau
+  `epigenetics_inquiry` an die vorhandene Shared Lead Foundation. Der dedizierte Endpoint validiert
+  serverseitig, persistiert Identität, Locale/Source/Campaign/Panel/Focus/Origin Route und versionierte
+  Processing-Consent-Evidence vor dem durable CRM-Outbox-Handoff und nutzt serverseitige Idempotenz.
+  Transiente Fehler bleiben retryfähig, unbekannte Providerergebnisse terminal; ohne konfigurierten
+  CRM-Provider bleibt `NO_PROVIDER_CONFIGURED` sichtbar ein Nicht-Erfolg. SendGrid ist nicht Source
+  of Truth, Analytics-Consent ist keine Business-Voraussetzung. Journey-/HTTP-/Context-Tests 12/12,
+  x10 Browser-/Network-/Axe-Fast-Delta 2/2, Typecheck/Lint/Prettier PASS. AP15 bleibt IN_PROGRESS;
+  PT15.7 ist RELEASED, AP16/AP22 bleiben NOT STARTED.
+
+- **AP15-LEAD-FOUNDATION-UNBLOCK: `PASS` (2026-09-01).** Die minimal notwendige gemeinsame Foundation
+  ist früh innerhalb AP15 implementiert: persistenter SQLite-Lead-Store mit Compose-Volume,
+  Journey-/Statusmodell, transaktionales persist-before-handoff, durable Outbox mit Retry und
+  terminalem Zustand, Unique-Idempotenz, Audit-/Attempt-State, Consent Evidence, strukturierter
+  Journey-Kontext sowie CRM-Adaptergrenze und zentrales Routing. Provider-unconfigured und
+  Provider-result-unknown bleiben explizite Nicht-Erfolgszustände; Logs enthalten keine Payload-/PII-
+  Felder. 13/13 Foundation-Tests, Migration/Compose, Typecheck/Lint und Node-20-Backendbuild sind PASS.
+  Keine Epigenetics Inquiry UI, kein Journey-Endpunkt und keine Cross-Journey-Migration wurden
+  gebaut. AP22 bleibt NOT STARTED und späterer Vollowner; PT15.6 ist RELEASED FOR RERUN, PT15.7 bleibt
+  NOT RELEASED, AP16 bleibt NOT STARTED.
+
+- **PT15.6: `BLOCKED_DEPENDENCY` (2026-09-01), Owner AP22 Lead Platform.** Read-only Capability-
+  Discovery gegen Runtime, Dependencies, Daten-/API-/Delivery-/CRM-Verträge und Tests bestätigt die
+  zwingenden Lücken: Persistenz, persist-before-handoff, Queue/Outbox/Retry/Dead-Letter,
+  Audit-/Statusmodell, serverseitige Idempotenz und CRM-Adapter/Routing existieren nicht. Der heutige
+  Contact-Endpunkt sendet synchron über SendGrid und verliert den Vorgang bei Providerfehler; Source,
+  Locale und begrenzter Journey-Kontext werden nur in Mailtext übernommen, nicht dauerhaft
+  gespeichert. Kein Produktivcode und keine Epigenetics-Sonderplattform wurden hinzugefügt. AP15
+  bleibt IN_PROGRESS; PT15.7 und AP15 Closure sind nicht freigegeben; AP16 bleibt NOT STARTED.
+
+- **PT15.5: `PASS` (2026-09-01).** Der reproduzierbare Resource-Guard bestätigt 29/29 physische und
+  sichtbare Assets, 26 PDFs, drei ZIPs, 19 DE-/10 EN-Dateien, 10/10 ehrliche Locale-Disclosure,
+  0 Broken Links und exakt 29 technisch wahre `FREE_PUBLIC`-Klassen. Der erweiterte ReportLab-Sweep
+  prüft nun 26/26 PDF-Bodies ohne harte Claim-Findings. Typecheck/Lint/Prettier, G1/G3/G4/Search/
+  Assets, Production Client/SSR Build, 5/5 task-eigene und 12/12 angrenzende No-Retry-Browserfälle
+  sind PASS; DE/EN/CS Axe serious/critical, eager Dokumentrequests und Pre-Consent-Providerrequests
+  sind 0. AP19-Kandidaten sind nur als zukünftiger Handoff dokumentiert, keine Gate-/Delivery-/CRM-
+  Plattform wurde gebaut. Nächster Task ausschließlich PT15.6 mit AP22 Dependency Gate; AP16 bleibt
+  NOT STARTED.
+
+- **PT15.4: `PASS` (2026-09-01).** Der reproduzierbare Claim-/Regulatory-Guard bestätigt 40/40
+  x10 Pflichttexte, vier sichtbare Rechtshinweise in 60/60 Reports, reale Quellenanker und 29/29
+  Downloadziele; unsubstantiated medical/scientific, Guarantee-, CE/IVDR-Misclassification-,
+  unapproved-partner-, numeric-price-, turnaround- und Schema-Amplification-Findings sind 0. Die
+  Production-SSR-/Axe-Suite ist 3/3 ohne Retry, Typecheck/Lint/Prettier, 25/25 Unit-/Schema-Tests und
+  G1/G3/G4/Search sind PASS. Acht PDF-Bodies bleiben ohne False-Ready-Behauptung im PT15.5 Asset-Gate.
+  Nächster Task ausschließlich PT15.5; AP16 bleibt NOT STARTED.
+
+- **PT15.3: `PASS` (2026-09-01).** Sechs x10 differenzierte Panelkarten führen mit kanonischem
+  Panel-Slug auf sechs reale Reports; die 6×10 Zielmatrix liefert 60/60 HTTP 200. `panel` und
+  `focus` sind allowlist-validiert, direkte URLs rekonstruieren Auswahl nach Reload und erhalten den
+  Kontext über Report-Rückwege und die bestehende Contact-Inquiry, ohne Canonical/SEO oder Registry
+  zu duplizieren. Typecheck/Lint/Prettier, 20/20 fokussierte Tests, G1/G3/G4/Search/Findability/Nav,
+  Production Client/SSR Build, 4/4 task-eigene und 7/7 angrenzende No-Retry-Browserfälle sind PASS;
+  Mobile Overflow <= 1 px, Axe serious/critical 0, eager Report-Chunks 0. Nächster Task ausschließlich
+  PT15.4; AP16 bleibt NOT STARTED.
+
+- **PT15.2: `PASS` (2026-09-01).** Drei Registry-Familien Grundlagen, Studienlage und Unterlagen
+  liefern 30/30 locale-aware HTTP-200-Seiten mit echter x10 Webcopy, Self-Canonical, hreflang x10 +
+  x-default de, Sitemap, Search, OG/Twitter und Breadcrumb JSON-LD. Die selektive A1–A4-
+  Reimplementierung bleibt ohne Legacy-Shell/Wholesale-Merge; `EpiSubpage` konsumiert die AP10-
+  Registry, reale Assetsprachen sind sichtbar und Unknown-Slugs echte 404. Typecheck/Lint/Prettier,
+  G1/G3/G4/Search/Findability/Assets, 17/17 fokussierte Tests, Production Client/SSR Build und 5/5
+  No-Retry-Browserfälle sind PASS. Nächster Task ausschließlich PT15.3; AP16 bleibt NOT STARTED.
+
+- **AP13: `COMPLETE` · AP13-CLOSURE: `PASS` (C13 50/50 · SERV 40/40, 2026-08-31).** Die unabhängige
+  Closure bestätigt neun kanonische, differenzierte Service Families auf einem gemeinsamen
+  Template, 90/90 direkte locale-aware HTTP-200-Routen, echte Unknown-Slug-404, x10 Content,
+  Self-Canonical/hreflang/Sitemap/OG/Schema, Hub/Search 9/9, GENERAL_SALES, Claim-/Parameter-Findings
+  0 und keine AP14+-Vorziehung. Frische Gates: Typecheck, scoped Lint/Prettier, Unit/Component/Server
+  356/356, G1/G3/G4/Search/Findability, Production Client/SSR Build und serielle No-Retry-
+  Playwright-Suite 249/249. Axe über alle neun Families sowie Visual QA DE/EN/PL/FR/CS bei
+  360/768/1024/1440/1920 px sind PASS. Nächstes Arbeitspaket AP14; AP14 bleibt `NOT STARTED`.
+
+- **PT13.10: `PASS` (2026-08-31).** Kompatibilität & Integration rendert in allen zehn Locales aus
+  dem gemeinsamen strukturierten Template: eigenständiger Anforderungs-/Verifikations-Hero, drei
+  professionelle Integrationskontexte, drei Auswahlfragen, vier technische/organisatorische
+  Prüfthemen, drei Workflow-Schritte und drei sichtbare FAQ mit identischem FAQPage-Schema. Proof und
+  unbelegte Crosslinks sind ausgelassen; ein realer Registry-Artikel ist integriert. Alte universelle
+  Kompatibilitäts-, automatische Schnittstellen-/Transfer-, Protokoll-, Volumen-, Setup-Zeit-,
+  Security-, SLA-, Performance-, Zertifizierungs- und Garantieclaims werden nicht gerendert.
+  G1/G4/G3/Search/Findability, Node-22-Typecheck, scoped Lint/Prettier, vollständige Tests 356/356,
+  Production Client/SSR Build, fokussierte Browsermatrix 24/24 und finale serielle No-Retry-
+  Integrationsmatrix 99/99 mit 90/90 kanonischen URLs sowie family-spezifische Browsermatrix 126/126
+  sind PASS. Nächster Task ausschließlich AP13-CLOSURE; AP14 bleibt `NOT STARTED`.
+
+- **PT13.9: `PASS` (2026-08-31).** Hormon-Tests rendert in allen zehn Locales aus dem gemeinsamen
+  strukturierten Template: eigenständiger Hormon-Kontext-Hero, drei professionelle Einsatzkontexte,
+  drei Auswahlfragen, die bereits kanonisch benannten Parameter TSH/AMH, drei Workflow-Schritte und
+  drei sichtbare FAQ mit identischem FAQPage-Schema. Proof, Related Content und unbelegte Crosslinks
+  sind bewusst ausgelassen. Alte Cortisol-/Testosteron-/Progesteron-/FSH-/fT3-/fT4-, Diagnose-,
+  Therapie-, Medikations-, Dosierungs-, Fertilitäts-, PCOS-, Geschwindigkeits-, Genauigkeits-,
+  Laborvergleichs-, IVDR- und Garantieclaims werden nicht gerendert. G1/G4/G3/Search/Findability,
+  Node-22-Typecheck, scoped Lint/Prettier, gezielte Tests 29/29 und finale Production-Browsermatrix
+  24/24 sind PASS. Nächster Task ausschließlich PT13.10; AP14 bleibt `NOT STARTED`.
+
+- **PT13.8: `PASS` (2026-08-31).** Stoffwechsel & Herz rendert in allen zehn Locales aus dem
+  gemeinsamen strukturierten Template: eigenständiger Stoffwechsel-/Herz-Kontext-Hero, drei
+  professionelle Einsatzkontexte, drei Auswahlfragen, drei bereits benannte Messwerte, drei
+  Workflow-Schritte und drei sichtbare FAQ mit identischem FAQPage-Schema. Proof, Related Content
+  und unbelegte Crosslinks sind bewusst ausgelassen. Alte Referenzbereichs-, Akut-Ausschluss-,
+  Troponin-/NT-proBNP-, Prognose-, Therapie-, Outcome-, Geschwindigkeits-, Genauigkeits-,
+  Laborvergleichs-, Multiplex-, Abrechnungs- und Umsatzclaims werden nicht gerendert. G1/G4/G3/
+  Search/Findability, Node-22-Typecheck, scoped Lint/Prettier, gezielte Tests 28/28 und finale
+  Production-Browsermatrix 24/24 sind PASS. Nächster Task ausschließlich PT13.9; AP14 bleibt
+  `NOT STARTED`.
+
+- **PT13.7: `PASS` (2026-08-31).** Infektion & Entzündung rendert in allen zehn Locales aus dem
+  gemeinsamen strukturierten Template: eigenständiger Marker-/Kontext-Hero, drei professionelle
+  Versorgungskontexte, drei Auswahlfragen, vier bereits benannte Marker, drei Workflow-Schritte und
+  drei sichtbare FAQ mit identischem FAQPage-Schema. Ein real veröffentlichter Artikel wird aus der
+  kanonischen Zuordnung projiziert; Proof und unbelegte Crosslinks sind bewusst ausgelassen. Alte
+  Schwellenwert-, viral/bakteriell-, Sepsis-, Therapie-, Antibiotika-, Echtzeit-, Geschwindigkeits-,
+  Laborvergleichs-, Integrations-, Setup- und Supportclaims werden nicht gerendert. G1/G4/G3/Search/
+  Findability, Node-22-Typecheck, scoped Lint/Prettier, gezielte Tests 27/27 und finale
+  Production-Browsermatrix 24/24 sind PASS. Nächster Task ausschließlich PT13.8; AP14 bleibt
+  `NOT STARTED`.
+
+- **PT13.6: `PASS` (2026-08-31).** Präventions-Checks rendert in allen zehn Locales aus dem
+  gemeinsamen strukturierten Template: eigenständiger diagnostischer Informationsbasis-Hero, drei
+  professionelle Einsatzkontexte, drei Auswahlfragen, sechs bereits belegte Messwerte, drei
+  Check-Schritte und drei sichtbare FAQ mit identischem FAQPage-Schema. Zwei real veröffentlichte
+  Artikel werden aus der kanonischen Zuordnung projiziert; Proof, erfundene Check-Pakete und
+  unbelegte Crosslinks sind bewusst ausgelassen. Alte Diagnose-, Ausschluss-, Früherkennungs-,
+  Präventions-, Effizienz-, Umsatz-, Abrechnungs-, Geschwindigkeits- und Genauigkeitsclaims werden
+  nicht gerendert. G1/G4/G3/Search/Findability, Typecheck, scoped Lint/Prettier, Node-22-Tests 18/18
+  und finale Production-Browsermatrix 24/24 sind PASS. Nächster Task ausschließlich PT13.7; AP14
+  bleibt `NOT STARTED`.
+
+- **PT13.5: `PASS` (2026-08-31).** POC-Systemlösungen rendert in allen zehn Locales aus dem
+  gemeinsamen strukturierten Template: eigenständiger System-/Workflow-Hero, drei professionelle
+  Einsatzkontexte, drei Auswahlfragen, vier nicht-medizinische Systembausteine, drei
+  Einführungs-Schritte und drei sichtbare FAQ mit identischem FAQPage-Schema. Drei real veröffentlichte
+  Artikel werden aus der kanonischen Zuordnung projiziert; der IglooPro-Crosslink wird über die
+  Registry auf die eigenständige Produktseite aufgelöst. AP14-Produktspezifikationen und AP22-Runtime
+  wurden nicht dupliziert. Alte Turnkey-, nahtlose/automatische Integrations-, feste Setup-Zeit-,
+  SLA-, Verfügbarkeits-, Geschwindigkeits-, Zertifizierungs- und Garantieclaims werden nicht mehr
+  gerendert. G1/G4/G3/Search/Findability, Typecheck, scoped Lint/Prettier, Node-22-Tests 17/17 und
+  finale Production-Browsermatrix 24/24 sind PASS. Nächster Task ausschließlich PT13.6; AP14 bleibt
+  `NOT STARTED`.
+
+- **PT13.4: `PASS` (2026-08-31).** Longevity rendert in allen zehn Locales aus dem gemeinsamen
+  strukturierten Template: eigenständiger präventiver Hero, sichere Verlaufs-/Zielgruppen-/
+  Fragestellungs-Copy, fünf bereits belegte Messwerte, drei Monitoring-Schritte und drei sichtbare FAQ
+  mit identischem FAQPage-Schema. Der bestehende Artikel ist real und der Epigenetik-Crosslink wird
+  über die Registry auf die eigenständige Säule aufgelöst; AP15-Fachcontent, Musterbefund und Inquiry
+  wurden nicht dupliziert. Alte Lebensverlängerungs-, Outcome-, Risiko-, Interventionswirkungs-,
+  Abrechnungs- und Geschwindigkeitsclaims werden nicht mehr gerendert. G1/G4/G3/Search/Findability,
+  Typecheck, scoped Lint/Prettier, Node-22-Tests 16/16 und finale Production-Browsermatrix 24/24 sind
+  PASS. Nächster Task ausschließlich PT13.5; AP14 bleibt `NOT STARTED`.
+
+- **PT13.3: `PASS` (2026-08-31).** Beauty rendert in allen zehn Locales aus dem gemeinsamen
+  strukturierten Template: eigenständiger professioneller Hero, sichere Problem-/Zielgruppen-/
+  Fragestellungs-Copy, vier bereits belegte Messwerte, drei Workflow-Schritte und drei sichtbare FAQ
+  mit identischem FAQPage-Schema. Der einzige Kontextlink ist Registry-resolviert auf IglooPro;
+  Produktdetails, Proof und Related Content wurden nicht erfunden oder vorgezogen. Alte Ergebnis-,
+  Anti-Aging-, Abrechnungs-, Geschwindigkeits- und Zahlungsbereitschaftsclaims werden nicht mehr
+  gerendert. G1/G4/G3/Search/Findability, Typecheck, scoped Lint/Prettier, Node-22-Tests 15/15 und
+  finale Production-Browsermatrix 24/24 sind PASS. Nächster Task ausschließlich PT13.4; AP14 bleibt
+  `NOT STARTED`.
+
+- **PT13.2: `PASS` (2026-08-31).** Dental rendert in allen zehn Locales aus dem gemeinsamen
+  strukturierten Template: eigenständiger Hero, sichere Problem-/Zielgruppen-/Fragestellungs-Copy,
+  vier bereits belegte Parameterlabels, drei Workflow-Schritte, drei sichtbare FAQ mit identischem
+  FAQPage-Schema, reale veröffentlichte Artikel sowie Registry-resolvierte Crosslinks auf
+  Implantologie und IglooPro. Der lange Legacy-Rich-Content wird für Dental nicht mehr ausgegeben;
+  Proof sowie Umsatz-/Outcome-/Garantieaussagen wurden nicht übernommen. G1/G4/G3/Search/
+  Findability, Typecheck, scoped Lint/Prettier, Node-22-Tests 16/16 und finale Production-Browsermatrix
+  24/24 sind PASS. Nächster Task ausschließlich PT13.3; AP14 bleibt `NOT STARTED`.
+
+- **PT13.1: `PASS` (2026-08-31).** `ServicePage` ist ein dünner Resolver auf die neun Records aus
+  `services.tsx` und die Registry-Familie `service-detail`. Das gemeinsame Template unterstützt
+  Breadcrumb, einen H1, Problem/Nutzen, Zielgruppen, Fragestellungen, optionale Marker, geordneten
+  Workflow, optionalen Proof/FAQ, reale Related/Crosslinks, Disclaimer und Registry-backed
+  `GENERAL_SALES`; undefinierte Slots bleiben leer. G1/G4/Search/Findability, Typecheck, scoped
+  Lint/Prettier, Node-22 Unit/Component/SEO/Registry 28/28, Production Build und gezielte
+  Browsermatrix sind PASS. Dental bleibt bis
+  PT13.2 ausdrücklich im bestehenden x10 Legacy-Rich-Content-Slot; keine medizinische Ersatzcopy,
+  keine PT13.2+-Fachseite und keine AP14-Arbeit wurde erzeugt. Nächster Task ausschließlich PT13.2.
+
+- **AP11: `COMPLETE` · PT11.1–PT11.6 `PASS` · AP11-CLOSURE `PASS (50/50, 2026-08-28)`.** Hero, ROI-Kontext und
+  Final CTA bilden genau drei x10-`GENERAL_SALES`-Einstiege. Alle führen locale-aware auf das reale
+  Kontaktformular und tragen `source=homepage`, `journey=general_sales` sowie die feste Section
+  deterministisch bis in den allowlisted bestehenden Mail-Payload; direkte Analytics-/Marketing-
+  Calls 0. Der reale nutzereingabe-basierte ROI-Rechner bleibt unverbindlich und consent-gated; drei
+  reale Article-Teaser und der Registry-validierte Article-Hub bilden den Knowledge-Einstieg.
+  Response-/Delivery-Garantien wurden aus dem Final CTA entfernt. `DG11-01` ist
+  `READY_FOR_OWNER` für AP19; AP22-/AP23-Plattformarbeit wurde nicht vorgezogen. Unit/Component/Server
+  19/19, Typecheck/Lint/Prettier, Production Build und Browsermatrix 11/11 PASS. PT11.6 ergänzt vier
+  sichtbare claim-sichere FAQ je Locale mit exakter AP09-Schema-Parität, locale-aware Homepage-Meta,
+  Self-Canonical/hreflang x10/`x-default=de`, OG/Twitter-Parität, genau ein H1, page-level a11y/
+  performance und durch Closure erweiterte visuelle Prüfung über sechs Viewports/DE+PL. G4/G3,
+  Unit 39/39 und die breite
+  AP11/SEO-Playwright-Matrix 79/79 sind PASS. Die unabhängige Closure bestätigt zusätzlich Full Unit
+  319/319, G1/G3/G4/Search/Findability/Assets, Production Build, No-Retry-Browsermatrix 144/144,
+  x10-SSR 200/H1/Self-Canonical 10/10, Homepage-main Axe serious/critical 0 und Visual QA 6/6.
+  Claim Register `HCL-001`–`HCL-014` ist aktuell; `DG11-01` bleibt AP19-ownergebunden und AP12 bleibt
+  `NOT STARTED`.
+
+- **PT11.3 Handoff (historisch, durch PT11.4 fortgeschrieben): `PASS` (2026-08-28).** Direkt nach
+  Trust/Proof stehen Diagnostik, IglooPro und Epigenetik als drei visuell gleichgewichtete, semantisch
+  eigenständige Karten. Alle drei Ziele sowie Dental, Beauty und Longevity werden aus der zentralen
+  Registry bzw. deren realer `services.tsx`-Quelle abgeleitet und antworten in allen zehn Locales 200;
+  Broken Links und Homepage-`/services*`-Ziele sind 0. Die drei priorisierten Diagnostics-Einstiege
+  zeigen nur Titel, bestehende Biomarkerzeile und CTA; neun Services, IglooPro-Detailcontent und
+  Epigenetics-Fachjourney wurden nicht dupliziert. Die frühere ungleichgewichtete Kombination aus
+  IglooPro-Performance-Setup, Specialty-Widget und großem Epigenetics-Teaser wird nicht mehr gerendert.
+  Unit 4/4, G4 und Production-Browsermatrix 11/11 inklusive x10, 200-Zielen, Fokus und Mobile-Overflow
+  PASS; Desktop/Mobile visuell geprüft. Claim Register `HCL-001`–`HCL-009` und Deep-Link-Matrix sind
+  aktuell. Keine PT11.4+, AP12- oder spätere Owner-Arbeit wurde vorgezogen.
+
+- **PT11.2 Handoff (historisch, durch PT11.3 fortgeschrieben): `PASS` (2026-08-28).** Die Homepage-TrustBar
+  zeigt x10 vier source-gebundene Produktsignale mit Claim IDs `HCL-002`–`HCL-005`; der frühere
+  globale Nobel-Biocare-Partnerclaim, die quantitative LFA-Behauptung und Logos werden dort nicht
+  ausgegeben. Proof zeigt genau die bereits produktive namentliche Bastian-Wessing-/MVZ-Referenz mit
+  realem 300×300-WebP und nur dem vorhandenen Schulungs-/Support-Satz (`HCL-006`). Vier weitere
+  Quelldatensätze bleiben mangels gleich starker Freigabeevidenz aus dem Homepage-Output; Sterne,
+  Rating/Review-Zahlen, Carousel/Autoplay und Proof-CTA sind 0. Unit 3/3, G4 und Production-
+  Browsermatrix 11/11 inklusive x10, Semantik und Mobile-Overflow PASS. Claim Register und
+  Content-Matrix waren damit aktuell. Keine damalige spätere Owner-Arbeit wurde vorgezogen.
+
+- **PT11.1 Handoff (historisch, durch PT11.2 fortgeschrieben): `PASS` (2026-08-28).** Der Hero liefert SSR-first in
+  allen zehn Locales eine konkrete PolarisDX-B2B-Positionierung, einen dominanten `GENERAL_SALES`
+  Link zum realen locale-aware Kontaktformular (`Angebot anfragen` in DE) und einen getrennten
+  Diagnostics-Discovery-Link. Der frühere Vierfach-Slider, seine Autoplay-Logik und unbelegten
+  Hero-Stat-/Availability-Claims sind entfernt. Ein einziges vorhandenes 18,512-Byte-IglooPro-WebP
+  ist dimensioniert, eager/high geladen und exakt dasselbe Preload-Medium. Unit 5/5 und Production-
+  Browsermatrix 11/11 inklusive SSR/x10, Mobile-Reihenfolge, Fokus, Bildload und Overflow PASS.
+  `HOMEPAGE-CONTRACT.md` ist initial und im Context Index registriert. Keine damalige spätere
+  Owner-Runtime wurde vorgezogen; AP12 blieb `NOT STARTED`.
+
+- **AP10: `COMPLETE` · PT10.1–PT10.4 `PASS` · AP10-CLOSURE `PASS (50/50, 2026-08-28)`.** Bekannte
   unpräfixierte Seiten, `/services*`, Terms/S3-Aliase, sechs Article-ID-Wechsel und sechs alte
   Service-Unterstrich-Slugs besitzen echte locale-aware HTTP 301 in genau einem Hop mit Query-Erhalt
   und realem 200-Ziel. Alle aktuell repository-bekannten Altpfade tragen genau eine der vier
   PT10.2-Entscheidungen; ersatzlose Artikel/Backlog-Pfade liefern direkt 404 ohne Home-Softmigration.
   Befund-Fragmente bleiben realistisch clientseitig kompatibel; externe Discovery gehört AP29.
-  Redirect-Loops und unnötige Chains: 0. `ROUTING-CONTRACT.md` §2.1–§2.2 ist aktuell; Registry und
-  DG09-01 bleiben PT10.3. **Next task: PT10.3. AP11 bleibt NOT STARTED.**
+  Redirect-Loops und unnötige Chains: 0. Die zentrale typisierte Registry speist App, Known Paths,
+  Sitemap, Search, SEOHead-Indexability, Redirect-Targets, Navigation-Validierung und Testmatrix;
+  G1 PASS / CI ACTIVE, stale Mirrors 0, DG09-01 `RESOLVED`. Die Production-SSR-Matrix bestätigt
+  430/430 kanonische x10-Routen mit 200, alle Migrationen mit 301 sowie unbekannte statische und
+  dynamische Pfade mit 404; Soft-404/Loops/Chains 0, 404 SEO korrekt. G2/G9 PASS / CI ACTIVE;
+  `ROUTING-CONTRACT.md` §2.1–§2.5 ist aktuell. `ROUTE-01`–`ROUTE-40` sind 40/40 PASS; alle 12 Risiken
+  sind mitigiert oder AP29-ownergebunden; offene AP10-Blocker 0. **Next work package: AP11. AP11
+  bleibt NOT STARTED.**
 - **AP09: `COMPLETE` · AP09 Closure: `PASS (50/50, 2026-08-28)` · PT09.1–PT09.5 `PASS`.** SEOHead
   ist konsolidiert;
   Canonical Host

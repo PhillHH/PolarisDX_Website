@@ -18,14 +18,11 @@ import pt from '../../content/befunde/metabolic-health.pt.json'
 import da from '../../content/befunde/metabolic-health.da.json'
 import nl from '../../content/befunde/metabolic-health.nl.json'
 import cs from '../../content/befunde/metabolic-health.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const MetabolicHealth = () => (
-  <MusterbefundPage
-    slug="metabolic-health"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
-)
+const befunde = defineBefundFamily('metabolic-health', { de, en, pl, fr, it, es, pt, da, nl, cs })
+
+const MetabolicHealth = () => <MusterbefundPage slug="metabolic-health" befunde={befunde} />
 
 export default MetabolicHealth

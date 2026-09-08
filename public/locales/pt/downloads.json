@@ -2,18 +2,21 @@
   "title": "Downloads",
   "subtitle": "Recursos",
   "home": "Início",
-  "techBrochures": "Brochuras técnicas",
-  "infoMaterials": "Materiais informativos",
   "discoverTitle": "Downloads e recursos",
   "downloadBtn": "Baixar",
   "link_epigenetics": "Epigenética e genética",
   "size": "Tamanho",
   "format": "Formato",
-  "introText": "Folhetos de produto e materiais informativos sobre o sistema IglooPro e o spray de Vitamina D3+K2 – gratuitamente em PDF e sem registo. Fichas técnicas e certificados são enviados mediante pedido.",
+  "introText": "Folhas informativas, relatórios de exemplo, guias e folhetos de produto – gratuitos em PDF ou ZIP, sem registo. O idioma é indicado em cada documento.",
   "hero_cta": "Pedir orçamento",
   "chip_free": "Gratuito e sem registo",
-  "chip_pdf": "Formato PDF",
+  "chip_pdf": "PDF e ZIP",
   "chip_updated": "Disponível de imediato",
+  "vc_groups_label": "Categorias",
+  "languageNotice": "Este documento não está disponível no seu idioma.",
+  "groups": {"infoSheets": "Folhas informativas", "sampleReports": "Relatórios de exemplo", "guides": "Guias", "productFlyers": "Folhetos de produto"},
+  "access": {"free": "Acesso livre", "gated": "Após registo"},
+  "gate": {"title": "Solicitar o documento", "intro": "{{resource}} é disponibilizado através de uma ligação de transferência protegida.", "name": "Nome", "email": "E-mail", "organization": "Instituição", "processingConsent": "Autorizo o tratamento dos meus dados para dar resposta a este pedido.", "marketingConsent": "Pretendo também receber informações profissionais por e-mail. (opcional)", "submit": "Solicitar a transferência", "submitting": "A enviar …", "close": "Cancelar", "successTitle": "A sua transferência está pronta", "successText": "A ligação é pessoal e tem validade limitada. Não a partilhe.", "downloadCta": "Transferir agora", "expiryNote": "Válida até {{date}}.", "errorGeneric": "Não foi possível preparar a transferência. Tente novamente mais tarde.", "errorValidation": "Verifique os campos assinalados.", "errorConsent": "Sem consentimento para o tratamento não podemos disponibilizar o documento."},
   "vc_docs_label": "Documentos",
   "vc_format_label": "Formato",
   "vc_free_value": "Gratuito",
@@ -31,7 +34,7 @@
     "vitd3En": { "title": "Folheto do spray Vitamin D3+K2", "description": "Folheto de produto em inglês com utilização e características." }
   },
   "seo": {
-    "title": "Transferências: folhetos IglooPro e Vitamina D3+K2",
-    "description": "Transfira gratuitamente, em PDF, os folhetos do IglooPro POC Reader e do spray de Vitamina D3+K2, sem registo. Fichas técnicas mediante pedido."
+    "title": "Downloads: folhas informativas, relatórios e folhetos",
+    "description": "Baixe gratuitamente as folhas informativas, relatórios de exemplo, guias e folhetos de produto da PolarisDX em PDF ou ZIP – sem registo, com o idioma indicado."
   }
 }

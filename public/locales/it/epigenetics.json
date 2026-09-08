@@ -81,8 +81,7 @@
           "Consulenza nutrizionale oltre i piani standard",
           "Pratiche di prevenzione con programmi di peso",
           "Dove precedenti cambiamenti dietetici non hanno funzionato"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Centri per la longevità e pratiche di prevenzione",
           "Consulenza nutrizionale e medicina preventiva",
           "Persone di circa 40 anni e oltre che monitorano la tendenza"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Pratiche di longevità e medicina funzionale",
           "Centri salute, coaching e salute sul lavoro",
           "Dove un pannello completo di invecchiamento sarebbe troppo esteso"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Programmi di longevità e medicina preventiva",
           "Consulenza nutrizionale che necessita di un punto di partenza",
           "Programmi sul luogo di lavoro con focus sulla longevità"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Gestione della salute sul lavoro e resilienza",
           "Pratiche focalizzate sulla prevenzione dello stress",
           "Persone sotto stress prolungato"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Medicina dello sport e diagnostica delle prestazioni",
           "Scienze dello sport e coaching delle prestazioni",
           "Atleti amatoriali e agonisti"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Rapporto campione"
@@ -333,9 +327,72 @@
     "title": "Richiedi un preventivo",
     "sub": "Le analisi sono fornite solo a utenti professionali. Condizioni B2B su richiesta, differenziate per volume.",
     "overview": "Panoramica in PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "Le analisi sono servizi di laboratorio forniti dal nostro partner di cooperazione e non sono dispositivi diagnostici in vitro marcati CE. Servono per consulenza e monitoraggio e non sostituiscono la diagnostica clinica. Le analisi genetiche sono soggette alla legislazione nazionale sui test genetici. In Germania, i test genetici predittivi possono essere effettuati solo sotto la responsabilità di medici qualificati; deve essere offerta consulenza genetica prima e dopo il test.",
     "lab": "Analisi di laboratorio dal nostro partner di cooperazione · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Nome",
+      "email": "E-mail",
+      "organization": "Struttura / organizzazione",
+      "facilityType": "Tipo di struttura",
+      "choose": "Seleziona",
+      "panel": "Panel di interesse (facoltativo)",
+      "noPanel": "Non ancora definito",
+      "volume": "Casi mensili previsti (facoltativo)",
+      "message": "La tua domanda (facoltativa)",
+      "messageHint": "Non inviare dati sanitari o referti."
+    },
+    "facilityTypes": {
+      "practice": "Studio",
+      "clinic": "Clinica",
+      "laboratory": "Laboratorio",
+      "consultancy": "Consulenza / centro salute",
+      "other": "Altra struttura"
+    },
+    "volumes": {
+      "unspecified": "Non specificato",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Oltre 50"
+    },
+    "submit": "Richiedi un preventivo",
+    "sending": "Registrazione sicura della richiesta …",
+    "analyticsIndependent": "La richiesta funziona indipendentemente dai cookie di analisi o marketing.",
+    "errors": {
+      "name": "Inserisci il tuo nome.",
+      "email": "Inserisci un indirizzo e-mail valido.",
+      "organization": "Indica la tua struttura.",
+      "facilityType": "Seleziona un tipo di struttura.",
+      "consent": "È necessario il consenso al trattamento."
+    },
+    "status": {
+      "delivered": {
+        "title": "Richiesta registrata e inoltrata",
+        "text": "La richiesta è stata salvata in modo permanente e inoltrata al processo competente."
+      },
+      "retryPending": {
+        "title": "Richiesta registrata in modo sicuro",
+        "text": "L’inoltro è temporaneamente in attesa e verrà ritentato dal record salvato."
+      },
+      "providerUnavailable": {
+        "title": "Richiesta registrata in modo sicuro",
+        "text": "Il servizio esterno di inoltro non è attualmente configurato. Il record resta disponibile per la gestione manuale."
+      },
+      "manualReview": {
+        "title": "Richiesta registrata in modo sicuro",
+        "text": "L’inoltro automatico non è stato completato. Il record resta disponibile per la gestione manuale."
+      },
+      "recorded": {
+        "title": "Richiesta registrata in modo sicuro",
+        "text": "Il record è stato salvato in modo permanente; l’inoltro è in elaborazione."
+      },
+      "error": {
+        "title": "Richiesta non registrata",
+        "text": "Non è stato possibile salvare la richiesta in modo sicuro. Riprova o contattaci direttamente."
+      }
+    }
   },
   "links": {
     "longevity": "Diagnostica della longevità",
@@ -665,6 +722,8 @@
     "othersTitle": "Gli altri referti di esempio",
     "navBack": "Panoramica",
     "navChapters": "Capitoli",
+    "previous": "Referto precedente",
+    "next": "Referto successivo",
     "noticeTitle": "Avvertenze importanti",
     "toTop": "Torna all’inizio",
     "ctaPdf": "Questo referto in PDF",

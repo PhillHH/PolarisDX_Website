@@ -3,21 +3,39 @@
     "caption": "ABOUT US",
     "title": "Redefining Diagnostics",
     "description": "PolarisDX stands for innovation, precision, and reliability in medical technology. Meet the people behind our mission.",
-    "primary_cta": "Meet the team",
+    "primary_cta": "Request a quote",
     "chips": {
       "ivdr": "IVDR · CE compliant",
       "partner": "DX365 distribution partner",
       "reach": "Offices in London & Hamburg"
     },
     "visual": {
-      "c1": { "value": "2 offices", "label": "London & Hamburg" },
-      "c2": { "value": "15+ countries", "label": "Active markets" },
-      "c3": { "value": "100+ devices", "label": "Installed" }
+      "c1": {
+        "value": "2 offices",
+        "label": "London & Hamburg"
+      },
+      "c2": {
+        "value": "15+ countries",
+        "label": "Active markets"
+      },
+      "c3": {
+        "value": "100+ devices",
+        "label": "Installed"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Offices" },
-      "countries": { "value": "15+", "label": "Countries" },
-      "devices": { "value": "100+", "label": "Installed devices" }
+      "locations": {
+        "value": "2",
+        "label": "Offices"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Countries"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Installed devices"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Offices: London & Hamburg" },
-    "s2": { "value": "15+", "label": "Countries with active installations" },
-    "s3": { "value": "100+", "label": "Installed IglooPro readers" },
-    "s4": { "value": "< 24 h", "label": "Support response time" }
+    "s1": {
+      "value": "2",
+      "label": "Offices: London & Hamburg"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Countries with active installations"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Installed IglooPro readers"
+    },
+    "s4": {
+      "value": "< 24 h",
+      "label": "Support response time"
+    }
   },
   "dx365_partner": {
     "caption": "Our Partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "About PolarisDX: Your Partner in POC Diagnostics",
     "description": "Innovation, precision and reliability in medical technology: meet the PolarisDX team and our mission to redefine point-of-care diagnostics in Europe."
+  },
+  "pillars": {
+    "caption": "Three business pillars",
+    "title": "Three routes into diagnostics and professional application",
+    "intro": "PolarisDX brings point-of-care diagnostics, the IglooPro reader and epigenetics together in clearly separated areas.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostics",
+        "text": "Point-of-care diagnostics and specialty applications for practices and medical facilities.",
+        "cta": "Explore diagnostics"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "The IglooPro reader evaluates compatible rapid tests directly at the point of care.",
+        "cta": "View IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetics",
+        "text": "A dedicated area for epigenetic and genetic analyses and their related sample reports.",
+        "cta": "Explore epigenetics"
+      }
+    }
   }
 }

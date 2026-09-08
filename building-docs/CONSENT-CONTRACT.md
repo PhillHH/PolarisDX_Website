@@ -5,10 +5,12 @@ Kontextpflicht in §7. Blindes Editieren ist untersagt.
 
 > ## ⚠ Current-State-Warnung
 >
-> **Die aktuelle Baseline ist NON_COMPLIANT gegenüber `REST-02`.**
-> Der Laufzeitbeweis in `CONSENT-TRACKING-NETWORK-BASELINE.md` §15 hat Anfragen **vor jeder
-> Einwilligung** an `https://www.googletagmanager.com` und `https://widget.hihuman.co.uk` nachgewiesen —
-> und zwar identisch im Zustand „keine Entscheidung" **und** „ausdrücklich abgelehnt".
+> Der historische Laufzeitbeweis in `CONSENT-TRACKING-NETWORK-BASELINE.md` §15 war
+> **NON_COMPLIANT gegenüber `REST-02`**. Die AP14-Closure-Remediation vom 2026-09-01 hat den
+> Google-Pfad gezielt korrigiert: Auf IglooPro entstehen in einer frischen Sitzung und nach
+> ausdrücklicher Ablehnung jeweils null Google-/Analytics-Provider-Requests; GTM wird erst nach
+> Zustimmung genau einmal dynamisch geladen. Das ist noch keine AP23-Gesamtabnahme der übrigen
+> Schulden dieses Vertrags.
 >
 > **Dieser Vertrag beschreibt SOLL-Verhalten.** Er darf niemals als Beleg gelesen werden, dass das
 > Repository bereits konform ist.
@@ -50,19 +52,20 @@ AP27 PT27.4 (Consent-E2E), AP30 PT30.4.5, AP33 PT33.1.8.
 
 ## 3. Current Participating Files
 
-| Datei                                      | Rolle heute                                                                                                                                                                                    | Guard  |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `index.html`                               | Consent-Mode-v2-Defaults (`:19-35`), `localStorage`-Wiederherstellung (`:37-67`), **unbedingter GTM-Loader (`:71-81`)**, **unbedingter `noscript`-iframe (`:188-201`)**, zugleich SSR-Template | **G3** |
-| `src/components/ui/CookieBanner.tsx`       | Kategoriemodell, Persistenz, `updateGTMConsent` (`:36-88`), einziger Schreiber des Consent-Zustands                                                                                            | **G3** |
-| `src/lib/tracking.ts`                      | providerneutrale Fassade mit `setTrackingProvider`/`setTrackingConsent` — **nie registriert**                                                                                                  | **G3** |
-| `src/App.tsx`                              | hängt `CookieBanner`, `GtmPageview` und `ChatWidget` ein; Consumer-Routen liegen **außerhalb** von `MainLayout`                                                                                | **G3** |
-| `src/components/analytics/GtmPageview.tsx` | direkter `gtag('event','page_view')` (`:84`) + `dataLayer`-Push (`:88-89`), **ohne Consent-Prüfung**                                                                                           | G2     |
-| `src/pages/consumer/tracking.ts`           | direkter `dataLayer`-Push (`:35-36`), **ohne Consent-Prüfung**                                                                                                                                 | G2     |
-| `src/pages/consumer/OrderForm.tsx`         | inline `dataLayer`-Push (`:164-168`)                                                                                                                                                           | G2     |
-| `src/pages/consumer/OrderModal.tsx`        | inline `dataLayer`-Push (`:84-85`)                                                                                                                                                             | G2     |
-| `src/components/ui/ChatWidget.tsx`         | **unbedingte Injektion** eines Drittanbieter-Skripts                                                                                                                                           | **G3** |
-| `server.ts`                                | CSP (`:432-444`, Report-Only) mit Chat- und Google-Domains                                                                                                                                     | **G3** |
-| `src/lib/useScrollDepth.ts`                | Scrolltiefe über die Fassade (heute wirkungslos)                                                                                                                                               | G1     |
+| Datei                                      | Rolle heute                                                                                                                              | Guard  |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| `index.html`                               | SSR-Template ohne Google-Loader und ohne GTM-`noscript`-iframe                                                                           | **G3** |
+| `src/components/ui/CookieBanner.tsx`       | Kategoriemodell, Persistenz und einziger UI-Schreiber des Consent-Zustands; übergibt Entscheidungen an den zentralen Google-Lebenszyklus | **G3** |
+| `src/lib/googleConsent.ts`                 | Liest den bestehenden Kategorienzustand, verwirft fehlende/abgelehnte Entscheidungen und lädt GTM nach explizitem Grant höchstens einmal | **G3** |
+| `src/lib/tracking.ts`                      | providerneutrale Fassade mit `setTrackingProvider`/`setTrackingConsent` — **nie registriert**                                            | **G3** |
+| `src/App.tsx`                              | hängt `CookieBanner`, `GtmPageview` und `ChatWidget` ein; Consumer-Routen liegen **außerhalb** von `MainLayout`                          | **G3** |
+| `src/components/analytics/GtmPageview.tsx` | verwirft Navigationsevents ohne Analytics-Consent; sendet erst bei Consent und vorhandenem, dynamisch geladenem Provider                 | G2     |
+| `src/pages/consumer/tracking.ts`           | direkter `dataLayer`-Push (`:35-36`), **ohne Consent-Prüfung**                                                                           | G2     |
+| `src/pages/consumer/OrderForm.tsx`         | inline `dataLayer`-Push (`:164-168`)                                                                                                     | G2     |
+| `src/pages/consumer/OrderModal.tsx`        | inline `dataLayer`-Push (`:84-85`)                                                                                                       | G2     |
+| `src/components/ui/ChatWidget.tsx`         | **unbedingte Injektion** eines Drittanbieter-Skripts                                                                                     | **G3** |
+| `server.ts`                                | CSP (`:432-444`, Report-Only) mit Chat- und Google-Domains                                                                               | **G3** |
+| `src/lib/useScrollDepth.ts`                | Scrolltiefe über die Fassade (heute wirkungslos)                                                                                         | G1     |
 
 ---
 
@@ -173,18 +176,18 @@ Ist-Zustand, **kein zulässiges Zielverhalten**. Belege in `CONSENT-TRACKING-NET
 
 | ID        | Schuld                                                                                                                                                                       | Verletzt                                   |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| **CD-1**  | **Unbedingter GTM-Loader** in `index.html:71-81` — lädt bei jedem Aufruf, ohne Bedingung                                                                                     | C-01, C-02, C-03                           |
-| **CD-2**  | **Unbedingter `noscript`-iframe** in `index.html:188-201`                                                                                                                    | C-05                                       |
+| **CD-1**  | **MITIGATED 2026-09-01:** unbedingter Loader entfernt; `googleConsent.ts` lädt GTM erst nach explizitem Grant                                                                | C-01, C-02, C-03                           |
+| **CD-2**  | **MITIGATED 2026-09-01:** unbedingter `noscript`-iframe entfernt                                                                                                             | C-05                                       |
 | **CD-3**  | **Unbedingter HiHuman-Loader** in `ChatWidget.tsx` — Drittanbieter-Skript auf jeder B2B-Seite, ohne jede Prüfung                                                             | C-01, C-06; zusätzlich `DEC-RL-007`/Gate 5 |
 | **CD-4**  | **Direkte Consumer-`dataLayer`-Pfade** — `consumer/tracking.ts:35-36`, `OrderForm.tsx:164-168`, `OrderModal.tsx:84-85`, alle ohne Consent-Prüfung                            | C-09, C-20                                 |
-| **CD-5**  | **`GtmPageview` umgeht den Consent** — einzige Prüfung ist `typeof gtag === 'function'` (`:83`), die immer wahr ist, weil `gtag` im Bootstrap definiert wird                 | C-09, C-20                                 |
+| **CD-5**  | **MITIGATED 2026-09-01:** `GtmPageview` prüft den kanonisch gespeicherten Analytics-Consent und puffert ohne Consent kein Event                                              | C-09, C-20                                 |
 | **CD-6**  | **Kein Widerrufsweg.** Nach gespeicherter Entscheidung rendert der Banner `null`; kein Wiederöffnen-Einstieg existiert                                                       | C-18, C-19                                 |
 | **CD-7**  | **Ablehnung entlädt nichts** — kein Skript wird entfernt, keine Cookies gelöscht, kein Reload; nur Signale werden umgestellt                                                 | C-19                                       |
 | **CD-8**  | **Die kanonische Fassade ist nicht registriert** — `setTrackingProvider`/`setTrackingConsent` werden nirgends aufgerufen; das einzig korrekt gegatete System ist wirkungslos | C-09, C-20                                 |
 | **CD-9**  | **Consumer-Shell ohne `CookieBanner`** — Kampagnen-Traffic sieht keinen Dialog, während GTM lädt und Events geschrieben werden                                               | C-21                                       |
 | **CD-10** | **Consent ohne Evidenz** — gespeichert wird ein Kategorien-Array ohne Zeitstempel, Textversion und Umfang; das Backend erhält ein blankes Boolean                            | C-11, C-12                                 |
 | **CD-11** | **`necessary` ist ein Label ohne Wirkung** — die Kategorie wird nie ausgewertet und steuert keinen technischen Pfad                                                          | C-10                                       |
-| **CD-12** | **Kein Consent-Test** — weder Unit noch E2E                                                                                                                                  | §8                                         |
+| **CD-12** | **PARTIALLY MITIGATED 2026-09-01:** echter Fresh-/Denied-/Granted-Network-E2E für den AP14-Pfad; vollständige AP23-/Widerrufsmatrix bleibt beim Owner                        | §8                                         |
 
 **Positiv zu erhalten:** `src/lib/tracking.ts` erfüllt C-08 bereits vorbildlich — zwei Sperren, kein
 Puffer, Slug-Allowlist gegen Fremdwerte. Diese Datei ist **Vorlage**, nicht Altlast.

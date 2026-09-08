@@ -9,20 +9,38 @@ Jede Section ist konzeptionell ein eigener Abschnitt der Landingpage und nutzt U
 
 - **`HeroSection.tsx`**
   - Oberer „Above the Fold“-Bereich.
-  - Vermittelt Kernbotschaft: IglooPro als Point‑of‑Care‑Lösung mit 48‑Stunden‑Einsatzversprechen.
+  - Vermittelt statisch und SSR-first die B2B-Positionierung von PolarisDX für Praxen und
+    medizinische Einrichtungen; keine Carousel-/Autoplay-Abhängigkeit.
   - Enthält:
-    - Kicker‑Text („Point-of-care Performance“),
-    - große Überschrift und kurzen Beschreibungstext,
-    - primären CTA‑Button zur Kontaktseite,
-    - KPI‑Darstellung (`StatItem`) und Arzt‑Visual (`hero_doctor.png`).
+    - locale-aware Kicker, genau eine H1 und einen kurzen Beschreibungstext,
+    - dominanten `GENERAL_SALES`-CTA zum realen Kontaktformular,
+    - getrennten Diagnostics-Discovery-Link,
+    - das dimensionierte IglooPro-Produktvisual (`Igloo-pro-frontal.webp`) als einziges eager
+      Hero-Medium.
 
-- **`AboutSection.tsx`**
-  - Stellt den Performance‑Anspruch und die 48‑Stunden‑Setup‑Garantie in den Vordergrund.
-  - Bild-/Text‑Layout mit:
-    - Bild „above the fold“ (`above_the_fold.png`) mit Farbflächen,
-    - `SectionHeader` (Caption + Titel),
-    - zwei erklärenden Absätzen,
-    - CTA‑Button, der zurück zum Hero (`#hero`) führt.
+- **`BusinessPillarsSection.tsx`**
+  - Positioniert Diagnostik, IglooPro und Epigenetik als drei gleichgewichtete, eigenständige
+    Geschäftssäulen.
+  - Leitet alle Säulen- und Service-Ziele aus der zentralen Route Registry ab.
+  - Priorisiert Dental, Beauty und Longevity als drei reale Service-Einstiege aus
+    `src/data/services.tsx`, ohne die neun Diagnostics-Detailseiten zu duplizieren.
+  - Nutzt ein responsives Drei-Spalten-Grid beziehungsweise einen klaren Mobile-Stack und enthält
+    keine Bilder, Slider oder Tracking-Abhängigkeit.
+
+- **`WhyPocSection.tsx`**
+  - Erklärt den betrieblichen Point-of-Care-Nutzen über Informationszugang, Workflow-Einbindung und
+    Gesprächsgrundlage.
+  - Trennt Praxisnutzen semantisch vom Patienten-/Anwendernutzen und begrenzt die Rolle des Tests
+    ausdrücklich auf eine Ergänzung der professionellen Beurteilung.
+  - Enthält keine Umsatz-/Ergebnisgarantie, CTA, Bilder oder interaktive Elemente.
+
+- **`StepsSection.tsx`**
+  - Bildet den POC-Ablauf als echte geordnete Liste ab: Anwendung/Messung, Ergebnisverfügbarkeit,
+    fachliche Einordnung.
+  - Behält dieselbe DOM- und Leserichtung auf Desktop und Mobile; sichtbare Nummern machen die
+    Reihenfolge unabhängig von Farbe oder Icons.
+  - Automatisiert keine medizinische Entscheidung und greift der Conversion-Journey aus PT11.5 nicht
+    vor.
 
 - **`ServicesSection.tsx`**
   - Zeigt zentrale diagnostische Schwerpunkte (POC‑Systeme, Prävention, Infektion, Stoffwechsel, Hormone, Kompatibilität).
@@ -36,13 +54,13 @@ Jede Section ist konzeptionell ein eigener Abschnitt der Landingpage und nutzt U
   - Aufbau analog zu anderen Sections mit Grid‑Layout und Cards.
 
 - **`TestimonialsSection.tsx`**
-  - Kundenstimmen / Referenzen zum Igloo Pro System.
+  - Zeigt genau eine bestehende namentliche Praxisreferenz zum IglooPro-System.
   - Datenquelle: `testimonials` aus `src/data/testimonials.ts`.
   - Enthält:
-    - `SectionHeader` („KUNDENSTIMMEN“),
-    - automatischen Slider (Wechsel alle 8 Sekunden) mit Zitaten, Name, Rolle und Titel,
-    - Navigations‑Dots zur manuellen Auswahl,
-    - zusammenfassende Kennzahlen („4.9 Overall Rating“, „99% Positive Review“).
+    - semantische Struktur aus `figure`, `blockquote` und `figcaption`,
+    - reales, dimensioniertes und lazy geladenes Portrait,
+    - claim-reduzierten bestehenden Schulungs-/Support-Text,
+    - keine Ratings, Sterne, Carousel-/Autoplay-Logik oder Proof-CTA.
 
 - **`BlogSection.tsx`**
   - Zeigt Teaser für Blog-/Fachartikel.

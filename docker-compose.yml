@@ -29,6 +29,10 @@ services:
       - '127.0.0.1:5000:5000'
     env_file:
       - ./server/.env
+    environment:
+      - LEAD_DB_PATH=/var/lib/polarisdx/leads.sqlite3
+    volumes:
+      - lead-data:/var/lib/polarisdx
     networks:
       - app-network
     restart: unless-stopped
@@ -39,3 +43,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  lead-data:

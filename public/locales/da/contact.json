@@ -85,6 +85,7 @@
       "prepare_placeholder": "Hvilke biomarkører interesserer dig — CRP, TSH, HbA1c?",
       "consent": "Jeg accepterer, at mine oplysninger opbevares til kontakt og eventuelle spørgsmål i op til 12 måneder. Se vores",
       "privacy_link": "privatlivspolitik",
+      "marketing_consent": "Jeg vil også gerne modtage PolarisDX’ nyhedsbrev med produktnyheder (afmeld til enhver tid).",
       "submit": {
         "consultation": "Anmod om tilbud",
         "quote": "Anmod om tilbud",
@@ -95,7 +96,8 @@
       "sending": "Sender…",
       "microcopy": "Under 2 minutter — lovet. Svar inden for 24 t og derefter et konkret næste skridt.",
       "success": "Tak! Vi har modtaget og registreret din henvendelse — vi vender tilbage inden for 24 t.",
-      "error": "Noget gik galt. Tjek dine oplysninger, eller prøv igen om et øjeblik."
+      "error": "Noget gik galt. Tjek dine oplysninger, eller prøv igen om et øjeblik.",
+      "error_retryable": "Det virkede ikke lige nu. Dine oplysninger er stadig her — prøv igen om et øjeblik."
     },
     "trust": {
       "direct": "Foretrækker du direkte kontakt?",

@@ -3,13 +3,7 @@ import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, type SupportedLanguage } from '.
 /** The only public origin that productive SEO output may claim. */
 export const PUBLIC_SEO_ORIGIN = 'https://polarisdx.net'
 
-/**
- * Transitional AP09 route-source boundary.
- *
- * It deliberately contains no route table. Route matching remains in App.tsx
- * and server.ts until AP10 PT10.3. SEO consumes only the pathname of the route
- * React actually matched and the shared AP08 locale contract.
- */
+/** URL/locale adapter for the central Route Registry consumers. */
 export const SEO_ROUTE_SOURCE = {
   locales: SUPPORTED_LANGUAGES,
   defaultLocale: DEFAULT_LANGUAGE,

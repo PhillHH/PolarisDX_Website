@@ -235,6 +235,7 @@ export const ScaleBar = ({
 interface AgeItem {
   label: string
   age: number
+  display?: string
   delta?: string
   tone?: string
 }
@@ -259,11 +260,11 @@ export const AgeDots = ({
   const ticks = [min, min + span / 4, min + span / 2, min + (span * 3) / 4, max]
 
   return (
-    <div>
+    <figure className="m-0">
       {chronologicalLabel ? (
-        <div className="mb-1 grid grid-cols-[minmax(0,11rem)_1fr_auto] gap-3">
-          <span />
-          <div className="relative h-4">
+        <figcaption className="mb-3 text-sm text-gray-600 sm:grid sm:grid-cols-[minmax(0,11rem)_1fr_auto] sm:gap-3">
+          <span className="sm:sr-only">{chronologicalLabel}</span>
+          <div className="relative hidden h-4 sm:block">
             <span
               className="absolute -translate-x-1/2 whitespace-nowrap text-xs text-gray-600"
               style={{ left: `${pct(chronological)}%` }}
@@ -271,16 +272,16 @@ export const AgeDots = ({
               {chronologicalLabel}
             </span>
           </div>
-          <span />
-        </div>
+          <span aria-hidden="true" />
+        </figcaption>
       ) : null}
-      <div className="space-y-3">
+      <ul className="space-y-4">
         {items.map((item) => {
           const t = toneClasses(item.tone)
           return (
-            <div
+            <li
               key={item.label}
-              className="grid grid-cols-[minmax(0,11rem)_1fr_auto] items-center gap-3"
+              className="grid grid-cols-1 gap-2 sm:grid-cols-[minmax(0,11rem)_1fr_auto] sm:items-center sm:gap-3"
             >
               {/* Nicht abschneiden: "Epigenetische Alterungsmarker" waere sonst
                   als "Epigen. Alterung..." unlesbar. */}
@@ -308,14 +309,17 @@ export const AgeDots = ({
                 </span>
               </div>
               <span className={`text-base font-semibold tabular-nums ${t.text}`}>
-                {item.age} J. {item.delta ? `· ${item.delta}` : ''}
+                {item.display ?? `${item.age} ${unit}`} {item.delta ? `· ${item.delta}` : ''}
               </span>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ul>
 
-      <div className="mt-3 grid grid-cols-[minmax(0,11rem)_1fr_auto] gap-3">
+      <div
+        className="mt-3 hidden grid-cols-[minmax(0,11rem)_1fr_auto] gap-3 sm:grid"
+        aria-hidden="true"
+      >
         <span />
         <div className="flex justify-between text-xs text-gray-600">
           {ticks.map((v) => (
@@ -324,7 +328,7 @@ export const AgeDots = ({
         </div>
         <span className="text-xs text-gray-600">{unit}</span>
       </div>
-    </div>
+    </figure>
   )
 }
 
@@ -368,7 +372,7 @@ export const RadarChart = ({
   const ringValues = Array.from({ length: rings }, (_, i) => ((i + 1) / rings) * max)
 
   return (
-    <figure className="m-0">
+    <figure className="m-0 break-inside-avoid">
       <svg
         viewBox={`0 0 ${RADAR_SIZE} ${RADAR_SIZE}`}
         className="mx-auto h-auto w-full max-w-[34rem]"
@@ -404,6 +408,7 @@ export const RadarChart = ({
             className="fill-slate-400 stroke-slate-500"
             fillOpacity={0.35}
             strokeWidth={1.5}
+            strokeDasharray="8 5"
           />
         ) : null}
         <polygon
@@ -434,16 +439,43 @@ export const RadarChart = ({
 
       <figcaption className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
         <span className="inline-flex items-center gap-2">
-          <span className="h-3 w-3 rounded-sm bg-brand-primary" />
+          <span
+            className="h-3 w-3 rounded-sm border-2 border-brand-deep bg-brand-primary"
+            aria-hidden="true"
+          />
           {labels?.profile ?? 'Ihr Profil'}
         </span>
         {reference ? (
           <span className="inline-flex items-center gap-2">
-            <span className="h-3 w-3 rounded-sm bg-slate-400" />
+            <span
+              className="h-3 w-3 rounded-sm border-2 border-dashed border-slate-700 bg-white"
+              aria-hidden="true"
+            />
             {labels?.reference ?? 'Referenzgruppe'}
           </span>
         ) : null}
       </figcaption>
+
+      {/* Die Zahlen kommen unveraendert aus demselben Vektor wie das SVG.
+          Damit ist die Grafik nicht die einzige Informationsquelle. */}
+      <div className="befund-chart-alternative mt-5 border-t border-slate-200 pt-4">
+        {beschreibung ? <p className="text-sm text-gray-600">{beschreibung}</p> : null}
+        <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+          {axes.map((axis, index) => (
+            <div key={axis} className="rounded-xl bg-slate-50 px-3 py-2">
+              <dt className="text-sm font-semibold text-heading">{axis}</dt>
+              <dd className="mt-1 text-sm tabular-nums text-gray-700">
+                {labels?.profile ?? 'Ihr Profil'}: {profile[index]} / {max}
+                {reference ? (
+                  <span className="block">
+                    {labels?.reference ?? 'Referenzgruppe'}: {reference[index]} / {max}
+                  </span>
+                ) : null}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </figure>
   )
 }
@@ -496,8 +528,8 @@ export const TrendChart = ({
   const pct = (v: number) => Math.max(0, Math.min(100, ((v - dom.min) / span) * 100))
 
   return (
-    <div>
-      <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+    <figure className="m-0">
+      <figcaption className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
         <span className="inline-flex items-center gap-2">
           <span className="h-3 w-3 rounded-full border-2 border-slate-400 bg-white" />
           {firstLabel ?? 'Erstmessung'}
@@ -506,17 +538,17 @@ export const TrendChart = ({
           <span className="h-3 w-3 rounded-full bg-brand-deep" />
           {secondLabel ?? 'Kontrolle'}
         </span>
-      </div>
+      </figcaption>
 
-      <div className="space-y-4">
+      <ul className="space-y-5">
         {items.map((item) => {
           const t = toneClasses(item.tone)
           const a = pct(item.first)
           const b = pct(item.second)
           return (
-            <div
+            <li
               key={item.label}
-              className="grid grid-cols-[minmax(0,13rem)_1fr_auto] items-center gap-3"
+              className="grid grid-cols-1 gap-2 lg:grid-cols-[minmax(0,13rem)_1fr_auto] lg:items-center lg:gap-3"
             >
               {/* Nicht abschneiden — "Kardiovaskulaere Fitness" waere sonst weg. */}
               <span className="text-sm font-medium leading-tight text-heading sm:text-base">
@@ -552,11 +584,11 @@ export const TrendChart = ({
                   </span>
                 ) : null}
               </span>
-            </div>
+            </li>
           )
         })}
-      </div>
-    </div>
+      </ul>
+    </figure>
   )
 }
 
@@ -569,13 +601,13 @@ export const EvaluationBars = ({
 }: {
   items: { label: string; sub?: string; value: number; status?: string; tone?: string }[]
 }) => (
-  <div className="space-y-3">
+  <ul className="space-y-4">
     {items.map((item) => {
       const t = toneClasses(item.tone)
       return (
-        <div
+        <li
           key={item.label}
-          className="grid grid-cols-[minmax(0,1fr)_minmax(0,8rem)_auto] items-center gap-4"
+          className="grid grid-cols-1 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,8rem)_auto] sm:items-center sm:gap-4"
         >
           <span className="text-base text-heading">
             {item.label}
@@ -596,8 +628,8 @@ export const EvaluationBars = ({
             {item.value}/9
             {item.status ? <span className="ml-2 font-medium">· {item.status}</span> : null}
           </span>
-        </div>
+        </li>
       )
     })}
-  </div>
+  </ul>
 )

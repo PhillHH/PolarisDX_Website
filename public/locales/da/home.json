@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "POC-diagnostik til din klinik: laboratoriesvar på minutter",
-    "description": "Laboratorienøjagtig point-of-care-diagnostik direkte i din klinik: IVDR/CE, CV < 2 % og svar på minutter. Ny selvbetaler-omsætning – anmod om tilbud nu."
+    "title": "Point-of-care-diagnostik til klinikker | PolarisDX",
+    "description": "PolarisDX støtter klinikker og medicinske institutioner med point-of-care-diagnostik via IglooPro og giver klare indgange til diagnostik, epigenetik og rådgivning.",
+    "social_image_alt": "IglooPro point-of-care-reader fra PolarisDX"
   },
   "hero": {
-    "caption": "Point-of-care-ydelse",
-    "title": "IglooPro:\nPoint-of-Care. Perfekt. Øjeblikkeligt.",
-    "description": "Sikr dig præstationspakken: Din IglooPro er klar til brug på 3–5 hverdage.",
+    "caption": "PolarisDX til klinikker og sundhedsfaciliteter",
+    "title": "Point-of-care-diagnostik til den kliniske hverdag.",
+    "description": "PolarisDX hjælper professionelle brugere med at integrere point-of-care-diagnostik med IglooPro i eksisterende arbejdsgange – fra valg af den rette løsning til anvendelse på stedet.",
     "cta": "Anmod om tilbud",
+    "cta_secondary": "Udforsk diagnostik",
+    "visual_alt": "IglooPro point-of-care-læser til professionel brug",
     "cta_roi": "Start ROI-beregner",
     "cta_downloads": "Download infomateriale",
     "stat1": {
@@ -74,6 +77,33 @@
       }
     },
     "stats_disclaimer": "* Eksempelværdi – afhænger af tallene i din klinik."
+  },
+  "business_pillars": {
+    "eyebrow": "Tre forretningssøjler",
+    "title": "Tre veje til diagnostik og professionel anvendelse",
+    "intro": "PolarisDX samler point-of-care-diagnostik, IglooPro-læseren og epigenetik i klart adskilte områder.",
+    "pillars": {
+      "diagnostics": {
+        "title": "Diagnostik",
+        "text": "Point-of-care-diagnostik og specialiserede anvendelser til klinikker og medicinske institutioner.",
+        "cta": "Udforsk diagnostik"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "IglooPro-læseren analyserer kompatible hurtigtests direkte på behandlingsstedet.",
+        "cta": "Se IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetik",
+        "text": "Et selvstændigt område for epigenetiske og genetiske analyser samt tilhørende eksempelrapporter.",
+        "cta": "Lær epigenetik at kende"
+      }
+    },
+    "core": {
+      "eyebrow": "Udvalgte anvendelser",
+      "title": "Direkte indgange efter speciale",
+      "intro": "Dental, Beauty og Longevity fører til tre allerede publicerede diagnostikområder. Hele porteføljen findes fortsat i Diagnostik-hubben."
+    }
   },
   "about": {
     "caption": "DIN YDEEVNEGARANT",
@@ -155,8 +185,8 @@
     }
   },
   "testimonials": {
-    "caption": "STEMMER FRA KLINIKKER",
-    "title": "Hvad klinikker siger om IglooPro-systemet",
+    "caption": "KLINIKREFERENCE",
+    "title": "En erfaring fra hverdagen med IglooPro",
     "ratingLabel": "Samlet vurdering\nbaseret på vurderinger fra klinikker",
     "positiveLabel": "Positiv vurdering",
     "richard_pollock": {
@@ -185,6 +215,7 @@
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Øjeblikkelig diagnostik til parodontologi & implantologi (Vitamin D, HbA1c, kolesterol, CRP)",
       "text": "Igloo Multireader gør det muligt at måle inflammationsmarkører, HbA1c, kolesterol og Vitamin D direkte ved behandlingsstolen. Sådan planlægger vi parodontale og implantatbehandlinger mere sikkert og kommer hurtigere i gang. Uddannelse og support fra PolarisDX er ukompliceret – apparatet er blevet en fast del af vores hverdag.",
+      "proof_text": "Uddannelse og support fra PolarisDX er ukompliceret – apparatet er blevet en fast del af vores hverdag.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
@@ -228,28 +259,20 @@
     "title": "Ofte stillede spørgsmål om PolarisDX og point-of-care-diagnostik",
     "items": [
       {
-        "question": "Kan IglooPro betale sig for min klinik?",
-        "answer": "Med POC-diagnostik kan du tilbyde biomarkør-bestemmelser som en selvbetaler-ydelse direkte i klinikken i stedet for at afgive dem til et eksternt laboratorium. Hvilken belægning og indtjening det giver i netop dit tilfælde, beregner du gennemskueligt i ROI-beregneren. Sådan ser du allerede inden anskaffelsen, hvordan systemet passer ind i din kliniks struktur."
+        "question": "Hvad tilbyder PolarisDX klinikker og medicinske institutioner?",
+        "answer": "PolarisDX samler tre selvstændige indgange: point-of-care-diagnostik, IglooPro-readeren og epigenetik. Hvert område giver et overblik og fører til de allerede offentliggjorte faglige oplysninger."
       },
       {
-        "question": "Er IglooPro godkendt og kvalitetssikret til brug i klinikken?",
-        "answer": "IglooPro er IVDR/CE-konform og dermed designet til patientnær øjeblikkelig diagnostik (POCT). Over hele måleområdet opnår systemet en præcision på CV < 2 %, hvilket understøtter reproducerbare resultater. Idriftsættelsen sker valideret, så kravene til kvalitetssikring inden for POCT er taget i betragtning fra begyndelsen."
+        "question": "Hvordan kan point-of-care-diagnostik passe ind i klinikkens arbejdsgang?",
+        "answer": "Forløbet på hjemmesiden omfatter anvendelse eller prøveforberedelse, måling, tilgængeligt resultat efter den testspecifikke behandlingstid og faglig fortolkning. Det præcise forløb afhænger af testen og de gældende instruktioner."
       },
       {
-        "question": "Er jeg bundet til én enkelt leverandør efter købet?",
-        "answer": "Nej. IglooPro arbejder på tværs af producenter, så du ikke er låst til tests fra én enkelt leverandør. Det giver dig fleksibilitet i valget af dine test-paneler og beskytter din investering, hvis dit diagnostiske behov ændrer sig over tid."
+        "question": "Hvilket næste skridt passer til min institution?",
+        "answer": "Diagnostikområdet viser de offentliggjorte anvendelser. Hvis du vil drøfte krav, anvendelseskontekst eller en mulig løsning, kan du anmode om et tilbud og oplyse din institutions rammer."
       },
       {
-        "question": "Hvor krævende er integrationen i vores kliniske hverdag?",
-        "answer": "IglooPro er designet til brug direkte ved behandlingsstolen og leverer resultatet på minutter, så målingen passer ind i den igangværende konsultation. Ved idriftsættelsen uddanner vi dit team i måleforløbet og betjeningen. Derefter står vi til rådighed med teknisk support og løbende opfølgning."
-      },
-      {
-        "question": "Hvor hurtigt er systemet klar til brug efter bestilling?",
-        "answer": "Efter bestilling er din IglooPro som regel klar til brug inden for 3–5 hverdage. Vi sætter apparatet i drift valideret, så du kan måle pålideligt fra den første patient. En separat, langvarig opsætningsfase bortfalder dermed."
-      },
-      {
-        "question": "Hvilke biomarkører kan jeg bestemme alt efter speciale?",
-        "answer": "Systemet dækker fagspecifikke paneler til Dental, Beauty og Longevity – fra Vitamin D og CRP over HbA1c til stofskifte- og inflammationsmarkører. Inden for tandmedicin er det f.eks. Vitamin D og inflammationsværdier, der er i fokus, og inden for Longevity monitorering af stofskifte- og inflammationsmarkører. Hvilke tests der giver mening for dit speciale, aftaler vi individuelt i rådgivningssamtalen."
+        "question": "Erstatter et point-of-care-resultat den faglige vurdering?",
+        "answer": "Nej. Et testresultat kan bidrage med information til samtalen og det videre behandlingsforløb. Individuel fortolkning og diagnostiske eller terapeutiske beslutninger er fortsat den ansvarlige fagpersons opgave."
       }
     ],
     "more": "Har du flere spørgsmål?",
@@ -260,43 +283,34 @@
   "trustbar": {
     "aria": "Tillidsmærker",
     "ivdr": "IVDR/CE-konform",
-    "cv": "CV < 2 % laboratoriepræcision",
+    "cv": "IglooPro · CV < 2 %",
     "minutes": "Svar på minutter",
-    "compat": "Kompatibel på tværs af producenter",
-    "delivery": "Klar til brug på 3–5 hverdage",
-    "partner": "Premium-partner: Nobel Biocare"
+    "compat": "Kompatibel på tværs af producenter"
   },
   "why": {
-    "caption": "Point of Care",
-    "title": "Hvorfor POC i din klinik?",
-    "intro": "Diagnostik direkte ved behandlingspladsen: svar på minutter i stedet for at vente i dage — det ændrer arbejdsgangen, patientoplevelsen og din kliniks økonomi.",
-    "card1": {
-      "title": "Ingen forsendelse til laboratorium",
-      "text": "Resultatet foreligger straks på stedet — ingen ventetid på svaret fra det eksterne laboratorium."
+    "caption": "Point of Care i hverdagen",
+    "title": "Information dér, hvor den er nødvendig",
+    "intro": "Point-of-Care-målinger giver yderligere information direkte i klinikkens arbejdsgang. De understøtter den faglige fortolkning uden at automatisere eller erstatte den.",
+    "signals": {
+      "access": { "title": "Direkte adgang til information", "text": "Målingerne er tilgængelige ved Point of Care efter den testspecifikke behandlingstid." },
+      "workflow": { "title": "Forankret i arbejdsgangen", "text": "Anvendelse, måling og dokumentation kan integreres som en klar proces i klinikkens eksisterende arbejdsgange." },
+      "conversation": { "title": "Et grundlag for samtalen", "text": "Tilgængelige værdier kan understøtte faglig rådgivning og en fælles drøftelse af relevante næste skridt." }
     },
-    "card2": {
-      "title": "Patienten bliver i stolen",
-      "text": "Mål værdierne og drøft næste skridt direkte i samme konsultation — uden at indkalde patienten igen."
-    },
-    "card3": {
-      "title": "Ny selvbetaler-omsætning",
-      "text": "POC åbner for nye selvbetaler-ydelser i din klinik i stedet for at afgive omsætning til det eksterne laboratorium."
-    },
-    "card_cta": "Læs mere",
-    "video_label": "ANVENDELSESVIDEO",
-    "video_caption": "Sådan forløber testen i din klinik – på 3 minutter",
-    "device_alt": "IglooPro POC-læser"
+    "benefits": {
+      "practice": { "label": "Fordel for klinikken", "title": "Struktureret i arbejdsgangen", "text": "Yderligere målinger er tilgængelige i Point-of-Care-processen og kan indgå i rådgivning og behandling." },
+      "patient": { "label": "Fordel for patienter", "title": "Forklar resultaterne tydeligt", "text": "Tilgængelige værdier kan forklares i behandlingskonteksten. Testen supplerer den faglige vurdering; den erstatter hverken diagnose eller behandling." }
+    }
   },
   "final_cta": {
     "caption": "Klar til at komme i gang",
     "title": "Klar til laboratorienøjagtig diagnostik i din klinik?",
-    "subtitle": "Tal med vores team eller beregn dit besparelsespotentiale — på tværs af producenter, IVDR/CE-konform og klar til brug på 3–5 hverdage.",
+    "subtitle": "Tal med vores team om en passende point-of-care-løsning, eller gennemgå dine egne antagelser med den uforpligtende ROI-beregner.",
     "cta_primary": "Anmod om tilbud",
     "cta_secondary": "ROI-beregner",
     "chips": {
-      "free": "Gratis & uforpligtende",
-      "reply": "Svar < 24 t",
-      "delivery": "Levering på 3–5 hverdage"
+      "free": "Uforpligtende forespørgsel",
+      "reply": "Personlig rådgivning",
+      "delivery": "Tilgængelig på 10 sprog"
     }
   },
   "roi": {
@@ -362,24 +376,15 @@
     }
   },
   "steps": {
-    "caption": "SÅDAN KOMMER DU I GANG",
-    "title": "Valideret POC-diagnostik i 3 trin",
-    "intro": "Fra den første samtale til laboratorienøjagtig diagnostik ved behandlingsstolen – uden konfigurationsarbejde.",
-    "step1": {
-      "title": "Rådgivning & panelanbefaling",
-      "text": "Vi analyserer dit workflow og anbefaler de rette biomarkør-paneler til dit speciale.",
-      "badge": "inkl. rådgivning"
+    "caption": "POC-PROCESSEN",
+    "title": "Fra anvendelse til faglig fortolkning",
+    "intro": "En klar proces gør måleinformation anvendelig i hverdagen og lader det medicinske ansvar blive hos de behandlende fagpersoner.",
+    "aria_label": "Point-of-Care-proces i tre trin",
+    "items": {
+      "application": { "title": "Anvendelse og måling", "text": "Prøven og testen forberedes efter den relevante vejledning og måles med det kompatible system." },
+      "result": { "title": "Resultat tilgængeligt", "text": "Efter den testspecifikke behandlingstid er målingen tilgængelig i klinikkens arbejdsgang — uden en automatisk medicinsk konklusion." },
+      "context": { "title": "Faglig fortolkning", "text": "Den ansvarlige fagperson vurderer værdien i dens individuelle kontekst og drøfter om nødvendigt relevante næste skridt." }
     },
-    "step2": {
-      "title": "Performance-opsætning",
-      "text": "Levering på 3–5 hverdage inkl. valideret idriftsættelse og enkle assay-profiler.",
-      "badge": "på stedet"
-    },
-    "step3": {
-      "title": "Første resultater",
-      "text": "Dit team er oplært, den første patient måles – laboratorienøjagtigt, dokumenteret, IVDR/CE-konformt.",
-      "badge": "Dag 1"
-    },
-    "cta": "Anmod om tilbud"
+    "safety_note": "Målinger giver yderligere information. Den faglige vurdering og de næste skridt, der følger heraf, er fortsat den ansvarlige fagpersons opgave."
   }
 }

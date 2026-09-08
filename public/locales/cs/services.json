@@ -6,6 +6,19 @@
     },
     "title": "Dental",
     "headline": "Přesnost pro moderní stomatologii",
+    "detail": {
+      "hero": { "eyebrow": "Dentální diagnostika", "title": "Chairside diagnostika pro zubní ordinace", "subtitle": "Point-of-care měření mohou doplnit vybrané diagnostické otázky v implantologii, parodontologii a preventivních postupech." },
+      "problem": { "heading": "Diagnostické informace v dentálním workflow", "paragraphs": ["Zubní ordinace zohledňují vedle lokálních nálezů také systémové faktory. Měření u pacienta mohou poskytnout doplňující informace, nenahrazují však anamnézu, klinické vyšetření ani odborné posouzení."] },
+      "audiences": { "heading": "Pro koho je tato oblast určena", "items": ["Zubní ordinace s implantologickým zaměřením", "Ordinace poskytující parodontologickou péči", "Ordinace s preventivními nebo interdisciplinárními postupy"] },
+      "questions": { "heading": "Možné diagnostické otázky", "items": ["Která měření jsou relevantní pro konkrétní klinickou otázku?", "Jak vhodně začlenit měření do plánování nebo sledování?", "Kdy je indikováno další laboratorní nebo odborné vyšetření?"] },
+      "parameters": { "heading": "Doložené parametry ve stávajícím dentálním kontextu", "items": ["Vitamin D", "C-reaktivní protein (CRP)", "HbA1c", "Ferritin"] },
+      "workflow": { "heading": "Možný chairside postup", "steps": [{ "title": "Definovat otázku", "text": "Určit indikaci a vhodný parametr podle individuálního kontextu léčby." }, { "title": "Odebrat vzorek a provést test", "text": "Odebrat a zpracovat kapilární krev podle pokynů použitého testu." }, { "title": "Vyhodnotit výsledek", "text": "Měření zdokumentovat, posoudit v klinickém kontextu a podle potřeby dále ověřit." }] },
+      "faq": { "caption": "Časté otázky", "title": "Otázky k dentální diagnostice", "items": [{ "question": "Co znamená chairside diagnostika v zubní ordinaci?", "answer": "Jde o měření u pacienta začleněná do provozu ordinace. Které testy lze a je vhodné použít, závisí na otázce, testovacím systému a platných požadavcích na kvalitu." }, { "question": "Které parametry se posuzují v dentálním kontextu?", "answer": "Stávající dentální obsah PolarisDX uvádí vitamin D, CRP, HbA1c a ferritin. Výběr a interpretace musí vždy odpovídat individuální klinické otázce." }, { "question": "Nahrazuje point-of-care výsledek dentální nebo lékařskou diagnostiku?", "answer": "Ne. Jednotlivá hodnota je doplňující informace. Anamnéza, klinický nález a případné laboratorní nebo odborné vyšetření zůstávají rozhodující." }] },
+      "crosslinks": { "implantology": { "label": "Vitamin D a implantologie", "description": "Přejít na samostatnou odbornou stránku pro implantologický kontext." }, "igloo": { "label": "IglooPro v point-of-care kontextu", "description": "Přejít na samostatnou produktovou stránku bez duplikace technických detailů." } },
+      "cta": { "title": "Zařaďte dentální diagnostiku do své ordinace", "text": "Promluvte si s námi o klinické otázce, workflow ordinace a vhodném dalším kroku." },
+      "disclaimer": { "heading": "Odborné upozornění", "content": "Informace slouží k odborné orientaci a nenahrazují individuální lékařskou indikaci ani interpretaci nálezů." },
+      "seo": { "title": "Dentální diagnostika pro zubní ordinace", "description": "Point-of-care diagnostika ve stomatologii: kontexty, vybrané parametry, workflow a obezřetná interpretace pro ordinace.", "imageAlt": "Dentální diagnostika v profesionálním workflow ordinace" }
+    },
     "cta": "Dozvědět se více",
     "faq": {
       "caption": "Často kladené otázky",
@@ -106,6 +119,19 @@
           "answer": "Vitamin D se podílí na diferenciaci keratinocytů, udržování kožní bariéry a regulaci cyklu vlasového folikulu. Nedostatek vitaminu D — ve střední Evropě rozšířený u více než 50 % populace — podporuje zánětlivé kožní stavy, urychluje stárnutí pokožky a může zesílit vypadávání vlasů. Měření pomocí IglooPro trvá jen několik minut a tvoří základ pro cílenou suplementaci."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Beauty diagnostika", "title": "Diagnostická orientace pro profesionální beauty kontext", "subtitle": "Vybraná měření mohou doplnit medicínsko-estetické otázky týkající se pokožky, vlasů, hormonů a mikroživin, aniž by předpovídala kosmetický výsledek." },
+      "problem": { "heading": "Hodnoty interpretovat klinicky, nikoli kosmeticky", "paragraphs": ["Profesionální beauty a estetické služby se mohou dotýkat zdravotních otázek. Diagnostické hodnoty poskytují doplňující informace, nenahrazují však anamnézu, klinické vyšetření ani odborné posouzení."] },
+      "audiences": { "heading": "Profesionální oblasti použití", "items": ["Ordinace a kliniky se zaměřením na estetickou medicínu", "Profesionální poradenství pro pokožku a vlasy s medicínskou odborností", "Poskytovatelé prevence a wellness v jasně vymezených diagnostických kompetencích"] },
+      "questions": { "heading": "Možné diagnostické otázky", "items": ["Která měření odpovídají konkrétní medicínsko-estetické otázce?", "Které nálezy vyžadují další lékařské nebo laboratorní posouzení?", "Jak začlenit měření, dokumentaci a odeslání do pracovního postupu?"] },
+      "parameters": { "heading": "Doložená měření ve stávajícím beauty kontextu", "items": ["Vitamin D", "Ferritin", "TSH", "C-reaktivní protein (CRP)"] },
+      "workflow": { "heading": "Odborně vymezený postup", "steps": [{ "title": "Definovat otázku", "text": "Před výběrem měření vyjasnit indikaci a odbornou odpovědnost." }, { "title": "Provést vhodné měření", "text": "Zpracovat vzorek a provést test podle pokynů použitého systému." }, { "title": "Vyhodnotit výsledek", "text": "Hodnotu zdokumentovat, posoudit v klinickém kontextu a podle potřeby dále ověřit." }] },
+      "faq": { "caption": "Časté otázky", "title": "Otázky k beauty diagnostice", "items": [{ "question": "Čím může diagnostika přispět v profesionálním beauty kontextu?", "answer": "Může doplnit vybrané zdravotní otázky o naměřené hodnoty. Nepředpovídá kosmetický výsledek; interpretace patří do příslušného medicínského kontextu." }, { "question": "Která měření uvádí stávající beauty nabídka?", "answer": "Současný obsah PolarisDX uvádí vitamin D, ferritin, TSH a CRP. Výběr a interpretace závisejí na individuální otázce a odborné odpovědnosti." }, { "question": "Zaručuje hodnota biomarkeru úspěch estetického ošetření?", "answer": "Ne. Naměřená hodnota nepředpovídá kosmetický výsledek a nenahrazuje vyšetření, konzultaci ani odborné posouzení." }] },
+      "crosslinks": { "igloo": { "label": "IglooPro v point-of-care kontextu", "description": "Přejít na samostatnou produktovou stránku bez duplikace technických detailů či výkonnostních tvrzení." } },
+      "cta": { "title": "Zařaďte beauty diagnostiku do své praxe", "text": "Promluvte si s námi o odborné otázce, workflow pracoviště a vhodném dalším kroku." },
+      "disclaimer": { "heading": "Odborné upozornění", "content": "Informace slouží k odborné orientaci. Neslibují kosmetický účinek a nenahrazují individuální lékařskou indikaci ani interpretaci nálezů." },
+      "seo": { "title": "Beauty diagnostika pro praxe a estetiku", "description": "Profesionální beauty diagnostika: vybraná měření, otázky a vymezený postup bez tvrzení o kosmetických výsledcích.", "imageAlt": "Beauty diagnostika v profesionálním workflow pracoviště" }
     }
   },
   "longevity": {
@@ -182,6 +208,19 @@
           "answer": "Ano. Preventivní screeningy biomarkerů jsou klasické služby pro samoplátce, resp. individuální zdravotní služby, protože přesahují katalog výkonů zákonného zdravotního pojištění. Právě v segmentu dlouhověkosti existuje vysoká poptávka po zdravotních kontrolách podložených daty. Kombinace okamžité analýzy a kvalifikovaného poradenství tvoří ekonomicky atraktivní balíček služeb pro vaši praxi."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Longevity diagnostika", "title": "Preventivní diagnostika a hodnocení vývoje pro longevity programy", "subtitle": "Vybrané metabolické, zánětlivé, hormonální a nutriční markery mohou ukázat výchozí hodnoty a změny v čase, aniž by předpovídaly zdraví nebo délku života." },
+      "problem": { "heading": "Sledovat vývoj bez slibování výsledků", "paragraphs": ["Péče zaměřená na longevity spojuje preventivní otázky s opakovatelnými měřeními. Jednotlivé hodnoty a změny poskytují orientaci, vyžadují však klinickou interpretaci a neprokazují příčinu ani účinek intervence."] },
+      "audiences": { "heading": "Profesionální oblasti použití", "items": ["Ordinace a zařízení nabízející preventivní medicínu nebo služby zaměřené na longevity", "Profesionální koncepty péče s metabolickými, kardiovaskulárními nebo hormonálními otázkami", "Týmy, které strukturovaně dokumentují vybraná měření a odborně je hodnotí v čase"] },
+      "questions": { "heading": "Možné diagnostické otázky", "items": ["Které výchozí hodnoty jsou relevantní pro konkrétní preventivní otázku?", "Jaké změny se objevují v čase při srovnatelných podmínkách měření?", "Kdy nález vyžaduje další laboratorní nebo odborné posouzení?"] },
+      "parameters": { "heading": "Doložená měření ve stávajícím longevity kontextu", "items": ["HbA1c", "Lipidový profil", "C-reaktivní protein (CRP)", "TSH", "Vitamin D"] },
+      "workflow": { "heading": "Obezřetný monitorovací postup", "steps": [{ "title": "Definovat výchozí otázku", "text": "Před prvním měřením stanovit indikaci, vhodné hodnoty a podmínky." }, { "title": "Dokumentovat srovnatelně", "text": "Provést měření podle pokynů testu a přehledně zaznamenat relevantní podmínky." }, { "title": "Odborně vyhodnotit vývoj", "text": "Posoudit hodnoty v souvislostech, zohlednit možné vlivy a podle potřeby dále ověřit." }] },
+      "faq": { "caption": "Časté otázky", "title": "Otázky k longevity diagnostice", "items": [{ "question": "Co znamená monitoring v longevity kontextu?", "answer": "Vybraná měření se opakují v odborně odůvodněných okamžicích a posuzují za srovnatelných podmínek. Vývoj pomáhá interpretaci, ale neprokazuje příčinu ani účinek." }, { "question": "Která měření uvádí stávající longevity kontext?", "answer": "Současný obsah PolarisDX uvádí HbA1c, lipidové hodnoty, CRP, TSH a vitamin D. Vhodnost závisí na individuální otázce a medicínské odpovědnosti." }, { "question": "Může longevity diagnostika zaručit zdraví nebo délku života?", "answer": "Ne. Měření neposkytují záruku, individuální prognózu rizika ani tvrzení o prodloužení života. Musí být posouzena spolu s anamnézou a klinickým kontextem." }] },
+      "crosslinks": { "epigenetics": { "label": "Epigenetika jako samostatný pilíř", "description": "Přejít na samostatnou stránku epigenetiky bez duplikace její odborné nebo poptávkové cesty." } },
+      "cta": { "title": "Zařaďte longevity diagnostiku do své nabídky", "text": "Promluvte si s námi o preventivní otázce, vhodných bodech měření a dalším kroku." },
+      "disclaimer": { "heading": "Odborné upozornění", "content": "Informace slouží k odborné orientaci. Neslibují prevenci onemocnění, zdravotní účinek ani prodloužení života a nenahrazují individuální lékařské posouzení." },
+      "seo": { "title": "Longevity diagnostika a monitoring biomarkerů", "description": "Preventivní longevity diagnostika pro odborníky: vybraná měření, hodnocení vývoje a obezřetný monitoring bez záruky zdraví.", "imageAlt": "Longevity diagnostika a hodnocení vývoje v profesionálním workflow" }
     }
   },
   "poc_systemloesungen": {
@@ -261,7 +300,8 @@
           "answer": "IglooPro je vyvíjen a vyráběn společností DX365 GmbH v Berlíně. PolarisDX je distribučním partnerem pro evropský trh a zajišťuje prodej, integraci, školení a průběžnou podporu."
         }
       ]
-    }
+    },
+    "detail": {"hero":{"eyebrow":"Systémová řešení POC","title":"Plánujte diagnostiku u pacienta jako koordinovaný systémový postup","subtitle":"Přístroj, vhodné testy, provedení, dokumentace a odborná interpretace musí odpovídat kontextu péče. PolarisDX podporuje strukturované plánování bez obecných příslibů softwaru nebo rozhraní."},"problem":{"heading":"Více než jeden analyzátor","paragraphs":["Systémové řešení POC propojuje měření u pacienta s jasnými odpovědnostmi a dokumentovaným postupem. Vhodný hardware, testy a konektivitu je nutné posoudit pro konkrétní organizaci a její stávající softwarové prostředí."]},"audiences":{"heading":"Profesionální kontexty použití","items":["Ordinace a zdravotnická zařízení, která chtějí strukturovaně zavést měření u pacienta","Týmy, které organizují provedení testu, dokumentaci výsledků a odbornou interpretaci jako jeden postup","Organizace, které před zavedením posuzují požadavky na přístroje, testy a integraci"]},"questions":{"heading":"Otázky před výběrem systému","items":["Jaké diagnostické otázky a testy má pracovní postup pokrývat?","Jak budou organizovány odběr, provedení, dokumentace a odpovědnost?","Které požadavky na kompatibilitu nebo rozhraní je nutné ověřit ve stávajícím prostředí?"]},"parameters":{"heading":"Součásti systémového řešení POC","items":["Analyzátor a kompatibilní testy","Odběr vzorku a standardizované provedení","Dokumentace výsledků a stávající softwarové prostředí","Zajištění kvality, odpovědnosti a potřeby školení"]},"workflow":{"heading":"Strukturovaný postup zavedení","steps":[{"title":"Vyjasnit kontext použití","text":"Zaznamenat diagnostické otázky, skupiny uživatelů, rozsah testů a organizační požadavky."},{"title":"Ověřit systém a kompatibilitu","text":"Validovat přístroje, testy, cestu dokumentace a možná rozhraní v reálném prostředí."},{"title":"Zavést odpovědný postup","text":"Začlenit provedení, zajištění kvality, odpovědnosti a odbornou interpretaci do rutiny s dokumentací."}]},"faq":{"caption":"Časté dotazy","title":"Otázky k systémovým řešením POC","items":[{"question":"Co patří do systémového řešení POC?","answer":"Vedle analyzátoru zahrnuje vhodné testy, odběr, provedení, dokumentaci výsledků, zajištění kvality a jasné odpovědnosti. Konkrétní podoba závisí na organizaci a kontextu použití."},{"question":"Lze každý systém POC automaticky připojit ke stávajícímu softwaru?","answer":"Ne. Rozhraní a kompatibilita závisí na přístroji, softwaru, konfiguraci a organizačních požadavcích a musí být před zavedením ověřeny pro konkrétní prostředí."},{"question":"Nahrazuje diagnostika POC centrální laboratoř?","answer":"Ne obecně. Testování u pacienta a další laboratorní cesty se doplňují podle otázky, parametru, požadavků na kvalitu a medicínského kontextu."}]},"crosslinks":{"igloo":{"label":"IglooPro v systémovém kontextu","description":"Přejděte na samostatnou produktovou stránku bez duplikování technických specifikací nebo integračních příslibů."}},"cta":{"title":"Posuďte řešení POC pro své prostředí","text":"Promluvte si s námi o kontextu použití, procesních požadavcích a bodech, které je třeba před zavedením ověřit."},"disclaimer":{"heading":"Systémová a odborná informace","content":"Vhodnost, rozsah testů, rozhraní, zajištění kvality a zavedení závisí na konkrétní konfiguraci a odborné odpovědnosti. Tato stránka neslibuje automatickou integraci, dostupnost, rychlost ani diagnostický výkon."},"seo":{"title":"Systémová řešení POC pro ordinace a péči","description":"Plánujte systémy POC profesionálně: přístroje, testy, pracovní postup, dokumentaci a ověření integrace bez obecných příslibů výkonu.","imageAlt":"Systémové řešení POC s přístrojem, testovacím procesem a dokumentací v ordinaci"}}
   },
   "praeventions_checks": {
     "title": "Preventivní zdravotní prohlídky",
@@ -328,11 +368,13 @@
     "seo": {
       "description": "Preventivní kontroly v Point-of-Care: okamžité stanovení klíčových biomarkerů a poradenství založené na datech – v ordinaci, lékárně i na klinice. Zjistěte více.",
       "title": "Preventivní zdravotní prohlídky v ordinaci"
-    }
+    },
+    "detail": {"hero":{"eyebrow":"Preventivní kontroly","title":"Preventivní kontroly jako strukturovaný základ diagnostických informací","subtitle":"Vybraná měření mohou podpořit poradenství a další posouzení. Kontrola poskytuje momentální obraz a nezaručuje spolehlivé včasné odhalení, vyloučení ani prevenci onemocnění."},"problem":{"heading":"Nejprve otázka, potom balíček testů","paragraphs":["Smysluplná preventivní kontrola začíná cílovou skupinou, účelem a odborně zdůvodněným výběrem měření. Výsledky je nutné interpretovat spolu s anamnézou a kontextem péče; obecný seznam testů není diagnóza."]},"audiences":{"heading":"Profesionální kontexty použití","items":["Ordinace se strukturovanými koncepty preventivního poradenství a péče","Lékárny a další profesionální poskytovatelé zdravotních služeb s jasně určenou odbornou interpretací","Kliniky a zdravotnická zařízení začleňující vybraná měření do stávajících preventivních postupů"]},"questions":{"heading":"Otázky pro odpovědnou kontrolu","items":["Jaký preventivní informační cíl má kontrola podporovat?","Která měření jsou odborně odůvodněná pro cílovou skupinu a konkrétní otázku?","Které výsledky vyžadují potvrzení, další diagnostiku nebo odborné posouzení?"]},"parameters":{"heading":"Zavedená měření ve stávajícím preventivním kontextu","items":["HbA1c","Lipidové hodnoty","C-reaktivní protein (CRP)","Vitamin D","TSH","Feritin"]},"workflow":{"heading":"Strukturovaný průběh kontroly","steps":[{"title":"Definovat cíl a rozsah","text":"Před kontrolou stanovit cílovou skupinu, účel, vhodná měření a odpovědnosti."},{"title":"Měřit s dokumentací","text":"Provést odběr a test podle pokynů systému a výsledek dohledatelně zaznamenat."},{"title":"Výsledek opatrně interpretovat","text":"Projednat měření v individuálním kontextu a při abnormálních nebo nejistých výsledcích zajistit vhodné další posouzení."}]},"faq":{"caption":"Časté dotazy","title":"Otázky k preventivním kontrolám","items":[{"question":"Co je preventivní kontrola?","answer":"Preventivní kontrola sdružuje odborně vybraná měření pro definovanou otázku. Poskytuje diagnostické informace pro poradenství a případné další posouzení, nikoli samostatnou diagnózu."},{"question":"Která měření uvádí stávající preventivní kontext?","answer":"Stávající podklady PolarisDX uvádějí HbA1c, lipidové hodnoty, CRP, vitamin D, TSH a feritin. Vhodný výběr závisí na cílové skupině, otázce a odborné odpovědnosti."},{"question":"Může preventivní kontrola spolehlivě odhalit, vyloučit nebo zabránit onemocnění?","answer":"Ne. Kontrola může poskytnout informace, ale nezaručuje včasné odhalení, vyloučení ani prevenci onemocnění. Abnormální nebo nejasné výsledky vyžadují lékařskou interpretaci a případně další posouzení."}]},"cta":{"title":"Posuďte preventivní kontroly pro svou nabídku","text":"Promluvte si s námi o cílové skupině, otázce, vhodných měřeních a odpovědném dalším kroku."},"disclaimer":{"heading":"Odborná informace","content":"Preventivní kontroly nenahrazují individuální lékařskou diagnózu, terapeutické rozhodnutí ani další posouzení. Nezaručují odhalení, vyloučení ani prevenci onemocnění."},"seo":{"title":"Preventivní kontroly a diagnostická orientace","description":"Preventivní kontroly pro profesionály: šest zavedených skupin měření, strukturovaný postup a opatrná interpretace bez diagnostických nebo preventivních záruk.","imageAlt":"Strukturovaná preventivní kontrola s výběrem měření a odbornou interpretací"}}
   },
   "infektion_entzuendung": {
     "title": "Markery infekce a zánětu",
     "headline": "Triage v minutách: Jak Igloo Pro urychluje rozhodování",
+    "detail": {"hero":{"eyebrow":"Infekce a zánět","title":"Interpretace markerů infekce a zánětu v kontextu","subtitle":"CRP, PCT, IL-6 a ferritin mohou poskytovat různé informace o zánětlivých procesech. Jejich význam závisí na otázce, načasování a klinickém kontextu; žádná jednotlivá hodnota sama nestanovuje diagnózu ani rozhodnutí o léčbě."},"problem":{"heading":"Marker není diagnóza","paragraphs":["Známky infekce a zánětu se mohou překrývat a měnit v čase. Měření je proto nutné hodnotit spolu s příznaky, anamnézou, načasováním a případnou další diagnostikou, nikoli odvozovat příčinu z jediné hodnoty."]},"audiences":{"heading":"Profesionální kontexty péče","items":["Ambulantní praxe a zdravotnická zařízení s vymezenými otázkami týkajícími se infekce nebo zánětu","Klinické týmy, které začleňují měření do zavedených procesů příjmu, sledování nebo následné péče","Profesionální poskytovatelé zdravotní péče s jasnou odpovědností za měření, dokumentaci a další posouzení"]},"questions":{"heading":"Otázky před výběrem a interpretací","items":["Jakou konkrétní otázku ohledně infekce nebo zánětu má měření podpořit?","Který dostupný marker poskytuje doplňující informaci a v jakém čase?","Které nálezy vyžadují potvrzení, následné měření nebo další diagnostiku podle platného postupu péče?"]},"parameters":{"heading":"Markery uvedené ve stávajícím kontextu služby","items":["CRP (C-reaktivní protein)","PCT (prokalcitonin)","IL-6 (interleukin-6)","Ferritin"]},"workflow":{"heading":"Od otázky k odborné interpretaci","steps":[{"title":"Vyjasnit kontext a odpovědnost","text":"Před měřením určit důvod, situaci péče a odpovědnost za interpretaci a další kroky."},{"title":"Provést a zdokumentovat měření","text":"Se vzorkem a měřením postupovat podle pokynů konkrétně použitého testu a zaznamenat čas i výsledek."},{"title":"Posoudit výsledek v celkovém obrazu","text":"Nepoužívat hodnotu izolovaně; propojit ji s klinickým kontextem a případnou potvrzující nebo doplňující diagnostikou."}]},"faq":{"caption":"Často kladené otázky","title":"Otázky k markerům infekce a zánětu","items":[{"question":"Které markery uvádí stávající kontext služby?","answer":"Současné podklady PolarisDX uvádějí CRP, PCT, IL-6 a ferritin. Které markery konkrétní konfigurace testu skutečně podporuje, je nutné ověřit pro zvolený systém a zamýšlené použití."},{"question":"Může jediný marker s jistotou určit příčinu?","answer":"Ne. Měření může doplnit odborné posouzení, ale samo o sobě neprokazuje konkrétní infekci ani určitou příčinu zánětu. Načasování, průběh, příznaky a další diagnostika zůstávají součástí interpretace."},{"question":"Nahrazuje tato stránka klinické rozhodnutí o naléhavosti nebo léčbě?","answer":"Ne. Stránka popisuje kontext B2B služby a neposkytuje individuální doporučení k triáži, diagnóze ani léčbě. Pro konkrétní případy platí příslušné klinické postupy a odborné odpovědnosti."}]},"cta":{"title":"Zařaďte diagnostiku markerů do svého kontextu péče","text":"Promluvte si s námi o otázce, dostupné konfiguraci testu a odpovědném dalším kroku."},"disclaimer":{"heading":"Odborná poznámka","content":"Markery infekce a zánětu poskytují diagnostické informace závislé na kontextu. Nenahrazují individuální lékařské posouzení, diagnózu, rozhodnutí o naléhavosti ani léčbu a nezaručují konkrétní příčinu nebo výsledek."},"seo":{"title":"Markery infekce a zánětu v kontextu péče","description":"CRP, PCT, IL-6 a ferritin srozumitelně: profesionální kontexty, strukturované měření a jasné hranice bez záruk diagnózy nebo léčby.","imageAlt":"Odborná interpretace markerů infekce a zánětu v kontextu péče"}},
     "intro": [
       "V akutní péči a ambulantním sektoru se počítá každá minuta. Okamžité a spolehlivé stanovení zánětlivých markerů a známek infekce je nezbytné pro správnou triáž, péči o pacienty a – dnes důležitější než kdy jindy – pro odpovědné řízení antibiotik.",
       "Systémy POC (Point-of-Care) prémiové třídy jsou řídicím centrem pro snížení času od vzorku k výsledku na minimum při zajištění maximální klinické bezpečnosti."
@@ -399,6 +441,7 @@
   "stoffwechsel_herz": {
     "title": "Metabolismus a zdraví srdce",
     "headline": "Důležité ukazatele na první pohled: Přesné měření pro úpravu terapie",
+    "detail": {"hero":{"eyebrow":"Metabolismus a srdce","title":"Zařazení metabolických a srdečních markerů do sledování","subtitle":"HbA1c, cholesterol a D-dimer poskytují rozdílné diagnostické informace. Jejich význam závisí na otázce, načasování a kontextu péče; jediná hodnota nepředstavuje diagnózu ani individuální prognózu rizika."},"problem":{"heading":"Měření odpovídají na různé otázky","paragraphs":["Metabolické a kardiovaskulární otázky vyžadují uvážlivý výběr a interpretaci markerů. Výsledky je třeba posuzovat spolu s anamnézou, klinickým obrazem a případně další diagnostikou, nikoli z jedné hodnoty odvozovat pravděpodobnost onemocnění nebo léčbu."]},"audiences":{"heading":"Profesionální kontexty použití","items":["Ambulantní praxe a zdravotnická zařízení s definovanými metabolickými nebo kardiovaskulárními otázkami","Profesionální preventivní programy, které začleňují vybrané markery do strukturovaného poradenství a dalšího posouzení","Klinické týmy, které integrují opakovaná měření do zavedených postupů sledování a eskalace"]},"questions":{"heading":"Otázky před výběrem a kontrolním měřením","items":["Jakou konkrétní metabolickou nebo kardiovaskulární otázku má měření podpořit?","Který dostupný marker odpovídá otázce a kdy má být změřen?","Které výsledky vyžadují potvrzení, další diagnostiku nebo odpovědné lékařské posouzení?"]},"parameters":{"heading":"Markery uvedené ve stávajícím kontextu služby","items":["HbA1c","Cholesterol","D-dimer"]},"workflow":{"heading":"Od cíle měření k opatrnému posouzení vývoje","steps":[{"title":"Stanovit otázku a odpovědnost","text":"Předem vyjasnit cíl měření, kontext péče a odpovědnost za interpretaci a další kroky."},{"title":"Provést a zdokumentovat měření","text":"Použít konkrétně dostupný test podle jeho pokynů a srozumitelně zdokumentovat čas, podmínky a výsledek."},{"title":"Posoudit výsledek v kontextu","text":"Jednotlivé i kontrolní hodnoty hodnotit v celkovém odborném obrazu a při odchylkách nebo nejistotě zajistit vhodné potvrzení či další vyšetření."}]},"faq":{"caption":"Časté otázky","title":"Otázky k metabolickým a srdečním markerům","items":[{"question":"Které markery uvádí stávající kontext služby?","answer":"Dostupné podklady PolarisDX uvádějí HbA1c, cholesterol a D-dimer. Které markery konkrétní konfigurace testu skutečně podporuje, je třeba ověřit pro zvolený systém a zamýšlené použití."},{"question":"Může jedna hodnota předpovědět mé individuální kardiovaskulární riziko?","answer":"Ne. Jediná hodnota neposkytuje spolehlivou individuální prognózu rizika a nedokazuje onemocnění. Interpretace vyžaduje klinický kontext a případně potvrzující nebo další diagnostiku."},{"question":"Co v tomto kontextu znamená sledování?","answer":"Sledování znamená posuzovat odborně odůvodněná měření ve vhodných časech a pokud možno za srovnatelných podmínek. Vývoj může doplnit informace, ale nezaručuje zdravotní výsledek ani konkrétní rozhodnutí o léčbě."}]},"cta":{"title":"Zařaďte metabolickou a srdeční diagnostiku do svého kontextu","text":"Promluvte si s námi o otázce, dostupné konfiguraci testu a odpovědném dalším kroku."},"disclaimer":{"heading":"Odborné upozornění","content":"Metabolické a srdeční markery poskytují diagnostické informace závislé na kontextu. Nenahrazují individuální lékařské posouzení, diagnózu, prognózu rizika ani rozhodnutí o léčbě a nezaručují zdravotní výsledek."},"seo":{"title":"Metabolické a srdeční markery v kontextu péče","description":"HbA1c, cholesterol a D-dimer s opatrným výkladem: profesionální kontexty, odpovědné sledování a žádná individuální prognóza rizika.","imageAlt":"Odborná interpretace metabolických a srdečních markerů v kontextu péče"}},
     "intro": [
       "Monitorování chronických onemocnění, jako je diabetes, a řízení kardiálních rizik jsou časově kritické úkoly. Moderní systémy Point-of-Care (POC) se zde mění v nepostradatelný nástroj, protože posilují vazbu s pacientem a urychlují úpravu terapie.",
       "Čtečka Igloo Pro Reader sdružuje nezbytnou přesnou analytiku v mobilním zařízení pro stanovení důležitých metabolických a kardiálních markerů během několika minut."
@@ -465,6 +508,18 @@
   "hormon_tests": {
     "title": "Hormonální a endokrinologické testy",
     "headline": "Přesnost v endokrinologii: Rychlá jistota pro komplexní diagnózy",
+    "detail": {
+      "hero": { "eyebrow": "Hormonální testy", "title": "Interpretace hormonálních hodnot podle odborné otázky", "subtitle": "TSH a AMH se vztahují k různým endokrinologickým otázkám. Výběr, načasování měření a interpretace patří do příslušného profesionálního kontextu péče; jediná hodnota neposkytuje diagnózu ani rozhodnutí o léčbě." },
+      "problem": { "heading": "Hormonální diagnostika vyžaduje kontext a jasnou odpovědnost", "paragraphs": ["Hormonální hodnoty mohou vyžadovat rozdílnou interpretaci podle otázky, načasování a individuálních okolností. Poskytují diagnostické informace, ale nenahrazují anamnézu, klinické vyšetření ani odborné a laboratorní posouzení."] },
+      "audiences": { "heading": "Profesionální kontexty využití", "items": ["Lékařské ordinace a zařízení s definovanými otázkami týkajícími se štítné žlázy", "Gynekologická, reprodukční a endokrinologická pracoviště s odůvodněnými hormonálními otázkami", "Odborné týmy začleňující vybrané hormonální hodnoty do dokumentovaných cest vyšetření nebo sledování"] },
+      "questions": { "heading": "Otázky před výběrem a měřením", "items": ["Jakou konkrétní endokrinologickou otázku má měření podpořit?", "Který dostupný parametr odpovídá otázce a kdy je vhodný čas pro měření?", "Které výsledky vyžadují potvrzení, další diagnostiku nebo odpovědné odborné posouzení?"] },
+      "parameters": { "heading": "Parametry uvedené ve stávajícím kontextu služby", "items": ["TSH", "AMH"] },
+      "workflow": { "heading": "Od otázky k odborné interpretaci", "steps": [{ "title": "Vyjasnit otázku a odpovědnost", "text": "Předem určit cíl měření, profesionální kontext a odpovědnost za interpretaci a další kroky." }, { "title": "Provést a zdokumentovat dostupný test", "text": "Ověřit dostupnost konkrétního testu a zpracovat vzorek i měření podle pokynů používaného systému." }, { "title": "Posoudit výsledek v kontextu", "text": "Interpretovat hodnotu v celkovém klinickém obrazu a při neočekávaném nebo nejasném výsledku zajistit vhodné potvrzení či další posouzení." }] },
+      "faq": { "caption": "Často kladené otázky", "title": "Otázky k hormonálním testům", "items": [{ "question": "Které parametry uvádí stávající kontext služby?", "answer": "Dostupné podklady PolarisDX uvádějí TSH a AMH. Testy skutečně podporované konkrétní konfigurací je nutné ověřit pro zvolený systém a zamýšlené použití." }, { "question": "Může jediná hormonální hodnota potvrdit diagnózu?", "answer": "Ne. Jediná hodnota nedokazuje onemocnění a musí být posouzena společně s anamnézou, klinickým obrazem a případnou potvrzující nebo doplňující diagnostikou." }, { "question": "Lze z výsledku určit lék nebo dávkování?", "answer": "Ne pouze na základě tohoto měření. Rozhodnutí o léčbě, medikaci a dávkování náleží příslušně kvalifikovaným odborníkům a vyžaduje úplný medicínský kontext." }] },
+      "cta": { "title": "Zařadit hormonální diagnostiku do vašeho kontextu", "text": "Promluvte si s námi o otázce, dostupné konfiguraci testů a odpovědném dalším kroku." },
+      "disclaimer": { "heading": "Odborné upozornění", "content": "Hormonální hodnoty poskytují diagnostické informace závislé na kontextu. Nenahrazují individuální lékařské posouzení, diagnózu ani rozhodnutí o léčbě, medikaci či dávkování a nezaručují žádný zdravotní výsledek." },
+      "seo": { "title": "Hormonální testy v profesionálním kontextu péče", "description": "TSH a AMH v odborném kontextu: odpovědný výběr testu, průběh měření a jasné hranice bez příslibu diagnózy nebo léčby.", "imageAlt": "Odborná interpretace hormonálních testů v kontextu péče" }
+    },
     "intro": [
       "Hormonální nerovnováha je často příčinou komplexních, chronických potíží, od dysfunkce štítné žlázy až po poruchy plodnosti. Specializované ordinace a lékárny proto potřebují diagnostiku, která je nejen rychlá, ale naprosto přesná, aby mohly fundovaně řídit terapeutické cesty.",
       "Čtečka Igloo Pro Reader zpřístupňuje POC testy pro endokrinologii a umožňuje okamžité stanovení kritických hormonů přímo u pacienta."
@@ -529,6 +584,92 @@
     }
   },
   "kompatibilitaet_integration": {
+    "detail": {
+      "hero": {
+        "eyebrow": "Kompatibilita a integrace",
+        "title": "Před zavedením ověřte kompatibilitu dohledatelným způsobem",
+        "subtitle": "Zda se test, vyhodnocení, cesta dokumentace a stávající pracovní prostředí k sobě hodí, závisí na konkrétní konfiguraci. PolarisDX podporuje strukturované ověření bez obecných příslibů rozhraní nebo funkcí."
+      },
+      "problem": {
+        "heading": "Integrace začíná doloženou kombinací systémů",
+        "paragraphs": [
+          "Prostředí výrobců, testů a softwaru se liší. Před použitím je třeba v reálném prostředí ověřit zamýšlený test, vyhodnocení, cestu dokumentace a odpovědnosti a dohledatelně je zaznamenat."
+        ]
+      },
+      "audiences": {
+        "heading": "Profesionální integrační kontexty",
+        "items": [
+          "Ordinace a zdravotnická zařízení, která před zavedením společně posuzují test, vyhodnocení a dokumentaci",
+          "Týmy, které začleňují proces měření do stávajících postupů bez předpokladu automatické výměny dat",
+          "Organizace, které dohledatelně porovnávají požadavky výrobců, testů a stávajících systémů"
+        ]
+      },
+      "questions": {
+        "heading": "Otázky před rozhodnutím o integraci",
+        "items": [
+          "Jaká konkrétní kombinace testu a vyhodnocení je zamýšlena a jaké podklady dokládají její vhodnost?",
+          "Jak budou výsledky dokumentovány nebo přenášeny a které kroky zůstanou ruční?",
+          "Kdo odpovídá za ověření, konfiguraci, schválení a pozdější změny?"
+        ]
+      },
+      "parameters": {
+        "heading": "Technické a organizační kontrolní body",
+        "items": [
+          "Zamýšlený test a použité vyhodnocení",
+          "Verze systému a softwaru a stávající cesta dokumentace",
+          "Ruční nebo technické předávání dat a jasné odpovědnosti",
+          "Ověření, dokumentace změn a potřeby školení"
+        ]
+      },
+      "workflow": {
+        "heading": "Od požadavků k dokumentovanému použití",
+        "steps": [
+          {
+            "title": "Vymezte požadavky",
+            "text": "Konkrétně zaznamenejte rozsah testů, pracovní prostředí, cestu dokumentace a odpovědné role."
+          },
+          {
+            "title": "Ověřte kompatibilitu",
+            "text": "Prověřte zamýšlenou kombinaci a cestu dat podle aktuální dokumentace a reálného provozního prostředí."
+          },
+          {
+            "title": "Zdokumentujte schválený postup",
+            "text": "Zaznamenejte potvrzený stav, ruční kroky, odpovědnosti a způsob řízení změn."
+          }
+        ]
+      },
+      "faq": {
+        "caption": "Časté otázky",
+        "title": "Otázky ke kompatibilitě a integraci",
+        "items": [
+          {
+            "question": "Platí prohlášení o kompatibilitě automaticky pro každý test a výrobce?",
+            "answer": "Ne. Platí pouze pro konkrétně ověřenou kombinaci a zdokumentovaný stav. Jiné testy, verze nebo provozní podmínky vyžadují samostatné posouzení."
+          },
+          {
+            "question": "Je součástí automatické připojení ke stávajícímu softwaru?",
+            "answer": "Obecně ne. Možnost a způsob přenosu dat závisí na zapojených systémech, verzích, konfiguracích a schválených cestách a musí být ověřeny pro konkrétní prostředí."
+          },
+          {
+            "question": "Zaručuje strukturovaná integrace bezchybný nebo bezpečný provoz?",
+            "answer": "Ne. Strukturované ověření zviditelňuje předpoklady, odpovědnosti a otevřené body. Odpovědnost za provoz, kvalitu a bezpečnost nadále závisí na konkrétním prostředí a platných požadavcích."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Posuďte s námi požadavky na kompatibilitu",
+        "text": "Promluvte si s námi o zamýšlené kombinaci, cestě dokumentace a bodech, které je třeba před integrací ověřit."
+      },
+      "disclaimer": {
+        "heading": "Technické upozornění",
+        "content": "Vhodnost a datové cesty závisí na testu, systému, verzi, konfiguraci a provozním prostředí. Tato stránka neslibuje univerzální kompatibilitu, automatické rozhraní, certifikaci, SLA ani záruku bezpečnosti, dostupnosti nebo výkonu."
+      },
+      "seo": {
+        "title": "Kompatibilita a integrace pro pracovní postupy POC",
+        "description": "Strukturovaně ověřte kompatibilitu: test, vyhodnocení, dokumentaci a odpovědnosti bez obecných příslibů rozhraní nebo výkonu.",
+        "imageAlt": "Strukturované ověření kompatibility a integrace v pracovním postupu POC"
+      }
+    },
     "title": "Kompatibilita napříč výrobci",
     "headline": "Maximální flexibilita: Jak váš Igloo Pro vyhodnocuje 90 % všech testů na trhu",
     "intro": [
@@ -594,11 +735,32 @@
     }
   },
   "seo": {
-    "overview_title": "POC diagnostika pro ordinace: dental, beauty, longevity",
-    "overview_description": "Rychlé testy v místě péče pro vitamin D, CRP, HbA1c a TSH – u křesla během minut. POC diagnostika s Igloo Pro pro zubní, estetické a preventivní ordinace."
+    "overview_title": "Point-of-care diagnostika a řešení pro ordinace",
+    "overview_description": "Přehled point-of-care diagnostiky, řešení a oblastí služeb pro ordinace: dental, beauty, prevence, systémy a integrace.",
+    "overview_image_alt": "Čtečka IglooPro jako vizuální prvek centra diagnostiky PolarisDX"
   },
   "overview": {
     "hero": {
+      "entry": {
+        "breadcrumb_label": "Drobečková navigace",
+        "eyebrow": "Diagnostika v místě péče a doplňková diagnostika",
+        "title": "Diagnostická řešení pro ordinace a zdravotnická zařízení",
+        "description": "PolarisDX propojuje aplikace v místě péče a doplňkovou diagnostiku pro ordinace, zdravotnická zařízení a profesionální uživatele. Vyberte si vstup podle odbornosti, diagnostické otázky a pracovního postupu.",
+        "primary_cta": "Vyžádat nabídku",
+        "secondary_cta": "Prozkoumat oblasti služeb",
+        "trust_label": "Spolehlivá orientace",
+        "trust": {
+          "services": "9 přehledně uspořádaných oblastí služeb",
+          "audience": "Pro ordinace, zdravotnická zařízení a profesionální uživatele",
+          "context": "Diagnostika v místě péče a doplňková diagnostika v přehledu"
+        },
+        "visual": {
+          "eyebrow": "Vstup navázaný na produkt",
+          "title": "IglooPro v kontextu péče v místě výkonu",
+          "text": "Skutečná systémová cesta v Diagnostickém hubu vedle dalších vstupů podle odbornosti a pracovního postupu.",
+          "alt": "Čtečka IglooPro jako příklad diagnostiky v místě péče"
+        }
+      },
       "title": "Diagnostika",
       "subtitle": "Laboratorně přesné panely pro každý typ ordinace – validované, v souladu s IVDR a připravené k použití od prvního dne. Vyberte svou odbornost nebo prozkoumejte diagnostické oblasti níže.",
       "chip_cv": "CV < 2 %",
@@ -650,6 +812,9 @@
       }
     },
     "focus": {
+      "eyebrow": "Oblasti použití",
+      "title": "Šest vstupů podle odbornosti a pracovního postupu",
+      "intro": "Vyberte podle zaměření pracoviště, kontextu prevence nebo technické integrace. Každý vstup vede do existující diagnostické oblasti.",
       "subtitle": "Šest diagnostických oblastí, jedna platforma – každý panel běží chairside na IglooPro.",
       "poc": {
         "cta": "Prozkoumat POC systémy",
@@ -696,6 +861,54 @@
           "90 % LFA",
           "Otevřená platforma"
         ]
+      }
+    },
+    "related": {
+      "eyebrow": "Znalosti a souvislosti",
+      "title": "Články o diagnostice a pracovních postupech",
+      "intro": "Vybrané publikované články rozvíjejí témata point-of-care, diagnostické logistiky a systémové integrace.",
+      "all_articles": "Zobrazit všechny články"
+    },
+    "ia": {
+      "eyebrow": "Orientace",
+      "title": "Zařaďte diagnostiku do správného kontextu péče",
+      "intro": "PolarisDX propojuje měření u pacienta, diagnostické otázky a integraci systémů. Vhodný vstup závisí na oboru, pracovním postupu a informaci potřebné v daném profesionálním kontextu.",
+      "poc": {
+        "title": "Point-of-Care v pracovním postupu",
+        "text": "Měření Point-of-Care probíhají blízko místa péče. Výsledky tak mohou být dostupné během práce pracoviště a podpořit odborné posouzení nebo rozhovor. Výběr a hodnocení zůstávají úkolem kvalifikovaných uživatelů."
+      },
+      "extended": {
+        "title": "Rozšířená diagnostika a laboratoř",
+        "text": "Podle otázky doplňují diagnostiku u pacienta další vyšetření nebo zavedené laboratorní postupy. Přístupy se obecně nenahrazují; rozhoduje kontext péče, potřebné parametry a odborné požadavky."
+      },
+      "term": {
+        "label": "Stručně:",
+        "text": "Point-of-Care (POC) označuje diagnostická měření blízko místa péče. Pojem popisuje kontext použití, nikoli automatické lékařské rozhodnutí."
+      },
+      "groups": {
+        "practice": {
+          "eyebrow": "Kontexty pracovišť a oborů",
+          "title": "Prioritní vstupy podle oblasti použití",
+          "text": "Dental, Beauty a Longevity jsou již hlavními vstupy v současné hierarchii webu. Vyberte kontext nejbližší vašemu profesionálnímu použití."
+        },
+        "workflow": {
+          "eyebrow": "Pracovní postup a diagnostická otázka",
+          "title": "Další diagnostické oblasti",
+          "text": "Orientujte se podle prevence, klinické otázky nebo zapojení diagnostických systémů do stávajících postupů."
+        }
+      },
+      "priority_label": "Prioritní vstup",
+      "card_cta": "Zobrazit oblast služeb",
+      "cards": {
+        "dental": "Pro zubní ordinace, které chtějí zařadit diagnostické informace do implantologických, parodontologických nebo preventivních postupů.",
+        "beauty": "Pro profesionální estetické a beauty kontexty, kde se odborně posuzuje zdraví pokožky, hormony nebo mikroživiny.",
+        "longevity": "Pro preventivní a longevity služby, které strukturovaně zapojují vybrané biomarkery do konzultací a sledování.",
+        "poc_systemloesungen": "Pro organizace, které chápou měření u pacienta, přístroje a procesy jako jeden koordinovaný pracovní postup.",
+        "praeventions_checks": "Pro strukturované kontroly poskytující vybrané zdravotní informace pro konzultaci a další posouzení.",
+        "infektion_entzuendung": "Pro profesionální otázky týkající se markerů infekce a zánětu.",
+        "stoffwechsel_herz": "Pro zařazení vybraných metabolických a kardiovaskulárních markerů do vhodných profesionálních postupů.",
+        "hormon_tests": "Pro profesionální otázky týkající se štítné žlázy, hormonálního stavu a endokrinologie.",
+        "kompatibilitaet_integration": "Pro organizace, které chtějí integrovat přístroje, testy a digitální rozhraní do své stávající diagnostické infrastruktury."
       }
     },
     "page": {

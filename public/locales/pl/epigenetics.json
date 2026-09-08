@@ -81,8 +81,7 @@
           "Poradnictwo żywieniowe wykraczające poza standardowe plany",
           "Placówki profilaktyczne z programami odchudzania",
           "Gdzie wcześniejsze zmiany diety nie przyniosły efektu"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Ośrodki długowieczności i placówki profilaktyczne",
           "Poradnictwo żywieniowe i medycyna zapobiegawcza",
           "Osoby w wieku około 40 lat i starsze śledzące trend"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Placówki długowieczności i medycyny funkcjonalnej",
           "Centra zdrowia, coaching i zdrowie w miejscu pracy",
           "Gdzie pełny panel starzenia byłby zbyt rozbudowany"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Programy długowieczności i medycyna zapobiegawcza",
           "Poradnictwo żywieniowe wymagające wartości wyjściowej",
           "Programy w miejscu pracy z naciskiem na długowieczność"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Zarządzanie zdrowiem w miejscu pracy i odporność",
           "Placówki skupione na zapobieganiu stresowi",
           "Osoby pod długotrwałym obciążeniem"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Medycyna sportowa i diagnostyka wydolności",
           "Nauka o sporcie i coaching wydolności",
           "Sportowcy rekreacyjni i zawodowi"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Raport próbki"
@@ -333,9 +327,72 @@
     "title": "Poproś o wycenę",
     "sub": "Analizy są dostępne wyłącznie dla użytkowników profesjonalnych. Warunki B2B na zapytanie, zróżnicowane według wolumenu.",
     "overview": "Przegląd w formacie PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "Analizy są usługami laboratoryjnymi świadczonymi przez naszego partnera współpracującego i nie są oznakowanymi znakiem CE wyrobami do diagnostyki in vitro. Służą konsultacji i monitorowaniu i nie zastępują diagnostyki klinicznej. Analizy genetyczne podlegają krajowym przepisom dotyczącym badań genetycznych. W Niemczech badania genetyczne predykcyjne mogą być przeprowadzane wyłącznie pod nadzorem odpowiednio wykwalifikowanych lekarzy; przed i po badaniu musi być zapewnione doradztwo genetyczne.",
     "lab": "Analiza laboratoryjna przez naszego partnera współpracującego · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Imię i nazwisko",
+      "email": "E-mail",
+      "organization": "Placówka / organizacja",
+      "facilityType": "Typ placówki",
+      "choose": "Wybierz",
+      "panel": "Interesujący panel (opcjonalnie)",
+      "noPanel": "Jeszcze nie wybrano",
+      "volume": "Przewidywana liczba przypadków miesięcznie (opcjonalnie)",
+      "message": "Twoje pytanie (opcjonalnie)",
+      "messageHint": "Nie przesyłaj danych zdrowotnych ani wyników."
+    },
+    "facilityTypes": {
+      "practice": "Praktyka",
+      "clinic": "Klinika",
+      "laboratory": "Laboratorium",
+      "consultancy": "Doradztwo / centrum zdrowia",
+      "other": "Inna placówka"
+    },
+    "volumes": {
+      "unspecified": "Brak danych",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Ponad 50"
+    },
+    "submit": "Poproś o wycenę",
+    "sending": "Bezpieczne zapisywanie zapytania …",
+    "analyticsIndependent": "Zapytanie działa niezależnie od plików cookie analitycznych i marketingowych.",
+    "errors": {
+      "name": "Podaj imię i nazwisko.",
+      "email": "Podaj prawidłowy adres e-mail.",
+      "organization": "Podaj nazwę placówki.",
+      "facilityType": "Wybierz typ placówki.",
+      "consent": "Zgoda na przetwarzanie jest wymagana."
+    },
+    "status": {
+      "delivered": {
+        "title": "Zapytanie zapisane i przekazane",
+        "text": "Zapytanie zostało trwale zapisane i przekazane do właściwego procesu."
+      },
+      "retryPending": {
+        "title": "Zapytanie bezpiecznie zapisane",
+        "text": "Przekazanie jest chwilowo wstrzymane i zostanie ponowione na podstawie zapisanego zgłoszenia."
+      },
+      "providerUnavailable": {
+        "title": "Zapytanie bezpiecznie zapisane",
+        "text": "Zewnętrzna usługa przekazania nie jest obecnie skonfigurowana. Zgłoszenie pozostaje dostępne do ręcznej obsługi."
+      },
+      "manualReview": {
+        "title": "Zapytanie bezpiecznie zapisane",
+        "text": "Automatyczne przekazanie nie zostało ukończone. Zapisane zgłoszenie pozostaje dostępne do ręcznej obsługi."
+      },
+      "recorded": {
+        "title": "Zapytanie bezpiecznie zapisane",
+        "text": "Zgłoszenie zapisano trwale; trwa jego przekazywanie."
+      },
+      "error": {
+        "title": "Zapytanie nie zostało zapisane",
+        "text": "Nie udało się bezpiecznie zapisać zapytania. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio."
+      }
+    }
   },
   "links": {
     "longevity": "Diagnostyka longevity",
@@ -665,6 +722,8 @@
     "othersTitle": "Pozostałe raporty przykładowe",
     "navBack": "Przegląd",
     "navChapters": "Rozdziały",
+    "previous": "Poprzedni raport",
+    "next": "Następny raport",
     "noticeTitle": "Ważne informacje",
     "toTop": "Powrót na górę",
     "ctaPdf": "Ten raport jako PDF",

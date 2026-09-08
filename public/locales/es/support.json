@@ -55,7 +55,8 @@
       "submitting": "Enviando...",
       "success": "¡Muchas gracias! Hemos recibido y registrado su solicitud de soporte. Nos pondremos en contacto con usted lo antes posible.",
       "error": "Se ha producido un error. Inténtelo de nuevo más tarde.",
-      "microcopy": "Normalmente respondemos en un día laborable."
+      "microcopy": "Normalmente respondemos en un día laborable.",
+      "error_retryable": "No ha funcionado en este momento. Tus datos siguen aquí — inténtalo de nuevo en un momento."
     },
     "info": {
       "title": "Información de soporte",

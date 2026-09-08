@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { articles } from '../data/articles'
 import { services } from '../data/services'
-import { BEFUND_ORDER } from '../content/befunde/meta'
+import { getSearchEligibleRouteEntries } from '../routing/routeRegistry'
 
 export type SearchResultType =
   | 'page'
@@ -25,9 +25,7 @@ export interface SearchResult {
   priority: number
 }
 
-interface SearchDefinition {
-  id: string
-  path: string
+interface SearchMetadata {
   type: SearchResultType
   titleKey: string
   descriptionKey: string
@@ -35,115 +33,88 @@ interface SearchDefinition {
 }
 
 /**
- * Temporary, controlled route mirror for search. AP10 owns the future central
- * route registry; until then every target here is checked by check:search-index.
+ * Search copy stays a Search concern; route paths and eligibility do not.
+ * Keys are registry family IDs and G1 rejects missing/stale bindings.
  */
-export const SEARCH_PAGE_DEFINITIONS: readonly SearchDefinition[] = [
-  {
-    id: 'home',
-    path: '/',
+export const SEARCH_PAGE_METADATA: Readonly<Record<string, SearchMetadata>> = {
+  home: {
     type: 'page',
     titleKey: 'home:seo.title',
     descriptionKey: 'home:seo.description',
     priority: 100,
   },
-  {
-    id: 'diagnostics',
-    path: '/diagnostics',
+  diagnostics: {
     type: 'page',
     titleKey: 'services:overview.hero.title',
     descriptionKey: 'services:seo.overview_description',
     priority: 95,
   },
-  {
-    id: 'igloo-pro',
-    path: '/igloo-pro',
+  'igloo-pro': {
     type: 'resource',
     titleKey: 'products:seo.title',
     descriptionKey: 'products:seo.description',
     priority: 94,
   },
-  {
-    id: 'epigenetics',
-    path: '/epigenetics',
+  epigenetics: {
     type: 'epigenetics',
     titleKey: 'common:search.index.epigenetics.title',
     descriptionKey: 'common:search.index.epigenetics.description',
     priority: 93,
   },
-  {
-    id: 'about',
-    path: '/about',
+  about: {
     type: 'page',
     titleKey: 'about:seo.title',
     descriptionKey: 'about:seo.description',
     priority: 80,
   },
-  {
-    id: 'articles',
-    path: '/articles',
+  articles: {
     type: 'page',
     titleKey: 'articles:index.title',
     descriptionKey: 'articles:seo.index_description',
     priority: 79,
   },
-  {
-    id: 'events',
-    path: '/events',
+  events: {
     type: 'event',
     titleKey: 'events:title',
     descriptionKey: 'events:seo_description',
     priority: 78,
   },
-  {
-    id: 'downloads',
-    path: '/downloads',
+  downloads: {
     type: 'resource',
     titleKey: 'downloads:seo.title',
     descriptionKey: 'downloads:seo.description',
     priority: 77,
   },
-  {
-    id: 'support',
-    path: '/support',
+  support: {
     type: 'page',
     titleKey: 'support:seo.title',
     descriptionKey: 'support:seo.description',
     priority: 76,
   },
-  {
-    id: 'contact',
-    path: '/contact',
+  contact: {
     type: 'page',
     titleKey: 'contact:seo.title',
     descriptionKey: 'contact:seo.description',
     priority: 75,
   },
-  {
-    id: 'vitamin-d3-spray',
-    path: '/vitamin-d3-spray',
+  'vitamin-d3-spray': {
     type: 'resource',
     titleKey: 'vitd3spray:seo.title',
     descriptionKey: 'vitd3spray:seo.description',
     priority: 70,
   },
-  ...(['grundlagen', 'studienlage', 'unterlagen'] as const).map((slug, index) => ({
-    id: `epigenetics-${slug}`,
-    path: `/epigenetics/${slug}`,
-    type: 'epigenetics' as const,
-    titleKey: `common:search.index.epigenetics-${slug}.title`,
-    descriptionKey: `common:search.index.epigenetics-${slug}.description`,
-    priority: 72 - index,
-  })),
-  ...BEFUND_ORDER.map((slug, index) => ({
-    id: `befund-${slug}`,
-    path: `/epigenetics/musterbefund/${slug}`,
-    type: 'befund' as const,
-    titleKey: `common:search.index.befund-${slug}.title`,
-    descriptionKey: `common:search.index.befund-${slug}.description`,
-    priority: 68 - index,
-  })),
-]
+  ...Object.fromEntries(
+    (['grundlagen', 'studienlage', 'unterlagen'] as const).map((slug, index) => [
+      `epigenetics-${slug}`,
+      {
+        type: 'epigenetics' as const,
+        titleKey: `common:search.index.epigenetics-${slug}.title`,
+        descriptionKey: `common:search.index.epigenetics-${slug}.description`,
+        priority: 72 - index,
+      },
+    ]),
+  ),
+}
 
 const TYPE_LABEL_KEYS: Record<SearchResultType, string> = {
   page: 'common:search.resultTypes.page',
@@ -157,36 +128,66 @@ const TYPE_LABEL_KEYS: Record<SearchResultType, string> = {
 }
 
 export function createSearchIndex(t: TFunction): SearchResult[] {
-  const pages = SEARCH_PAGE_DEFINITIONS.map((item) => ({
-    ...item,
-    title: t(item.titleKey),
-    description: t(item.descriptionKey),
-    typeLabel: t(TYPE_LABEL_KEYS[item.type]),
-  }))
+  const index = getSearchEligibleRouteEntries().map((route): SearchResult => {
+    if (route.familyId === 'service-detail') {
+      const service = services.find((candidate) => candidate.id === route.sourceId)
+      if (!service) throw new Error(`Search registry service source missing: ${route.sourceId}`)
+      const sourceIndex = services.indexOf(service)
+      return {
+        id: `service-${service.id}`,
+        title: t(`services:${service.translationKey}.seo.title`),
+        description: t(`services:${service.translationKey}.seo.description`),
+        path: route.path,
+        type: 'service',
+        typeLabel: t(TYPE_LABEL_KEYS.service),
+        priority: 90 - sourceIndex,
+      }
+    }
+    if (route.familyId === 'article-detail') {
+      const article = articles.find((candidate) => candidate.id === route.sourceId)
+      if (!article) throw new Error(`Search registry article source missing: ${route.sourceId}`)
+      const sourceIndex = articles.indexOf(article)
+      return {
+        id: `article-${article.id}`,
+        title: t(`common:search.index.article-${article.id}.title`),
+        description: t(`common:search.index.article-${article.id}.description`),
+        path: route.path,
+        type: 'article',
+        typeLabel: t(TYPE_LABEL_KEYS.article),
+        priority: 60 - sourceIndex,
+      }
+    }
+    if (route.familyId === 'report-detail') {
+      const sourceIndex = getSearchEligibleRouteEntries()
+        .filter((candidate) => candidate.familyId === 'report-detail')
+        .findIndex((candidate) => candidate.sourceId === route.sourceId)
+      return {
+        id: `befund-${route.sourceId}`,
+        // Die Suche teilt die freigegebene, familienbezogene Content-Wahrheit
+        // mit der Seite. So kann die Search-Copy nicht wieder zu einem
+        // generischen "Musterbefund <Panel>"-Spiegel driften.
+        title: t(`epigenetics:befund.seo.${route.sourceId}.title`),
+        description: t(`epigenetics:befund.seo.${route.sourceId}.description`),
+        path: route.path,
+        type: 'befund',
+        typeLabel: t(TYPE_LABEL_KEYS.befund),
+        priority: 68 - sourceIndex,
+      }
+    }
 
-  const serviceResults = services.map((service, index) => ({
-    id: `service-${service.id}`,
-    title: t(`services:${service.translationKey}.seo.title`),
-    description: t(`services:${service.translationKey}.seo.description`),
-    path: `/diagnostics/${service.id}`,
-    type: 'service' as const,
-    typeLabel: t(TYPE_LABEL_KEYS.service),
-    priority: 90 - index,
-  }))
+    const metadata = SEARCH_PAGE_METADATA[route.familyId]
+    if (!metadata) throw new Error(`Search metadata missing for registry route ${route.familyId}`)
+    return {
+      id: route.familyId,
+      path: route.path,
+      ...metadata,
+      title: t(metadata.titleKey),
+      description: t(metadata.descriptionKey),
+      typeLabel: t(TYPE_LABEL_KEYS[metadata.type]),
+    }
+  })
 
-  const articleResults = articles.map((article, index) => ({
-    id: `article-${article.id}`,
-    title: t(`common:search.index.article-${article.id}.title`),
-    description: t(`common:search.index.article-${article.id}.description`),
-    path: `/articles/${article.slug}`,
-    type: 'article' as const,
-    typeLabel: t(TYPE_LABEL_KEYS.article),
-    priority: 60 - index,
-  }))
-
-  return [...pages, ...serviceResults, ...articleResults].sort(
-    (a, b) => b.priority - a.priority || a.path.localeCompare(b.path),
-  )
+  return index.sort((a, b) => b.priority - a.priority || a.path.localeCompare(b.path))
 }
 
 export function normalizeSearchText(value: string): string {
@@ -220,6 +221,7 @@ export const useSearch = (query: string) => {
     'downloads',
     'products',
     'vitd3spray',
+    'epigenetics',
   ])
 
   const index = useMemo(() => createSearchIndex(t), [t])

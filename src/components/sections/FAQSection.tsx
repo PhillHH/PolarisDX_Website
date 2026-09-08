@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
@@ -34,6 +34,7 @@ const FAQSection = ({
 }: FAQSectionProps) => {
   const { t } = useTranslation(namespace)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const idPrefix = useId().replace(/:/g, '')
 
   // Use direct items when provided, otherwise load from i18n
   const faqItems: FAQItem[] = items ?? (t(faqKey, { returnObjects: true }) as FAQItem[])
@@ -52,49 +53,61 @@ const FAQSection = ({
       <div className="mx-auto max-w-3xl">
         <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
           {Array.isArray(faqItems) &&
-            faqItems.map((item, index) => (
-              <div key={index} className="group">
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-gray-50"
-                  aria-expanded={openIndex === index}
-                  aria-controls={`faq-answer-${index}`}
-                >
-                  <span className="text-base font-medium text-heading sm:text-lg">
-                    {item.question}
-                  </span>
-                  <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300 ease-out ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <div
-                  id={`faq-answer-${index}`}
-                  className={`grid transition-all duration-300 ease-out ${
-                    openIndex === index
-                      ? 'grid-rows-[1fr] opacity-100'
-                      : 'grid-rows-[0fr] opacity-0'
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="max-w-[61ch] px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
-                      {item.answer}
-                    </p>
+            faqItems.map((item, index) => {
+              const buttonId = `${idPrefix}-faq-question-${index}`
+              const answerId = `${idPrefix}-faq-answer-${index}`
+
+              return (
+                <div key={item.question} className="group">
+                  <button
+                    id={buttonId}
+                    type="button"
+                    onClick={() => toggleItem(index)}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary motion-reduce:transition-none"
+                    aria-expanded={openIndex === index}
+                    aria-controls={answerId}
+                  >
+                    <span className="text-base font-medium text-heading sm:text-lg">
+                      {item.question}
+                    </span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={`h-5 w-5 flex-shrink-0 text-gray-500 transition-transform duration-300 ease-out ${
+                        openIndex === index ? 'rotate-180' : ''
+                      } motion-reduce:transition-none`}
+                    />
+                  </button>
+                  <div
+                    id={answerId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={openIndex !== index}
+                  >
+                    <div>
+                      <p className="max-w-[61ch] px-6 pb-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
         </div>
 
         {showFooter && (
-          <p className="mt-6 text-center text-sm text-gray-500">
+          <p className="mt-6 text-center text-sm text-gray-600">
             {t('faq.more', 'Noch Fragen?')}{' '}
-            <Link to="/diagnostics" className="font-semibold text-brand-primary hover:underline">
+            <Link
+              to="/diagnostics"
+              className="rounded-sm font-semibold text-brand-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+            >
               {t('faq.link_services', 'Diagnostik-Services ansehen')}
             </Link>{' '}
             {t('faq.or', 'oder')}{' '}
-            <Link to="/contact" className="font-semibold text-brand-primary hover:underline">
+            <Link
+              to="/contact"
+              className="rounded-sm font-semibold text-brand-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+            >
               {t('faq.link_contact', 'direkt Kontakt aufnehmen')}
             </Link>
           </p>

@@ -4,6 +4,23 @@ const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 const PDFDocument = require('pdfkit')
 const { resolveMailLocale, getMailCopy, formatMailCurrency } = require('./system-i18n')
+const {
+  IdempotencyConflictError,
+  InquiryValidationError,
+  getRuntimeEpigeneticsInquiryService,
+} = require('./epigenetics-inquiry')
+const {
+  ContentDownloadValidationError,
+  EntitlementError,
+  getRuntimeContentDownloadService,
+} = require('./content-download')
+const { ContactValidationError, getRuntimeContactLeadService } = require('./contact-lead')
+const {
+  getRuntimeSupportCaseService,
+  IdempotencyConflictError: SupportIdempotencyConflictError,
+  SupportValidationError,
+} = require('./support-case')
+const { AssetResolutionError } = require('./protected-assets')
 require('dotenv').config()
 
 const app = express()
@@ -20,12 +37,43 @@ const ERROR_CODES = Object.freeze({
 
 const sendError = (res, status, code) => res.status(status).json({ success: false, code })
 
+/**
+ * Fehlschlaege beim geschuetzten Abruf protokollieren — ausschliesslich
+ * Fehlerklasse und Asset-ID. Token, Entitlement-ID, Query-String und URL
+ * werden NIE geschrieben; ein Log-Leak waere ein funktionierender Link.
+ */
+function logDownloadFailure(code, assetId) {
+  console.warn('[content_download] delivery refused', {
+    errorClass: String(code).slice(0, 64),
+    assetId: typeof assetId === 'string' ? assetId.slice(0, 64) : '',
+  })
+}
+
 function requestMailLocale(value, flow) {
   const resolved = resolveMailLocale(value)
   if (resolved.didFallback) {
     console.warn(`[${flow}] unsupported locale "${resolved.requested || '(missing)'}"; using en`)
   }
   return resolved.locale
+}
+
+const HOMEPAGE_SALES_SECTIONS = new Set(['hero', 'roi', 'final_cta'])
+
+function resolveLeadAttribution({ source, journey, section } = {}) {
+  if (
+    source === 'homepage' &&
+    journey === 'general_sales' &&
+    HOMEPAGE_SALES_SECTIONS.has(section)
+  ) {
+    return { source, journey, section }
+  }
+  if (source === 'homepage' && journey === 'roi_report' && section === 'roi') {
+    return { source, journey, section }
+  }
+  if (source === 'epigenetics') {
+    return { source, journey: '', section: '' }
+  }
+  return { source: '', journey: '', section: '' }
 }
 
 // Behind exactly one proxy hop (nginx/SSR) so req.ip reflects the real client.
@@ -39,7 +87,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:3000',
     methods: ['POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Idempotency-Key'],
   }),
 )
 app.use(express.json({ limit: '10mb' }))
@@ -52,6 +100,109 @@ const formLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, code: ERROR_CODES.rateLimited },
+})
+
+// Dedicated Epigenetics journey. Unlike the legacy mail endpoints below, this
+// route commits the shared Lead + Outbox transaction before any provider path
+// can run. SendGrid is deliberately not its source of truth.
+app.post('/api/epigenetics-inquiry', formLimiter, async (req, res) => {
+  try {
+    const result = await getRuntimeEpigeneticsInquiryService().submit({
+      body: req.body,
+      idempotencyKey: req.get('Idempotency-Key'),
+    })
+    if (result.ignored) return res.status(200).json({ accepted: true })
+    return res.status(202).json(result)
+  } catch (error) {
+    if (error instanceof InquiryValidationError) {
+      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
+    }
+    if (error instanceof IdempotencyConflictError) {
+      return res.status(409).json({ accepted: false, code: error.code })
+    }
+    console.error('[epigenetics_inquiry] request failed', {
+      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
+    })
+    return res.status(500).json({ accepted: false, code: 'INQUIRY_UNAVAILABLE' })
+  }
+})
+
+// Ein eigener, groszuegigerer Limiter fuer das Einloesen: einen Download-Link
+// klickt man auch mal mehrfach, und er teilt sich das Budget sonst mit den
+// Formularen. Missbrauch bleibt begrenzt, weil jeder Abruf zusaetzlich gegen
+// `max_downloads` des Entitlements laeuft.
+const downloadLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { accepted: false, code: ERROR_CODES.rateLimited },
+})
+
+// AP19 PT19.3 — gegateter Lead-Magnet. Wie die Epigenetik-Strecke committet
+// dieser Pfad Lead und Outbox, BEVOR irgendein Provider laufen darf.
+app.post('/api/content-download', formLimiter, async (req, res) => {
+  try {
+    const result = await getRuntimeContentDownloadService().submit({
+      body: req.body,
+      idempotencyKey: req.get('Idempotency-Key'),
+    })
+    if (result.ignored) return res.status(200).json({ accepted: true })
+    return res.status(202).json(result)
+  } catch (error) {
+    if (error instanceof ContentDownloadValidationError) {
+      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
+    }
+    if (error instanceof IdempotencyConflictError) {
+      return res.status(409).json({ accepted: false, code: error.code })
+    }
+    // Bewusst OHNE req.url: die Query traegt beim Einloesepfad ein Token, und
+    // eine gemeinsame Log-Zeile waere die einfachste Art, es doch zu leaken.
+    console.error('[content_download] request failed', {
+      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
+    })
+    return res.status(500).json({ accepted: false, code: 'CONTENT_DOWNLOAD_UNAVAILABLE' })
+  }
+})
+
+// Geschuetzte Auslieferung. Der Client nennt eine ASSET-ID und ein Token —
+// niemals einen Dateipfad. Der Server loest ueber die kanonische Registry auf.
+app.get('/api/content-download/asset/:assetId', downloadLimiter, (req, res) => {
+  // Auch die Ablehnung darf nicht indexiert oder zwischengespeichert werden:
+  // die URL traegt ein Geheimnis, und ein 403 mit Cache-Erlaubnis waere ein
+  // unnoetiger Verbreitungsweg. Deshalb VOR der Verzweigung gesetzt.
+  res.setHeader('Cache-Control', 'no-store, private')
+  res.setHeader('Referrer-Policy', 'no-referrer')
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow')
+  try {
+    const { asset } = getRuntimeContentDownloadService().redeem({
+      assetId: req.params.assetId,
+      entitlementId: req.query.e,
+      token: req.query.t,
+    })
+
+    // Kein Zwischenspeicher, kein Index, kein Referrer — oben bereits gesetzt.
+    res.setHeader('Content-Type', asset.mime)
+    res.setHeader('Content-Disposition', `attachment; filename="${asset.filename}"`)
+    return res.sendFile(asset.absolutePath)
+  } catch (error) {
+    const code = error?.code || 'CONTENT_DOWNLOAD_UNAVAILABLE'
+    if (error instanceof EntitlementError) {
+      // Ungueltig und abgelaufen werden unterschieden, weil die Oberflaeche
+      // dem Leser einen sinnvollen Weg zurueck anbieten muss. Ueber die
+      // Existenz des Assets sagt keine der Antworten etwas aus.
+      const status = code === 'ENTITLEMENT_EXPIRED' || code === 'ENTITLEMENT_EXHAUSTED' ? 410 : 403
+      logDownloadFailure(code, req.params.assetId)
+      return res.status(status).json({ accepted: false, code })
+    }
+    if (error instanceof AssetResolutionError) {
+      logDownloadFailure(code, req.params.assetId)
+      return res.status(404).json({ accepted: false, code: 'UNKNOWN_ASSET' })
+    }
+    logDownloadFailure('UNCLASSIFIED_ERROR', req.params.assetId)
+    return res.status(500).json({ accepted: false, code: 'CONTENT_DOWNLOAD_UNAVAILABLE' })
+  }
 })
 
 // Validation of required environment variables
@@ -83,246 +234,56 @@ if (DRY_RUN) {
   console.log('[DRY_RUN] active — no real emails will be sent')
 }
 
-// API Endpoint
+// AP20 PT20.2 — die allgemeine Anfrage als eigene Lead-Journey. Wie die
+// Epigenetik- und Download-Strecke committet dieser Pfad Lead und Outbox,
+// BEVOR irgendein Provider laufen darf. SendGrid ist Side Effect, nicht
+// Quelle der Wahrheit.
 app.post('/api/contact', formLimiter, async (req, res) => {
   try {
-    const { name, email, message, company, phone, area, requirements, consent, _hp, locale } =
-      req.body || {}
-    const mailLocale = requestMailLocale(locale, 'contact')
-
-    // Honeypot — bots almost always fill it; drop silently without sending.
-    if (_hp) {
-      console.log('[contact] honeypot triggered, silently dropping')
-      return res.status(200).json({ success: true })
-    }
-
-    // DSGVO: explicit consent is required
-    if (consent !== true) {
-      return sendError(res, 400, ERROR_CODES.consentRequired)
-    }
-
-    // Basic validation
-    if (!name || !email || !message) {
-      return sendError(res, 400, ERROR_CODES.requiredFields)
-    }
-
-    // Cheap email shape check (server-side; UI also validates)
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return sendError(res, 400, ERROR_CODES.invalidEmail)
-    }
-
-    // Route Vitamin D3+K2 Spray orders to dedicated address
-    const SPRAY_ORDER_RECIPIENT = 'ulrikes@polarisdx.net'
-    const isSprayOrder = area && area.includes('Vitamin D3+K2 Spray BESTELLUNG')
-    const recipient = isSprayOrder ? SPRAY_ORDER_RECIPIENT : process.env.CONTACT_RECEIVER
-
-    // Email content construction
-    const msg = {
-      to: recipient,
-      from: process.env.SENDER_EMAIL, // Must be a verified sender in SendGrid
-      replyTo: email,
-      subject: `[${mailLocale.toUpperCase()}] Neue Kontaktanfrage von ${name}`,
-      text: `
-        Neue Kontaktanfrage über das Webseiten-Formular:
-
-        Name: ${name}
-        Firma: ${company || '-'}
-        Email: ${email}
-        Telefon: ${phone || '-'}
-        Bereich: ${area || '-'}
-
-        Nachricht/Anforderungen:
-        ${message || requirements || '-'}
-      `,
-      html: `
-        <h3>Neue Kontaktanfrage</h3>
-        <p><strong>Name:</strong> ${esc(name)}</p>
-        <p><strong>Firma:</strong> ${esc(company || '-')}</p>
-        <p><strong>Email:</strong> ${esc(email)}</p>
-        <p><strong>Telefon:</strong> ${esc(phone || '-')}</p>
-        <p><strong>Bereich:</strong> ${esc(area || '-')}</p>
-        <br>
-        <p><strong>Nachricht/Anforderungen:</strong></p>
-        <p>${esc(message || requirements || '-').replace(/\n/g, '<br>')}</p>
-      `,
-    }
-
-    // Send email
-    await sgMail.send(msg)
-    console.log('Email sent successfully')
-
-    res.status(200).json({ success: true })
+    const result = await getRuntimeContactLeadService({ mailer: sgMail }).submit({
+      body: req.body,
+      idempotencyKey: req.get('Idempotency-Key'),
+    })
+    if (result.ignored) return res.status(200).json({ accepted: true })
+    return res.status(202).json(result)
   } catch (error) {
-    console.error('Error sending email:', error)
-    if (error.response) {
-      console.error(error.response.body)
+    if (error instanceof ContactValidationError) {
+      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
     }
-    sendError(res, 500, ERROR_CODES.deliveryFailed)
+    if (error instanceof IdempotencyConflictError) {
+      return res.status(409).json({ accepted: false, code: error.code })
+    }
+    // Bewusst nur Fehlerklasse — keine PII, keine Payload-Inhalte.
+    console.error('[contact] request failed', {
+      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
+    })
+    return res.status(500).json({ accepted: false, code: 'CONTACT_UNAVAILABLE' })
   }
 })
 
 // Support API Endpoint
+// AP20 PT20.3 — Support als eigene persistente Journey. Wie die Contact-
+// Strecke committet dieser Pfad Case und Outbox, BEVOR irgendein Provider
+// laufen darf. Team- + Bestaetigungsmail sind entkoppelte, retryfaehige
+// Side Effects ueber die Outbox (CrmRouter). Attachments laufen ueber
+// serverseitige Allowlist + Magic-Bytes + Limits und werden opak abgelegt.
 app.post('/api/support', formLimiter, async (req, res) => {
   try {
-    const {
-      name,
-      email,
-      udi,
-      swVersion,
-      issueType,
-      subject,
-      description,
-      attachment,
-      consent,
-      _hp,
-      locale,
-      issueTypeLabel,
-    } = req.body || {}
-    const mailLocale = requestMailLocale(locale, 'support')
-    const supportCopy = getMailCopy(mailLocale).support
-
-    // Honeypot — bots almost always fill it; drop silently without sending.
-    if (_hp) {
-      console.log('[support] honeypot triggered, silently dropping')
-      return res.status(200).json({ success: true })
-    }
-
-    // DSGVO: explicit consent is required
-    if (consent !== true) {
-      return sendError(res, 400, ERROR_CODES.consentRequired)
-    }
-
-    // Basic validation
-    if (!name || !email || !udi || !swVersion || !issueType || !subject) {
-      return sendError(res, 400, ERROR_CODES.requiredFields)
-    }
-
-    // Cheap email shape check (server-side; UI also validates)
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return sendError(res, 400, ERROR_CODES.invalidEmail)
-    }
-
-    const supportText = `
-Neue Support-Anfrage über das Webseiten-Formular:
-
-Name: ${name}
-Email: ${email}
-Igloo Reader UDI: ${udi}
-SW-Version: ${swVersion}
-Problemtyp: ${issueTypeLabel || issueType}
-Betreff: ${subject}
-
-Beschreibung:
-${description || '-'}
-    `
-
-    const supportHtml = `
-<h3>Neue Support-Anfrage</h3>
-<table style="border-collapse: collapse; width: 100%; max-width: 600px;">
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 180px;">Name:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(name)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(email)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Problemtyp:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(issueTypeLabel || issueType)}</td></tr>
-  <tr><td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Betreff:</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
-</table>
-<br>
-<p><strong>Beschreibung:</strong></p>
-<p>${esc(description || '-').replace(/\n/g, '<br>')}</p>
-    `
-
-    // Internal notification email to support team (High Priority)
-    const msg = {
-      to: [
-        process.env.CONTACT_RECEIVER,
-        'ulrikes@polarisdx.net',
-        'adrianoz@polarisdx.net',
-        'phillipr@polarisdx.net',
-      ],
-      from: process.env.SENDER_EMAIL,
-      replyTo: email,
-      subject: `[HIGH PRIORITY] Support-Anfrage: ${subject}`,
-      text: supportText,
-      html: supportHtml,
-      headers: {
-        'X-Priority': '1',
-        'X-MSMail-Priority': 'High',
-        Importance: 'high',
-      },
-    }
-
-    // Add attachment if present — bounded by size + MIME allowlist before send.
-    if (attachment) {
-      const ALLOWED_ATTACHMENT_TYPES = [
-        'application/pdf',
-        'image/png',
-        'image/jpeg',
-        'image/gif',
-        'text/plain',
-      ]
-      const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024 // 5 MB
-
-      if (
-        typeof attachment.content !== 'string' ||
-        !attachment.content ||
-        typeof attachment.filename !== 'string' ||
-        !attachment.filename ||
-        !ALLOWED_ATTACHMENT_TYPES.includes(attachment.type)
-      ) {
-        return sendError(res, 400, ERROR_CODES.invalidAttachment)
-      }
-
-      // Estimate decoded size from base64 length (slight over-estimate; never under-counts).
-      const decodedBytes = Math.floor((attachment.content.length * 3) / 4)
-      if (decodedBytes > MAX_ATTACHMENT_BYTES) {
-        return sendError(res, 400, ERROR_CODES.invalidAttachment)
-      }
-
-      msg.attachments = [
-        {
-          content: attachment.content,
-          filename: attachment.filename,
-          type: attachment.type,
-          disposition: 'attachment',
-        },
-      ]
-    }
-
-    // Confirmation email to the sender
-    const confirmationMsg = {
-      to: email,
-      from: process.env.SENDER_EMAIL,
-      subject: `${supportCopy.subject}: ${subject}`,
-      text: `${supportCopy.greeting} ${name},\n\n${supportCopy.received}\n\n${supportCopy.details}:\n- Igloo Reader UDI: ${udi}\n- SW-Version: ${swVersion}\n- ${supportCopy.issueType}: ${issueTypeLabel || issueType}\n- ${supportCopy.subjectLabel}: ${subject}\n\n${supportCopy.regards},\n${supportCopy.team}\ncontact@polarisdx.net\n+49 151 75011699`,
-      html: `
-<div lang="${mailLocale}" style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #083358;">${esc(supportCopy.title)}</h2>
-  <p>${esc(supportCopy.greeting)} ${esc(name)},</p>
-  <p>${esc(supportCopy.received)}</p>
-  <h3 style="color: #083358; margin-top: 24px;">${esc(supportCopy.details)}:</h3>
-  <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">Igloo Reader UDI:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(udi)}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">SW-Version:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(swVersion)}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">${esc(supportCopy.issueType)}:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(issueTypeLabel || issueType)}</td></tr>
-    <tr><td style="padding: 6px 8px; border-bottom: 1px solid #eee; font-weight: bold;">${esc(supportCopy.subjectLabel)}:</td><td style="padding: 6px 8px; border-bottom: 1px solid #eee;">${esc(subject)}</td></tr>
-  </table>
-  <p style="margin-top: 24px;">${esc(supportCopy.regards)},<br><strong>${esc(supportCopy.team)}</strong></p>
-  <p style="color: #666; font-size: 13px;">contact@polarisdx.net | +49 151 75011699</p>
-</div>
-      `,
-    }
-
-    // Send both emails
-    await Promise.all([sgMail.send(msg), sgMail.send(confirmationMsg)])
-    console.log('Support emails sent successfully (team + confirmation)')
-
-    res.status(200).json({ success: true })
+    const result = await getRuntimeSupportCaseService({ mailer: sgMail }).submit({
+      body: req.body,
+      idempotencyKey: req.get('Idempotency-Key'),
+    })
+    if (result.ignored) return res.status(200).json({ accepted: true })
+    return res.status(202).json(result)
   } catch (error) {
-    console.error('Error sending support email:', error)
-    if (error.response) {
-      console.error(error.response.body)
+    if (error instanceof SupportValidationError) {
+      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
     }
-    sendError(res, 500, ERROR_CODES.deliveryFailed)
+    if (error instanceof SupportIdempotencyConflictError) {
+      return res.status(409).json({ accepted: false, code: 'IDEMPOTENCY_CONFLICT' })
+    }
+    console.error('[support] unerwarteter Fehler:', error.message)
+    return res.status(500).json({ accepted: false, code: 'SUPPORT_UNAVAILABLE' })
   }
 })
 
@@ -664,10 +625,14 @@ app.post('/api/roi-report', formLimiter, async (req, res) => {
       locale,
       inputs = {},
       outputs = {},
+      source,
+      journey,
+      section,
     } = req.body || {}
     const mailLocale = requestMailLocale(locale, 'roi-report')
     const c = getMailCopy(mailLocale).roi
     const eur = (value) => formatMailCurrency(value, mailLocale)
+    const attribution = resolveLeadAttribution({ source, journey, section })
 
     if (_hp) {
       console.log('[roi-report] honeypot triggered, silently dropping')
@@ -724,9 +689,9 @@ app.post('/api/roi-report', formLimiter, async (req, res) => {
       from: process.env.SENDER_EMAIL,
       replyTo: email,
       subject: `Neuer ROI-Report-Lead — ${area || '-'} (${email})`,
-      text: `Neuer ROI-Rechner-Lead\n\nE-Mail: ${email}\nFachrichtung: ${area || '-'}\nPraxis: ${practice || '-'}\n\nEingaben: ${JSON.stringify(inputs)}\nErgebnis: ${JSON.stringify(outputs)}`,
+      text: `Neuer ROI-Rechner-Lead\n\nE-Mail: ${email}\nFachrichtung: ${area || '-'}\nPraxis: ${practice || '-'}\nQuelle: ${attribution.source || '-'}\nJourney: ${attribution.journey || '-'}\nBereichskontext: ${attribution.section || '-'}\n\nEingaben: ${JSON.stringify(inputs)}\nErgebnis: ${JSON.stringify(outputs)}`,
       html: `<h3>Neuer ROI-Report-Lead</h3>
-        <p><strong>E-Mail:</strong> ${esc(email)}<br><strong>Fachrichtung:</strong> ${sanArea}<br><strong>Praxis:</strong> ${sanPractice}</p>
+        <p><strong>E-Mail:</strong> ${esc(email)}<br><strong>Fachrichtung:</strong> ${sanArea}<br><strong>Praxis:</strong> ${sanPractice}<br><strong>Quelle:</strong> ${esc(attribution.source || '-')}<br><strong>Journey:</strong> ${esc(attribution.journey || '-')}<br><strong>Bereichskontext:</strong> ${esc(attribution.section || '-')}</p>
         <h4>Eingaben</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsIn}</table>
         <h4>Ergebnis</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>`,
     }
@@ -769,4 +734,4 @@ if (require.main === module) {
 }
 
 // Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
-module.exports = { app, esc, ERROR_CODES, buildRoiPdf }
+module.exports = { app, esc, ERROR_CODES, buildRoiPdf, resolveLeadAttribution }

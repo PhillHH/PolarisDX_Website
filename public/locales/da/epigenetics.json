@@ -81,8 +81,7 @@
           "Ernæringsrådgivning ud over standardplaner",
           "Forebyggelsespraksisser med vægtprogrammer",
           "Hvor tidligere kostændringer ikke har virket"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Longevity-centre og forebyggelsespraksisser",
           "Ernæringsrådgivning og forebyggende medicin",
           "Personer omkring 40 år og opefter, der følger udviklingen"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Longevity- og funktionelle medicin-praksisser",
           "Sundhedscentre, coaching og arbejdspladssundhed",
           "Når et fuldt aldringspanel ville være for omfattende"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Langtidsprogrammer og forebyggende medicin",
           "Ernæringsvejledning med behov for en baseline",
           "Arbejdspladsprogrammer med fokus på langt liv"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Sundhedsledelse på arbejdspladsen og robusthed",
           "Praksisser med fokus på stressforebyggelse",
           "Personer under vedvarende belastning"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Idrætsmedicin og præstationsdiagnostik",
           "Idrætsvidenskab og præstationscoaching",
           "Motionister og konkurrenceatleter"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Prøverapport"
@@ -333,9 +327,72 @@
     "title": "Anmod om tilbud",
     "sub": "Analyserne leveres kun til professionelle brugere. B2B-betingelser efter forespørgsel, differentieret efter volumen.",
     "overview": "Oversigt som PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske enheder. De tjener til rådgivning og monitorering og erstatter ikke klinisk diagnostik. Genetiske analyser er underlagt national genetisk testlovgivning. I Tyskland må prædiktiv genetisk testning kun udføres under ansvar af behørigt kvalificerede læger; genetisk rådgivning skal tilbydes før og efter testen.",
     "lab": "Laboratorieanalyse af vores samarbejdspartner · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Navn",
+      "email": "E-mail",
+      "organization": "Institution / organisation",
+      "facilityType": "Institutionstype",
+      "choose": "Vælg",
+      "panel": "Panelinteresse (valgfrit)",
+      "noPanel": "Ikke besluttet endnu",
+      "volume": "Forventede tilfælde pr. måned (valgfrit)",
+      "message": "Dit spørgsmål (valgfrit)",
+      "messageHint": "Indsend ikke helbredsdata eller rapporter."
+    },
+    "facilityTypes": {
+      "practice": "Praksis",
+      "clinic": "Klinik",
+      "laboratory": "Laboratorium",
+      "consultancy": "Rådgivning / sundhedscenter",
+      "other": "Anden institution"
+    },
+    "volumes": {
+      "unspecified": "Ikke angivet",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Mere end 50"
+    },
+    "submit": "Anmod om tilbud",
+    "sending": "Gemmer din forespørgsel sikkert …",
+    "analyticsIndependent": "Forespørgslen fungerer uafhængigt af analyse- eller marketingcookies.",
+    "errors": {
+      "name": "Indtast dit navn.",
+      "email": "Indtast en gyldig e-mailadresse.",
+      "organization": "Angiv din institution.",
+      "facilityType": "Vælg en institutionstype.",
+      "consent": "Dit samtykke til behandling er påkrævet."
+    },
+    "status": {
+      "delivered": {
+        "title": "Forespørgsel gemt og videresendt",
+        "text": "Din forespørgsel blev gemt varigt og sendt videre til den ansvarlige proces."
+      },
+      "retryPending": {
+        "title": "Forespørgsel gemt sikkert",
+        "text": "Videresendelsen afventer midlertidigt og forsøges igen fra den gemte post."
+      },
+      "providerUnavailable": {
+        "title": "Forespørgsel gemt sikkert",
+        "text": "Den eksterne videresendelsestjeneste er ikke konfigureret. Posten forbliver tilgængelig til manuel opfølgning."
+      },
+      "manualReview": {
+        "title": "Forespørgsel gemt sikkert",
+        "text": "Automatisk videresendelse kunne ikke gennemføres. Den gemte post forbliver tilgængelig til manuel opfølgning."
+      },
+      "recorded": {
+        "title": "Forespørgsel gemt sikkert",
+        "text": "Posten blev gemt varigt; videresendelsen behandles."
+      },
+      "error": {
+        "title": "Forespørgsel ikke gemt",
+        "text": "Forespørgslen kunne ikke gemmes sikkert. Prøv igen, eller kontakt os direkte."
+      }
+    }
   },
   "links": {
     "longevity": "Longevity-diagnostik",
@@ -665,6 +722,8 @@
     "othersTitle": "De andre eksempelrapporter",
     "navBack": "Oversigt",
     "navChapters": "Kapitler",
+    "previous": "Forrige rapport",
+    "next": "Næste rapport",
     "noticeTitle": "Vigtige meddelelser",
     "toTop": "Tilbage til toppen",
     "ctaPdf": "Denne rapport som PDF",

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { formatCurrency } from '../../lib/localeFormat'
 import { normalizeLanguage } from '../../i18n'
+import { getHomepageSalesTarget } from '../../lib/homepageConversion'
 
 /**
  * SSR-safe interaktive ROI-Rechner-Sektion (#roi-rechner).
@@ -108,6 +109,9 @@ const RoiCalculatorSection = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          source: 'homepage',
+          journey: 'roi_report',
+          section: 'roi',
           email,
           area,
           areaLabel: t(`roi.form.opt_${area}`),
@@ -171,7 +175,7 @@ const RoiCalculatorSection = () => {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs text-gray-500">{t('roi.input.hint')}</p>
+            <p className="mt-4 text-xs text-gray-600">{t('roi.input.hint')}</p>
           </div>
 
           {/* RECHTS: Ergebnis-Karte */}
@@ -206,8 +210,9 @@ const RoiCalculatorSection = () => {
                     <dd className="font-medium">{payback}</dd>
                   </div>
                 ) : (
-                  <div className="border-t border-white/10 pt-3 text-white/70">
-                    {t('roi.payback_hint')}
+                  <div className="border-t border-white/10 pt-3">
+                    <dt className="sr-only">{t('roi.out.payback')}</dt>
+                    <dd className="text-white/70">{t('roi.payback_hint')}</dd>
                   </div>
                 )}
               </dl>
@@ -226,16 +231,20 @@ const RoiCalculatorSection = () => {
               <p className="mt-2 text-xs text-white/60">{t('roi.report_hint')}</p>
             </div>
 
-            <p className="mt-6 text-xs leading-relaxed text-white/50">{t('roi.disclaimer')}</p>
+            <p className="mt-6 text-xs leading-relaxed text-white/80">{t('roi.disclaimer')}</p>
           </div>
         </div>
 
         {/* CTAs unter der Ergebniskarte (heller Grund) */}
         <div className="mt-8 flex flex-wrap gap-3">
           <Button
-            to="/contact"
+            to={getHomepageSalesTarget('roi')}
             variant="secondary"
             size="sm"
+            data-cta-intent="GENERAL_SALES"
+            data-cta-source="homepage"
+            data-cta-journey="general_sales"
+            data-cta-section="roi"
             className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
           >
             {t('roi.cta_consult')}

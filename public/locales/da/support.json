@@ -55,7 +55,8 @@
       "submitting": "Sender...",
       "success": "Mange tak! Vi har modtaget og registreret din supportanmodning. Vi vender tilbage til dig hurtigst muligt.",
       "error": "Der opstod en fejl. Prøv venligst igen senere.",
-      "microcopy": "Vi svarer normalt inden for én arbejdsdag."
+      "microcopy": "Vi svarer normalt inden for én arbejdsdag.",
+      "error_retryable": "Det virkede ikke lige nu. Dine oplysninger er stadig her — prøv igen om et øjeblik."
     },
     "info": {
       "title": "Supportinformation",

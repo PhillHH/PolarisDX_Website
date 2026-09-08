@@ -149,6 +149,14 @@
       "gdprLabel": "overholdt",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Formularer, samtykker og dataflow",
+      "consent_mode": "Dette website bruger Google Consent Mode v2 (basic): Analyse- og marketingværktøjer (f.eks. Google Analytics 4 via Google Tag Manager) indlæses først, efter du har givet samtykke i cookie-banneret. Før samtykke og ved afvisning kontaktes ingen analyse- eller marketingudbydere.",
+      "support_title": "Supportformular og vedhæftede filer",
+      "support_content": "Oplysninger sendt via supportformularen (navn, e-mailadresse, enhedens UDI, softwareversion, problembeskrivelse) gemmes først i en database på vores server og sendes derefter pr. e-mail til vores supportteam. Valgfrie vedhæftede filer (dokumenter og billeder i tilladte formater) gemmes under et automatisk genereret, offentligt utilgængeligt navn og kobles udelukkende til supportsagen; den planlagte slettefrist er 90 dage. De videregives ikke til tredjepart.",
+      "marketing_title": "Adskilte samtykker",
+      "marketing_content": "For kontakt- og supportformularer kræves kun samtykke til behandling af dine oplysninger for at besvare henvendelsen. Samtykke til analyse- eller marketingcookies er ikke nødvendigt og påvirker ikke formularens funktion. Valgfrit samtykke til produktnyhedsbrevet registreres separat og kan tilbagekaldes til enhver tid."
     }
   },
   "agb": {

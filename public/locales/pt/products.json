@@ -1,16 +1,18 @@
 {
   "hero": {
-    "title": "Diagnóstico rápido POC",
-    "caption": "Diagnóstico Next Gen",
-    "description": "Seu centro de controle.",
+    "title": "IglooPro para fluxos profissionais Point-of-Care",
+    "caption": "IglooPro · leitor Point-of-Care",
+    "description": "O IglooPro é um leitor Point-of-Care independente para consultórios e clínicas. Em conjunto, esclarecemos qual configuração suportada e qual gama de testes se adequam ao seu fluxo de trabalho.",
     "cta_order": "Pedir orçamento",
+    "cta_secondary": "Abrir a calculadora de ROI",
     "cta_datasheet": "Ficha técnica (PDF, DE)",
-    "subline": "Gratuito e sem compromisso · Resposta em 24 h",
+    "subline": "Para consultórios e clínicas · Orientação pessoal em vez de um pacote padrão",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "Compatível com LIS/HIS",
     "chip_cross": "Multifabricante",
     "visual": {
-      "device_alt": "Leitor POC IglooPro, vista frontal",
+      "device_alt": "Leitor Point-of-Care IglooPro, vista frontal",
+      "context": "IglooPro como leitor Point-of-Care independente",
       "portable_val": "600 g",
       "portable_label": "portátil",
       "cv_val": "CV < 2 %",
@@ -18,6 +20,63 @@
       "time_val": "3–15 min",
       "time_label": "por teste"
     }
+  },
+  "proof": {
+    "aria_label": "Contexto de produto verificado",
+    "eyebrow": "CONTEXTO DE PRODUTO VERIFICADO",
+    "title": "O que pode avaliar com rigor hoje",
+    "description": "Estes sinais descrevem o produto e o percurso de pedido atuais. As especificações técnicas e as alegações regulamentares são documentadas separadamente.",
+    "items": {
+      "reader": { "title": "Leitor POC independente", "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care." },
+      "audience": { "title": "Para consultórios e clínicas", "text": "O percurso de produto destina-se a equipas profissionais que avaliam um fluxo POC adequado." },
+      "enquiry": { "title": "Percurso de pedido real", "text": "O seu pedido conduz ao formulário de contacto existente, sem reserva ou checkout simulados." }
+    }
+  },
+  "product_story": {
+    "eyebrow": "O PRODUTO EM CONTEXTO",
+    "title": "Três características fundamentadas",
+    "description": "O IglooPro é descrito aqui apenas através de características sustentadas pelo produto e pelo percurso de pedido atuais.",
+    "items": {
+      "reader": { "title": "Leitor POC independente", "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care." },
+      "context": { "title": "Ambiente profissional", "text": "O percurso de produto destina-se a consultórios, clínicas e respetivas equipas profissionais." },
+      "scope": { "title": "Âmbito verificado", "text": "A configuração suportada e a gama de testes são esclarecidas para o fluxo específico durante o pedido." }
+    }
+  },
+  "workflow": {
+    "eyebrow": "ANTES DA DECISÃO",
+    "title": "Como é esclarecida a adequação",
+    "description": "O percurso atual é um processo de pedido transparente, não uma configuração automática do produto.",
+    "steps": {
+      "context": { "title": "Descrever o ambiente de utilização", "text": "O tipo de unidade, o contexto Point-of-Care previsto e os requisitos em aberto são o ponto de partida." },
+      "scope": { "title": "Verificar o âmbito suportado", "text": "A configuração, a gama de testes e as questões operacionais relevantes são confirmadas antes de uma recomendação." },
+      "decision": { "title": "Acordar o próximo passo", "text": "O percurso de contacto existente conduz a um esclarecimento pessoal e, quando adequado, a um orçamento." }
+    },
+    "boundary": "A utilização, o fluxo da amostra e o tratamento dos resultados só são descritos com base em documentação de produto aprovada; esta página não inventa automações."
+  },
+  "compatibility": {
+    "eyebrow": "VERIFICAR COMPATIBILIDADE",
+    "title": "Confirmar quatro pontos antes da integração",
+    "description": "A compatibilidade exige uma validação concreta. Estas perguntas estruturam o pedido sem presumir suporte técnico.",
+    "boundary": "Atualmente não é alegado suporte geral para testes, interfaces, software de consultório ou níveis de serviço específicos.",
+    "items": {
+      "portfolio": { "title": "Gama de testes", "text": "Que testes e materiais são efetivamente suportados para a utilização prevista?" },
+      "setting": { "title": "Ambiente de trabalho", "text": "Que requisitos organizacionais e espaciais deve a configuração cumprir?" },
+      "data": { "title": "Percurso de dados e sistemas", "text": "Que transferências de dados ou ligações de sistemas são necessárias e estão atualmente confirmadas?" },
+      "service": { "title": "Suporte e operação", "text": "Que formação, documentação e suporte serão acordados para a utilização específica?" }
+    },
+    "links_label": "Ligações adicionais do IglooPro",
+    "links_title": "Próximos destinos reais",
+    "links": { "poc": "Soluções de sistemas POC", "compatibility": "Compatibilidade e integração", "downloads": "Recursos do produto", "support": "Pedido de suporte", "contact": "Pedir orçamento" }
+  },
+  "specification": {
+    "eyebrow": "ESPECIFICAÇÃO TÉCNICA",
+    "title": "Alegação de produto e conteúdo bloqueada",
+    "description": "Esta apresentação documenta a redação bloqueada para o projeto. Não constitui uma validação científica independente.",
+    "caption": "Estado das especificações IglooPro",
+    "headers": { "metric": "Indicador", "value": "Valor", "context": "Contexto" },
+    "metric": "Coeficiente de variação (CV)",
+    "value": "CV < 2 %",
+    "context": "Decisão de produto/conteúdo; o repositório não valida de forma independente a exatidão científica."
   },
   "intro": {
     "title": "O laboratório móvel",
@@ -107,9 +166,10 @@
     "request_cta": "Solicitar a lista de testes atual"
   },
   "cta_bottom": {
-    "title": "Expanda as possibilidades",
-    "description": "Para farmácias e consultórios.",
+    "title": "Avaliar o IglooPro para o seu fluxo de trabalho",
+    "description": "Descreva o seu contexto de utilização. Em conjunto, esclarecemos o âmbito atualmente suportado e o próximo passo adequado.",
     "button": "Pedir orçamento",
+    "resources": "Abrir a calculadora de ROI",
     "datasheet": "Ficha técnica (PDF, DE)",
     "chips": {
       "free": "Gratuito e sem compromisso",
@@ -118,8 +178,8 @@
     }
   },
   "seo": {
-    "title": "IglooPro POC Reader: especificações e tecnologia",
-    "description": "O IglooPro POC Reader fornece valores laboratoriais no consultório em 3–15 min a partir de sangue capilar: vitamina D, PCR, HbA1c, TSH e muito mais. Imunofluorescência, CV < 2 %, 600 g."
+    "title": "Leitor Point-of-Care IglooPro | PolarisDX",
+    "description": "IglooPro para fluxos Point-of-Care profissionais: esclareça com a PolarisDX o contexto do produto, o âmbito suportado e o percurso real de consulta."
   },
   "help": {
     "title": "Não sabe se o IglooPro se adequa ao seu fluxo de trabalho?",

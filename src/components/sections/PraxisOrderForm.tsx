@@ -79,6 +79,12 @@ export function PraxisOrderForm({
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  // Idempotency-Key: einmal pro Formular-Instanz, bleibt ueber Retries gleich.
+  const [orderIdempotencyKey] = useState(() =>
+    typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : 'order-' + String(Date.now()) + '-' + Math.random().toString(36).slice(2),
+  )
 
   const inputClass =
     'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent'
@@ -118,21 +124,26 @@ export function PraxisOrderForm({
               setIsSubmitting(true)
               setSubmitStatus('idle')
 
-              const success = await sendContactEmail({
-                name: formData.ansprechpartner,
-                email: formData.email,
-                phone: formData.phone,
-                company: formData.praxisName,
-                area,
-                message: `${orderName}\n\n${texts.quantityLabel}: ${quantityOptions.find((option) => option.value === formData.quantity)?.label || formData.quantity}\n\n${texts.addressHeading}:\n${formData.praxisName}\n${formData.ansprechpartner}\n\n${texts.messageLabel}:\n${formData.message || messageNoneLabel}`,
-                // Server now hard-requires consent === true (400 otherwise).
-                // Submitting this order constitutes the agreement to be contacted.
-                consent: true,
-                locale: normalizeLanguage(i18n.resolvedLanguage),
-              })
+              // AP20 PT20.2: derselbe Key pro Formular-Instanz haelt
+              // Wiederholungen idempotent; Ergebnis ist ein SubmitResult.
+              const result = await sendContactEmail(
+                {
+                  name: formData.ansprechpartner,
+                  email: formData.email,
+                  phone: formData.phone,
+                  company: formData.praxisName,
+                  area,
+                  message: `${orderName}\n\n${texts.quantityLabel}: ${quantityOptions.find((option) => option.value === formData.quantity)?.label || formData.quantity}\n\n${texts.addressHeading}:\n${formData.praxisName}\n${formData.ansprechpartner}\n\n${texts.messageLabel}:\n${formData.message || messageNoneLabel}`,
+                  // Processing-Consent: die Bestellung ist die Kontaktaufnahme.
+                  processingConsent: true,
+                  consentAcceptedAt: new Date().toISOString(),
+                  locale: normalizeLanguage(i18n.resolvedLanguage),
+                },
+                orderIdempotencyKey,
+              )
 
               setIsSubmitting(false)
-              setSubmitStatus(success ? 'success' : 'error')
+              setSubmitStatus(result.ok ? 'success' : 'error')
             }}
             className="space-y-4"
             noValidate

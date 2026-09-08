@@ -55,7 +55,8 @@
       "submitting": "Invio in corso...",
       "success": "Grazie! Abbiamo ricevuto e registrato la tua richiesta di supporto. Ti ricontatteremo nel più breve tempo possibile.",
       "error": "Si è verificato un errore. Riprova più tardi.",
-      "microcopy": "Di solito rispondiamo entro un giorno lavorativo."
+      "microcopy": "Di solito rispondiamo entro un giorno lavorativo.",
+      "error_retryable": "Non ha funzionato proprio ora. I tuoi dati sono ancora qui — riprova tra un momento."
     },
     "info": {
       "title": "Informazioni sul supporto",

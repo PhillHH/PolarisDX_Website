@@ -81,8 +81,7 @@
           "Voedingsadvies voorbij standaardplannen",
           "Preventiepraktijken met gewichtsprogramma's",
           "Waar eerdere dieetveranderingen niet werkten"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Levensduurcentra en preventiepraktijken",
           "Voedingsadvies en preventieve geneeskunde",
           "Mensen van ongeveer 40 jaar en ouder die de trend volgen"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Levensduur- en functionele geneeskundepraktijken",
           "Gezondheidscentra, coaching en werkplekgezondheid",
           "Waar een volledig verouderingspanel te uitgebreid zou zijn"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Levensduurprogramma's en preventieve geneeskunde",
           "Voedingsadvies met behoefte aan een uitgangspunt",
           "Werkplekprogramma's met focus op levensduur"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Werkplekgezondheidsmanagement en veerkracht",
           "Praktijken gericht op stresspreventie",
           "Mensen onder aanhoudende belasting"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Sportgeneeskunde en prestatie-diagnostiek",
           "Sportwetenschap en prestatiecoaching",
           "Recreatieve en competitieve atleten"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Voorbeeldrapport"
@@ -333,9 +327,72 @@
     "title": "Vraag een offerte aan",
     "sub": "De analyses worden uitsluitend geleverd aan professionele gebruikers. B2B-voorwaarden op aanvraag, geschaald naar volume.",
     "overview": "Overzicht als PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "De analyses zijn laboratoriumdiensten van onze samenwerkingspartner en zijn geen CE-gemarkeerde in-vitro diagnostica. Ze dienen consultatie en monitoring en vervangen geen klinische diagnostiek. Genetische analyses vallen onder nationale genetische testwetgeving. In Duitsland mogen predictieve genetische testen alleen worden uitgevoerd onder verantwoordelijkheid van daartoe bevoegde artsen; genetische counseling moet vóór en na de test worden aangeboden.",
     "lab": "Laboratoriumanalyse door onze samenwerkingspartner · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Naam",
+      "email": "E-mail",
+      "organization": "Instelling / organisatie",
+      "facilityType": "Type instelling",
+      "choose": "Maak een keuze",
+      "panel": "Interesse in panel (optioneel)",
+      "noPanel": "Nog niet bepaald",
+      "volume": "Verwachte gevallen per maand (optioneel)",
+      "message": "Uw vraag (optioneel)",
+      "messageHint": "Stuur geen gezondheidsgegevens of rapporten mee."
+    },
+    "facilityTypes": {
+      "practice": "Praktijk",
+      "clinic": "Kliniek",
+      "laboratory": "Laboratorium",
+      "consultancy": "Advies / gezondheidscentrum",
+      "other": "Andere instelling"
+    },
+    "volumes": {
+      "unspecified": "Niet opgegeven",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Meer dan 50"
+    },
+    "submit": "Vraag een offerte aan",
+    "sending": "Uw aanvraag wordt veilig opgeslagen …",
+    "analyticsIndependent": "De aanvraag werkt onafhankelijk van analyse- of marketingcookies.",
+    "errors": {
+      "name": "Vul uw naam in.",
+      "email": "Vul een geldig e-mailadres in.",
+      "organization": "Vul uw instelling in.",
+      "facilityType": "Kies een type instelling.",
+      "consent": "Uw toestemming voor verwerking is vereist."
+    },
+    "status": {
+      "delivered": {
+        "title": "Aanvraag opgeslagen en doorgestuurd",
+        "text": "Uw aanvraag is duurzaam opgeslagen en aan het verantwoordelijke proces overgedragen."
+      },
+      "retryPending": {
+        "title": "Aanvraag veilig opgeslagen",
+        "text": "De overdracht staat tijdelijk in de wacht en wordt vanuit het opgeslagen dossier opnieuw geprobeerd."
+      },
+      "providerUnavailable": {
+        "title": "Aanvraag veilig opgeslagen",
+        "text": "De externe overdrachtsdienst is momenteel niet geconfigureerd. Het dossier blijft beschikbaar voor handmatige opvolging."
+      },
+      "manualReview": {
+        "title": "Aanvraag veilig opgeslagen",
+        "text": "De automatische overdracht kon niet worden voltooid. Het opgeslagen dossier blijft beschikbaar voor handmatige opvolging."
+      },
+      "recorded": {
+        "title": "Aanvraag veilig opgeslagen",
+        "text": "Het dossier is duurzaam opgeslagen; de overdracht wordt verwerkt."
+      },
+      "error": {
+        "title": "Aanvraag niet opgeslagen",
+        "text": "De aanvraag kon niet veilig worden opgeslagen. Probeer opnieuw of neem rechtstreeks contact met ons op."
+      }
+    }
   },
   "links": {
     "longevity": "Longevity-diagnostiek",
@@ -665,6 +722,8 @@
     "othersTitle": "De andere voorbeeldrapporten",
     "navBack": "Overzicht",
     "navChapters": "Hoofdstukken",
+    "previous": "Vorig rapport",
+    "next": "Volgend rapport",
     "noticeTitle": "Belangrijke mededelingen",
     "toTop": "Terug naar boven",
     "ctaPdf": "Dit rapport als PDF",

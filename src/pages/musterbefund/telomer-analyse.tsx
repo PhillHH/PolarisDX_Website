@@ -18,14 +18,11 @@ import pt from '../../content/befunde/telomer-analyse.pt.json'
 import da from '../../content/befunde/telomer-analyse.da.json'
 import nl from '../../content/befunde/telomer-analyse.nl.json'
 import cs from '../../content/befunde/telomer-analyse.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const TelomerAnalyse = () => (
-  <MusterbefundPage
-    slug="telomer-analyse"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
-)
+const befunde = defineBefundFamily('telomer-analyse', { de, en, pl, fr, it, es, pt, da, nl, cs })
+
+const TelomerAnalyse = () => <MusterbefundPage slug="telomer-analyse" befunde={befunde} />
 
 export default TelomerAnalyse

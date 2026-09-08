@@ -9,26 +9,6 @@
  * Diese Datei bleibt frei von JSON-Importen. Wer sie erweitert, achtet darauf.
  */
 
-export interface Befund {
-  slug: string
-  panel: string
-  blocks: { type: string; [key: string]: unknown }[]
-}
-
-/** Die zehn kanonischen Sprachfassungen eines Befunds. */
-export interface BefundSprachen {
-  de: Befund
-  en: Befund
-  pl: Befund
-  fr: Befund
-  it: Befund
-  es: Befund
-  pt: Befund
-  da: Befund
-  nl: Befund
-  cs: Befund
-}
-
 /** Reihenfolge wie die sechs Analysen auf /epigenetics (01–06). */
 export const BEFUND_ORDER = [
   'metabolic-health',
@@ -38,6 +18,39 @@ export const BEFUND_ORDER = [
   'stress-monitor',
   'healthy-sport',
 ] as const
+
+export type BefundSlug = (typeof BEFUND_ORDER)[number]
+
+/**
+ * Deterministische lineare Nachbarschaft fuer die Befundnavigation.
+ *
+ * Die Reihenfolge bleibt in `BEFUND_ORDER` kanonisch; erste und letzte Seite
+ * wrappen bewusst nicht. So fuehrt "weiter" nicht unbemerkt wieder zum
+ * Anfang einer bereits vollstaendig gelesenen Reihe.
+ */
+export const getBefundNeighbors = (
+  slug: BefundSlug,
+): { previous: BefundSlug | null; next: BefundSlug | null } => {
+  const index = BEFUND_ORDER.indexOf(slug)
+  return {
+    previous: index > 0 ? BEFUND_ORDER[index - 1] : null,
+    next: index >= 0 && index < BEFUND_ORDER.length - 1 ? BEFUND_ORDER[index + 1] : null,
+  }
+}
+
+/**
+ * Extern sichtbare Panelnamen, ohne Report-Inhalte zu importieren. Der Slug
+ * bleibt ausschliesslich in BEFUND_ORDER kanonisch; dieser Record ist durch
+ * BefundSlug dagegen compile-time vollstaendig und kann nicht driften.
+ */
+export const BEFUND_PANEL_NAMES: Readonly<Record<BefundSlug, readonly string[]>> = {
+  'metabolic-health': ['Metabolic Health'],
+  'healthy-aging': ['Healthy Aging'],
+  'biologische-altersuhr': ['Biologische Altersuhr', 'Biological Age Clock'],
+  'telomer-analyse': ['Telomer-Analyse', 'Telomere Analysis'],
+  'stress-monitor': ['Stress Monitor'],
+  'healthy-sport': ['Healthy Sport'],
+}
 
 /**
  * Lebensstil-Radar, elf Achsen im Uhrzeigersinn ab 12 Uhr:

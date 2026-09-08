@@ -3,21 +3,39 @@
     "caption": "O NAS",
     "title": "Definiujemy diagnostykę na nowo",
     "description": "PolarisDX oznacza innowację, precyzję i niezawodność w technologii medycznej. Poznaj ludzi stojących za naszą misją.",
-    "primary_cta": "Poznaj zespół",
+    "primary_cta": "Poproś o ofertę",
     "chips": {
       "ivdr": "Zgodność z IVDR · CE",
       "partner": "Partner dystrybucyjny DX365",
       "reach": "Biura w Londynie i Hamburgu"
     },
     "visual": {
-      "c1": { "value": "2 biura", "label": "Londyn i Hamburg" },
-      "c2": { "value": "15+ krajów", "label": "Aktywne rynki" },
-      "c3": { "value": "100+ urządzeń", "label": "Zainstalowanych" }
+      "c1": {
+        "value": "2 biura",
+        "label": "Londyn i Hamburg"
+      },
+      "c2": {
+        "value": "15+ krajów",
+        "label": "Aktywne rynki"
+      },
+      "c3": {
+        "value": "100+ urządzeń",
+        "label": "Zainstalowanych"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Biura" },
-      "countries": { "value": "15+", "label": "Kraje" },
-      "devices": { "value": "100+", "label": "Zainstalowane urządzenia" }
+      "locations": {
+        "value": "2",
+        "label": "Biura"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Kraje"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Zainstalowane urządzenia"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Biura: Londyn i Hamburg" },
-    "s2": { "value": "15+", "label": "Kraje z aktywnymi instalacjami" },
-    "s3": { "value": "100+", "label": "Zainstalowane czytniki IglooPro" },
-    "s4": { "value": "< 24 h", "label": "Czas reakcji wsparcia" }
+    "s1": {
+      "value": "2",
+      "label": "Biura: Londyn i Hamburg"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Kraje z aktywnymi instalacjami"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Zainstalowane czytniki IglooPro"
+    },
+    "s4": {
+      "value": "< 24 h",
+      "label": "Czas reakcji wsparcia"
+    }
   },
   "dx365_partner": {
     "caption": "Nasz partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "O PolarisDX: Twój partner w diagnostyce POC",
     "description": "Innowacja, precyzja i niezawodność w technice medycznej: poznaj zespół PolarisDX oraz naszą misję rozwoju diagnostyki w miejscu opieki nad pacjentem (point-of-care)."
+  },
+  "pillars": {
+    "caption": "Trzy filary działalności",
+    "title": "Trzy ścieżki do diagnostyki i zastosowań profesjonalnych",
+    "intro": "PolarisDX łączy diagnostykę point-of-care, czytnik IglooPro i epigenetykę w wyraźnie oddzielonych obszarach.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostyka",
+        "text": "Diagnostyka point-of-care i zastosowania specjalistyczne dla gabinetów i placówek medycznych.",
+        "cta": "Poznaj diagnostykę"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "Czytnik IglooPro analizuje kompatybilne szybkie testy bezpośrednio w miejscu opieki.",
+        "cta": "Zobacz IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetyka",
+        "text": "Samodzielny obszar analiz epigenetycznych i genetycznych oraz powiązanych raportów przykładowych.",
+        "cta": "Poznaj epigenetykę"
+      }
+    }
   }
 }

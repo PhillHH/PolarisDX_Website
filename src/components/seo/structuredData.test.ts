@@ -68,6 +68,10 @@ describe('PT09.4 Structured Data contract', () => {
     for (const forbidden of ['offers', 'sku', 'gtin', 'aggregateRating', 'review']) {
       expect(schema).not.toHaveProperty(forbidden)
     }
+    expect(schema).not.toHaveProperty('brand')
+    expect(schema).not.toHaveProperty('manufacturer')
+    expect(schema).not.toHaveProperty('additionalProperty')
+    expect(JSON.stringify(schema)).not.toContain('QuantitativeValue')
     expect(() =>
       createProductSchema({
         name: 'Product',

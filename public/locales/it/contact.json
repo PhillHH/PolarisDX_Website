@@ -85,6 +85,7 @@
       "prepare_placeholder": "Quali biomarcatori ti interessano — CRP, TSH, HbA1c?",
       "consent": "Acconsento alla conservazione dei miei dati per essere ricontattato e per eventuali domande, per un massimo di 12 mesi. Vedi la nostra",
       "privacy_link": "informativa sulla privacy",
+      "marketing_consent": "Desidero inoltre ricevere la newsletter PolarisDX con le novità sui prodotti (disiscrizione in qualsiasi momento).",
       "submit": {
         "consultation": "Richiedi un preventivo",
         "quote": "Richiedi un preventivo",
@@ -95,7 +96,8 @@
       "sending": "Invio…",
       "microcopy": "Meno di 2 minuti — promesso. Risposta entro 24 h, poi un passo successivo concreto.",
       "success": "Grazie! Abbiamo ricevuto e registrato la tua richiesta — ti rispondiamo entro 24 h.",
-      "error": "Qualcosa è andato storto. Controlla i dati o riprova tra un istante."
+      "error": "Qualcosa è andato storto. Controlla i dati o riprova tra un istante.",
+      "error_retryable": "Non ha funzionato proprio ora. I tuoi dati sono ancora qui — riprova tra un momento."
     },
     "trust": {
       "direct": "Preferisci un contatto diretto?",

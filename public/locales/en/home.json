@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "POC Diagnostics for Your Practice: Lab Results in Minutes",
-    "description": "Lab-accurate point-of-care diagnostics directly in your practice: IVDR/CE, CV < 2 % and results in minutes. New self-pay revenue – request a quote now."
+    "title": "Point-of-Care Diagnostics for Practices | PolarisDX",
+    "description": "PolarisDX supports practices and medical facilities with point-of-care diagnostics using IglooPro and provides clear routes to diagnostics, epigenetics and advice.",
+    "social_image_alt": "IglooPro point-of-care reader by PolarisDX"
   },
   "hero": {
-    "caption": "Point-of-Care Performance",
-    "title": "IglooPro:\nPoint-of-Care. Perfect. Immediate.",
-    "description": "Secure the performance package: your IglooPro is ready for use in 3–5 business days.",
+    "caption": "PolarisDX for practices and medical facilities",
+    "title": "Point-of-care diagnostics designed for everyday clinical workflows.",
+    "description": "PolarisDX helps professional users integrate point-of-care diagnostics with IglooPro into existing workflows – from selecting the right solution to on-site use.",
     "cta": "Request a quote",
+    "cta_secondary": "Explore diagnostics",
+    "visual_alt": "IglooPro point-of-care reader for professional use",
     "cta_roi": "Launch ROI calculator",
     "cta_downloads": "Download information materials",
     "stat1": {
@@ -74,6 +77,33 @@
       }
     },
     "stats_disclaimer": "* Example value — depends on your practice figures."
+  },
+  "business_pillars": {
+    "eyebrow": "Three business pillars",
+    "title": "Three routes into diagnostics and professional application",
+    "intro": "PolarisDX brings point-of-care diagnostics, the IglooPro reader and epigenetics together in clearly separated areas.",
+    "pillars": {
+      "diagnostics": {
+        "title": "Diagnostics",
+        "text": "Point-of-care diagnostics and specialty applications for practices and medical facilities.",
+        "cta": "Explore diagnostics"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "The IglooPro reader evaluates compatible rapid tests directly at the point of care.",
+        "cta": "View IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetics",
+        "text": "A dedicated area for epigenetic and genetic analyses and their related sample reports.",
+        "cta": "Explore epigenetics"
+      }
+    },
+    "core": {
+      "eyebrow": "Selected applications",
+      "title": "Direct routes by specialty",
+      "intro": "Dental, Beauty and Longevity lead to three published diagnostics areas. The complete portfolio remains available in the Diagnostics hub."
+    }
   },
   "about": {
     "caption": "YOUR PERFORMANCE GUARANTEE",
@@ -155,8 +185,8 @@
     }
   },
   "testimonials": {
-    "caption": "PRACTICE VOICES",
-    "title": "What practices say about the IglooPro system",
+    "caption": "PRACTICE REFERENCE",
+    "title": "Experience from everyday practice with IglooPro",
     "ratingLabel": "Overall rating\nbased on practice reviews",
     "positiveLabel": "Positive rating",
     "richard_pollock": {
@@ -185,6 +215,7 @@
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Immediate diagnostics for periodontology & implantology (Vitamin D, HbA1c, cholesterol, CRP)",
       "text": "The Igloo Multireader makes inflammation markers, HbA1c, cholesterol and Vitamin D measurable right at the chair. This lets us plan periodontal and implant treatments more safely and start faster. Training and support from PolarisDX are straightforward – the device has become a fixed part of our daily routine.",
+      "proof_text": "Training and support from PolarisDX are straightforward – the device has become a fixed part of our daily routine.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
@@ -228,28 +259,20 @@
     "title": "Frequently asked questions about PolarisDX and point-of-care diagnostics",
     "items": [
       {
-        "question": "Does the IglooPro pay off for my practice?",
-        "answer": "With POC diagnostics you can offer biomarker measurements as a self-pay service directly in your practice instead of handing them to an external laboratory. You can transparently work out the utilisation and revenue this would generate in your specific case using the ROI calculator. This lets you see how the system fits into your practice structure even before you invest."
+        "question": "What does PolarisDX offer practices and medical facilities?",
+        "answer": "PolarisDX brings together three distinct entry points: point-of-care diagnostics, the IglooPro reader and epigenetics. Each area provides an overview and leads to the professional information already published."
       },
       {
-        "question": "Is the IglooPro approved and quality-assured for use in a practice?",
-        "answer": "The IglooPro is IVDR/CE-compliant and therefore designed for near-patient point-of-care testing (POCT). Across the entire measurement range the system achieves a precision of CV < 2 %, which supports reproducible results. Commissioning is carried out fully validated, so the quality-assurance requirements for POCT are accounted for from the start."
+        "question": "How can point-of-care diagnostics fit into a practice workflow?",
+        "answer": "The workflow shown on the homepage covers application or sample preparation, measurement, result availability after the test-specific processing time and professional interpretation. The precise workflow depends on the respective test and applicable instructions."
       },
       {
-        "question": "Am I tied to a single supplier after purchase?",
-        "answer": "No. The IglooPro works across manufacturers, so you are not locked into a single supplier's tests. This gives you flexibility when choosing your test panels and protects your investment as your diagnostic needs change over time."
+        "question": "Which next step is right for my organisation?",
+        "answer": "The diagnostics area presents the published applications. If you would like to discuss requirements, your setting or a possible solution personally, you can request a quote and provide the context of your organisation."
       },
       {
-        "question": "How much effort is it to integrate into our daily practice routine?",
-        "answer": "The IglooPro is designed for use right at the chair and delivers the result in minutes, so the measurement fits into the ongoing appointment. As part of commissioning, we train your team in the measurement procedure and in operating the device. After that, we are at your side with technical support and ongoing care."
-      },
-      {
-        "question": "How quickly is the system ready for use after ordering?",
-        "answer": "After ordering, your IglooPro is usually ready for use within 3–5 business days. We commission the device fully validated, so you can measure reliably from the very first patient. This removes the need for a separate, lengthy setup phase."
-      },
-      {
-        "question": "Which biomarkers can I measure depending on my specialty?",
-        "answer": "The system covers specialty-specific panels for Dental, Beauty and Longevity – from Vitamin D and CRP through HbA1c to metabolic and inflammation markers. In dentistry, for example, the focus is on Vitamin D and inflammation values; in the longevity field, on monitoring metabolic and inflammation markers. Which tests make sense for your specialty is something we agree on individually during the consultation."
+        "question": "Does a point-of-care result replace professional assessment?",
+        "answer": "No. A test result can provide information for discussion and the wider care process. Individual interpretation and any diagnostic or therapeutic decisions remain the responsibility of the qualified professional."
       }
     ],
     "more": "Still have questions?",
@@ -260,43 +283,51 @@
   "trustbar": {
     "aria": "Trust indicators",
     "ivdr": "IVDR/CE-compliant",
-    "cv": "CV < 2 % lab precision",
+    "cv": "IglooPro · CV < 2 %",
     "minutes": "Results in minutes",
-    "compat": "Cross-manufacturer compatible",
-    "delivery": "Ready for use in 3–5 business days",
-    "partner": "Premium Partner: Nobel Biocare"
+    "compat": "Cross-manufacturer compatible"
   },
   "why": {
-    "caption": "Point of Care",
-    "title": "Why POC in your practice?",
-    "intro": "Diagnostics right at the point of treatment: results in minutes instead of waiting days — this transforms the workflow, patient experience and profitability of your practice.",
-    "card1": {
-      "title": "No laboratory dispatch",
-      "text": "The result is available on site immediately — no waiting for findings from an external laboratory."
+    "caption": "Point of care in everyday work",
+    "title": "Information where it is needed",
+    "intro": "Point-of-care measurements provide additional information directly within the practice workflow. They support professional interpretation without automating or replacing it.",
+    "signals": {
+      "access": {
+        "title": "Direct access to information",
+        "text": "Measurements are available at the point of care after the test-specific processing time."
+      },
+      "workflow": {
+        "title": "Embedded in the workflow",
+        "text": "Application, measurement and documentation can be integrated into existing practice workflows as a clear process."
+      },
+      "conversation": {
+        "title": "A basis for discussion",
+        "text": "Available values can support professional consultation and a shared discussion of appropriate next steps."
+      }
     },
-    "card2": {
-      "title": "The patient stays in the chair",
-      "text": "Measure values and discuss the next step within the same appointment — with no need to call the patient back in."
-    },
-    "card3": {
-      "title": "New self-pay revenue",
-      "text": "POC unlocks new self-pay services in your practice instead of handing revenue to the external laboratory."
-    },
-    "card_cta": "Learn more",
-    "video_label": "APPLICATION VIDEO",
-    "video_caption": "How the test runs in your practice — in 3 minutes",
-    "device_alt": "IglooPro point-of-care reader"
+    "benefits": {
+      "practice": {
+        "label": "Benefit for the practice",
+        "title": "Structured within the workflow",
+        "text": "Additional measurements are available in the point-of-care process and can be considered in consultation and care."
+      },
+      "patient": {
+        "label": "Benefit for patients",
+        "title": "Discuss results clearly",
+        "text": "Available values can be explained in the care context. The test complements professional assessment; it replaces neither diagnosis nor treatment."
+      }
+    }
   },
   "final_cta": {
     "caption": "Ready to get started",
     "title": "Ready for lab-accurate diagnostics in your practice?",
-    "subtitle": "Talk to our team or calculate your savings potential — cross-manufacturer, IVDR/CE-compliant and ready for use in 3–5 business days.",
+    "subtitle": "Talk to our team about a suitable point-of-care solution or review your own assumptions with the non-binding ROI calculator.",
     "cta_primary": "Request a quote",
     "cta_secondary": "ROI calculator",
     "chips": {
-      "free": "Free & non-binding",
-      "reply": "Reply < 24h",
-      "delivery": "Delivery in 3–5 business days"
+      "free": "Non-binding enquiry",
+      "reply": "Personal consultation",
+      "delivery": "Available in 10 languages"
     }
   },
   "roi": {
@@ -362,24 +393,24 @@
     }
   },
   "steps": {
-    "caption": "GETTING STARTED IS SIMPLE",
-    "title": "Validated POC diagnostics in 3 steps",
-    "intro": "From the first conversation to lab-grade diagnostics at the chairside — no configuration effort.",
-    "step1": {
-      "title": "Consultation & panel recommendation",
-      "text": "We analyze your workflow and recommend the right biomarker panels for your specialty.",
-      "badge": "incl. consultation"
+    "caption": "THE POC PROCESS",
+    "title": "From application to professional interpretation",
+    "intro": "A clear process makes measurement information useful in everyday practice while keeping medical responsibility with the treating professionals.",
+    "aria_label": "Point-of-care process in three steps",
+    "items": {
+      "application": {
+        "title": "Application and measurement",
+        "text": "The sample and test are prepared according to the relevant instructions and measured with the compatible system."
+      },
+      "result": {
+        "title": "Result available",
+        "text": "After the test-specific processing time, the measurement is available in the practice workflow — without an automated medical conclusion."
+      },
+      "context": {
+        "title": "Professional interpretation",
+        "text": "The responsible professional assesses the value in its individual context and, where appropriate, discusses sensible next steps."
+      }
     },
-    "step2": {
-      "title": "Performance setup",
-      "text": "Delivery in 3–5 business days, incl. validated commissioning and easy assay profiles.",
-      "badge": "on-site"
-    },
-    "step3": {
-      "title": "First results",
-      "text": "Your team is trained, the first patient is measured — lab-accurate, documented, IVDR/CE-compliant.",
-      "badge": "day one"
-    },
-    "cta": "Request a quote"
+    "safety_note": "Measurements provide additional information. Professional assessment and any resulting next steps remain the responsibility of the responsible professional."
   }
 }

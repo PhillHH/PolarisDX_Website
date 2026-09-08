@@ -4,6 +4,17 @@ import SectionHeader from '../ui/SectionHeader'
 import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
 import { getArticleImageUrl } from '../../assets/articleImages'
+import { getCanonicalRouteEntries } from '../../routing'
+
+const registryEntries = getCanonicalRouteEntries()
+
+function requireArticleTarget(routeId: string): string {
+  const target = registryEntries.find((entry) => entry.id === routeId)
+  if (!target) throw new Error(`Homepage knowledge target is missing from the Registry: ${routeId}`)
+  return target.path
+}
+
+const articlesTarget = requireArticleTarget('articles')
 
 const BlogSection = () => {
   const { t } = useTranslation('home')
@@ -24,7 +35,7 @@ const BlogSection = () => {
             <BlogCard
               key={post.id}
               id={post.id}
-              to={`/articles/${post.slug}`}
+              to={requireArticleTarget(`article-detail:${post.id}`)}
               imageUrl={imageUrl}
             />
           )
@@ -33,7 +44,9 @@ const BlogSection = () => {
 
       <div className="flex justify-center pt-4">
         <Link
-          to="/articles"
+          to={articlesTarget}
+          data-home-secondary-conversion="knowledge"
+          data-route-id="articles"
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →

@@ -81,8 +81,7 @@
           "Nutritional counselling beyond standard plans",
           "Prevention practices with weight programmes",
           "Where previous dietary changes have not worked"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Longevity centres and prevention practices",
           "Nutritional counselling and preventive medicine",
           "People aged roughly 40 and over tracking the trend"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Longevity and functional medicine practices",
           "Health centres, coaching and workplace health",
           "Where a full ageing panel would be too extensive"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Longevity programmes and preventive medicine",
           "Nutritional counselling needing a baseline",
           "Workplace programmes with a longevity focus"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Workplace health management and resilience",
           "Practices focused on stress prevention",
           "People under sustained strain"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Sports medicine and performance diagnostics",
           "Sports science and performance coaching",
           "Recreational and competitive athletes"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Sample report"
@@ -333,9 +327,72 @@
     "title": "Request a quote",
     "sub": "The analyses are supplied to professional users only. B2B terms on request, tiered by volume.",
     "overview": "Overview as PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "The analyses are laboratory services provided by our cooperation partner and are not CE-marked in vitro diagnostic devices. They serve consultation and monitoring and do not replace clinical diagnostics. Genetic analyses are subject to national genetic testing legislation. In Germany, predictive genetic testing may only be conducted under the responsibility of appropriately qualified physicians; genetic counselling must be offered before and after the test.",
     "lab": "Laboratory analysis by our cooperation partner · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "organization": "Organisation",
+      "facilityType": "Organisation type",
+      "choose": "Please select",
+      "panel": "Panel interest (optional)",
+      "noPanel": "Not decided yet",
+      "volume": "Expected cases per month (optional)",
+      "message": "Your question (optional)",
+      "messageHint": "Please do not submit health data or reports."
+    },
+    "facilityTypes": {
+      "practice": "Practice",
+      "clinic": "Clinic",
+      "laboratory": "Laboratory",
+      "consultancy": "Consultancy / health centre",
+      "other": "Other organisation"
+    },
+    "volumes": {
+      "unspecified": "Not specified",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "More than 50"
+    },
+    "submit": "Request a quote",
+    "sending": "Securely recording your request …",
+    "analyticsIndependent": "This request works independently of analytics or marketing cookies.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "organization": "Please enter your organisation.",
+      "facilityType": "Please select an organisation type.",
+      "consent": "Your consent to processing is required."
+    },
+    "status": {
+      "delivered": {
+        "title": "Request recorded and forwarded",
+        "text": "Your request was stored durably and passed to the responsible process."
+      },
+      "retryPending": {
+        "title": "Request securely recorded",
+        "text": "Forwarding is temporarily pending and will be retried from the stored record."
+      },
+      "providerUnavailable": {
+        "title": "Request securely recorded",
+        "text": "The external handoff service is not currently configured. Your record remains available for manual follow-up."
+      },
+      "manualReview": {
+        "title": "Request securely recorded",
+        "text": "Automatic forwarding could not be completed. The stored record remains available for manual follow-up."
+      },
+      "recorded": {
+        "title": "Request securely recorded",
+        "text": "Your record was stored durably; forwarding is being processed."
+      },
+      "error": {
+        "title": "Request not recorded",
+        "text": "The request could not be stored safely. Please try again or contact us directly."
+      }
+    }
   },
   "links": {
     "longevity": "Longevity diagnostics",
@@ -665,6 +722,8 @@
     "othersTitle": "The other sample reports",
     "navBack": "Overview",
     "navChapters": "Chapters",
+    "previous": "Previous report",
+    "next": "Next report",
     "noticeTitle": "Important notices",
     "toTop": "Back to top",
     "ctaPdf": "This report as PDF",

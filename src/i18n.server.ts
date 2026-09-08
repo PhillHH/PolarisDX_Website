@@ -51,12 +51,22 @@ const translationCache = new Map<string, Record<string, unknown>>()
  * Bestimmt den Pfad zum public/locales Ordner
  *
  * In Entwicklung: Projektroot/public/locales
- * In Produktion: dist/client/locales (nach dem Build)
+ * In Produktion: <Client-Dist>/locales (nach dem Build)
+ *
+ * `POLARIS_CLIENT_DIST_DIR` ist derselbe Schalter, den `server.ts` fuer die
+ * statische Auslieferung benutzt. Ohne ihn las das SSR seine Uebersetzungen
+ * fest aus `dist/client` — auch dann, wenn der Server einen isolierten Build
+ * ausliefert. Eine Locale-Aenderung wurde in diesem Fall still ignoriert und
+ * der Test lief gegen den alten Text (in PT19.2 gemessen). Der Default bleibt
+ * unveraendert `dist/client`.
  */
 function getLocalesBasePath(): string {
-  // In Produktion liegt alles in dist/client
+  // In Produktion liegt alles im Client-Dist.
   if (process.env.NODE_ENV === 'production') {
-    return path.resolve(process.cwd(), 'dist', 'client', 'locales')
+    const clientDist = process.env.POLARIS_CLIENT_DIST_DIR
+      ? path.resolve(process.env.POLARIS_CLIENT_DIST_DIR)
+      : path.resolve(process.cwd(), 'dist', 'client')
+    return path.join(clientDist, 'locales')
   }
   // In Entwicklung direkt aus public/
   return path.resolve(process.cwd(), 'public', 'locales')

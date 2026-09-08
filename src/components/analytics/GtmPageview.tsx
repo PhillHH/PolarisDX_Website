@@ -29,6 +29,7 @@
  */
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import { hasAnalyticsConsent } from '../../lib/googleConsent'
 
 function GtmPageview() {
   const location = useLocation()
@@ -59,6 +60,10 @@ function GtmPageview() {
     prevHref.current = window.location.href
 
     const fire = () => {
+      // Basic Consent Mode: events before an explicit analytics grant are
+      // discarded. In particular, do not create a dataLayer as a buffer.
+      if (!hasAnalyticsConsent() || typeof w.gtag !== 'function') return
+
       const page_location = window.location.href
       const page_path = window.location.pathname + window.location.search
       const page_title = document.title
@@ -80,13 +85,10 @@ function GtmPageview() {
 
       // Primär: echter GA4 page_view über das von GTM geladene Google-Tag.
       // Funktioniert ohne GTM-Container-Änderung (gtag ist global definiert).
-      if (typeof w.gtag === 'function') {
-        w.gtag('event', 'page_view', params)
-      }
+      w.gtag('event', 'page_view', params)
 
       // Sekundär: sauberes dataLayer-Event für GTM-verwaltete Tags.
-      w.dataLayer = w.dataLayer || []
-      w.dataLayer.push({ event: 'virtual_pageview', ...params })
+      w.dataLayer?.push({ event: 'virtual_pageview', ...params })
     }
 
     if (typeof w.requestAnimationFrame === 'function') {

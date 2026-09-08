@@ -6,6 +6,8 @@
  * (react-refresh/only-export-components).
  */
 
+import { resolveCanonicalRoute, type StaticRouteId } from '../../routing/routeRegistry'
+
 /**
  * Fliesstext, Lead und Kleinlabel — identisch zur Programmseite, damit die
  * Lesegroesse beim Wechsel auf eine Vertiefungsseite nicht springt.
@@ -36,34 +38,60 @@ export function asArray<T>(value: unknown): T[] {
  * `source`-Schluessel auch hier. Beschriftungen sind bestehende Schluessel
  * aus dem Namensraum `epigenetics`, in allen zehn Sprachen vorhanden.
  */
+export type VertiefungKey = 'grundlagen' | 'studienlage' | 'unterlagen'
+
 export interface Vertiefung {
   /** Muss dem `source`-Prop der jeweiligen Seite entsprechen. */
-  key: string
+  key: VertiefungKey
+  /** AP10-Registry-ID; der kanonische Pfad wird daraus aufgeloest. */
+  routeId: Extract<
+    StaticRouteId,
+    'epigenetics-grundlagen' | 'epigenetics-studienlage' | 'epigenetics-unterlagen'
+  >
   to: string
   captionKey: string
   titleKey: string
 }
 
-export const VERTIEFUNGEN: Vertiefung[] = [
+const VERTIEFUNG_DEFINITIONS = [
   {
     key: 'grundlagen',
-    to: '/epigenetics/grundlagen',
+    routeId: 'epigenetics-grundlagen',
     captionKey: 'principle.caption',
     titleKey: 'principle.title',
   },
   {
     key: 'studienlage',
-    to: '/epigenetics/studienlage',
+    routeId: 'epigenetics-studienlage',
     captionKey: 'evidence.caption',
     titleKey: 'evidence.title',
   },
   {
     key: 'unterlagen',
-    to: '/epigenetics/unterlagen',
+    routeId: 'epigenetics-unterlagen',
     captionKey: 'downloads.caption',
     titleKey: 'downloads.title',
   },
-]
+] as const
+
+export const VERTIEFUNGEN: Vertiefung[] = VERTIEFUNG_DEFINITIONS.map((definition) => {
+  const route = resolveCanonicalRoute(`/epigenetics/${definition.key}`)
+  if (
+    !route ||
+    route.id !== definition.routeId ||
+    route.routeType !== 'EPIGENETICS' ||
+    route.indexability !== 'INDEX_FOLLOW'
+  ) {
+    throw new Error(`Invalid Epigenetics deep-route registry binding: ${definition.routeId}`)
+  }
+  return { ...definition, to: route.path }
+})
+
+export function getVertiefung(key: VertiefungKey): Vertiefung {
+  const vertiefung = VERTIEFUNGEN.find((entry) => entry.key === key)
+  if (!vertiefung) throw new Error(`Unknown Epigenetics deep route: ${key}`)
+  return vertiefung
+}
 
 /**
  * Beschreibungstext fuer die Suchmaschine aus vorhandenen Saetzen bauen.

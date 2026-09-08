@@ -55,7 +55,8 @@
       "submitting": "Wysyłanie...",
       "success": "Dziękujemy! Otrzymaliśmy i zarejestrowaliśmy Twoje zgłoszenie do działu wsparcia. Skontaktujemy się z Tobą najszybciej, jak to możliwe.",
       "error": "Wystąpił błąd. Spróbuj ponownie później.",
-      "microcopy": "Zwykle odpowiadamy w ciągu jednego dnia roboczego."
+      "microcopy": "Zwykle odpowiadamy w ciągu jednego dnia roboczego.",
+      "error_retryable": "Nie udało się to teraz. Twoje dane są nadal tutaj — spróbuj ponownie za chwilę."
     },
     "info": {
       "title": "Informacje o wsparciu",

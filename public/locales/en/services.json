@@ -6,6 +6,19 @@
     },
     "title": "Dental",
     "headline": "Optimized Implantology & Periodontology: Measurable Safety at the Chair",
+    "detail": {
+      "hero": { "eyebrow": "Dental diagnostics", "title": "Chairside diagnostics for dental practices", "subtitle": "Point-of-care measurements can complement selected diagnostic questions in implantology, periodontology and preventive workflows." },
+      "problem": { "heading": "Diagnostic information in the dental workflow", "paragraphs": ["Dental practices consider systemic factors alongside local findings. Near-patient measurements can provide additional information; they do not replace medical history, clinical examination or specialist assessment."] },
+      "audiences": { "heading": "Who this service area is for", "items": ["Dental practices working in an implantology context", "Practices providing periodontal care", "Practices with preventive or interdisciplinary care pathways"] },
+      "questions": { "heading": "Possible diagnostic questions", "items": ["Which measurements are relevant to the specific clinical question?", "How can a measurement be placed appropriately within planning or follow-up?", "When is further laboratory or specialist assessment indicated?"] },
+      "parameters": { "heading": "Supported parameters in the existing dental context", "items": ["Vitamin D", "C-reactive protein (CRP)", "HbA1c", "Ferritin"] },
+      "workflow": { "heading": "A possible chairside workflow", "steps": [{ "title": "Define the question", "text": "Determine the indication and suitable parameter from the individual treatment context." }, { "title": "Collect the sample and run the test", "text": "Collect and process capillary blood according to the instructions for the test in use." }, { "title": "Interpret the result", "text": "Document the measurement, assess it in clinical context and arrange further clarification when needed." }] },
+      "faq": { "caption": "Frequently asked questions", "title": "Questions about dental diagnostics", "items": [{ "question": "What does chairside diagnostics mean in a dental practice?", "answer": "It refers to near-patient measurements integrated into the practice workflow. Which tests may be used and are appropriate depends on the question, the test system and applicable quality requirements." }, { "question": "Which parameters are considered in the dental context?", "answer": "The existing PolarisDX dental content identifies Vitamin D, CRP, HbA1c and ferritin. Selection and interpretation must always match the individual clinical question." }, { "question": "Does a point-of-care result replace dental or medical diagnostics?", "answer": "No. A single measurement is additional information. Medical history, clinical findings and, where appropriate, laboratory or specialist assessment remain decisive." }] },
+      "crosslinks": { "implantology": { "label": "Vitamin D and implantology", "description": "Go to the dedicated specialist page for the implantology context." }, "igloo": { "label": "IglooPro in the point-of-care context", "description": "Go to the dedicated product page without duplicating technical details here." } },
+      "cta": { "title": "Explore dental diagnostics for your practice", "text": "Talk to us about your clinical question, practice workflow and a suitable next step." },
+      "disclaimer": { "heading": "Professional note", "content": "This information supports professional orientation and does not replace individual medical indication or interpretation of findings." },
+      "seo": { "title": "Dental diagnostics for dental practices", "description": "Point-of-care diagnostics in dental workflows: contexts, selected parameters, workflow and careful interpretation for dental practices.", "imageAlt": "Dental diagnostics within a professional practice workflow" }
+    },
     "cta": "Book appointment",
     "faq": {
       "caption": "Frequently Asked Questions",
@@ -106,6 +119,19 @@
           "answer": "Vitamin D is involved in keratinocyte differentiation, maintaining the skin barrier and regulating the hair follicle cycle. A Vitamin D deficiency — prevalent in over 50% of the population in Central Europe — promotes inflammatory skin conditions, accelerates skin ageing and can exacerbate hair loss. Measurement with the IglooPro takes only a few minutes and forms the basis for targeted supplementation."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Beauty diagnostics", "title": "Diagnostic orientation for professional beauty contexts", "subtitle": "Selected measurements can complement medical-aesthetic questions concerning skin, hair, hormones and micronutrients without predicting cosmetic outcomes." },
+      "problem": { "heading": "Interpret measurements clinically, not cosmetically", "paragraphs": ["Professional beauty and aesthetics services may touch on health-related questions. Diagnostic values provide additional information; they do not replace medical history, clinical examination or specialist assessment."] },
+      "audiences": { "heading": "Professional contexts for this service", "items": ["Practices and clinics with a medical-aesthetics focus", "Professional skin and hair consultation with medical expertise", "Prevention and wellness providers working within clear diagnostic responsibilities"] },
+      "questions": { "heading": "Possible diagnostic questions", "items": ["Which measurements fit the specific medical-aesthetic question?", "Which findings require further medical or laboratory assessment?", "How can measurement, documentation and referral fit into the workflow?"] },
+      "parameters": { "heading": "Established measurements in the existing beauty context", "items": ["Vitamin D", "Ferritin", "TSH", "C-reactive protein (CRP)"] },
+      "workflow": { "heading": "A professionally bounded workflow", "steps": [{ "title": "Define the question", "text": "Clarify indication and professional responsibility before selecting a measurement." }, { "title": "Perform a suitable measurement", "text": "Handle the sample and test according to the instructions for the system in use." }, { "title": "Interpret the result", "text": "Document the value, assess it in clinical context and arrange further evaluation where needed." }] },
+      "faq": { "caption": "Frequently asked questions", "title": "Questions about beauty diagnostics", "items": [{ "question": "What can diagnostics contribute in a professional beauty context?", "answer": "It can complement selected health-related questions with measurements. It does not predict a cosmetic outcome; interpretation belongs in the relevant medical context." }, { "question": "Which measurements are named in the existing beauty offering?", "answer": "The current PolarisDX content evidence names vitamin D, ferritin, TSH and CRP. Selection and interpretation depend on the individual question and professional responsibility." }, { "question": "Does a biomarker value guarantee the success of an aesthetic treatment?", "answer": "No. A measurement does not predict a cosmetic outcome and does not replace examination, consultation or specialist assessment." }] },
+      "crosslinks": { "igloo": { "label": "IglooPro in the point-of-care context", "description": "Go to the separate product page without duplicating technical details or performance claims here." } },
+      "cta": { "title": "Explore beauty diagnostics for your practice", "text": "Talk to us about your professional question, practice workflow and a suitable next step." },
+      "disclaimer": { "heading": "Professional note", "content": "This information supports professional orientation. It makes no promise of cosmetic effects and does not replace individual medical indication or interpretation of findings." },
+      "seo": { "title": "Beauty diagnostics for practices and aesthetics", "description": "Beauty diagnostics in a professional context: selected measurements, diagnostic questions and a bounded practice workflow without outcome claims.", "imageAlt": "Beauty diagnostics in a professional practice workflow" }
     }
   },
   "longevity": {
@@ -182,6 +208,19 @@
           "answer": "Yes. Preventive biomarker screenings are classic self-pay or private health services (IGeL), as they go beyond the scope of statutory health insurance. Particularly in the longevity segment, there is strong demand for data-driven health checks. The combination of instant analysis and qualified consultation forms an economically attractive service package for your practice."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Longevity diagnostics", "title": "Preventive diagnostics and longitudinal context for longevity programmes", "subtitle": "Selected metabolic, inflammatory, hormonal and nutritional markers can show baselines and changes over time without predicting health or lifespan." },
+      "problem": { "heading": "Observe trends without promising outcomes", "paragraphs": ["Longevity-oriented care combines preventive questions with repeatable measurements. Individual values and changes provide orientation, but require clinical interpretation and prove neither the cause nor the effect of an intervention."] },
+      "audiences": { "heading": "Professional contexts", "items": ["Practices and facilities offering preventive medicine or longevity-oriented services", "Professional care concepts addressing metabolic, cardiovascular or hormonal questions", "Teams that document selected measurements systematically and interpret them over time"] },
+      "questions": { "heading": "Possible diagnostic questions", "items": ["Which baseline values are relevant to the specific preventive question?", "Which changes appear over time under comparable measurement conditions?", "When does a finding require further laboratory or specialist assessment?"] },
+      "parameters": { "heading": "Established measurements in the existing longevity context", "items": ["HbA1c", "Lipid profile", "C-reactive protein (CRP)", "TSH", "Vitamin D"] },
+      "workflow": { "heading": "A cautious monitoring workflow", "steps": [{ "title": "Define the baseline question", "text": "Set the indication, suitable measurements and conditions before the first measurement." }, { "title": "Document comparably", "text": "Perform the measurement according to the test instructions and record relevant conditions transparently." }, { "title": "Interpret the trend professionally", "text": "Review values in context, consider possible influences and arrange further assessment where needed." }] },
+      "faq": { "caption": "Frequently asked questions", "title": "Questions about longevity diagnostics", "items": [{ "question": "What does monitoring mean in a longevity context?", "answer": "Selected measurements are repeated at professionally justified points and reviewed under comparable conditions. A trend supports interpretation but does not prove cause or effect." }, { "question": "Which measurements are named in the existing longevity context?", "answer": "The current PolarisDX content evidence names HbA1c, lipid values, CRP, TSH and vitamin D. Suitability depends on the individual question and medical responsibility." }, { "question": "Can longevity diagnostics guarantee health or lifespan?", "answer": "No. Measurements provide no guarantee, individual risk prediction or statement about extended lifespan. They must be assessed together with medical history and clinical context." }] },
+      "crosslinks": { "epigenetics": { "label": "Epigenetics as an independent pillar", "description": "Go to the separate Epigenetics page without duplicating its specialist or inquiry journey here." } },
+      "cta": { "title": "Explore longevity diagnostics for your service", "text": "Talk to us about your preventive question, useful measurement points and a suitable next step." },
+      "disclaimer": { "heading": "Professional note", "content": "This information supports professional orientation. It promises no disease prevention, health effect or extension of life and does not replace individual medical assessment." },
+      "seo": { "title": "Longevity diagnostics and biomarker monitoring", "description": "Preventive longevity diagnostics for professional providers: selected measurements, longitudinal context and cautious monitoring without health guarantees.", "imageAlt": "Longevity diagnostics and longitudinal review in a professional practice workflow" }
     }
   },
   "poc_systemloesungen": {
@@ -261,6 +300,19 @@
           "answer": "The IglooPro is developed and manufactured by DX365 GmbH in Berlin. PolarisDX is the distribution partner for the European market and handles sales, integration, training and ongoing support."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "POC system solutions", "title": "Plan near-patient diagnostics as a coordinated system workflow", "subtitle": "Device, suitable tests, operation, documentation and professional interpretation must fit the care context. PolarisDX supports structured planning without making blanket software or interface promises." },
+      "problem": { "heading": "More than a single analyser", "paragraphs": ["A POC system solution connects near-patient measurements with clear responsibilities and a documented workflow. Suitable hardware, tests and connectivity must be assessed for the specific organisation and its existing software environment."] },
+      "audiences": { "heading": "Professional use contexts", "items": ["Practices and medical facilities planning to introduce near-patient measurements in a structured way", "Teams organising test operation, result documentation and professional interpretation as one workflow", "Organisations assessing device, test and integration requirements before implementation"] },
+      "questions": { "heading": "Questions before selecting a system", "items": ["Which diagnostic questions and tests should the workflow cover?", "How will sampling, operation, documentation and responsibility be organised?", "Which compatibility or interface requirements must be verified in the existing environment?"] },
+      "parameters": { "heading": "Components of a POC system solution", "items": ["Analyser and compatible tests", "Sampling and standardised operation", "Result documentation and existing software environment", "Quality assurance, responsibilities and training needs"] },
+      "workflow": { "heading": "A structured implementation workflow", "steps": [{ "title": "Clarify the use context", "text": "Record diagnostic questions, user groups, test scope and organisational requirements." }, { "title": "Check system and compatibility", "text": "Validate devices, tests, documentation route and possible interfaces against the real environment." }, { "title": "Establish a responsible workflow", "text": "Transfer operation, quality assurance, responsibilities and professional interpretation into routine practice with documentation." }] },
+      "faq": { "caption": "Frequently asked questions", "title": "Questions about POC system solutions", "items": [{ "question": "What forms part of a POC system solution?", "answer": "Alongside an analyser, the system includes suitable tests, sampling, operation, result documentation, quality assurance and clear responsibilities. Its exact design depends on the organisation and use context." }, { "question": "Can every POC system connect automatically to existing software?", "answer": "No. Interfaces and compatibility depend on the device, software, configuration and organisational requirements and must be checked for the specific environment before implementation." }, { "question": "Does point-of-care diagnostics replace a central laboratory?", "answer": "Not as a general rule. Near-patient testing and further laboratory pathways complement each other depending on the question, parameter, quality requirements and medical context." }] },
+      "crosslinks": { "igloo": { "label": "IglooPro in the system context", "description": "Go to the dedicated product page without duplicating technical specifications or integration promises here." } },
+      "cta": { "title": "Assess a POC system solution for your environment", "text": "Talk to us about your use context, process requirements and the points that need checking before implementation." },
+      "disclaimer": { "heading": "System and professional note", "content": "Suitability, test scope, interfaces, quality assurance and implementation depend on the specific configuration and professional responsibility. This page promises no automatic integration, availability, speed or diagnostic performance." },
+      "seo": { "title": "POC system solutions for practices and care", "description": "Plan POC system solutions professionally: devices, tests, practice workflows, documentation and integration checks without blanket performance promises.", "imageAlt": "POC system solution with device, test process and documentation in a practice workflow" }
     }
   },
   "praeventions_checks": {
@@ -328,7 +380,8 @@
           "answer": "Yes. Preventive biomarker screenings that go beyond the statutory health insurance catalogue are billable as individual health services (IGeL) under GOÄ. The combination of instant analytics and qualified consultation forms an economically attractive self-pay offering that simultaneously strengthens patient retention."
         }
       ]
-    }
+    },
+    "detail": {"hero":{"eyebrow":"Preventive checks","title":"Preventive checks as a structured diagnostic information base","subtitle":"Selected measurements can support consultation and further assessment. A check provides a snapshot and guarantees neither reliable early detection nor the exclusion or prevention of disease."},"problem":{"heading":"Define the question before the check package","paragraphs":["A meaningful preventive check starts with the audience, purpose and a professionally justified selection of measurements. Results require interpretation alongside history and care context; a generic test list is not a diagnosis."]},"audiences":{"heading":"Professional use contexts","items":["Practices with structured preventive consultation and care concepts","Pharmacies and other professional health providers with clearly assigned professional interpretation","Clinics and medical facilities integrating selected measurements into existing prevention workflows"]},"questions":{"heading":"Questions for a responsible check","items":["Which preventive information objective should the check support?","Which measurements are professionally justified for the audience and specific question?","Which results require confirmation, further diagnostics or specialist assessment?"]},"parameters":{"heading":"Established measurements in the current prevention context","items":["HbA1c","Lipid values","C-reactive protein (CRP)","Vitamin D","TSH","Ferritin"]},"workflow":{"heading":"A structured check workflow","steps":[{"title":"Define objective and scope","text":"Set the audience, purpose, suitable measurements and responsibilities before the check."},{"title":"Measure with documentation","text":"Perform sampling and testing according to the system instructions and document the result traceably."},{"title":"Interpret the result cautiously","text":"Discuss measurements in the individual context and arrange suitable further assessment for abnormal or uncertain findings."}]},"faq":{"caption":"Frequently asked questions","title":"Questions about preventive checks","items":[{"question":"What is a preventive check?","answer":"A preventive check brings together professionally selected measurements for a defined question. It provides diagnostic information for consultation and possible further assessment, not a standalone diagnosis."},{"question":"Which measurements does the current prevention context name?","answer":"Current PolarisDX evidence names HbA1c, lipid values, CRP, Vitamin D, TSH and ferritin. The suitable selection depends on the audience, question and professional responsibility."},{"question":"Can a preventive check reliably detect, exclude or prevent disease?","answer":"No. A check can provide information but offers no guarantee of early detection, exclusion or disease prevention. Abnormal or unclear results require medical interpretation and, where appropriate, further assessment."}]},"cta":{"title":"Assess preventive checks for your service","text":"Talk to us about the audience, question, suitable measurements and a responsible next step."},"disclaimer":{"heading":"Professional note","content":"Preventive checks do not replace an individual medical diagnosis, treatment decision or further assessment. They guarantee neither the detection nor exclusion or prevention of disease."},"seo":{"title":"Preventive checks and diagnostic orientation","description":"Preventive checks for professional providers: six established measurement groups, a structured workflow and cautious interpretation without diagnostic or prevention guarantees.","imageAlt":"Structured preventive check with measurement selection and professional interpretation"}}
   },
   "infektion_entzuendung": {
     "seo": {
@@ -337,6 +390,7 @@
     },
     "title": "Infection & Inflammation Markers: Quick Answers in Critical Cases",
     "headline": "Triage in Minutes: How the Igloo Pro Accelerates Decision Making",
+    "detail": {"hero":{"eyebrow":"Infection & inflammation","title":"Interpreting infection and inflammation markers in context","subtitle":"CRP, PCT, IL-6 and ferritin can provide different information about inflammatory processes. Their meaning depends on the question, timing and clinical context; no single value establishes a diagnosis or treatment decision."},"problem":{"heading":"A marker is not a diagnosis","paragraphs":["Signs of infection and inflammation can overlap and change over time. Measurements therefore need to be assessed alongside symptoms, history, timing and, where appropriate, further diagnostics rather than using one value to infer a cause."]},"audiences":{"heading":"Professional care contexts","items":["Outpatient practices and medical facilities with defined infection or inflammation questions","Clinical teams that place measurements within established intake, follow-up or aftercare processes","Professional healthcare providers with clear responsibility for measurement, documentation and further assessment"]},"questions":{"heading":"Questions before selection and interpretation","items":["Which specific infection or inflammation question should the measurement support?","Which available marker provides complementary information for that question and at what time?","Which findings require confirmation, follow-up measurement or further diagnostics within the applicable care pathway?"]},"parameters":{"heading":"Markers named in the existing service context","items":["CRP (C-reactive protein)","PCT (procalcitonin)","IL-6 (interleukin-6)","Ferritin"]},"workflow":{"heading":"From the question to professional interpretation","steps":[{"title":"Clarify context and responsibility","text":"Define the reason, care setting and responsibility for interpretation and next steps before measurement."},{"title":"Perform and document the measurement","text":"Handle the sample and measurement according to the instructions for the specific test in use, documenting time and result."},{"title":"Assess the result as part of the whole picture","text":"Do not use the value in isolation; combine it with the clinical context and, where appropriate, confirmatory or further diagnostics."}]},"faq":{"caption":"Frequently asked questions","title":"Questions about infection and inflammation markers","items":[{"question":"Which markers are named in the existing service context?","answer":"The current PolarisDX evidence names CRP, PCT, IL-6 and ferritin. Which markers a specific test configuration actually supports must be verified for the selected system and intended use."},{"question":"Can one marker determine the cause with certainty?","answer":"No. A measurement can supplement professional assessment, but on its own it proves neither a specific infection nor a particular cause of inflammation. Timing, course, symptoms and further diagnostics remain part of interpretation."},{"question":"Does this page replace a clinical urgency or treatment decision?","answer":"No. This page describes a B2B service context and provides no individual triage, diagnosis or treatment recommendation. Responsible clinical processes and professional roles apply to specific cases."}]},"cta":{"title":"Place marker diagnostics in your care context","text":"Talk to us about the question, available test configuration and a responsible next step."},"disclaimer":{"heading":"Professional note","content":"Infection and inflammation markers provide context-dependent diagnostic information. They do not replace individual medical assessment, diagnosis, urgency decisions or treatment and do not guarantee a particular cause or outcome."},"seo":{"title":"Infection and inflammation markers in care context","description":"CRP, PCT, IL-6 and ferritin explained clearly: professional use contexts, a structured measurement process and clear limits without diagnosis or treatment guarantees.","imageAlt":"Professional interpretation of infection and inflammation markers in a healthcare context"}},
     "intro": [
       "In acute care and outpatient settings, every minute counts. Immediate and reliable determination of inflammation markers and signs of infection is essential for correct triage, patient care, and – more important today than ever – for responsible antibiotic management.",
       "Premium class POC (Point-of-Care) systems are the control center to reduce the time from sample to result to a minimum while ensuring maximum clinical safety."
@@ -403,6 +457,7 @@
     },
     "title": "Metabolism & Heart Health: Chronic Monitoring at the Push of a Button",
     "headline": "Important Indicators at a Glance: Precise Measurement for Therapy Adjustment",
+    "detail": {"hero":{"eyebrow":"Metabolism & heart","title":"Place metabolic and cardiac markers in their monitoring context","subtitle":"HbA1c, cholesterol and D-dimer provide different diagnostic information. Their meaning depends on the question, timing and care context; a single value provides neither a diagnosis nor an individual risk prediction."},"problem":{"heading":"Measurements answer different questions","paragraphs":["Metabolic and cardiovascular questions require a deliberate choice and interpretation of markers. Results should be considered alongside history, clinical findings and, where needed, further diagnostics rather than used to derive a disease probability or treatment from one value."]},"audiences":{"heading":"Professional use contexts","items":["Outpatient practices and medical facilities with defined metabolic or cardiovascular questions","Professional prevention programmes that place selected markers within structured consultation and further assessment","Clinical teams that integrate repeat measurements into established monitoring and escalation pathways"]},"questions":{"heading":"Questions before selection and follow-up measurement","items":["Which specific metabolic or cardiovascular question should the measurement support?","Which available marker fits the question and when should it be measured?","Which results require confirmation, further diagnostics or responsible medical assessment?"]},"parameters":{"heading":"Markers named in the existing service context","items":["HbA1c","Cholesterol","D-dimer"]},"workflow":{"heading":"From measurement objective to cautious follow-up interpretation","steps":[{"title":"Define the question and responsibility","text":"Clarify the measurement objective, care context and responsibility for interpretation and next steps in advance."},{"title":"Perform and document the measurement","text":"Use the specifically available test according to its instructions and document timing, conditions and result transparently."},{"title":"Assess the result in context","text":"Review single and follow-up values within the wider professional picture and arrange suitable confirmation or further assessment when findings are abnormal or uncertain."}]},"faq":{"caption":"Frequently asked questions","title":"Questions about metabolic and cardiac markers","items":[{"question":"Which markers are named in the existing service context?","answer":"The available PolarisDX evidence names HbA1c, cholesterol and D-dimer. Which markers a particular test configuration actually supports must be checked for the selected system and intended use."},{"question":"Can one measurement predict my individual cardiovascular risk?","answer":"No. A single value does not provide a reliable individual risk prediction and does not prove disease. Interpretation requires the clinical context and, where appropriate, confirmatory or further diagnostics."},{"question":"What does monitoring mean in this context?","answer":"Monitoring means considering professionally justified measurements at suitable times and, where possible, under comparable conditions. A trend can add information but guarantees neither a health outcome nor a particular treatment decision."}]},"cta":{"title":"Place metabolic and cardiac diagnostics in your care context","text":"Talk to us about the question, available test configuration and a responsible next step."},"disclaimer":{"heading":"Professional note","content":"Metabolic and cardiac markers provide context-dependent diagnostic information. They do not replace individual medical assessment, diagnosis, risk prediction or treatment decisions and do not guarantee a health outcome."},"seo":{"title":"Metabolic and cardiac markers in care context","description":"HbA1c, cholesterol and D-dimer explained for professional care: responsible monitoring and clear boundaries without individual risk prediction.","imageAlt":"Professional interpretation of metabolic and cardiac markers in a care context"}},
     "intro": [
       "Monitoring chronic diseases such as diabetes and managing cardiac risks are time-critical tasks. Modern Point-of-Care (POC) systems are transforming into indispensable tools here, strengthening patient loyalty and accelerating therapy adjustment.",
       "The Igloo Pro Reader bundles the necessary precise analytics in a mobile device to determine important metabolic and cardiac markers in minutes."
@@ -469,6 +524,18 @@
     },
     "title": "Hormone & Endocrinology Tests: Special Diagnostics Made Easy",
     "headline": "Precision in Endocrinology: Rapid Certainty for Complex Diagnoses",
+    "detail": {
+      "hero": { "eyebrow": "Hormone tests", "title": "Interpret hormone values for a defined question", "subtitle": "TSH and AMH relate to different endocrine questions. Selection, timing and interpretation belong in the relevant professional care context; a single value provides neither a diagnosis nor a treatment decision." },
+      "problem": { "heading": "Hormone diagnostics require context and clear responsibility", "paragraphs": ["Hormone values may need different interpretation depending on the question, timing and individual circumstances. They provide diagnostic information but do not replace medical history, clinical examination or specialist and laboratory assessment."] },
+      "audiences": { "heading": "Professional use contexts", "items": ["Medical practices and facilities with defined thyroid-related questions", "Gynaecology, reproductive medicine and endocrinology settings with justified hormone questions", "Professional teams placing selected hormone values within documented assessment or monitoring pathways"] },
+      "questions": { "heading": "Questions before selection and measurement", "items": ["Which specific endocrine question should the measurement support?", "Which available parameter fits the question, and when is an appropriate time to measure it?", "Which results require confirmation, further diagnostics or responsible specialist assessment?"] },
+      "parameters": { "heading": "Parameters named in the existing service context", "items": ["TSH", "AMH"] },
+      "workflow": { "heading": "From the question to professional interpretation", "steps": [{ "title": "Clarify the question and responsibility", "text": "Define the measurement objective, professional context and responsibility for interpretation and follow-up in advance." }, { "title": "Perform the available test with documentation", "text": "Verify the specific test availability and process the sample and measurement according to the system in use." }, { "title": "Assess the result in context", "text": "Interpret the value within the professional overall picture and arrange suitable confirmation or further assessment when findings are unclear or unexpected." }] },
+      "faq": { "caption": "Frequently asked questions", "title": "Questions about hormone tests", "items": [{ "question": "Which parameters does the existing service context name?", "answer": "The available PolarisDX evidence names TSH and AMH. The tests actually supported by a specific configuration must be verified for the selected system and intended use." }, { "question": "Can a single hormone value confirm a diagnosis?", "answer": "No. A single value does not prove a condition and must be assessed together with medical history, the clinical picture and, where appropriate, confirmatory or further diagnostics." }, { "question": "Can medication or dosage be derived from the result?", "answer": "Not from this measurement alone. Treatment, medication and dosage decisions are the responsibility of appropriately qualified clinicians and require the full medical context." }] },
+      "cta": { "title": "Place hormone diagnostics in your professional context", "text": "Talk to us about the question, the available test configuration and a responsible next step." },
+      "disclaimer": { "heading": "Professional note", "content": "Hormone values provide context-dependent diagnostic information. They do not replace individual medical assessment, diagnosis or treatment, medication and dosage decisions, and they guarantee no health outcome." },
+      "seo": { "title": "Hormone tests in professional care contexts", "description": "TSH and AMH in professional context: responsible test selection, measurement workflow and clear boundaries without diagnosis or treatment promises.", "imageAlt": "Professional interpretation of hormone tests in a care context" }
+    },
     "intro": [
       "Hormonal imbalances are often the cause of complex, chronic complaints, from thyroid dysfunction to fertility disorders. Specialized practices and pharmacies therefore need diagnostics that are not only fast but absolutely precise to guide therapy paths soundly.",
       "The Igloo Pro Reader makes POC tests accessible for endocrinology and enables the immediate determination of critical hormones directly on the patient."
@@ -529,6 +596,92 @@
     }
   },
   "kompatibilitaet_integration": {
+    "detail": {
+      "hero": {
+        "eyebrow": "Compatibility & integration",
+        "title": "Verify compatibility transparently before implementation",
+        "subtitle": "Whether a test, its evaluation, the documentation path and the existing working environment fit together depends on the specific configuration. PolarisDX supports a structured review without making blanket interface or functionality promises."
+      },
+      "problem": {
+        "heading": "Integration starts with an evidenced system combination",
+        "paragraphs": [
+          "Manufacturer, test and software environments differ. Before use, the intended test, evaluation, documentation path and responsibilities must be checked for the actual environment and recorded transparently."
+        ]
+      },
+      "audiences": {
+        "heading": "Professional integration contexts",
+        "items": [
+          "Practices and medical facilities assessing test, evaluation and documentation together before implementation",
+          "Teams placing a measurement process into existing workflows without assuming automatic data exchange",
+          "Organisations comparing requirements from manufacturers, tests and existing systems in a traceable way"
+        ]
+      },
+      "questions": {
+        "heading": "Questions before an integration decision",
+        "items": [
+          "Which specific test and evaluation combination is intended, and what evidence supports its suitability?",
+          "How will results be documented or transferred, and which steps remain manual?",
+          "Who is responsible for review, configuration, approval and subsequent changes?"
+        ]
+      },
+      "parameters": {
+        "heading": "Technical and organisational review points",
+        "items": [
+          "Intended test and evaluation in use",
+          "System and software versions and the existing documentation path",
+          "Manual or technical data handover and clear responsibilities",
+          "Verification, change documentation and training needs"
+        ]
+      },
+      "workflow": {
+        "heading": "From requirements to documented use",
+        "steps": [
+          {
+            "title": "Define the requirements",
+            "text": "Record the test scope, working environment, documentation path and responsible roles specifically."
+          },
+          {
+            "title": "Verify compatibility",
+            "text": "Review the intended combination and data path against current documentation and the actual operating environment."
+          },
+          {
+            "title": "Document the approved process",
+            "text": "Record the confirmed state, manual steps, responsibilities and the process for managing changes."
+          }
+        ]
+      },
+      "faq": {
+        "caption": "Frequently asked questions",
+        "title": "Questions about compatibility & integration",
+        "items": [
+          {
+            "question": "Does a compatibility statement automatically apply to every test and manufacturer?",
+            "answer": "No. It applies only to the specifically reviewed combination and documented state. Different tests, versions or operating conditions require a separate assessment."
+          },
+          {
+            "question": "Is an automatic connection to existing software included?",
+            "answer": "Not as a blanket capability. Whether and how data can be transferred depends on the systems, versions, configurations and approved paths involved and must be checked for the actual environment."
+          },
+          {
+            "question": "Does structured integration guarantee error-free or secure operation?",
+            "answer": "No. A structured review makes prerequisites, responsibilities and open points visible. Operational, quality and security responsibilities remain dependent on the specific environment and applicable requirements."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Review compatibility requirements together",
+        "text": "Talk to us about the intended combination, your documentation path and the points that need verification before integration."
+      },
+      "disclaimer": {
+        "heading": "Technical notice",
+        "content": "Suitability and data paths depend on the test, system, version, configuration and operating environment. This page promises no universal compatibility, automatic interface, certification, SLA or guarantee of security, availability or performance."
+      },
+      "seo": {
+        "title": "Compatibility & integration for POC workflows",
+        "description": "Review compatibility systematically: test, evaluation, documentation path and responsibilities without blanket interface or performance promises.",
+        "imageAlt": "Structured review of compatibility and integration in a POC workflow"
+      }
+    },
     "seo": {
       "description": "Open, cross-manufacturer POC platform: the Igloo Pro secures flexibility, technological independence and investment security. Learn more.",
       "title": "Cross-Manufacturer Compatibility"
@@ -594,11 +747,32 @@
     }
   },
   "seo": {
-    "overview_title": "Point-of-Care Diagnostics: Dental, Beauty, Longevity",
-    "overview_description": "Chairside rapid tests for vitamin D, CRP, HbA1c & TSH – results in minutes. Point-of-care diagnostics with the Igloo Pro for dental, aesthetic & prevention practices."
+    "overview_title": "Point-of-Care Diagnostics and Diagnostic Solutions for Practices",
+    "overview_description": "Guidance on point-of-care diagnostics, diagnostic solutions and service areas for practices—from dental, beauty and prevention to systems and integration.",
+    "overview_image_alt": "IglooPro Reader as the visual anchor of the PolarisDX Diagnostics Hub"
   },
   "overview": {
     "hero": {
+      "entry": {
+        "breadcrumb_label": "Breadcrumb",
+        "eyebrow": "Point-of-care and extended diagnostics",
+        "title": "Diagnostic solutions for clinical practice and care",
+        "description": "PolarisDX brings together point-of-care applications and complementary diagnostics for practices, medical facilities and professional users. Find the entry point that fits your specialty, diagnostic question and workflow.",
+        "primary_cta": "Request a quote",
+        "secondary_cta": "Explore service areas",
+        "trust_label": "Reliable orientation",
+        "trust": {
+          "services": "9 clearly structured service areas",
+          "audience": "For practices, medical facilities and professional users",
+          "context": "Point-of-care and complementary diagnostics at a glance"
+        },
+        "visual": {
+          "eyebrow": "Product-focused entry",
+          "title": "IglooPro in the point-of-care context",
+          "text": "A real system path within the Diagnostics Hub, alongside further specialty and workflow-based entry points.",
+          "alt": "IglooPro Reader as an example of point-of-care diagnostics"
+        }
+      },
       "title": "Diagnostics",
       "subtitle": "Lab-grade panels for every practice type — validated, IVDR-compliant and ready from day one. Choose your specialty or explore the diagnostic areas below.",
       "chip_cv": "CV < 2 %",
@@ -650,6 +824,9 @@
       }
     },
     "focus": {
+      "eyebrow": "Fields of application",
+      "title": "Six entry points by specialty and workflow",
+      "intro": "Choose by practice field, prevention context or technical integration. Each entry leads to an existing Diagnostics service area.",
       "subtitle": "Six diagnostic areas, one platform — every panel runs chairside on the IglooPro.",
       "poc": {
         "cta": "Explore POC systems",
@@ -696,6 +873,54 @@
           "90% LFA",
           "Open platform"
         ]
+      }
+    },
+    "related": {
+      "eyebrow": "Knowledge and context",
+      "title": "Articles on diagnostics and practice workflows",
+      "intro": "Selected published articles explore point-of-care, diagnostic logistics and system integration in more detail.",
+      "all_articles": "View all articles"
+    },
+    "ia": {
+      "eyebrow": "Orientation",
+      "title": "Place diagnostics in the right care context",
+      "intro": "PolarisDX connects near-patient measurement, diagnostic questions and system integration. The right entry point depends on the specialty, workflow and information needed in each professional context.",
+      "poc": {
+        "title": "Point of care within the workflow",
+        "text": "Point-of-care measurements take place close to where care is delivered. Results can therefore be available during the practice workflow and support professional interpretation or discussion. Selection and assessment remain the responsibility of qualified users."
+      },
+      "extended": {
+        "title": "Extended diagnostics and laboratory testing",
+        "text": "Depending on the question, further investigations or established laboratory pathways complement near-patient diagnostics. These approaches do not replace one another across the board; the care context, required parameters and professional requirements determine the appropriate path."
+      },
+      "term": {
+        "label": "In brief:",
+        "text": "Point of care (POC) describes diagnostic measurements close to the place of care. The term defines the application context, not an automatic medical decision."
+      },
+      "groups": {
+        "practice": {
+          "eyebrow": "Practice and specialty contexts",
+          "title": "Priority entry points by field of use",
+          "text": "Dental, Beauty and Longevity are already established as central entry points in the current site hierarchy. Choose the context closest to your professional application."
+        },
+        "workflow": {
+          "eyebrow": "Workflow and diagnostic question",
+          "title": "Further diagnostic service areas",
+          "text": "Navigate by prevention, clinical question or the integration of diagnostic systems into existing workflows."
+        }
+      },
+      "priority_label": "Priority entry point",
+      "card_cta": "View service area",
+      "cards": {
+        "dental": "For dental practices seeking to place diagnostic information within implantology, periodontology or preventive workflows.",
+        "beauty": "For professional aesthetics and beauty contexts where skin health, hormones or micronutrients are assessed with appropriate expertise.",
+        "longevity": "For prevention and longevity services that integrate selected biomarkers into structured consultation and follow-up.",
+        "poc_systemloesungen": "For organisations that consider near-patient measurement, devices and processes as one coordinated workflow.",
+        "praeventions_checks": "For structured checks that provide selected health information for consultation and further assessment.",
+        "infektion_entzuendung": "For professional care questions relating to infection and inflammation markers.",
+        "stoffwechsel_herz": "For placing selected metabolic and cardiovascular markers within suitable professional workflows.",
+        "hormon_tests": "For professional questions concerning thyroid function, hormone status and endocrinology.",
+        "kompatibilitaet_integration": "For organisations seeking to integrate devices, tests and digital interfaces into their existing diagnostic infrastructure."
       }
     },
     "page": {

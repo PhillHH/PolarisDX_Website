@@ -7,6 +7,7 @@ import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import TrustBar from '../components/sections/TrustBar'
+import AboutPillarsSection from '../components/sections/AboutPillarsSection'
 
 const AboutPage = () => {
   const { t, i18n } = useTranslation(['about', 'common', 'home'])
@@ -74,7 +75,7 @@ const AboutPage = () => {
           'about:hero.description',
           'PolarisDX steht für Innovation, Präzision und Verlässlichkeit in der Medizintechnik. Lernen Sie die Menschen hinter unserer Mission kennen.',
         )}
-        primaryCta={{ label: t('about:hero.primary_cta', 'Team kennenlernen'), to: '/contact' }}
+        primaryCta={{ label: t('about:hero.primary_cta', 'Angebot anfragen'), to: '/contact' }}
         chips={[
           t('about:hero.chips.ivdr', 'IVDR · CE-konform'),
           t('about:hero.chips.partner', 'DX365 Distributionspartner'),
@@ -112,6 +113,8 @@ const AboutPage = () => {
       />
 
       <TrustBar />
+
+      <AboutPillarsSection />
 
       {/* Mission — copy + navy highlight tile */}
       <section className="py-16 lg:py-24">
@@ -184,7 +187,7 @@ const AboutPage = () => {
                   <div className="text-3xl font-medium tracking-tight text-heading lg:text-4xl">
                     {s.value}
                   </div>
-                  <div className="mt-2 text-sm leading-snug text-gray-500">{s.label}</div>
+                  <div className="mt-2 text-sm leading-snug text-gray-600">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -239,11 +242,12 @@ const AboutPage = () => {
                   i18nKey="about:dx365_partner.body"
                   components={{
                     dx365: (
+                      // eslint-disable-next-line jsx-a11y/anchor-has-content -- Link-Text kommt aus about:dx365_partner.body (i18next Trans, x10 lokalisiert)
                       <a
                         href="https://dx365.world"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-semibold text-accent underline transition-colors hover:text-accent-strong"
+                        className="font-semibold text-heading underline transition-colors hover:text-accent-strong"
                       />
                     ),
                   }}

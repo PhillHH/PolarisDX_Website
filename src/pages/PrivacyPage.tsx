@@ -106,6 +106,19 @@ const PrivacyPage = () => {
           <h2 className={headingClass}>{t('privacy.section5.title')}</h2>
           <p>{t('privacy.section5.content')}</p>
         </section>
+
+        {/* AP20 PT20.4 — reale Architektur: Consent Mode v2, Formular-
+            Persistenz, Support-Anhaenge/Retention, getrennte Einwilligungen. */}
+        <section>
+          <h2 className={headingClass}>{t('privacy.section6.title')}</h2>
+          <p>{t('privacy.section6.consent_mode')}</p>
+
+          <h3 className={subHeadingClass}>{t('privacy.section6.support_title')}</h3>
+          <p>{t('privacy.section6.support_content')}</p>
+
+          <h3 className={subHeadingClass}>{t('privacy.section6.marketing_title')}</h3>
+          <p>{t('privacy.section6.marketing_content')}</p>
+        </section>
       </LegalLayout>
     </PageTransition>
   )

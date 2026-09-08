@@ -16,7 +16,13 @@ import { Breadcrumbs, type BreadcrumbItem } from '../ui/Breadcrumbs'
  */
 export type HeroStat = { value: string; label: string }
 export type HeroValueChip = { value: string; label: string }
-export type HeroCta = { label: string; to?: string; href?: string; hrefLang?: string }
+export type HeroCta = {
+  label: string
+  to?: string
+  href?: string
+  hrefLang?: string
+  attributes?: Record<string, string>
+}
 
 export type SubpageHeroProps = {
   breadcrumbs?: BreadcrumbItem[]
@@ -45,7 +51,7 @@ function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 's
       ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
       : 'inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10'
   return cta.to ? (
-    <Link to={cta.to} className={cls}>
+    <Link to={cta.to} className={cls} {...cta.attributes}>
       {cta.label}
     </Link>
   ) : (
@@ -55,6 +61,7 @@ function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 's
       className={cls}
       target={cta.href?.startsWith('http') ? '_blank' : undefined}
       rel={cta.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+      {...cta.attributes}
     >
       {cta.label}
     </a>

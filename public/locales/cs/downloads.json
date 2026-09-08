@@ -2,18 +2,21 @@
   "title": "Stažení",
   "subtitle": "Materiály",
   "home": "Domů",
-  "techBrochures": "Technické brožury",
-  "infoMaterials": "Informační materiály",
   "discoverTitle": "Stažení a zdroje",
   "downloadBtn": "Stáhnout",
   "link_epigenetics": "Epigenetika a genetika",
   "size": "Velikost",
   "format": "Formát",
-  "introText": "Produktové letáky a informační materiály k systému IglooPro a spreji Vitamin D3+K2 – zdarma ve formátu PDF a bez registrace. Technické listy a certifikáty zašleme na vyžádání.",
+  "introText": "Informační listy, vzorové zprávy, průvodci a produktové letáky – zdarma ve formátu PDF nebo ZIP, bez registrace. U každého dokumentu je uveden jazyk.",
   "hero_cta": "Vyžádat nabídku",
   "chip_free": "Zdarma a bez registrace",
-  "chip_pdf": "Formát PDF",
+  "chip_pdf": "PDF a ZIP",
   "chip_updated": "Ihned k dispozici",
+  "vc_groups_label": "Kategorie",
+  "languageNotice": "Tento dokument není k dispozici ve vašem jazyce.",
+  "groups": {"infoSheets": "Informační listy", "sampleReports": "Vzorové zprávy", "guides": "Průvodci", "productFlyers": "Produktové letáky"},
+  "access": {"free": "Volně dostupné", "gated": "Po registraci"},
+  "gate": {"title": "Vyžádat dokument", "intro": "{{resource}} vám zpřístupníme prostřednictvím chráněného odkazu ke stažení.", "name": "Jméno", "email": "E-mail", "organization": "Zařízení", "processingConsent": "Souhlasím se zpracováním svých údajů za účelem vyřízení tohoto dotazu.", "marketingConsent": "Chci navíc dostávat odborné informace e-mailem. (nepovinné)", "submit": "Vyžádat stažení", "submitting": "Odesílání …", "close": "Zrušit", "successTitle": "Váš soubor je připraven", "successText": "Odkaz je osobní a časově omezený. Nesdílejte jej prosím.", "downloadCta": "Stáhnout nyní", "expiryNote": "Platný do {{date}}.", "errorGeneric": "Stažení se nepodařilo připravit. Zkuste to prosím později.", "errorValidation": "Zkontrolujte prosím označená pole.", "errorConsent": "Bez souhlasu se zpracováním nemůžeme dokument poskytnout."},
   "vc_docs_label": "Dokumenty",
   "vc_format_label": "Formát",
   "vc_free_value": "Zdarma",
@@ -31,7 +34,7 @@
     "vitd3En": { "title": "Produktový leták ke spreji Vitamin D3+K2", "description": "Anglický produktový leták s použitím a vlastnostmi produktu." }
   },
   "seo": {
-    "title": "Ke stažení: letáky IglooPro a Vitamin D3+K2",
-    "description": "Stáhněte si zdarma v PDF produktové letáky k IglooPro POC readeru a spreji Vitamin D3+K2 – bez registrace. Technické listy na vyžádání."
+    "title": "Ke stažení: informační listy, vzorové zprávy a letáky",
+    "description": "Stáhněte si zdarma informační listy, vzorové zprávy, průvodce a produktové letáky PolarisDX ve formátu PDF nebo ZIP – bez registrace a s uvedeným jazykem."
   }
 }

@@ -15,8 +15,9 @@ export interface LegacyRedirectMigration {
  * emits the final target in one hop. Fragments deliberately do not belong in
  * this table because an HTTP request never contains them.
  *
- * This is a redirect-source map, not a route registry. Current route existence
- * continues to come from the existing application/data sources until PT10.3.
+ * This remains the evidence-specific legacy migration source. The central
+ * Route Registry classifies these sources and validates every target against
+ * current canonical route truth.
  */
 const primaryAliases: LegacyRedirectMigration[] = [
   { sourcePath: '/agb', targetPath: '/terms', evidence: 'PRIMARY_ALIAS' },

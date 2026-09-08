@@ -5,10 +5,11 @@ Kontextpflicht in §7. Blindes Editieren ist untersagt.
 
 > ## ⚠ Current-State-Warnung
 >
-> **Die aktuelle Baseline ist NON_COMPLIANT gegenüber `REST-02`.** Fünf Ereignis-/Netzsysteme
-> koexistieren; **vier davon umgehen jede Einwilligungsprüfung**, und das einzige korrekt gegatete
-> System ist nicht registriert und damit wirkungslos (`CONSENT-TRACKING-NETWORK-BASELINE.md` §7).
-> **Dieser Vertrag beschreibt SOLL-Verhalten** und ist kein Beleg für Konformität.
+> Die historische Baseline war **NON_COMPLIANT gegenüber `REST-02`**. Die AP14-Closure-Remediation
+> vom 2026-09-01 hat den konkret blockierenden Google-Pfad gehärtet: `GtmPageview` verwirft ohne
+> Analytics-Consent, GTM startet erst nach Grant, und der frühere Grant-Zusatz-Pageview wurde
+> entfernt. Die übrige AP23-Konsolidierung der parallelen Consumer-/Fassadenpfade ist damit nicht
+> als abgeschlossen erklärt.
 
 ---
 
@@ -44,17 +45,18 @@ AP27 PT27.4 (Consent-/Tracking-E2E), AP30 PT30.4.6, AP33 PT33.3.6 (Wartungsregel
 
 **Zu konsolidieren — heute fünf Systeme:**
 
-| System                     | Datei                                           | Consent-Gate heute           | Zielrolle                                                                                                                                              |
-| -------------------------- | ----------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **A · kanonische Fassade** | `src/lib/tracking.ts`                           | ✅ zwei Sperren, kein Puffer | **wird der einzige Pfad**                                                                                                                              |
-| B · Consumer-Helfer        | `src/pages/consumer/tracking.ts`                | ❌                           | **auflösen** in A                                                                                                                                      |
-| C · SPA-Pageview           | `src/components/analytics/GtmPageview.tsx`      | ❌                           | **auflösen** in A                                                                                                                                      |
-| D · Consumer-Bestellung    | `src/pages/consumer/OrderForm.tsx` (`:164-168`) | ❌                           | **auflösen** in A                                                                                                                                      |
-| E · Consumer-Modal         | `src/pages/consumer/OrderModal.tsx` (`:84-85`)  | ❌                           | **auflösen** in A                                                                                                                                      |
-| — · Consent-Signalgeber    | `src/components/ui/CookieBanner.tsx` (`:43-88`) | n/a                          | **behält nur Consent-Signale**; sein Ereignisverhalten (Nach-`page_view`, `consent_update`-Push) wandert nach A, soweit die Konsolidierung es verlangt |
+| System                     | Datei                                           | Consent-Gate heute           | Zielrolle                                                                                                  |
+| -------------------------- | ----------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **A · kanonische Fassade** | `src/lib/tracking.ts`                           | ✅ zwei Sperren, kein Puffer | **wird der einzige Pfad**                                                                                  |
+| B · Consumer-Helfer        | `src/pages/consumer/tracking.ts`                | ❌                           | **auflösen** in A                                                                                          |
+| C · SPA-Pageview           | `src/components/analytics/GtmPageview.tsx`      | ✅ für Analytics-Consent     | AP14-Blocker sicher gegatet; spätere providerneutrale Konsolidierung in A bleibt AP23                      |
+| D · Consumer-Bestellung    | `src/pages/consumer/OrderForm.tsx` (`:164-168`) | ❌                           | **auflösen** in A                                                                                          |
+| E · Consumer-Modal         | `src/pages/consumer/OrderModal.tsx` (`:84-85`)  | ❌                           | **auflösen** in A                                                                                          |
+| — · Consent-Signalgeber    | `src/components/ui/CookieBanner.tsx`            | n/a                          | persistiert Kategorien und übergibt sie an den zentralen Provider-Lebenszyklus; kein Grant-Zusatz-Pageview |
 
-**Weitere Beteiligte:** `src/lib/useScrollDepth.ts` (Emittent über A) · `index.html` (definiert `gtag`
-und `dataLayer`) · `src/App.tsx` (hängt C ein) · `server.ts` (CSP) · `src/pages/EpigeneticsPage.tsx` und
+**Weitere Beteiligte:** `src/lib/useScrollDepth.ts` (Emittent über A) ·
+`src/lib/googleConsent.ts` (consent-gateter Google-Provider-Lebenszyklus) · `index.html` (providerfrei) ·
+`src/App.tsx` (hängt C ein) · `server.ts` (CSP) · `src/pages/EpigeneticsPage.tsx` und
 `src/components/befund/BefundBlocks.tsx` (heutige A-Aufrufer).
 
 ---
@@ -157,19 +159,19 @@ Wechsel oder eine Ergänzung berührt nur die Registrierungsstelle, nicht die Au
 
 Ist-Zustand, **kein zulässiges Zielverhalten**.
 
-| ID        | Schuld                                                                                                                                                                                            | Verletzt   |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **TD-1**  | **Fünf parallele Systeme** statt eines (§3)                                                                                                                                                       | T-01       |
-| **TD-2**  | **Die kanonische Fassade ist nie registriert** — `setTrackingProvider`/`setTrackingConsent` werden nirgends aufgerufen; ihre vier typisierten Ereignisse laufen ins Leere                         | T-04, T-05 |
-| **TD-3**  | **Zehn direkte `dataLayer`-Schreibzugriffe** außerhalb der Fassade — `consumer/tracking.ts`, `OrderForm.tsx`, `OrderModal.tsx`, `CookieBanner.tsx`, `GtmPageview.tsx`                             | T-02       |
-| **TD-4**  | **Sieben direkte `gtag(`-Aufrufe** — fünf `consent update` in `CookieBanner.tsx`, ein `event page_view` dort (`:56`), einer in `GtmPageview.tsx:84`                                               | T-02       |
-| **TD-5**  | **`GtmPageview` prüft nur `typeof gtag === 'function'`** — immer wahr, weil `gtag` im Bootstrap definiert wird                                                                                    | T-03       |
-| **TD-6**  | **Zwei Doppelzählungsquellen** — SPA-`page_view` und der Nach-Feuer-`page_view` beim Zustimmen, zusätzlich zum Container-Initial-Pageview. `__pvOnGrantFired` schützt nur innerhalb einer Session | T-17       |
-| **TD-7**  | **`page_location` überträgt die volle URL inkl. Query** in drei Ereignissen                                                                                                                       | T-12       |
-| **TD-8**  | **Von der geforderten Taxonomie existiert genau ein Ereignis** (`consumer_order_submit`); fünf Lead-Journeys melden gar nichts                                                                    | T-15       |
-| **TD-9**  | **Kein Web-Vitals-Sammler im aktiven Baum**; die Senke `/api/monitoring/*` existiert in keinem Server                                                                                             | T-18       |
-| **TD-10** | **Kein Tracking-/Consent-Test** — weder Unit noch E2E                                                                                                                                             | §8         |
-| **TD-11** | **Kein Tracking-`DRY_RUN`-Äquivalent** — Preview kann heute produktive Messdaten erzeugen, sobald ein Provider registriert wird                                                                   | T-19       |
+| ID        | Schuld                                                                                                                                                                    | Verletzt   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **TD-1**  | **Fünf parallele Systeme** statt eines (§3)                                                                                                                               | T-01       |
+| **TD-2**  | **Die kanonische Fassade ist nie registriert** — `setTrackingProvider`/`setTrackingConsent` werden nirgends aufgerufen; ihre vier typisierten Ereignisse laufen ins Leere | T-04, T-05 |
+| **TD-3**  | Direkte Consumer-`dataLayer`-Pfade bleiben AP23-Schuld; CookieBanner puffert nicht mehr, `GtmPageview` schreibt nur nach Analytics-Consent                                | T-02       |
+| **TD-4**  | Provideraufrufe bleiben bis zur AP23-Fassadenkonsolidierung konkret; Consent-Signale liegen jetzt zentral in `googleConsent.ts`, der Banner sendet keinen Zusatz-Pageview | T-02       |
+| **TD-5**  | **MITIGATED 2026-09-01:** `GtmPageview` verlangt gespeicherten Analytics-Consent und einen nach Consent geladenen Provider                                                | T-03       |
+| **TD-6**  | **MITIGATED für den AP14-Pfad 2026-09-01:** Grant-Zusatz-Pageview entfernt; Network-E2E belegt einen Bootstrap und höchstens einen Hit je initialer/SPA-Navigation        | T-17       |
+| **TD-7**  | **`page_location` überträgt die volle URL inkl. Query** in drei Ereignissen                                                                                               | T-12       |
+| **TD-8**  | **Von der geforderten Taxonomie existiert genau ein Ereignis** (`consumer_order_submit`); fünf Lead-Journeys melden gar nichts                                            | T-15       |
+| **TD-9**  | **Kein Web-Vitals-Sammler im aktiven Baum**; die Senke `/api/monitoring/*` existiert in keinem Server                                                                     | T-18       |
+| **TD-10** | **PARTIALLY MITIGATED 2026-09-01:** Fresh/Denied/Granted Network-E2E für den AP14-Pfad; vollständige AP23-Taxonomie-/Widerrufsmatrix bleibt offen                         | §8         |
+| **TD-11** | **Kein Tracking-`DRY_RUN`-Äquivalent** — Preview kann heute produktive Messdaten erzeugen, sobald ein Provider registriert wird                                           | T-19       |
 
 **Positiv zu erhalten:** `src/lib/tracking.ts` erfüllt T-03, T-05 bis T-11 und T-20 bereits. Es ist die
 **Zielarchitektur im Kleinen** und wird ausgebaut, nicht ersetzt — `BRANCH-RECONCILIATION-MAP.md` **N9**

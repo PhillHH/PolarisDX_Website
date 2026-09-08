@@ -18,14 +18,11 @@ import pt from '../../content/befunde/healthy-sport.pt.json'
 import da from '../../content/befunde/healthy-sport.da.json'
 import nl from '../../content/befunde/healthy-sport.nl.json'
 import cs from '../../content/befunde/healthy-sport.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const HealthySport = () => (
-  <MusterbefundPage
-    slug="healthy-sport"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
-)
+const befunde = defineBefundFamily('healthy-sport', { de, en, pl, fr, it, es, pt, da, nl, cs })
+
+const HealthySport = () => <MusterbefundPage slug="healthy-sport" befunde={befunde} />
 
 export default HealthySport

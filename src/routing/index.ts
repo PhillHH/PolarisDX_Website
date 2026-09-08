@@ -9,3 +9,4 @@
 export { ErrorBoundary, type ErrorBoundaryProps } from './ErrorBoundary'
 export { RootErrorBoundary } from './RootErrorBoundary'
 export { SegmentErrorBoundary } from './SegmentErrorBoundary'
+export * from './routeRegistry'

@@ -206,7 +206,7 @@ test('PT09.4 representative page types emit public, locale-correct and claim-saf
     ['/pt/epigenetics/grundlagen', ['BreadcrumbList']],
     ['/nl/epigenetics/musterbefund/metabolic-health', ['Article', 'BreadcrumbList']],
     ['/cs/articles/die-gruene-praxis', ['Article', 'BreadcrumbList']],
-    ['/da/events', ['BreadcrumbList', 'BusinessEvent']],
+    ['/da/events', ['BreadcrumbList']],
     ['/en/consumer/inside-out-duo', ['Product', 'BreadcrumbList', 'FAQPage']],
     ['/de/downloads', ['BreadcrumbList']],
     ['/de/contact', ['Organization', 'BreadcrumbList']],
@@ -254,13 +254,9 @@ test('PT09.4 representative page types emit public, locale-correct and claim-saf
   expect(article).not.toHaveProperty('reviewedBy')
 
   const eventsHtml = await (await request.get('/da/events')).text()
-  const events = jsonLdSchemas(eventsHtml).filter((schema) => schema['@type'] === 'BusinessEvent')
-  expect(events.length).toBeGreaterThan(0)
-  for (const event of events) {
-    expect(event.url).toBe(`${PUBLIC_ORIGIN}/da/events`)
-    expect(event).not.toHaveProperty('eventStatus')
-    expect(event).not.toHaveProperty('eventAttendanceMode')
-  }
+  expect(jsonLdSchemas(eventsHtml).filter((schema) => schema['@type'] === 'BusinessEvent')).toEqual(
+    [],
+  )
 
   const notFoundHtml = await (await request.get('/de/not-a-real-structured-data-page')).text()
   expect(jsonLdSchemas(notFoundHtml)).toEqual([])

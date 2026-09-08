@@ -149,6 +149,14 @@
       "gdprLabel": "conform",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Formulieren, toestemmingen en gegevensstromen",
+      "consent_mode": "Deze website gebruikt Google Consent Mode v2 (basic): analyse- en marketingtools (bijv. Google Analytics 4 via Google Tag Manager) worden pas geladen nadat u toestemming heeft gegeven in de cookiebanner. Vóór toestemming en bij weigering wordt geen enkele analyse- of marketingprovider gecontacteerd.",
+      "support_title": "Supportformulier en bijlagen",
+      "support_content": "Gegevens die via het supportformulier worden verzonden (naam, e-mailadres, UDI van het apparaat, softwareversie, probleembeschrijving) worden eerst opgeslagen in een database op onze server en daarna pas per e-mail naar ons supportteam gestuurd. Optionele bijlagen (documenten en afbeeldingen in toegestane formaten) worden opgeslagen onder een automatisch gegenereerde, publiek ontoegankelijke naam en uitsluitend aan de supportaanvraag gekoppeld; de beoogde verwijderingstermijn is 90 dagen. Ze worden niet aan derden doorgegeven.",
+      "marketing_title": "Gescheiden toestemmingen",
+      "marketing_content": "Voor de contact- en supportformulieren is alleen toestemming voor de verwerking van uw gegevens nodig om de aanvraag te behandelen. Toestemming voor analyse- of marketingcookies is daarvoor niet nodig en heeft geen invloed op de werking van de formulieren. Optionele toestemming voor de productnieuwsbrief wordt apart vastgelegd en kan op elk moment worden ingetrokken."
     }
   },
   "agb": {

@@ -106,7 +106,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     // 5. Proxy Configuration for API (nur für reinen Vite dev mode, nicht SSR)
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: process.env.BACKEND_URL || 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
       },

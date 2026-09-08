@@ -1,7 +1,10 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { articles } from '../src/data/articles'
+import { VERTIEFUNGEN } from '../src/components/epigenetics/tokens'
+import { diagnosticsHubServices } from '../src/data/diagnosticsHub'
 import { services } from '../src/data/services'
+import { epigeneticsHubHref } from '../src/lib/epigeneticsContext'
 
 const root = process.cwd()
 const read = (path: string) => readFileSync(join(root, path), 'utf8')
@@ -9,9 +12,6 @@ const assert = (condition: unknown, message: string): asserts condition => {
   if (!condition) throw new Error(message)
 }
 
-const overview =
-  read('src/components/sections/DiagnosticsSpecialtySection.tsx') +
-  read('src/components/sections/DiagnosticsFocusSection.tsx')
 const articlePage = read('src/pages/ArticlePage.tsx')
 const servicePage = read('src/pages/ServicePage.tsx')
 const epigeneticsPage = read('src/pages/EpigeneticsPage.tsx')
@@ -24,9 +24,14 @@ const consumerPages = ['SprayPage.tsx', 'MaskPage.tsx', 'DuoPage.tsx']
 const matrix = read('building-docs/AP07-FINDABILITY-MATRIX.md')
 
 assert(services.length === 9, `expected 9 current services, found ${services.length}`)
+assert(
+  diagnosticsHubServices.length === services.length,
+  `diagnostics hub exposes ${diagnosticsHubServices.length}/${services.length} services`,
+)
 for (const service of services) {
+  const hubEntry = diagnosticsHubServices.find((entry) => entry.service.id === service.id)
   assert(
-    overview.includes(`id: '${service.id}'`),
+    hubEntry?.route.path === `/diagnostics/${service.id}`,
     `diagnostics hub does not expose service ${service.id}`,
   )
 }
@@ -48,20 +53,24 @@ for (const service of services) {
     )
   }
 }
-assert(articlePage.includes('to={`/diagnostics/${service.id}`}'), 'article -> service link missing')
+assert(
+  articlePage.includes('getRelatedServiceEntries(article)') &&
+    articlePage.includes('to={route.path}'),
+  'article -> registry-backed service link missing',
+)
 assert(
   !servicePage.includes('articles.slice(0, 3)'),
   'service page still fills irrelevant articles',
 )
 
-for (const route of [
-  '/epigenetics/grundlagen',
-  '/epigenetics/studienlage',
-  '/epigenetics/unterlagen',
-]) {
+for (const [routeId, route] of [
+  ['epigenetics-grundlagen', '/epigenetics/grundlagen'],
+  ['epigenetics-studienlage', '/epigenetics/studienlage'],
+  ['epigenetics-unterlagen', '/epigenetics/unterlagen'],
+] as const) {
   assert(
-    read('src/components/epigenetics/tokens.ts').includes(`to: '${route}'`),
-    `${route} missing`,
+    VERTIEFUNGEN.some((entry) => entry.routeId === routeId && entry.to === route),
+    `${routeId} registry-backed deepening route missing`,
   )
 }
 assert(
@@ -75,7 +84,12 @@ assert(
   read('src/components/sections/RoiCalculatorSection.tsx').includes('id="roi-rechner"'),
   'lead-magnet anchor #roi-rechner missing',
 )
-assert(befundPage.includes('to="/epigenetics#musterbefunde"'), 'sample report -> hub link missing')
+assert(
+  befundPage.includes('to={hubBack}') &&
+    epigeneticsHubHref({ panel: 'metabolic-health' }, 'musterbefunde') ===
+      '/epigenetics?panel=metabolic-health#musterbefunde',
+  'sample report -> contextual hub link missing',
+)
 
 for (const route of ['/igloo-pro', '/diagnostics', '/epigenetics']) {
   assert(downloadsPage.includes(`to="${route}"`), `downloads context link ${route} missing`)

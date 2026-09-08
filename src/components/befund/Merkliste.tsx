@@ -6,10 +6,9 @@
  * Musterbefunds, und von dort fuehrt genau ein Weg weiter — "Angebot
  * anfragen", mit den vorgemerkten Panels als Kontext.
  *
- * Der Anfrageweg ist der bestehende: /contact?intent=quote&source=epigenetics
- * &panel=<Namen>#kontaktformular. Das Formular kennt diesen Vertrag bereits und
- * schreibt die Namen in den Freitext, wo sie vor dem Absenden sichtbar und
- * aenderbar sind.
+ * Der Anfrageweg ist die eigene, persistente Epigenetics Journey auf dem Hub.
+ * Ein kanonischer Panel-Slug reist als URL-Kontext mit und bleibt im Formular
+ * sichtbar und aenderbar.
  *
  * DATENSCHUTZ: die Liste liegt ausschliesslich im localStorage dieses Browsers,
  * es gibt kein Backend und keine Uebertragung ohne Nutzerhandlung. Die Regeln
@@ -92,12 +91,10 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
 
   if (slugs.length === 0) return null
 
-  const namen = slugs.map((s: MerkSlug) => names[s] ?? s)
-  // Der Kontext wandert als Klartext in den Freitext des Formulars — deshalb
-  // die Namen und nicht die Slugs.
-  const anfrage = `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(
-    namen.join(', '),
-  )}#kontaktformular`
+  // Das dedizierte Inquiry-Formular akzeptiert einen kanonischen Panel-Slug.
+  // Bei mehreren Vormerkungen wird der erste vorausgewählt; alle Vormerkungen
+  // bleiben darunter sichtbar und können weiterhin geändert werden.
+  const anfrage = `/epigenetics?source=epigenetics&panel=${encodeURIComponent(slugs[0])}#inquiry`
 
   return (
     <section
@@ -111,7 +108,7 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
       <p className="mt-3 max-w-[72ch] text-base leading-7 text-gray-700">{t('merk.lead')}</p>
 
       <ul className="mt-6 flex flex-wrap gap-3">
-        {slugs.map((slug) => (
+        {slugs.map((slug: MerkSlug) => (
           <li key={slug}>
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white py-1.5 pl-4 pr-1.5 text-base font-medium text-heading">
               {names[slug] ?? slug}

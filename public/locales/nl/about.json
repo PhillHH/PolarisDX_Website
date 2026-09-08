@@ -3,21 +3,39 @@
     "caption": "OVER ONS",
     "title": "Diagnostiek herdefiniëren",
     "description": "PolarisDX staat voor innovatie, precisie en betrouwbaarheid in medische technologie. Ontmoet de mensen achter onze missie.",
-    "primary_cta": "Ontmoet het team",
+    "primary_cta": "Offerte aanvragen",
     "chips": {
       "ivdr": "IVDR · CE-conform",
       "partner": "DX365-distributiepartner",
       "reach": "Kantoren in Londen en Hamburg"
     },
     "visual": {
-      "c1": { "value": "2 kantoren", "label": "Londen en Hamburg" },
-      "c2": { "value": "15+ landen", "label": "Actieve markten" },
-      "c3": { "value": "100+ apparaten", "label": "Geïnstalleerd" }
+      "c1": {
+        "value": "2 kantoren",
+        "label": "Londen en Hamburg"
+      },
+      "c2": {
+        "value": "15+ landen",
+        "label": "Actieve markten"
+      },
+      "c3": {
+        "value": "100+ apparaten",
+        "label": "Geïnstalleerd"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Kantoren" },
-      "countries": { "value": "15+", "label": "Landen" },
-      "devices": { "value": "100+", "label": "Geïnstalleerde apparaten" }
+      "locations": {
+        "value": "2",
+        "label": "Kantoren"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Landen"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Geïnstalleerde apparaten"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Kantoren: Londen en Hamburg" },
-    "s2": { "value": "15+", "label": "Landen met actieve installaties" },
-    "s3": { "value": "100+", "label": "Geïnstalleerde IglooPro-readers" },
-    "s4": { "value": "< 24 u", "label": "Reactietijd van support" }
+    "s1": {
+      "value": "2",
+      "label": "Kantoren: Londen en Hamburg"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Landen met actieve installaties"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Geïnstalleerde IglooPro-readers"
+    },
+    "s4": {
+      "value": "< 24 u",
+      "label": "Reactietijd van support"
+    }
   },
   "dx365_partner": {
     "caption": "Onze partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "Over PolarisDX: uw partner voor POC-diagnostiek",
     "description": "Innovatie, precisie en betrouwbaarheid in de medische technologie: maak kennis met het team van PolarisDX en onze missie voor point-of-care-diagnostiek."
+  },
+  "pillars": {
+    "caption": "Drie bedrijfspijlers",
+    "title": "Drie routes naar diagnostiek en professioneel gebruik",
+    "intro": "PolarisDX brengt point-of-care-diagnostiek, de IglooPro-reader en epigenetica samen in duidelijk gescheiden gebieden.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostiek",
+        "text": "Point-of-care-diagnostiek en gespecialiseerde toepassingen voor praktijken en medische instellingen.",
+        "cta": "Ontdek diagnostiek"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "De IglooPro-reader analyseert compatibele sneltests rechtstreeks op het zorgpunt.",
+        "cta": "Bekijk IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetica",
+        "text": "Een zelfstandig gebied voor epigenetische en genetische analyses en de bijbehorende voorbeeldrapporten.",
+        "cta": "Ontdek epigenetica"
+      }
+    }
   }
 }

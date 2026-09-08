@@ -7,6 +7,7 @@ import { services } from '../src/data/services'
 import { BEFUND_ORDER } from '../src/content/befunde/meta'
 import { createSearchIndex, type SearchResult } from '../src/hooks/useSearch'
 import { SUPPORTED_LANGUAGES } from '../src/i18n'
+import { getSearchEligibleRouteEntries } from '../src/routing/routeRegistry'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const FORBIDDEN_PREFIXES = [
@@ -72,21 +73,11 @@ function translatorFor(language: string): TFunction {
   }) as TFunction
 }
 
-function appRoutePatterns(): Set<string> {
-  const source = fs.readFileSync(path.join(ROOT, 'src/App.tsx'), 'utf8')
-  return new Set([...source.matchAll(/path=["']([^"']+)["']/g)].map((match) => match[1]))
-}
-
-export function validateSearchTargets(
-  index: readonly SearchResult[],
-  routePatterns = appRoutePatterns(),
-): string[] {
+export function validateSearchTargets(index: readonly SearchResult[]): string[] {
   const errors: string[] = []
   const ids = new Set<string>()
   const paths = new Set<string>()
-  const servicePaths = new Set(services.map((service) => `/diagnostics/${service.id}`))
-  const articlePaths = new Set(articles.map((article) => `/articles/${article.slug}`))
-  const befundPaths = new Set(BEFUND_ORDER.map((slug) => `/epigenetics/musterbefund/${slug}`))
+  const expectedPaths = new Set(getSearchEligibleRouteEntries().map((route) => route.path))
 
   for (const item of index) {
     if (ids.has(item.id)) errors.push(`duplicate search id: ${item.id}`)
@@ -103,45 +94,14 @@ export function validateSearchTargets(
     }
     if (item.path === '/diagnostics/sports') errors.push('dead sports target is indexed')
 
-    const exactRoute = routePatterns.has(item.path)
-    const validDynamic =
-      (servicePaths.has(item.path) && routePatterns.has('/diagnostics/:slug')) ||
-      (articlePaths.has(item.path) && routePatterns.has('/articles/:slug')) ||
-      (befundPaths.has(item.path) && routePatterns.has('/epigenetics/musterbefund/:slug'))
-    if (!exactRoute && !validDynamic)
-      errors.push(`target has no current application route: ${item.path}`)
+    if (!expectedPaths.has(item.path)) errors.push(`target is not search-eligible: ${item.path}`)
   }
 
-  const actualServicePaths = new Set(
-    index.filter((item) => item.type === 'service').map((item) => item.path),
-  )
-  for (const expected of servicePaths) {
-    if (!actualServicePaths.has(expected)) errors.push(`missing service target: ${expected}`)
+  for (const expected of expectedPaths) {
+    if (!paths.has(expected)) errors.push(`missing registry search target: ${expected}`)
   }
-  if (actualServicePaths.size !== servicePaths.size)
-    errors.push('service index differs from canonical source')
-
-  const actualArticlePaths = new Set(
-    index.filter((item) => item.type === 'article').map((item) => item.path),
-  )
-  for (const expected of articlePaths) {
-    if (!actualArticlePaths.has(expected))
-      errors.push(`missing published article target: ${expected}`)
-  }
-  if (actualArticlePaths.size !== articlePaths.size)
-    errors.push('article index differs from published source')
-
-  for (const expected of [
-    '/epigenetics',
-    '/epigenetics/grundlagen',
-    '/epigenetics/studienlage',
-    '/epigenetics/unterlagen',
-    ...befundPaths,
-    '/downloads',
-    '/events',
-  ]) {
-    if (!paths.has(expected)) errors.push(`missing required strategic target: ${expected}`)
-  }
+  if (paths.size !== expectedPaths.size)
+    errors.push('search index differs from registry eligibility')
 
   return errors
 }

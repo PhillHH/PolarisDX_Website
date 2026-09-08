@@ -55,7 +55,8 @@
       "submitting": "A enviar...",
       "success": "Muito obrigado! Recebemos e registámos o seu pedido de apoio. Entraremos em contacto consigo com a maior brevidade possível.",
       "error": "Ocorreu um erro. Tente novamente mais tarde, por favor.",
-      "microcopy": "Normalmente respondemos no prazo de um dia útil."
+      "microcopy": "Normalmente respondemos no prazo de um dia útil.",
+      "error_retryable": "Não funcionou agora. Os seus dados continuam aqui — tente novamente dentro de momentos."
     },
     "info": {
       "title": "Informações de apoio",

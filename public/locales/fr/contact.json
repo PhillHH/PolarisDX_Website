@@ -85,6 +85,7 @@
       "prepare_placeholder": "Quels biomarqueurs vous intéressent — CRP, TSH, HbA1c ?",
       "consent": "J'accepte que mes données soient conservées pour me recontacter et pour d'éventuelles questions, pendant 12 mois maximum. Voir notre",
       "privacy_link": "politique de confidentialité",
+      "marketing_consent": "Je souhaite également recevoir la newsletter PolarisDX avec les actualités produits (désinscription possible à tout moment).",
       "submit": {
         "consultation": "Demander un devis",
         "quote": "Demander un devis",
@@ -95,7 +96,8 @@
       "sending": "Envoi…",
       "microcopy": "Moins de 2 minutes — promis. Réponse sous 24 h, puis une prochaine étape concrète.",
       "success": "Merci ! Nous avons bien reçu et enregistré votre demande — nous vous répondons sous 24 h.",
-      "error": "Une erreur s'est produite. Vérifiez vos informations ou réessayez dans un instant."
+      "error": "Une erreur s'est produite. Vérifiez vos informations ou réessayez dans un instant.",
+      "error_retryable": "Cela n’a pas fonctionné pour le moment. Vos informations sont toujours là — veuillez réessayer dans un instant."
     },
     "trust": {
       "direct": "Vous préférez un contact direct ?",

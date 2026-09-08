@@ -69,9 +69,17 @@ test.describe('Desktop — Tastatur', () => {
   test('das Mega-Menue oeffnet mit der Tastatur — kein Hover-Zwang', async ({ page }) => {
     await page.goto('/de/')
     const trigger = page.locator('[data-submenu-trigger="service"]').first()
-    await trigger.focus()
-    await page.keyboard.press('Enter')
-    await expect(trigger).toHaveAttribute('aria-expanded', 'true')
+    // Der Kopf kommt aus dem SSR; der Umschalter lebt erst nach der Hydration.
+    // Ein einzelner frueher Tastendruck ging unter Last verloren. Getastet wird
+    // deshalb nur, solange das Menue ZU ist — die Schleife ist idempotent und
+    // kann es nicht versehentlich wieder schliessen.
+    await expect(async () => {
+      if ((await trigger.getAttribute('aria-expanded')) !== 'true') {
+        await trigger.focus()
+        await page.keyboard.press('Enter')
+      }
+      await expect(trigger).toHaveAttribute('aria-expanded', 'true', { timeout: 500 })
+    }).toPass({ timeout: 15_000 })
 
     const services = await page.locator('header nav a[href^="/de/diagnostics/"]').count()
     expect(services).toBe(9)
@@ -80,8 +88,13 @@ test.describe('Desktop — Tastatur', () => {
   test('Escape schliesst das Mega-Menue und gibt den Fokus zurueck', async ({ page }) => {
     await page.goto('/de/')
     const trigger = page.locator('[data-submenu-trigger="service"]').first()
-    await trigger.focus()
-    await page.keyboard.press('Enter')
+    await expect(async () => {
+      if ((await trigger.getAttribute('aria-expanded')) !== 'true') {
+        await trigger.focus()
+        await page.keyboard.press('Enter')
+      }
+      await expect(trigger).toHaveAttribute('aria-expanded', 'true', { timeout: 500 })
+    }).toPass({ timeout: 15_000 })
     await page.keyboard.press('Escape')
 
     await expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -105,8 +118,11 @@ test.describe('Mobile — Tastatur und Interaktion', () => {
     await page.goto('/de/')
     const burger = page.getByRole('button', { name: /Navigation umschalten/i })
     await expect(burger).toHaveAttribute('aria-expanded', 'false')
-    await burger.click()
-    await expect(burger).toHaveAttribute('aria-expanded', 'true')
+    // Wie oben: der erste Klick darf nicht vor der Hydration ins Leere gehen.
+    await expect(async () => {
+      if ((await burger.getAttribute('aria-expanded')) !== 'true') await burger.click()
+      await expect(burger).toHaveAttribute('aria-expanded', 'true', { timeout: 500 })
+    }).toPass({ timeout: 15_000 })
     await burger.click()
     await expect(burger).toHaveAttribute('aria-expanded', 'false')
   })

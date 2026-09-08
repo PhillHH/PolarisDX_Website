@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../ui/Reveal'
 import { Button } from '../ui/Button'
+import { formatArticleDate, parseReadMinutes } from '../../lib/articleMeta'
 
 /**
  * PageSidebar — EINE geteilte rechte Sidebar für ServicePage und ArticlePage.
@@ -18,6 +19,8 @@ import { Button } from '../ui/Button'
 
 export type SidebarServiceItem = {
   id: string
+  /** Canonical target supplied by the owning Registry projection. */
+  to: string
   translationKey: string
   title: string
   /** Fertig dimensioniertes Icon (ServicePage berechnet es aus der id, ArticlePage nimmt s.icon). */
@@ -29,7 +32,7 @@ export type SidebarArticleItem = {
   slug: string
   category: string
   readTime: string
-  date: string
+  datePublished: string
 }
 
 export type SidebarWidget =
@@ -51,7 +54,7 @@ export type SidebarWidget =
 const sectionBase = 'rounded-2xl border border-gray-100 bg-white p-5 '
 
 export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
-  const { t } = useTranslation(['home', 'articles', 'common', 'epigenetics'])
+  const { t, i18n } = useTranslation(['home', 'articles', 'common', 'epigenetics'])
 
   return (
     <aside className="space-y-8 lg:sticky lg:top-32">
@@ -62,14 +65,14 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
           if (w.kind === 'services') {
             return (
               <section key={`services-${i}`} className={sectionBase + spacing}>
-                <h2 className="mb-4 text-xs font-medium text-gray-500">
+                <h2 className="mb-4 text-xs font-medium text-gray-600">
                   {t(w.titleKey, w.titleFallback ?? '')}
                 </h2>
                 <div className="space-y-3">
                   {w.items.map((s) => (
                     <Link
                       key={s.id}
-                      to={`/diagnostics/${s.id}`}
+                      to={s.to}
                       className="group flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 transition-all duration-300 hover:border-brand-primary/30 hover:scale-[1.02]"
                     >
                       <div className="flex items-center gap-3">
@@ -93,7 +96,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
             const hide = w.hideOnMobile ? ' hidden lg:block' : ''
             return (
               <section key={`articles-${i}`} className={sectionBase + spacing + hide}>
-                <h2 className="mb-4 text-xs font-medium text-gray-500">
+                <h2 className="mb-4 text-xs font-medium text-gray-600">
                   {t(w.titleKey, w.titleFallback ?? '')}
                 </h2>
                 <div className="space-y-4">
@@ -110,8 +113,8 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       <p
                         className={
                           variant === 'card'
-                            ? 'text-xs font-medium text-gray-500'
-                            : 'text-xs font-medium text-gray-500 mb-1'
+                            ? 'text-xs font-medium text-gray-600'
+                            : 'text-xs font-medium text-gray-600 mb-1'
                         }
                       >
                         {t(`common:category.${post.category}`, post.category)}
@@ -125,8 +128,11 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       >
                         {t(`articles:${post.id}.title`)}
                       </p>
-                      <p className="mt-1 text-xs text-gray-500">
-                        {post.readTime} · {post.date}
+                      <p className="mt-1 text-xs text-gray-600">
+                        {t('articles:detail.read_time', {
+                          minutes: parseReadMinutes(post.readTime) ?? 1,
+                        })}{' '}
+                        · {formatArticleDate(post.datePublished, i18n.language)}
                       </p>
                     </Link>
                   ))}
@@ -144,12 +150,12 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                     {t('epigenetics:sidebar.title')}
                   </h3>
                 </div>
-                <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                <p className="mb-3 text-xs leading-relaxed text-gray-600">
                   {t('epigenetics:sidebar.text')}
                 </p>
                 <Link
                   to="/epigenetics"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-accent-strong"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-secondary"
                 >
                   {t('epigenetics:sidebar.cta')}
                   <ArrowRight
@@ -167,7 +173,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
               <h3 className="mb-2 text-sm font-semibold tracking-tight text-heading">
                 {t('articles:ui.needHelp')}
               </h3>
-              <p className="mb-3 text-xs leading-relaxed text-gray-500">
+              <p className="mb-3 text-xs leading-relaxed text-gray-600">
                 {t('articles:ui.contactText')}
               </p>
               <Button to="/contact" variant="secondary" className="w-full justify-center">

@@ -1,17 +1,21 @@
 import { SaxesParser } from 'saxes'
-import { BEFUND_ORDER } from '../../content/befunde/meta'
-import { articles } from '../../data/articles'
-import { services } from '../../data/services'
-import { LEGACY_REDIRECT_MIGRATIONS } from '../../routing/legacyRedirects'
+import {
+  getCanonicalRouteEntries,
+  getRedirectRegistryEntries,
+  getSitemapEligibleRouteEntries,
+} from '../../routing/routeRegistry'
 import { SEO_ROUTE_SOURCE } from './seoRouteSource'
 import { CONSUMER_SITEMAP_PATHS, getSitemapRouteFamilies, type SitemapRouteFamily } from './sitemap'
 
 const PUBLIC_ORIGIN = 'https://polarisdx.net'
-const NOINDEX_PATHS = new Set(['/privacy', '/imprint', '/terms'])
-const REDIRECT_SOURCE_PATHS = new Set([
-  '/services',
-  ...LEGACY_REDIRECT_MIGRATIONS.map((migration) => migration.sourcePath),
-])
+const NOINDEX_PATHS = new Set(
+  getCanonicalRouteEntries()
+    .filter((route) => route.indexability !== 'INDEX_FOLLOW')
+    .map((route) => route.path),
+)
+const REDIRECT_SOURCE_PATHS = new Set(
+  getRedirectRegistryEntries().map((migration) => migration.sourcePath),
+)
 
 export interface SitemapGuardResult {
   routeFamilyCount: number
@@ -63,24 +67,10 @@ export function validateSitemapArtifact(
   const familyPaths = new Set(families.map((family) => family.path))
   if (familyPaths.size !== families.length) errors.push('Duplicate route family')
 
-  const expectedServices = new Set(services.map((service) => `/diagnostics/${service.id}`))
-  const actualServices = new Set(
-    families.filter((family) => family.kind === 'service').map((family) => family.path),
-  )
-  const expectedArticles = new Set(articles.map((article) => `/articles/${article.slug}`))
-  const actualArticles = new Set(
-    families.filter((family) => family.kind === 'article').map((family) => family.path),
-  )
-  const expectedBefunde = new Set(BEFUND_ORDER.map((slug) => `/epigenetics/musterbefund/${slug}`))
-  const actualBefunde = new Set(
-    families.filter((family) => family.kind === 'befund').map((family) => family.path),
-  )
+  const expectedRegistryPaths = new Set(getSitemapEligibleRouteEntries().map((route) => route.path))
   const setEquals = (left: Set<string>, right: Set<string>) =>
     left.size === right.size && [...left].every((value) => right.has(value))
-  if (!setEquals(expectedServices, actualServices)) errors.push('Service slug coverage drift')
-  if (!setEquals(expectedArticles, actualArticles))
-    errors.push('Published article slug coverage drift')
-  if (!setEquals(expectedBefunde, actualBefunde)) errors.push('Musterbefund slug coverage drift')
+  if (!setEquals(expectedRegistryPaths, familyPaths)) errors.push('Registry sitemap coverage drift')
 
   const blocks = xml.match(/<url>[^]*?<\/url>/g) ?? []
   const locs: string[] = []

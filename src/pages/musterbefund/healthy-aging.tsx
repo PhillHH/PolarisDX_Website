@@ -18,14 +18,11 @@ import pt from '../../content/befunde/healthy-aging.pt.json'
 import da from '../../content/befunde/healthy-aging.da.json'
 import nl from '../../content/befunde/healthy-aging.nl.json'
 import cs from '../../content/befunde/healthy-aging.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const HealthyAging = () => (
-  <MusterbefundPage
-    slug="healthy-aging"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
-)
+const befunde = defineBefundFamily('healthy-aging', { de, en, pl, fr, it, es, pt, da, nl, cs })
+
+const HealthyAging = () => <MusterbefundPage slug="healthy-aging" befunde={befunde} />
 
 export default HealthyAging

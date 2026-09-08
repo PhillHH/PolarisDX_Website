@@ -33,6 +33,19 @@ export const articleImageMap: Record<string, string> = {
   'Igloo-pro-frontal.png': iglooProFrontalImg,
 }
 
+export interface ArticleImageAsset {
+  src: string
+  width: number
+  height: number
+}
+
+const articleImageAssetMap: Record<string, ArticleImageAsset> = {
+  'green.png': { src: greenImg, width: 1200, height: 800 },
+  'homeclinic.png': { src: homeclinicImg, width: 1024, height: 1024 },
+  'makemoney.png': { src: makemoneyImg, width: 1024, height: 1024 },
+  'Testbild1.png': { src: testbild1Img, width: 1024, height: 1024 },
+}
+
 /**
  * Gibt die korrekte URL für ein Artikelbild zurück.
  * Funktioniert sowohl im SSR als auch im Client.
@@ -43,6 +56,11 @@ export const articleImageMap: Record<string, string> = {
 export function getArticleImageUrl(imageName: string | undefined): string | undefined {
   if (!imageName) return undefined
   return articleImageMap[imageName]
+}
+
+export function getArticleImageAsset(imageName: string | undefined): ArticleImageAsset | undefined {
+  if (!imageName) return undefined
+  return articleImageAssetMap[imageName]
 }
 
 // Direkte Exports für typisierte Verwendung

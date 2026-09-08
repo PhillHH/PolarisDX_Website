@@ -81,8 +81,7 @@
           "Ernährungsberatung über Standardpläne hinaus",
           "Präventionspraxen mit Gewichtsprogrammen",
           "Wenn bisherige Umstellungen nicht gegriffen haben"
-        ],
-        "file": "de/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Longevity-Zentren und Präventionspraxen",
           "Ernährungsberatung und Präventivmedizin",
           "Personen ab etwa 40 Jahren mit Verlaufsinteresse"
-        ],
-        "file": "de/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Longevity- und Functional-Medicine-Praxen",
           "Gesundheitszentren, Coaching und BGM",
           "Wo ein volles Aging-Panel zu umfangreich ist"
-        ],
-        "file": "de/03_Biologisches_Alter_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Longevity-Programme und Präventionsmedizin",
           "Ernährungsberatung mit objektivem Ausgangswert",
           "Betriebliche Programme mit Longevity-Schwerpunkt"
-        ],
-        "file": "de/04_Telomer_Analyse_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Betriebliches Gesundheitsmanagement und Resilienz",
           "Praxen mit Schwerpunkt Stressprävention",
           "Personen in anhaltender Belastung"
-        ],
-        "file": "de/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Sportmedizin und Leistungsdiagnostik",
           "Sportwissenschaft und Performance-Coaching",
           "Freizeit- und Wettkampfsport"
-        ],
-        "file": "de/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Musterbefund"
@@ -333,9 +327,72 @@
     "title": "Angebot anfragen",
     "sub": "Die Analysen werden ausschließlich an Fachanwenderinnen und Fachanwender abgegeben. B2B-Konditionen nach Absprache, gestaffelt nach Abnahmemenge.",
     "overview": "Übersicht als PDF",
-    "overviewFile": "de/00_Portfolio_Uebersicht_PolarisDX.pdf",
     "note": "Die Analysen sind Labordienstleistungen unseres Kooperationspartners und keine CE-gekennzeichneten In-vitro-Diagnostika. Sie dienen der Beratung und Verlaufskontrolle und ersetzen keine ärztliche Diagnostik. Genetische Analysen unterliegen in Deutschland dem Gendiagnostikgesetz. Prädiktive genetische Untersuchungen dürfen nur unter der Verantwortung entsprechend qualifizierter Ärztinnen und Ärzte vorgenommen werden; vor und nach der Untersuchung ist eine genetische Beratung anzubieten.",
     "lab": "Laboranalytik durch unseren Kooperationspartner · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Name",
+      "email": "E-Mail",
+      "organization": "Einrichtung / Unternehmen",
+      "facilityType": "Einrichtungstyp",
+      "choose": "Bitte auswählen",
+      "panel": "Panel-Interesse (optional)",
+      "noPanel": "Noch nicht festgelegt",
+      "volume": "Erwartete Fälle pro Monat (optional)",
+      "message": "Ihre Frage (optional)",
+      "messageHint": "Bitte keine Gesundheitsdaten oder Befunde übermitteln."
+    },
+    "facilityTypes": {
+      "practice": "Praxis",
+      "clinic": "Klinik",
+      "laboratory": "Labor",
+      "consultancy": "Beratung / Gesundheitszentrum",
+      "other": "Andere Einrichtung"
+    },
+    "volumes": {
+      "unspecified": "Keine Angabe",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Mehr als 50"
+    },
+    "submit": "Angebot anfragen",
+    "sending": "Anfrage wird sicher gespeichert …",
+    "analyticsIndependent": "Die Anfrage funktioniert unabhängig von Analyse- oder Marketing-Cookies.",
+    "errors": {
+      "name": "Bitte geben Sie Ihren Namen an.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+      "organization": "Bitte geben Sie Ihre Einrichtung an.",
+      "facilityType": "Bitte wählen Sie einen Einrichtungstyp.",
+      "consent": "Ihre Einwilligung zur Bearbeitung ist erforderlich."
+    },
+    "status": {
+      "delivered": {
+        "title": "Anfrage gespeichert und weitergeleitet",
+        "text": "Ihre Anfrage wurde dauerhaft erfasst und an den zuständigen Prozess übergeben."
+      },
+      "retryPending": {
+        "title": "Anfrage sicher gespeichert",
+        "text": "Die Weiterleitung ist vorübergehend ausstehend und wird über den gespeicherten Vorgang erneut versucht."
+      },
+      "providerUnavailable": {
+        "title": "Anfrage sicher gespeichert",
+        "text": "Der externe Übergabedienst ist derzeit nicht konfiguriert. Ihr Vorgang bleibt für die manuelle Bearbeitung erhalten."
+      },
+      "manualReview": {
+        "title": "Anfrage sicher gespeichert",
+        "text": "Die automatische Weiterleitung konnte nicht abgeschlossen werden. Der gespeicherte Vorgang bleibt zur manuellen Bearbeitung erhalten."
+      },
+      "recorded": {
+        "title": "Anfrage sicher gespeichert",
+        "text": "Ihr Vorgang wurde dauerhaft erfasst; die Weiterleitung wird verarbeitet."
+      },
+      "error": {
+        "title": "Anfrage nicht gespeichert",
+        "text": "Die Anfrage konnte nicht sicher gespeichert werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt."
+      }
+    }
   },
   "links": {
     "longevity": "Longevity-Diagnostik",
@@ -665,6 +722,8 @@
     "othersTitle": "Die anderen Musterbefunde",
     "navBack": "Übersicht",
     "navChapters": "Kapitel",
+    "previous": "Vorheriger Befund",
+    "next": "Nächster Befund",
     "noticeTitle": "Pflichthinweise",
     "toTop": "Nach oben",
     "ctaPdf": "Diesen Befund als PDF",

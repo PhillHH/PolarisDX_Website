@@ -81,8 +81,7 @@
           "Výživové poradenství nad rámec standardních plánů",
           "Prevence s programy na váhu",
           "Kde předchozí změny stravy nefungovaly"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Centra dlouhověkosti a preventivní praxe",
           "Výživové poradenství a preventivní medicína",
           "Lidé přibližně od 40 let sledující trend"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Praktiky dlouhověkosti a funkční medicíny",
           "Zdravotní střediska, koučink a pracovní zdraví",
           "Kde by byl plný panel stárnutí příliš rozsáhlý"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Programy dlouhověkosti a preventivní medicína",
           "Výživové poradenství vyžadující výchozí hodnotu",
           "Programy na pracovišti se zaměřením na dlouhověkost"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Řízení zdraví na pracovišti a odolnost",
           "Postupy zaměřené na prevenci stresu",
           "Lidé vystavení dlouhodobé zátěži"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Sportovní medicína a diagnostika výkonu",
           "Sportovní věda a koučink výkonu",
           "Rekreační i soutěžní sportovci"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Ukázková zpráva"
@@ -333,9 +327,72 @@
     "title": "Požádejte o nabídku",
     "sub": "Analýzy jsou poskytovány pouze profesionálním uživatelům. Podmínky B2B na vyžádání, odstupňované podle objemu.",
     "overview": "Přehled jako PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "Analýzy jsou laboratorní služby poskytované naším partnerským laboratoří a nejsou CE značenými in vitro diagnostickými zařízeními. Slouží ke konzultaci a monitorování a nenahrazují klinickou diagnostiku. Genetické analýzy podléhají národní legislativě o genetickém testování. V Německu může být prediktivní genetické testování prováděno pouze pod odpovědností řádně kvalifikovaných lékařů; před a po testu musí být nabídnuto genetické poradenství.",
     "lab": "Laboratorní analýza naším partnerským laboratoří · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Jméno",
+      "email": "E-mail",
+      "organization": "Pracoviště / organizace",
+      "facilityType": "Typ pracoviště",
+      "choose": "Vyberte",
+      "panel": "Zájem o panel (volitelné)",
+      "noPanel": "Zatím neurčeno",
+      "volume": "Očekávaný počet případů za měsíc (volitelné)",
+      "message": "Váš dotaz (volitelné)",
+      "messageHint": "Neposílejte zdravotní údaje ani zprávy."
+    },
+    "facilityTypes": {
+      "practice": "Praxe",
+      "clinic": "Klinika",
+      "laboratory": "Laboratoř",
+      "consultancy": "Poradenství / zdravotní centrum",
+      "other": "Jiné pracoviště"
+    },
+    "volumes": {
+      "unspecified": "Neuvedeno",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Více než 50"
+    },
+    "submit": "Požádejte o nabídku",
+    "sending": "Bezpečné ukládání dotazu …",
+    "analyticsIndependent": "Dotaz funguje nezávisle na analytických či marketingových cookies.",
+    "errors": {
+      "name": "Zadejte své jméno.",
+      "email": "Zadejte platnou e-mailovou adresu.",
+      "organization": "Uveďte své pracoviště.",
+      "facilityType": "Vyberte typ pracoviště.",
+      "consent": "Je vyžadován souhlas se zpracováním."
+    },
+    "status": {
+      "delivered": {
+        "title": "Dotaz uložen a předán",
+        "text": "Váš dotaz byl trvale uložen a předán odpovědnému procesu."
+      },
+      "retryPending": {
+        "title": "Dotaz bezpečně uložen",
+        "text": "Předání je dočasně odloženo a bude z uloženého záznamu zopakováno."
+      },
+      "providerUnavailable": {
+        "title": "Dotaz bezpečně uložen",
+        "text": "Externí služba předání nyní není nakonfigurována. Záznam zůstává dostupný pro ruční zpracování."
+      },
+      "manualReview": {
+        "title": "Dotaz bezpečně uložen",
+        "text": "Automatické předání nebylo dokončeno. Uložený záznam zůstává dostupný pro ruční zpracování."
+      },
+      "recorded": {
+        "title": "Dotaz bezpečně uložen",
+        "text": "Záznam byl trvale uložen; předání se zpracovává."
+      },
+      "error": {
+        "title": "Dotaz nebyl uložen",
+        "text": "Dotaz se nepodařilo bezpečně uložit. Zkuste to znovu nebo nás kontaktujte přímo."
+      }
+    }
   },
   "links": {
     "longevity": "Diagnostika dlouhověkosti",
@@ -665,6 +722,8 @@
     "othersTitle": "Ostatní vzorové zprávy",
     "navBack": "Přehled",
     "navChapters": "Kapitoly",
+    "previous": "Předchozí zpráva",
+    "next": "Další zpráva",
     "noticeTitle": "Důležitá upozornění",
     "toTop": "Zpět nahoru",
     "ctaPdf": "Tuto zprávu jako PDF",

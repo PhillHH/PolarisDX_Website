@@ -9,19 +9,15 @@ import {
 } from '../components/seo'
 import HeroSection from '../components/sections/HeroSection'
 import TrustBar from '../components/sections/TrustBar'
+import BusinessPillarsSection from '../components/sections/BusinessPillarsSection'
 import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
-import AboutSection from '../components/sections/AboutSection'
-import IglooWidgetSection from '../components/sections/IglooWidgetSection'
-import EpigeneticsTeaserSection from '../components/sections/EpigeneticsTeaserSection'
 import StepsSection from '../components/sections/StepsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
 import FAQSection from '../components/sections/FAQSection'
+import BlogSection from '../components/sections/BlogSection'
 import Reveal from '../components/ui/Reveal'
-
-// Hero-Bild für LCP-Preload
-import heroDoctor from '../assets/hero_doctor.webp'
 
 const HomePage = () => {
   const { t, i18n } = useTranslation('home')
@@ -47,49 +43,34 @@ const HomePage = () => {
   return (
     <>
       <SEOHead
-        title={t('seo.title', 'IglooPro POC-Reader: Laborergebnisse in 3 Min | PolarisDX')}
-        description={t(
-          'seo.description',
-          'Point-of-Care Diagnostik für Zahnarztpraxen, Beauty-Center & Longevity-Kliniken. Chairside Schnelltests mit CV < 2 %. Jetzt Demo anfragen.',
-        )}
-        keywords={[
-          'POC Diagnostik',
-          'Point-of-Care',
-          'IglooPro',
-          'Schnelltest Praxis',
-          'Vitamin D Test',
-          'CRP Schnelltest',
-        ]}
+        title={t('seo.title')}
+        description={t('seo.description')}
+        ogImage="/og-image.jpg"
+        ogImageAlt={t('seo.social_image_alt')}
         structuredData={structuredData}
-        preloadImages={[heroDoctor]}
       />
       <HeroSection />
       <TrustBar />
+      <BusinessPillarsSection />
       <WhyPocSection />
-      <div className="mx-auto max-w-container px-4 pt-16 lg:px-0 lg:pt-24">
-        <Reveal width="100%">
-          <AboutSection />
-        </Reveal>
-      </div>
-      <IglooWidgetSection />
-      <div className="mx-auto max-w-container px-4 pt-24 lg:px-0 lg:pt-32">
-        <Reveal width="100%">
-          <EpigeneticsTeaserSection />
-        </Reveal>
-      </div>
+      <StepsSection />
       <div className="mt-24 lg:mt-32">
         <Reveal width="100%">
           <TestimonialsSection />
         </Reveal>
       </div>
       <RoiCalculatorSection />
+      <div className="mx-auto w-full max-w-container px-4 py-24 lg:px-0 lg:py-32">
+        <Reveal width="100%">
+          <BlogSection />
+        </Reveal>
+      </div>
       <div className="mx-auto flex max-w-container flex-col px-4 py-24 lg:px-0 lg:py-32">
         <Reveal width="100%">
           <FAQSection />
         </Reveal>
       </div>
-      <StepsSection />
-      <FinalCtaSection />
+      <FinalCtaSection homepageSalesSection="final_cta" />
     </>
   )
 }

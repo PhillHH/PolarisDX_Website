@@ -36,6 +36,12 @@ describe('search index', () => {
     ]) {
       expect(paths).toContain(path)
     }
+
+    for (const slug of BEFUND_ORDER) {
+      const report = index.find((item) => item.id === `befund-${slug}`)
+      expect(report?.title).toBe(`epigenetics befund.seo.${slug}.title`)
+      expect(report?.description).toBe(`epigenetics befund.seo.${slug}.description`)
+    }
   })
 
   it('contains no legacy services or future/backlog target', () => {

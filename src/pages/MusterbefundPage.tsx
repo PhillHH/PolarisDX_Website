@@ -22,7 +22,7 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
 import { isEnglishFallback } from '../lib/translationStatus'
-import { ArrowLeft, ArrowUp, Download } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUp, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createArticleSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
@@ -36,11 +36,19 @@ import BefundOverview from '../components/befund/BefundOverview'
 import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { MerkButton, Merkliste } from '../components/befund/Merkliste'
 import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
-import { BEFUND_ORDER, RADAR_VALUES, type BefundSprachen } from '../content/befunde/meta'
+import { BEFUND_ORDER, getBefundNeighbors, RADAR_VALUES } from '../content/befunde/meta'
+import type { BefundSprachen } from '../content/befunde/model'
 import { normalizeLanguage } from '../i18n'
 import { useScrollDepth } from '../lib/useScrollDepth'
 import { BEFUND_IMAGES } from '../assets/epigenetics/befundImages'
 import { LEGACY_ANCHORS } from '../content/befunde/legacyAnchors'
+import {
+  epigeneticsHubHref,
+  epigeneticsInquiryHref,
+  musterbefundHref,
+  readEpigeneticsContext,
+  type EpigeneticsPanel,
+} from '../lib/epigeneticsContext'
 
 const ASSET_BASE = '/downloads/epigenetics/'
 
@@ -99,8 +107,17 @@ interface MusterbefundPageProps {
 const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {}) => {
   const { slug: slugParam = '' } = useParams<{ slug: string }>()
   const slug = slugProp ?? slugParam
-  const { hash } = useLocation()
+  const { hash, search } = useLocation()
   const { t, i18n } = useTranslation('epigenetics')
+  const searchParams = new URLSearchParams(search)
+  const requestedContext = readEpigeneticsContext(searchParams)
+  const campaign = searchParams.get('campaign')?.trim().slice(0, 128) ?? ''
+  const currentPanel = BEFUND_ORDER.find((panel) => panel === slug) ?? null
+  const hubBack = epigeneticsHubHref(
+    { panel: currentPanel, focus: requestedContext.focus },
+    'musterbefunde',
+    campaign,
+  )
 
   // Steht bewusst VOR dem vorzeitigen return fuer den unbekannten Slug: React
   // ordnet Hooks ueber ihre Aufrufreihenfolge zu. Lag der Effekt dahinter, lief
@@ -115,7 +132,9 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     const ziel = neu ? document.getElementById(neu) : null
     if (!ziel || !neu) return
     window.history.replaceState(null, '', `#${neu}`)
-    ziel.scrollIntoView()
+    const aufklapper = ziel.querySelector('details')
+    if (aufklapper && !aufklapper.open) aufklapper.open = true
+    requestAnimationFrame(() => ziel.scrollIntoView())
   }, [slug, hash])
 
   // Wer aus dem Ueberblick oder der Kapitelleiste auf ein Wertekapitel springt,
@@ -150,6 +169,34 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     }
     document.addEventListener('click', aufklappen)
     return () => document.removeEventListener('click', aufklappen)
+  }, [])
+
+  /* Geschlossene <details> werden vom Browser nicht mitgedruckt. Vor dem
+   * nativen Druckdialog oeffnen wir deshalb nur fuer den Ausdruck die zuvor
+   * geschlossenen Kapitel und stellen ihren Zustand danach wieder her. */
+  useEffect(() => {
+    let expandedForPrint: HTMLDetailsElement[] = []
+    const beforePrint = () => {
+      expandedForPrint = Array.from(
+        document.querySelectorAll<HTMLDetailsElement>('.befund-report details:not([open])'),
+      )
+      expandedForPrint.forEach((details) => {
+        details.open = true
+      })
+    }
+    const afterPrint = () => {
+      expandedForPrint.forEach((details) => {
+        details.open = false
+      })
+      expandedForPrint = []
+    }
+    window.addEventListener('beforeprint', beforePrint)
+    window.addEventListener('afterprint', afterPrint)
+    return () => {
+      window.removeEventListener('beforeprint', beforePrint)
+      window.removeEventListener('afterprint', afterPrint)
+      afterPrint()
+    }
   }, [])
 
   // Der Marker bleibt ein rein defensiver Vertrag für technische Fallbacks.
@@ -190,7 +237,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
           </h1>
           <p className="mt-4 max-w-[62ch] text-lg text-gray-600">{t('befund.notFoundText')}</p>
           <Link
-            to="/epigenetics#musterbefunde"
+            to={epigeneticsHubHref({}, 'musterbefunde')}
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -298,6 +345,19 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     slug: s,
     panel: samples.find((sample) => sample.slug === s)?.panel ?? s,
   }))
+  const neighbors = currentPanel ? getBefundNeighbors(currentPanel) : null
+  const previous = neighbors?.previous
+    ? others.find((entry) => entry.slug === neighbors.previous)
+    : null
+  const next = neighbors?.next ? others.find((entry) => entry.slug === neighbors.next) : null
+  const reportHref = (panel: EpigeneticsPanel) =>
+    musterbefundHref(panel, requestedContext.focus, campaign)
+  const inquiryHref = epigeneticsInquiryHref(
+    currentPanel,
+    requestedContext.focus,
+    campaign,
+    'musterbefund',
+  )
 
   /**
    * Die Aufforderung in der Kapitelleiste wechselt mit der Lesetiefe.
@@ -326,7 +386,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
     // Der Musterbefund gibt zusaetzlich mit, um welches Panel es geht — das
     // steht dann in der Benachrichtigung und im vorbelegten Freitext.
     {
-      to: `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`,
+      to: inquiryHref,
       label: t('hero.ctaQuote'),
     },
   ]
@@ -352,7 +412,10 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
       <SEOHead
         title={seoTitel}
         description={seoBeschreibung}
-        ogImage="/og-epigenetics.jpg"
+        ogImage={BEFUND_IMAGES[slug]?.src2x ?? '/og-epigenetics.jpg'}
+        ogImageAlt={seoTitel}
+        ogImageWidth={1200}
+        ogImageHeight={800}
         /* Die Seite traegt ein Article-Schema — og:type muss dasselbe sagen. */
         ogType="article"
         structuredData={[
@@ -384,7 +447,10 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
         ]}
       />
 
-      <div className="bg-white text-heading" lang={englishFallback ? 'en' : undefined}>
+      <div
+        className="befund-report bg-white text-heading"
+        lang={englishFallback ? 'en' : undefined}
+      >
         {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
         <div className="bg-brand-deep">
           <div className="mx-auto max-w-container px-4 pt-28 lg:px-0 lg:pt-32">
@@ -393,7 +459,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
               items={[
                 { label: t('breadcrumb.home'), href: '/' },
                 { label: t('breadcrumb.current'), href: '/epigenetics' },
-                { label: t('samples.caption'), href: '/epigenetics#musterbefunde' },
+                { label: t('samples.caption'), href: hubBack },
                 { label: befund.panel },
               ]}
             />
@@ -432,14 +498,14 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                 <ChapterNav
                   chapters={chapters}
                   chaptersLabel={t('befund.navChapters')}
-                  back={{ to: '/epigenetics#musterbefunde', label: t('befund.navBack') }}
+                  back={{ to: hubBack, label: t('befund.navBack') }}
                   actions={navAktionen}
                   switcher={{
                     current: befund.panel,
                     currentSlug: slug,
                     entries: others,
                     label: t('befund.othersTitle'),
-                    hrefFor: (s) => `/epigenetics/musterbefund/${s}`,
+                    hrefFor: (s) => reportHref(s as EpigeneticsPanel),
                   }}
                 />
                 {/* Der Ueberblick steht vor allem anderen: er beantwortet die
@@ -491,13 +557,13 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                     vormerken, ohne die Seite zu verlassen. */}
                 <MerkButton slug={slug} panel={befund.panel} className="bg-white" />
                 <Link
-                  to={`/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(befund.panel)}#kontaktformular`}
+                  to={inquiryHref}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
                 >
                   {t('hero.ctaQuote')}
                 </Link>
                 <Link
-                  to="/epigenetics#musterbefunde"
+                  to={hubBack}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -515,7 +581,49 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
               </div>
             </div>
 
-            <div className="mt-10">
+            <div
+              className="mt-10 grid gap-4 border-y border-slate-200 py-6 sm:grid-cols-2"
+              data-report-pagination
+            >
+              {previous ? (
+                <Link
+                  to={reportHref(previous.slug)}
+                  rel="prev"
+                  data-report-previous={previous.slug}
+                  className="group inline-flex min-h-12 items-center gap-3 rounded-2xl px-3 py-2 text-left transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                >
+                  <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden />
+                  <span>
+                    <span className="block text-xs font-medium text-gray-600">
+                      {t('befund.previous')}
+                    </span>
+                    <span className="mt-1 block font-semibold text-brand-deep">
+                      {previous.panel}
+                    </span>
+                  </span>
+                </Link>
+              ) : (
+                <span aria-hidden />
+              )}
+              {next ? (
+                <Link
+                  to={reportHref(next.slug)}
+                  rel="next"
+                  data-report-next={next.slug}
+                  className="group inline-flex min-h-12 items-center justify-end gap-3 rounded-2xl px-3 py-2 text-right transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                >
+                  <span>
+                    <span className="block text-xs font-medium text-gray-600">
+                      {t('befund.next')}
+                    </span>
+                    <span className="mt-1 block font-semibold text-brand-deep">{next.panel}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+                </Link>
+              ) : null}
+            </div>
+
+            <nav className="mt-10" aria-label={t('befund.othersTitle')}>
               <p className="text-xs font-medium text-gray-600">{t('befund.othersTitle')}</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {others
@@ -523,14 +631,15 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                   .map((o) => (
                     <Link
                       key={o.slug}
-                      to={`/epigenetics/musterbefund/${o.slug}`}
+                      to={reportHref(o.slug)}
+                      data-report-sibling={o.slug}
                       className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary hover:bg-slate-50"
                     >
                       {o.panel}
                     </Link>
                   ))}
               </div>
-            </div>
+            </nav>
           </div>
         </section>
       </div>

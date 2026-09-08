@@ -64,7 +64,6 @@ const EpigeneticsBasicsPage = () => {
 
   return (
     <EpiSubpage
-      path="/epigenetics/grundlagen"
       caption="principle.caption"
       title="principle.title"
       lead="principle.lead"

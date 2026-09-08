@@ -55,7 +55,8 @@
       "submitting": "Sending...",
       "success": "Thank you! We have received and registered your support request. We will get back to you as soon as possible.",
       "error": "An error occurred. Please try again later.",
-      "microcopy": "We usually reply within one business day."
+      "microcopy": "We usually reply within one business day.",
+      "error_retryable": "That didn’t work just now. Your details are still here — please try again in a moment."
     },
     "info": {
       "title": "Support Information",

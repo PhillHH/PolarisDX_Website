@@ -6,6 +6,19 @@
     },
     "title": "Dental",
     "headline": "Præcision til moderne tandpleje",
+    "detail": {
+      "hero": { "eyebrow": "Dental diagnostik", "title": "Chairside-diagnostik til tandlægepraksis", "subtitle": "Point-of-care-målinger kan supplere udvalgte diagnostiske spørgsmål i implantologi, parodontologi og forebyggende arbejdsgange." },
+      "problem": { "heading": "Diagnostisk information i den dentale arbejdsgang", "paragraphs": ["Tandlægepraksisser vurderer systemiske faktorer sammen med lokale fund. Målinger tæt på patienten kan give supplerende information, men erstatter ikke anamnese, klinisk undersøgelse eller specialistvurdering."] },
+      "audiences": { "heading": "Hvem området er relevant for", "items": ["Tandlægepraksisser med implantologisk kontekst", "Praksisser der tilbyder parodontal behandling", "Praksisser med forebyggende eller tværfaglige patientforløb"] },
+      "questions": { "heading": "Mulige diagnostiske spørgsmål", "items": ["Hvilke målinger er relevante for det konkrete kliniske spørgsmål?", "Hvordan kan en måling indgå hensigtsmæssigt i planlægning eller opfølgning?", "Hvornår er yderligere laboratorie- eller specialistvurdering indiceret?"] },
+      "parameters": { "heading": "Dokumenterede parametre i den eksisterende dentale kontekst", "items": ["D-vitamin", "C-reaktivt protein (CRP)", "HbA1c", "Ferritin"] },
+      "workflow": { "heading": "En mulig chairside-arbejdsgang", "steps": [{ "title": "Definér spørgsmålet", "text": "Fastlæg indikation og egnet parameter ud fra den individuelle behandlingskontekst." }, { "title": "Tag prøven og udfør testen", "text": "Udtag og behandl kapillærblod efter instruktionerne for den anvendte test." }, { "title": "Fortolk resultatet", "text": "Dokumentér målingen, vurder den i klinisk sammenhæng og afklar yderligere efter behov." }] },
+      "faq": { "caption": "Ofte stillede spørgsmål", "title": "Spørgsmål om dental diagnostik", "items": [{ "question": "Hvad betyder chairside-diagnostik i en tandlægepraksis?", "answer": "Det er målinger tæt på patienten, som indgår i praksisens arbejdsgang. Hvilke tests der må og bør anvendes, afhænger af spørgsmålet, testsystemet og gældende kvalitetskrav." }, { "question": "Hvilke parametre vurderes i den dentale kontekst?", "answer": "Det eksisterende dentale indhold fra PolarisDX nævner D-vitamin, CRP, HbA1c og ferritin. Valg og fortolkning skal altid passe til det individuelle kliniske spørgsmål." }, { "question": "Erstatter et point-of-care-resultat dental eller medicinsk diagnostik?", "answer": "Nej. En enkelt måling er supplerende information. Anamnese, kliniske fund og eventuel laboratorie- eller specialistvurdering er fortsat afgørende." }] },
+      "crosslinks": { "implantology": { "label": "D-vitamin og implantologi", "description": "Gå til den selvstændige fagside om implantologisk kontekst." }, "igloo": { "label": "IglooPro i point-of-care-kontekst", "description": "Gå til den selvstændige produktside uden at gentage tekniske detaljer her." } },
+      "cta": { "title": "Afklar dental diagnostik for jeres praksis", "text": "Tal med os om det kliniske spørgsmål, praksisens arbejdsgang og et passende næste skridt." },
+      "disclaimer": { "heading": "Faglig bemærkning", "content": "Informationen er til faglig orientering og erstatter ikke individuel medicinsk indikation eller fortolkning af fund." },
+      "seo": { "title": "Dental diagnostik til tandlægepraksis", "description": "Point-of-care-diagnostik i tandplejen: kontekster, udvalgte parametre, arbejdsgang og forsigtig fortolkning for praksisser.", "imageAlt": "Dental diagnostik i en professionel praksisarbejdsgang" }
+    },
     "cta": "Lær mere",
     "faq": {
       "caption": "Ofte stillede spørgsmål",
@@ -106,6 +119,19 @@
           "answer": "D-vitamin er involveret i keratinocytternes differentiering, opretholdelsen af hudbarrieren og reguleringen af hårfollikkelcyklussen. En D-vitaminmangel — udbredt hos over 50 % af befolkningen i Nordeuropa — begunstiger inflammatoriske hudtilstande, fremskynder hudaldrende og kan forstærke hårtab. Målingen med IglooPro tager kun få minutter og danner grundlaget for målrettet supplementering."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Beauty-diagnostik", "title": "Diagnostisk orientering til professionelle beauty-kontekster", "subtitle": "Udvalgte målinger kan supplere medicinsk-æstetiske spørgsmål om hud, hår, hormoner og mikronæringsstoffer uden at forudsige kosmetiske resultater." },
+      "problem": { "heading": "Fortolk målinger klinisk, ikke kosmetisk", "paragraphs": ["Professionelle beauty- og æstetikydelser kan berøre sundhedsmæssige spørgsmål. Diagnostiske værdier giver supplerende information, men erstatter ikke anamnese, klinisk undersøgelse eller specialistvurdering."] },
+      "audiences": { "heading": "Professionelle anvendelseskontekster", "items": ["Praksisser og klinikker med medicinsk-æstetisk fokus", "Professionel hud- og hårrådgivning med medicinsk kompetence", "Forebyggelses- og wellnessudbydere inden for klart afgrænsede diagnostiske ansvarsområder"] },
+      "questions": { "heading": "Mulige diagnostiske spørgsmål", "items": ["Hvilke målinger passer til det konkrete medicinsk-æstetiske spørgsmål?", "Hvilke fund kræver yderligere lægelig eller laboratoriemæssig vurdering?", "Hvordan kan måling, dokumentation og henvisning indgå i arbejdsgangen?"] },
+      "parameters": { "heading": "Etablerede målinger i den eksisterende beauty-kontekst", "items": ["D-vitamin", "Ferritin", "TSH", "C-reaktivt protein (CRP)"] },
+      "workflow": { "heading": "En fagligt afgrænset arbejdsgang", "steps": [{ "title": "Definér spørgsmålet", "text": "Afklar indikation og fagligt ansvar, før en måling vælges." }, { "title": "Udfør en egnet måling", "text": "Håndtér prøve og test efter instruktionerne for det anvendte system." }, { "title": "Fortolk resultatet", "text": "Dokumentér værdien, vurder den i klinisk sammenhæng og sørg for yderligere udredning efter behov." }] },
+      "faq": { "caption": "Ofte stillede spørgsmål", "title": "Spørgsmål om beauty-diagnostik", "items": [{ "question": "Hvad kan diagnostik bidrage med i en professionel beauty-kontekst?", "answer": "Den kan supplere udvalgte sundhedsspørgsmål med målinger. Den forudsiger ikke et kosmetisk resultat; fortolkningen hører til i den relevante medicinske sammenhæng." }, { "question": "Hvilke målinger nævnes i det eksisterende beauty-tilbud?", "answer": "Det nuværende PolarisDX-indhold nævner D-vitamin, ferritin, TSH og CRP. Valg og fortolkning afhænger af det individuelle spørgsmål og det faglige ansvar." }, { "question": "Garanterer en biomarkørværdi effekten af en æstetisk behandling?", "answer": "Nej. En måling forudsiger ikke et kosmetisk resultat og erstatter ikke undersøgelse, rådgivning eller specialistvurdering." }] },
+      "crosslinks": { "igloo": { "label": "IglooPro i point-of-care-kontekst", "description": "Gå til den separate produktside uden at gentage tekniske detaljer eller effektpåstande her." } },
+      "cta": { "title": "Afklar beauty-diagnostik for jeres praksis", "text": "Tal med os om jeres faglige spørgsmål, praksisworkflow og et passende næste skridt." },
+      "disclaimer": { "heading": "Faglig bemærkning", "content": "Informationen er til faglig orientering. Den lover ingen kosmetisk effekt og erstatter ikke individuel medicinsk indikation eller fortolkning af fund." },
+      "seo": { "title": "Beauty-diagnostik til praksis og æstetik", "description": "Professionel beauty-diagnostik: udvalgte målinger, spørgsmål og en afgrænset arbejdsgang uden løfter om kosmetiske resultater.", "imageAlt": "Beauty-diagnostik i en professionel praksisarbejdsgang" }
     }
   },
   "longevity": {
@@ -182,6 +208,19 @@
           "answer": "Ja. Forebyggende biomarkørscreeninger er klassiske selvbetalte ydelser henholdsvis individuelle sundhedsydelser, da de rækker ud over den lovpligtige sygesikrings ydelseskatalog. Netop inden for longevity-segmentet er der stor efterspørgsel efter databaserede sundhedstjek. Kombinationen af øjeblikkelig analyse og kvalificeret rådgivning udgør en økonomisk attraktiv ydelsespakke for din praksis."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Longevity-diagnostik", "title": "Forebyggende diagnostik og forløbsvurdering til longevity-programmer", "subtitle": "Udvalgte metaboliske, inflammatoriske, hormonelle og ernæringsrelaterede markører kan vise udgangsværdier og ændringer over tid uden at forudsige sundhed eller levetid." },
+      "problem": { "heading": "Følg udvikling uden at love resultater", "paragraphs": ["Longevity-orienteret behandling kombinerer forebyggende spørgsmål med gentagelige målinger. Enkeltværdier og ændringer giver orientering, men kræver klinisk fortolkning og beviser hverken årsag eller effekt af en intervention."] },
+      "audiences": { "heading": "Professionelle anvendelseskontekster", "items": ["Praksisser og institutioner med forebyggende medicin eller longevity-orienterede tilbud", "Professionelle behandlingskoncepter med metaboliske, kardiovaskulære eller hormonelle spørgsmål", "Teams, der dokumenterer udvalgte målinger struktureret og fortolker dem fagligt over tid"] },
+      "questions": { "heading": "Mulige diagnostiske spørgsmål", "items": ["Hvilke udgangsværdier er relevante for det konkrete forebyggende spørgsmål?", "Hvilke ændringer ses over tid under sammenlignelige målebetingelser?", "Hvornår kræver et fund yderligere laboratorie- eller specialistvurdering?"] },
+      "parameters": { "heading": "Etablerede målinger i den eksisterende longevity-kontekst", "items": ["HbA1c", "Lipidprofil", "C-reaktivt protein (CRP)", "TSH", "D-vitamin"] },
+      "workflow": { "heading": "En forsigtig monitoreringsproces", "steps": [{ "title": "Definér udgangsspørgsmålet", "text": "Fastlæg indikation, egnede målinger og betingelser før den første måling." }, { "title": "Dokumentér sammenligneligt", "text": "Udfør målingen efter testens instruktioner og registrér relevante betingelser tydeligt." }, { "title": "Fortolk udviklingen fagligt", "text": "Vurder værdierne i sammenhæng, tag højde for mulige påvirkninger og sørg for yderligere udredning efter behov." }] },
+      "faq": { "caption": "Ofte stillede spørgsmål", "title": "Spørgsmål om longevity-diagnostik", "items": [{ "question": "Hvad betyder monitorering i en longevity-kontekst?", "answer": "Udvalgte målinger gentages på fagligt begrundede tidspunkter og vurderes under sammenlignelige betingelser. Et forløb støtter fortolkningen, men beviser ikke årsag eller effekt." }, { "question": "Hvilke målinger nævnes i den eksisterende longevity-kontekst?", "answer": "Det nuværende PolarisDX-indhold nævner HbA1c, lipidværdier, CRP, TSH og D-vitamin. Egnetheden afhænger af det individuelle spørgsmål og det medicinske ansvar." }, { "question": "Kan longevity-diagnostik garantere sundhed eller levetid?", "answer": "Nej. Målinger giver ingen garanti, individuel risikoprognose eller udsagn om forlænget levetid. De skal vurderes sammen med anamnese og klinisk kontekst." }] },
+      "crosslinks": { "epigenetics": { "label": "Epigenetik som selvstændig søjle", "description": "Gå til den separate epigenetikside uden at gentage dens faglige eller forespørgselsforløb her." } },
+      "cta": { "title": "Afklar longevity-diagnostik for jeres tilbud", "text": "Tal med os om jeres forebyggende spørgsmål, relevante målepunkter og et passende næste skridt." },
+      "disclaimer": { "heading": "Faglig bemærkning", "content": "Informationen er til faglig orientering. Den lover ikke sygdomsforebyggelse, sundhedseffekt eller forlænget levetid og erstatter ikke individuel medicinsk vurdering." },
+      "seo": { "title": "Longevity-diagnostik og biomarkørmonitorering", "description": "Forebyggende longevity-diagnostik til professionelle: udvalgte målinger, forløbsvurdering og forsigtig monitorering uden sundhedsgaranti.", "imageAlt": "Longevity-diagnostik og forløbsvurdering i en professionel arbejdsgang" }
     }
   },
   "poc_systemloesungen": {
@@ -261,7 +300,8 @@
           "answer": "IglooPro udvikles og fremstilles af DX365 GmbH i Berlin. PolarisDX er distributionspartner for det europæiske marked og varetager salg, integration, oplæring og løbende support."
         }
       ]
-    }
+    },
+    "detail": {"hero":{"eyebrow":"POC-systemløsninger","title":"Planlæg patientnær diagnostik som et koordineret systemworkflow","subtitle":"Udstyr, egnede tests, udførelse, dokumentation og faglig fortolkning skal passe til behandlingskonteksten. PolarisDX understøtter struktureret planlægning uden generelle løfter om software eller grænseflader."},"problem":{"heading":"Mere end en enkelt analysator","paragraphs":["En POC-systemløsning forbinder patientnære målinger med klare ansvarsområder og et dokumenteret workflow. Egnet hardware, tests og tilslutning skal vurderes for den konkrete organisation og dens eksisterende softwaremiljø."]},"audiences":{"heading":"Professionelle anvendelseskontekster","items":["Praksisser og medicinske institutioner, der vil indføre patientnære målinger struktureret","Teams, der organiserer testudførelse, resultatdokumentation og faglig fortolkning som ét workflow","Organisationer, der vurderer krav til udstyr, tests og integration før implementering"]},"questions":{"heading":"Spørgsmål før valg af system","items":["Hvilke diagnostiske spørgsmål og tests skal workflowet dække?","Hvordan organiseres prøvetagning, udførelse, dokumentation og ansvar?","Hvilke kompatibilitets- eller grænsefladekrav skal verificeres i det eksisterende miljø?"]},"parameters":{"heading":"Elementer i en POC-systemløsning","items":["Analysator og kompatible tests","Prøvetagning og standardiseret udførelse","Resultatdokumentation og eksisterende softwaremiljø","Kvalitetssikring, ansvar og uddannelsesbehov"]},"workflow":{"heading":"Et struktureret implementeringsforløb","steps":[{"title":"Afklar anvendelseskonteksten","text":"Registrer diagnostiske spørgsmål, brugergrupper, testomfang og organisatoriske krav."},{"title":"Kontrollér system og kompatibilitet","text":"Validér udstyr, tests, dokumentationsvej og mulige grænseflader mod det reelle miljø."},{"title":"Etablér et ansvarligt workflow","text":"Indfør udførelse, kvalitetssikring, ansvar og faglig fortolkning i rutinen med dokumentation."}]},"faq":{"caption":"Ofte stillede spørgsmål","title":"Spørgsmål om POC-systemløsninger","items":[{"question":"Hvad indgår i en POC-systemløsning?","answer":"Ud over en analysator omfatter systemet egnede tests, prøvetagning, udførelse, resultatdokumentation, kvalitetssikring og klare ansvarsområder. Den konkrete udformning afhænger af organisationen og anvendelseskonteksten."},{"question":"Kan alle POC-systemer automatisk forbindes med eksisterende software?","answer":"Nej. Grænseflader og kompatibilitet afhænger af udstyr, software, konfiguration og organisatoriske krav og skal kontrolleres for det konkrete miljø før implementering."},{"question":"Erstatter patientnær diagnostik et centrallaboratorium?","answer":"Ikke generelt. Patientnær testning og videre laboratorieforløb supplerer hinanden afhængigt af spørgsmål, parameter, kvalitetskrav og medicinsk kontekst."}]},"crosslinks":{"igloo":{"label":"IglooPro i systemkonteksten","description":"Gå til den selvstændige produktside uden at duplikere tekniske specifikationer eller integrationsløfter her."}},"cta":{"title":"Vurdér en POC-systemløsning til jeres miljø","text":"Tal med os om anvendelseskontekst, proceskrav og de punkter, der skal kontrolleres før implementering."},"disclaimer":{"heading":"System- og faglig information","content":"Egnethed, testomfang, grænseflader, kvalitetssikring og implementering afhænger af den konkrete konfiguration og det faglige ansvar. Siden lover ikke automatisk integration, tilgængelighed, hastighed eller diagnostisk ydeevne."},"seo":{"title":"POC-systemløsninger til praksis og behandling","description":"Planlæg POC-systemer professionelt: udstyr, tests, praksisworkflow, dokumentation og kontrol af integration uden generelle ydelsesløfter.","imageAlt":"POC-systemløsning med udstyr, testproces og dokumentation i et praksisworkflow"}}
   },
   "praeventions_checks": {
     "title": "Forebyggende sundhedstjek",
@@ -328,11 +368,13 @@
     "seo": {
       "description": "Forebyggende tjek på Point-of-Care: bestem vigtige biomarkører med det samme, og rådgiv databaseret – i klinik, apotek og på hospital. Læs mere nu.",
       "title": "Forebyggende sundhedstjek i klinikken"
-    }
+    },
+    "detail": {"hero":{"eyebrow":"Forebyggende tjek","title":"Forebyggende tjek som struktureret grundlag for diagnostisk information","subtitle":"Udvalgte målinger kan understøtte rådgivning og videre vurdering. Et tjek giver et øjebliksbillede og garanterer hverken sikker tidlig opdagelse, udelukkelse eller forebyggelse af sygdom."},"problem":{"heading":"Spørgsmålet før testpakken","paragraphs":["Et meningsfuldt forebyggende tjek begynder med målgruppe, formål og et fagligt begrundet udvalg af målinger. Resultater skal fortolkes sammen med anamnese og behandlingskontekst; en generel testliste er ikke en diagnose."]},"audiences":{"heading":"Professionelle anvendelseskontekster","items":["Praksisser med strukturerede koncepter for forebyggende rådgivning og behandling","Apoteker og andre professionelle sundhedsudbydere med klart placeret faglig fortolkning","Klinikker og medicinske institutioner, der integrerer udvalgte målinger i eksisterende forebyggelsesforløb"]},"questions":{"heading":"Spørgsmål til et ansvarligt tjek","items":["Hvilket forebyggende informationsmål skal tjekket understøtte?","Hvilke målinger er fagligt begrundede for målgruppen og det konkrete spørgsmål?","Hvilke resultater kræver bekræftelse, videre diagnostik eller specialistvurdering?"]},"parameters":{"heading":"Etablerede målinger i den nuværende forebyggelseskontekst","items":["HbA1c","Lipidværdier","C-reaktivt protein (CRP)","D-vitamin","TSH","Ferritin"]},"workflow":{"heading":"Et struktureret tjekforløb","steps":[{"title":"Definér mål og omfang","text":"Fastlæg målgruppe, formål, egnede målinger og ansvar før tjekket."},{"title":"Mål med dokumentation","text":"Udfør prøvetagning og test efter systemets anvisninger, og dokumentér resultatet sporbarligt."},{"title":"Fortolk resultatet forsigtigt","text":"Drøft målingerne i den individuelle kontekst, og sørg for passende videre vurdering ved unormale eller usikre resultater."}]},"faq":{"caption":"Ofte stillede spørgsmål","title":"Spørgsmål om forebyggende tjek","items":[{"question":"Hvad er et forebyggende tjek?","answer":"Et forebyggende tjek samler fagligt udvalgte målinger til et defineret spørgsmål. Det giver diagnostisk information til rådgivning og mulig videre vurdering, ikke en selvstændig diagnose."},{"question":"Hvilke målinger nævner den nuværende forebyggelseskontekst?","answer":"Den eksisterende PolarisDX-evidens nævner HbA1c, lipidværdier, CRP, D-vitamin, TSH og ferritin. Det egnede udvalg afhænger af målgruppe, spørgsmål og fagligt ansvar."},{"question":"Kan et forebyggende tjek med sikkerhed opdage, udelukke eller forebygge sygdom?","answer":"Nej. Et tjek kan give information, men garanterer ikke tidlig opdagelse, udelukkelse eller sygdomsforebyggelse. Unormale eller uklare resultater kræver medicinsk fortolkning og om nødvendigt videre vurdering."}]},"cta":{"title":"Vurdér forebyggende tjek til jeres tilbud","text":"Tal med os om målgruppe, spørgsmål, egnede målinger og et ansvarligt næste skridt."},"disclaimer":{"heading":"Faglig information","content":"Forebyggende tjek erstatter ikke en individuel medicinsk diagnose, behandlingsbeslutning eller videre vurdering. De garanterer hverken opdagelse, udelukkelse eller forebyggelse af sygdom."},"seo":{"title":"Forebyggende tjek og diagnostisk orientering","description":"Forebyggende tjek til professionelle: seks etablerede målegrupper, struktureret forløb og forsigtig fortolkning uden diagnostiske eller forebyggende garantier.","imageAlt":"Struktureret forebyggende tjek med valg af målinger og faglig fortolkning"}}
   },
   "infektion_entzuendung": {
     "title": "Infektion & Inflammationsmarkører",
     "headline": "Triage på minutter: Hvordan Igloo Pro fremskynder beslutningstagning",
+    "detail": {"hero":{"eyebrow":"Infektion og inflammation","title":"Fortolk infektions- og inflammationsmarkører i kontekst","subtitle":"CRP, PCT, IL-6 og ferritin kan give forskellige oplysninger om inflammatoriske processer. Betydningen afhænger af spørgsmålet, tidspunktet og den kliniske kontekst; ingen enkelt værdi fastslår en diagnose eller behandlingsbeslutning."},"problem":{"heading":"En markør er ikke en diagnose","paragraphs":["Tegn på infektion og inflammation kan overlappe og ændre sig over tid. Målinger skal derfor vurderes sammen med symptomer, sygehistorie, tidspunkt og eventuel yderligere diagnostik i stedet for at udlede en årsag fra én værdi."]},"audiences":{"heading":"Professionelle behandlingskontekster","items":["Ambulatorier og medicinske faciliteter med definerede spørgsmål om infektion eller inflammation","Kliniske teams, der indarbejder målinger i eksisterende modtagelses-, opfølgnings- eller efterbehandlingsforløb","Professionelle sundhedsudbydere med klart ansvar for måling, dokumentation og yderligere vurdering"]},"questions":{"heading":"Spørgsmål før valg og fortolkning","items":["Hvilket konkret spørgsmål om infektion eller inflammation skal målingen understøtte?","Hvilken tilgængelig markør giver supplerende information, og på hvilket tidspunkt?","Hvilke fund kræver bekræftelse, opfølgning eller yderligere diagnostik i det gældende behandlingsforløb?"]},"parameters":{"heading":"Markører nævnt i den eksisterende servicekontekst","items":["CRP (C-reaktivt protein)","PCT (procalcitonin)","IL-6 (interleukin-6)","Ferritin"]},"workflow":{"heading":"Fra spørgsmål til faglig fortolkning","steps":[{"title":"Afklar kontekst og ansvar","text":"Definér før målingen årsag, behandlingssituation og ansvar for fortolkning og næste skridt."},{"title":"Udfør og dokumentér målingen","text":"Håndtér prøve og måling efter instruktionerne for den konkrete test, og dokumentér tidspunkt og resultat."},{"title":"Vurdér resultatet i det samlede billede","text":"Brug ikke værdien isoleret; sammenhold den med den kliniske kontekst og eventuel bekræftende eller yderligere diagnostik."}]},"faq":{"caption":"Ofte stillede spørgsmål","title":"Spørgsmål om infektions- og inflammationsmarkører","items":[{"question":"Hvilke markører nævnes i den eksisterende servicekontekst?","answer":"Den aktuelle PolarisDX-evidens nævner CRP, PCT, IL-6 og ferritin. Hvilke markører en konkret testkonfiguration faktisk understøtter, skal verificeres for det valgte system og den tilsigtede anvendelse."},{"question":"Kan én markør med sikkerhed bestemme årsagen?","answer":"Nej. En måling kan supplere den faglige vurdering, men beviser alene hverken en bestemt infektion eller en konkret årsag til inflammation. Tidspunkt, forløb, symptomer og yderligere diagnostik indgår fortsat i fortolkningen."},{"question":"Erstatter denne side en klinisk haste- eller behandlingsbeslutning?","answer":"Nej. Siden beskriver en B2B-servicekontekst og giver ingen individuel triage-, diagnose- eller behandlingsanbefaling. De relevante kliniske processer og faglige ansvarsområder gælder for konkrete tilfælde."}]},"cta":{"title":"Placér markørdiagnostik i jeres behandlingskontekst","text":"Tal med os om spørgsmålet, den tilgængelige testkonfiguration og et ansvarligt næste skridt."},"disclaimer":{"heading":"Faglig note","content":"Infektions- og inflammationsmarkører giver kontekstafhængige diagnostiske oplysninger. De erstatter ikke individuel medicinsk vurdering, diagnose, hastebeslutninger eller behandling og garanterer ikke en bestemt årsag eller et bestemt resultat."},"seo":{"title":"Infektions- og inflammationsmarkører i behandlingskontekst","description":"CRP, PCT, IL-6 og ferritin forklaret tydeligt: professionelle kontekster, struktureret måling og klare grænser uden diagnose- eller behandlingsgarantier.","imageAlt":"Faglig fortolkning af infektions- og inflammationsmarkører i en behandlingskontekst"}},
     "intro": [
       "I akutpleje og ambulante miljøer tæller hvert minut. Øjeblikkelig og pålidelig bestemmelse af inflammationsmarkører og tegn på infektion er essentiel for korrekt triage, patientpleje og – vigtigere i dag end nogensinde – for ansvarlig antibiotikastyring.",
       "POC-systemer (Point-of-Care) i premiumklassen er kontrolcentret for at reducere tiden fra prøve til resultat til et minimum samtidig med at maksimal klinisk sikkerhed sikres."
@@ -399,6 +441,7 @@
   "stoffwechsel_herz": {
     "title": "Stofskifte & Hjertesundhed",
     "headline": "Vigtige indikatorer på et øjeblik: Præcis måling for terapitilpasning",
+    "detail": {"hero":{"eyebrow":"Stofskifte og hjerte","title":"Sæt stofskifte- og hjertemarkører ind i et forløb","subtitle":"HbA1c, kolesterol og D-dimer giver forskellige diagnostiske oplysninger. Betydningen afhænger af spørgsmål, tidspunkt og behandlingskontekst; en enkelt værdi udgør hverken en diagnose eller en individuel risikoprognose."},"problem":{"heading":"Målinger besvarer forskellige spørgsmål","paragraphs":["Metaboliske og kardiovaskulære spørgsmål kræver et bevidst valg og en faglig fortolkning af markører. Resultater bør ses sammen med sygehistorie, klinisk billede og om nødvendigt yderligere diagnostik, frem for at udlede sygdomssandsynlighed eller behandling af én værdi."]},"audiences":{"heading":"Professionelle anvendelseskontekster","items":["Ambulatorier og medicinske institutioner med definerede metaboliske eller kardiovaskulære spørgsmål","Professionelle forebyggelsesprogrammer, der inddrager udvalgte markører i struktureret rådgivning og videre vurdering","Kliniske teams, der integrerer gentagne målinger i etablerede monitorerings- og eskaleringsforløb"]},"questions":{"heading":"Spørgsmål før valg og opfølgende måling","items":["Hvilket konkret metabolisk eller kardiovaskulært spørgsmål skal målingen understøtte?","Hvilken tilgængelig markør passer til spørgsmålet, og hvornår skal den måles?","Hvilke resultater kræver bekræftelse, yderligere diagnostik eller en ansvarlig lægefaglig vurdering?"]},"parameters":{"heading":"Markører nævnt i den eksisterende servicekontekst","items":["HbA1c","Kolesterol","D-dimer"]},"workflow":{"heading":"Fra måleformål til forsigtig forløbsvurdering","steps":[{"title":"Fastlæg spørgsmål og ansvar","text":"Afklar på forhånd måleformål, behandlingskontekst og ansvar for fortolkning og næste skridt."},{"title":"Udfør og dokumentér målingen","text":"Brug den konkret tilgængelige test efter dens anvisninger, og dokumentér tidspunkt, betingelser og resultat tydeligt."},{"title":"Vurdér resultatet i kontekst","text":"Vurdér enkeltstående og opfølgende værdier i det samlede faglige billede, og sørg for passende bekræftelse eller videre udredning ved unormale eller usikre fund."}]},"faq":{"caption":"Ofte stillede spørgsmål","title":"Spørgsmål om stofskifte- og hjertemarkører","items":[{"question":"Hvilke markører nævner den eksisterende servicekontekst?","answer":"Det tilgængelige PolarisDX-materiale nævner HbA1c, kolesterol og D-dimer. Hvilke markører en konkret testkonfiguration faktisk understøtter, skal kontrolleres for det valgte system og den tilsigtede anvendelse."},{"question":"Kan én værdi forudsige min individuelle kardiovaskulære risiko?","answer":"Nej. En enkelt værdi giver ikke en pålidelig individuel risikoprognose og beviser ikke sygdom. Fortolkningen kræver den kliniske kontekst og eventuelt bekræftende eller yderligere diagnostik."},{"question":"Hvad betyder monitorering i denne sammenhæng?","answer":"Monitorering betyder, at fagligt begrundede målinger vurderes på passende tidspunkter og så vidt muligt under sammenlignelige forhold. Et forløb kan tilføre information, men garanterer hverken et helbredsresultat eller en bestemt behandlingsbeslutning."}]},"cta":{"title":"Sæt stofskifte- og hjertediagnostik ind i jeres kontekst","text":"Tal med os om spørgsmålet, den tilgængelige testkonfiguration og et ansvarligt næste skridt."},"disclaimer":{"heading":"Faglig bemærkning","content":"Stofskifte- og hjertemarkører giver kontekstafhængige diagnostiske oplysninger. De erstatter ikke individuel lægefaglig vurdering, diagnose, risikoprognose eller behandlingsbeslutning og garanterer ikke et helbredsresultat."},"seo":{"title":"Stofskifte- og hjertemarkører i behandlingskontekst","description":"HbA1c, kolesterol og D-dimer forklaret forsigtigt: professionelle kontekster, ansvarlig monitorering og ingen individuel risikoprognose.","imageAlt":"Faglig fortolkning af stofskifte- og hjertemarkører i en behandlingskontekst"}},
     "intro": [
       "Overvågning af kroniske sygdomme som diabetes og styring af hjerterisici er tidskritiske opgaver. Moderne Point-of-Care (POC) systemer forvandles her til uundværlige værktøjer, da de styrker patientloyalitet og fremskynder terapitilpasning.",
       "Igloo Pro Reader samler den nødvendige præcise analyse i en mobil enhed for at bestemme vigtige metaboliske og hjertemarkører på få minutter."
@@ -465,6 +508,18 @@
   "hormon_tests": {
     "title": "Hormon- & Endokrinologitests",
     "headline": "Præcision i endokrinologi: Hurtig vished for komplekse diagnoser",
+    "detail": {
+      "hero": { "eyebrow": "Hormontests", "title": "Fortolk hormonværdier ud fra den faglige problemstilling", "subtitle": "TSH og AMH vedrører forskellige endokrinologiske spørgsmål. Valg, måletidspunkt og fortolkning hører til den relevante professionelle behandlingskontekst; en enkelt værdi giver hverken en diagnose eller en behandlingsbeslutning." },
+      "problem": { "heading": "Hormondiagnostik kræver kontekst og klart ansvar", "paragraphs": ["Hormonværdier kan skulle fortolkes forskelligt afhængigt af problemstilling, tidspunkt og individuelle forhold. De giver diagnostisk information, men erstatter ikke anamnese, klinisk undersøgelse eller specialist- og laboratorievurdering."] },
+      "audiences": { "heading": "Professionelle anvendelseskontekster", "items": ["Lægepraksisser og medicinske institutioner med definerede spørgsmål om skjoldbruskkirtlen", "Gynækologiske, reproduktionsmedicinske og endokrinologiske miljøer med begrundede hormonspørgsmål", "Faglige teams, der indarbejder udvalgte hormonværdier i dokumenterede udrednings- eller monitoreringsforløb"] },
+      "questions": { "heading": "Spørgsmål før valg og måling", "items": ["Hvilket konkret endokrinologisk spørgsmål skal målingen understøtte?", "Hvilken tilgængelig parameter passer til spørgsmålet, og hvornår bør den måles?", "Hvilke resultater kræver bekræftelse, yderligere diagnostik eller ansvarlig specialistvurdering?"] },
+      "parameters": { "heading": "Parametre nævnt i den eksisterende servicekontekst", "items": ["TSH", "AMH"] },
+      "workflow": { "heading": "Fra spørgsmål til faglig fortolkning", "steps": [{ "title": "Afklar spørgsmål og ansvar", "text": "Fastlæg på forhånd måleformål, professionel kontekst og ansvar for fortolkning og næste skridt." }, { "title": "Udfør og dokumentér den tilgængelige test", "text": "Kontrollér den konkrete testtilgængelighed, og behandl prøve og måling efter anvisningerne for det anvendte system." }, { "title": "Vurdér resultatet i kontekst", "text": "Fortolk værdien i det samlede kliniske billede, og sørg for relevant bekræftelse eller yderligere vurdering ved uventede eller uklare resultater." }] },
+      "faq": { "caption": "Ofte stillede spørgsmål", "title": "Spørgsmål om hormontests", "items": [{ "question": "Hvilke parametre nævner den eksisterende servicekontekst?", "answer": "Den tilgængelige PolarisDX-evidens nævner TSH og AMH. Hvilke tests en konkret konfiguration faktisk understøtter, skal kontrolleres for det valgte system og den tilsigtede anvendelse." }, { "question": "Kan en enkelt hormonværdi bekræfte en diagnose?", "answer": "Nej. En enkelt værdi beviser ikke en sygdom og skal vurderes sammen med anamnese, klinisk billede og eventuel bekræftende eller yderligere diagnostik." }, { "question": "Kan medicin eller dosis bestemmes ud fra resultatet?", "answer": "Ikke ud fra denne måling alene. Beslutninger om behandling, medicin og dosering hører under relevant kvalificerede behandlere og kræver den fulde medicinske kontekst." }] },
+      "cta": { "title": "Sæt hormondiagnostik ind i jeres kontekst", "text": "Tal med os om problemstillingen, den tilgængelige testkonfiguration og et ansvarligt næste skridt." },
+      "disclaimer": { "heading": "Faglig information", "content": "Hormonværdier giver kontekstafhængig diagnostisk information. De erstatter ikke individuel medicinsk vurdering, diagnose eller beslutninger om behandling, medicin og dosering og garanterer ikke et helbredsresultat." },
+      "seo": { "title": "Hormontests i professionelle behandlingskontekster", "description": "TSH og AMH i faglig kontekst: ansvarligt testvalg, måleforløb og klare grænser uden diagnose- eller behandlingsløfter.", "imageAlt": "Faglig fortolkning af hormontests i en behandlingskontekst" }
+    },
     "intro": [
       "Hormonelle ubalancer er ofte årsagen til komplekse, kroniske lidelser, fra skjoldbruskkirteldysfunktion til fertilitetsforstyrrelser. Specialiserede praksisser og apoteker har derfor brug for diagnostik, der ikke kun er hurtig, men absolut præcis for at styre behandlingsforløb forsvarligt.",
       "Igloo Pro Reader gør POC-tests tilgængelige for endokrinologi og muliggør øjeblikkelig bestemmelse af kritiske hormoner direkte på patienten."
@@ -529,6 +584,92 @@
     }
   },
   "kompatibilitaet_integration": {
+    "detail": {
+      "hero": {
+        "eyebrow": "Kompatibilitet og integration",
+        "title": "Kontrollér kompatibiliteten dokumenterbart før implementering",
+        "subtitle": "Om test, evaluering, dokumentationsvej og eksisterende arbejdsmiljø passer sammen, afhænger af den konkrete konfiguration. PolarisDX understøtter en struktureret kontrol uden generelle løfter om grænseflader eller funktioner."
+      },
+      "problem": {
+        "heading": "Integration begynder med en dokumenteret systemkombination",
+        "paragraphs": [
+          "Producent-, test- og softwaremiljøer er forskellige. Før brug skal den planlagte test, evaluering, dokumentationsvej og ansvarsfordeling kontrolleres i det reelle miljø og registreres dokumenterbart."
+        ]
+      },
+      "audiences": {
+        "heading": "Professionelle integrationskontekster",
+        "items": [
+          "Praksisser og medicinske institutioner, der vurderer test, evaluering og dokumentation samlet før implementering",
+          "Teams, der indpasser en måleproces i eksisterende arbejdsgange uden at forudsætte automatisk dataudveksling",
+          "Organisationer, der dokumenterbart sammenholder krav fra producenter, tests og eksisterende systemer"
+        ]
+      },
+      "questions": {
+        "heading": "Spørgsmål før en integrationsbeslutning",
+        "items": [
+          "Hvilken konkret kombination af test og evaluering er planlagt, og hvilken evidens understøtter egnetheden?",
+          "Hvordan dokumenteres eller overføres resultater, og hvilke trin forbliver manuelle?",
+          "Hvem har ansvar for kontrol, konfiguration, godkendelse og senere ændringer?"
+        ]
+      },
+      "parameters": {
+        "heading": "Tekniske og organisatoriske kontrolpunkter",
+        "items": [
+          "Planlagt test og anvendt evaluering",
+          "System- og softwareversioner samt eksisterende dokumentationsvej",
+          "Manuel eller teknisk dataoverdragelse og tydelige ansvarsområder",
+          "Verifikation, ændringsdokumentation og uddannelsesbehov"
+        ]
+      },
+      "workflow": {
+        "heading": "Fra krav til dokumenteret brug",
+        "steps": [
+          {
+            "title": "Afgræns kravene",
+            "text": "Registrér testomfang, arbejdsmiljø, dokumentationsvej og ansvarlige roller konkret."
+          },
+          {
+            "title": "Verificér kompatibiliteten",
+            "text": "Kontrollér den planlagte kombination og datavej mod aktuel dokumentation og det reelle driftsmiljø."
+          },
+          {
+            "title": "Dokumentér den godkendte proces",
+            "text": "Registrér bekræftet status, manuelle trin, ansvar og håndtering af ændringer."
+          }
+        ]
+      },
+      "faq": {
+        "caption": "Ofte stillede spørgsmål",
+        "title": "Spørgsmål om kompatibilitet og integration",
+        "items": [
+          {
+            "question": "Gælder en kompatibilitetserklæring automatisk for alle tests og producenter?",
+            "answer": "Nej. Den gælder kun for den konkret kontrollerede kombination og dokumenterede status. Andre tests, versioner eller driftsforhold kræver en særskilt vurdering."
+          },
+          {
+            "question": "Er automatisk tilslutning til eksisterende software inkluderet?",
+            "answer": "Ikke generelt. Om og hvordan data kan overføres, afhænger af de involverede systemer, versioner, konfigurationer og godkendte veje og skal kontrolleres i det konkrete miljø."
+          },
+          {
+            "question": "Garanterer struktureret integration fejlfri eller sikker drift?",
+            "answer": "Nej. Den strukturerede kontrol synliggør forudsætninger, ansvar og åbne punkter. Drifts-, kvalitets- og sikkerhedsansvar afhænger fortsat af det konkrete miljø og gældende krav."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Vurdér kompatibilitetskravene sammen med os",
+        "text": "Tal med os om den planlagte kombination, dokumentationsvejen og de punkter, der skal kontrolleres før integration."
+      },
+      "disclaimer": {
+        "heading": "Teknisk bemærkning",
+        "content": "Egnethed og dataveje afhænger af test, system, version, konfiguration og driftsmiljø. Denne side lover ikke universel kompatibilitet, automatisk grænseflade, certificering, SLA eller garanti for sikkerhed, tilgængelighed eller ydelse."
+      },
+      "seo": {
+        "title": "Kompatibilitet og integration til POC-arbejdsgange",
+        "description": "Kontrollér kompatibilitet struktureret: test, evaluering, dokumentation og ansvar uden generelle løfter om grænseflader eller ydelse.",
+        "imageAlt": "Struktureret kontrol af kompatibilitet og integration i en POC-arbejdsgang"
+      }
+    },
     "title": "Kompatibilitet på tværs af producenter",
     "headline": "Maksimal fleksibilitet: Hvordan din Igloo Pro evaluerer 90 % af alle tests på markedet",
     "intro": [
@@ -594,11 +735,32 @@
     }
   },
   "seo": {
-    "overview_title": "POC-diagnostik til klinikker: dental, beauty, longevity",
-    "overview_description": "Patientnære hurtigtest til vitamin D, CRP, HbA1c & TSH – chairside på minutter. POC-diagnostik med Igloo Pro til tandlæge-, æstetik- og præventionsklinikker."
+    "overview_title": "Point-of-care-diagnostik og løsninger til klinikker",
+    "overview_description": "Overblik over point-of-care-diagnostik, løsninger og serviceområder til klinikker: dental, beauty, forebyggelse, systemer og integration.",
+    "overview_image_alt": "IglooPro Reader som visuelt anker for PolarisDX Diagnostics Hub"
   },
   "overview": {
     "hero": {
+      "entry": {
+        "breadcrumb_label": "Brødkrummenavigation",
+        "eyebrow": "Point-of-care og supplerende diagnostik",
+        "title": "Diagnostiske løsninger til klinikker og sundhedsfaglig behandling",
+        "description": "PolarisDX samler point-of-care-anvendelser og supplerende diagnostik til klinikker, medicinske institutioner og professionelle brugere. Find den indgang, der passer til dit fagområde, din diagnostiske problemstilling og arbejdsgang.",
+        "primary_cta": "Anmod om et tilbud",
+        "secondary_cta": "Udforsk serviceområderne",
+        "trust_label": "Pålidelig orientering",
+        "trust": {
+          "services": "9 klart strukturerede serviceområder",
+          "audience": "Til klinikker, medicinske institutioner og professionelle brugere",
+          "context": "Point-of-care og supplerende diagnostik i overblik"
+        },
+        "visual": {
+          "eyebrow": "Produktnær indgang",
+          "title": "IglooPro i point-of-care-kontekst",
+          "text": "En reel systemvej i Diagnostics Hub sammen med andre faglige og arbejdsgangsbaserede indgange.",
+          "alt": "IglooPro Reader som eksempel på point-of-care-diagnostik"
+        }
+      },
       "title": "Diagnostik",
       "subtitle": "Laboratorienøjagtige paneler til enhver kliniktype – validerede, IVDR-konforme og klar til brug fra dag 1. Vælg dit speciale, eller udforsk diagnostikområderne nedenfor.",
       "chip_cv": "CV < 2 %",
@@ -650,6 +812,9 @@
       }
     },
     "focus": {
+      "eyebrow": "Anvendelsesområder",
+      "title": "Seks indgange efter fagområde og arbejdsgang",
+      "intro": "Vælg efter klinikområde, forebyggelseskontekst eller teknisk integration. Hver indgang fører til et eksisterende diagnostisk serviceområde.",
       "subtitle": "Seks diagnostikområder, én platform – hvert panel kører chairside på IglooPro.",
       "poc": {
         "cta": "Udforsk POC-systemer",
@@ -696,6 +861,54 @@
           "90 % LFA",
           "Åben platform"
         ]
+      }
+    },
+    "related": {
+      "eyebrow": "Viden og kontekst",
+      "title": "Artikler om diagnostik og klinikkens arbejdsgange",
+      "intro": "Udvalgte publicerede artikler uddyber point-of-care, diagnostisk logistik og systemintegration.",
+      "all_articles": "Se alle artikler"
+    },
+    "ia": {
+      "eyebrow": "Orientering",
+      "title": "Sæt diagnostik ind i den rette behandlingskontekst",
+      "intro": "PolarisDX forbinder målinger tæt på patienten, diagnostiske spørgsmål og systemintegration. Det rette indgangspunkt afhænger af fagområde, arbejdsgang og den information, der er nødvendig i den professionelle kontekst.",
+      "poc": {
+        "title": "Point-of-Care i arbejdsgangen",
+        "text": "Point-of-Care-målinger udføres tæt på behandlingsstedet. Resultater kan dermed være tilgængelige under klinikkens arbejdsgang og understøtte faglig fortolkning eller dialog. Valg og vurdering er fortsat kvalificerede brugeres ansvar."
+      },
+      "extended": {
+        "title": "Udvidet diagnostik og laboratorium",
+        "text": "Afhængigt af spørgsmålet supplerer yderligere undersøgelser eller etablerede laboratorieforløb diagnostik tæt på patienten. Tilgangene erstatter ikke generelt hinanden; behandlingskontekst, nødvendige parametre og faglige krav afgør valget."
+      },
+      "term": {
+        "label": "Kort fortalt:",
+        "text": "Point-of-Care (POC) betegner diagnostiske målinger tæt på behandlingsstedet. Begrebet beskriver anvendelseskonteksten, ikke en automatisk medicinsk beslutning."
+      },
+      "groups": {
+        "practice": {
+          "eyebrow": "Klinik- og fagkontekster",
+          "title": "Prioriterede indgange efter anvendelsesområde",
+          "text": "Dental, Beauty og Longevity er allerede centrale indgange i den nuværende sitehierarki. Vælg den kontekst, der ligger tættest på din professionelle anvendelse."
+        },
+        "workflow": {
+          "eyebrow": "Arbejdsgang og diagnostisk spørgsmål",
+          "title": "Flere diagnostiske serviceområder",
+          "text": "Orientér dig efter forebyggelse, klinisk spørgsmål eller integration af diagnostiske systemer i eksisterende arbejdsgange."
+        }
+      },
+      "priority_label": "Prioriteret indgang",
+      "card_cta": "Se serviceområde",
+      "cards": {
+        "dental": "Til tandklinikker, der vil sætte diagnostisk information ind i implantologiske, parodontologiske eller forebyggende forløb.",
+        "beauty": "Til professionelle æstetik- og beauty-kontekster, hvor hudsundhed, hormoner eller mikronæringsstoffer vurderes fagligt.",
+        "longevity": "Til forebyggelses- og longevity-tilbud, der struktureret inddrager udvalgte biomarkører i rådgivning og opfølgning.",
+        "poc_systemloesungen": "Til organisationer, der ser målinger tæt på patienten, udstyr og processer som én koordineret arbejdsgang.",
+        "praeventions_checks": "Til strukturerede tjek, der leverer udvalgt sundhedsinformation til rådgivning og videre vurdering.",
+        "infektion_entzuendung": "Til professionelle spørgsmål om infektions- og inflammationsmarkører.",
+        "stoffwechsel_herz": "Til at sætte udvalgte stofskifte- og kardiovaskulære markører ind i egnede professionelle arbejdsgange.",
+        "hormon_tests": "Til professionelle spørgsmål om skjoldbruskkirtel, hormonstatus og endokrinologi.",
+        "kompatibilitaet_integration": "Til organisationer, der vil integrere udstyr, tests og digitale grænseflader i deres eksisterende diagnostiske infrastruktur."
       }
     },
     "page": {

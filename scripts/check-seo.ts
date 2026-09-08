@@ -6,6 +6,11 @@ import { fileURLToPath } from 'node:url'
 import { validateSitemapArtifact } from '../src/components/seo/sitemapGuard'
 import { generateSitemapXml, getSitemapRouteFamilies } from '../src/components/seo/sitemap'
 import { SUPPORTED_LANGUAGES } from '../src/i18n'
+import {
+  getCanonicalRouteEntries,
+  getSitemapEligibleRouteEntries,
+  resolveCanonicalRoute,
+} from '../src/routing/routeRegistry'
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const families = getSitemapRouteFamilies()
@@ -312,18 +317,16 @@ function assertConsumerSeoEvidence(): void {
 
 function assertSourceEvidence(): void {
   const appSource = fs.readFileSync(path.join(repositoryRoot, 'src/App.tsx'), 'utf8')
-  for (const family of families.filter(
-    (candidate) => candidate.kind !== 'service' && candidate.kind !== 'article',
-  )) {
-    if (!appSource.includes(`path="${family.path}"`)) {
-      throw new Error(`App route evidence missing for ${family.path}`)
-    }
+  for (const marker of ['getStaticAppRoutes', 'getDynamicAppRoutes', 'getBefundRouteEntries']) {
+    if (!appSource.includes(marker)) throw new Error(`App registry evidence missing: ${marker}`)
   }
-  if (!appSource.includes('path="/diagnostics/:slug"')) {
-    throw new Error('Dynamic service route evidence missing')
-  }
-  if (!appSource.includes('path="/articles/:slug"')) {
-    throw new Error('Dynamic article route evidence missing')
+  const registrySitemapPaths = new Set(getSitemapEligibleRouteEntries().map((route) => route.path))
+  const sitemapPaths = new Set(families.map((family) => family.path))
+  if (
+    registrySitemapPaths.size !== sitemapPaths.size ||
+    [...registrySitemapPaths].some((routePath) => !sitemapPaths.has(routePath))
+  ) {
+    throw new Error('Sitemap differs from central Route Registry')
   }
 
   const legalFiles = ['PrivacyPage.tsx', 'ImprintPage.tsx', 'TermsPage.tsx']
@@ -337,8 +340,17 @@ function assertSourceEvidence(): void {
     path.join(repositoryRoot, 'src/pages/SupportPage.tsx'),
     'utf8',
   )
-  if (!appSource.includes('path="/support"') || supportSource.includes('noindex={true}')) {
+  const supportRoute = resolveCanonicalRoute('/support')
+  if (
+    !supportRoute ||
+    supportRoute.indexability !== 'INDEX_FOLLOW' ||
+    supportRoute.sitemap !== false ||
+    supportSource.includes('noindex={true}')
+  ) {
     throw new Error('Support classification drifted from INDEXABLE_EXCLUDED_INTENTIONAL')
+  }
+  if (getCanonicalRouteEntries().some((route) => !route.appRoute || !route.knownPath)) {
+    throw new Error('Public Registry route is not App/Known-Path eligible')
   }
 }
 
@@ -402,6 +414,37 @@ function assertStructuredDataEvidence(): void {
   const home = fs.readFileSync(path.join(repositoryRoot, 'src/pages/HomePage.tsx'), 'utf8')
   if (/createReviewSchema|iglooProProductSchema|medicalBusinessSchema/.test(home)) {
     throw new Error('Homepage contains testimonial/product/medical schema amplification')
+  }
+
+  const iglooProduct = fs.readFileSync(
+    path.join(repositoryRoot, 'src/pages/IglooProPage.tsx'),
+    'utf8',
+  )
+  for (const marker of [
+    'createProductSchema({',
+    "name: 'IglooPro'",
+    "url: '/igloo-pro'",
+    "description: t('products:hero.description')",
+    'image: iglooProImage',
+  ]) {
+    if (!iglooProduct.includes(marker)) {
+      throw new Error(`IglooPro Product schema evidence missing: ${marker}`)
+    }
+  }
+  for (const unsupported of [
+    'brand:',
+    'manufacturer:',
+    'offers:',
+    'aggregateRating:',
+    'review:',
+    'sku:',
+    'gtin:',
+    'seller:',
+    'QuantitativeValue',
+  ]) {
+    if (iglooProduct.includes(unsupported)) {
+      throw new Error(`IglooPro Product schema contains unsupported evidence: ${unsupported}`)
+    }
   }
 
   const contract = fs.readFileSync(

@@ -3,21 +3,39 @@
     "caption": "O NÁS",
     "title": "Redefinujeme diagnostiku",
     "description": "PolarisDX znamená inovaci, přesnost a spolehlivost v lékařské technologii. Poznejte lidi, kteří stojí za naší misí.",
-    "primary_cta": "Poznejte tým",
+    "primary_cta": "Vyžádat nabídku",
     "chips": {
       "ivdr": "V souladu s IVDR · CE",
       "partner": "Distribuční partner DX365",
       "reach": "Pobočky v Londýně a Hamburku"
     },
     "visual": {
-      "c1": { "value": "2 pobočky", "label": "Londýn a Hamburk" },
-      "c2": { "value": "15+ zemí", "label": "Aktivní trhy" },
-      "c3": { "value": "100+ zařízení", "label": "Nainstalováno" }
+      "c1": {
+        "value": "2 pobočky",
+        "label": "Londýn a Hamburk"
+      },
+      "c2": {
+        "value": "15+ zemí",
+        "label": "Aktivní trhy"
+      },
+      "c3": {
+        "value": "100+ zařízení",
+        "label": "Nainstalováno"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Pobočky" },
-      "countries": { "value": "15+", "label": "Země" },
-      "devices": { "value": "100+", "label": "Nainstalovaná zařízení" }
+      "locations": {
+        "value": "2",
+        "label": "Pobočky"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Země"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Nainstalovaná zařízení"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Pobočky: Londýn a Hamburk" },
-    "s2": { "value": "15+", "label": "Země s aktivními instalacemi" },
-    "s3": { "value": "100+", "label": "Nainstalované čtečky IglooPro" },
-    "s4": { "value": "< 24 h", "label": "Doba odezvy podpory" }
+    "s1": {
+      "value": "2",
+      "label": "Pobočky: Londýn a Hamburk"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Země s aktivními instalacemi"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Nainstalované čtečky IglooPro"
+    },
+    "s4": {
+      "value": "< 24 h",
+      "label": "Doba odezvy podpory"
+    }
   },
   "dx365_partner": {
     "caption": "Náš partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "O PolarisDX: váš partner pro POC diagnostiku",
     "description": "Inovace, přesnost a spolehlivost ve zdravotnické technice: poznejte tým PolarisDX a naši misi v oblasti diagnostiky v místě péče (point-of-care)."
+  },
+  "pillars": {
+    "caption": "Tři obchodní pilíře",
+    "title": "Tři cesty k diagnostice a profesionálnímu využití",
+    "intro": "PolarisDX spojuje point-of-care diagnostiku, čtečku IglooPro a epigenetiku v jasně oddělených oblastech.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostika",
+        "text": "Point-of-care diagnostika a specializované aplikace pro ordinace a zdravotnická zařízení.",
+        "cta": "Objevte diagnostiku"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "Čtečka IglooPro analyzuje kompatibilní rychlotesty přímo v místě péče.",
+        "cta": "Zobrazit IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetika",
+        "text": "Samostatná oblast pro epigenetické a genetické analýzy a související vzorové zprávy.",
+        "cta": "Poznejte epigenetiku"
+      }
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Shield, ChevronDown, ChevronUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { applyGoogleConsent, type GoogleConsentPreferences } from '../../lib/googleConsent'
 
 // =============================================================================
 // TYPES
@@ -14,87 +15,10 @@ interface CookieCategory {
   enabled: boolean
 }
 
-interface ConsentPreferences {
-  analytics: boolean
-  marketing: boolean
-}
-
-// Extend Window interface for GTM
-declare global {
-  interface Window {
-    dataLayer: Array<Record<string, unknown>>
-    gtag: (...args: unknown[]) => void
-  }
-}
-
-// =============================================================================
-// GTM CONSENT HELPERS
-// =============================================================================
-
-/**
- * Update Google Consent Mode v2
- * This function updates the consent state in GTM
- */
-const updateGTMConsent = (preferences: ConsentPreferences): void => {
-  if (typeof window === 'undefined' || !window.gtag) return
-
-  // Update analytics consent
-  if (preferences.analytics) {
-    window.gtag('consent', 'update', {
-      analytics_storage: 'granted',
-    })
-
-    // Belt-and-Suspenders: aktuellen Pageview EINMAL nachfeuern, falls der
-    // initiale page_view unter 'denied' lief und der menschliche Klick nach
-    // dem wait_for_update:500ms-Fenster kam. Bei Advanced Consent Mode
-    // reprocesst GA4 den denied-Hit i.d.R. selbst (gleiche Seite) — dieser
-    // Re-Fire deckt zusätzlich den Cross-Page-Edge-Case ab. Guard verhindert
-    // Doppelzählung bei wiederholten 'Speichern'-Klicks innerhalb der Session.
-    const w = window as unknown as { __pvOnGrantFired?: boolean }
-    if (!w.__pvOnGrantFired) {
-      w.__pvOnGrantFired = true
-      window.gtag('event', 'page_view', {
-        page_location: window.location.href,
-        page_path: window.location.pathname + window.location.search,
-        page_title: document.title,
-        page_language: document.documentElement.lang || undefined,
-        send_to: 'G-PLZNWGKW0P',
-      })
-    }
-  } else {
-    window.gtag('consent', 'update', {
-      analytics_storage: 'denied',
-    })
-  }
-
-  // Update marketing/advertising consent
-  if (preferences.marketing) {
-    window.gtag('consent', 'update', {
-      ad_storage: 'granted',
-      ad_user_data: 'granted',
-      ad_personalization: 'granted',
-    })
-  } else {
-    window.gtag('consent', 'update', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-    })
-  }
-
-  // Push consent event to dataLayer for GTM triggers
-  window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({
-    event: 'consent_update',
-    consent_analytics: preferences.analytics ? 'granted' : 'denied',
-    consent_marketing: preferences.marketing ? 'granted' : 'denied',
-  })
-}
-
 /**
  * Extract consent preferences from category array
  */
-const extractConsentFromCategories = (categories: CookieCategory[]): ConsentPreferences => {
+const extractConsentFromCategories = (categories: CookieCategory[]): GoogleConsentPreferences => {
   const analytics = categories.find((c) => c.id === 'analytics')
   const marketing = categories.find((c) => c.id === 'marketing')
 
@@ -161,7 +85,7 @@ export const CookieBanner: React.FC = () => {
       try {
         const savedCategories = JSON.parse(consent) as CookieCategory[]
         setCategories(savedCategories)
-        // Note: Consent is already updated in index.html on page load
+        applyGoogleConsent(extractConsentFromCategories(savedCategories))
       } catch {
         setIsVisible(true)
       }
@@ -221,9 +145,8 @@ export const CookieBanner: React.FC = () => {
       // Ignore storage errors
     }
 
-    // Update GTM Consent Mode
     const consentPrefs = extractConsentFromCategories(preferences)
-    updateGTMConsent(consentPrefs)
+    applyGoogleConsent(consentPrefs)
 
     setIsVisible(false)
   }, [])

@@ -6,12 +6,14 @@ import {
   events,
   pastEvents,
   HIGHLIGHT_EVENT_ID,
+  getExternalEventLink,
+  getEventPageProjection,
+  getEventStatus,
   humanizeEventId,
   parseIsoDate,
-  splitEventsByDate,
   toIsoDay,
 } from '../data/events'
-import { SEOHead, createBreadcrumbSchema, createEventSchema } from '../components/seo'
+import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
@@ -48,27 +50,32 @@ const monthNames: Record<string, string[]> = {
 const DAY_DOT_LANGUAGES = new Set(['de', 'cs', 'da'])
 
 interface PastCard {
-  key: string
-  month: number
-  year: number
+  id: string
+  source: 'automatic' | 'static'
+  dateTime: string
+  dateLabel: string
   title: string
   location: string
   detail: string
-  watermark: string
 }
 
-function EventsPage() {
+export interface EventsPageProps {
+  /** Testbare Clock-Injection; Produktion verwendet den aktuellen Zeitpunkt. */
+  now?: Date
+}
+
+export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
   const { t, i18n } = useTranslation(['common', 'events'])
   const lang = i18n.language?.substring(0, 2) || 'de'
   const months = monthNames[lang] || monthNames.de
 
   // Datum beim Rendern bestimmen, nicht beim Laden des Moduls — sonst friert ein
   // lange laufender SSR-Prozess den "heute"-Stand auf seinen Start ein.
-  const today = toIsoDay(new Date())
-  const { upcoming, past: expiredEvents } = useMemo(() => splitEventsByDate(events, today), [today])
-
-  const highlight = upcoming.find((e) => e.id === HIGHLIGHT_EVENT_ID) ?? upcoming[0]
-  const listEvents = upcoming.filter((e) => e !== highlight)
+  const today = toIsoDay(now)
+  const { upcoming, highlight, listEvents, archive } = useMemo(
+    () => getEventPageProjection(events, pastEvents, today, HIGHLIGHT_EVENT_ID),
+    [today],
+  )
   const partners = Array.from(
     new Set(upcoming.map((e) => e.partner).filter((p): p is string => Boolean(p))),
   )
@@ -109,39 +116,40 @@ function EventsPage() {
   }
 
   /** Läuft der Termin heute bereits, ist aber noch nicht vorbei? */
-  const isRunning = (event: { date: string; endDate?: string }) =>
-    event.date <= today && today <= (event.endDate ?? event.date)
+  const isRunning = (event: (typeof events)[number]) => getEventStatus(event, today) === 'ongoing'
 
   /** Rückblick: automatisch abgelaufene Termine plus der kuratierte Bestand. */
-  const pastCards = useMemo<PastCard[]>(() => {
-    const fromExpired: PastCard[] = expiredEvents.map((event) => {
-      const d = parseIsoDate(event.date)
+  const pastCards: PastCard[] = archive.map((entry) => {
+    if (entry.source === 'automatic') {
+      const event = entry.event
       return {
-        key: `event-${event.id}`,
-        month: d.month,
-        year: d.year,
+        id: entry.id,
+        source: entry.source,
+        dateTime: event.endDate ?? event.date,
+        dateLabel: rangeLabel(event.date, event.endDate),
         title: t(`events:items.${event.id}.title`, humanizeEventId(event.id)),
         location: event.location,
-        detail: t(`events:items.${event.id}.tag`, ''),
-        watermark: `${event.location} ${d.year}`,
+        detail: [event.partner, t(`events:items.${event.id}.tag`, '')].filter(Boolean).join(' · '),
       }
-    })
-    const curated: PastCard[] = pastEvents.map((p) => ({
-      key: `past-${p.id}`,
-      month: p.month,
-      year: p.year,
-      title: t(`events:past_items.${p.id}.title`, humanizeEventId(p.id)),
-      location: p.location,
-      detail: t(`events:past_items.${p.id}.detail`, ''),
-      watermark: t(`events:past_items.${p.id}.watermark`, `${p.location} ${p.year}`),
-    }))
-    return [...fromExpired, ...curated]
-      .sort((a, b) => b.year - a.year || b.month - a.month)
-      .slice(0, 8)
-  }, [expiredEvents, t])
+    }
 
+    const event = entry.event
+    return {
+      id: entry.id,
+      source: entry.source,
+      dateTime: `${event.year}-${String(event.month + 1).padStart(2, '0')}`,
+      dateLabel: `${months[event.month]} ${event.year}`,
+      title: t(`events:past_items.${event.id}.title`, humanizeEventId(event.id)),
+      location: event.location,
+      detail: t(`events:past_items.${event.id}.detail`, ''),
+    }
+  })
+
+  // Der Bestand belegt Teilnahme/Partnerbezug, aber weder Veranstalterrolle,
+  // genaue Anschrift noch Attendance Mode oder eine kanonische Eventdetail-URL.
+  // Deshalb bleibt Event-Schema bewusst aus; Breadcrumb ist vollständig belegt.
   const structuredData = useMemo(
-    () => [
+    () =>
       createBreadcrumbSchema(
         [
           { name: t('common:nav.home', 'Home'), url: '/' },
@@ -149,24 +157,7 @@ function EventsPage() {
         ],
         i18n.language,
       ),
-      // Nur kommende Termine — abgelaufene als BusinessEvent auszuzeichnen wäre
-      // gegenüber Suchmaschinen schlicht falsch.
-      ...upcoming.map((event) =>
-        createEventSchema({
-          name: t(`events:items.${event.id}.title`, humanizeEventId(event.id)),
-          description: t(
-            `events:items.${event.id}.description`,
-            t(`events:items.${event.id}.title`, humanizeEventId(event.id)),
-          ),
-          startDate: event.date,
-          endDate: event.endDate,
-          location: event.location,
-          url: '/events',
-          language: i18n.language,
-        }),
-      ),
-    ],
-    [i18n.language, upcoming, t],
+    [i18n.language, t],
   )
 
   return (
@@ -232,7 +223,7 @@ function EventsPage() {
       </section>
 
       {/* ================ UPCOMING: Highlight + Kalender-Liste ================ */}
-      <section className="bg-slate-50">
+      <section data-events-upcoming className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24">
           <div className="mb-12 text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -246,9 +237,8 @@ function EventsPage() {
             </p>
           </div>
 
-          {!highlight ? (
-            /* Kein Termin mehr im Kalender — lieber ehrlich leer als abgelaufene
-               Termine mit aktivem Buchen-Button. */
+          {upcoming.length === 0 ? (
+            /* Kein Termin mehr im Kalender — lieber ehrlich leer als abgelaufene Termine. */
             <Reveal width="100%">
               <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-10 text-center">
                 <h3 className="text-xl font-medium text-heading">
@@ -266,95 +256,106 @@ function EventsPage() {
           ) : (
             <div
               className={`grid items-stretch gap-6 ${
-                listEvents.length > 0 ? 'lg:grid-cols-2' : 'mx-auto max-w-3xl'
+                highlight && listEvents.length > 0 ? 'lg:grid-cols-2' : 'mx-auto max-w-3xl'
               }`}
             >
-              {/* HIGHLIGHT-Karte */}
-              <Reveal width="100%">
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-7 text-white">
-                  <span className="text-xs font-medium text-white/60">
-                    {highlightTag ? `${highlightTag} · ` : ''}
-                    {t('events:highlight.label', 'Highlight')}
-                  </span>
-                  <h3 className="mt-6 text-3xl font-medium tracking-tight">{highlightTitle}</h3>
-                  <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
-                    <span className="inline-flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-accent-line" aria-hidden />
-                      {rangeLabel(highlight.date, highlight.endDate)}
-                    </span>
-                    <span className="inline-flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-accent-line" aria-hidden />
-                      {highlight.location}
-                    </span>
-                  </div>
-                  <p className="mt-4 max-w-md leading-relaxed text-white/80">
-                    {highlightDescription}
-                  </p>
-                  <div className="mt-8">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
-                    >
-                      {t('events:highlight.book_cta', {
-                        event: highlightTitle,
-                        defaultValue: 'Book a slot',
-                      })}
-                    </Link>
-                  </div>
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -bottom-2 left-6 select-none text-5xl font-semibold text-white/5"
+              {/* HIGHLIGHT-Karte — nur die konfigurierte, weiterhin eligible ID. */}
+              {highlight && (
+                <Reveal width="100%">
+                  <article
+                    data-event-id={highlight.id}
+                    data-event-status={getEventStatus(highlight, today)}
+                    data-event-highlight
+                    className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-brand-deep p-7 text-white"
                   >
-                    {highlight.location}
-                  </span>
-                </div>
-              </Reveal>
+                    <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                      <span className="rounded-full border border-white/30 px-2.5 py-1 text-white">
+                        {t('events:highlight.label', 'Highlight')}
+                      </span>
+                      {getEventStatus(highlight, today) === 'ongoing' && (
+                        <span className="rounded-full bg-white px-2.5 py-1 text-brand-deep">
+                          {t('events:list.running_until', {
+                            date: dayLabel(highlight.endDate ?? highlight.date),
+                            defaultValue: 'Running now · until {{date}}',
+                          })}
+                        </span>
+                      )}
+                      {highlightTag && <span className="text-white">{highlightTag}</span>}
+                    </div>
+                    <h3 className="mt-6 text-3xl font-medium tracking-tight">{highlightTitle}</h3>
+                    <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
+                      <time dateTime={highlight.date} className="inline-flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-accent-line" aria-hidden />
+                        {rangeLabel(highlight.date, highlight.endDate)}
+                      </time>
+                      <span className="inline-flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-accent-line" aria-hidden />
+                        {highlight.location}
+                      </span>
+                    </div>
+                    {highlight.partner && (
+                      <p className="mt-3 text-sm font-medium text-white/80">{highlight.partner}</p>
+                    )}
+                    <p className="mt-4 max-w-md leading-relaxed text-white/80">
+                      {highlightDescription}
+                    </p>
+                    {getExternalEventLink(highlight) && (
+                      <a
+                        {...getExternalEventLink(highlight)}
+                        data-event-external
+                        className="mt-8 inline-flex min-h-11 w-fit items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      >
+                        {t('events:details', 'View details')}
+                      </a>
+                    )}
+                  </article>
+                </Reveal>
+              )}
 
               {/* KALENDER-LISTE */}
               {listEvents.length > 0 && (
                 <Reveal width="100%" delay={0.1}>
-                  <div className="h-full divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <ul className="h-full divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
                     {listEvents.map((event) => {
                       const d = parseIsoDate(event.date)
                       const tag = t(`events:items.${event.id}.tag`, '')
-                      const multiDay = Boolean(event.endDate && event.endDate !== event.date)
+                      const description = t(`events:items.${event.id}.description`, '')
                       const running = isRunning(event)
+                      const externalLink = getExternalEventLink(event)
                       return (
-                        <div
+                        <li
                           key={event.id}
-                          className="group flex items-center gap-4 p-4 transition hover:bg-slate-50"
+                          data-event-id={event.id}
+                          data-event-status={getEventStatus(event, today)}
+                          className="group p-4 transition hover:bg-slate-50 sm:p-5"
                         >
-                          {/* Ortskürzel als Monogramm — lesbare Größe statt 9px-Fußnote. */}
-                          <div
-                            aria-hidden
-                            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-deep text-sm font-semibold text-white/70 sm:flex"
-                          >
-                            {event.location.charAt(0).toUpperCase()}
-                          </div>
-                          <div className="w-12 shrink-0 text-center">
-                            <div className="text-xs font-medium text-gray-500">
-                              {months[d.month]}
+                          <article className="flex min-w-0 items-start gap-3 sm:gap-4">
+                            <div className="w-12 shrink-0 rounded-lg bg-slate-100 py-2 text-center">
+                              <div className="text-xs font-medium text-brand-deep">
+                                {months[d.month]}
+                              </div>
+                              <div className="text-xl font-semibold leading-none text-heading">
+                                {d.day}
+                              </div>
                             </div>
-                            <div className="text-xl font-semibold leading-none text-heading">
-                              {d.day}
-                            </div>
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <div className="truncate font-medium text-heading">
-                              {t(`events:items.${event.id}.title`, humanizeEventId(event.id))}
-                            </div>
-                            <div className="truncate text-sm text-gray-500">
-                              {tag ? `${event.location} · ${tag}` : event.location}
-                            </div>
-                            {/* Die große Tageszahl links zeigt nur den Beginn. Bei mehrtägigen
-                                Terminen steht der volle Zeitraum darunter, laufende Termine
-                                bekommen zusätzlich einen "läuft gerade"-Hinweis — sonst liest
-                                sich ein noch laufender Termin wie ein abgelaufener. */}
-                            {(multiDay || running) && (
-                              <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500">
-                                <span>{rangeLabel(event.date, event.endDate)}</span>
+                            <div className="min-w-0 flex-1">
+                              <h3 className="font-medium text-brand-deep">
+                                {t(`events:items.${event.id}.title`, humanizeEventId(event.id))}
+                              </h3>
+                              <p className="mt-1 text-sm text-brand-deep">
+                                {[event.location, event.partner, tag].filter(Boolean).join(' · ')}
+                              </p>
+                              {description && (
+                                <p className="mt-2 text-sm leading-relaxed text-brand-deep">
+                                  {description}
+                                </p>
+                              )}
+                              <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-brand-deep">
+                                <time dateTime={event.date}>
+                                  {rangeLabel(event.date, event.endDate)}
+                                </time>
                                 {running && (
-                                  <span className="rounded-full bg-accent-soft px-2 py-0.5 font-semibold text-accent-strong ring-1 ring-accent-border">
+                                  <span className="rounded-full bg-brand-deep px-2 py-0.5 font-semibold text-white">
                                     {t('events:list.running_until', {
                                       date: dayLabel(event.endDate ?? event.date),
                                       defaultValue: 'Running now · until {{date}}',
@@ -362,19 +363,22 @@ function EventsPage() {
                                   </span>
                                 )}
                               </div>
-                            )}
-                          </div>
-                          <Link
-                            to="/contact"
-                            className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent transition group-hover:gap-1.5 group-hover:text-accent-strong"
-                          >
-                            {t('events:list.book', 'Book')}
-                            <ArrowRight className="h-4 w-4" aria-hidden />
-                          </Link>
-                        </div>
+                              {externalLink && (
+                                <a
+                                  {...externalLink}
+                                  data-event-external
+                                  className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-accent transition hover:text-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                                >
+                                  {t('events:details', 'View details')}
+                                  <ArrowRight className="h-4 w-4" aria-hidden />
+                                </a>
+                              )}
+                            </div>
+                          </article>
+                        </li>
                       )
                     })}
-                  </div>
+                  </ul>
                 </Reveal>
               )}
             </div>
@@ -384,7 +388,7 @@ function EventsPage() {
 
       {/* ==================== WHERE WE'VE BEEN ==================== */}
       {pastCards.length > 0 && (
-        <section className="bg-white">
+        <section data-events-past className="bg-white">
           <div className="mx-auto max-w-container px-4 lg:px-0 pb-20 lg:pb-28">
             <div className="mb-12 text-center">
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -396,39 +400,21 @@ function EventsPage() {
               <p className="mx-auto mt-3 max-w-2xl text-gray-700">{t('events:past.subtitle')}</p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {pastCards.map((p, i) => (
-                <Reveal key={p.key} width="100%" delay={i * 0.05}>
-                  <div className="relative flex h-56 flex-col justify-end overflow-hidden rounded-2xl bg-brand-deep p-7 text-white">
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute bottom-3 left-5 select-none text-2xl font-semibold text-white/10"
-                    >
-                      {p.watermark}
-                    </span>
-                    <div className="relative">
-                      <div className="text-xs font-medium text-white/60">
-                        {months[p.month]} {p.year}
-                      </div>
-                      <div className="mt-1 text-lg font-semibold">{p.title}</div>
-                      <div className="mt-0.5 text-sm text-white/70">
-                        {p.detail ? `${p.location} · ${p.detail}` : p.location}
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {pastCards.map((p) => (
+                <li key={p.id} data-past-event-id={p.id} data-past-event-source={p.source}>
+                  <article className="flex h-full min-h-56 flex-col justify-end rounded-2xl bg-brand-deep p-7 text-white">
+                    <time dateTime={p.dateTime} className="text-xs font-medium text-white/80">
+                      {p.dateLabel}
+                    </time>
+                    <h3 className="mt-1 text-lg font-semibold">{p.title}</h3>
+                    <p className="mt-0.5 text-sm text-white/80">
+                      {p.detail ? `${p.location} · ${p.detail}` : p.location}
+                    </p>
+                  </article>
+                </li>
               ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition hover:text-accent-strong"
-              >
-                {t('events:past.recaps_cta', 'See event recaps & photos')}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-            </div>
+            </ul>
           </div>
         </section>
       )}

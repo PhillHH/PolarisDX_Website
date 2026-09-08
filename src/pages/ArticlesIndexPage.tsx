@@ -1,26 +1,16 @@
 import type { LucideIcon } from 'lucide-react'
-import { Link } from 'react-router-dom'
 import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
-import {
-  Newspaper,
-  Leaf,
-  Radio,
-  TrendingUp,
-  Activity,
-  FileText,
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react'
+import { Newspaper, Leaf, Radio, TrendingUp, Activity, FileText, ArrowRight } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import SectionHeader from '../components/ui/SectionHeader'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
-import { Tooth } from '../components/ui/icons/Tooth'
 import { articles } from '../data/articles'
-import { formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
+import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
+import { getArticleImageUrl } from '../assets/articleImages'
 
 // Map article category → topical icon for the card icon-tile (FileText fallback).
 const categoryIcon: Record<string, LucideIcon> = {
@@ -46,10 +36,6 @@ const ArticlesIndexPage = () => {
     const minutes = parseReadMinutes(raw)
     return minutes === null ? raw : t('articles:detail.read_time', { minutes, defaultValue: raw })
   }
-
-  // Localised proof tags for the featured tile (returnObjects → string[]).
-  const featuredTagsRaw = t('articles:index.featured_tags', { returnObjects: true })
-  const featuredTags = Array.isArray(featuredTagsRaw) ? (featuredTagsRaw as string[]) : []
 
   return (
     <PageTransition>
@@ -88,7 +74,7 @@ const ArticlesIndexPage = () => {
         )}
         primaryCta={{
           label: t('articles:index.hero_primary_cta', 'Fachartikel lesen'),
-          to: '/contact',
+          href: '#article-list',
         }}
         secondaryCta={{
           label: t('articles:index.hero_secondary_cta', 'Diagnostik entdecken'),
@@ -109,72 +95,12 @@ const ArticlesIndexPage = () => {
         valueChips={[
           { value: 'CRP · TSH', label: t('articles:index.vc_biomarker_label', 'Biomarker') },
           { value: '3–15 Min', label: t('articles:index.vc_time_label', 'bis Ergebnis') },
-          { value: 'CV < 2 %', label: t('articles:index.vc_precision_label', 'Präzision') },
         ]}
       />
 
       <div className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          {/* Featured article — bold navy tile */}
           <Reveal width="100%">
-            <Link
-              to="/vitamin-d3-implantologie"
-              className="group relative mb-14 block overflow-hidden rounded-2xl bg-brand-deep p-7 text-white transition hover:-translate-y-1 lg:mb-16 lg:p-12"
-            >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-accent/10 blur-2xl"
-              />
-              <div className="relative grid gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-center">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-                    <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-                    {t('articles:index.featured', 'Empfohlen')}
-                  </span>
-                  <h2 className="mt-5 text-2xl font-medium tracking-tight lg:text-4xl">
-                    {t(
-                      'articles:index.featured_title',
-                      'Vitamin D3 und Implantologie — Evidenz und Praxisleitfaden',
-                    )}
-                  </h2>
-                  <p className="mt-4 max-w-2xl leading-relaxed text-white/80">
-                    {t(
-                      'articles:index.featured_excerpt',
-                      'Wie ein optimaler Vitamin-D-Spiegel die Osseointegration fördert und Implantatverluste reduziert. Wissenschaftlich fundiert mit praktischen Handlungsempfehlungen.',
-                    )}
-                  </p>
-                  {featuredTags.length > 0 && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {featuredTags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-on-dark transition-all group-hover:gap-2.5">
-                    {t('articles:index.featured_cta', 'Fachartikel lesen')}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </span>
-                </div>
-
-                {/* Icon spotlight visual */}
-                <div className="hidden lg:block" aria-hidden="true">
-                  <div className="relative mx-auto flex h-44 w-44 items-center justify-center rounded-2xl bg-white/5 ring-1 ring-white/10">
-                    <span className="absolute inset-0 m-auto h-32 w-32 rounded-full bg-accent/10 blur-xl" />
-                    <div className="relative flex h-28 w-28 items-center justify-center rounded-2xl bg-accent/15 text-accent-on-dark [&>svg]:h-14 [&>svg]:w-14">
-                      <Tooth />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </Reveal>
-
-          <Reveal width="100%" delay={0.15}>
             <SectionHeader
               caption={t('articles:index.caption', 'Latest Posts')}
               title={t('articles:index.heading', 'Explore Our Articles')}
@@ -183,46 +109,72 @@ const ArticlesIndexPage = () => {
 
             {/* Topics covered — visual legend */}
             <div className="mt-6 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-xs font-medium text-gray-500">
+              <span className="mr-1 text-xs font-medium text-gray-700">
                 {t('articles:index.browse_caption', 'Themen im Magazin')}
               </span>
               {categories.map((category) => (
                 <span
                   key={category}
-                  className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+                  className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-strong"
                 >
                   {t(`common:category.${category}`, category)}
                 </span>
               ))}
             </div>
 
-            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              id="article-list"
+              className="mt-10 scroll-mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            >
               {articles.map((post) => {
                 const Icon = categoryIcon[post.category] ?? FileText
+                const image = getArticleImageUrl(post.sections[0]?.image)
+                const title = t(`articles:${post.id}.title`)
                 return (
-                  <Card key={post.id} to={`/articles/${post.slug}`}>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </span>
-                      <span className="inline-flex w-fit rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-                        {t(`common:category.${post.category}`, post.category)}
-                      </span>
-                    </div>
-                    <h3 className="mt-5 text-lg font-medium text-heading transition-colors group-hover:text-accent">
-                      {t(`articles:${post.id}.title`)}
-                    </h3>
-                    <p className="mt-2 t-small">{t(`articles:${post.id}.excerpt`)}</p>
-                    <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
-                      <span>{readTimeLabel(post.readTime)}</span>
-                      <span aria-hidden="true">·</span>
-                      <span>{formatArticleDate(post.date, i18n.language)}</span>
-                    </div>
-                    <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent transition-all group-hover:gap-2 group-hover:text-accent-strong">
-                      {t('articles:ui.readMore')}
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                  </Card>
+                  <article key={post.id} data-article-card={post.slug}>
+                    <Card to={`/articles/${post.slug}`} padding="none" aria-label={title}>
+                      {image ? (
+                        <img
+                          src={image}
+                          alt=""
+                          width={640}
+                          height={360}
+                          loading="lazy"
+                          decoding="async"
+                          className="aspect-video w-full rounded-t-xl object-cover"
+                        />
+                      ) : (
+                        <div
+                          aria-hidden="true"
+                          className="flex aspect-video w-full items-center justify-center rounded-t-xl bg-brand-deep text-accent-on-dark"
+                        >
+                          <Icon className="h-12 w-12" />
+                        </div>
+                      )}
+                      <div className="flex flex-1 flex-col p-7">
+                        <span className="inline-flex w-fit rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent-strong">
+                          {t(`common:category.${post.category}`, post.category)}
+                        </span>
+                        <h2 className="mt-5 text-lg font-medium text-heading transition-colors group-hover:text-accent">
+                          {title}
+                        </h2>
+                        <p className="mt-2 t-small">{t(`articles:${post.id}.excerpt`)}</p>
+                        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-700">
+                          <span>{post.author}</span>
+                          <span aria-hidden="true">·</span>
+                          <time dateTime={articleDateIso(post.datePublished)}>
+                            {formatArticleDate(post.datePublished, i18n.language)}
+                          </time>
+                          <span aria-hidden="true">·</span>
+                          <span>{readTimeLabel(post.readTime)}</span>
+                        </div>
+                        <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent-strong transition-all group-hover:gap-2 group-hover:text-brand-deep">
+                          {t('articles:ui.readMore')}
+                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        </span>
+                      </div>
+                    </Card>
+                  </article>
                 )
               })}
             </div>

@@ -18,11 +18,8 @@
  * Fachpublikum, keine Uebersichtsseite.
  */
 
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import LanguageFallbackNotice from '../components/ui/LanguageFallbackNotice'
-import { isEnglishFallback } from '../lib/translationStatus'
 import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
@@ -43,6 +40,13 @@ import { useScrollDepth } from '../lib/useScrollDepth'
 import { track } from '../lib/tracking'
 import { useMerkliste } from '../lib/merkliste'
 import { VERTIEFUNGEN } from '../components/epigenetics/tokens'
+import EpigeneticsInquiryForm from '../components/epigenetics/EpigeneticsInquiryForm'
+import {
+  EPIGENETICS_FOCUS_KEYS,
+  epigeneticsHubHref,
+  epigeneticsInquiryHref,
+  readEpigeneticsContext,
+} from '../lib/epigeneticsContext'
 
 // public/ wird nach dist/client kopiert — die oeffentliche URL ist /downloads/...
 const ASSET_BASE = '/downloads/epigenetics/'
@@ -120,8 +124,6 @@ const EpigeneticsPage = () => {
   // Die vorgemerkten Panels reisen im Ereignis mit: eine Anfrage nach drei
   // vorgemerkten Panels ist etwas anderes als eine aus dem Vorbeigehen.
   const { slugs: gemerkt } = useMerkliste()
-  // Acht Sprachen zeigen hier englischen Text — das muss ausgezeichnet werden.
-  const englishFallback = isEnglishFallback(t('_translationStatus', { defaultValue: '' }))
 
   const principleCards = asArray<TitledText>(t('principle.cards', { returnObjects: true }))
   const practiceItems = asArray<string>(t('principle.practice.items', { returnObjects: true }))
@@ -136,8 +138,9 @@ const EpigeneticsPage = () => {
   // den Index: compare.groups[i] gehoert zu compare.rows[i]. Wer in einer
   // Locale eine Zeile einfuegt, muss die Gruppe an derselben Stelle einfuegen.
   const compareGroups = asArray<string[]>(t('compare.groups', { returnObjects: true }))
-  const [panelGroup, setPanelGroup] = useState<string | null>(null)
-  const filterKeys = ['longevity', 'nutrition', 'sports', 'bgm', 'practice']
+  const [searchParams] = useSearchParams()
+  const context = readEpigeneticsContext(searchParams)
+  const panelGroup = context.focus
   const visibleRows = panelGroup
     ? compareRows.filter((_, i) => compareGroups[i]?.includes(panelGroup))
     : compareRows
@@ -167,7 +170,7 @@ const EpigeneticsPage = () => {
     { id: 'downloads', label: t('downloads.caption') },
     // NICHT #contact — diese id gehoert dem globalen Abschlussblock nach
     // </main>. Das Kapitel meint den eigenen Block.
-    { id: 'konditionen', label: t('contact.caption') },
+    { id: 'inquiry', label: t('contact.caption') },
   ]
 
   /**
@@ -183,7 +186,7 @@ const EpigeneticsPage = () => {
   const navAktionen: NavAction[] = [
     { href: '#vergleich', label: t('compare.title') },
     { href: '#musterbefunde', label: t('downloads.samplesCta') },
-    { to: '/contact?intent=quote&source=epigenetics#kontaktformular', label: t('hero.ctaQuote') },
+    { to: epigeneticsInquiryHref(context.panel, panelGroup), label: t('hero.ctaQuote') },
   ]
 
   return (
@@ -213,8 +216,11 @@ const EpigeneticsPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50 text-heading" lang={englishFallback ? 'en' : undefined}>
-        {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
+      <div
+        className="bg-slate-50 text-heading"
+        data-epigenetics-hub="true"
+        data-route-id="epigenetics"
+      >
         {/* ================================================================
             HERO
         ================================================================ */}
@@ -294,9 +300,8 @@ const EpigeneticsPage = () => {
                   </h2>
                   <p className="mt-2 text-sm text-white/70">{t('compare.filter.label')}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
-                    <a
-                      href="#vergleich"
-                      onClick={() => setPanelGroup(null)}
+                    <Link
+                      to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
                       aria-current={panelGroup === null ? 'true' : undefined}
                       className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                         panelGroup === null
@@ -305,12 +310,11 @@ const EpigeneticsPage = () => {
                       }`}
                     >
                       {t('compare.filter.all')}
-                    </a>
-                    {filterKeys.map((key) => (
-                      <a
+                    </Link>
+                    {EPIGENETICS_FOCUS_KEYS.map((key) => (
+                      <Link
                         key={key}
-                        href="#vergleich"
-                        onClick={() => setPanelGroup(key)}
+                        to={epigeneticsHubHref({ panel: context.panel, focus: key }, 'vergleich')}
                         aria-current={panelGroup === key ? 'true' : undefined}
                         className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                           panelGroup === key
@@ -319,14 +323,14 @@ const EpigeneticsPage = () => {
                         }`}
                       >
                         {t(`compare.filter.options.${key}`)}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   {/* Der Anfrageweg bleibt im ersten Bildschirm erreichbar,
                       aber als Textlink: er steht dem Filter nicht mehr als
                       gleichrangiger Knopf gegenueber. */}
                   <Link
-                    to="/contact?intent=quote&source=epigenetics#kontaktformular"
+                    to={epigeneticsInquiryHref(context.panel, panelGroup)}
                     onClick={() =>
                       track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })
                     }
@@ -386,13 +390,12 @@ const EpigeneticsPage = () => {
                       {t(`compare.filter.options.${panelGroup}`)}
                     </span>
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => setPanelGroup(null)}
+                  <Link
+                    to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
                     className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-brand-deep transition-colors hover:border-brand-primary"
                   >
                     {t('compare.filter.all')}
-                  </button>
+                  </Link>
                 </div>
               ) : null}
             </Reveal>
@@ -401,7 +404,15 @@ const EpigeneticsPage = () => {
                 overflow-x-auto plus min-w haelt sie scrollbar statt sie zu
                 quetschen; die Randlinie zeigt, dass rechts noch etwas kommt. */}
             <Reveal width="100%">
-              <div className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white">
+              <div
+                role="region"
+                aria-label={t('compare.title')}
+                // A horizontally scrollable data table must itself receive
+                // keyboard focus; the generic lint rule cannot infer that.
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                tabIndex={0}
+                className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+              >
                 <table className="w-full min-w-[54rem] border-collapse text-left">
                   <thead>
                     <tr className="bg-brand-deep text-white">
@@ -437,7 +448,7 @@ const EpigeneticsPage = () => {
               ) : null}
               {/* Die Tabelle ist breiter als schmale Viewports. Ohne Hinweis
                   bleibt die Spalte mit der Ergebnisform unentdeckt. */}
-              <p className="mt-3 text-sm text-gray-500 lg:hidden">{t('compare.scrollHint')}</p>
+              <p className="mt-3 text-sm text-gray-600 lg:hidden">{t('compare.scrollHint')}</p>
             </Reveal>
 
             {/* Die Ergebnisformen der letzten Spalte werden hier erklaert und
@@ -538,7 +549,7 @@ const EpigeneticsPage = () => {
 
           <Reveal width="100%">
             <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-              <p className="text-xs font-medium text-gray-500">{t('principle.practice.title')}</p>
+              <p className="text-xs font-medium text-gray-600">{t('principle.practice.title')}</p>
               <ul className="mt-4 grid gap-3 lg:grid-cols-3">
                 {practiceItems.map((item) => (
                   <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
@@ -614,7 +625,7 @@ const EpigeneticsPage = () => {
           className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
         >
           <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
-          <EpigeneticsPanels />
+          <EpigeneticsPanels activePanel={context.panel} focus={panelGroup} />
         </section>
 
         {/* ================================================================
@@ -643,19 +654,16 @@ const EpigeneticsPage = () => {
           </Reveal>
           <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
-              <Reveal
-                key={index}
-                width="100%"
-                delay={(index % 3) * REVEAL_STAGGER}
-                className={STRETCH}
-              >
-                <li className="h-full rounded-3xl border border-slate-200 bg-white p-7">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
-                    {index + 1}
-                  </span>
-                  <p className={`mt-4 text-gray-700 ${BODY}`}>{step}</p>
-                </li>
-              </Reveal>
+              <li key={index} className="h-full">
+                <Reveal width="100%" delay={(index % 3) * REVEAL_STAGGER} className={STRETCH}>
+                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
+                      {index + 1}
+                    </span>
+                    <p className={`mt-4 text-gray-700 ${BODY}`}>{step}</p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </section>
@@ -690,7 +698,7 @@ const EpigeneticsPage = () => {
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               <Reveal width="100%" className={STRETCH}>
                 <div className="h-full rounded-3xl border border-accent-border bg-accent-soft p-7 lg:p-7">
-                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-500">
+                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-600">
                     <Check className="h-4 w-4" />
                     {t('evidence.establishedTitle')}
                   </h3>
@@ -707,7 +715,7 @@ const EpigeneticsPage = () => {
 
               <Reveal width="100%" delay={REVEAL_STAGGER} className={STRETCH}>
                 <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 lg:p-7">
-                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-500">
+                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-600">
                     <Minus className="h-4 w-4" />
                     {t('evidence.preliminaryTitle')}
                   </h3>
@@ -829,7 +837,7 @@ const EpigeneticsPage = () => {
                     </div>
 
                     <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-gray-600">
                         {sheet.meta} ·{' '}
                         <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
                       </span>
@@ -927,7 +935,7 @@ const EpigeneticsPage = () => {
             KONDITIONEN ANFRAGEN + RECHTLICHER HINWEIS
         ================================================================ */}
         <section
-          id="konditionen"
+          id="inquiry"
           className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24"
         >
           <Reveal width="100%">
@@ -944,13 +952,6 @@ const EpigeneticsPage = () => {
                 traegt der Anfrageweg den Knopf und die beiden direkten
                 Kontaktwege stehen daneben. */}
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/contact?intent=quote&source=epigenetics#kontaktformular"
-                onClick={() => track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })}
-                className="inline-flex items-center justify-center rounded-full bg-accent-strong px-6 py-3.5 text-base font-semibold text-white transition-colors hover:brightness-110"
-              >
-                {t('hero.ctaQuote')}
-              </Link>
               <a
                 href="mailto:contact@polarisdx.net"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
@@ -963,6 +964,10 @@ const EpigeneticsPage = () => {
               >
                 +49 152 2858 0999
               </a>
+            </div>
+
+            <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+              <EpigeneticsInquiryForm />
             </div>
 
             {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}

@@ -6,22 +6,33 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import { useArticles } from '../hooks/useArticles'
-import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
+import { articleDateIso, calculateArticleReadMinutes, formatArticleDate } from '../lib/articleMeta'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
-import { services } from '../data/services'
-import { getArticleImageUrl } from '../assets/articleImages'
+import { getArticleImageAsset, getArticleImageUrl } from '../assets/articleImages'
+import {
+  getRelatedArticles,
+  getRelatedEpigeneticsRoute,
+  getRelatedServiceEntries,
+} from '../data/articleRelations'
+import { serviceDetailGeneralSalesTarget } from '../data/serviceDetail'
+import { normalizeLanguage } from '../i18n'
+import type {
+  ArticleContentByLocale,
+  ArticleContentSection,
+  ArticleInfoboxSection,
+  ArticleKeyPointsSection,
+  ArticleTableSection,
+  ArticleTextSection,
+} from '../content/articles/model'
 
 // Local UI types for the discriminated-union section rendering.
-type BaseSection = { heading?: string; image?: string }
-type TextSection = BaseSection & { type?: 'text'; paragraphs?: string[]; listItems?: string[] }
-type TableSection = BaseSection & { type: 'table'; headers: string[]; rows: string[][] }
-type InfoboxSection = BaseSection & { type: 'infobox'; content: string }
-type KeyPointsSection = BaseSection & {
-  type: 'key_points'
-  points: { title: string; description: string }[]
-}
-type ArticleSection = TextSection | TableSection | InfoboxSection | KeyPointsSection
+type BaseSection = ArticleContentSection
+type TextSection = ArticleTextSection
+type TableSection = ArticleTableSection
+type InfoboxSection = ArticleInfoboxSection
+type KeyPointsSection = ArticleKeyPointsSection
+type ArticleSection = ArticleContentSection
 
 type KeyStat = { value: string; label: string }
 
@@ -32,9 +43,16 @@ const splitLeadTerm = (item: string): [string | null, string] => {
   return [null, item]
 }
 
-const ArticlePage = () => {
+interface ArticlePageProps {
+  articleId?: string
+  articleSlug?: string
+  contentByLocale?: ArticleContentByLocale
+}
+
+const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePageProps) => {
   const { t, i18n } = useTranslation(['articles', 'common', 'home'])
-  const { slug } = useParams<{ slug: string }>()
+  const { slug: routeSlug } = useParams<{ slug: string }>()
+  const slug = articleSlug ?? routeSlug
 
   const { article, loading, error } = useArticles(slug)
 
@@ -46,7 +64,9 @@ const ArticlePage = () => {
     )
   }
 
-  if (error || !article) {
+  const localizedContent = contentByLocale?.[normalizeLanguage(i18n.resolvedLanguage)]
+
+  if (error || !article || (articleId && article.id !== articleId) || !localizedContent) {
     return (
       <>
         {/* Ohne eigenen Head lieferte dieser Zweig einen LEEREN Helmet-Titel.
@@ -90,14 +110,7 @@ const ArticlePage = () => {
   const crumbHome = t('common:nav.home', 'Startseite')
   const crumbArticles = t('articles:ui.articles')
 
-  // (d) Datum und Lesezeit stehen englisch in den Rohdaten. Sichtbar wird in
-  //     der aktiven Locale formatiert, maschinenlesbar bleibt ISO-8601.
-  const readMinutes = parseReadMinutes(article.readTime)
-  const readTimeLabel =
-    readMinutes === null
-      ? article.readTime
-      : t('articles:detail.read_time', { minutes: readMinutes, defaultValue: article.readTime })
-  const publishedIso = articleDateIso(article.date)
+  const publishedIso = articleDateIso(article.datePublished)
 
   const title = t(`articles:${article.id}.title`)
   // Die lange Headline bleibt H1 und JSON-LD-headline; nur der <title> wird
@@ -105,18 +118,38 @@ const ArticlePage = () => {
   const seoTitle = t(`articles:${article.id}.seo.title`, title)
   const excerpt = t(`articles:${article.id}.excerpt`)
   const category = t(`common:category.${article.category}`, article.category)
-  const translatedSections = t(`articles:${article.id}.sections`, {
-    returnObjects: true,
-  }) as ArticleSection[]
+  const translatedSections = localizedContent.sections
+  const keyStats: KeyStat[] = localizedContent.keyStats ?? []
+  const readMinutes = calculateArticleReadMinutes(excerpt, translatedSections)
+  const readTimeLabel = t('articles:detail.read_time', { minutes: readMinutes })
+  const relatedArticles = getRelatedArticles(article)
+  const relatedServices = getRelatedServiceEntries(article)
+  const relatedEpigeneticsRoute = getRelatedEpigeneticsRoute(article)
+  const articleImage = getArticleImageAsset(article.sections[0]?.image)
 
-  const keyStatsRaw = t(`articles:${article.id}.keyStats`, {
-    returnObjects: true,
-    defaultValue: [],
-  })
-  const keyStats: KeyStat[] = Array.isArray(keyStatsRaw) ? (keyStatsRaw as KeyStat[]) : []
-  const relatedServices = services.filter((service) =>
-    article.relatedServiceIds?.includes(service.id),
-  )
+  const renderSectionImage = (section: BaseSection) => {
+    const image = getArticleImageAsset(section.image)
+    if (!image) return null
+    return (
+      <figure className="space-y-3">
+        <img
+          src={image.src}
+          alt={section.imageAlt ?? ''}
+          width={image.width}
+          height={image.height}
+          sizes="(min-width: 768px) 68ch, calc(100vw - 2rem)"
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-2xl object-cover"
+        />
+        {section.imageCaption ? (
+          <figcaption className="text-sm leading-relaxed text-gray-700">
+            {section.imageCaption}
+          </figcaption>
+        ) : null}
+      </figure>
+    )
+  }
 
   const renderSection = (section: ArticleSection, index: number) => {
     const sType = section.type || 'text'
@@ -137,11 +170,13 @@ const ArticlePage = () => {
                 Spalte verdeckt, ohne jede Andeutung. Siehe src/index.css. */}
             <div className="table-scroll">
               <table className="w-full min-w-[560px] border-collapse text-left text-sm text-gray-700 sm:text-base">
+                <caption className="sr-only">{section.heading || title}</caption>
                 <thead>
                   <tr>
                     {(section as TableSection).headers.map((header, i) => (
                       <th
                         key={i}
+                        scope="col"
                         className="border-b border-slate-200 py-3 font-semibold text-heading"
                       >
                         {header}
@@ -162,6 +197,7 @@ const ArticlePage = () => {
                 </tbody>
               </table>
             </div>
+            {renderSectionImage(section)}
           </section>
         )
       case 'infobox':
@@ -174,6 +210,7 @@ const ArticlePage = () => {
             <span className="text-[17px] leading-[1.8] text-gray-700">
               {(section as InfoboxSection).content}
             </span>
+            {renderSectionImage(section)}
           </section>
         )
       case 'key_points':
@@ -192,6 +229,7 @@ const ArticlePage = () => {
                 </div>
               ))}
             </div>
+            {renderSectionImage(section)}
           </section>
         )
       case 'text':
@@ -228,6 +266,7 @@ const ArticlePage = () => {
                 })}
               </ul>
             )}
+            {renderSectionImage(section)}
           </section>
         )
       }
@@ -266,136 +305,219 @@ const ArticlePage = () => {
         ]}
       />
 
-      {/* ===================== HERO (Navy, zentriert) ===================== */}
-      <section className="relative overflow-hidden bg-brand-deep text-white">
-        <div className="mx-auto max-w-3xl px-4 pt-24 pb-16 text-center lg:pt-28">
-          <div className="mb-6 flex justify-center">
-            <Breadcrumbs
-              variant="dark"
-              items={[
-                { label: crumbHome, href: '/' },
-                { label: crumbArticles, href: '/articles' },
-                { label: title },
-              ]}
-            />
-          </div>
-          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-            {category} · {t('articles:detail.longread', 'Long-Read')}
-          </span>
-          <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-medium tracking-tight lg:text-[42px] lg:leading-[1.15]">
-            {title}
-          </h1>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-white/70">
-            <span>{article.author}</span>
-            <span aria-hidden>·</span>
-            <span>{formatArticleDate(article.date, i18n.language)}</span>
-            <span aria-hidden>·</span>
-            <span>{readTimeLabel}</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== BODY (zentriert, ohne Sidebar) ===================== */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-24">
-          <Reveal width="100%">
-            {/* Lead */}
-            <p className="text-xl font-medium leading-[1.7] text-gray-800">{excerpt}</p>
-
-            {/* Key-Stat-Karten (falls vorhanden) */}
-            {keyStats.length > 0 && (
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                {keyStats.slice(0, 3).map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl bg-brand-deep p-7 text-center text-white"
-                  >
-                    <div className="text-2xl font-semibold">{s.value}</div>
-                    <div className="mt-1 text-xs text-white/70">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Fließtext-Sektionen */}
-            <div className="mt-12 space-y-8">
-              {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
+      <article data-article-template={article.slug}>
+        {/* ===================== HERO (Navy, zentriert) ===================== */}
+        <section className="relative overflow-hidden bg-brand-deep text-white">
+          <div className="mx-auto max-w-3xl px-4 pt-24 pb-16 text-center lg:pt-28">
+            <div className="mb-6 flex justify-center">
+              <Breadcrumbs
+                variant="dark"
+                items={[
+                  { label: crumbHome, href: '/' },
+                  { label: crumbArticles, href: '/articles' },
+                  { label: title },
+                ]}
+              />
             </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+              {category} · {t('articles:detail.longread', 'Long-Read')}
+            </span>
+            <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-medium tracking-tight lg:text-[42px] lg:leading-[1.15]">
+              {title}
+            </h1>
+            <div
+              className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-white/80"
+              aria-label={t('articles:detail.vc_date_label', 'Veröffentlicht')}
+            >
+              <span>{article.author}</span>
+              <span aria-hidden>·</span>
+              <time dateTime={publishedIso}>
+                {formatArticleDate(article.datePublished, i18n.language)}
+              </time>
+              <span aria-hidden>·</span>
+              <span data-reading-minutes={readMinutes}>{readTimeLabel}</span>
+            </div>
+          </div>
+        </section>
 
-            {relatedServices.length > 0 && (
-              <section className="mt-14 border-t border-slate-200 pt-10">
-                <h2 className="text-2xl font-medium tracking-tight text-heading">
-                  {t('articles:detail.related_services', 'Passende Diagnostik')}
-                </h2>
-                <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                  {relatedServices.map((service) => (
-                    <Link
-                      key={service.id}
-                      to={`/diagnostics/${service.id}`}
-                      className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        {/* ===================== BODY (zentriert, ohne Sidebar) ===================== */}
+        <div className="bg-white">
+          <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-24">
+            <Reveal width="100%">
+              {/* Lead */}
+              <p className="text-xl font-medium leading-[1.7] text-gray-800">{excerpt}</p>
+
+              {articleImage ? (
+                <figure className="mt-10 space-y-3">
+                  <img
+                    src={articleImage.src}
+                    alt={article.imageAlt ?? ''}
+                    width={articleImage.width}
+                    height={articleImage.height}
+                    sizes="(min-width: 768px) 68ch, calc(100vw - 2rem)"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-auto w-full rounded-2xl object-cover"
+                  />
+                  {article.imageCaption ? (
+                    <figcaption className="text-sm leading-relaxed text-gray-700">
+                      {article.imageCaption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ) : null}
+
+              {/* Key-Stat-Karten (falls vorhanden) */}
+              {keyStats.length > 0 && (
+                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                  {keyStats.slice(0, 3).map((s) => (
+                    <div
+                      key={s.label}
+                      className="rounded-2xl bg-brand-deep p-7 text-center text-white"
                     >
-                      <span className="font-medium text-heading group-hover:text-accent-strong">
-                        {t(`home:services.${service.translationKey}.title`, service.title)}
-                      </span>
-                      <span className="mt-2 block text-sm leading-relaxed text-gray-600">
-                        {t(`home:services.${service.translationKey}.description`, '')}
-                      </span>
-                      <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
-                        {t('articles:detail.primary_cta', 'Passende Leistung ansehen')} →
-                      </span>
-                    </Link>
+                      <div className="text-2xl font-semibold">{s.value}</div>
+                      <div className="mt-1 text-xs text-white/80">{s.label}</div>
+                    </div>
                   ))}
                 </div>
-              </section>
-            )}
+              )}
 
-            {/* Navy Schluss-CTA-Karte */}
-            <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">
-              <h2 className="text-2xl font-medium tracking-tight">
-                {t('articles:detail.cta_title', 'Rechnen Sie Ihr Einsparpotenzial durch.')}
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-white/75">
-                {t(
-                  'articles:detail.cta_subtitle',
-                  'ROI-Rechner oder Beratung — in unter einer Minute.',
-                )}
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
-                >
-                  {t('articles:detail.primary_cta', 'Passende Leistung ansehen')}
-                </Link>
-                {/* <Link> statt <a href="/#roi-rechner">: der rohe Anchor kannte
+              {/* Fließtext-Sektionen */}
+              <div className="mt-12 space-y-8">
+                {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
+              </div>
+
+              {article.sources?.length ? (
+                <section className="mt-14 border-t border-slate-200 pt-10">
+                  <h2 className="text-2xl font-medium tracking-tight text-heading">
+                    {t('articles:detail.sources')}
+                  </h2>
+                  <ol className="mt-5 list-decimal space-y-3 pl-5 text-gray-700">
+                    {article.sources.map((source) => (
+                      <li key={`${source.title}:${source.url ?? ''}`}>
+                        {source.url ? (
+                          <a
+                            href={source.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-accent-strong underline underline-offset-4"
+                          >
+                            {source.title}
+                          </a>
+                        ) : (
+                          source.title
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ) : null}
+
+              {relatedArticles.length > 0 && (
+                <section className="mt-14 border-t border-slate-200 pt-10">
+                  <h2 className="text-2xl font-medium tracking-tight text-heading">
+                    {t('articles:ui.articles')}
+                  </h2>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {relatedArticles.map((related) => (
+                      <Link
+                        key={related.id}
+                        to={`/articles/${related.slug}`}
+                        className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                      >
+                        <span className="font-medium text-heading group-hover:text-accent-strong">
+                          {t(`articles:${related.id}.title`)}
+                        </span>
+                        <span className="mt-2 block text-sm leading-relaxed text-gray-700">
+                          {t(`articles:${related.id}.excerpt`)}
+                        </span>
+                        <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
+                          {t('articles:ui.readMore')} →
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {relatedServices.length > 0 && (
+                <section className="mt-14 border-t border-slate-200 pt-10">
+                  <h2 className="text-2xl font-medium tracking-tight text-heading">
+                    {t('articles:detail.related_services', 'Passende Diagnostik')}
+                  </h2>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {relatedServices.map(({ service, route }) => (
+                      <Link
+                        key={service.id}
+                        to={route.path}
+                        className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                      >
+                        <span className="font-medium text-heading group-hover:text-accent-strong">
+                          {t(`home:services.${service.translationKey}.title`, service.title)}
+                        </span>
+                        <span className="mt-2 block text-sm leading-relaxed text-gray-600">
+                          {t(`home:services.${service.translationKey}.description`, '')}
+                        </span>
+                        <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
+                          {t('articles:detail.primary_cta', 'Passende Leistung ansehen')} →
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {relatedEpigeneticsRoute ? (
+                <section className="mt-10 rounded-2xl border border-accent-border bg-accent-soft p-7">
+                  <h2 className="text-2xl font-medium tracking-tight text-heading">
+                    {t('common:nav.epigenetics')}
+                  </h2>
+                  <p className="mt-2 text-gray-700">
+                    {t('home:business_pillars.pillars.epigenetics.text')}
+                  </p>
+                  <Link
+                    to={relatedEpigeneticsRoute.path}
+                    className="mt-5 inline-flex min-h-11 items-center rounded-md font-semibold text-accent-strong underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  >
+                    {t('home:business_pillars.pillars.epigenetics.cta')}
+                  </Link>
+                </section>
+              ) : null}
+
+              {/* Navy Schluss-CTA-Karte */}
+              <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">
+                <h2 className="text-2xl font-medium tracking-tight">
+                  {t('articles:detail.cta_title', 'Rechnen Sie Ihr Einsparpotenzial durch.')}
+                </h2>
+                <p className="mx-auto mt-2 max-w-md text-white/75">
+                  {t(
+                    'articles:detail.cta_subtitle',
+                    'ROI-Rechner oder Beratung — in unter einer Minute.',
+                  )}
+                </p>
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                  <Link
+                    to={serviceDetailGeneralSalesTarget}
+                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
+                  >
+                    {t('common:nav.cta_quote', 'Angebot anfragen')}
+                  </Link>
+                  {/* <Link> statt <a href="/#roi-rechner">: der rohe Anchor kannte
                     den Sprach-Prefix nicht und landete immer auf /de/. Der
                     Router haengt den Basename an; das Scrollen zum Anker
                     uebernimmt ScrollToHash in App.tsx. */}
-                <Link
-                  to="/#roi-rechner"
-                  className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-                >
-                  {t('articles:detail.cta_secondary', 'ROI-Rechner')}
-                </Link>
-              </div>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                {[
-                  t('home:final_cta.chips.free', 'Kostenlos & unverbindlich'),
-                  t('home:final_cta.chips.reply', 'Antwort < 24 h'),
-                  t('home:final_cta.chips.delivery', 'Lieferung in 3–5 Werktagen'),
-                ].map((chip) => (
-                  <span
-                    key={chip}
-                    className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs text-white ring-1 ring-white/15"
+                  <Link
+                    to="/#roi-rechner"
+                    className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
                   >
-                    {chip}
-                  </span>
-                ))}
+                    {t('articles:detail.cta_secondary', 'ROI-Rechner')}
+                  </Link>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
-      </div>
+      </article>
     </PageTransition>
   )
 }

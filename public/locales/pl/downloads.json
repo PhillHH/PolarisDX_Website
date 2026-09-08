@@ -2,18 +2,21 @@
   "title": "Pobieranie",
   "subtitle": "Zasoby",
   "home": "Strona główna",
-  "techBrochures": "Broszury techniczne",
-  "infoMaterials": "Materiały informacyjne",
   "discoverTitle": "Pobieranie i zasoby",
   "downloadBtn": "Pobierz",
   "link_epigenetics": "Epigenetyka i genetyka",
   "size": "Rozmiar",
   "format": "Format",
-  "introText": "Ulotki produktowe i materiały informacyjne dotyczące systemu IglooPro oraz sprayu Vitamin D3+K2 – bezpłatnie w formacie PDF i bez rejestracji. Karty techniczne i certyfikaty przesyłamy na życzenie.",
+  "introText": "Arkusze informacyjne, raporty przykładowe, przewodniki i ulotki produktowe – bezpłatnie w formacie PDF lub ZIP, bez rejestracji. Przy każdym dokumencie podany jest język.",
   "hero_cta": "Poproś o ofertę",
   "chip_free": "Bezpłatnie i bez rejestracji",
-  "chip_pdf": "Format PDF",
+  "chip_pdf": "PDF i ZIP",
   "chip_updated": "Dostępne od razu",
+  "vc_groups_label": "Kategorie",
+  "languageNotice": "Ten dokument nie jest dostępny w Twoim języku.",
+  "groups": {"infoSheets": "Arkusze informacyjne", "sampleReports": "Raporty przykładowe", "guides": "Przewodniki", "productFlyers": "Ulotki produktowe"},
+  "access": {"free": "Dostępne bez rejestracji", "gated": "Po rejestracji"},
+  "gate": {"title": "Zamów dokument", "intro": "{{resource}} udostępniamy przez chroniony link do pobrania.", "name": "Imię i nazwisko", "email": "E-mail", "organization": "Placówka", "processingConsent": "Wyrażam zgodę na przetwarzanie moich danych w celu obsługi tego zapytania.", "marketingConsent": "Chcę dodatkowo otrzymywać informacje branżowe e-mailem. (opcjonalnie)", "submit": "Zamów pobranie", "submitting": "Wysyłanie …", "close": "Anuluj", "successTitle": "Plik jest gotowy do pobrania", "successText": "Link jest osobisty i ograniczony czasowo. Prosimy go nie udostępniać.", "downloadCta": "Pobierz teraz", "expiryNote": "Ważny do {{date}}.", "errorGeneric": "Nie udało się przygotować pobierania. Prosimy spróbować później.", "errorValidation": "Prosimy sprawdzić zaznaczone pola.", "errorConsent": "Bez zgody na przetwarzanie nie możemy udostępnić dokumentu."},
   "vc_docs_label": "Dokumenty",
   "vc_format_label": "Format",
   "vc_free_value": "Bezpłatnie",
@@ -31,7 +34,7 @@
     "vitd3En": { "title": "Ulotka produktu Vitamin D3+K2 Spray", "description": "Angielska ulotka produktowa z informacjami o stosowaniu i właściwościach." }
   },
   "seo": {
-    "title": "Pliki do pobrania: ulotki IglooPro i Vitamin D3+K2",
-    "description": "Pobierz bezpłatnie w PDF ulotki produktowe czytnika IglooPro POC i sprayu Vitamin D3+K2 – bez rejestracji. Karty techniczne na życzenie."
+    "title": "Do pobrania: arkusze informacyjne, raporty i ulotki",
+    "description": "Pobierz bezpłatnie arkusze informacyjne, raporty przykładowe, przewodniki i ulotki produktowe PolarisDX w formacie PDF lub ZIP – bez rejestracji, z podanym językiem."
   }
 }

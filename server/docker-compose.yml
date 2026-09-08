@@ -8,3 +8,10 @@ services:
       - '5000:5000'
     env_file:
       - .env
+    environment:
+      - LEAD_DB_PATH=/var/lib/polarisdx/leads.sqlite3
+    volumes:
+      - lead-data:/var/lib/polarisdx
+
+volumes:
+  lead-data:

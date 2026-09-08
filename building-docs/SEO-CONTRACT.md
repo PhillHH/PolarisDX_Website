@@ -38,18 +38,19 @@ AP27 PT27.5 (Regression), AP29 (Migration), AP30/AP31 (Abnahme, Live-Check).
 
 ## 3. Current Participating Files
 
-| Datei                                  | Rolle                                                                                                                                                                                                           | Guard  |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `src/components/seo/SEOHead.tsx`       | Eindeutige Meta-Ausgabeschicht: Title/Description, Canonical, hreflang + x-default, robots, OG/Twitter, `og:locale:alternate`, `notFound` → `prerender-status-code`                                             | **G3** |
-| `src/components/seo/seoRouteSource.ts` | Pfadlistenfreie AP09-Adaptergrenze: öffentlicher Host, gemeinsamer AP08-Sprachsatz, URL-/hreflang-Builder, Override-Host-Guard, Indexability-Vokabular; **keine Route Registry**                                | **G3** |
-| `src/components/seo/sitemap.ts`        | Sitemap-spezifischer AP09-Übergangsadapter: ersetzt die bisherige Server-Tabelle, leitet dynamische Slugs aus Services, Articles und Befund-Metadaten ab und expandiert x10; **keine zentrale Route Registry**  | **G3** |
-| `src/components/seo/sitemapGuard.ts`   | Kanonische G3-Validierung für XML, Host, Unique URLs, x10-/Content-Coverage, Indexability, Redirect-/404-Ausschluss, hreflang und ehrliches `lastmod`                                                           | **G3** |
-| `server.ts`                            | Bestehender `NOT_FOUND_MARKER`-/HTTP-Status-Handshake; eng begrenzter Head-Render-Retry; liefert die von `sitemap.ts` erzeugte Sitemap und nutzt deren Familien für den bestehenden Known-Path-Spiegel bis AP10 | **G3** |
-| `src/components/seo/structuredData.ts` | Bestehende globale Schemata und Builder plus der PT09.3-eigene minimale `createProductSchema`-Builder; Consumer-Markup übernimmt nur sichtbare Produktwahrheit und erfindet keine kommerziellen Felder          | G2     |
-| `src/components/seo/index.ts`          | Barrel — jeder neue Builder muss hier exportiert werden                                                                                                                                                         | G1     |
-| `index.html`                           | statische Meta-Fallbacks, die `server.ts` bei echtem Helmet-Titel entfernt                                                                                                                                      | **G3** |
-| `public/robots.txt`                    | Crawler-Policy, Sitemap-Zeiger, Consumer-Indexierbarkeit                                                                                                                                                        | G1     |
-| `src/data/*`, `src/content/befunde/*`  | Slug-Quellen für dynamische SEO-Ziele                                                                                                                                                                           | G2     |
+| Datei                                  | Rolle                                                                                                                                                                                                  | Guard     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| `src/routing/routeRegistry.ts`         | zentrale AP10-Routenmetadaten: konkrete x10-Pfade, Indexability, Sitemap-/Search-Eligibility und dynamische Source-Adapter                                                                             | **G1/G3** |
+| `src/components/seo/SEOHead.tsx`       | Eindeutige Meta-Ausgabeschicht plus Registry-Indexability-Parität: Title/Description, Canonical, hreflang + x-default, robots, OG/Twitter, `notFound` → `prerender-status-code`                        | **G1/G3** |
+| `src/components/seo/seoRouteSource.ts` | pfadlistenfreier URL-/Locale-Adapter: öffentlicher Host, AP08-Sprachsatz, URL-/hreflang-Builder, Override-Host-Guard und Indexability-Vokabular                                                        | **G3**    |
+| `src/components/seo/sitemap.ts`        | expandiert die Registry-sitemap-eligible Einträge x10; keine manuelle Sitemap-Pfadfamilie                                                                                                              | **G1/G3** |
+| `src/components/seo/sitemapGuard.ts`   | Kanonische G3-Validierung für XML, Host, Unique URLs, x10-/Content-Coverage, Indexability, Redirect-/404-Ausschluss, hreflang und ehrliches `lastmod`                                                  | **G3**    |
+| `server.ts`                            | `NOT_FOUND_MARKER`-/HTTP-Status-Handshake, eng begrenzter Head-Render-Retry, Sitemap-Auslieferung und Registry-getriebene Known Paths                                                                  | **G1/G3** |
+| `src/components/seo/structuredData.ts` | Bestehende globale Schemata und Builder plus der PT09.3-eigene minimale `createProductSchema`-Builder; Consumer-Markup übernimmt nur sichtbare Produktwahrheit und erfindet keine kommerziellen Felder | G2        |
+| `src/components/seo/index.ts`          | Barrel — jeder neue Builder muss hier exportiert werden                                                                                                                                                | G1        |
+| `index.html`                           | statische Meta-Fallbacks, die `server.ts` bei echtem Helmet-Titel entfernt                                                                                                                             | **G3**    |
+| `public/robots.txt`                    | Crawler-Policy, Sitemap-Zeiger, Consumer-Indexierbarkeit                                                                                                                                               | G1        |
+| `src/data/*`, `src/content/befunde/*`  | Slug-Quellen für dynamische SEO-Ziele                                                                                                                                                                  | G2        |
 
 Produktive Seiten importieren ausschließlich `SEOHead`; eine zweite React-/Helmet-Meta-Komponente
 existiert nicht. Die statischen `index.html`-Werte sind ausschließlich SSR-Fallback und werden durch
@@ -317,7 +318,8 @@ Legal-Semantik auf `NOINDEX_NOFOLLOW` ab. Ein widersprüchlicher Mix mit `indexa
 
 - `SEOHead notFound` emittiert weiterhin exakt
   `<meta name="prerender-status-code" content="404">`.
-- `server.ts` liest unverändert denselben `NOT_FOUND_MARKER` und kombiniert ihn mit `isKnownPath`.
+- `server.ts` liest unverändert denselben `NOT_FOUND_MARKER` und kombiniert ihn mit
+  `isKnownCanonicalPath` aus der Registry.
 - Production-SSR-Evidenz für eine echte unbekannte FR-Route: HTTP 404; robots `noindex, follow`;
   Canonical 0; hreflang 0; x-default 0; OG-Locale-Alternates 0; `og:url` 0.
 - Der Head-Retry ist kein neuer 404-Mechanismus und keine Route Registry; er lässt nur den bereits
@@ -325,30 +327,31 @@ Legal-Semantik auf `NOINDEX_NOFOLLOW` ab. Ein widersprüchlicher Mix mit `indexa
 
 ### 11.8 Aktuelle Route-Source-Mechanik
 
-`seoRouteSource.ts` ist die klar abgegrenzte AP09-Übergangsschnittstelle. Sie konsumiert:
+`seoRouteSource.ts` bleibt der pfadlistenfreie URL-/Locale-Adapter. `SEOHead.tsx` konsumiert zusätzlich
+`resolveCanonicalRoute(location.pathname)` aus `src/routing/routeRegistry.ts` und hard-failt, wenn die
+Indexability einer bekannten Route ihrer Registry-Policy widerspricht. Sitemap, Search, Server und
+Tests nutzen dieselbe Registry-Pfadwahrheit. Der Adapter selbst konsumiert:
 
 1. den von React Router tatsächlich gematchten `location.pathname`,
 2. die URL-/i18n-Locale des aktuellen Requests,
 3. den gemeinsamen AP08-Sprachsatz aus `src/i18n.ts`.
 
-Sie enthält **keine Pfadliste, keine Redirects, keine Known Paths und keine Sitemap-Tabelle**. Sie ist
-damit keine fünfte Route Registry. AP10 kann ihre URL-/Locale-Konsumenten an die zentrale Registry
-anschließen, ohne SEOHead neu zu schreiben.
+Er enthält weiterhin **keine Pfadliste, keine Redirects, keine Known Paths und keine Sitemap-Tabelle**;
+die zentrale Wahrheit liegt ausschließlich in `routeRegistry.ts`.
 
 ### 11.9 DG09-01 — ROUTE_REGISTRY_INTEGRATION
 
 - Type: `CROSS_AP_ARCHITECTURE_INTEGRATION`
 - Owner: AP10 PT10.3
 - Created by: AP09
-- Required before: Launch / AP29 final crawl / AP31 launch closure
+- Required before: Launch / AP29 final crawl / AP31 launch closure — **fulfilled by PT10.3**
 - AP09 Closure blocker: NO, wenn alle AP09-eigenen SEO-Gates PASS sind
-- Launch blocker: YES
-- Safe current state: SEOHead nutzt eine konsistente, regressionsgetestete, pfadlistenfreie AP09-
-  Route-Source-Schnittstelle; keine neue Route Registry wurde gebaut.
-- Target state: SEOHead, Sitemap, Search, Known Paths, App Routes und Tests konsumieren die zentrale
-  AP10 Route Registry.
-- Status nach PT09.1/AP09: `READY_FOR_OWNER`
-- Resolved by: AP10 PT10.3 nach realer Umschaltung und Guard-Nachweis
+- Launch blocker: **NO — integration resolved**
+- AP09 handoff state: `READY_FOR_OWNER`
+- Current state: SEOHead, Sitemap, Search, Known Paths, App Routes and registry-derived tests consume
+  the central AP10 Registry; redirect targets are Registry-validated; no competing route mirror remains.
+- Status: **`RESOLVED`**
+- Resolved by: **AP10 PT10.3**, `npm run check:routes` PASS / CI ACTIVE
 
 ### 11.10 PT09.1 Tests und Host-Evidenz
 
@@ -770,3 +773,20 @@ Diese Matrix klassifiziert Seitentypen; sie ist ausdrücklich keine Route Regist
 - Closure-Fix: Die zuvor im seriellen `quality`-Job hinter diesen Baseline-Gates liegenden
   AP09-Schritte wurden ohne Semantikänderung in den unabhängigen `seo`-Job verschoben. Dadurch ist
   `G3 / CI ACTIVE` eine reale Job-Ausführung und keine bloße vorhandene, aber unerreichbare YAML-Zeile.
+
+---
+
+## 17. AP10 PT10.3 Registry Integration Evidence
+
+- Registry: `src/routing/routeRegistry.ts`, 25 Families / 43 concrete canonical paths.
+- Sitemap: 39 Registry-eligible Families / 390 x10 URLs; manual sitemap path table removed; G3 PASS.
+- SEOHead: resolves the concrete Registry route and enforces Registry indexability for known paths;
+  canonical/hreflang URL construction remains in the single existing SEOHead/adapter layer.
+- Search: 35/35 Registry-eligible targets; Search retains only copy, type and priority metadata.
+- Known Paths: server uses concrete Registry resolution independently of Sitemap eligibility; Support
+  remains a real 200 Known Path while intentionally absent from the Sitemap.
+- Redirects: 30 explicit Registry-classified sources, every target Registry-known and canonical.
+- G1: `npm run check:routes` PASS; independent Relaunch CI `routing` job ACTIVE on relevant branches.
+- G3/Meta: PASS, 290 locale records, 39/390 Sitemap evidence, Preview/Dev leakage unchanged at 0.
+- DG09-01: **RESOLVED** by AP10 PT10.3; no longer a launch blocker.
+- Historical AP09 Closure facts in §16 remain immutable evidence of the state before AP10 started.

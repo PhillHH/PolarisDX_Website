@@ -187,7 +187,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <p className="text-xs text-white/40">{t('footer.product_note')}</p>
+        <p className="text-xs text-white/70">{t('footer.product_note')}</p>
       </div>
     </footer>
   )

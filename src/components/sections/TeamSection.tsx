@@ -83,10 +83,10 @@ const TeamSection = () => {
 
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-sans text-xl font-medium text-heading">{name}</h3>
-                  <p className="mt-1 text-sm font-semibold leading-snug text-accent">
+                  <p className="mt-1 text-sm font-semibold leading-snug text-accent-strong">
                     {t(`team.members.${member.id}.role`)}
                   </p>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600">
                     {t(`team.members.${member.id}.bio`)}
                   </p>
 
@@ -94,7 +94,7 @@ const TeamSection = () => {
                     <a
                       href={`mailto:${member.email}`}
                       aria-label={`${emailLabel}: ${name}`}
-                      className="flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-accent"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-accent"
                     >
                       <Mail className="h-4 w-4" aria-hidden="true" />
                       {emailLabel}
@@ -104,7 +104,7 @@ const TeamSection = () => {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`LinkedIn: ${name}`}
-                      className="flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-social-linkedin"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-social-linkedin"
                     >
                       <Linkedin className="h-4 w-4" aria-hidden="true" />
                       LinkedIn

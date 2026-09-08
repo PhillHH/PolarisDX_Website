@@ -2,18 +2,21 @@
   "title": "Downloads",
   "subtitle": "Materialer",
   "home": "Hjem",
-  "techBrochures": "Tekniske brochurer",
-  "infoMaterials": "Informationsmaterialer",
   "discoverTitle": "Downloads og ressourcer",
   "downloadBtn": "Download",
   "link_epigenetics": "Epigenetik og genetik",
   "size": "Størrelse",
   "format": "Format",
-  "introText": "Produktflyers og informationsmaterialer om IglooPro-systemet og Vitamin D3+K2-sprayen – gratis som PDF og uden tilmelding. Tekniske datablade og certifikater sender vi på anmodning.",
+  "introText": "Informationsark, eksemplarrapporter, vejledninger og produktfoldere – gratis som PDF eller ZIP, uden tilmelding. Sproget står ved hvert dokument.",
   "hero_cta": "Anmod om tilbud",
   "chip_free": "Gratis og uden tilmelding",
-  "chip_pdf": "PDF-format",
+  "chip_pdf": "PDF og ZIP",
   "chip_updated": "Tilgængelig med det samme",
+  "vc_groups_label": "Kategorier",
+  "languageNotice": "Dette dokument findes ikke på dit sprog.",
+  "groups": {"infoSheets": "Informationsark", "sampleReports": "Eksemplarrapporter", "guides": "Vejledninger", "productFlyers": "Produktfoldere"},
+  "access": {"free": "Frit tilgængeligt", "gated": "Efter tilmelding"},
+  "gate": {"title": "Bestil dokumentet", "intro": "{{resource}} udleveres via et beskyttet downloadlink.", "name": "Navn", "email": "E-mail", "organization": "Institution", "processingConsent": "Jeg giver samtykke til, at mine oplysninger behandles for at besvare denne henvendelse.", "marketingConsent": "Jeg vil også gerne modtage faglig information på e-mail. (valgfrit)", "submit": "Bestil download", "submitting": "Sender …", "close": "Annuller", "successTitle": "Din download er klar", "successText": "Linket er personligt og tidsbegrænset. Del det ikke.", "downloadCta": "Download nu", "expiryNote": "Gyldigt til {{date}}.", "errorGeneric": "Download kunne ikke forberedes. Prøv igen senere.", "errorValidation": "Kontrollér de markerede felter.", "errorConsent": "Uden samtykke til behandling kan vi ikke stille dokumentet til rådighed."},
   "vc_docs_label": "Dokumenter",
   "vc_format_label": "Format",
   "vc_free_value": "Gratis",
@@ -31,7 +34,7 @@
     "vitd3En": { "title": "Produktfolder til Vitamin D3+K2-spray", "description": "Engelsk produktfolder med anvendelse og produktegenskaber." }
   },
   "seo": {
-    "title": "Downloads: IglooPro & Vitamin D3+K2 produktflyers",
-    "description": "Download produktflyers til IglooPro POC-reader og Vitamin D3+K2-spray gratis som PDF, uden tilmelding. Tekniske datablade på anmodning."
+    "title": "Downloads: informationsark, eksemplarrapporter og foldere",
+    "description": "Download gratis PolarisDX informationsark, eksemplarrapporter, vejledninger og produktfoldere som PDF eller ZIP – uden tilmelding og med sproget angivet."
   }
 }

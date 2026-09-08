@@ -85,6 +85,7 @@
       "prepare_placeholder": "Que biomarcadores lhe interessam — PCR, TSH, HbA1c?",
       "consent": "Concordo que os meus dados sejam conservados para contacto e para eventuais questões, durante um máximo de 12 meses. Veja a nossa",
       "privacy_link": "política de privacidade",
+      "marketing_consent": "Também quero receber a newsletter da PolarisDX com novidades sobre produtos (cancelamento a qualquer momento).",
       "submit": {
         "consultation": "Pedir orçamento",
         "quote": "Pedir orçamento",
@@ -95,7 +96,8 @@
       "sending": "A enviar…",
       "microcopy": "Menos de 2 minutos — prometido. Resposta em 24 h e depois um próximo passo concreto.",
       "success": "Obrigado! Recebemos e registámos o seu pedido — respondemos em 24 h.",
-      "error": "Algo correu mal. Verifique os seus dados ou tente novamente daqui a pouco."
+      "error": "Algo correu mal. Verifique os seus dados ou tente novamente daqui a pouco.",
+      "error_retryable": "Não funcionou agora. Os seus dados continuam aqui — tente novamente dentro de momentos."
     },
     "trust": {
       "direct": "Prefere contacto direto?",

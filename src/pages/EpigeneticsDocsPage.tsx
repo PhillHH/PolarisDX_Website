@@ -19,6 +19,8 @@ import { ArrowRight, Download, FileText } from 'lucide-react'
 import EpiSubpage from '../components/epigenetics/EpiSubpage'
 import type { Chapter } from '../components/ui/ChapterNav'
 import { ASSET_BASE, asArray, BODY } from '../components/epigenetics/tokens'
+import ResourceGateTrigger from '../components/resources/ResourceGateTrigger'
+import { SAMPLE_BUNDLE_ASSET_ID } from '../content/resources/leadMagnetCandidates'
 import Reveal from '../components/ui/Reveal'
 import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
 import { resourceLanguageFromPath } from '../lib/resourceLanguage'
@@ -53,7 +55,6 @@ const EpigeneticsDocsPage = () => {
 
   return (
     <EpiSubpage
-      path="/epigenetics/unterlagen"
       caption="downloads.caption"
       title="downloads.title"
       lead="downloads.sub"
@@ -71,11 +72,20 @@ const EpigeneticsDocsPage = () => {
         {/* Die beiden Pakete zuerst: wer alles will, ist damit in einem Klick
             fertig und muss nicht neun Karten durchgehen. */}
         <Reveal width="100%">
+          <div className="mb-5">
+            <span
+              data-resource-access="FREE_PUBLIC"
+              className="inline-flex rounded-full border border-success/30 bg-success-soft px-3 py-1.5 text-sm font-semibold text-success-strong"
+            >
+              {t('downloads:chip_free')}
+            </span>
+          </div>
           <div className="flex flex-wrap gap-3">
             <a
               href={`${ASSET_BASE}${t('downloads.zipFile')}`}
               download
               hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
+              data-resource-access="FREE_PUBLIC"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
@@ -86,16 +96,12 @@ const EpigeneticsDocsPage = () => {
                 className="text-white/80"
               />
             </a>
-            <a
-              href={`${ASSET_BASE}${t('samples.zipFile')}`}
-              download
-              hrefLang="de"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-            >
-              <Download className="h-4 w-4" aria-hidden="true" />
-              {t('samples.zipLabel')}
-              <ResourceLanguageBadge language="de" format="zip" className="text-gray-600" />
-            </a>
+            {/* AP19 PT19.4: das Musterbefund-Paket ist der aktive Lead-Magnet.
+                Hier steht deshalb kein Dateilink mehr, sondern der
+                wiederverwendbare Gate-Einstieg. Die sechs Musterbefunde
+                einzeln bleiben unveraendert frei abrufbar — weiter unten auf
+                dieser Seite und auf den Musterbefund-Seiten selbst. */}
+            <ResourceGateTrigger assetId={SAMPLE_BUNDLE_ASSET_ID} label={t('samples.zipLabel')} />
           </div>
         </Reveal>
 
@@ -133,7 +139,7 @@ const EpigeneticsDocsPage = () => {
                 </div>
 
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-gray-600">
                     {sheet.meta} ·{' '}
                     <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
                   </span>
@@ -141,6 +147,7 @@ const EpigeneticsDocsPage = () => {
                     href={`${ASSET_BASE}${sheet.file}`}
                     download
                     hrefLang={resourceLanguageFromPath(sheet.file)}
+                    data-resource-access="FREE_PUBLIC"
                     // Ohne dies tragen alle neun Knoepfe denselben
                     // zugaenglichen Namen ("PDF laden"). Wer sich die
                     // Linkliste vorlesen laesst oder per Sprachsteuerung
@@ -168,6 +175,7 @@ const EpigeneticsDocsPage = () => {
                 href={`${ASSET_BASE}${extra.file}`}
                 download
                 hrefLang="de"
+                data-resource-access="FREE_PUBLIC"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />

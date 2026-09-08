@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "POC-diagnostiek voor uw praktijk: labwaarden in minuten",
-    "description": "Labnauwkeurige point-of-care-diagnostiek direct in uw praktijk: IVDR/CE, CV < 2 % en resultaat in minuten. Nieuwe omzet uit zelfbetalers – vraag nu een offerte aan."
+    "title": "Point-of-care-diagnostiek voor praktijken | PolarisDX",
+    "description": "PolarisDX ondersteunt praktijken en medische instellingen bij point-of-care-diagnostiek met IglooPro en biedt ingangen naar diagnostiek, epigenetica en advies.",
+    "social_image_alt": "IglooPro point-of-care-reader van PolarisDX"
   },
   "hero": {
-    "caption": "Point-of-care-prestaties",
-    "title": "IglooPro:\nPoint-of-Care. Perfect. Direct.",
-    "description": "Verzeker u van het prestatiepakket: uw IglooPro is binnen 3–5 werkdagen klaar voor gebruik.",
+    "caption": "PolarisDX voor praktijken en medische instellingen",
+    "title": "Point-of-care-diagnostiek die past in de dagelijkse praktijk.",
+    "description": "PolarisDX ondersteunt professionele gebruikers bij de integratie van point-of-care-diagnostiek met IglooPro in bestaande werkprocessen – van de keuze van een passende oplossing tot gebruik op locatie.",
     "cta": "Offerte aanvragen",
+    "cta_secondary": "Ontdek diagnostiek",
+    "visual_alt": "IglooPro point-of-care-reader voor professioneel gebruik",
     "cta_roi": "ROI-calculator starten",
     "cta_downloads": "Informatiemateriaal downloaden",
     "stat1": {
@@ -74,6 +77,33 @@
       }
     },
     "stats_disclaimer": "* Voorbeeldwaarde – afhankelijk van uw praktijkcijfers."
+  },
+  "business_pillars": {
+    "eyebrow": "Drie bedrijfspijlers",
+    "title": "Drie routes naar diagnostiek en professioneel gebruik",
+    "intro": "PolarisDX brengt point-of-care-diagnostiek, de IglooPro-reader en epigenetica samen in duidelijk gescheiden gebieden.",
+    "pillars": {
+      "diagnostics": {
+        "title": "Diagnostiek",
+        "text": "Point-of-care-diagnostiek en gespecialiseerde toepassingen voor praktijken en medische instellingen.",
+        "cta": "Ontdek diagnostiek"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "De IglooPro-reader analyseert compatibele sneltests rechtstreeks op het zorgpunt.",
+        "cta": "Bekijk IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetica",
+        "text": "Een zelfstandig gebied voor epigenetische en genetische analyses en de bijbehorende voorbeeldrapporten.",
+        "cta": "Ontdek epigenetica"
+      }
+    },
+    "core": {
+      "eyebrow": "Geselecteerde toepassingen",
+      "title": "Directe ingangen per vakgebied",
+      "intro": "Dental, Beauty en Longevity leiden naar drie reeds gepubliceerde diagnostiekgebieden. Het volledige portfolio blijft beschikbaar in de Diagnostiek-hub."
+    }
   },
   "about": {
     "caption": "UW PRESTATIEGARANTIE",
@@ -155,8 +185,8 @@
     }
   },
   "testimonials": {
-    "caption": "ERVARINGEN UIT DE PRAKTIJK",
-    "title": "Wat praktijken zeggen over het IglooPro-systeem",
+    "caption": "PRAKTIJKREFERENTIE",
+    "title": "Een ervaring uit de dagelijkse praktijk met IglooPro",
     "ratingLabel": "Totaalbeoordeling\ngebaseerd op beoordelingen uit de praktijk",
     "positiveLabel": "Positieve beoordeling",
     "richard_pollock": {
@@ -185,6 +215,7 @@
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Directe diagnostiek voor parodontologie & implantologie (Vitamine D, HbA1c, cholesterol, CRP)",
       "text": "De Igloo Multireader maakt ontstekingsmarkers, HbA1c, cholesterol en Vitamine D direct aan de behandelstoel meetbaar. Zo plannen we parodontale en implantaatbehandelingen veiliger en starten we sneller. Training en support door PolarisDX zijn ongecompliceerd – het apparaat is een vast onderdeel van onze dagelijkse praktijk geworden.",
+      "proof_text": "Training en support door PolarisDX zijn ongecompliceerd – het apparaat is een vast onderdeel van onze dagelijkse praktijk geworden.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
@@ -228,28 +259,20 @@
     "title": "Veelgestelde vragen over PolarisDX en point-of-care-diagnostiek",
     "items": [
       {
-        "question": "Is de IglooPro rendabel voor mijn praktijk?",
-        "answer": "Met POC-diagnostiek kunt u biomarkerbepalingen als zelfbetalersdienst direct in de praktijk aanbieden, in plaats van ze uit te besteden aan een extern laboratorium. Welke bezetting en opbrengsten dit voor uw concrete situatie oplevert, berekent u transparant in de ROI-calculator. Zo ziet u al vóór de aanschaf hoe het systeem in uw praktijkstructuur past."
+        "question": "Wat biedt PolarisDX aan praktijken en medische instellingen?",
+        "answer": "PolarisDX bundelt drie zelfstandige ingangen: point-of-care-diagnostiek, de IglooPro-reader en epigenetica. Elk gebied geeft een overzicht en leidt naar de reeds gepubliceerde vakinformatie."
       },
       {
-        "question": "Is de IglooPro toegelaten voor praktijkgebruik en kwaliteitsgeborgd?",
-        "answer": "De IglooPro is IVDR/CE-conform en daarmee ontworpen voor patiëntnabije directe diagnostiek (POCT). Over het hele meetbereik behaalt het systeem een precisie van CV < 2 %, wat reproduceerbare resultaten ondersteunt. De inbedrijfstelling verloopt gevalideerd, zodat de eisen aan de kwaliteitsborging binnen de POCT vanaf het begin zijn meegenomen."
+        "question": "Hoe kan point-of-care-diagnostiek in de praktijkworkflow passen?",
+        "answer": "Het getoonde proces omvat toepassing of monstervoorbereiding, meting, beschikbaarheid van het resultaat na de testspecifieke verwerkingstijd en professionele interpretatie. Het precieze proces hangt af van de test en de geldende instructies."
       },
       {
-        "question": "Ben ik na aankoop gebonden aan één enkele leverancier?",
-        "answer": "Nee. De IglooPro werkt fabrikantonafhankelijk, zodat u niet vastzit aan de tests van één enkele leverancier. Dat geeft u flexibiliteit bij de keuze van uw testpanels en beschermt uw investering wanneer uw diagnostische behoefte in de loop van de tijd verandert."
+        "question": "Welke volgende stap past bij mijn instelling?",
+        "answer": "Het diagnostiekgedeelte toont de gepubliceerde toepassingen. Wilt u eisen, de gebruikscontext of een mogelijke oplossing persoonlijk bespreken, dan kunt u een offerte aanvragen en de situatie van uw instelling toelichten."
       },
       {
-        "question": "Hoeveel moeite kost de integratie in onze dagelijkse praktijk?",
-        "answer": "De IglooPro is ontworpen voor gebruik direct aan de behandelstoel en levert het resultaat in minuten, zodat de meting binnen de lopende afspraak past. Bij de inbedrijfstelling trainen wij uw team in de meetprocedure en de bediening. Daarna staan wij u bij met technische ondersteuning en doorlopende begeleiding."
-      },
-      {
-        "question": "Hoe snel is het systeem na de bestelling klaar voor gebruik?",
-        "answer": "Na de bestelling is uw IglooPro doorgaans binnen 3–5 werkdagen klaar voor gebruik. Wij nemen het apparaat gevalideerd in gebruik, zodat u vanaf de eerste patiënt betrouwbaar kunt meten. Een aparte, langdurige installatiefase vervalt daarmee."
-      },
-      {
-        "question": "Welke biomarkers kan ik bepalen, afhankelijk van mijn vakgebied?",
-        "answer": "Het systeem dekt vakspecifieke panels voor Dental, Beauty en Longevity – van Vitamine D en CRP via HbA1c tot stofwisselings- en ontstekingsmarkers. In de tandheelkunde staan bijvoorbeeld Vitamine D en ontstekingswaarden centraal, in het Longevity-segment de monitoring van stofwisselings- en ontstekingsmarkers. Welke tests voor uw vakgebied zinvol zijn, stemmen wij individueel af tijdens het adviesgesprek."
+        "question": "Vervangt een point-of-care-resultaat de professionele beoordeling?",
+        "answer": "Nee. Een testresultaat kan informatie bieden voor het gesprek en het verdere zorgproces. De individuele interpretatie en diagnostische of therapeutische beslissingen blijven de verantwoordelijkheid van de bevoegde professional."
       }
     ],
     "more": "Nog vragen?",
@@ -260,43 +283,34 @@
   "trustbar": {
     "aria": "Vertrouwenskenmerken",
     "ivdr": "IVDR/CE-conform",
-    "cv": "CV < 2 % laboratoriumprecisie",
+    "cv": "IglooPro · CV < 2 %",
     "minutes": "Resultaat in minuten",
-    "compat": "Fabrikantonafhankelijk compatibel",
-    "delivery": "Klaar voor gebruik in 3–5 werkdagen",
-    "partner": "Premiumpartner: Nobel Biocare"
+    "compat": "Fabrikantonafhankelijk compatibel"
   },
   "why": {
-    "caption": "Point of Care",
-    "title": "Waarom POC in uw praktijk?",
-    "intro": "Diagnostiek direct op de behandelplek: resultaat in minuten in plaats van dagen wachten — dat verandert de workflow, de patiëntbeleving en de rentabiliteit van uw praktijk.",
-    "card1": {
-      "title": "Geen verzending naar een laboratorium",
-      "text": "Het resultaat is direct ter plaatse beschikbaar — geen wachttijd op de uitslag van een extern laboratorium."
+    "caption": "Point of Care in de dagelijkse praktijk",
+    "title": "Informatie waar die nodig is",
+    "intro": "Point-of-Care-metingen bieden aanvullende informatie direct binnen de workflow van de praktijk. Ze ondersteunen de professionele interpretatie zonder die te automatiseren of te vervangen.",
+    "signals": {
+      "access": { "title": "Directe toegang tot informatie", "text": "Metingen zijn na de testspecifieke verwerkingstijd beschikbaar op het Point of Care." },
+      "workflow": { "title": "Verankerd in de workflow", "text": "Toepassing, meting en documentatie kunnen als een duidelijk proces in bestaande praktijkworkflows worden opgenomen." },
+      "conversation": { "title": "Basis voor het gesprek", "text": "Beschikbare waarden kunnen professionele advisering en het gezamenlijk bespreken van passende vervolgstappen ondersteunen." }
     },
-    "card2": {
-      "title": "Patiënt blijft in de stoel",
-      "text": "Waarden meten en de volgende stap direct binnen dezelfde afspraak bespreken — zonder de patiënt opnieuw te laten komen."
-    },
-    "card3": {
-      "title": "Nieuwe omzet uit zelfbetalers",
-      "text": "POC opent nieuwe zelfbetalersdiensten in uw praktijk, in plaats van omzet af te staan aan het externe laboratorium."
-    },
-    "card_cta": "Meer informatie",
-    "video_label": "TOEPASSINGSVIDEO",
-    "video_caption": "Zo verloopt de test in uw praktijk – in 3 minuten",
-    "device_alt": "IglooPro POC-reader"
+    "benefits": {
+      "practice": { "label": "Voordeel voor de praktijk", "title": "Gestructureerd in de workflow", "text": "Aanvullende metingen zijn beschikbaar binnen het Point-of-Care-proces en kunnen bij advies en zorg worden betrokken." },
+      "patient": { "label": "Voordeel voor patiënten", "title": "Resultaten helder bespreken", "text": "Beschikbare waarden kunnen binnen de zorgcontext worden uitgelegd. De test vult de professionele beoordeling aan; hij vervangt diagnose noch behandeling." }
+    }
   },
   "final_cta": {
     "caption": "Klaar om te beginnen",
     "title": "Klaar voor labnauwkeurige diagnostiek in uw praktijk?",
-    "subtitle": "Praat met ons team of bereken uw besparingspotentieel — fabrikantonafhankelijk, IVDR/CE-conform en binnen 3–5 werkdagen klaar voor gebruik.",
+    "subtitle": "Bespreek met ons team een passende point-of-care-oplossing of toets uw eigen aannames met de vrijblijvende ROI-calculator.",
     "cta_primary": "Offerte aanvragen",
     "cta_secondary": "ROI-calculator",
     "chips": {
-      "free": "Gratis & vrijblijvend",
-      "reply": "Antwoord < 24 u",
-      "delivery": "Levering in 3–5 werkdagen"
+      "free": "Vrijblijvende aanvraag",
+      "reply": "Persoonlijk advies",
+      "delivery": "Beschikbaar in 10 talen"
     }
   },
   "roi": {
@@ -362,24 +376,15 @@
     }
   },
   "steps": {
-    "caption": "ZO EENVOUDIG START U",
-    "title": "Gevalideerde POC-diagnostiek in 3 stappen",
-    "intro": "Van het eerste gesprek tot labnauwkeurige diagnostiek aan de behandelstoel – zonder configuratie-inspanning.",
-    "step1": {
-      "title": "Advies & panelaanbeveling",
-      "text": "Wij analyseren uw workflow en adviseren de passende biomarker-panels voor uw vakgebied.",
-      "badge": "incl. advies"
+    "caption": "HET POC-PROCES",
+    "title": "Van toepassing tot professionele interpretatie",
+    "intro": "Een helder proces maakt meetinformatie bruikbaar in de dagelijkse praktijk en laat de medische verantwoordelijkheid bij de behandelende professionals.",
+    "aria_label": "Point-of-Care-proces in drie stappen",
+    "items": {
+      "application": { "title": "Toepassing en meting", "text": "Het monster en de test worden volgens de bijbehorende instructies voorbereid en met het compatibele systeem gemeten." },
+      "result": { "title": "Resultaat beschikbaar", "text": "Na de testspecifieke verwerkingstijd is de meting beschikbaar in de praktijkworkflow — zonder geautomatiseerde medische conclusie." },
+      "context": { "title": "Professionele interpretatie", "text": "De verantwoordelijke professional beoordeelt de waarde in de individuele context en bespreekt waar passend zinvolle vervolgstappen." }
     },
-    "step2": {
-      "title": "Performance-setup",
-      "text": "Levering in 3–5 werkdagen inclusief gevalideerde ingebruikname en eenvoudige assay-profielen.",
-      "badge": "ter plaatse"
-    },
-    "step3": {
-      "title": "Eerste resultaten",
-      "text": "Uw team is opgeleid, de eerste patiënt wordt gemeten – labnauwkeurig, gedocumenteerd, IVDR/CE-conform.",
-      "badge": "Dag 1"
-    },
-    "cta": "Offerte aanvragen"
+    "safety_note": "Metingen bieden aanvullende informatie. De professionele beoordeling en de daaruit voortvloeiende vervolgstappen blijven de verantwoordelijkheid van de bevoegde professional."
   }
 }

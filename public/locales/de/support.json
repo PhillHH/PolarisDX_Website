@@ -55,7 +55,8 @@
       "submitting": "Sende...",
       "success": "Vielen Dank! Wir haben Ihre Support-Anfrage erhalten und registriert. Wir melden uns schnellstmöglich bei Ihnen.",
       "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
-      "microcopy": "Wir antworten in der Regel innerhalb eines Arbeitstages."
+      "microcopy": "Wir antworten in der Regel innerhalb eines Arbeitstages.",
+      "error_retryable": "Das hat gerade nicht geklappt. Ihre Angaben sind noch da — bitte versuchen Sie es gleich erneut."
     },
     "info": {
       "title": "Support-Informationen",

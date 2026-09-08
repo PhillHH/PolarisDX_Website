@@ -9,13 +9,9 @@
  * HTML. Deshalb gilt: nur was hier steht, wird angezeigt; alles andere faellt
  * still weg.
  *
- * WARUM EINE EIGENE LISTE UND NICHT `BEFUNDE` AUS ./index.ts: an jedem Befund
- * dort haengen Inhaltsdateien. Sie gehoeren in die slugweise lazy geladenen
- * Musterbefund-Chunks; das Kontaktformular liegt auf einer anderen Route und
- * wuerde sie sonst komplett mitziehen. Die Liste bleibt
- * trotzdem an der Quelle: panelNames.test.ts prueft sie Zeile fuer Zeile gegen
- * BEFUNDE und BEFUND_ORDER. Kommt ein Panel dazu oder aendert sich ein Name,
- * faellt der Test — nicht erst der Hinweis auf der Seite.
+ * Die Namen kommen aus der JSON-freien Family-Metadatenquelle. Dadurch zieht
+ * das Kontaktformular keine Befundinhalte in seinen Chunk, und Slug/Reihenfolge
+ * koennen nicht von der kanonischen BEFUND_ORDER abweichen.
  *
  * DE UND EN: die Musterbefund-Seiten und die Merkliste verlinken den Namen in
  * der Sprache der Seite, beide Fassungen sind also gueltige Eingaben. Die
@@ -23,20 +19,18 @@
  * nicht.
  */
 
+import { BEFUND_ORDER, BEFUND_PANEL_NAMES, type BefundSlug } from './meta'
+
 export interface PanelEntry {
-  slug: string
+  slug: BefundSlug
   /** Gueltige Schreibweisen, Reihenfolge [de, en]; identische entfallen. */
   names: readonly string[]
 }
 
-export const PANELS: readonly PanelEntry[] = [
-  { slug: 'metabolic-health', names: ['Metabolic Health'] },
-  { slug: 'healthy-aging', names: ['Healthy Aging'] },
-  { slug: 'biologische-altersuhr', names: ['Biologische Altersuhr', 'Biological Age Clock'] },
-  { slug: 'telomer-analyse', names: ['Telomer-Analyse', 'Telomere Analysis'] },
-  { slug: 'stress-monitor', names: ['Stress Monitor'] },
-  { slug: 'healthy-sport', names: ['Healthy Sport'] },
-] as const
+export const PANELS: readonly PanelEntry[] = BEFUND_ORDER.map((slug) => ({
+  slug,
+  names: BEFUND_PANEL_NAMES[slug],
+}))
 
 /**
  * Vergleichsform: Gross-/Kleinschreibung und Leerzeichen sollen einen Link

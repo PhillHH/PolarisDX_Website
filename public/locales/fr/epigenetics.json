@@ -81,8 +81,7 @@
           "Conseil nutritionnel au-delà des plans standards",
           "Pratiques de prévention avec programmes de poids",
           "Lorsque les changements alimentaires précédents n’ont pas fonctionné"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Centres de longévité et pratiques de prévention",
           "Conseil nutritionnel et médecine préventive",
           "Personnes d’environ 40 ans et plus suivant la tendance"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Pratiques de longévité et de médecine fonctionnelle",
           "Centres de santé, coaching et santé au travail",
           "Lorsque un panel complet de vieillissement serait trop étendu"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Programmes de longévité et médecine préventive",
           "Conseil nutritionnel nécessitant une base",
           "Programmes en milieu professionnel axés sur la longévité"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Gestion de la santé au travail et résilience",
           "Pratiques axées sur la prévention du stress",
           "Personnes sous charge prolongée"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Médecine du sport et diagnostics de performance",
           "Sciences du sport et coaching de performance",
           "Athlètes amateurs et compétitifs"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Rapport d’échantillon"
@@ -333,9 +327,72 @@
     "title": "Demander un devis",
     "sub": "Les analyses sont fournies uniquement aux utilisateurs professionnels. Conditions B2B sur demande, modulées selon le volume.",
     "overview": "Aperçu au format PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses génétiques sont soumises à la législation nationale sur les tests génétiques. En Allemagne, les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test.",
     "lab": "Analyse de laboratoire par notre partenaire de coopération · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Nom",
+      "email": "E-mail",
+      "organization": "Établissement / organisation",
+      "facilityType": "Type d’établissement",
+      "choose": "Veuillez sélectionner",
+      "panel": "Panel souhaité (facultatif)",
+      "noPanel": "Pas encore défini",
+      "volume": "Nombre de cas mensuels prévu (facultatif)",
+      "message": "Votre question (facultatif)",
+      "messageHint": "Ne transmettez pas de données de santé ni de comptes rendus."
+    },
+    "facilityTypes": {
+      "practice": "Cabinet",
+      "clinic": "Clinique",
+      "laboratory": "Laboratoire",
+      "consultancy": "Conseil / centre de santé",
+      "other": "Autre établissement"
+    },
+    "volumes": {
+      "unspecified": "Non indiqué",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Plus de 50"
+    },
+    "submit": "Demander un devis",
+    "sending": "Enregistrement sécurisé de votre demande …",
+    "analyticsIndependent": "Cette demande fonctionne indépendamment des cookies d’analyse ou de marketing.",
+    "errors": {
+      "name": "Veuillez saisir votre nom.",
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "organization": "Veuillez indiquer votre établissement.",
+      "facilityType": "Veuillez sélectionner un type d’établissement.",
+      "consent": "Votre consentement au traitement est requis."
+    },
+    "status": {
+      "delivered": {
+        "title": "Demande enregistrée et transmise",
+        "text": "Votre demande a été enregistrée durablement et transmise au processus compétent."
+      },
+      "retryPending": {
+        "title": "Demande enregistrée en toute sécurité",
+        "text": "La transmission est temporairement en attente et sera retentée à partir du dossier enregistré."
+      },
+      "providerUnavailable": {
+        "title": "Demande enregistrée en toute sécurité",
+        "text": "Le service externe de transmission n’est pas configuré actuellement. Votre dossier reste disponible pour un suivi manuel."
+      },
+      "manualReview": {
+        "title": "Demande enregistrée en toute sécurité",
+        "text": "La transmission automatique n’a pas pu aboutir. Le dossier enregistré reste disponible pour un suivi manuel."
+      },
+      "recorded": {
+        "title": "Demande enregistrée en toute sécurité",
+        "text": "Votre dossier a été enregistré durablement ; sa transmission est en cours."
+      },
+      "error": {
+        "title": "Demande non enregistrée",
+        "text": "La demande n’a pas pu être enregistrée en toute sécurité. Réessayez ou contactez-nous directement."
+      }
+    }
   },
   "links": {
     "longevity": "Diagnostic de longévité",
@@ -665,6 +722,8 @@
     "othersTitle": "Les autres rapports d’exemple",
     "navBack": "Aperçu",
     "navChapters": "Chapitres",
+    "previous": "Rapport précédent",
+    "next": "Rapport suivant",
     "noticeTitle": "Avis importants",
     "toTop": "Retour en haut",
     "ctaPdf": "Ce rapport en PDF",

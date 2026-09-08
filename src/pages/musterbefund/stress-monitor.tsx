@@ -18,14 +18,11 @@ import pt from '../../content/befunde/stress-monitor.pt.json'
 import da from '../../content/befunde/stress-monitor.da.json'
 import nl from '../../content/befunde/stress-monitor.nl.json'
 import cs from '../../content/befunde/stress-monitor.cs.json'
-import type { BefundSprachen } from '../../content/befunde/meta'
+import { defineBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const StressMonitor = () => (
-  <MusterbefundPage
-    slug="stress-monitor"
-    befunde={{ de, en, pl, fr, it, es, pt, da, nl, cs } as BefundSprachen}
-  />
-)
+const befunde = defineBefundFamily('stress-monitor', { de, en, pl, fr, it, es, pt, da, nl, cs })
+
+const StressMonitor = () => <MusterbefundPage slug="stress-monitor" befunde={befunde} />
 
 export default StressMonitor

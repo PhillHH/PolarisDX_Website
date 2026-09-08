@@ -1,0 +1,766 @@
+{
+  "de": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Einleitung",
+        "paragraphs": [
+          "Wenn Ärzte über Diagnostik sprechen, geht es meist um Sensitivität, Spezifität und klinische Relevanz. Wenn Praxismanager auf Diagnostik schauen, sehen sie oft nur einen Kostenfaktor. Doch diese Rechnung ist veraltet. In der modernen Praxisökonomie ist nicht der Preis des Teststreifens die entscheidende Variable, sondern die Ressource, die wir nicht kaufen können: Zeit. Eine Analyse, warum das IGLO-PRO unterm Strich profitabler ist als das Zentrallabor.",
+          "\"Zeit ist Geld.\" Es ist das älteste Klischee der Betriebswirtschaft, aber in deutschen Arztpraxen war es noch nie so wahr wie heute. Budgetdeckelungen, Personalmangel und steigende Patientenzahlen zwingen Niedergelassene dazu, ihre Prozesse radikal zu überdenken.",
+          "Der klassische Weg der Labordiagnostik ist – betriebswirtschaftlich betrachtet – ein Prozess-Albtraum. Er ist geprägt von Medienbrüchen, Wartezeiten und redundanten Arbeitsschritten. Der Einsatz moderner Point-of-Care (PoC) Systeme wie dem IGLO-PRO bietet hier einen Ausweg, der sich in barer Münze auszahlt."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Der versteckte Kosten-Eisberg der Zentraldiagnostik",
+        "paragraphs": [
+          "Viele Ärzte vergleichen Äpfel mit Birnen: Sie stellen die Kosten einer Laborüberweisung (nahezu null für die Praxis, da extern abgerechnet) den Anschaffungs- und Materialkosten eines PoC-Tests gegenüber. Auf den ersten Blick scheint das Fremdlabor immer günstiger. Doch das ist eine Milchmädchenrechnung. Sie ignoriert die Prozesskosten."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Vergleich: Zentrallabor vs. IGLO-PRO Workflow",
+        "headers": ["Schritt", "Zentraldiagnostik (Klassisch)", "IGLO-PRO (One-Visit-Model)"],
+        "rows": [
+          [
+            "Tag 1",
+            "Patient kommt, Venenpunktion, Probe logistisch vorbereiten (8 Min)",
+            "Patient kommt, Kapillarblut am Finger, Analyse läuft parallel (3 Min)"
+          ],
+          [
+            "Tag 2",
+            "Befund kommt (Fax/DFÜ), Arzt sichtet, MFA telefoniert hinterher (10-15 Min)",
+            "Kein Prozess (Alles erledigt)"
+          ],
+          [
+            "Tag 3",
+            "Erneuter Termin zur Besprechung (Empfangszeit + Arztzeit)",
+            "Kein Prozess (Alles erledigt)"
+          ],
+          [
+            "Ergebnis",
+            "3x Akte angefasst, 2 Termine blockiert, Personal gebunden",
+            "1x Akte angefasst, 1 Termin, Patient geht mit Klarheit"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Der ROI (Return on Investment) der MFA-Zeit",
+        "paragraphs": [
+          "Rechnen wir konservativ. Wenn Sie durch den Einsatz von Sofortdiagnostik bei nur 10 Patienten am Tag das nachträgliche Telefonat und die Verwaltungsarbeit einsparen, und wir pro Vorgang nur 5 Minuten ansetzen, sparen Sie 50 Minuten MFA-Arbeitszeit pro Tag.",
+          "Auf den Monat hochgerechnet sind das ca. 16 Stunden. Das sind zwei volle Arbeitstage einer Fachkraft, die nicht mit Telefonieren verbracht werden, sondern mit abrechenbaren Leistungen, Patientenbetreuung oder schlichtweg damit, pünktlich Feierabend zu machen (was die Mitarbeiterbindung massiv erhöht)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidität durch IGeL und Check-ups",
+        "content": "Neben der Kosteneinsparung durch Prozessoptimierung eröffnet das IGLO-PRO neue Umsatzfelder. Ein Lipid-Panel oder ein HbA1c-Wert als Vorsorgeleistung lassen sich hervorragend als IGeL anbieten. Viele Patienten wählen die Sofort-Option. Die Wertschöpfung bleibt zu 100% in Ihrer Praxis, statt an das Großlabor abzufließen."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatisierung spart Bürokratie",
+        "paragraphs": [
+          "Ein häufiges Gegenargument bei PoC war früher die Dokumentation. \"Dann muss ich den Wert ja händisch in den PC tippen.\" Mit der DX365 Integration ist dieses Argument vom Tisch. Das IGLO-PRO sendet die Daten nahtlos in Ihre digitale Infrastruktur. Das eliminiert Übertragungsfehler und stellt sicher, dass die Dokumentation revisionssicher ist. Automatisierung ist der Schlüssel zur Skalierbarkeit."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Fazit: Investition in Ruhe und Ordnung",
+        "paragraphs": [
+          "Die Anschaffung eines modernen PoC-Systems ist eine Investition. Aber es ist keine Ausgabe für \"Luxus\", sondern eine Investition in Prozessstabilität.",
+          "Eine Praxis, die im \"One-Visit-Model\" arbeitet, ist ruhiger. Das Wartezimmer ist weniger voll, weil Patienten nicht für 2-Minuten-Besprechungen wiederkommen müssen. Das Telefon klingelt seltener, weil Patienten nicht nach ihren Werten fragen müssen – sie haben sie ja schon.",
+          "In Zeiten des Fachkräftemangels ist eine stressfreie Arbeitsumgebung der größte wirtschaftliche Hebel, den Sie haben. Das IGLO-PRO hilft Ihnen nicht nur, bessere Medizin zu machen – es hilft Ihnen, Ihre Praxis als effizientes Unternehmen zu führen."
+        ]
+      }
+    ]
+  },
+  "en": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduction",
+        "paragraphs": [
+          "When doctors talk about diagnostics, it's usually about sensitivity, specificity, and clinical relevance. When practice managers look at diagnostics, they often see only a cost factor. But this calculation is outdated. In modern practice economics, the price of the test strip is not the decisive variable, but the resource we cannot buy: Time. An analysis of why the IGLO-PRO is ultimately more profitable than the central laboratory.",
+          "'Time is money.' It is the oldest cliché in business administration, but in medical practices, it has never been as true as today. Budget caps, staff shortages, and rising patient numbers force practitioners to radically rethink their processes.",
+          "The classic path of laboratory diagnostics is – from a business perspective – a process nightmare. It is characterized by media breaks, waiting times, and redundant work steps. The use of modern Point-of-Care (PoC) systems like the IGLO-PRO offers a way out here that pays off in hard cash."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "The Hidden Cost Iceberg of Central Diagnostics",
+        "paragraphs": [
+          "Many doctors compare apples and oranges: They contrast the costs of a laboratory referral (almost zero for the practice as billed externally) with the acquisition and material costs of a PoC test. At first glance, the external laboratory always seems cheaper. But that is a naive calculation. It ignores process costs."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Comparison: Central Lab vs. IGLO-PRO Workflow",
+        "headers": ["Step", "Central Diagnostics (Classic)", "IGLO-PRO (One-Visit-Model)"],
+        "rows": [
+          [
+            "Day 1",
+            "Patient comes, venous puncture, prepare sample logistically (8 min)",
+            "Patient comes, capillary blood at finger, analysis runs parallel (3 min)"
+          ],
+          [
+            "Day 2",
+            "Finding arrives (Fax/Data transfer), doctor reviews, MFA calls back (10-15 min)",
+            "No process (All done)"
+          ],
+          [
+            "Day 3",
+            "New appointment for discussion (Reception time + Doctor time)",
+            "No process (All done)"
+          ],
+          [
+            "Result",
+            "File touched 3x, 2 appointments blocked, staff tied up",
+            "File touched 1x, 1 appointment, patient leaves with clarity"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "The ROI (Return on Investment) of MFA Time",
+        "paragraphs": [
+          "Let's calculate conservatively. If you save the subsequent phone call and administrative work for only 10 patients a day by using instant diagnostics, and we estimate only 5 minutes per process, you save 50 minutes of MFA working time per day.",
+          "Extrapolated to the month, that's approx. 16 hours. That is two full working days of a specialist not spent on the phone, but on billable services, patient care, or simply finishing work on time (which massively increases employee retention)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidity through IGeL and Check-ups",
+        "content": "In addition to cost savings through process optimization, the IGLO-PRO opens up new revenue streams. A lipid panel or an HbA1c value as a preventive service can be excellently offered as an IGeL service. Many patients choose the instant option. The value creation remains 100% in your practice instead of flowing out to the large laboratory."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automation Saves Bureaucracy",
+        "paragraphs": [
+          "A common counter-argument to PoC used to be documentation. 'Then I have to type the value into the PC manually.' With the DX365 integration, this argument is off the table. The IGLO-PRO sends the data seamlessly into your digital infrastructure. This eliminates transmission errors and ensures that documentation is audit-proof. Automation is the key to scalability."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusion: Investment in Calm and Order",
+        "paragraphs": [
+          "The acquisition of a modern PoC system is an investment. But it is not an expense for 'luxury', but an investment in process stability.",
+          "A practice working in the 'One-Visit-Model' is calmer. The waiting room is less full because patients don't have to come back for 2-minute discussions. The phone rings less often because patients don't have to ask for their values – they already have them.",
+          "In times of skilled worker shortage, a stress-free working environment is the biggest economic lever you have. The IGLO-PRO helps you not only to practice better medicine – it helps you to run your practice as an efficient business."
+        ]
+      }
+    ]
+  },
+  "pl": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Wstęp",
+        "paragraphs": [
+          "Kiedy lekarze rozmawiają o diagnostyce, zwykle chodzi o czułość, swoistość i znaczenie kliniczne. Kiedy menedżerowie praktyk patrzą na diagnostykę, często widzą tylko czynnik kosztów. Ale ten rachunek jest przestarzały. W nowoczesnej ekonomii praktyki decydującą zmienną nie jest cena paska testowego, ale zasób, którego nie możemy kupić: Czas. Analiza, dlaczego IGLO-PRO jest ostatecznie bardziej opłacalne niż centralne laboratorium.",
+          "„Czas to pieniądz.” To najstarszy banał w administracji biznesowej, ale w praktykach lekarskich nigdy nie był tak prawdziwy jak dzisiaj. Pułapy budżetowe, braki kadrowe i rosnąca liczba pacjentów zmuszają lekarzy do radykalnego przemyślenia swoich procesów.",
+          "Klasyczna ścieżka diagnostyki laboratoryjnej to – z perspektywy biznesowej – koszmar procesowy. Charakteryzuje się przerwami w mediach, czasem oczekiwania i zbędnymi krokami pracy. Zastosowanie nowoczesnych systemów Point-of-Care (PoC), takich jak IGLO-PRO, oferuje tutaj wyjście, które opłaca się w gotówce."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Ukryta góra lodowa kosztów centralnej diagnostyki",
+        "paragraphs": [
+          "Wielu lekarzy porównuje jabłka z pomarańczami: Zestawiają koszty skierowania do laboratorium (prawie zerowe dla praktyki, ponieważ rozliczane zewnętrznie) z kosztami nabycia i materiałów testu PoC. Na pierwszy rzut oka zewnętrzne laboratorium zawsze wydaje się tańsze. Ale to naiwny rachunek. Ignoruje koszty procesowe."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Porównanie: Centralne Laboratorium vs. Przepływ pracy IGLO-PRO",
+        "headers": ["Krok", "Diagnostyka Centralna (Klasyczna)", "IGLO-PRO (Model jednej wizyty)"],
+        "rows": [
+          [
+            "Dzień 1",
+            "Pacjent przychodzi, pobranie żylne, przygotowanie próbki logistycznie (8 min)",
+            "Pacjent przychodzi, krew włośniczkowa z palca, analiza przebiega równolegle (3 min)"
+          ],
+          [
+            "Dzień 2",
+            "Przychodzi wynik (Faks/Transfer danych), lekarz przegląda, asystent oddzwania (10-15 min)",
+            "Brak procesu (Wszystko zrobione)"
+          ],
+          [
+            "Dzień 3",
+            "Nowa wizyta na omówienie (Czas recepcji + Czas lekarza)",
+            "Brak procesu (Wszystko zrobione)"
+          ],
+          [
+            "Wynik",
+            "Kartoteka dotknięta 3x, 2 wizyty zablokowane, personel zajęty",
+            "Kartoteka dotknięta 1x, 1 wizyta, pacjent wychodzi z jasnością"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "ROI (Zwrot z inwestycji) czasu asystenta",
+        "paragraphs": [
+          "Policzmy konserwatywnie. Jeśli zaoszczędzisz na późniejszym telefonie i pracy administracyjnej dla zaledwie 10 pacjentów dziennie dzięki zastosowaniu natychmiastowej diagnostyki, a na jeden proces szacujemy tylko 5 minut, oszczędzasz 50 minut czasu pracy asystenta dziennie.",
+          "W przeliczeniu na miesiąc to ok. 16 godzin. To dwa pełne dni pracy specjalisty nie spędzone przy telefonie, ale na usługach płatnych, opiece nad pacjentem lub po prostu kończeniu pracy o czasie (co masowo zwiększa retencję pracowników)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Płynność dzięki usługom dodatkowym i badaniom kontrolnym",
+        "content": "Oprócz oszczędności kosztów dzięki optymalizacji procesów, IGLO-PRO otwiera nowe strumienie przychodów. Panel lipidowy lub wartość HbA1c jako usługa profilaktyczna może być doskonale oferowana jako usługa dodatkowa. Wielu pacjentów wybiera opcję natychmiastową. Tworzenie wartości pozostaje w 100% w Twojej praktyce zamiast odpływać do dużego laboratorium."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatyzacja oszczędza biurokrację",
+        "paragraphs": [
+          "Częstym kontrargumentem wobec PoC była kiedyś dokumentacja. „Wtedy muszę ręcznie wpisywać wartość do komputera.” Dzięki integracji DX365 ten argument jest nieaktualny. IGLO-PRO wysyła dane płynnie do Twojej infrastruktury cyfrowej. Eliminuje to błędy transmisji i zapewnia, że dokumentacja jest odporna na audyty. Automatyzacja jest kluczem do skalowalności."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Wniosek: Inwestycja w spokój i porządek",
+        "paragraphs": [
+          "Nabycie nowoczesnego systemu PoC to inwestycja. Ale to nie wydatek na „luksus”, lecz inwestycja w stabilność procesów.",
+          "Praktyka pracująca w „Modelu jednej wizyty” jest spokojniejsza. Poczekalnia jest mniej pełna, ponieważ pacjenci nie muszą wracać na 2-minutowe omówienia. Telefon dzwoni rzadziej, ponieważ pacjenci nie muszą pytać o swoje wartości – już je mają.",
+          "W czasach niedoboru wykwalifikowanych pracowników bezstresowe środowisko pracy jest największą dźwignią ekonomiczną, jaką masz. IGLO-PRO pomaga Ci nie tylko uprawiać lepszą medycynę – pomaga Ci prowadzić praktykę jako wydajne przedsiębiorstwo."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduction",
+        "paragraphs": [
+          "Quand les médecins parlent de diagnostic, ils évoquent généralement la sensibilité, la spécificité et la pertinence clinique. Quand les gestionnaires de cabinet regardent le diagnostic, ils voient souvent uniquement un facteur de coût. Mais ce calcul est dépassé. En économie moderne de cabinet, le prix de la bandelette n’est pas la variable décisive, mais la ressource que nous ne pouvons pas acheter : le temps. Une analyse expliquant pourquoi l’IGLO-PRO est finalement plus rentable que le laboratoire central.",
+          "« Le temps, c’est de l’argent. » C’est le plus vieux cliché en gestion, mais dans les cabinets médicaux, il n’a jamais été aussi vrai qu’aujourd’hui. Les plafonds budgétaires, les pénuries de personnel et l’augmentation du nombre de patients obligent les praticiens à repenser radicalement leurs processus.",
+          "Le parcours classique du diagnostic en laboratoire est – d’un point de vue économique – un cauchemar de processus. Il est caractérisé par des ruptures de médias, des temps d’attente et des étapes de travail redondantes. L’utilisation de systèmes modernes de point de soin (PoC) comme l’IGLO-PRO offre une issue rentable."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "L’iceberg des coûts cachés du diagnostic centralisé",
+        "paragraphs": [
+          "Beaucoup de médecins comparent des pommes et des oranges : ils opposent les coûts d’une prescription de laboratoire (quasiment nuls pour le cabinet car facturés en externe) aux coûts d’acquisition et de matériel d’un test PoC. À première vue, le laboratoire externe semble toujours moins cher. Mais c’est un calcul naïf. Il ignore les coûts de processus."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Comparaison : laboratoire central vs. flux de travail IGLO-PRO",
+        "headers": ["Étape", "Diagnostic central (classique)", "IGLO-PRO (modèle en une visite)"],
+        "rows": [
+          [
+            "Jour 1",
+            "Le patient arrive, ponction veineuse, préparation logistique de l’échantillon (8 min)",
+            "Le patient arrive, prélèvement capillaire au doigt, analyse en parallèle (3 min)"
+          ],
+          [
+            "Jour 2",
+            "Résultat arrive (fax/transfert de données), le médecin examine, l’assistant médical rappelle (10-15 min)",
+            "Pas de processus (tout est fait)"
+          ],
+          [
+            "Jour 3",
+            "Nouveau rendez-vous pour discussion (temps d’accueil + temps du médecin)",
+            "Pas de processus (tout est fait)"
+          ],
+          [
+            "Résultat",
+            "Dossier manipulé 3 fois, 2 rendez-vous bloqués, personnel mobilisé",
+            "Dossier manipulé 1 fois, 1 rendez-vous, le patient repart avec des réponses"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Le retour sur investissement (ROI) du temps d’assistant médical",
+        "paragraphs": [
+          "Calculons de manière conservatrice. Si vous économisez l’appel téléphonique et le travail administratif pour seulement 10 patients par jour grâce au diagnostic instantané, et que nous estimons seulement 5 minutes par processus, vous économisez 50 minutes de temps de travail d’assistant médical par jour.",
+          "Extrapolé au mois, cela représente environ 16 heures. Ce sont deux journées complètes d’un spécialiste non passées au téléphone, mais consacrées à des prestations facturables, à la prise en charge des patients ou simplement à finir le travail à l’heure (ce qui augmente considérablement la fidélisation du personnel)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidités grâce aux prestations IGeL et aux bilans de santé",
+        "content": "En plus des économies réalisées grâce à l'optimisation des processus, l'IGLO-PRO ouvre de nouvelles sources de revenus. Un bilan lipidique ou une valeur HbA1c en service préventif peuvent être parfaitement proposés en tant que service IGeL. De nombreux patients choisissent l'option instantanée. La création de valeur reste intégralement dans votre cabinet au lieu de s'écouler vers le grand laboratoire."
+      },
+      {
+        "type": "text",
+        "heading": "DX365 : L'automatisation supprime la bureaucratie",
+        "paragraphs": [
+          "Un argument fréquemment opposé au PoC était la documentation. « Ensuite, je dois saisir la valeur manuellement dans l'ordinateur. » Avec l'intégration DX365, cet argument tombe à l'eau. L'IGLO-PRO transmet les données de manière fluide dans votre infrastructure numérique. Cela élimine les erreurs de transmission et garantit une documentation à l'épreuve des audits. L'automatisation est la clé de la montée en charge."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusion : Investir dans le calme et l'ordre",
+        "paragraphs": [
+          "L'acquisition d'un système PoC moderne est un investissement. Mais ce n'est pas une dépense de « luxe », c'est un investissement dans la stabilité des processus.",
+          "Un cabinet fonctionnant selon le « modèle en une visite » est plus serein. La salle d'attente est moins remplie car les patients n'ont pas à revenir pour des discussions de 2 minutes. Le téléphone sonne moins souvent car les patients n'ont pas à demander leurs résultats – ils les ont déjà.",
+          "En période de pénurie de personnel qualifié, un environnement de travail sans stress est le levier économique le plus important dont vous disposez. L'IGLO-PRO vous aide non seulement à pratiquer une meilleure médecine, mais aussi à gérer votre cabinet comme une entreprise efficace."
+        ]
+      }
+    ]
+  },
+  "it": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduzione",
+        "paragraphs": [
+          "Quando i medici parlano di diagnostica, di solito si tratta di sensibilità, specificità e rilevanza clinica. Quando i manager degli studi guardano alla diagnostica, spesso vedono solo un fattore di costo. Ma questo calcolo è obsoleto. Nell'economia moderna dello studio, il prezzo della striscia reattiva non è la variabile decisiva, ma la risorsa che non possiamo comprare: il tempo. Un'analisi del perché l'IGLO-PRO è in definitiva più redditizio del laboratorio centrale.",
+          "'Il tempo è denaro.' È il cliché più vecchio nell'amministrazione aziendale, ma negli studi medici non è mai stato così vero come oggi. Tetti di budget, carenza di personale e aumento del numero di pazienti costringono i professionisti a ripensare radicalmente i loro processi.",
+          "Il percorso classico della diagnostica di laboratorio è – da una prospettiva aziendale – un incubo di processo. È caratterizzato da interruzioni dei media, tempi di attesa e passaggi di lavoro ridondanti. L'uso di moderni sistemi Point-of-Care (PoC) come l'IGLO-PRO offre una via d'uscita qui che ripaga in contanti."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "L'iceberg dei costi nascosti della diagnostica centrale",
+        "paragraphs": [
+          "Molti medici confrontano le mele con le arance: Contrastano i costi di un invio al laboratorio (quasi zero per lo studio poiché fatturato esternamente) con i costi di acquisizione e materiale di un test PoC. A prima vista, il laboratorio esterno sembra sempre più economico. Ma questo è un calcolo ingenuo. Ignora i costi del processo."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Confronto: Laboratorio Centrale vs. Flusso di Lavoro IGLO-PRO",
+        "headers": [
+          "Passaggio",
+          "Diagnostica Centrale (Classica)",
+          "IGLO-PRO (Modello a visita unica)"
+        ],
+        "rows": [
+          [
+            "Giorno 1",
+            "Paziente arriva, prelievo venoso, preparare campione logisticamente (8 min)",
+            "Paziente arriva, sangue capillare al dito, analisi in parallelo (3 min)"
+          ],
+          [
+            "Giorno 2",
+            "Arriva il reperto (Fax/Trasferimento dati), medico esamina, assistente richiama (10-15 min)",
+            "Nessun processo (Tutto fatto)"
+          ],
+          [
+            "Giorno 3",
+            "Nuovo appuntamento per discussione (Tempo di ricezione + Tempo medico)",
+            "Nessun processo (Tutto fatto)"
+          ],
+          [
+            "Risultato",
+            "Cartella toccata 3x, 2 appuntamenti bloccati, personale impegnato",
+            "Cartella toccata 1x, 1 appuntamento, paziente se ne va con chiarezza"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Il ROI (Ritorno sull'Investimento) del tempo dell'assistente",
+        "paragraphs": [
+          "Calcoliamo in modo conservativo. Se risparmi la telefonata successiva e il lavoro amministrativo per soli 10 pazienti al giorno utilizzando la diagnostica istantanea, e stimiamo solo 5 minuti per processo, risparmi 50 minuti di tempo di lavoro dell'assistente al giorno.",
+          "Estrapolato al mese, sono ca. 16 ore. Sono due giorni lavorativi completi di uno specialista non spesi al telefono, ma in servizi fatturabili, assistenza ai pazienti o semplicemente finendo il lavoro in orario (il che aumenta massicciamente la fidelizzazione dei dipendenti)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidità attraverso servizi opzionali e check-up",
+        "content": "Oltre al risparmio sui costi attraverso l'ottimizzazione dei processi, l'IGLO-PRO apre nuovi flussi di entrate. Un pannello lipidico o un valore di HbA1c come servizio preventivo può essere offerto in modo eccellente come servizio opzionale. Molti pazienti scelgono l'opzione istantanea. La creazione di valore rimane al 100% nel tuo studio invece di defluire verso il grande laboratorio."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: L'automazione risparmia burocrazia",
+        "paragraphs": [
+          "Un contro-argomento comune al PoC era la documentazione. 'Allora devo digitare il valore nel PC manualmente.' Con l'integrazione di DX365, questo argomento è fuori discussione. L'IGLO-PRO invia i dati senza problemi alla tua infrastruttura digitale. Questo elimina errori di trasmissione e garantisce che la documentazione sia a prova di audit. L'automazione è la chiave per la scalabilità."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusione: Investimento in calma e ordine",
+        "paragraphs": [
+          "L'acquisizione di un moderno sistema PoC è un investimento. Ma non è una spesa per il 'lusso', bensì un investimento nella stabilità dei processi.",
+          "Uno studio che lavora nel 'Modello a visita unica' è più calmo. La sala d'attesa è meno piena perché i pazienti non devono tornare per discussioni di 2 minuti. Il telefono squilla meno spesso perché i pazienti non devono chiedere i loro valori – li hanno già.",
+          "In tempi di carenza di lavoratori qualificati, un ambiente di lavoro privo di stress è la più grande leva economica che hai. L'IGLO-PRO ti aiuta non solo a praticare una medicina migliore – ti aiuta a gestire il tuo studio come un'azienda efficiente."
+        ]
+      }
+    ]
+  },
+  "es": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introducción",
+        "paragraphs": [
+          "Cuando los médicos hablan de diagnóstico, generalmente se trata de sensibilidad, especificidad y relevancia clínica. Cuando los gerentes de consulta miran el diagnóstico, a menudo ven solo un factor de coste. Pero este cálculo está obsoleto. En la economía moderna de la práctica, el precio de la tira reactiva no es la variable decisiva, sino el recurso que no podemos comprar: el tiempo. Un análisis de por qué el IGLO-PRO es, en última instancia, más rentable que el laboratorio central.",
+          "'El tiempo es dinero'. Es el cliché más antiguo en administración de empresas, pero en las consultas médicas nunca ha sido tan cierto como hoy. Los topes presupuestarios, la escasez de personal y el aumento del número de pacientes obligan a los profesionales a repensar radicalmente sus procesos.",
+          "El camino clásico del diagnóstico de laboratorio es, desde una perspectiva empresarial, una pesadilla de procesos. Se caracteriza por interrupciones de medios, tiempos de espera y pasos de trabajo redundantes. El uso de sistemas modernos Point-of-Care (PoC) como el IGLO-PRO ofrece una salida aquí que vale la pena en efectivo."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "El iceberg de costes ocultos del diagnóstico central",
+        "paragraphs": [
+          "Muchos médicos comparan manzanas con naranjas: Contrastan los costes de una remisión al laboratorio (casi cero para la consulta, ya que se factura externamente) con los costes de adquisición y material de una prueba PoC. A primera vista, el laboratorio externo siempre parece más barato. Pero ese es un cálculo ingenuo. Ignora los costes del proceso."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Comparación: Laboratorio Central vs. Flujo de Trabajo IGLO-PRO",
+        "headers": ["Paso", "Diagnóstico Central (Clásico)", "IGLO-PRO (Modelo de una visita)"],
+        "rows": [
+          [
+            "Día 1",
+            "Paciente llega, punción venosa, preparar muestra logísticamente (8 min)",
+            "Paciente llega, sangre capilar en el dedo, análisis se ejecuta en paralelo (3 min)"
+          ],
+          [
+            "Día 2",
+            "Llega el hallazgo (Fax/Transferencia de datos), médico revisa, asistente llama (10-15 min)",
+            "Sin proceso (Todo hecho)"
+          ],
+          [
+            "Día 3",
+            "Nueva cita para discusión (Tiempo de recepción + Tiempo de médico)",
+            "Sin proceso (Todo hecho)"
+          ],
+          [
+            "Resultado",
+            "Expediente tocado 3x, 2 citas bloqueadas, personal ocupado",
+            "Expediente tocado 1x, 1 cita, paciente se va con claridad"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "El ROI (Retorno de la Inversión) del tiempo del asistente",
+        "paragraphs": [
+          "Calculemos de forma conservadora. Si ahorra la llamada telefónica posterior y el trabajo administrativo para solo 10 pacientes al día utilizando diagnósticos instantáneos, y estimamos solo 5 minutos por proceso, ahorra 50 minutos de tiempo de trabajo del asistente por día.",
+          "Extrapolado al mes, son aprox. 16 horas. Eso son dos días completos de trabajo de un especialista no dedicados al teléfono, sino a servicios facturables, atención al paciente o simplemente terminar el trabajo a tiempo (lo que aumenta masivamente la retención de empleados)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidez a través de servicios opcionales y chequeos",
+        "content": "Además del ahorro de costes a través de la optimización de procesos, el IGLO-PRO abre nuevas fuentes de ingresos. Un panel de lípidos o un valor de HbA1c como servicio preventivo se puede ofrecer de manera excelente como un servicio opcional. Muchos pacientes eligen la opción instantánea. La creación de valor permanece al 100% en su consulta en lugar de fluir hacia el gran laboratorio."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: La automatización ahorra burocracia",
+        "paragraphs": [
+          "Un contraargumento común al PoC solía ser la documentación. 'Entonces tengo que escribir el valor en el PC manualmente'. Con la integración de DX365, este argumento está fuera de la mesa. El IGLO-PRO envía los datos sin problemas a su infraestructura digital. Esto elimina errores de transmisión y asegura que la documentación sea a prueba de auditorías. La automatización es la clave para la escalabilidad."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusión: Inversión en calma y orden",
+        "paragraphs": [
+          "La adquisición de un sistema PoC moderno es una inversión. Pero no es un gasto en 'lujo', sino una inversión en estabilidad de procesos.",
+          "Una consulta que trabaja en el 'Modelo de una visita' es más tranquila. La sala de espera está menos llena porque los pacientes no tienen que volver para discusiones de 2 minutos. El teléfono suena menos a menudo porque los pacientes no tienen que preguntar por sus valores: ya los tienen.",
+          "En tiempos de escasez de trabajadores cualificados, un entorno de trabajo libre de estrés es la mayor palanca económica que tiene. El IGLO-PRO le ayuda no solo a practicar una mejor medicina, sino a gestionar su consulta como un negocio eficiente."
+        ]
+      }
+    ]
+  },
+  "pt": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introdução",
+        "paragraphs": [
+          "Quando os médicos falam de diagnóstico, geralmente referem-se à sensibilidade, especificidade e relevância clínica. Quando os gestores de consulta olham para o diagnóstico, muitas vezes veem apenas um fator de custo. Mas esse cálculo está desatualizado. Na economia moderna da consulta, o preço da tira de teste não é a variável decisiva, mas sim o recurso que não podemos comprar: o tempo. Uma análise de porque o IGLO-PRO é, em última análise, mais rentável do que o laboratório central.",
+          "\"Tempo é dinheiro.\" É o cliché mais antigo da gestão empresarial, mas nas consultas médicas nunca foi tão verdadeiro como hoje. Limites orçamentais, falta de pessoal e aumento do número de pacientes obrigam os profissionais a repensar radicalmente os seus processos.",
+          "O caminho clássico do diagnóstico laboratorial é – do ponto de vista empresarial – um pesadelo de processos. Caracteriza-se por quebras de meios, tempos de espera e passos redundantes. A utilização de sistemas modernos de Point-of-Care (PoC) como o IGLO-PRO oferece uma saída que compensa em dinheiro vivo."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "O Iceberg dos Custos Ocultos do Diagnóstico Central",
+        "paragraphs": [
+          "Muitos médicos comparam alhos com bugalhos: contrastam os custos de uma referência laboratorial (quase zero para a consulta, pois faturado externamente) com os custos de aquisição e materiais de um teste PoC. À primeira vista, o laboratório externo parece sempre mais barato. Mas é um cálculo ingénuo. Ignora os custos de processo."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Comparação: Laboratório Central vs. Fluxo de Trabalho IGLO-PRO",
+        "headers": ["Passo", "Diagnóstico Central (Clássico)", "IGLO-PRO (Modelo de Uma Visita)"],
+        "rows": [
+          [
+            "Dia 1",
+            "Paciente chega, punção venosa, preparação logística da amostra (8 min)",
+            "Paciente chega, sangue capilar no dedo, análise corre em paralelo (3 min)"
+          ],
+          [
+            "Dia 2",
+            "Resultado chega (Fax/Transferência de dados), médico analisa, assistente liga ao paciente (10-15 min)",
+            "Sem processo (Tudo feito)"
+          ],
+          [
+            "Dia 3",
+            "Nova consulta para discussão (Tempo de receção + Tempo do médico)",
+            "Sem processo (Tudo feito)"
+          ],
+          [
+            "Resultado",
+            "Processo tocado 3x, 2 consultas bloqueadas, pessoal ocupado",
+            "Processo tocado 1x, 1 consulta, paciente sai com clareza"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "O ROI (Retorno do Investimento) do Tempo do Assistente Médico",
+        "paragraphs": [
+          "Vamos calcular de forma conservadora. Se poupar a chamada telefónica subsequente e o trabalho administrativo para apenas 10 pacientes por dia usando diagnóstico instantâneo, e estimarmos apenas 5 minutos por processo, poupa 50 minutos de tempo de trabalho do assistente médico por dia.",
+          "Extrapolado para o mês, são cerca de 16 horas. Isso equivale a dois dias úteis completos de um especialista não passados ao telefone, mas em serviços faturáveis, cuidados ao paciente ou simplesmente a terminar o trabalho a horas (o que aumenta massivamente a retenção de colaboradores)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquidez através de IGeL e Check-ups",
+        "content": "Além da poupança de custos através da otimização de processos, o IGLO-PRO abre novas fontes de receita. Um painel lipídico ou um valor de HbA1c como serviço preventivo podem ser excelentemente oferecidos como um serviço IGeL. Muitos pacientes optam pela opção instantânea. A criação de valor permanece 100% na sua prática, em vez de fluir para o grande laboratório."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: A Automação Elimina a Burocracia",
+        "paragraphs": [
+          "Um contra-argumento comum ao PoC costumava ser a documentação. \"Então tenho de introduzir o valor manualmente no PC.\" Com a integração DX365, esse argumento deixa de existir. O IGLO-PRO envia os dados de forma fluida para a sua infraestrutura digital. Isto elimina erros de transmissão e garante que a documentação é à prova de auditorias. A automação é a chave para a escalabilidade."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusão: Investimento em Calma e Ordem",
+        "paragraphs": [
+          "A aquisição de um sistema PoC moderno é um investimento. Mas não é uma despesa para \"luxo\", mas sim um investimento na estabilidade dos processos.",
+          "Uma prática que trabalha no \"Modelo de Uma Só Visita\" é mais calma. A sala de espera está menos cheia porque os pacientes não têm de voltar para discussões de 2 minutos. O telefone toca menos porque os pacientes não têm de pedir os seus valores – já os têm.",
+          "Em tempos de escassez de profissionais qualificados, um ambiente de trabalho sem stress é a maior alavanca económica que possui. O IGLO-PRO ajuda-o não só a praticar melhor medicina – ajuda-o a gerir a sua prática como um negócio eficiente."
+        ]
+      }
+    ]
+  },
+  "da": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Introduktion",
+        "paragraphs": [
+          "Når læger taler om diagnostik, handler det som regel om sensitivitet, specificitet og klinisk relevans. Når praksisledere ser på diagnostik, ser de ofte kun en omkostningsfaktor. Men denne beregning er forældet. I moderne praksisøkonomi er prisen på teststrimlen ikke den afgørende variabel, men den ressource, vi ikke kan købe: tid. En analyse af, hvorfor IGLO-PRO i sidste ende er mere rentabel end det centrale laboratorium.",
+          "'Tid er penge.' Det er det ældste kliché inden for erhvervsøkonomi, men i medicinske praksisser har det aldrig været mere sandt end i dag. Budgetlofter, personalemangel og stigende patienttal tvinger praktiserende læger til at gentænke deres processer radikalt.",
+          "Den klassiske vej for laboratoriediagnostik er – set fra et forretningsperspektiv – et procesmareridt. Den er præget af mediebrud, ventetider og redundante arbejdstrin. Anvendelsen af moderne Point-of-Care (PoC) systemer som IGLO-PRO tilbyder en udvej, der betaler sig i hårde kontanter."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Det skjulte omkostningsisbjerg ved central diagnostik",
+        "paragraphs": [
+          "Mange læger sammenligner æbler og pærer: De sætter omkostningerne ved en laboratoriehenvisning (næsten nul for praksis, da det faktureres eksternt) op imod anskaffelses- og materialomkostningerne ved en PoC-test. Ved første øjekast virker det eksterne laboratorium altid billigere. Men det er en naiv beregning. Den ignorerer procesomkostninger."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Sammenligning: Centralt laboratorium vs. IGLO-PRO arbejdsgang",
+        "headers": ["Trin", "Central diagnostik (klassisk)", "IGLO-PRO (én-besøgs-model)"],
+        "rows": [
+          [
+            "Dag 1",
+            "Patient kommer, venøs blodprøve, logistisk prøveforberedelse (8 min)",
+            "Patient kommer, kapillært blod fra finger, analyse kører parallelt (3 min)"
+          ],
+          [
+            "Dag 2",
+            "Resultat ankommer (fax/dataoverførsel), lægen gennemgår, MFA ringer tilbage (10-15 min)",
+            "Ingen proces (alt færdigt)"
+          ],
+          [
+            "Dag 3",
+            "Ny aftale til drøftelse (receptionstid + lægetid)",
+            "Ingen proces (alt færdigt)"
+          ],
+          [
+            "Resultat",
+            "Journal berørt 3 gange, 2 aftaler blokeret, personale bundet",
+            "Journal berørt 1 gang, 1 aftale, patient går hjem med klarhed"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "ROI (Return on Investment) af MFA-tid",
+        "paragraphs": [
+          "Lad os regne konservativt. Hvis du sparer den efterfølgende opringning og administrative arbejde for blot 10 patienter om dagen ved at bruge øjeblikkelig diagnostik, og vi anslår kun 5 minutter pr. proces, sparer du 50 minutters MFA-arbejdstid dagligt.",
+          "Ekstrapoleret til måneden svarer det til ca. 16 timer. Det er to hele arbejdsdage for en specialist, der ikke bruges på telefonen, men på fakturerbare ydelser, patientpleje eller blot at kunne gå hjem til tiden (hvilket øger medarbejderfastholdelsen markant)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Likviditet gennem IGeL og check-ups",
+        "content": "Ud over omkostningsbesparelser gennem procesoptimering åbner IGLO-PRO op for nye indtægtskilder. En lipidprofil eller en HbA1c-værdi som forebyggende ydelse kan med fordel tilbydes som en IGeL-service. Mange patienter vælger den øjeblikkelige løsning. Værdiskabelsen forbliver 100 % i din praksis i stedet for at løbe ud til det store laboratorium."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatisering sparer bureaukrati",
+        "paragraphs": [
+          "Et almindeligt modargument mod PoC var tidligere dokumentationen. ’Så skal jeg manuelt indtaste værdien på PC’en.’ Med DX365-integrationen er dette argument fjernet. IGLO-PRO sender dataene sømløst ind i din digitale infrastruktur. Det eliminerer overførselsfejl og sikrer, at dokumentationen er revisionssikker. Automatisering er nøglen til skalerbarhed."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Konklusion: Investering i ro og orden",
+        "paragraphs": [
+          "Anskaffelsen af et moderne PoC-system er en investering. Men det er ikke en udgift til ’luksus’, men en investering i processtabilitet.",
+          "En praksis, der arbejder efter ’One-Visit-Model’, er mere rolig. Venteværelset er mindre fyldt, fordi patienterne ikke skal komme tilbage til 2-minutters samtaler. Telefonen ringer sjældnere, fordi patienterne ikke behøver at spørge efter deres værdier – de har dem allerede.",
+          "I tider med mangel på kvalificeret arbejdskraft er et stressfrit arbejdsmiljø det største økonomiske løftestang, du har. IGLO-PRO hjælper dig ikke kun med at praktisere bedre medicin – det hjælper dig også med at drive din praksis som en effektiv virksomhed."
+        ]
+      }
+    ]
+  },
+  "nl": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Inleiding",
+        "paragraphs": [
+          "Wanneer artsen het over diagnostiek hebben, gaat het meestal over sensitiviteit, specificiteit en klinische relevantie. Wanneer praktijkmanagers naar diagnostiek kijken, zien ze vaak alleen een kostenpost. Maar die berekening is achterhaald. In de moderne praktijkeconomie is de prijs van de teststrip niet de doorslaggevende variabele, maar de hulpbron die we niet kunnen kopen: tijd. Een analyse waarom de IGLO-PRO uiteindelijk winstgevender is dan het centrale laboratorium.",
+          "'Tijd is geld.' Het is het oudste cliché in de bedrijfskunde, maar in medische praktijken is het nog nooit zo waar geweest als vandaag. Budgetplafonds, personeelstekorten en stijgende patiëntenaantallen dwingen artsen hun processen radicaal te heroverwegen.",
+          "Het klassieke traject van laboratoriumdiagnostiek is – vanuit zakelijk oogpunt – een procesnachtmerrie. Het wordt gekenmerkt door mediabraken, wachttijden en overbodige werkstappen. Het gebruik van moderne Point-of-Care (PoC)-systemen zoals de IGLO-PRO biedt hier een uitweg die zich in harde euro’s terugbetaalt."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "De verborgen kostenijsberg van centrale diagnostiek",
+        "paragraphs": [
+          "Veel artsen vergelijken appels met peren: ze zetten de kosten van een laboratoriumverwijzing (bijna nul voor de praktijk omdat extern gedeclareerd) af tegen de aanschaf- en materiaalkosten van een PoC-test. Op het eerste gezicht lijkt het externe laboratorium altijd goedkoper. Maar dat is een naïeve berekening. Proceskosten worden genegeerd."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Vergelijking: centraal laboratorium vs. IGLO-PRO workflow",
+        "headers": ["Stap", "Centrale diagnostiek (klassiek)", "IGLO-PRO (one-visit-model)"],
+        "rows": [
+          [
+            "Dag 1",
+            "Patiënt komt, veneuze punctie, monster logistiek klaarmaken (8 min)",
+            "Patiënt komt, capillair bloed uit de vinger, analyse loopt parallel (3 min)"
+          ],
+          [
+            "Dag 2",
+            "Uitslag komt binnen (fax/datatransfer), arts beoordeelt, doktersassistente belt terug (10-15 min)",
+            "Geen proces (alles afgerond)"
+          ],
+          [
+            "Dag 3",
+            "Nieuwe afspraak voor bespreking (balietijd + artsentijd)",
+            "Geen proces (alles afgerond)"
+          ],
+          [
+            "Resultaat",
+            "Dossier 3x aangeraakt, 2 afspraken geblokkeerd, personeel bezet",
+            "Dossier 1x aangeraakt, 1 afspraak, patiënt vertrekt met duidelijkheid"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "De ROI (return on investment) van MFA-tijd",
+        "paragraphs": [
+          "Laten we conservatief rekenen. Als u door directe diagnostiek bij slechts 10 patiënten per dag de daaropvolgende telefoontjes en administratieve werkzaamheden bespaart, en we schatten slechts 5 minuten per proces, bespaart u 50 minuten werktijd van de doktersassistente per dag.",
+          "Hogerop gerekend naar de maand is dat ongeveer 16 uur. Dat zijn twee volledige werkdagen van een specialist die niet aan de telefoon zit, maar besteed kan worden aan declarabele diensten, patiëntenzorg of simpelweg op tijd klaar zijn met het werk (wat het personeelsbehoud aanzienlijk verhoogt)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Liquiditeit door IGeL en check-ups",
+        "content": "Naast kostenbesparingen door procesoptimalisatie opent de IGLO-PRO nieuwe inkomstenstromen. Een lipidenpanel of een HbA1c-waarde als preventieve dienst kan uitstekend als IGeL-dienst worden aangeboden. Veel patiënten kiezen voor de directe optie. De waardetoevoeging blijft 100% in uw praktijk in plaats van weg te vloeien naar het grote laboratorium."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatisering Bespaart Bureaucratie",
+        "paragraphs": [
+          "Een veelgehoord tegenargument tegen PoC was documentatie. 'Dan moet ik de waarde handmatig in de pc typen.' Met de DX365-integratie is dit argument van tafel. De IGLO-PRO stuurt de gegevens naadloos door naar uw digitale infrastructuur. Dit voorkomt overdrachtsfouten en zorgt ervoor dat de documentatie auditbestendig is. Automatisering is de sleutel tot schaalbaarheid."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Conclusie: Investering in Rust en Orde",
+        "paragraphs": [
+          "De aanschaf van een modern PoC-systeem is een investering. Maar het is geen uitgave voor 'luxe', maar een investering in processtabiliteit.",
+          "Een praktijk die werkt volgens het 'One-Visit-Model' is rustiger. De wachtkamer is minder vol omdat patiënten niet terug hoeven te komen voor 2-minutengesprekken. De telefoon gaat minder vaak omdat patiënten niet hoeven te vragen naar hun waarden – ze hebben ze al.",
+          "In tijden van personeelstekort is een stressvrije werkomgeving de grootste economische hefboom die u heeft. De IGLO-PRO helpt u niet alleen om betere geneeskunde te bedrijven – het helpt u ook om uw praktijk efficiënt te runnen."
+        ]
+      }
+    ]
+  },
+  "cs": {
+    "sections": [
+      {
+        "type": "text",
+        "heading": "Úvod",
+        "paragraphs": [
+          "Když lékaři mluví o diagnostice, jde většinou o senzitivitu, specificitu a klinickou relevanci. Když se na diagnostiku dívají manažeři ordinací, vidí často jen nákladový faktor. Ale tento výpočet je zastaralý. V moderní ekonomice praxe není rozhodující proměnnou cena testovacího proužku, ale zdroj, který si nemůžeme koupit: Čas. Analýza, proč je IGLO-PRO v konečném důsledku ziskovější než centrální laboratoř.",
+          "„Čas jsou peníze.“ Je to nejstarší klišé podnikové ekonomiky, ale v lékařských ordinacích to nikdy nebylo tak pravdivé jako dnes. Rozpočtové stropy, nedostatek personálu a rostoucí počty pacientů nutí lékaře radikálně přehodnotit své procesy.",
+          "Klasická cesta laboratorní diagnostiky je – ekonomicky vzato – procesní noční můra. Je charakterizována mediálními zlomy, čekacími dobami a nadbytečnými pracovními kroky. Nasazení moderních systémů Point-of-Care (PoC) jako IGLO-PRO zde nabízí východisko, které se vyplatí v hotovosti."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Skrytý nákladový ledovec centrální diagnostiky",
+        "paragraphs": [
+          "Mnoho lékařů srovnává jablka s hruškami: Staví náklady na odeslání do laboratoře (téměř nulové pro ordinaci, protože účtováno externě) proti pořizovacím a materiálovým nákladům PoC testu. Na první pohled se cizí laboratoř zdá vždy levnější. Ale to je chybný výpočet. Ignoruje procesní náklady."
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Srovnání: Centrální laboratoř vs. IGLO-PRO Workflow",
+        "headers": ["Krok", "Centrální diagnostika (Klasická)", "IGLO-PRO (Model jedné návštěvy)"],
+        "rows": [
+          [
+            "Den 1",
+            "Pacient přichází, žilní odběr, logisticky připravit vzorek (8 min)",
+            "Pacient přichází, kapilární krev z prstu, analýza běží paralelně (3 min)"
+          ],
+          [
+            "Den 2",
+            "Nález přichází (Fax/Přenos dat), lékař prohlíží, sestra volá zpět (10-15 min)",
+            "Žádný proces (Vše vyřízeno)"
+          ],
+          [
+            "Den 3",
+            "Další termín na konzultaci (Čas recepce + Čas lékaře)",
+            "Žádný proces (Vše vyřízeno)"
+          ],
+          [
+            "Výsledek",
+            "3x sáhnutí na spis, 2 termíny blokovány, personál vázán",
+            "1x sáhnutí na spis, 1 termín, pacient odchází s jasností"
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "ROI (Návratnost investic) času sestry",
+        "paragraphs": [
+          "Počítejme konzervativně. Pokud nasazením okamžité diagnostiky ušetříte u pouhých 10 pacientů denně následný telefonát a administrativní práci, a na jeden proces počítáme jen 5 minut, ušetříte 50 minut pracovní doby sestry denně.",
+          "Přepočteno na měsíc je to cca 16 hodin. To jsou dva plné pracovní dny odborné síly, které nejsou stráveny telefonováním, ale fakturovatelnými výkony, péčí o pacienty nebo prostě tím, že jdou včas domů (což masivně zvyšuje loajalitu zaměstnanců)."
+        ]
+      },
+      {
+        "type": "infobox",
+        "heading": "Likvidita díky nadstandardním službám a check-upům",
+        "content": "Kromě úspory nákladů optimalizací procesů otevírá IGLO-PRO nové oblasti příjmů. Lipidový panel nebo hodnota HbA1c jako preventivní výkon se dají výborně nabízet jako nadstandardní služba. Mnoho pacientů volí okamžitou možnost. Přidaná hodnota zůstává ze 100 % ve vaší ordinaci, místo aby odtékala do velké laboratoře."
+      },
+      {
+        "type": "text",
+        "heading": "DX365: Automatizace šetří byrokracii",
+        "paragraphs": [
+          "Častým protiargumentem u PoC byla dříve dokumentace. „To pak musím hodnotu ručně ťukat do PC.“ S integrací DX365 je tento argument ze stolu. IGLO-PRO posílá data plynule do vaší digitální infrastruktury. To eliminuje chyby při přenosu a zajišťuje, že dokumentace je auditovatelná. Automatizace je klíčem ke škálovatelnosti."
+        ]
+      },
+      {
+        "type": "text",
+        "heading": "Závěr: Investice do klidu a pořádku",
+        "paragraphs": [
+          "Pořízení moderního PoC systému je investice. Ale není to výdaj na „luxus“, nýbrž investice do stability procesů.",
+          "Ordinace, která pracuje v „modelu jedné návštěvy“, je klidnější. Čekárna je méně plná, protože pacienti se nemusí vracet na 2minutové konzultace. Telefon zvoní méně často, protože pacienti se nemusí ptát na své hodnoty – už je mají.",
+          "V dobách nedostatku kvalifikovaných pracovníků je pracovní prostředí bez stresu největší ekonomickou pákou, kterou máte. IGLO-PRO vám pomáhá nejen dělat lepší medicínu – pomáhá vám vést vaši ordinaci jako efektivní podnik."
+        ]
+      }
+    ]
+  }
+}

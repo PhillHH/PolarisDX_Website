@@ -1,143 +1,106 @@
+import { ArrowRight, Calculator } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Check } from 'lucide-react'
+import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 import { Button } from '../ui/Button'
 import { Breadcrumbs } from '../ui/Breadcrumbs'
-const IglooProFlyer = '/downloads/igloo-pro-flyer.pdf'
-import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 
+/**
+ * Claim-safe, SSR-first IglooPro product entry.
+ *
+ * The hero deliberately carries no specification or certification wall. The
+ * real reader cutout is the only eager medium; intrinsic dimensions reserve
+ * its layout on every viewport. Technical proof remains in the serial AP14
+ * tasks that own its source verification.
+ */
 export default function IglooProHero() {
   const { t } = useTranslation(['products', 'common'])
 
-  const titleParts = t('products:hero.title').split('\n')
-
   return (
-    <section className="relative overflow-hidden bg-brand-deep text-white">
+    <section
+      aria-labelledby="igloo-hero-title"
+      data-igloo-hero
+      className="relative overflow-hidden bg-slate-50"
+    >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-noise opacity-10"
+        data-igloo-header-contrast
+        className="absolute inset-x-0 top-0 h-20 bg-brand-deep"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-28 top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-28 bottom-0 h-80 w-80 rounded-full bg-brand-deep/10 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 grid lg:grid-cols-2 gap-8 items-center">
-        {/* LEFT */}
-        <div>
+      <div className="relative mx-auto grid max-w-container gap-10 px-6 py-12 sm:px-8 sm:py-16 lg:min-h-[680px] lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-center lg:gap-16 lg:px-0 lg:py-20">
+        <div className="flex min-w-0 flex-col items-start">
           <Breadcrumbs
-            variant="dark"
-            className="mb-4"
-            items={[{ label: t('common:nav.home', 'Home'), href: '/' }, { label: 'IglooPro' }]}
+            className="mb-6"
+            items={[{ label: t('common:nav.home'), href: '/' }, { label: 'IglooPro' }]}
           />
 
-          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {t('products:hero.caption')}
-          </span>
-
-          <h1 className="mt-5 text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05]">
-            {titleParts.map((part, index) => (
-              <span key={index}>
-                {index > 0 && <br />}
-                {part}
-              </span>
-            ))}
+          </p>
+          <h1
+            id="igloo-hero-title"
+            className="mt-5 max-w-4xl text-balance text-[clamp(2.4rem,5.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.04em] text-brand-deep"
+          >
+            {t('products:hero.title')}
           </h1>
-
-          <p className="mt-4 max-w-xl text-white/80 leading-relaxed">
+          <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-text-secondary sm:text-lg">
             {t('products:hero.description')}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <Button
               to="/contact"
               variant="secondary"
-              size="sm"
-              className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
+              data-cta-intent="GENERAL_SALES"
+              className="w-full justify-center !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent sm:w-auto"
             >
               {t('products:hero.cta_order')}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
-            <a
-              href={IglooProFlyer}
-              target="_blank"
-              rel="noopener noreferrer"
-              hrefLang="de"
-              className="inline-flex items-center justify-center rounded-md border border-white/25 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10"
+            <Button
+              to="/#roi-rechner"
+              variant="ghost"
+              data-igloo-hero-secondary
+              className="w-full justify-center text-brand-deep hover:bg-white sm:w-auto"
             >
-              {t('products:hero.cta_datasheet')}
-            </a>
+              <Calculator className="h-4 w-4" aria-hidden="true" />
+              {t('products:hero.cta_secondary')}
+            </Button>
           </div>
 
-          <p className="mt-4 text-xs text-white/60">{t('products:hero.subline')}</p>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              {t('products:hero.chip_ivdr')}
-            </span>
-            <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              {t('products:hero.chip_lis')}
-            </span>
-            <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              {t('products:hero.chip_cross')}
-            </span>
-          </div>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-600">
+            {t('products:hero.subline')}
+          </p>
         </div>
 
-        {/* RIGHT — Produktfoto des Geräts, umrahmt von den Kennzahlen-Karten.
-            Vorher stand hier ein Ring-Diagramm mit der Zahl "36°", für die sich
-            weder im Datenblatt noch in den technischen Daten eine Bedeutung
-            belegen ließ — ersetzt statt beschriftet. */}
-        <div className="relative hidden min-h-[300px] items-center justify-center rounded-2xl bg-white/5 p-7 ring-1 ring-white/10 lg:flex">
+        <figure
+          data-igloo-hero-visual
+          className="relative order-last mx-auto aspect-square w-full max-w-[520px] self-center"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute inset-[8%] rounded-full bg-white shadow-[0_32px_80px_-36px_rgba(15,23,42,0.42)]"
+          />
           <img
             src={IglooProImage}
-            alt={t('products:hero.visual.device_alt', 'IglooPro POC-Reader')}
+            alt={t('products:hero.visual.device_alt')}
             width={650}
             height={650}
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
-            className="h-auto w-full max-w-[240px] object-contain xl:max-w-[320px]"
+            className="relative h-full w-full object-contain"
           />
-
-          {/* Floating cards — dekorative Wiederholung der technischen Daten */}
-          <div
-            aria-hidden="true"
-            className="absolute left-4 top-6 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
-          >
-            <Check size={14} className="text-accent" />
-            <span>
-              <span className="block text-sm font-semibold">
-                {t('products:hero.visual.portable_val')}
-              </span>
-              <span className="block text-xs text-gray-700">
-                {t('products:hero.visual.portable_label')}
-              </span>
-            </span>
-          </div>
-
-          <div
-            aria-hidden="true"
-            className="absolute right-5 top-1/2 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
-          >
-            <Check size={14} className="text-accent" />
-            <span>
-              <span className="block text-sm font-semibold">
-                {t('products:hero.visual.cv_val')}
-              </span>
-              <span className="block text-xs text-gray-700">
-                {t('products:hero.visual.cv_label')}
-              </span>
-            </span>
-          </div>
-
-          <div
-            aria-hidden="true"
-            className="absolute bottom-8 left-10 flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-brand-deep"
-          >
-            <Check size={14} className="text-accent" />
-            <span>
-              <span className="block text-sm font-semibold">
-                {t('products:hero.visual.time_val')}
-              </span>
-              <span className="block text-xs text-gray-700">
-                {t('products:hero.visual.time_label')}
-              </span>
-            </span>
-          </div>
-        </div>
+          <figcaption className="sr-only">{t('products:hero.visual.context')}</figcaption>
+        </figure>
       </div>
     </section>
   )

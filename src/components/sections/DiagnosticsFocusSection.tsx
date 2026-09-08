@@ -1,40 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Card } from '../ui/Card'
-import { MonitorSmartphone, ShieldCheck, Flame, HeartPulse, Dna, Puzzle } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { getDiagnosticsHubServices } from '../../data/diagnosticsHub'
 import Eyebrow from '../ui/Eyebrow'
+import { DiagnosticsServiceGrid } from './DiagnosticsServiceCard'
 
-type FocusCard = {
-  id: string
-  tkey: string
-  fkey: string
-  icon: ReactNode
-}
-
-const cards: FocusCard[] = [
-  {
-    id: 'poc-systemloesungen',
-    tkey: 'poc_systemloesungen',
-    fkey: 'poc',
-    icon: <MonitorSmartphone />,
-  },
-  { id: 'praeventions-checks', tkey: 'praeventions_checks', fkey: 'checks', icon: <ShieldCheck /> },
-  {
-    id: 'infektion-entzuendung',
-    tkey: 'infektion_entzuendung',
-    fkey: 'infection',
-    icon: <Flame />,
-  },
-  { id: 'stoffwechsel-herz', tkey: 'stoffwechsel_herz', fkey: 'metabolism', icon: <HeartPulse /> },
-  { id: 'hormon-tests', tkey: 'hormon_tests', fkey: 'hormone', icon: <Dna /> },
-  {
-    id: 'kompatibilitaet-integration',
-    tkey: 'kompatibilitaet_integration',
-    fkey: 'compat',
-    icon: <Puzzle />,
-  },
-]
+const focusServices = getDiagnosticsHubServices('DIAGNOSTIC_WORKFLOW')
 
 const DiagnosticsFocusSection = () => {
   const { t } = useTranslation(['home', 'services'])
@@ -44,48 +14,17 @@ const DiagnosticsFocusSection = () => {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
           <div className="mb-14 text-center">
-            <Eyebrow>{t('home:services.caption', 'DIAGNOSTIK-FOKUS')}</Eyebrow>
-            <h2 className="mt-3 t-h2">
-              {t('home:services.title', 'Schlüsselbereiche der Präventivdiagnostik')}
-            </h2>
+            <Eyebrow>{t('services:overview.ia.groups.workflow.eyebrow')}</Eyebrow>
+            <h2 className="mt-3 t-h2">{t('services:overview.ia.groups.workflow.title')}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-700">
-              {t('services:overview.focus.subtitle')}
+              {t('services:overview.ia.groups.workflow.text')}
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {cards.map(({ id, tkey, fkey, icon }) => {
-              const raw = t(`services:overview.focus.${fkey}.tags`, { returnObjects: true })
-              const tags = Array.isArray(raw) ? raw : []
-
-              return (
-                <Card key={id} to={`/diagnostics/${id}`}>
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                    <span className="[&>svg]:h-5 [&>svg]:w-5">{icon}</span>
-                  </span>
-                  <h3 className="mt-5 text-lg font-medium text-heading">
-                    {t(`home:services.${tkey}.title`)}
-                  </h3>
-                  <p className="mt-2 t-small">{t(`home:services.${tkey}.description`)}</p>
-                  {tags.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {tags.map((tag: string) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <span className="mt-auto pt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:text-accent-strong">
-                    {t(`services:overview.focus.${fkey}.cta`) + ' →'}
-                  </span>
-                </Card>
-              )
-            })}
-          </div>
+          <DiagnosticsServiceGrid
+            entries={focusServices}
+            categoryLabel={t('services:overview.ia.groups.workflow.eyebrow')}
+          />
         </div>
       </section>
 

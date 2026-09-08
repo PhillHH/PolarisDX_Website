@@ -1,24 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import { Sparkles, Infinity as InfinityIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
-import { Tooth } from '../ui/icons/Tooth'
+import { getDiagnosticsHubServices } from '../../data/diagnosticsHub'
 import Eyebrow from '../ui/Eyebrow'
+import { DiagnosticsServiceGrid } from './DiagnosticsServiceCard'
 
-type SpecialtyTone = 'navy' | 'teal'
-
-interface SpecialtyCard {
-  key: string
-  id: string
-  tone: SpecialtyTone
-  icon: ReactNode
-}
-
-const CARDS: SpecialtyCard[] = [
-  { key: 'dental', id: 'dental', tone: 'navy', icon: <Tooth className="h-6 w-6" /> },
-  { key: 'beauty', id: 'beauty', tone: 'teal', icon: <Sparkles className="h-6 w-6" /> },
-  { key: 'longevity', id: 'longevity', tone: 'navy', icon: <InfinityIcon className="h-6 w-6" /> },
-]
+const specialtyServices = getDiagnosticsHubServices('PRACTICE_CONTEXT')
 
 const DiagnosticsSpecialtySection = ({
   eyebrow,
@@ -31,61 +16,27 @@ const DiagnosticsSpecialtySection = ({
   subtitle?: string
   sectionClassName?: string
 } = {}) => {
-  const { t } = useTranslation('services')
+  const { t } = useTranslation(['home', 'services'])
 
   return (
-    <section className={sectionClassName ?? 'bg-white'}>
+    <section
+      id="diagnostics-services"
+      data-diagnostics-services
+      className={`scroll-mt-28 ${sectionClassName ?? 'bg-white'}`}
+    >
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         <div className="text-center mb-14">
-          <Eyebrow>{eyebrow ?? t('overview.specialty.eyebrow', 'IHRE FACHRICHTUNG')}</Eyebrow>
-          <h2 className="mt-3 t-h2">{title ?? t('overview.specialty.title')}</h2>
+          <Eyebrow>{eyebrow ?? t('services:overview.ia.groups.practice.eyebrow')}</Eyebrow>
+          <h2 className="mt-3 t-h2">{title ?? t('services:overview.ia.groups.practice.title')}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-700">
-            {subtitle ?? t('overview.specialty.subtitle')}
+            {subtitle ?? t('services:overview.ia.groups.practice.text')}
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          {CARDS.map(({ key, id, tone, icon }) => {
-            const rawTags = t(`overview.specialty.${key}.tags`, { returnObjects: true })
-            const tags = Array.isArray(rawTags) ? rawTags : []
-            const isTeal = tone === 'teal'
-
-            return (
-              <div
-                key={key}
-                className={`rounded-2xl p-7 flex flex-col text-white ${
-                  isTeal ? 'bg-accent-strong' : 'bg-brand-deep'
-                }`}
-              >
-                <div className="rounded-lg bg-white/10 p-2 w-fit">{icon}</div>
-                <h3 className="mt-5 text-xl font-medium">{t(`overview.specialty.${key}.title`)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white">
-                  {t(`overview.specialty.${key}.desc`)}
-                </p>
-                {tags.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <Link
-                  to={`/diagnostics/${id}`}
-                  className={`mt-6 mt-auto inline-flex items-center gap-1 text-sm font-semibold ${
-                    isTeal ? 'text-white hover:underline' : 'text-accent-line hover:text-white'
-                  }`}
-                >
-                  {t(`overview.specialty.${key}.cta`)} {'→'}
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+        <DiagnosticsServiceGrid
+          entries={specialtyServices}
+          categoryLabel={t('services:overview.ia.groups.practice.eyebrow')}
+        />
       </div>
     </section>
   )

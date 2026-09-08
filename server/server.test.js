@@ -4,7 +4,7 @@ import { createRequire } from 'node:module'
 
 // server.js is CommonJS; require it from this ESM test file.
 const require = createRequire(import.meta.url)
-const { esc } = require('./server')
+const { esc, resolveLeadAttribution } = require('./server')
 
 describe('esc', () => {
   it('escapes all five HTML-sensitive characters', () => {
@@ -37,5 +37,25 @@ describe('esc', () => {
     // first, so only the intended <br> stays live.
     const rendered = esc('<i>hi</i>\nworld').replace(/\n/g, '<br>')
     expect(rendered).toBe('&lt;i&gt;hi&lt;/i&gt;<br>world')
+  })
+})
+
+describe('resolveLeadAttribution', () => {
+  it('accepts only deterministic Homepage sales and ROI contexts', () => {
+    expect(
+      resolveLeadAttribution({ source: 'homepage', journey: 'general_sales', section: 'hero' }),
+    ).toEqual({ source: 'homepage', journey: 'general_sales', section: 'hero' })
+    expect(
+      resolveLeadAttribution({ source: 'homepage', journey: 'roi_report', section: 'roi' }),
+    ).toEqual({ source: 'homepage', journey: 'roi_report', section: 'roi' })
+  })
+
+  it('drops unknown or inconsistent URL attribution instead of forwarding it', () => {
+    expect(
+      resolveLeadAttribution({ source: 'homepage', journey: 'general_sales', section: 'unknown' }),
+    ).toEqual({ source: '', journey: '', section: '' })
+    expect(
+      resolveLeadAttribution({ source: '<script>', journey: 'general_sales', section: 'hero' }),
+    ).toEqual({ source: '', journey: '', section: '' })
   })
 })

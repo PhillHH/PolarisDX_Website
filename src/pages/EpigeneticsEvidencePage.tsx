@@ -26,6 +26,8 @@ import EpiSubpage from '../components/epigenetics/EpiSubpage'
 import type { Chapter } from '../components/ui/ChapterNav'
 import { ASSET_BASE, asArray, BODY, STRETCH } from '../components/epigenetics/tokens'
 import Reveal from '../components/ui/Reveal'
+import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
+import { resourceLanguageFromPath } from '../lib/resourceLanguage'
 
 interface TitledText {
   title: string
@@ -53,7 +55,6 @@ const EpigeneticsEvidencePage = () => {
 
   return (
     <EpiSubpage
-      path="/epigenetics/studienlage"
       caption="evidence.caption"
       title="evidence.title"
       lead="evidence.lead"
@@ -110,10 +111,12 @@ const EpigeneticsEvidencePage = () => {
           <a
             href={`${ASSET_BASE}${t('evidence.file')}`}
             download
+            hrefLang={resourceLanguageFromPath(t('evidence.file'))}
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             {t('evidence.cta')}
+            <ResourceLanguageBadge language={resourceLanguageFromPath(t('evidence.file'))} />
           </a>
         </Reveal>
       </section>

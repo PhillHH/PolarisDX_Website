@@ -149,6 +149,14 @@
       "gdprLabel": "v souladu",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Formuláře, souhlasy a tok dat",
+      "consent_mode": "Tento web používá Google Consent Mode v2 (základní režim): analytické a marketingové nástroje (např. Google Analytics 4 prostřednictvím Google Tag Manageru) se načítají až poté, co udělíte souhlas v cookie liště. Před udělením souhlasu a při jeho odmítnutí není kontaktován žádný analytický ani marketingový poskytovatel.",
+      "support_title": "Formulář podpory a přílohy",
+      "support_content": "Údaje odeslané prostřednictvím formuláře podpory (jméno, e-mailová adresa, UDI zařízení, verze softwaru, popis problému) se nejprve ukládají do databáze na našem serveru a teprve poté se e-mailem předávají našemu týmu podpory. Volitelné přílohy (dokumenty a obrázky v povolených formátech) se ukládají pod automaticky vygenerovaným, veřejně nepřístupným názvem a výhradně se váží k případu podpory; předpokládaná lhůta smazání je 90 dní. Nepředávají se třetím stranám.",
+      "marketing_title": "Oddělené souhlasy",
+      "marketing_content": "Pro kontaktní a podpůrné formuláře je vyžadován pouze souhlas se zpracováním vašich údajů pro vyřízení dotazu. Souhlas s analytickými nebo marketingovými cookies není potřebný a na funkci formulářů nemá vliv. Volitelný souhlas s produktovým newsletterem se zaznamenává odděleně a lze jej kdykoli odvolat."
     }
   },
   "agb": {

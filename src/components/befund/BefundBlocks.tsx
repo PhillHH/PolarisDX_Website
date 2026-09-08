@@ -26,18 +26,19 @@ import { toneClasses } from './tone'
 import BefundMiniature from './BefundMiniature'
 import { track } from '../../lib/tracking'
 import { MERK_SLUGS, type MerkSlug } from '../../lib/merkliste'
+import type { BefundBlock as ValidatedBefundBlock } from '../../content/befunde/model'
 
 const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
 const LEAD = 'text-lg leading-relaxed text-gray-600'
 
-export interface Block {
-  type: string
-  [key: string]: unknown
-}
+export type Block = ValidatedBefundBlock
 
 const arr = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v as T[]) : [])
 const str = (v: unknown) => (typeof v === 'string' ? v : undefined)
 const num = (v: unknown) => (typeof v === 'number' ? v : undefined)
+const assertNever = (value: never): never => {
+  throw new Error(`Unhandled report block: ${JSON.stringify(value)}`)
+}
 
 /**
  * Rahmen eines Blocks — Hintergrund, Anker und Aufklappzustand kommen von
@@ -108,7 +109,7 @@ const Section = ({ children }: { children: ReactNode }) => {
 
   if (!collapsed || !label) {
     return (
-      <section id={id} className={shell}>
+      <section id={id} className={`befund-section ${shell}`}>
         <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">{children}</div>
       </section>
     )
@@ -123,7 +124,7 @@ const Section = ({ children }: { children: ReactNode }) => {
    * war.
    */
   return (
-    <section id={id} className={shell}>
+    <section id={id} className={`befund-section ${shell}`}>
       <details
         className="group mx-auto max-w-container px-4 lg:px-0"
         /*
@@ -198,8 +199,18 @@ const DataTable = ({
   scrollHint?: string
 }) => (
   <>
-    <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
-      <table aria-label={label} className="w-full min-w-[44rem] border-collapse text-left">
+    <div
+      className="befund-table-scroll mt-6 overflow-x-auto rounded-2xl border border-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+      role="region"
+      aria-label={label}
+      /* Ein fokussierbarer Scrollbereich ist der WAI-konforme Tastaturzugang
+         zur mobil breiteren Tabelle; `region` gilt im Linter nicht als
+         interaktiv, obwohl der Overflow selbst bedienbar sein muss. */
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+      tabIndex={0}
+    >
+      <table className="w-full min-w-[44rem] border-collapse text-left">
+        {label ? <caption className="sr-only">{label}</caption> : null}
         <thead>
           <tr className="bg-brand-deep text-white">
             {cols.map((c, j) => (
@@ -221,29 +232,33 @@ const DataTable = ({
             const tone = Array.isArray(row) ? rowTones?.[i] : (row.tone ?? rowTones?.[i])
             return (
               <tr key={`${cells[0]}-${i}`} className={i % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
-                {cells.map((cell, j) => (
-                  <td
-                    key={`${cell}-${j}`}
-                    /* Die erste Spalte laeuft mit: die Tabellen sind 704 px
+                {cells.map((cell, j) => {
+                  const Cell = j === 0 ? 'th' : 'td'
+                  return (
+                    <Cell
+                      key={`${cell}-${j}`}
+                      scope={j === 0 ? 'row' : undefined}
+                      /* Die erste Spalte laeuft mit: die Tabellen sind 704 px
                        breit und stehen mobil in 356 px. Ohne sie liest man
                        Mengen, ohne zu wissen, wozu sie gehoeren. Der
                        Hintergrund muss deckend sein und die Zebrastreifung
                        aufnehmen, sonst scheint der Inhalt durch. */
-                    className={`px-4 py-3 align-top text-base ${
-                      j === 0
-                        ? `sticky left-0 z-10 font-semibold text-heading ${
-                            i % 2 === 1 ? 'bg-slate-50' : 'bg-white'
-                          } ${tone ? 'border-l-4 ' + toneClasses(tone).border : ''}`
-                        : 'text-gray-700'
-                    }`}
-                  >
-                    {badgeLastCell && tone && j === cells.length - 1 ? (
-                      <ToneBadge tone={tone}>{cell}</ToneBadge>
-                    ) : (
-                      cell
-                    )}
-                  </td>
-                ))}
+                      className={`px-4 py-3 align-top text-base ${
+                        j === 0
+                          ? `sticky left-0 z-10 font-semibold text-heading ${
+                              i % 2 === 1 ? 'bg-slate-50' : 'bg-white'
+                            } ${tone ? 'border-l-4 ' + toneClasses(tone).border : ''}`
+                          : 'text-gray-700'
+                      }`}
+                    >
+                      {badgeLastCell && tone && j === cells.length - 1 ? (
+                        <ToneBadge tone={tone}>{cell}</ToneBadge>
+                      ) : (
+                        cell
+                      )}
+                    </Cell>
+                  )
+                })}
               </tr>
             )
           })}
@@ -281,9 +296,9 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
       ? groups[idx].map((g) => t(`compare.filter.options.${g}`)).join(' · ')
       : ''
 
-  const anfrage = `/contact?intent=quote&source=epigenetics&panel=${encodeURIComponent(
-    str(b.panel) ?? '',
-  )}#kontaktformular`
+  const anfrage = slug
+    ? `/epigenetics?source=musterbefund&panel=${encodeURIComponent(slug)}#inquiry`
+    : '/epigenetics?source=musterbefund#inquiry'
 
   // Die sechs Panels stehen sichtbar im Hero, nicht nur im Aufklappmenue der
   // Kapitelleiste. Grund: ein Drittel der Sitzungen betritt die Website ueber
@@ -1032,7 +1047,6 @@ export const BefundBlock = ({
       return <Science b={block} />
     case 'contact':
       return <Contact b={block} />
-    default:
-      return null
   }
+  return assertNever(block)
 }

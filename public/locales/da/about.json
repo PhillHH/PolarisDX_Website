@@ -3,21 +3,39 @@
     "caption": "OM OS",
     "title": "Omdefinerer diagnostik",
     "description": "PolarisDX står for innovation, præcision og pålidelighed inden for medicinsk teknologi. Mød menneskene bag vores mission.",
-    "primary_cta": "Mød teamet",
+    "primary_cta": "Anmod om tilbud",
     "chips": {
       "ivdr": "IVDR · CE-overholdelse",
       "partner": "DX365-distributionspartner",
       "reach": "Kontorer i London og Hamborg"
     },
     "visual": {
-      "c1": { "value": "2 kontorer", "label": "London og Hamborg" },
-      "c2": { "value": "15+ lande", "label": "Aktive markeder" },
-      "c3": { "value": "100+ enheder", "label": "Installeret" }
+      "c1": {
+        "value": "2 kontorer",
+        "label": "London og Hamborg"
+      },
+      "c2": {
+        "value": "15+ lande",
+        "label": "Aktive markeder"
+      },
+      "c3": {
+        "value": "100+ enheder",
+        "label": "Installeret"
+      }
     },
     "stats": {
-      "locations": { "value": "2", "label": "Kontorer" },
-      "countries": { "value": "15+", "label": "Lande" },
-      "devices": { "value": "100+", "label": "Installerede enheder" }
+      "locations": {
+        "value": "2",
+        "label": "Kontorer"
+      },
+      "countries": {
+        "value": "15+",
+        "label": "Lande"
+      },
+      "devices": {
+        "value": "100+",
+        "label": "Installerede enheder"
+      }
     }
   },
   "team": {
@@ -79,10 +97,22 @@
     }
   },
   "stats_strip": {
-    "s1": { "value": "2", "label": "Kontorer: London og Hamborg" },
-    "s2": { "value": "15+", "label": "Lande med aktive installationer" },
-    "s3": { "value": "100+", "label": "Installerede IglooPro-læsere" },
-    "s4": { "value": "< 24 t", "label": "Supportens svartid" }
+    "s1": {
+      "value": "2",
+      "label": "Kontorer: London og Hamborg"
+    },
+    "s2": {
+      "value": "15+",
+      "label": "Lande med aktive installationer"
+    },
+    "s3": {
+      "value": "100+",
+      "label": "Installerede IglooPro-læsere"
+    },
+    "s4": {
+      "value": "< 24 t",
+      "label": "Supportens svartid"
+    }
   },
   "dx365_partner": {
     "caption": "Vores partner",
@@ -92,5 +122,27 @@
   "seo": {
     "title": "Om PolarisDX: din partner inden for POC-diagnostik",
     "description": "Innovation, præcision og pålidelighed inden for medicinsk teknologi: Mød teamet bag PolarisDX og vores mission for patientnær point-of-care-diagnostik."
+  },
+  "pillars": {
+    "caption": "Tre forretningssøjler",
+    "title": "Tre veje til diagnostik og professionel anvendelse",
+    "intro": "PolarisDX samler point-of-care-diagnostik, IglooPro-læseren og epigenetik i klart adskilte områder.",
+    "items": {
+      "diagnostics": {
+        "title": "Diagnostik",
+        "text": "Point-of-care-diagnostik og specialiserede anvendelser til klinikker og medicinske institutioner.",
+        "cta": "Udforsk diagnostik"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "IglooPro-læseren analyserer kompatible hurtigtests direkte på behandlingsstedet.",
+        "cta": "Se IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetik",
+        "text": "Et selvstændigt område for epigenetiske og genetiske analyser samt tilhørende eksempelrapporter.",
+        "cta": "Lær epigenetik at kende"
+      }
+    }
   }
 }

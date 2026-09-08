@@ -149,6 +149,14 @@
       "gdprLabel": "compliant",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Forms, consents and data flows",
+      "consent_mode": "This website uses Google Consent Mode v2 (Basic): analytics and marketing tools (e.g. Google Analytics 4 via Google Tag Manager) are loaded only after you give consent in the cookie banner. Before consent, and if you decline, no analytics or marketing provider is contacted.",
+      "support_title": "Support form and attachments",
+      "support_content": "Information submitted via the support form (name, email address, device UDI, software version, problem description) is first stored in a database on our server and only then emailed to our support team for processing. Optional attachments (documents and images in permitted formats) are stored under an automatically generated, publicly inaccessible name and associated exclusively with the support case; the intended deletion period is 90 days. They are not shared with third parties.",
+      "marketing_title": "Separate consents",
+      "marketing_content": "For contact and support forms, only consent to process your information in order to handle the request is required. Consent to analytics or marketing cookies is not needed for this and does not affect how the forms work. Optional consent to the product newsletter is recorded separately and can be withdrawn at any time."
     }
   },
   "agb": {

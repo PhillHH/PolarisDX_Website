@@ -2,10 +2,13 @@ import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import DiagnosticsHero from '../components/sections/DiagnosticsHero'
+import DiagnosticsLandscapeSection from '../components/sections/DiagnosticsLandscapeSection'
 import DiagnosticsSpecialtySection from '../components/sections/DiagnosticsSpecialtySection'
 import DiagnosticsFocusSection from '../components/sections/DiagnosticsFocusSection'
+import DiagnosticsUseCasesSection from '../components/sections/DiagnosticsUseCasesSection'
+import DiagnosticsRelatedArticlesSection from '../components/sections/DiagnosticsRelatedArticlesSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
-import EpigeneticsTeaserSection from '../components/sections/EpigeneticsTeaserSection'
+import IglooProImage from '../assets/Igloo-pro-frontal.webp'
 
 const ServicesOverviewPage = () => {
   const { t, i18n } = useTranslation(['common', 'home', 'services'])
@@ -19,32 +22,27 @@ const ServicesOverviewPage = () => {
         )}
         description={t(
           'services:seo.overview_description',
-          'Chairside Schnelltests für Vitamin D, CRP, HbA1c & TSH. Patientennahe Sofortdiagnostik für Zahnarztpraxen, Ästhetik & Präventionsmedizin.',
+          'Orientierung zu Point-of-Care-Diagnostik, diagnostischen Lösungen und Servicebereichen für Praxen.',
         )}
-        keywords={[
-          'POCT Services',
-          'POC Diagnostik Praxis',
-          'Schnelltest Zahnarzt',
-          'Beauty Diagnostik',
-          'Longevity Tests',
-        ]}
+        ogImage={IglooProImage}
+        ogImageAlt={t('services:seo.overview_image_alt')}
+        ogImageWidth={650}
+        ogImageHeight={650}
         structuredData={createBreadcrumbSchema(
           [
-            { name: 'Home', url: '/' },
-            { name: 'Diagnostik', url: '/diagnostics' },
+            { name: t('common:nav.home', 'Home'), url: '/' },
+            { name: t('services:overview.hero.title', 'Diagnostik'), url: '/diagnostics' },
           ],
           i18n.language,
         )}
       />
       <div>
         <DiagnosticsHero />
+        <DiagnosticsLandscapeSection />
         <DiagnosticsSpecialtySection />
         <DiagnosticsFocusSection />
-        {/* Zweite Saeule neben Point-of-Care: der Laborweg. Steht hinter den
-            Fachrichtungen, weil dort die Reader-Diagnostik endet. */}
-        <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-          <EpigeneticsTeaserSection />
-        </div>
+        <DiagnosticsUseCasesSection />
+        <DiagnosticsRelatedArticlesSection />
         <FinalCtaSection roiHref="/#roi-rechner" />
       </div>
     </PageTransition>

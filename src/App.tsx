@@ -19,6 +19,15 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import GtmPageview from './components/analytics/GtmPageview'
+import {
+  getArticleRouteEntries,
+  getBefundRouteEntries,
+  getDynamicAppRoutes,
+  getStaticAppRoutes,
+  type BefundSlug,
+  type DynamicRouteId,
+  type StaticRouteId,
+} from './routing/routeRegistry'
 
 // =============================================================================
 // EAGER IMPORTS - Werden sofort geladen
@@ -44,6 +53,18 @@ const EventsPage = lazy(() => import('./pages/EventsPage'))
 // Artikel/Blog
 const ArticlesIndexPage = lazy(() => import('./pages/ArticlesIndexPage'))
 const ArticlePage = lazy(() => import('./pages/ArticlePage'))
+const ArticleGreenPractice = lazy(() => import('./pages/articles/die-gruene-praxis'))
+const ArticleInvisiblePatient = lazy(() => import('./pages/articles/der-unsichtbare-patient'))
+const ArticleFiveMinute = lazy(() => import('./pages/articles/die-5-minuten-diagnose'))
+const ArticleEcosystem = lazy(
+  () => import('./pages/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety'),
+)
+const ArticleRapidSetup = lazy(
+  () => import('./pages/articles/die-performance-formel-effizienz-in-der-poc-diagnostik'),
+)
+const ArticlePrecision = lazy(
+  () => import('./pages/articles/precision-in-point-of-care-the-key-to-patient-safety'),
+)
 
 // Services
 const ServicesOverviewPage = lazy(() => import('./pages/ServicesOverviewPage'))
@@ -106,6 +127,62 @@ import ConsumerDuoPage from './pages/consumer/DuoPage'
  */
 function LazyRoute({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={null}>{children}</Suspense>
+}
+
+const lazyElement = (page: React.ReactNode) => <LazyRoute>{page}</LazyRoute>
+
+/**
+ * React components remain separate from route metadata so code splitting stays
+ * local to the UI. The Record types make missing or stale component bindings a
+ * compile-time failure while paths and policies come only from routeRegistry.
+ */
+const STATIC_ROUTE_ELEMENTS: Record<StaticRouteId, React.ReactNode> = {
+  home: <HomePage />,
+  about: lazyElement(<AboutPage />),
+  articles: lazyElement(<ArticlesIndexPage />),
+  diagnostics: lazyElement(<ServicesOverviewPage />),
+  contact: lazyElement(<ContactPage />),
+  support: lazyElement(<SupportPage />),
+  privacy: lazyElement(<PrivacyPage />),
+  imprint: lazyElement(<ImprintPage />),
+  terms: lazyElement(<TermsPage />),
+  events: lazyElement(<EventsPage />),
+  'igloo-pro': lazyElement(<IglooProPage />),
+  implantology: lazyElement(<VitaminD3ImplantologyPage />),
+  's3-guideline': lazyElement(<S3LeitliniePage />),
+  'vitamin-d3-spray': lazyElement(<VitaminD3SprayPage />),
+  epigenetics: lazyElement(<EpigeneticsPage />),
+  'epigenetics-grundlagen': lazyElement(<EpigeneticsBasicsPage />),
+  'epigenetics-studienlage': lazyElement(<EpigeneticsEvidencePage />),
+  'epigenetics-unterlagen': lazyElement(<EpigeneticsDocsPage />),
+  downloads: lazyElement(<DownloadsPage />),
+  'consumer-vitamin-d3-spray': lazyElement(<ConsumerSprayPage />),
+  'consumer-hydrating-masks': lazyElement(<ConsumerMaskPage />),
+  'consumer-inside-out-duo': lazyElement(<ConsumerDuoPage />),
+}
+
+const DYNAMIC_ROUTE_ELEMENTS: Record<DynamicRouteId, React.ReactNode> = {
+  'service-detail': lazyElement(<ServicePage />),
+  'article-detail': lazyElement(<ArticlePage />),
+  'report-detail': lazyElement(<MusterbefundPage />),
+}
+
+const BEFUND_ROUTE_ELEMENTS: Record<BefundSlug, React.ReactNode> = {
+  'metabolic-health': lazyElement(<MusterbefundMetabolicHealth />),
+  'healthy-aging': lazyElement(<MusterbefundHealthyAging />),
+  'biologische-altersuhr': lazyElement(<MusterbefundAltersuhr />),
+  'telomer-analyse': lazyElement(<MusterbefundTelomer />),
+  'stress-monitor': lazyElement(<MusterbefundStress />),
+  'healthy-sport': lazyElement(<MusterbefundHealthySport />),
+}
+
+const ARTICLE_ROUTE_ELEMENTS: Record<string, React.ReactNode> = {
+  green_practice: lazyElement(<ArticleGreenPractice />),
+  invisible_patient: lazyElement(<ArticleInvisiblePatient />),
+  five_minute_diagnosis: lazyElement(<ArticleFiveMinute />),
+  ecosystem_of_rapid_tests: lazyElement(<ArticleEcosystem />),
+  rapid_setup_formula: lazyElement(<ArticleRapidSetup />),
+  precision_point_of_care: lazyElement(<ArticlePrecision />),
 }
 
 /**
@@ -290,256 +367,48 @@ function App() {
           CONSUMER-LANDINGPAGES
           Eigene schlanke Consumer-Chrome (NICHT die B2B-Shell), locale-aware.
       --------------------------------------------------------------------- */}
-        <Route
-          path="/consumer/vitamin-d3-spray"
-          element={
-            <LazyRoute>
-              <ConsumerSprayPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/consumer/hydrating-masks"
-          element={
-            <LazyRoute>
-              <ConsumerMaskPage />
-            </LazyRoute>
-          }
-        />
-        <Route
-          path="/consumer/inside-out-duo"
-          element={
-            <LazyRoute>
-              <ConsumerDuoPage />
-            </LazyRoute>
-          }
-        />
+        {getStaticAppRoutes('CONSUMER').map((route) => (
+          <Route
+            key={route.id}
+            path={route.pathPattern}
+            element={STATIC_ROUTE_ELEMENTS[route.id]}
+          />
+        ))}
 
         {/* ---------------------------------------------------------------------
           REGULÄRE WEBSITE — alle Seiten in der B2B-PolarisDX-Shell
       --------------------------------------------------------------------- */}
         <Route element={<MainLayout />}>
-          {/* EAGER: Homepage */}
-          <Route path="/" element={<HomePage />} />
+          {getStaticAppRoutes('B2B').map((route) => (
+            <Route
+              key={route.id}
+              path={route.pathPattern}
+              element={STATIC_ROUTE_ELEMENTS[route.id]}
+            />
+          ))}
 
-          {/* LAZY: Alle anderen Seiten */}
-          <Route
-            path="/about"
-            element={
-              <LazyRoute>
-                <AboutPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/articles"
-            element={
-              <LazyRoute>
-                <ArticlesIndexPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/articles/:slug"
-            element={
-              <LazyRoute>
-                <ArticlePage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/diagnostics"
-            element={
-              <LazyRoute>
-                <ServicesOverviewPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/diagnostics/:slug"
-            element={
-              <LazyRoute>
-                <ServicePage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <LazyRoute>
-                <ContactPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/support"
-            element={
-              <LazyRoute>
-                <SupportPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/privacy"
-            element={
-              <LazyRoute>
-                <PrivacyPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/imprint"
-            element={
-              <LazyRoute>
-                <ImprintPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/terms"
-            element={
-              <LazyRoute>
-                <TermsPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/events"
-            element={
-              <LazyRoute>
-                <EventsPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/igloo-pro"
-            element={
-              <LazyRoute>
-                <IglooProPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/vitamin-d3-implantologie"
-            element={
-              <LazyRoute>
-                <VitaminD3ImplantologyPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/s3_leitlinie"
-            element={
-              <LazyRoute>
-                <S3LeitliniePage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/vitamin-d3-spray"
-            element={
-              <LazyRoute>
-                <VitaminD3SprayPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics"
-            element={
-              <LazyRoute>
-                <EpigeneticsPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/grundlagen"
-            element={
-              <LazyRoute>
-                <EpigeneticsBasicsPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/studienlage"
-            element={
-              <LazyRoute>
-                <EpigeneticsEvidencePage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/unterlagen"
-            element={
-              <LazyRoute>
-                <EpigeneticsDocsPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/metabolic-health"
-            element={
-              <LazyRoute>
-                <MusterbefundMetabolicHealth />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/healthy-aging"
-            element={
-              <LazyRoute>
-                <MusterbefundHealthyAging />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/biologische-altersuhr"
-            element={
-              <LazyRoute>
-                <MusterbefundAltersuhr />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/telomer-analyse"
-            element={
-              <LazyRoute>
-                <MusterbefundTelomer />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/stress-monitor"
-            element={
-              <LazyRoute>
-                <MusterbefundStress />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/epigenetics/musterbefund/healthy-sport"
-            element={
-              <LazyRoute>
-                <MusterbefundHealthySport />
-              </LazyRoute>
-            }
-          />
-          {/* Muss NACH den sechs stehen: faengt unbekannte Slugs ab. */}
-          <Route
-            path="/epigenetics/musterbefund/:slug"
-            element={
-              <LazyRoute>
-                <MusterbefundPage />
-              </LazyRoute>
-            }
-          />
-          <Route
-            path="/downloads"
-            element={
-              <LazyRoute>
-                <DownloadsPage />
-              </LazyRoute>
-            }
-          />
+          {/* Keep one chunk per real report; the family fallback catches unknown slugs. */}
+          {getBefundRouteEntries().map((route) => (
+            <Route
+              key={route.id}
+              path={route.path}
+              element={BEFUND_ROUTE_ELEMENTS[route.sourceId]}
+            />
+          ))}
+          {getArticleRouteEntries().map((route) => (
+            <Route
+              key={route.id}
+              path={route.path}
+              element={ARTICLE_ROUTE_ELEMENTS[route.sourceId]}
+            />
+          ))}
+          {getDynamicAppRoutes().map((route) => (
+            <Route
+              key={route.id}
+              path={route.pathPattern}
+              element={DYNAMIC_ROUTE_ELEMENTS[route.id]}
+            />
+          ))}
 
           {/* Catch-all 404 route - must be last */}
           <Route

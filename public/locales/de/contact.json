@@ -85,6 +85,7 @@
       "prepare_placeholder": "Welche Biomarker interessieren Sie — CRP, TSH, HbA1c?",
       "consent": "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen bis zu 12 Monate gespeichert werden. Siehe unsere",
       "privacy_link": "Datenschutzerklärung",
+      "marketing_consent": "Ich möchte zusätzlich den PolarisDX-Newsletter mit Produktnews erhalten (jederzeit abbestellbar).",
       "submit": {
         "consultation": "Angebot anfragen",
         "quote": "Angebot anfragen",
@@ -95,7 +96,8 @@
       "sending": "Senden…",
       "microcopy": "Unter 2 Minuten — versprochen. Antwort in 24 h, dann ein konkreter nächster Schritt.",
       "success": "Vielen Dank! Wir haben Ihre Anfrage erhalten und registriert — wir melden uns innerhalb von 24 h.",
-      "error": "Etwas ist schiefgelaufen. Bitte prüfen Sie Ihre Angaben oder versuchen Sie es gleich erneut."
+      "error": "Etwas ist schiefgelaufen. Bitte prüfen Sie Ihre Angaben oder versuchen Sie es gleich erneut.",
+      "error_retryable": "Das hat gerade nicht geklappt. Ihre Angaben sind noch da — bitte versuchen Sie es gleich erneut."
     },
     "trust": {
       "direct": "Lieber direkter Kontakt?",

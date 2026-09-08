@@ -149,6 +149,14 @@
       "gdprLabel": "zgodność",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Formularze, zgody i przepływy danych",
+      "consent_mode": "Ta strona korzysta z Google Consent Mode v2 (tryb podstawowy): narzędzia analityczne i marketingowe (np. Google Analytics 4 przez Google Tag Manager) są ładowane dopiero po wyrażeniu zgody w banerze cookie. Przed zgodą oraz po jej odmowie żaden dostawca analityczny ani marketingowy nie jest kontaktowany.",
+      "support_title": "Formularz wsparcia i załączniki",
+      "support_content": "Dane przesłane przez formularz wsparcia (imię i nazwisko, adres e-mail, UDI urządzenia, wersja oprogramowania, opis problemu) są najpierw zapisywane w bazie danych na naszym serwerze, a następnie przesyłane e-mailem do naszego zespołu wsparcia. Opcjonalne załączniki (dokumenty i obrazki w dozwolonych formatach) są zapisywane pod automatycznie generowaną, niedostępną publicznie nazwą i powiązane wyłącznie ze zgłoszeniem; planowany okres usunięcia to 90 dni. Nie są udostępniane osobom trzecim.",
+      "marketing_title": "Oddzielne zgody",
+      "marketing_content": "W przypadku formularzy kontaktowych i wsparcia wymagana jest wyłącznie zgoda na przetwarzanie danych w celu obsługi zapytania. Zgoda na pliki cookie analityczne lub marketingowe nie jest potrzebna i nie wpływa na działanie formularzy. Opcjonalna zgoda na newsletter produktowy jest zapisywana oddzielnie i może być wycofana w każdej chwili."
     }
   },
   "agb": {

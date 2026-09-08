@@ -85,6 +85,7 @@
       "prepare_placeholder": "Which biomarkers make you curious — CRP, TSH, HbA1c?",
       "consent": "I agree that my details may be stored for contacting me and for follow-up questions for up to 12 months. See our",
       "privacy_link": "privacy policy",
+      "marketing_consent": "I’d also like to receive the PolarisDX newsletter with product updates (unsubscribe anytime).",
       "submit": {
         "consultation": "Request a quote",
         "quote": "Request a quote",
@@ -95,7 +96,8 @@
       "sending": "Sending…",
       "microcopy": "Less than 2 minutes — promised. Reply within 24 h, then a concrete next step.",
       "success": "Thank you! We have received and registered your enquiry — we’ll get back to you within 24 h.",
-      "error": "Something went wrong. Please check your details or try again in a moment."
+      "error": "Something went wrong. Please check your details or try again in a moment.",
+      "error_retryable": "That didn’t work just now. Your details are still here — please try again in a moment."
     },
     "trust": {
       "direct": "Prefer direct contact?",

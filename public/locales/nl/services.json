@@ -6,6 +6,19 @@
     },
     "title": "Tandheelkunde",
     "headline": "Precisie voor moderne tandheelkunde",
+    "detail": {
+      "hero": { "eyebrow": "Tandheelkundige diagnostiek", "title": "Chairside diagnostiek voor tandartspraktijken", "subtitle": "Point-of-care-metingen kunnen geselecteerde diagnostische vragen aanvullen binnen implantologie, parodontologie en preventieve workflows." },
+      "problem": { "heading": "Diagnostische informatie in de tandheelkundige workflow", "paragraphs": ["Tandartspraktijken beoordelen naast lokale bevindingen ook systemische factoren. Metingen dicht bij de patiënt kunnen aanvullende informatie bieden, maar vervangen anamnese, klinisch onderzoek of specialistische beoordeling niet."] },
+      "audiences": { "heading": "Voor wie dit gebied bedoeld is", "items": ["Tandartspraktijken met een implantologische context", "Praktijken die parodontale zorg bieden", "Praktijken met preventieve of interdisciplinaire zorgpaden"] },
+      "questions": { "heading": "Mogelijke diagnostische vragen", "items": ["Welke metingen zijn relevant voor de concrete klinische vraag?", "Hoe kan een meting passend worden opgenomen in planning of follow-up?", "Wanneer is verdere laboratorium- of specialistische beoordeling aangewezen?"] },
+      "parameters": { "heading": "Onderbouwde parameters in de bestaande tandheelkundige context", "items": ["Vitamine D", "C-reactief proteïne (CRP)", "HbA1c", "Ferritine"] },
+      "workflow": { "heading": "Een mogelijke chairside workflow", "steps": [{ "title": "Bepaal de vraag", "text": "Bepaal indicatie en geschikte parameter vanuit de individuele behandelcontext." }, { "title": "Neem het monster af en voer de test uit", "text": "Neem capillair bloed af en verwerk het volgens de instructies van de gebruikte test." }, { "title": "Interpreteer het resultaat", "text": "Documenteer de meting, beoordeel deze in klinische context en laat zo nodig verder onderzoeken." }] },
+      "faq": { "caption": "Veelgestelde vragen", "title": "Vragen over tandheelkundige diagnostiek", "items": [{ "question": "Wat betekent chairside diagnostiek in een tandartspraktijk?", "answer": "Dit zijn metingen dicht bij de patiënt die in de praktijkworkflow zijn geïntegreerd. Welke tests mogen worden gebruikt en passend zijn, hangt af van de vraag, het testsysteem en de geldende kwaliteitseisen." }, { "question": "Welke parameters worden in de tandheelkundige context bekeken?", "answer": "De bestaande tandheelkundige content van PolarisDX noemt vitamine D, CRP, HbA1c en ferritine. Selectie en interpretatie moeten altijd aansluiten op de individuele klinische vraag." }, { "question": "Vervangt een point-of-care-resultaat tandheelkundige of medische diagnostiek?", "answer": "Nee. Eén meetwaarde is aanvullende informatie. Anamnese, klinische bevindingen en zo nodig laboratorium- of specialistische beoordeling blijven bepalend." }] },
+      "crosslinks": { "implantology": { "label": "Vitamine D en implantologie", "description": "Ga naar de zelfstandige vakpagina voor de implantologische context." }, "igloo": { "label": "IglooPro in point-of-care-context", "description": "Ga naar de zelfstandige productpagina zonder technische details hier te dupliceren." } },
+      "cta": { "title": "Verken tandheelkundige diagnostiek voor uw praktijk", "text": "Bespreek met ons de klinische vraag, de praktijkworkflow en een passende volgende stap." },
+      "disclaimer": { "heading": "Professionele toelichting", "content": "Deze informatie ondersteunt professionele oriëntatie en vervangt geen individuele medische indicatie of interpretatie van bevindingen." },
+      "seo": { "title": "Tandheelkundige diagnostiek voor praktijken", "description": "Point-of-care-diagnostiek in de tandheelkunde: contexten, geselecteerde parameters, workflow en zorgvuldige interpretatie.", "imageAlt": "Tandheelkundige diagnostiek in een professionele praktijkworkflow" }
+    },
     "cta": "Meer weten",
     "faq": {
       "caption": "Veelgestelde vragen",
@@ -106,6 +119,19 @@
           "answer": "Vitamine D is betrokken bij de differentiatie van keratinocyten, het in stand houden van de huidbarrière en de regulatie van de haarfollikelcyclus. Een Vitamine D-tekort — in Midden-Europa bij meer dan 50% van de bevolking voorkomend — bevordert inflammatoire huidaandoeningen, versnelt de huidveroudering en kan haaruitval verergeren. De meting met de IglooPro duurt slechts enkele minuten en vormt de basis voor gerichte suppletie."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Beauty-diagnostiek", "title": "Diagnostische oriëntatie voor professionele beautycontexten", "subtitle": "Geselecteerde metingen kunnen medisch-esthetische vragen over huid, haar, hormonen en micronutriënten aanvullen zonder cosmetische resultaten te voorspellen." },
+      "problem": { "heading": "Meetwaarden klinisch interpreteren, niet cosmetisch", "paragraphs": ["Professionele beauty- en esthetiekdiensten kunnen gezondheidsvragen raken. Diagnostische waarden bieden aanvullende informatie, maar vervangen geen anamnese, klinisch onderzoek of specialistische beoordeling."] },
+      "audiences": { "heading": "Professionele toepassingscontexten", "items": ["Praktijken en klinieken met een medisch-esthetische focus", "Professioneel huid- en haaradvies met medische deskundigheid", "Aanbieders van preventie en wellness binnen duidelijk afgebakende diagnostische verantwoordelijkheden"] },
+      "questions": { "heading": "Mogelijke diagnostische vragen", "items": ["Welke metingen passen bij de concrete medisch-esthetische vraag?", "Welke bevindingen vragen om verdere medische of laboratoriumbeoordeling?", "Hoe kunnen meting, documentatie en verwijzing in de workflow worden opgenomen?"] },
+      "parameters": { "heading": "Vastgelegde metingen in de bestaande beautycontext", "items": ["Vitamine D", "Ferritine", "TSH", "C-reactief proteïne (CRP)"] },
+      "workflow": { "heading": "Een professioneel begrensde workflow", "steps": [{ "title": "Bepaal de vraag", "text": "Verduidelijk indicatie en professionele verantwoordelijkheid voordat een meting wordt gekozen." }, { "title": "Voer een geschikte meting uit", "text": "Verwerk monster en test volgens de instructies van het gebruikte systeem." }, { "title": "Interpreteer het resultaat", "text": "Documenteer de waarde, beoordeel deze in klinische context en laat zo nodig verder onderzoeken." }] },
+      "faq": { "caption": "Veelgestelde vragen", "title": "Vragen over beauty-diagnostiek", "items": [{ "question": "Wat kan diagnostiek bijdragen in een professionele beautycontext?", "answer": "Ze kan geselecteerde gezondheidsvragen met meetwaarden aanvullen. Ze voorspelt geen cosmetisch resultaat; de interpretatie hoort thuis in de relevante medische context." }, { "question": "Welke metingen worden in het bestaande beautyaanbod genoemd?", "answer": "De huidige PolarisDX-content noemt vitamine D, ferritine, TSH en CRP. Selectie en interpretatie hangen af van de individuele vraag en professionele verantwoordelijkheid." }, { "question": "Garandeert een biomarkerwaarde het succes van een esthetische behandeling?", "answer": "Nee. Een meetwaarde voorspelt geen cosmetisch resultaat en vervangt geen onderzoek, advies of specialistische beoordeling." }] },
+      "crosslinks": { "igloo": { "label": "IglooPro in point-of-care-context", "description": "Ga naar de zelfstandige productpagina zonder hier technische details of prestatieclaims te herhalen." } },
+      "cta": { "title": "Verken beauty-diagnostiek voor uw praktijk", "text": "Bespreek met ons uw professionele vraag, praktijkworkflow en een passende volgende stap." },
+      "disclaimer": { "heading": "Professionele toelichting", "content": "Deze informatie ondersteunt professionele oriëntatie. Ze belooft geen cosmetisch effect en vervangt geen individuele medische indicatie of interpretatie van bevindingen." },
+      "seo": { "title": "Beauty-diagnostiek voor praktijken en esthetiek", "description": "Professionele beauty-diagnostiek: geselecteerde metingen, vragen en een begrensde workflow zonder claims over cosmetische resultaten.", "imageAlt": "Beauty-diagnostiek in een professionele praktijkworkflow" }
     }
   },
   "longevity": {
@@ -182,6 +208,19 @@
           "answer": "Ja. Preventieve biomarkerscreenings zijn klassieke zelfbetalersdiensten, aangezien zij buiten het vergoedingenpakket van de wettelijke zorgverzekering vallen. Juist in het longevitysegment bestaat een grote vraag naar datagestuurde gezondheidschecks. De combinatie van directe analyse en gekwalificeerd advies vormt een economisch aantrekkelijk dienstenpakket voor uw praktijk."
         }
       ]
+    },
+    "detail": {
+      "hero": { "eyebrow": "Longevity-diagnostiek", "title": "Preventieve diagnostiek en verloopbeoordeling voor longevityprogramma's", "subtitle": "Geselecteerde metabole, inflammatoire, hormonale en voedingsgerelateerde markers kunnen uitgangswaarden en veranderingen in de tijd tonen zonder gezondheid of levensduur te voorspellen." },
+      "problem": { "heading": "Trends volgen zonder uitkomsten te beloven", "paragraphs": ["Longevitygerichte zorg combineert preventieve vragen met herhaalbare metingen. Afzonderlijke waarden en veranderingen bieden oriëntatie, maar vragen klinische interpretatie en bewijzen noch oorzaak noch effect van een interventie."] },
+      "audiences": { "heading": "Professionele toepassingscontexten", "items": ["Praktijken en instellingen met preventieve geneeskunde of longevitygerichte diensten", "Professionele zorgconcepten met metabole, cardiovasculaire of hormonale vragen", "Teams die geselecteerde metingen gestructureerd vastleggen en deze in de tijd professioneel interpreteren"] },
+      "questions": { "heading": "Mogelijke diagnostische vragen", "items": ["Welke uitgangswaarden zijn relevant voor de concrete preventieve vraag?", "Welke veranderingen zijn in de tijd zichtbaar onder vergelijkbare meetomstandigheden?", "Wanneer vereist een bevinding verdere laboratorium- of specialistische beoordeling?"] },
+      "parameters": { "heading": "Vastgelegde metingen in de bestaande longevitycontext", "items": ["HbA1c", "Lipidenprofiel", "C-reactief proteïne (CRP)", "TSH", "Vitamine D"] },
+      "workflow": { "heading": "Een zorgvuldige monitoringworkflow", "steps": [{ "title": "Bepaal de uitgangsvraag", "text": "Leg indicatie, geschikte metingen en omstandigheden vast vóór de eerste meting." }, { "title": "Documenteer vergelijkbaar", "text": "Voer de meting uit volgens de testinstructies en leg relevante omstandigheden duidelijk vast." }, { "title": "Interpreteer het verloop professioneel", "text": "Beoordeel waarden in samenhang, houd rekening met mogelijke invloeden en laat zo nodig verder onderzoeken." }] },
+      "faq": { "caption": "Veelgestelde vragen", "title": "Vragen over longevity-diagnostiek", "items": [{ "question": "Wat betekent monitoring in een longevitycontext?", "answer": "Geselecteerde metingen worden op professioneel onderbouwde momenten herhaald en onder vergelijkbare omstandigheden bekeken. Een verloop ondersteunt interpretatie, maar bewijst geen oorzaak of effect." }, { "question": "Welke metingen worden in de bestaande longevitycontext genoemd?", "answer": "De huidige PolarisDX-content noemt HbA1c, lipidenwaarden, CRP, TSH en vitamine D. Geschiktheid hangt af van de individuele vraag en medische verantwoordelijkheid." }, { "question": "Kan longevity-diagnostiek gezondheid of levensduur garanderen?", "answer": "Nee. Metingen geven geen garantie, individuele risicoprognose of uitspraak over een verlengd leven. Ze moeten samen met anamnese en klinische context worden beoordeeld." }] },
+      "crosslinks": { "epigenetics": { "label": "Epigenetica als zelfstandige pijler", "description": "Ga naar de afzonderlijke epigeneticapagina zonder hier de specialistische of aanvraagroute te dupliceren." } },
+      "cta": { "title": "Verken longevity-diagnostiek voor uw aanbod", "text": "Bespreek met ons uw preventieve vraag, zinvolle meetmomenten en een passende volgende stap." },
+      "disclaimer": { "heading": "Professionele toelichting", "content": "Deze informatie ondersteunt professionele oriëntatie. Ze belooft geen ziektepreventie, gezondheidseffect of langere levensduur en vervangt geen individuele medische beoordeling." },
+      "seo": { "title": "Longevity-diagnostiek en biomarkermonitoring", "description": "Preventieve longevity-diagnostiek voor professionals: geselecteerde metingen, verloopbeoordeling en zorgvuldige monitoring zonder gezondheidsgarantie.", "imageAlt": "Longevity-diagnostiek en verloopbeoordeling in een professionele workflow" }
     }
   },
   "poc_systemloesungen": {
@@ -261,7 +300,8 @@
           "answer": "De IglooPro wordt ontwikkeld en geproduceerd door DX365 GmbH in Berlijn. PolarisDX is distributiepartner voor de Europese markt en verzorgt verkoop, integratie, training en doorlopende ondersteuning."
         }
       ]
-    }
+    },
+    "detail": {"hero":{"eyebrow":"POC-systeemoplossingen","title":"Plan patiëntnabije diagnostiek als een gecoördineerde systeemworkflow","subtitle":"Apparaat, geschikte tests, uitvoering, documentatie en professionele interpretatie moeten bij de zorgcontext passen. PolarisDX ondersteunt gestructureerde planning zonder algemene software- of interfacebeloften."},"problem":{"heading":"Meer dan één analyser","paragraphs":["Een POC-systeemoplossing verbindt patiëntnabije metingen met duidelijke verantwoordelijkheden en een gedocumenteerde workflow. Geschikte hardware, tests en koppelingen moeten voor de concrete organisatie en haar bestaande softwareomgeving worden beoordeeld."]},"audiences":{"heading":"Professionele gebruikscontexten","items":["Praktijken en medische instellingen die patiëntnabije metingen gestructureerd willen invoeren","Teams die testuitvoering, resultaatdocumentatie en professionele interpretatie als één workflow organiseren","Organisaties die eisen aan apparaten, tests en integratie vóór implementatie beoordelen"]},"questions":{"heading":"Vragen vóór de systeemkeuze","items":["Welke diagnostische vragen en tests moet de workflow afdekken?","Hoe worden monsterafname, uitvoering, documentatie en verantwoordelijkheid georganiseerd?","Welke compatibiliteits- of interface-eisen moeten in de bestaande omgeving worden geverifieerd?"]},"parameters":{"heading":"Onderdelen van een POC-systeemoplossing","items":["Analyser en compatibele tests","Monsterafname en gestandaardiseerde uitvoering","Resultaatdocumentatie en bestaande softwareomgeving","Kwaliteitsborging, verantwoordelijkheden en opleidingsbehoeften"]},"workflow":{"heading":"Een gestructureerd implementatieproces","steps":[{"title":"Gebruikscontext verduidelijken","text":"Diagnostische vragen, gebruikersgroepen, testomvang en organisatorische eisen vastleggen."},{"title":"Systeem en compatibiliteit controleren","text":"Apparaten, tests, documentatieroute en mogelijke interfaces in de werkelijke omgeving valideren."},{"title":"Verantwoorde workflow inrichten","text":"Uitvoering, kwaliteitsborging, verantwoordelijkheden en professionele interpretatie gedocumenteerd in de routine opnemen."}]},"faq":{"caption":"Veelgestelde vragen","title":"Vragen over POC-systeemoplossingen","items":[{"question":"Wat hoort bij een POC-systeemoplossing?","answer":"Naast een analyser omvat het systeem geschikte tests, monsterafname, uitvoering, resultaatdocumentatie, kwaliteitsborging en duidelijke verantwoordelijkheden. De concrete inrichting hangt af van organisatie en gebruikscontext."},{"question":"Kan elk POC-systeem automatisch met bestaande software worden verbonden?","answer":"Nee. Interfaces en compatibiliteit hangen af van apparaat, software, configuratie en organisatorische eisen en moeten vóór implementatie voor de concrete omgeving worden gecontroleerd."},{"question":"Vervangt patiëntnabije diagnostiek een centraal laboratorium?","answer":"Niet in het algemeen. Patiëntnabije tests en verdere laboratoriumroutes vullen elkaar aan afhankelijk van vraag, parameter, kwaliteitseisen en medische context."}]},"crosslinks":{"igloo":{"label":"IglooPro in de systeemcontext","description":"Ga naar de zelfstandige productpagina zonder hier technische specificaties of integratiebeloften te dupliceren."}},"cta":{"title":"Beoordeel een POC-systeemoplossing voor uw omgeving","text":"Bespreek met ons de gebruikscontext, proceseisen en punten die vóór implementatie moeten worden gecontroleerd."},"disclaimer":{"heading":"Systeem- en vakinhoudelijke informatie","content":"Geschiktheid, testomvang, interfaces, kwaliteitsborging en implementatie hangen af van de concrete configuratie en professionele verantwoordelijkheid. Deze pagina belooft geen automatische integratie, beschikbaarheid, snelheid of diagnostische prestaties."},"seo":{"title":"POC-systeemoplossingen voor praktijk en zorg","description":"Plan POC-systemen professioneel: apparaten, tests, praktijkworkflow, documentatie en integratiecontrole zonder algemene prestatiebeloften.","imageAlt":"POC-systeemoplossing met apparaat, testproces en documentatie in een praktijkworkflow"}}
   },
   "praeventions_checks": {
     "title": "Preventieve gezondheidschecks",
@@ -328,11 +368,13 @@
     "seo": {
       "description": "Preventieve checks op het Point-of-Care: belangrijke biomarkers direct bepalen en datagestuurd adviseren – in praktijk, apotheek en kliniek. Informeer nu.",
       "title": "Preventieve gezondheidschecks in de praktijk"
-    }
+    },
+    "detail": {"hero":{"eyebrow":"Preventieve checks","title":"Preventieve checks als gestructureerde basis voor diagnostische informatie","subtitle":"Geselecteerde metingen kunnen advies en verdere beoordeling ondersteunen. Een check biedt een momentopname en garandeert geen zekere vroege detectie, uitsluiting of voorkoming van ziekte."},"problem":{"heading":"De vraag vóór het testpakket","paragraphs":["Een zinvolle preventieve check begint met doelgroep, doel en een professioneel onderbouwde selectie van metingen. Resultaten moeten samen met anamnese en zorgcontext worden geïnterpreteerd; een algemene testlijst is geen diagnose."]},"audiences":{"heading":"Professionele gebruikscontexten","items":["Praktijken met gestructureerde concepten voor preventief advies en zorg","Apotheken en andere professionele zorgaanbieders met duidelijk toegewezen professionele interpretatie","Klinieken en medische instellingen die geselecteerde metingen in bestaande preventieve workflows opnemen"]},"questions":{"heading":"Vragen voor een verantwoorde check","items":["Welk preventief informatiedoel moet de check ondersteunen?","Welke metingen zijn professioneel onderbouwd voor de doelgroep en concrete vraag?","Welke resultaten vereisen bevestiging, verdere diagnostiek of specialistische beoordeling?"]},"parameters":{"heading":"Vastgelegde metingen in de bestaande preventiecontext","items":["HbA1c","Lipidenwaarden","C-reactief proteïne (CRP)","Vitamine D","TSH","Ferritine"]},"workflow":{"heading":"Een gestructureerde checkworkflow","steps":[{"title":"Doel en omvang bepalen","text":"Leg vóór de check doelgroep, doel, geschikte metingen en verantwoordelijkheden vast."},{"title":"Meten met documentatie","text":"Voer monsterafname en test volgens de instructies van het systeem uit en documenteer het resultaat traceerbaar."},{"title":"Resultaat voorzichtig interpreteren","text":"Bespreek metingen in de individuele context en organiseer passende verdere beoordeling bij afwijkende of onzekere resultaten."}]},"faq":{"caption":"Veelgestelde vragen","title":"Vragen over preventieve checks","items":[{"question":"Wat is een preventieve check?","answer":"Een preventieve check bundelt professioneel geselecteerde metingen voor een bepaalde vraag. De check levert diagnostische informatie voor advies en mogelijke verdere beoordeling, maar geen zelfstandige diagnose."},{"question":"Welke metingen noemt de bestaande preventiecontext?","answer":"De bestaande PolarisDX-evidentie noemt HbA1c, lipidenwaarden, CRP, vitamine D, TSH en ferritine. De geschikte selectie hangt af van doelgroep, vraag en professionele verantwoordelijkheid."},{"question":"Kan een preventieve check ziekte met zekerheid detecteren, uitsluiten of voorkomen?","answer":"Nee. Een check kan informatie bieden, maar garandeert geen vroege detectie, uitsluiting of ziektepreventie. Afwijkende of onduidelijke resultaten vereisen medische interpretatie en zo nodig verdere beoordeling."}]},"cta":{"title":"Beoordeel preventieve checks voor uw aanbod","text":"Bespreek met ons de doelgroep, vraag, geschikte metingen en een verantwoorde volgende stap."},"disclaimer":{"heading":"Vakinhoudelijke informatie","content":"Preventieve checks vervangen geen individuele medische diagnose, behandelbeslissing of verdere beoordeling. Ze garanderen geen detectie, uitsluiting of voorkoming van ziekte."},"seo":{"title":"Preventieve checks en diagnostische oriëntatie","description":"Preventieve checks voor professionals: zes vastgelegde meetgroepen, een gestructureerde workflow en voorzichtige interpretatie zonder diagnostische of preventiegaranties.","imageAlt":"Gestructureerde preventieve check met selectie van metingen en professionele interpretatie"}}
   },
   "infektion_entzuendung": {
     "title": "Infectie & Ontstekingsmarkers",
     "headline": "Triage in minuten: Hoe de Igloo Pro besluitvorming versnelt",
+    "detail": {"hero":{"eyebrow":"Infectie en ontsteking","title":"Infectie- en ontstekingsmarkers in hun context interpreteren","subtitle":"CRP, PCT, IL-6 en ferritine kunnen verschillende informatie geven over ontstekingsprocessen. De betekenis hangt af van de vraag, het moment en de klinische context; geen enkele waarde stelt op zichzelf een diagnose of behandelbeslissing vast."},"problem":{"heading":"Een marker is geen diagnose","paragraphs":["Tekenen van infectie en ontsteking kunnen overlappen en in de tijd veranderen. Metingen moeten daarom samen met symptomen, voorgeschiedenis, timing en zo nodig aanvullende diagnostiek worden beoordeeld, in plaats van uit één waarde een oorzaak af te leiden."]},"audiences":{"heading":"Professionele zorgcontexten","items":["Ambulante praktijken en medische instellingen met afgebakende vragen over infectie of ontsteking","Klinische teams die metingen opnemen in bestaande intake-, follow-up- of nazorgprocessen","Professionele zorgaanbieders met duidelijke verantwoordelijkheid voor meting, documentatie en verdere beoordeling"]},"questions":{"heading":"Vragen vóór selectie en interpretatie","items":["Welke concrete vraag over infectie of ontsteking moet de meting ondersteunen?","Welke beschikbare marker geeft aanvullende informatie en op welk moment?","Welke bevindingen vragen om bevestiging, vervolgmeting of verdere diagnostiek binnen het geldende zorgpad?"]},"parameters":{"heading":"Markers genoemd in de bestaande servicecontext","items":["CRP (C-reactief proteïne)","PCT (procalcitonine)","IL-6 (interleukine-6)","Ferritine"]},"workflow":{"heading":"Van vraagstelling naar professionele interpretatie","steps":[{"title":"Verduidelijk context en verantwoordelijkheid","text":"Bepaal vóór de meting aanleiding, zorgsituatie en verantwoordelijkheid voor interpretatie en vervolgstappen."},{"title":"Voer de meting uit en documenteer","text":"Verwerk monster en meting volgens de instructies van de concreet gebruikte test en documenteer tijdstip en resultaat."},{"title":"Beoordeel het resultaat in het totaalbeeld","text":"Gebruik de waarde niet geïsoleerd; combineer deze met de klinische context en zo nodig bevestigende of aanvullende diagnostiek."}]},"faq":{"caption":"Veelgestelde vragen","title":"Vragen over infectie- en ontstekingsmarkers","items":[{"question":"Welke markers noemt de bestaande servicecontext?","answer":"De huidige PolarisDX-evidentie noemt CRP, PCT, IL-6 en ferritine. Welke markers een concrete testconfiguratie werkelijk ondersteunt, moet voor het gekozen systeem en de beoogde toepassing worden gecontroleerd."},{"question":"Kan één marker de oorzaak met zekerheid bepalen?","answer":"Nee. Een meting kan de professionele beoordeling aanvullen, maar bewijst op zichzelf geen specifieke infectie of concrete oorzaak van ontsteking. Timing, verloop, symptomen en verdere diagnostiek blijven onderdeel van de interpretatie."},{"question":"Vervangt deze pagina een klinische urgentie- of behandelbeslissing?","answer":"Nee. De pagina beschrijft een B2B-servicecontext en geeft geen individuele aanbeveling voor triage, diagnose of behandeling. Voor concrete gevallen gelden de relevante klinische processen en professionele verantwoordelijkheden."}]},"cta":{"title":"Plaats markerdiagnostiek in uw zorgcontext","text":"Bespreek met ons de vraag, de beschikbare testconfiguratie en een verantwoorde volgende stap."},"disclaimer":{"heading":"Professionele toelichting","content":"Infectie- en ontstekingsmarkers geven contextafhankelijke diagnostische informatie. Ze vervangen geen individuele medische beoordeling, diagnose, urgentiebesluit of behandeling en garanderen geen specifieke oorzaak of uitkomst."},"seo":{"title":"Infectie- en ontstekingsmarkers in zorgcontext","description":"CRP, PCT, IL-6 en ferritine helder uitgelegd: professionele contexten, gestructureerde meting en grenzen zonder diagnose- of behandelgaranties.","imageAlt":"Professionele interpretatie van infectie- en ontstekingsmarkers in een zorgcontext"}},
     "intro": [
       "In de acute zorg en poliklinische omgevingen telt elke minuut. Onmiddellijke en betrouwbare bepaling van ontstekingsmarkers en tekenen van infectie is essentieel voor correcte triage, patiëntenzorg en – belangrijker dan ooit – voor verantwoord antibioticabeheer.",
       "POC (Point-of-Care) systemen van de premiumklasse zijn het controlecentrum om de tijd van monster tot resultaat tot een minimum te beperken en tegelijkertijd maximale klinische veiligheid te garanderen."
@@ -399,6 +441,7 @@
   "stoffwechsel_herz": {
     "title": "Stofwisseling & Hartgezondheid",
     "headline": "Belangrijke indicatoren in één oogopslag: Nauwkeurige meting voor therapieaanpassing",
+    "detail": {"hero":{"eyebrow":"Stofwisseling en hart","title":"Metabole en cardiale markers in het verloop plaatsen","subtitle":"HbA1c, cholesterol en D-dimeer leveren verschillende diagnostische informatie. Hun betekenis hangt af van de vraag, het tijdstip en de zorgcontext; één waarde vormt geen diagnose en geen individuele risicoprognose."},"problem":{"heading":"Metingen beantwoorden verschillende vragen","paragraphs":["Metabole en cardiovasculaire vragen vereisen een bewuste keuze en interpretatie van markers. Resultaten moeten samen met anamnese, klinisch beeld en waar nodig aanvullende diagnostiek worden beoordeeld, in plaats van uit één waarde een ziektekans of behandeling af te leiden."]},"audiences":{"heading":"Professionele gebruikscontexten","items":["Ambulante praktijken en medische instellingen met afgebakende metabole of cardiovasculaire vragen","Professionele preventieprogramma's die geselecteerde markers opnemen in gestructureerde advisering en verdere beoordeling","Klinische teams die herhaalde metingen integreren in bestaande monitoring- en escalatiepaden"]},"questions":{"heading":"Vragen vóór selectie en vervolgmeting","items":["Welke concrete metabole of cardiovasculaire vraag moet de meting ondersteunen?","Welke beschikbare marker past bij de vraag en wanneer moet deze worden gemeten?","Welke resultaten vragen om bevestiging, aanvullende diagnostiek of een verantwoorde medische beoordeling?"]},"parameters":{"heading":"Markers genoemd in de bestaande servicecontext","items":["HbA1c","Cholesterol","D-dimeer"]},"workflow":{"heading":"Van meetdoel naar voorzichtige verloopinterpretatie","steps":[{"title":"Vraag en verantwoordelijkheid bepalen","text":"Leg vooraf het meetdoel, de zorgcontext en de verantwoordelijkheid voor interpretatie en vervolgstappen vast."},{"title":"Meting uitvoeren en documenteren","text":"Gebruik de concreet beschikbare test volgens de instructies en documenteer tijdstip, omstandigheden en resultaat transparant."},{"title":"Resultaat in context beoordelen","text":"Beoordeel afzonderlijke en vervolgwaarden binnen het volledige professionele beeld en organiseer passende bevestiging of verdere beoordeling bij afwijkende of onzekere bevindingen."}]},"faq":{"caption":"Veelgestelde vragen","title":"Vragen over metabole en cardiale markers","items":[{"question":"Welke markers noemt de bestaande servicecontext?","answer":"De beschikbare PolarisDX-informatie noemt HbA1c, cholesterol en D-dimeer. Welke markers een concrete testconfiguratie daadwerkelijk ondersteunt, moet voor het gekozen systeem en het beoogde gebruik worden gecontroleerd."},{"question":"Kan één waarde mijn individuele cardiovasculaire risico voorspellen?","answer":"Nee. Eén waarde geeft geen betrouwbare individuele risicoprognose en bewijst geen ziekte. Interpretatie vereist de klinische context en waar nodig bevestigende of aanvullende diagnostiek."},{"question":"Wat betekent monitoring in deze context?","answer":"Monitoring betekent dat professioneel onderbouwde metingen op geschikte momenten en waar mogelijk onder vergelijkbare omstandigheden worden bekeken. Een verloop kan extra informatie bieden, maar garandeert geen gezondheidsuitkomst of bepaalde behandelbeslissing."}]},"cta":{"title":"Plaats metabole en cardiale diagnostiek in uw context","text":"Bespreek met ons de vraag, de beschikbare testconfiguratie en een verantwoorde volgende stap."},"disclaimer":{"heading":"Professionele toelichting","content":"Metabole en cardiale markers leveren contextafhankelijke diagnostische informatie. Ze vervangen geen individuele medische beoordeling, diagnose, risicoprognose of behandelbeslissing en garanderen geen gezondheidsuitkomst."},"seo":{"title":"Metabole en cardiale markers in zorgcontext","description":"HbA1c, cholesterol en D-dimeer zorgvuldig uitgelegd: professionele contexten, verantwoorde monitoring en geen individuele risicoprognose.","imageAlt":"Professionele interpretatie van metabole en cardiale markers in een zorgcontext"}},
     "intro": [
       "Het monitoren van chronische ziekten zoals diabetes en het beheersen van cardiale risico's zijn tijdkritische taken. Moderne Point-of-Care (POC) systemen veranderen hier in onmisbare hulpmiddelen, omdat ze de patiënttrouw versterken en therapieaanpassing versnellen.",
       "De Igloo Pro Reader bundelt de noodzakelijke nauwkeurige analyses in een mobiel apparaat om belangrijke metabole en cardiale markers in enkele minuten te bepalen."
@@ -465,6 +508,18 @@
   "hormon_tests": {
     "title": "Hormoon- & Endocrinologietests",
     "headline": "Precisie in endocrinologie: Snelle zekerheid voor complexe diagnoses",
+    "detail": {
+      "hero": { "eyebrow": "Hormoontests", "title": "Hormoonwaarden interpreteren vanuit de vraagstelling", "subtitle": "TSH en AMH horen bij verschillende endocrinologische vragen. Selectie, meetmoment en interpretatie horen thuis in de relevante professionele zorgcontext; één waarde levert geen diagnose of behandelbeslissing op." },
+      "problem": { "heading": "Hormoondiagnostiek vraagt om context en duidelijke verantwoordelijkheid", "paragraphs": ["Hormoonwaarden kunnen afhankelijk van vraagstelling, meetmoment en individuele omstandigheden anders worden geïnterpreteerd. Ze geven diagnostische informatie, maar vervangen geen anamnese, klinisch onderzoek of specialistische en laboratoriumbeoordeling."] },
+      "audiences": { "heading": "Professionele gebruikscontexten", "items": ["Medische praktijken en instellingen met afgebakende schildkliervraagstukken", "Gynaecologische, reproductieve en endocrinologische zorgcontexten met onderbouwde hormoonvragen", "Professionele teams die geselecteerde hormoonwaarden opnemen in gedocumenteerde onderzoeks- of monitoringpaden"] },
+      "questions": { "heading": "Vragen vóór selectie en meting", "items": ["Welke concrete endocrinologische vraag moet de meting ondersteunen?", "Welke beschikbare parameter past bij de vraag en wanneer is een geschikt meetmoment?", "Welke resultaten vragen om bevestiging, aanvullende diagnostiek of een verantwoorde specialistische beoordeling?"] },
+      "parameters": { "heading": "Parameters genoemd in de bestaande servicecontext", "items": ["TSH", "AMH"] },
+      "workflow": { "heading": "Van vraagstelling naar professionele interpretatie", "steps": [{ "title": "Vraagstelling en verantwoordelijkheid vastleggen", "text": "Bepaal vooraf het meetdoel, de professionele context en de verantwoordelijkheid voor interpretatie en vervolgstappen." }, { "title": "De beschikbare test gedocumenteerd uitvoeren", "text": "Controleer de specifieke testbeschikbaarheid en verwerk monster en meting volgens de instructies van het gebruikte systeem." }, { "title": "Het resultaat in context beoordelen", "text": "Interpreteer de waarde binnen het volledige klinische beeld en organiseer passende bevestiging of aanvullende beoordeling bij onverwachte of onduidelijke resultaten." }] },
+      "faq": { "caption": "Veelgestelde vragen", "title": "Vragen over hormoontests", "items": [{ "question": "Welke parameters noemt de bestaande servicecontext?", "answer": "De beschikbare PolarisDX-evidentie noemt TSH en AMH. Welke tests een specifieke configuratie daadwerkelijk ondersteunt, moet voor het gekozen systeem en de beoogde toepassing worden geverifieerd." }, { "question": "Kan één hormoonwaarde een diagnose bevestigen?", "answer": "Nee. Eén waarde bewijst geen aandoening en moet samen met anamnese, het klinische beeld en zo nodig bevestigende of aanvullende diagnostiek worden beoordeeld." }, { "question": "Kan medicatie of dosering uit het resultaat worden afgeleid?", "answer": "Niet uit deze meting alleen. Beslissingen over behandeling, medicatie en dosering vallen onder de verantwoordelijkheid van passend gekwalificeerde behandelaars en vereisen de volledige medische context." }] },
+      "cta": { "title": "Hormoondiagnostiek in uw context plaatsen", "text": "Bespreek met ons de vraagstelling, de beschikbare testconfiguratie en een verantwoorde volgende stap." },
+      "disclaimer": { "heading": "Professionele toelichting", "content": "Hormoonwaarden geven contextafhankelijke diagnostische informatie. Ze vervangen geen individuele medische beoordeling, diagnose of beslissingen over behandeling, medicatie en dosering en garanderen geen gezondheidsuitkomst." },
+      "seo": { "title": "Hormoontests in professionele zorgcontexten", "description": "TSH en AMH in professionele context: verantwoorde testselectie, meetproces en duidelijke grenzen zonder diagnose- of behandelbelofte.", "imageAlt": "Professionele interpretatie van hormoontests in een zorgcontext" }
+    },
     "intro": [
       "Hormonale onevenwichtigheden zijn vaak de oorzaak van complexe, chronische klachten, van schildklierdisfunctie tot vruchtbaarheidsstoornissen. Gespecialiseerde praktijken en apotheken hebben daarom diagnostiek nodig die niet alleen snel is, maar absoluut nauwkeurig om therapiepaden goed gefundeerd te sturen.",
       "De Igloo Pro Reader maakt POC-tests toegankelijk voor endocrinologie en maakt de onmiddellijke bepaling van kritieke hormonen direct bij de patiënt mogelijk."
@@ -529,6 +584,92 @@
     }
   },
   "kompatibilitaet_integration": {
+    "detail": {
+      "hero": {
+        "eyebrow": "Compatibiliteit en integratie",
+        "title": "Controleer compatibiliteit aantoonbaar vóór implementatie",
+        "subtitle": "Of test, evaluatie, documentatieroute en bestaande werkomgeving bij elkaar passen, hangt af van de concrete configuratie. PolarisDX ondersteunt een gestructureerde controle zonder algemene beloften over interfaces of functies."
+      },
+      "problem": {
+        "heading": "Integratie begint met een onderbouwde systeemcombinatie",
+        "paragraphs": [
+          "Omgevingen van fabrikanten, tests en software verschillen. Vóór gebruik moeten de beoogde test, evaluatie, documentatieroute en verantwoordelijkheden in de werkelijke omgeving worden gecontroleerd en aantoonbaar vastgelegd."
+        ]
+      },
+      "audiences": {
+        "heading": "Professionele integratiecontexten",
+        "items": [
+          "Praktijken en medische instellingen die test, evaluatie en documentatie vóór implementatie gezamenlijk beoordelen",
+          "Teams die een meetproces in bestaande werkstromen plaatsen zonder automatische gegevensuitwisseling te veronderstellen",
+          "Organisaties die eisen van fabrikanten, tests en bestaande systemen aantoonbaar vergelijken"
+        ]
+      },
+      "questions": {
+        "heading": "Vragen vóór een integratiebesluit",
+        "items": [
+          "Welke concrete combinatie van test en evaluatie is bedoeld en welk bewijs ondersteunt de geschiktheid?",
+          "Hoe worden resultaten gedocumenteerd of overgedragen en welke stappen blijven handmatig?",
+          "Wie is verantwoordelijk voor controle, configuratie, goedkeuring en latere wijzigingen?"
+        ]
+      },
+      "parameters": {
+        "heading": "Technische en organisatorische controlepunten",
+        "items": [
+          "Beoogde test en gebruikte evaluatie",
+          "Systeem- en softwareversies en bestaande documentatieroute",
+          "Handmatige of technische gegevensoverdracht en duidelijke verantwoordelijkheden",
+          "Verificatie, wijzigingsdocumentatie en opleidingsbehoefte"
+        ]
+      },
+      "workflow": {
+        "heading": "Van eisen naar gedocumenteerd gebruik",
+        "steps": [
+          {
+            "title": "Baken de eisen af",
+            "text": "Leg testomvang, werkomgeving, documentatieroute en verantwoordelijke rollen concreet vast."
+          },
+          {
+            "title": "Verifieer de compatibiliteit",
+            "text": "Controleer de beoogde combinatie en gegevensroute aan de hand van actuele documentatie en de werkelijke gebruiksomgeving."
+          },
+          {
+            "title": "Documenteer het goedgekeurde proces",
+            "text": "Leg bevestigde status, handmatige stappen, verantwoordelijkheden en wijzigingsbeheer vast."
+          }
+        ]
+      },
+      "faq": {
+        "caption": "Veelgestelde vragen",
+        "title": "Vragen over compatibiliteit en integratie",
+        "items": [
+          {
+            "question": "Geldt een compatibiliteitsverklaring automatisch voor elke test en fabrikant?",
+            "answer": "Nee. Ze geldt alleen voor de concreet gecontroleerde combinatie en gedocumenteerde status. Andere tests, versies of gebruiksomstandigheden vereisen een aparte beoordeling."
+          },
+          {
+            "question": "Is een automatische koppeling met bestaande software inbegrepen?",
+            "answer": "Niet in het algemeen. Of en hoe gegevens kunnen worden overgedragen, hangt af van de betrokken systemen, versies, configuraties en goedgekeurde routes en moet voor de concrete omgeving worden gecontroleerd."
+          },
+          {
+            "question": "Garandeert gestructureerde integratie een foutloze of veilige werking?",
+            "answer": "Nee. De gestructureerde controle maakt voorwaarden, verantwoordelijkheden en open punten zichtbaar. Verantwoordelijkheid voor werking, kwaliteit en veiligheid blijft afhankelijk van de concrete omgeving en geldende eisen."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Beoordeel samen de compatibiliteitseisen",
+        "text": "Bespreek met ons de beoogde combinatie, uw documentatieroute en de punten die vóór integratie moeten worden gecontroleerd."
+      },
+      "disclaimer": {
+        "heading": "Technische toelichting",
+        "content": "Geschiktheid en gegevensroutes hangen af van test, systeem, versie, configuratie en gebruiksomgeving. Deze pagina belooft geen universele compatibiliteit, automatische interface, certificering, SLA of garantie op veiligheid, beschikbaarheid of prestaties."
+      },
+      "seo": {
+        "title": "Compatibiliteit en integratie voor POC-werkstromen",
+        "description": "Controleer compatibiliteit gestructureerd: test, evaluatie, documentatie en verantwoordelijkheden zonder algemene interface- of prestatiebeloften.",
+        "imageAlt": "Gestructureerde controle van compatibiliteit en integratie in een POC-werkstroom"
+      }
+    },
     "title": "Compatibiliteit tussen fabrikanten",
     "headline": "Maximale flexibiliteit: Hoe uw Igloo Pro 90% van alle tests op de markt evalueert",
     "intro": [
@@ -594,11 +735,32 @@
     }
   },
   "seo": {
-    "overview_title": "POC-diagnostiek voor praktijken: dental, beauty, longevity",
-    "overview_description": "Patiëntnabije sneltests voor vitamine D, CRP, HbA1c & TSH – chairside in minuten. POC-diagnostiek met de Igloo Pro voor tandarts-, esthetiek- & preventiepraktijken."
+    "overview_title": "Point-of-care-diagnostiek en oplossingen voor praktijken",
+    "overview_description": "Oriëntatie op point-of-care-diagnostiek, oplossingen en servicegebieden voor praktijken: dental, beauty, preventie, systemen en integratie.",
+    "overview_image_alt": "IglooPro Reader als visueel anker van de PolarisDX Diagnostics Hub"
   },
   "overview": {
     "hero": {
+      "entry": {
+        "breadcrumb_label": "Kruimelpad",
+        "eyebrow": "Point-of-care en aanvullende diagnostiek",
+        "title": "Diagnostische oplossingen voor praktijken en zorginstellingen",
+        "description": "PolarisDX brengt point-of-care-toepassingen en aanvullende diagnostiek samen voor praktijken, medische instellingen en professionele gebruikers. Kies de ingang die past bij uw vakgebied, diagnostische vraag en workflow.",
+        "primary_cta": "Offerte aanvragen",
+        "secondary_cta": "Ontdek de servicegebieden",
+        "trust_label": "Betrouwbare oriëntatie",
+        "trust": {
+          "services": "9 helder ingedeelde servicegebieden",
+          "audience": "Voor praktijken, medische instellingen en professionele gebruikers",
+          "context": "Point-of-care en aanvullende diagnostiek in één overzicht"
+        },
+        "visual": {
+          "eyebrow": "Productgerichte ingang",
+          "title": "IglooPro in de point-of-care-context",
+          "text": "Een reëel systeempad binnen de Diagnostics Hub, naast andere ingangen op basis van vakgebied en workflow.",
+          "alt": "IglooPro Reader als voorbeeld van point-of-care-diagnostiek"
+        }
+      },
       "title": "Diagnostiek",
       "subtitle": "Labnauwkeurige panels voor elk praktijktype – gevalideerd, IVDR-conform en vanaf dag 1 inzetbaar. Kies uw vakgebied of verken de diagnostiekgebieden hieronder.",
       "chip_cv": "CV < 2 %",
@@ -650,6 +812,9 @@
       }
     },
     "focus": {
+      "eyebrow": "Toepassingsgebieden",
+      "title": "Zes ingangen per vakgebied en workflow",
+      "intro": "Kies op basis van praktijkgebied, preventiecontext of technische integratie. Elke ingang leidt naar een bestaand diagnostisch servicegebied.",
       "subtitle": "Zes diagnostiekgebieden, één platform – elk panel draait chairside op de IglooPro.",
       "poc": {
         "cta": "POC-systemen verkennen",
@@ -696,6 +861,54 @@
           "90 % LFA",
           "Open platform"
         ]
+      }
+    },
+    "related": {
+      "eyebrow": "Kennis en context",
+      "title": "Artikelen over diagnostiek en praktijkworkflows",
+      "intro": "Geselecteerde gepubliceerde artikelen verdiepen point-of-care, diagnostieke logistiek en systeemintegratie.",
+      "all_articles": "Bekijk alle artikelen"
+    },
+    "ia": {
+      "eyebrow": "Oriëntatie",
+      "title": "Diagnostiek plaatsen in de juiste zorgcontext",
+      "intro": "PolarisDX verbindt metingen dicht bij de patiënt, diagnostische vragen en systeemintegratie. Het juiste startpunt hangt af van vakgebied, workflow en de informatie die in de professionele context nodig is.",
+      "poc": {
+        "title": "Point-of-Care in de workflow",
+        "text": "Point-of-Care-metingen vinden dicht bij de zorglocatie plaats. Resultaten kunnen daardoor tijdens de praktijkworkflow beschikbaar zijn en professionele interpretatie of het gesprek ondersteunen. Selectie en beoordeling blijven de taak van gekwalificeerde gebruikers."
+      },
+      "extended": {
+        "title": "Uitgebreide diagnostiek en laboratorium",
+        "text": "Afhankelijk van de vraag vullen vervolgonderzoeken of bestaande laboratoriumroutes diagnostiek dicht bij de patiënt aan. De benaderingen vervangen elkaar niet in algemene zin; zorgcontext, benodigde parameters en professionele vereisten bepalen de keuze."
+      },
+      "term": {
+        "label": "Kort uitgelegd:",
+        "text": "Point-of-Care (POC) staat voor diagnostische metingen dicht bij de zorglocatie. De term beschrijft de gebruikscontext, niet een automatische medische beslissing."
+      },
+      "groups": {
+        "practice": {
+          "eyebrow": "Praktijk- en vakcontexten",
+          "title": "Prioritaire startpunten per toepassingsgebied",
+          "text": "Dental, Beauty en Longevity zijn al centrale startpunten in de huidige sitehiërarchie. Kies de context die het dichtst bij uw professionele toepassing ligt."
+        },
+        "workflow": {
+          "eyebrow": "Workflow en diagnostische vraag",
+          "title": "Meer diagnostische servicegebieden",
+          "text": "Oriënteer u op preventie, de klinische vraag of de integratie van diagnostische systemen in bestaande workflows."
+        }
+      },
+      "priority_label": "Prioritair startpunt",
+      "card_cta": "Bekijk servicegebied",
+      "cards": {
+        "dental": "Voor tandartspraktijken die diagnostische informatie willen plaatsen binnen implantologie, parodontologie of preventieve workflows.",
+        "beauty": "Voor professionele esthetiek- en beautycontexten waarin huidgezondheid, hormonen of micronutriënten deskundig worden beoordeeld.",
+        "longevity": "Voor preventie- en longevitydiensten die geselecteerde biomarkers gestructureerd opnemen in advies en follow-up.",
+        "poc_systemloesungen": "Voor organisaties die metingen dicht bij de patiënt, apparatuur en processen als één afgestemde workflow beschouwen.",
+        "praeventions_checks": "Voor gestructureerde checks die geselecteerde gezondheidsinformatie bieden voor advies en verdere beoordeling.",
+        "infektion_entzuendung": "Voor professionele vragen rond infectie- en ontstekingsmarkers.",
+        "stoffwechsel_herz": "Voor het plaatsen van geselecteerde metabole en cardiovasculaire markers in passende professionele workflows.",
+        "hormon_tests": "Voor professionele vragen over schildklier, hormoonstatus en endocrinologie.",
+        "kompatibilitaet_integration": "Voor organisaties die apparatuur, tests en digitale interfaces willen integreren in hun bestaande diagnostische infrastructuur."
       }
     },
     "page": {

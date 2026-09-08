@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "Diagnostyka POC dla Twojego gabinetu: wyniki laboratoryjne w kilka minut",
-    "description": "Diagnostyka point-of-care o dokładności laboratoryjnej bezpośrednio w Twoim gabinecie: IVDR/CE, CV < 2 % i wynik w kilka minut. Nowy przychód z usług płatnych – poproś o ofertę."
+    "title": "Diagnostyka point-of-care dla gabinetów | PolarisDX",
+    "description": "PolarisDX wspiera gabinety i placówki medyczne w diagnostyce point-of-care z IglooPro oraz prowadzi do diagnostyki, epigenetyki i indywidualnego doradztwa.",
+    "social_image_alt": "Czytnik point-of-care IglooPro firmy PolarisDX"
   },
   "hero": {
-    "caption": "Wydajność point-of-care",
-    "title": "IglooPro:\nPoint-of-Care. Perfekcyjnie. Natychmiast.",
-    "description": "Zapewnij sobie pakiet wydajności: Twój IglooPro będzie gotowy do pracy w 3–5 dni roboczych.",
+    "caption": "PolarisDX dla gabinetów i placówek medycznych",
+    "title": "Diagnostyka point-of-care dopasowana do codziennej pracy placówki.",
+    "description": "PolarisDX wspiera profesjonalnych użytkowników we wdrażaniu diagnostyki point-of-care z IglooPro w istniejące procesy – od wyboru odpowiedniego rozwiązania po zastosowanie na miejscu.",
     "cta": "Poproś o ofertę",
+    "cta_secondary": "Poznaj diagnostykę",
+    "visual_alt": "Czytnik point-of-care IglooPro do zastosowań profesjonalnych",
     "cta_roi": "Uruchom kalkulator ROI",
     "cta_downloads": "Pobierz materiały informacyjne",
     "stat1": {
@@ -74,6 +77,33 @@
       }
     },
     "stats_disclaimer": "* Wartość przykładowa – zależna od danych Twojego gabinetu."
+  },
+  "business_pillars": {
+    "eyebrow": "Trzy filary działalności",
+    "title": "Trzy ścieżki do diagnostyki i zastosowań profesjonalnych",
+    "intro": "PolarisDX łączy diagnostykę point-of-care, czytnik IglooPro i epigenetykę w wyraźnie oddzielonych obszarach.",
+    "pillars": {
+      "diagnostics": {
+        "title": "Diagnostyka",
+        "text": "Diagnostyka point-of-care i zastosowania specjalistyczne dla gabinetów i placówek medycznych.",
+        "cta": "Poznaj diagnostykę"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "Czytnik IglooPro analizuje kompatybilne szybkie testy bezpośrednio w miejscu opieki.",
+        "cta": "Zobacz IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetyka",
+        "text": "Samodzielny obszar analiz epigenetycznych i genetycznych oraz powiązanych raportów przykładowych.",
+        "cta": "Poznaj epigenetykę"
+      }
+    },
+    "core": {
+      "eyebrow": "Wybrane zastosowania",
+      "title": "Bezpośrednie wejścia według specjalizacji",
+      "intro": "Dental, Beauty i Longevity prowadzą do trzech opublikowanych obszarów diagnostycznych. Pełne portfolio pozostaje dostępne w centrum Diagnostyki."
+    }
   },
   "about": {
     "caption": "TWOJA GWARANCJA WYDAJNOŚCI",
@@ -155,8 +185,8 @@
     }
   },
   "testimonials": {
-    "caption": "GŁOSY GABINETÓW",
-    "title": "Co gabinety mówią o systemie IglooPro",
+    "caption": "REFERENCJA Z GABINETU",
+    "title": "Doświadczenie z codziennej pracy z IglooPro",
     "ratingLabel": "Ocena ogólna\nna podstawie ocen gabinetów",
     "positiveLabel": "Pozytywna ocena",
     "richard_pollock": {
@@ -185,6 +215,7 @@
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Natychmiastowa diagnostyka w periodontologii i implantologii (Vitamin D, HbA1c, cholesterol, CRP)",
       "text": "Igloo Multireader umożliwia pomiar markerów stanu zapalnego, HbA1c, cholesterolu i Vitamin D bezpośrednio przy fotelu. Dzięki temu bezpieczniej planujemy zabiegi periodontologiczne i implantologiczne oraz szybciej je rozpoczynamy. Szkolenie i wsparcie ze strony PolarisDX są nieskomplikowane – urządzenie stało się stałym elementem naszej codziennej pracy.",
+      "proof_text": "Szkolenie i wsparcie ze strony PolarisDX są nieskomplikowane – urządzenie stało się stałym elementem naszej codziennej pracy.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
@@ -228,28 +259,20 @@
     "title": "Najczęściej zadawane pytania o PolarisDX i diagnostykę point-of-care",
     "items": [
       {
-        "question": "Czy IglooPro opłaca się w moim gabinecie?",
-        "answer": "Dzięki diagnostyce POC możesz oferować oznaczenia biomarkerów jako usługę płatną bezpośrednio w gabinecie, zamiast zlecać je zewnętrznemu laboratorium. Jakie obłożenie i przychody przyniesie to w Twoim konkretnym przypadku, ustalisz w przejrzysty sposób w kalkulatorze ROI. Dzięki temu jeszcze przed zakupem zobaczysz, jak system wpisuje się w strukturę Twojego gabinetu."
+        "question": "Co PolarisDX oferuje gabinetom i placówkom medycznym?",
+        "answer": "PolarisDX łączy trzy niezależne obszary: diagnostykę point-of-care, czytnik IglooPro i epigenetykę. Każdy obszar zawiera przegląd i prowadzi do już opublikowanych informacji specjalistycznych."
       },
       {
-        "question": "Czy IglooPro jest dopuszczony do użytku w gabinecie i objęty kontrolą jakości?",
-        "answer": "IglooPro jest zgodny z IVDR/CE, a tym samym przeznaczony do diagnostyki przyłóżkowej w miejscu opieki nad pacjentem (POCT). W całym zakresie pomiarowym system osiąga precyzję CV < 2 %, co sprzyja powtarzalności wyników. Uruchomienie odbywa się w stanie zwalidowanym, dzięki czemu wymagania dotyczące kontroli jakości w POCT są uwzględnione od samego początku."
+        "question": "Jak diagnostyka point-of-care może wpisywać się w pracę gabinetu?",
+        "answer": "Proces pokazany na stronie obejmuje zastosowanie lub przygotowanie próbki, pomiar, dostępność wyniku po czasie właściwym dla testu oraz fachową interpretację. Dokładny przebieg zależy od danego testu i obowiązujących instrukcji."
       },
       {
-        "question": "Czy po zakupie jestem związany z jednym dostawcą?",
-        "answer": "Nie. IglooPro działa niezależnie od producenta, dzięki czemu nie jesteś ograniczony do testów jednego dostawcy. Daje Ci to elastyczność w doborze paneli testów i chroni Twoją inwestycję, gdy z czasem zmieniają się Twoje potrzeby diagnostyczne."
+        "question": "Jaki kolejny krok pasuje do mojej placówki?",
+        "answer": "Obszar diagnostyki przedstawia opublikowane zastosowania. Jeśli chcesz omówić wymagania, warunki pracy lub możliwe rozwiązanie, możesz poprosić o ofertę i podać kontekst swojej placówki."
       },
       {
-        "question": "Jak czasochłonna jest integracja z codzienną pracą gabinetu?",
-        "answer": "IglooPro został zaprojektowany do pracy bezpośrednio przy fotelu i dostarcza wynik w kilka minut, dzięki czemu pomiar mieści się w trakcie bieżącej wizyty. Przy uruchomieniu szkolimy Twój zespół z przebiegu pomiaru i obsługi. Następnie wspieramy Cię pomocą techniczną i bieżącą opieką."
-      },
-      {
-        "question": "Jak szybko system jest gotowy do pracy po złożeniu zamówienia?",
-        "answer": "Po złożeniu zamówienia Twój IglooPro jest zwykle gotowy do pracy w ciągu 3–5 dni roboczych. Urządzenie uruchamiamy w stanie zwalidowanym, dzięki czemu od pierwszego pacjenta możesz mierzyć niezawodnie. Tym samym odpada osobna, długotrwała faza konfiguracji."
-      },
-      {
-        "question": "Jakie biomarkery mogę oznaczać w zależności od specjalizacji?",
-        "answer": "System obejmuje panele specyficzne dla specjalizacji Dental, Beauty i Longevity – od Vitamin D i CRP, przez HbA1c, po markery metaboliczne i markery stanu zapalnego. W stomatologii w centrum uwagi są m.in. Vitamin D i wskaźniki stanu zapalnego, a w obszarze Longevity – monitorowanie markerów metabolicznych i zapalnych. To, które testy mają sens dla Twojej specjalizacji, ustalamy indywidualnie podczas konsultacji."
+        "question": "Czy wynik point-of-care zastępuje ocenę specjalisty?",
+        "answer": "Nie. Wynik testu może dostarczyć informacji do rozmowy i dalszego procesu opieki. Indywidualna interpretacja oraz decyzje diagnostyczne lub terapeutyczne pozostają zadaniem odpowiedzialnego specjalisty."
       }
     ],
     "more": "Masz jeszcze pytania?",
@@ -260,43 +283,34 @@
   "trustbar": {
     "aria": "Cechy budujące zaufanie",
     "ivdr": "Zgodny z IVDR/CE",
-    "cv": "Precyzja laboratoryjna CV < 2 %",
+    "cv": "IglooPro · CV < 2 %",
     "minutes": "Wynik w kilka minut",
-    "compat": "Kompatybilny niezależnie od producenta",
-    "delivery": "Gotowy do pracy w 3–5 dni roboczych",
-    "partner": "Partner premium: Nobel Biocare"
+    "compat": "Kompatybilny niezależnie od producenta"
   },
   "why": {
-    "caption": "Point of Care",
-    "title": "Dlaczego POC w Twoim gabinecie?",
-    "intro": "Diagnostyka bezpośrednio w miejscu leczenia: wynik w kilka minut zamiast czekania całymi dniami — to zmienia przebieg pracy, doświadczenie pacjenta i rentowność Twojego gabinetu.",
-    "card1": {
-      "title": "Bez wysyłki do laboratorium",
-      "text": "Wynik jest natychmiast dostępny na miejscu — bez oczekiwania na wynik z zewnętrznego laboratorium."
+    "caption": "Point of Care w codziennej pracy",
+    "title": "Informacja tam, gdzie jest potrzebna",
+    "intro": "Pomiary Point of Care dostarczają dodatkowych informacji bezpośrednio w toku pracy gabinetu. Wspierają profesjonalną interpretację, nie automatyzując jej ani nie zastępując.",
+    "signals": {
+      "access": { "title": "Bezpośredni dostęp do informacji", "text": "Wyniki pomiarów są dostępne w miejscu opieki po czasie przetwarzania właściwym dla danego testu." },
+      "workflow": { "title": "Element toku pracy", "text": "Wykonanie, pomiar i dokumentację można włączyć jako przejrzysty proces do istniejącej organizacji pracy gabinetu." },
+      "conversation": { "title": "Podstawa rozmowy", "text": "Dostępne wartości mogą wspierać profesjonalną konsultację i wspólne omówienie odpowiednich kolejnych kroków." }
     },
-    "card2": {
-      "title": "Pacjent zostaje na fotelu",
-      "text": "Zmierz wyniki i omów kolejny krok od razu podczas tej samej wizyty — bez ponownego umawiania."
-    },
-    "card3": {
-      "title": "Nowy przychód z usług płatnych",
-      "text": "POC otwiera dostęp do nowych usług płatnych w Twoim gabinecie, zamiast oddawać przychód zewnętrznemu laboratorium."
-    },
-    "card_cta": "Dowiedz się więcej",
-    "video_label": "FILM INSTRUKTAŻOWY",
-    "video_caption": "Tak przebiega test w Twoim gabinecie – w 3 minuty",
-    "device_alt": "Czytnik POC IglooPro"
+    "benefits": {
+      "practice": { "label": "Korzyść dla gabinetu", "title": "Uporządkowane w toku pracy", "text": "Dodatkowe wyniki są dostępne w procesie Point of Care i można je uwzględnić w konsultacji oraz opiece." },
+      "patient": { "label": "Korzyść dla pacjentek i pacjentów", "title": "Zrozumiałe omówienie wyników", "text": "Dostępne wartości można wyjaśnić w kontekście opieki. Test uzupełnia profesjonalną ocenę; nie zastępuje diagnozy ani leczenia." }
+    }
   },
   "final_cta": {
     "caption": "Gotów, by zacząć",
     "title": "Gotów na diagnostykę o dokładności laboratoryjnej w swoim gabinecie?",
-    "subtitle": "Porozmawiaj z naszym zespołem lub oblicz swój potencjał oszczędności — niezależnie od producenta, zgodnie z IVDR/CE i z gotowością do pracy w 3–5 dni roboczych.",
+    "subtitle": "Porozmawiaj z naszym zespołem o odpowiednim rozwiązaniu point-of-care lub sprawdź własne założenia w niezobowiązującym kalkulatorze ROI.",
     "cta_primary": "Poproś o ofertę",
     "cta_secondary": "Kalkulator ROI",
     "chips": {
-      "free": "Bezpłatnie i bez zobowiązań",
-      "reply": "Odpowiedź < 24 h",
-      "delivery": "Dostawa w 3–5 dni roboczych"
+      "free": "Niezobowiązujące zapytanie",
+      "reply": "Indywidualna konsultacja",
+      "delivery": "Dostępne w 10 językach"
     }
   },
   "roi": {
@@ -362,24 +376,15 @@
     }
   },
   "steps": {
-    "caption": "TAK PROSTO ZACZYNASZ",
-    "title": "Walidowana diagnostyka POC w 3 krokach",
-    "intro": "Od pierwszej rozmowy do diagnostyki o dokładności laboratoryjnej przy fotelu – bez nakładu na konfigurację.",
-    "step1": {
-      "title": "Konsultacja i rekomendacja panelu",
-      "text": "Analizujemy Twój przepływ pracy i rekomendujemy odpowiednie panele biomarkerów dla Twojej specjalizacji.",
-      "badge": "z konsultacją"
+    "caption": "PROCES POC",
+    "title": "Od wykonania do profesjonalnej interpretacji",
+    "intro": "Przejrzysty proces pozwala wykorzystać informacje pomiarowe w codziennej pracy, pozostawiając odpowiedzialność medyczną po stronie personelu prowadzącego.",
+    "aria_label": "Proces Point of Care w trzech krokach",
+    "items": {
+      "application": { "title": "Wykonanie i pomiar", "text": "Próbkę i test przygotowuje się zgodnie z odpowiednią instrukcją, a następnie mierzy za pomocą kompatybilnego systemu." },
+      "result": { "title": "Dostępny wynik", "text": "Po czasie przetwarzania właściwym dla testu wynik pomiaru jest dostępny w toku pracy gabinetu — bez automatycznego wniosku medycznego." },
+      "context": { "title": "Profesjonalna interpretacja", "text": "Odpowiedzialna osoba ocenia wartość w indywidualnym kontekście i w razie potrzeby omawia zasadne kolejne kroki." }
     },
-    "step2": {
-      "title": "Konfiguracja Performance",
-      "text": "Dostawa w 3–5 dni roboczych wraz z walidowanym uruchomieniem i prostymi profilami testów.",
-      "badge": "na miejscu"
-    },
-    "step3": {
-      "title": "Pierwsze wyniki",
-      "text": "Twój zespół jest przeszkolony, pierwszy pacjent zostaje zbadany – z dokładnością laboratoryjną, udokumentowane, zgodnie z IVDR/CE.",
-      "badge": "Dzień 1"
-    },
-    "cta": "Poproś o ofertę"
+    "safety_note": "Pomiary dostarczają dodatkowych informacji. Profesjonalna ocena i wynikające z niej kolejne kroki pozostają w gestii odpowiedzialnej osoby."
   }
 }

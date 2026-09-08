@@ -1,16 +1,18 @@
 {
   "hero": {
-    "title": "Snelle diagnostiek POC",
-    "caption": "Next Gen Diagnostics",
-    "description": "Uw controlecentrum.",
+    "title": "IglooPro voor professionele Point-of-Care-workflows",
+    "caption": "IglooPro · Point-of-Care-reader",
+    "description": "IglooPro is een zelfstandige Point-of-Care-reader voor praktijken en klinieken. Samen bepalen we welke ondersteunde configuratie en welk testportfolio bij uw werkproces passen.",
     "cta_order": "Offerte aanvragen",
+    "cta_secondary": "Open de ROI-calculator",
     "cta_datasheet": "Datasheet (PDF, DE)",
-    "subline": "Gratis & vrijblijvend · Antwoord binnen 24 u",
+    "subline": "Voor praktijken en klinieken · Persoonlijk advies in plaats van een standaardpakket",
     "chip_ivdr": "IVDR/CE",
     "chip_lis": "LIS/HIS-ready",
     "chip_cross": "Fabrikantonafhankelijk",
     "visual": {
-      "device_alt": "IglooPro POC-reader, vooraanzicht",
+      "device_alt": "IglooPro Point-of-Care-reader, vooraanzicht",
+      "context": "IglooPro als zelfstandige Point-of-Care-reader",
       "portable_val": "600 g",
       "portable_label": "draagbaar",
       "cv_val": "CV < 2 %",
@@ -18,6 +20,63 @@
       "time_val": "3–15 Min.",
       "time_label": "per test"
     }
+  },
+  "proof": {
+    "aria_label": "Geverifieerde productcontext",
+    "eyebrow": "GEVERIFIEERDE PRODUCTCONTEXT",
+    "title": "Wat u vandaag betrouwbaar kunt beoordelen",
+    "description": "Deze signalen beschrijven het huidige product en aanvraagtraject. Technische specificaties en regelgevende uitspraken worden afzonderlijk onderbouwd.",
+    "items": {
+      "reader": { "title": "Zelfstandige POC-reader", "text": "IglooPro wordt gepresenteerd als een afzonderlijk product voor Point-of-Care-meetworkflows." },
+      "audience": { "title": "Voor praktijken en klinieken", "text": "Het producttraject is bedoeld voor professionele teams die een passende POC-workflow beoordelen." },
+      "enquiry": { "title": "Reëel aanvraagtraject", "text": "Uw aanvraag leidt naar het bestaande contactformulier, zonder gesimuleerde boeking of checkout." }
+    }
+  },
+  "product_story": {
+    "eyebrow": "HET PRODUCT IN CONTEXT",
+    "title": "Drie onderbouwde kenmerken",
+    "description": "IglooPro wordt hier alleen beschreven met kenmerken die door het huidige product- en aanvraagtraject worden gedragen.",
+    "items": {
+      "reader": { "title": "Zelfstandige POC-reader", "text": "IglooPro wordt getoond als een afzonderlijk product voor Point-of-Care-meetworkflows." },
+      "context": { "title": "Professionele omgeving", "text": "Het producttraject is bedoeld voor praktijken, klinieken en hun professionele teams." },
+      "scope": { "title": "Omvang wordt afgestemd", "text": "De ondersteunde configuratie en het testportfolio worden tijdens de aanvraag voor de specifieke workflow verduidelijkt." }
+    }
+  },
+  "workflow": {
+    "eyebrow": "VOOR DE BESLISSING",
+    "title": "Zo wordt de geschiktheid verduidelijkt",
+    "description": "Het huidige traject is een transparant aanvraagproces, geen automatisch geconfigureerde productreis.",
+    "steps": {
+      "context": { "title": "Beschrijf de gebruiksomgeving", "text": "Praktijktype, beoogde Point-of-Care-context en open eisen vormen het vertrekpunt." },
+      "scope": { "title": "Controleer de ondersteunde omvang", "text": "Configuratie, testportfolio en relevante operationele vragen worden vóór een productadvies bevestigd." },
+      "decision": { "title": "Spreek de volgende stap af", "text": "Het bestaande contacttraject leidt tot persoonlijke afstemming en, waar passend, een offerte." }
+    },
+    "boundary": "Bediening, monsterworkflow en resultaatverwerking worden alleen op basis van goedgekeurde productdocumentatie beschreven; deze pagina verzint daarvoor geen automatisering."
+  },
+  "compatibility": {
+    "eyebrow": "CONTROLEER COMPATIBILITEIT",
+    "title": "Bevestig vier punten vóór integratie",
+    "description": "Compatibiliteit vereist concrete validatie. Deze vragen structureren de aanvraag zonder technische ondersteuning te veronderstellen.",
+    "boundary": "Er wordt momenteel geen algemene ondersteuning voor specifieke tests, interfaces, praktijksoftware of serviceniveaus geclaimd.",
+    "items": {
+      "portfolio": { "title": "Testportfolio", "text": "Welke tests en materialen worden daadwerkelijk ondersteund voor het beoogde gebruik?" },
+      "setting": { "title": "Werk- en gebruiksomgeving", "text": "Aan welke organisatorische en ruimtelijke eisen moet de configuratie voldoen?" },
+      "data": { "title": "Data- en systeemroute", "text": "Welke gegevensoverdrachten of systeemkoppelingen zijn nodig en momenteel bevestigd?" },
+      "service": { "title": "Support en gebruik", "text": "Welke training, documentatie en ondersteuning worden voor het specifieke gebruik afgesproken?" }
+    },
+    "links_label": "Aanvullende IglooPro-links",
+    "links_title": "Reële volgende bestemmingen",
+    "links": { "poc": "POC-systeemoplossingen", "compatibility": "Compatibiliteit en integratie", "downloads": "Productinformatie", "support": "Supportaanvraag", "contact": "Offerte aanvragen" }
+  },
+  "specification": {
+    "eyebrow": "TECHNISCHE SPECIFICATIE",
+    "title": "Vastgelegde product- en contentclaim",
+    "description": "Deze weergave documenteert de voor het project vastgelegde formulering. Ze is geen onafhankelijke wetenschappelijke validatie.",
+    "caption": "Specificatiestatus van IglooPro",
+    "headers": { "metric": "Maatstaf", "value": "Waarde", "context": "Context" },
+    "metric": "Variatiecoëfficiënt (CV)",
+    "value": "CV < 2 %",
+    "context": "Product-/contentbesluit; de repository valideert de wetenschappelijke juistheid niet onafhankelijk."
   },
   "intro": {
     "title": "Laboratoriumkwaliteit in handformaat",
@@ -107,9 +166,10 @@
     "request_cta": "Actuele testlijst aanvragen"
   },
   "cta_bottom": {
-    "title": "Breid mogelijkheden uit",
-    "description": "Voor apotheken en praktijken.",
+    "title": "Beoordeel IglooPro voor uw workflow",
+    "description": "Beschrijf uw gebruiksomgeving. Samen verduidelijken we de momenteel ondersteunde omvang en de passende volgende stap.",
     "button": "Offerte aanvragen",
+    "resources": "Open de ROI-calculator",
     "datasheet": "Datablad (PDF, DE)",
     "chips": {
       "free": "Gratis & vrijblijvend",
@@ -118,8 +178,8 @@
     }
   },
   "seo": {
-    "title": "IglooPro POC-reader: specificaties & techniek",
-    "description": "IglooPro POC-reader levert labwaarden chairside in 3–15 min uit capillair bloed: vitamine D, CRP, HbA1c, TSH e.v.a. Immunofluorescentie, CV < 2 %, 600 g."
+    "title": "IglooPro Point-of-Care-reader | PolarisDX",
+    "description": "IglooPro voor professionele Point-of-Care-workflows: stem productcontext, ondersteunde scope en het echte aanvraagpad af met PolarisDX."
   },
   "help": {
     "title": "Niet zeker of de IglooPro bij uw workflow past?",

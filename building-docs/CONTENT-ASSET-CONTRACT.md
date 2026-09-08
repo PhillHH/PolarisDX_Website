@@ -61,21 +61,21 @@ verschoben oder umbenannt, kein Gating implementiert, **kein CMS ausgewählt**.
 
 ## 3. Current Participating Files / Current State
 
-| Datei / Baum                          | Rolle                                                                                            | Guard  |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
-| `src/data/services.tsx`               | 9 Services: `id`, `translationKey`, Icon-JSX, `relatedArticleIds`                                | G2     |
-| `src/data/articles.ts`                | 6 Artikel: `id`, `slug`, `category`, `author`, `date`, `readTime`, `sections`, Relationen        | G2     |
-| `src/data/events.ts`                  | Events: `id`, ISO-`date`/`endDate`, `location`, `partner`, `link`                                | G2     |
-| `src/data/testimonials.ts`            | Testimonial-Stammdaten                                                                           | G1     |
-| `src/data/blogPosts.ts`               | abgeleitete Teaser-Sicht auf `articles.ts`                                                       | G1     |
-| `src/data/README.de.md`               | lokale Konvention der Datenschicht                                                               | G1     |
-| `src/content/befunde/**`              | 6 Musterbefunde × `de`/`en` als JSON, `meta.ts`, `index.ts`, `panelNames.ts`, `legacyAnchors.ts` | G2     |
-| `src/content/downloads.json`          | Download-Katalog der Seite `/downloads` — **3 Einträge**                                         | G2     |
-| `public/locales/**`                   | 10 Sprachen × 15 Dateien = **150**; 14 Namespaces registriert                                    | **G3** |
-| `src/i18n.ts` / `.client` / `.server` | Sprach-/Namespace-Konfiguration und Loader                                                       | **G3** |
-| `public/downloads/**`                 | **32 Dateien**: 3 im Wurzelverzeichnis, 3 ZIPs, `epigenetics/de` **17**, `epigenetics/en` **9**  | G2     |
-| `src/assets/**`                       | gebündelte Bilder, `articleImages.ts`, `epigenetics/befundImages.ts`, `downloads/` (3 PDFs)      | G2     |
-| `public/*.jpg`, `*.png`, `*.svg`      | Favicons, Manifest-Icons, OG-Bilder (`og-image`, `og-epigenetics`, `og-vitd3-spray`)             | G1     |
+| Datei / Baum                          | Rolle                                                                                                  | Guard  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------ |
+| `src/data/services.tsx`               | 9 Services: `id`, `translationKey`, Icon-JSX, `relatedArticleIds`                                      | G2     |
+| `src/data/articles.ts`                | 6 Artikel: `id`, `slug`, `category`, `author`, ISO-`datePublished`, `readTime`, `sections`, Relationen | G2     |
+| `src/data/events.ts`                  | Events: `id`, ISO-`date`/`endDate`, `location`, `partner`, `link`                                      | G2     |
+| `src/data/testimonials.ts`            | Testimonial-Stammdaten                                                                                 | G1     |
+| `src/data/blogPosts.ts`               | abgeleitete Teaser-Sicht auf `articles.ts`                                                             | G1     |
+| `src/data/README.de.md`               | lokale Konvention der Datenschicht                                                                     | G1     |
+| `src/content/befunde/**`              | 6 Musterbefunde × `de`/`en` als JSON, `meta.ts`, `index.ts`, `panelNames.ts`, `legacyAnchors.ts`       | G2     |
+| `src/content/downloads.json`          | Download-Katalog der Seite `/downloads` — **3 Einträge**                                               | G2     |
+| `public/locales/**`                   | 10 Sprachen × 15 Dateien = **150**; 14 Namespaces registriert                                          | **G3** |
+| `src/i18n.ts` / `.client` / `.server` | Sprach-/Namespace-Konfiguration und Loader                                                             | **G3** |
+| `public/downloads/**`                 | **32 Dateien**: 3 im Wurzelverzeichnis, 3 ZIPs, `epigenetics/de` **17**, `epigenetics/en` **9**        | G2     |
+| `src/assets/**`                       | gebündelte Bilder, `articleImages.ts`, `epigenetics/befundImages.ts`, `downloads/` (3 PDFs)            | G2     |
+| `public/*.jpg`, `*.png`, `*.svg`      | Favicons, Manifest-Icons, OG-Bilder (`og-image`, `og-epigenetics`, `og-vitd3-spray`)                   | G1     |
 
 ### 3.1 Ist-Zustand Content und Assets (AP02 PT02.3, read-only erhoben 2026-08-24)
 

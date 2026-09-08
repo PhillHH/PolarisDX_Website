@@ -149,6 +149,14 @@
       "gdprLabel": "konform",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Formulare, Einwilligungen und Datenflüsse",
+      "consent_mode": "Diese Website setzt Google Consent Mode v2 im Basic-Verfahren ein: Analyse- und Marketing-Tools (z. B. Google Analytics 4 über den Google Tag Manager) werden erst geladen, nachdem Sie Ihre Einwilligung im Cookie-Banner erteilt haben. Vor dieser Einwilligung – und bei Ablehnung – werden keinerlei Analyse- oder Marketing-Provider kontaktiert.",
+      "support_title": "Supportformular und Anhänge",
+      "support_content": "Über das Supportformular übermittelte Angaben (Name, E-Mail-Adresse, Geräte-UDI, Software-Version, Problembeschreibung) werden zunächst in einer Datenbank auf unserem Server gespeichert und erst danach zur Bearbeitung per E-Mail an unser Support-Team übermittelt. Optional hochgeladene Anhänge (Dokumente und Bilder in zugelassenen Formaten) werden unter einem automatisch erzeugten, öffentlich nicht erreichbaren Namen abgelegt und ausschließlich dem Support-Vorgang zugeordnet; die vorgesehene Löschfrist beträgt 90 Tage. Eine Weitergabe an Dritte erfolgt nicht.",
+      "marketing_title": "Getrennte Einwilligungen",
+      "marketing_content": "Für Kontakt- und Supportformulare ist nur eine Einwilligung in die Verarbeitung Ihrer Angaben zur Bearbeitung der Anfrage erforderlich. Eine Einwilligung in Analyse- oder Marketing-Cookies ist dafür nicht nötig und hat auf die Funktion der Formulare keinen Einfluss. Eine optionale Einwilligung in den Produktnewsletter wird getrennt erfasst und kann jederzeit widerrufen werden."
     }
   },
   "agb": {

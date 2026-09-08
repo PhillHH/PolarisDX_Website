@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { findResource } from '../content/resources/resourceInventory'
+import { freeResourceHref, resolveResourceVariant } from '../content/resources/resourceCenter'
 import {
   ArrowRight,
   Phone,
@@ -27,18 +29,25 @@ import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import PraxisOrderForm from '../components/sections/PraxisOrderForm'
 import sprayImage from '../assets/VITAMIND_D3_SPRAY.jpg'
-// Kanonische Auslieferung ueber den Download-Katalog (src/content/downloads.json):
-// dieselbe Datei, dieselbe URL wie auf /downloads. Vorher lagen dieselben PDFs
-// zusaetzlich unter src/assets/downloads/ und wurden bundle-gehasht ein zweites Mal
-// ausgeliefert (CD-7, CA-19/CA-22).
-const sprayPdfDE = '/downloads/vitamin-d3-spray-de.pdf'
-const sprayPdfEN = '/downloads/vitamin-d3-spray-en.pdf'
+// AP19 PT19.5: dieselbe Datei, dieselbe URL wie im Resource Center — und
+// beide kommen aus DEMSELBEN Inventar. Vorher stand hier ein hartverdrahteter
+// Pfad neben einem eigenen Katalog; eine Umklassifizierung der Ressource waere
+// an dieser Stelle unbemerkt vorbeigegangen.
+const sprayResource = findResource('rsc-prd-001')
+if (!sprayResource) throw new Error('Vitamin-D3-Flyer fehlt im Resource-Inventar')
+// Wird der Flyer je gegatet, gibt es hier keine oeffentliche URL mehr. Dann
+// soll die Seite laut scheitern statt einen toten Link zu rendern — das Gate
+// gehoert in diesem Fall bewusst hierher, nicht als stiller Fallback.
+if (sprayResource.deliveryClass !== 'FREE_PUBLIC') {
+  throw new Error('Vitamin-D3-Flyer ist nicht mehr frei — Seite braucht einen Gate-Einstieg')
+}
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const VitaminD3SprayPage = () => {
   const { t, i18n } = useTranslation(['vitd3spray', 'common'])
-  const sprayPdf = i18n.language === 'de' ? sprayPdfDE : sprayPdfEN
-  const sprayPdfLanguage = i18n.language === 'de' ? 'de' : 'en'
+  const sprayVariant = resolveResourceVariant(sprayResource, i18n.language)
+  const sprayPdf = freeResourceHref(sprayResource, sprayVariant) as string
+  const sprayPdfLanguage = sprayVariant.language
 
   const pricingRowsRaw = t('vitd3spray:pricing.rows', { returnObjects: true })
   const pricingRows = Array.isArray(pricingRowsRaw)

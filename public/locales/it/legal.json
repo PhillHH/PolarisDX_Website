@@ -149,6 +149,14 @@
       "gdprLabel": "conforme",
       "euValue": "EU",
       "euLabel": "Hosting"
+    },
+    "section6": {
+      "title": "6. Moduli, consensi e flussi di dati",
+      "consent_mode": "Questo sito utilizza Google Consent Mode v2 (modalità base): gli strumenti di analisi e marketing (ad es. Google Analytics 4 tramite Google Tag Manager) vengono caricati solo dopo il consenso nel banner cookie. Prima del consenso, e in caso di rifiuto, nessun provider di analisi o marketing viene contattato.",
+      "support_title": "Modulo di supporto e allegati",
+      "support_content": "I dati trasmessi tramite il modulo di supporto (nome, indirizzo e-mail, UDI del dispositivo, versione del software, descrizione del problema) vengono prima salvati in un database sul nostro server e poi inviati via e-mail al nostro team di supporto. Gli allegati facoltativi (documenti e immagini nei formati consentiti) vengono salvati con un nome generato automaticamente, non accessibile al pubblico, e associati esclusivamente alla richiesta di supporto; il periodo di cancellazione previsto è di 90 giorni. Non vengono trasmessi a terzi.",
+      "marketing_title": "Consensi separati",
+      "marketing_content": "Per i moduli di contatto e di supporto è richiesto solo il consenso al trattamento dei dati per gestire la richiesta. Il consenso ai cookie di analisi o marketing non è necessario e non influisce sul funzionamento dei moduli. Il consenso facoltativo alla newsletter prodotti viene registrato separatamente e può essere revocato in qualsiasi momento."
     }
   },
   "agb": {

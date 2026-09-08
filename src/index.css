@@ -604,3 +604,88 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Musterbefunde: eigenstaendige, vollstaendige Druckansicht. Navigation und
+ * Interaktions-CTAs gehoeren nicht in den Ausdruck; Inhalte, Hinweise,
+ * Tabellen und die textuelle Chartalternative dagegen schon. */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  body:has(.befund-report) {
+    background: #fff !important;
+    color: #0f172a !important;
+  }
+
+  body:has(.befund-report) header,
+  body:has(.befund-report) footer,
+  .befund-report nav,
+  .befund-report button,
+  .befund-report a[download] {
+    display: none !important;
+  }
+
+  .befund-report,
+  .befund-report .befund-section,
+  .befund-report .bg-brand-deep,
+  .befund-report .bg-slate-50,
+  .befund-report .bg-white {
+    background: #fff !important;
+  }
+
+  .befund-report .text-white,
+  .befund-report .text-white\/80,
+  .befund-report .text-white\/70,
+  .befund-report .text-white\/60 {
+    color: #0f172a !important;
+  }
+
+  .befund-report details:not([open]) > :not(summary) {
+    display: block !important;
+  }
+
+  .befund-report details > summary {
+    display: none !important;
+  }
+
+  .befund-report .befund-section > div,
+  .befund-report .befund-section > details {
+    padding-top: 7mm !important;
+    padding-bottom: 7mm !important;
+  }
+
+  .befund-report article,
+  .befund-report figure,
+  .befund-report table,
+  .befund-report dl > div {
+    break-inside: avoid;
+  }
+
+  .befund-report .befund-table-scroll {
+    overflow: visible !important;
+    border-color: #94a3b8 !important;
+  }
+
+  .befund-report .befund-table-scroll table {
+    min-width: 0 !important;
+    width: 100% !important;
+    font-size: 9pt !important;
+  }
+
+  .befund-report .befund-table-scroll th,
+  .befund-report .befund-table-scroll td {
+    position: static !important;
+    padding: 2.5mm !important;
+  }
+
+  .befund-report svg {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+
+  .befund-report .befund-chart-alternative {
+    display: block !important;
+  }
+}

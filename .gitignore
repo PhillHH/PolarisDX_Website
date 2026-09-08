@@ -13,6 +13,14 @@ dist-ssr
 *.env
 *.local
 
+# Shared Lead Foundation runtime data (mounted as a persistent volume in production)
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -44,3 +52,12 @@ kontakte.*
 # kein Repository-Inhalt — die visuelle Soll-Baseline ist Sales-Machine
 # (DEC-RL-002), nicht ein eingecheckter Screenshot-Satz.
 docs/baseline-screenshots/
+
+# AP19 — geschuetzte Asset-Ablage.
+#
+# PT19.3 hatte den Inhalt zunaechst ignoriert. PT19.4 nimmt das zurueck: dieses
+# Repository versioniert seine Assets (public/downloads/ ebenso), und ein
+# gegatetes Asset aus der Versionierung zu nehmen hiesse, es beim ersten
+# Deploy zu verlieren. Der Schutz liegt darin, dass die Datei NICHT unter
+# public/ liegt und von keinem Static-Handler ausgeliefert wird — nicht darin,
+# dass sie unauffindbar ist.

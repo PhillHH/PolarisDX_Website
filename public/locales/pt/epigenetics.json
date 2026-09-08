@@ -81,8 +81,7 @@
           "Aconselhamento nutricional para além dos planos padrão",
           "Práticas de prevenção com programas de peso",
           "Quando alterações dietéticas anteriores não resultaram"
-        ],
-        "file": "en/01_Metabolic_Health_PolarisDX.pdf"
+        ]
       },
       {
         "num": "02",
@@ -93,8 +92,7 @@
           "Centros de longevidade e práticas de prevenção",
           "Aconselhamento nutricional e medicina preventiva",
           "Pessoas com cerca de 40 anos ou mais que acompanham a tendência"
-        ],
-        "file": "en/02_Healthy_Aging_PolarisDX.pdf"
+        ]
       },
       {
         "num": "03",
@@ -105,8 +103,7 @@
           "Práticas de longevidade e medicina funcional",
           "Centros de saúde, coaching e saúde no local de trabalho",
           "Quando um painel completo de envelhecimento seria demasiado extenso"
-        ],
-        "file": "en/03_Biological_Age_PolarisDX.pdf"
+        ]
       },
       {
         "num": "04",
@@ -117,8 +114,7 @@
           "Programas de longevidade e medicina preventiva",
           "Aconselhamento nutricional que necessita de uma linha de base",
           "Programas no local de trabalho com foco na longevidade"
-        ],
-        "file": "en/04_Telomere_Analysis_PolarisDX.pdf"
+        ]
       },
       {
         "num": "05",
@@ -129,8 +125,7 @@
           "Gestão da saúde no local de trabalho e resiliência",
           "Práticas focadas na prevenção do stress",
           "Pessoas sob esforço sustentado"
-        ],
-        "file": "en/05_Stress_Monitor_PolarisDX.pdf"
+        ]
       },
       {
         "num": "06",
@@ -141,8 +136,7 @@
           "Medicina desportiva e diagnóstico de desempenho",
           "Ciência do desporto e coaching de desempenho",
           "Atletas recreativos e competitivos"
-        ],
-        "file": "en/06_Healthy_Sport_PolarisDX.pdf"
+        ]
       }
     ],
     "sampleBtn": "Relatório de amostra"
@@ -333,9 +327,72 @@
     "title": "Solicitar orçamento",
     "sub": "As análises destinam-se apenas a utilizadores profissionais. Condições B2B sob consulta, escalonadas por volume.",
     "overview": "Visão geral em PDF",
-    "overviewFile": "en/00_Portfolio_Overview_PolarisDX.pdf",
     "note": "As análises são serviços laboratoriais prestados pelo nosso parceiro de cooperação e não são dispositivos de diagnóstico in vitro marcados CE. Servem para consulta e monitorização e não substituem o diagnóstico clínico. As análises genéticas estão sujeitas à legislação nacional sobre testes genéticos. Na Alemanha, testes genéticos preditivos só podem ser realizados sob responsabilidade de médicos devidamente qualificados; deve ser oferecido aconselhamento genético antes e depois do teste.",
     "lab": "Análise laboratorial pelo nosso parceiro de cooperação · ISO 9001:2015"
+  },
+  "inquiry": {
+    "fields": {
+      "name": "Nome",
+      "email": "E-mail",
+      "organization": "Instituição / organização",
+      "facilityType": "Tipo de instituição",
+      "choose": "Selecione",
+      "panel": "Painel de interesse (opcional)",
+      "noPanel": "Ainda não definido",
+      "volume": "Casos mensais previstos (opcional)",
+      "message": "A sua pergunta (opcional)",
+      "messageHint": "Não envie dados de saúde nem relatórios."
+    },
+    "facilityTypes": {
+      "practice": "Consultório",
+      "clinic": "Clínica",
+      "laboratory": "Laboratório",
+      "consultancy": "Consultoria / centro de saúde",
+      "other": "Outra instituição"
+    },
+    "volumes": {
+      "unspecified": "Não especificado",
+      "1-10": "1–10",
+      "11-25": "11–25",
+      "26-50": "26–50",
+      "51-plus": "Mais de 50"
+    },
+    "submit": "Solicitar orçamento",
+    "sending": "A guardar o pedido com segurança …",
+    "analyticsIndependent": "O pedido funciona independentemente de cookies de análise ou marketing.",
+    "errors": {
+      "name": "Introduza o seu nome.",
+      "email": "Introduza um e-mail válido.",
+      "organization": "Indique a sua instituição.",
+      "facilityType": "Selecione um tipo de instituição.",
+      "consent": "É necessário o seu consentimento para o tratamento."
+    },
+    "status": {
+      "delivered": {
+        "title": "Pedido guardado e encaminhado",
+        "text": "O pedido foi guardado de forma persistente e encaminhado para o processo responsável."
+      },
+      "retryPending": {
+        "title": "Pedido guardado com segurança",
+        "text": "O encaminhamento está temporariamente pendente e será repetido a partir do registo guardado."
+      },
+      "providerUnavailable": {
+        "title": "Pedido guardado com segurança",
+        "text": "O serviço externo de encaminhamento não está configurado. O registo permanece disponível para acompanhamento manual."
+      },
+      "manualReview": {
+        "title": "Pedido guardado com segurança",
+        "text": "O encaminhamento automático não foi concluído. O registo permanece disponível para acompanhamento manual."
+      },
+      "recorded": {
+        "title": "Pedido guardado com segurança",
+        "text": "O registo foi guardado de forma persistente; o encaminhamento está a ser processado."
+      },
+      "error": {
+        "title": "Pedido não guardado",
+        "text": "Não foi possível guardar o pedido com segurança. Tente novamente ou contacte-nos diretamente."
+      }
+    }
   },
   "links": {
     "longevity": "Diagnóstico de longevidade",
@@ -665,6 +722,8 @@
     "othersTitle": "Os outros relatórios de amostra",
     "navBack": "Visão geral",
     "navChapters": "Capítulos",
+    "previous": "Relatório anterior",
+    "next": "Relatório seguinte",
     "noticeTitle": "Avisos importantes",
     "toTop": "Voltar ao topo",
     "ctaPdf": "Este relatório em PDF",

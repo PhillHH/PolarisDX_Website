@@ -1,6 +1,6 @@
 # ROUTING-CONTRACT
 
-**Guard-Level: G3.** Wer eine der in §3 genannten Kerndateien ändert, folgt zwingend der
+**Guard-Level: G1/G3.** Wer eine der in §3 genannten Kerndateien ändert, folgt zwingend der
 Kontextpflicht in §7. Blindes Editieren ist untersagt.
 
 ---
@@ -117,10 +117,9 @@ pattern. No row redirects to `/` as a substitute for missing content.
 | `IA-INVENTORY.md`, `CONTENT-MATRIX.md`, AP07 findability guards           | Case Study, Shop, Deal and Voucher are locked backlog/non-routes; `/consumer` hub is not required     | intentional 404, never Home soft-migration                                   |
 | current content/locales and repository link sweep                         | no productive internal `/services*`, article-ID, underscore-route or obsolete Terms/S3 target remains | migration sources stay sources, not current links                            |
 
-`scripts/prerender.mjs` remains a non-authoritative, inactive legacy catalogue (`npm run build` and the
-Relaunch CI do not execute it). Making or removing that competing catalogue is PT10.3/AP28 work, not a
-PT10.2 route-registry pull-forward. `vercel.json` is likewise an inactive deployment remnant; the
-Express SSR path is authoritative for the current deployment.
+`scripts/prerender.mjs` is now explicitly `LEGACY_NON_AUTHORITATIVE`, disabled and route-list-free;
+the former competing catalogue was eliminated in PT10.3. `vercel.json` remains an inactive deployment
+remnant; the Express SSR path is authoritative for the current deployment.
 
 #### `REDIRECT_301` — complete active migration sources
 
@@ -144,11 +143,9 @@ Express SSR path is authoritative for the current deployment.
 | `/diagnostics/kompatibilitaet_integration` and `/services/kompatibilitaet_integration`                                                                         | `/diagnostics/kompatibilitaet-integration`                                | stale prerender key and old namespace | 1    |
 | any current public path without locale                                                                                                                         | same canonical path under `/de`                                           | PT10.1 locale canonicalization        | 1    |
 
-The executable fixed/content migration subset is the typed
-`LEGACY_REDIRECT_MIGRATIONS` array. Its source keys are unique, its targets are real current paths,
-and no target is itself a migration source. `/services/<real-id>` remains separately validated against
-the real service data source. This is a redirect SSOT only, not the central Route Registry owned by
-PT10.3.
+The fixed/content migration evidence subset remains the typed `LEGACY_REDIRECT_MIGRATIONS` array.
+The central Registry classifies it together with structural `/services*` sources, derives the complete
+30-source redirect matrix and G1-validates every target against canonical route truth.
 
 #### `GONE_OR_404_INTENTIONAL` — known candidates without a truthful successor
 
@@ -224,22 +221,162 @@ redirect loops **0**, unnecessary chains **0**, Home soft-migrations **0**, loca
 The repository-wide pre-existing quality baseline remains exactly **120 ESLint errors + 3 warnings**
 and **34 Prettier files**; no changed PT10.2 file contributes a finding.
 
+### 2.3 PT10.3 central Route Registry (2026-08-28)
+
+**Verified start context:** Branch `console/10-15-2026-08-28T08-18-27`, HEAD
+`8a142173a5e2f89de09af2e76a1ce28ea243782e`, clean start tree, PT10.1/10.2 `PASS`, Decision Locks
+`18/18`, AP11 `NOT STARTED`.
+
+**Registry path and schema:** `src/routing/routeRegistry.ts` is the single operative route-metadata
+truth. It models stable ID, path pattern, route type, x10 locale behavior, indexability, sitemap
+policy, search eligibility, Known-Path/App eligibility, shell, dynamic source and optional truthful
+`lastmod`. Redirect sources are explicitly classified with 301 status and final target. The registry
+contains **25 route families** (22 static, 3 dynamic) and expands to **43 concrete canonical paths**;
+it is metadata, not a content database.
+
+**Dynamic sources:** `SERVICES` reads 9 IDs from `src/data/services.tsx`; `ARTICLES` reads 6 real
+slugs/IDs and publication dates from `src/data/articles.ts`; `BEFUNDE` reads 6 slugs from
+`src/content/befunde/meta.ts`. No slug list is copied into the Registry.
+
+**Consumer mapping:** the three canonical families `vitamin-d3-spray`, `hydrating-masks` and
+`inside-out-duo` are `CONSUMER_PRODUCT`, `LOCALIZED_X10`, `INDEX_FOLLOW`, sitemap-eligible and use the
+Consumer shell. They remain non-EN-forced and are not silently promoted into the B2B navigation.
+
+**Consumer mapping and mirror elimination:**
+
+| Consumer                         | Registry derivation                                                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `src/App.tsx`                    | renders static/dynamic definitions; exhaustive typed component Records retain lazy-import/UI separation                       |
+| `server.ts`                      | `isKnownCanonicalPath` and `getRegistryRedirectTarget`; no `EXTRA_KNOWN_PATHS`, sitemap-derived Known Paths or service mirror |
+| `src/components/seo/sitemap.ts`  | maps the 39 registry sitemap entries; no manual static/dynamic family table                                                   |
+| `src/hooks/useSearch.ts`         | maps the 35 registry-search-eligible paths; Search retains only copy/type/priority metadata keyed by route family             |
+| `src/components/seo/SEOHead.tsx` | resolves the current concrete Registry route and hard-fails known-route indexability contradictions                           |
+| Redirect/runtime tests           | `getRouteTestMatrix()` supplies static, dynamic, sitemap, search, redirect, noindex and intentional-404 classifications       |
+| Header/Footer target validation  | G1 validates curated IA targets against concrete Registry Known Paths; navigation order/content remains an IA concern         |
+| `scripts/prerender.mjs`          | `LEGACY_NON_AUTHORITATIVE`, deliberately disabled, contains no route catalogue                                                |
+
+**G1 — Route Registry Parity:** canonical command `npm run check:routes`. It hard-fails App/Registry,
+Known-Path, Sitemap, Search, SEO-awareness or redirect-target drift; invalid dynamic sources;
+duplicate IDs/patterns/canonical paths; stale mirrors; and invalid Header/Footer targets. Current
+result: **PASS** — 25 families, 43 canonical paths, 39 sitemap paths, 35 Search paths, 30 classified
+redirect sources, 0 stale mirrors. `.github/workflows/ci.yml` executes G1 in the independent `routing`
+job (not gated behind the repository-wide lint baseline) for `main`, `feat/home-leadmagnet` and
+`console/**` pull requests and pushes: **CI ACTIVE**.
+
+**Runtime/test evidence:** Typecheck PASS; targeted Registry/Redirect/Sitemap/SEOHead/Search unit
+tests **37/37 PASS**, complete Unit/Component suite **296/296 PASS**; G1, G3, Search and
+internal-findability guards PASS; production client/SSR build PASS; Registry-derived URL/redirect
+smoke **80/80 PASS**; AP08 x10 plus AP09 SEO/Sitemap regression **45/45 PASS**. Sitemap invariants
+remain 39 families × 10 = 390 unique public canonical URLs, no noindex/redirect/404 source, with 60
+truthful article lastmods.
+
+**DG09-01 — ROUTE_REGISTRY_INTEGRATION:** `RESOLVED` by AP10 PT10.3. Sitemap uses the Registry;
+Search path truth uses the Registry; SEOHead is Registry-compatible; Known Paths and redirect targets
+are Registry-driven; tests derive their matrix from the Registry; and no competing authoritative
+route mirror remains. It is no longer a launch blocker. PT10.4 remains owner of the broader integrated
+HTTP status matrix, now resolved in §2.4; no PT10.4 work or later page AP was pulled forward in
+PT10.3.
+
+### 2.4 PT10.4 integrated HTTP status regression (2026-08-28)
+
+**Verified start context:** Branch `console/10-15-2026-08-28T08-18-27`, HEAD
+`8a142173a5e2f89de09af2e76a1ce28ea243782e`, PT10.1–PT10.3 `PASS`, Decision Locks `18/18`, AP11
+`NOT STARTED`. The already staged predecessor delta and the separately staged foreign
+`building-docs/work-packages/AP11.md` were not reset, reformatted or modified by PT10.4.
+
+**Canonical HTTP matrix:** `getRouteTestMatrix()` now derives safe unknown-static and unknown-dynamic
+test cases alongside all canonical/redirect/noindex/intentional-404 classifications. The canonical
+command `npm run check:http-status` runs the existing `e2e/url-smoke.spec.ts` against the production
+SSR build and is the combined HTTP gate:
+
+- **G2 — real HTTP 404/status synchronization:** all 43 concrete Registry paths × all 10 Locales =
+  **430/430 HTTP 200**, including 9 Services, 6 Articles, 6 Musterbefunde and all Consumer/specialty
+  pages. One safe unknown static path plus one generated unknown slug for each of the three dynamic
+  families × 10 = **40/40 HTTP 404**. All 9 repository-known intentional no-successor paths × 10 =
+  **90/90 HTTP 404**. Every 404 carries `noindex, follow` and the server marker, with Canonical 0,
+  hreflang 0, x-default 0, `Location` 0 and Sitemap membership 0. Known pages carry no NotFound
+  marker; browser navigation observes the real 404 status. Soft-404 findings: **0**.
+- **G9 — permanent redirect status:** every unprefixed canonical route and all 30 Registry redirect
+  sources across 10 Locales answer exact **301**, preserve query and locale, and point directly to a
+  real 200 target without another `Location`. GET/HEAD coverage remains present. Redirect loops: **0**;
+  unnecessary chains: **0**; JS-only/302/200 redirect sources: **0**.
+- **Narrow header non-regression:** representative 200/404 HTML retains `text/html`, `no-store`,
+  `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` and no
+  `X-Powered-By`; the representative 301 retains the shared security headers. No AP26 cache/security
+  redesign was performed.
+
+**Measured package gate:** G1 PASS (25 families, 43 canonical paths, 30 redirects); G2/G9 Playwright
+**50/50 PASS**; Typecheck PASS; complete Unit/Component **296/296 PASS**; production client/SSR Build
+PASS; G3/Search/internal-findability PASS; AP08 locale plus AP09 SEO/Sitemap/Search/Findability
+Playwright **54/54 PASS**. All PT10.4 files pass targeted ESLint and Prettier. The unrelated full-tree
+baseline remains **120 ESLint errors + 3 warnings** and currently **35 Prettier files**, none in the
+PT10.4 delta.
+
+**CI status:** the existing independent `routing` job runs G1, builds the production SSR artifacts,
+installs Chromium and executes `npm run check:http-status` for `main`, `feat/home-leadmagnet` and
+`console/**` pull requests/pushes. G1/G2/G9 are therefore reachable in the current Relaunch CI without
+weakening the global quality job. AP10 remains `IN_PROGRESS`; the next serial task is AP10-CLOSURE.
+AP11 remains `NOT STARTED`.
+
+### 2.5 AP10 Closure — independent final package gate (2026-08-28)
+
+**Final context:** Branch `console/10-15-2026-08-28T08-18-27`, HEAD
+`8a142173a5e2f89de09af2e76a1ce28ea243782e`. AP09 is `COMPLETE / Closure PASS`; PT10.1–PT10.4 are
+`PASS`; Decision Locks remain `18/18`; AP11 remains `NOT STARTED`. The Closure re-read the operative
+consumers and reran the package gates against the final worktree instead of inheriting PT reports.
+
+**Closure result:** `C10-01`–`C10-50` **50/50 PASS** and `ROUTE-01`–`ROUTE-40` **40/40 PASS**. The 12
+AP10 risks are mitigated; external legacy discovery (`R10-11`) is intentionally owner-bound to AP29.
+There is no AP10-owned blocker. DG09-01 is `RESOLVED` because App routing, SSR Known Paths, Sitemap,
+Search route eligibility, Redirect target validation, SEO route awareness and the HTTP test matrix
+all consume the central Registry contract.
+
+**Fresh measured evidence:**
+
+- `npm run check:routes`: G1 PASS — 25 families, 43 canonical paths, 39 sitemap entries, 35 search
+  targets, 30 redirect sources, duplicate IDs/patterns/paths 0 and stale mirrors 0;
+- `env -u NODE_ENV npm test`: 30 files and **296/296** tests PASS, including Registry and Redirect
+  units; `npm run typecheck` PASS;
+- `npm run check:http-status`: G2/G9 Playwright **50/50 PASS** — 43 paths × 10 locales = **430/430**
+  real 200 responses, systematic static/dynamic and intentional 404 cases, all repository-known
+  migrations as exact one-hop 301 with query/locale retention and final 200; Soft-404, loops and
+  unnecessary chains each 0; 404 robots `noindex, follow`, Canonical/hreflang/x-default each 0;
+- AP08 locale plus AP09 SEO/Sitemap/Search/Findability Playwright: **54/54 scenarios PASS**. One
+  language-switch locator timed out once and passed its retry; the isolated no-retry rerun passed
+  **1/1**, so no reproducible regression remains;
+- Search 35/35, services 9/9, articles 6/6, reports 6/6 and 10 locales PASS; internal findability and
+  G3 PASS; Sitemap remains 39 families / 390 unique public canonical URLs, Consumer 3×10;
+- production client and SSR build PASS; AP10 files pass targeted ESLint and Prettier. The unchanged
+  repository baseline is 120 ESLint errors + 3 warnings and 34 Prettier files, all outside AP10.
+  `diff --check` passes for the AP10 delta; trailing-space findings belong only to separately staged,
+  foreign AP11/AP12 specification files and were not modified by AP10 Closure.
+
+**CI and lifecycle:** `.github/workflows/ci.yml` has an independently reachable `routing` job on the
+current Relaunch branch/PR line: install → G1 → production build → Chromium → G2/G9. SEO/Search
+regression gates remain reachable through their existing jobs. The currently-known migration map is
+verified; unknown external URLs remain `DEFERRED_MIGRATION_DISCOVERY`, owner **AP29**, launch-relevant
+and not guessed here. AP10 is `COMPLETE`, AP10 Closure is `PASS`, and AP11 is the next work package but
+remains `NOT STARTED`.
+
 ---
 
 ## 3. Current Participating Files
 
-**Die vier Handspiegel** — heute führt jede von ihnen einen Teil der Routenwahrheit:
+**Eine Registry mit abgeleiteten Konsumenten:**
 
-| Datei                            | Rolle                                                                                                                                                                                             | Guard  |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `src/App.tsx`                    | 33 `<Route>` elements, Layout-Zuordnung, Lazy-Grenzen, `ScrollToHash`, Catch-all; keine `/services*`-Route und keine clientseitige primäre Redirect-Brücke                                        | **G3** |
-| `server.ts`                      | echte 301-Ausführung über `legacyRedirects.ts`, validierte Legacy-Service-Slugs, vorläufige `EXTRA_KNOWN_PATHS`/`KNOWN_PATHS`, `isKnownPath`, `NOT_FOUND_MARKER`; Registry-Ablösung bleibt PT10.3 | **G3** |
-| `src/routing/legacyRedirects.ts` | typisierte PT10.2-Redirect-Quellen aus Primäraliasen und realen Article-/Service-Daten; bewusste 404-Kandidaten; **keine Route Registry**                                                         | **G3** |
-| `src/hooks/useSearch.ts`         | Such-Index (`staticPages`, `services`) — **vierter Spiegel**                                                                                                                                      | G2     |
-| `src/components/seo/SEOHead.tsx` | pfadlistenfreier SEO-Route-Source-Adapter, Canonical-/hreflang-Ableitung, `notFound` → `prerender-status-code`; Registry-Konsum bleibt DG09-01/PT10.3                                             | **G3** |
+| Datei                             | Rolle                                                                                                                   | Guard        |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `src/routing/routeRegistry.ts`    | zentrale typisierte Metadatenwahrheit, dynamische Source-Adapter, Known-Path-/Redirect-/200-/404-Testmatrix-Ableitung   | **G1/G2/G3** |
+| `src/App.tsx`                     | Registry-getriebene Route-Ausgabe plus exhaustive Komponentenbindung, Lazy-Grenzen, Shell und Catch-all                 | **G1/G3**    |
+| `server.ts`                       | Registry-Known-Path-/Redirect-Ausführung plus `NOT_FOUND_MARKER`; Sitemap-Auslieferung                                  | **G1/G3**    |
+| `src/routing/legacyRedirects.ts`  | fachliche PT10.2-Evidenzquelle für feste/content-derived Legacy-Migrationen; Targets werden durch Registry/G1 validiert | **G1/G3**    |
+| `src/hooks/useSearch.ts`          | Search-Copy und Gewichtung; Pfad/Existenz/Eignung kommen aus der Registry                                               | **G1/G2**    |
+| `src/components/seo/sitemap.ts`   | x10-XML-Ableitung aus den Registry-sitemap-eligible Entries                                                             | **G1/G3**    |
+| `src/components/seo/SEOHead.tsx`  | Canonical-/hreflang-Ausgabe plus Registry-Indexability-Parität und `notFound`-Statusvertrag                             | **G1/G3**    |
+| `scripts/check-route-registry.ts` | kanonischer G1-Paritätsguard inklusive Navigation, Redirect Targets, dynamische Sources, Duplikate und stale Mirrors    | **G1**       |
 
 **Mitbeteiligt:**
-`e2e/url-smoke.spec.ts` (HTTP-Status-/Hop-/Query-Redirect-Guard) · `e2e/pt08-4-routing.spec.ts`
+`e2e/url-smoke.spec.ts` (kanonischer G2/G9 HTTP-Status-/Soft-404-/Hop-/Query-Redirect-Guard) · `e2e/pt08-4-routing.spec.ts`
 (x10 Locale-/Spezialseiten-Regression) · `src/components/layout/Header.tsx` (`navItems`) ·
 `src/components/layout/Footer.tsx` (hartkodierte Links) · `src/data/services.tsx` (9 Service-IDs) ·
 `src/data/articles.ts` (6 Artikel-Slugs) · `src/content/befunde/index.ts` (6 Panel-Slugs) ·
@@ -341,8 +478,8 @@ auf DE zwingen; Consumer darf entsprechend nicht auf EN gezwungen werden. PT10.1
 direkte Locale-Antworten.
 
 **R-16 · Jede navigierbare Seite hat einen Einstieg.** Eine Route ohne Eintrag in Navigation, Footer
-oder Suche ist nur per Direkt-URL erreichbar; das schließt AP07 DoD aus. Bewusste Ausnahmen werden im
-Code begründet (Vorbild: `/support` in `EXTRA_KNOWN_PATHS`).
+oder Suche ist nur per Direkt-URL erreichbar; das schließt AP07 DoD aus. Bewusste Ausnahmen werden in
+der Registry-Policy und im Findability-Vertrag begründet (Vorbild: `/support`, sitemap-bewusst aus).
 
 ### URL- und Locale-Vertrag (AP02 PT02.2)
 
@@ -574,63 +711,54 @@ R-10; `RUNTIME-CONTRACT.md` RT-69; Owner **AP15**/**AP16**, IA-Seite **AP03**/**
 
 ## 5. Current Known Debt
 
-| ID       | Schuld                                                                                                                                                                                            | Beleg                              |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| **RD-1** | **Vier manuelle Routenspiegel** ohne Erzwingung: `App.tsx` ↔ `server.ts` ↔ `useSearch.ts` ↔ `SEOHead.tsx`. `server.ts:287` sagt selbst _„MIRRORS src/App.tsx"_                                    | `IMPLEMENTATION-HOTSPOTS.md` §6    |
-| **RD-2** | **RESOLVED PT10.1.** `/services*` liefert für den Hub und reale Service-Slugs direkte serverseitige 301 auf locale-aware `/diagnostics*`; die Client-`Navigate`-Brücke ist entfernt.              | `e2e/url-smoke.spec.ts`            |
-| **RD-3** | **PARTIALLY RESOLVED PT10.1.** Redirect-Status, `Location`, Query, Hop, Ziel-200 und unbekannte Service-404 sind exakt gegated; die breite Route-/404-Statusmatrix bleibt PT10.4.                 | `e2e/url-smoke.spec.ts`            |
-| **RD-4** | **`reuseExistingServer: !process.env.CI`** in `playwright.config.ts`: auf jeder Maschine mit Dienst auf Port 3000 läuft die Suite gegen eine fremde Anwendung — auf dem Analyse-Host nachgewiesen | `QUALITY-BASELINE-LIVE.md` §13.2   |
-| **RD-5** | **Such-Index unvollständig und mit totem Ziel.** `useSearch.ts` führt 6 statische Pfade gegen 38 Sitemap-Pfade und den Service `sports` (`:87`), den `services.tsx` nicht kennt                   | AP07 PT07.1.9                      |
-| **RD-6** | **RESOLVED AP08/AP09; PT10.1 regressionsgeprüft.** Consumer bleibt x10 locale-treu, indexierbar und sitemap-geführt; kein EN-Zwang.                                                               | `e2e/pt08-4-routing.spec.ts`       |
-| **RD-7** | **Veralteter Codekommentar:** `server.ts` spricht von _„27 routes × 10 = 270 URLs"_; gemessen sind **335 `<loc>`**                                                                                | `QUALITY-BASELINE-LIVE.md` §13.3 F |
+| ID       | Schuld                                                                                                                                                                               | Beleg                        |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| **RD-1** | **RESOLVED PT10.3.** App, Server, Search, SEOHead und Sitemap konsumieren `routeRegistry.ts`; G1 erzwingt Parität und verbietet die alten Spiegel.                                   | `npm run check:routes`       |
+| **RD-2** | **RESOLVED PT10.1.** `/services*` liefert für den Hub und reale Service-Slugs direkte serverseitige 301 auf locale-aware `/diagnostics*`; die Client-`Navigate`-Brücke ist entfernt. | `e2e/url-smoke.spec.ts`      |
+| **RD-3** | **RESOLVED PT10.4.** Registry-generierte x10-200-, 301- und systematische statische/dynamische 404-Klassen sind gegen Production SSR gegated; Soft-404 0.                            | G2/G9 / `check:http-status`  |
+| **RD-4** | **RESOLVED AP05.** Playwright nutzt einen dedizierten Port und `reuseExistingServer: false`; keine fremde Anwendung wird wiederverwendet.                                            | `playwright.config.ts`       |
+| **RD-5** | **RESOLVED AP07/PT10.3.** Search deckt 35 Registry-eligible Ziele ab; 9/9 Services, 6/6 Articles und 6/6 Befunde; kein `sports`.                                                     | Search-Guard und G1          |
+| **RD-6** | **RESOLVED AP08/AP09; PT10.1 regressionsgeprüft.** Consumer bleibt x10 locale-treu, indexierbar und sitemap-geführt; kein EN-Zwang.                                                  | `e2e/pt08-4-routing.spec.ts` |
+| **RD-7** | **RESOLVED AP09/PT10.3.** Sitemap-Output und Server-Kommentar verwenden 39 Registry-Familien × 10 = 390 URLs; G3 prüft die Zahl reproduzierbar.                                      | G3 / `server.ts`             |
 
-Offene Zeilen sind **Ist-Zustand**, kein erlaubtes Zielverhalten. RD-2 und RD-6 sind geschlossen;
-RD-3 ist für Redirects geschlossen und bleibt für die breite Statusmatrix bei PT10.4.
+Offene Zeilen sind **Ist-Zustand**, kein erlaubtes Zielverhalten. RD-2, RD-3 und RD-6 sind geschlossen.
 
 ### 5.1 Routing-Schulden aus AP02 PT02.2 (erhoben 2026-08-24)
 
 Ist-Zustand aus §3.1. **Kein zulässiges Zielverhalten**; in PT02.2 bewusst **nicht** repariert.
 
-| ID        | Schuld                                                                                                                                                                                                                                                                                   | Verletzt           | Owner                           |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------- |
-| **RD-8**  | **Known Paths werden aus der Sitemap abgeleitet** — `KNOWN_PATHS = SITEMAP_ROUTES ∪ EXTRA_KNOWN_PATHS`. „Nicht in der Sitemap = unbekannte Route" ist damit die reale Architektur, geflickt durch acht Handausnahmen. Der Kommentar in `server.ts` sagt selbst _„MIRRORS src/App.tsx"_.  | R-40, R-48, R-24   | **AP10 PT10.3**                 |
-| **RD-9**  | **Dynamische Slugs sind doppelt geführt** — 9 Services, 6 Artikel und 6 Musterbefunde existieren als Datensätze **und** noch einmal als Handzeilen in `SITEMAP_ROUTES`; dazu zwei Sondertabellen (`CONSUMER_SITEMAP_ROUTES`, `GERMAN_ONLY_SITEMAP_ROUTES`).                              | R-33, R-49         | **AP09 PT09.2** mit AP10 PT10.3 |
-| **RD-10** | **Acht Routenspiegel statt vier** — zu `App.tsx`, `server.ts`, `useSearch.ts` und `SEOHead.tsx` (`RD-1`) kommen die drei Sitemap-Tabellen, `Header.tsx`/`Footer.tsx` und `e2e/url-smoke.spec.ts`. Eine neue Route verlangt heute bis zu acht koordinierte Handeingriffe.                 | R-24, R-25         | **AP10** mit AP06/AP07/AP27     |
-| **RD-11** | **Epigenetik hängt navigatorisch unter Diagnostik** — `Header.tsx` führt `/epigenetics` und `/epigenetics#musterbefunde` als Kinder des `/diagnostics`-Menüpunkts. Die **Routen** sind bereits eigenständig; der Widerspruch zu `DEC-RL-005` besteht auf IA-/Navigationsebene.           | R-53, `DEC-RL-005` | **AP03**/**AP06** mit AP15      |
-| **RD-12** | **Search führt einen eigenen Pfadkatalog** — sechs handgeschriebene statische Pfade, ein auskommentierter `/casestudys/32reasons` und der tote Service `sports` ohne Route (bereits `RD-5`).                                                                                             | R-50               | **AP07 PT07.1**                 |
-| **RD-13** | **PARTIALLY RESOLVED PT10.2** — `e2e/url-smoke.spec.ts` prüft alle aktuell bekannten Redirect-Map-Quellen mit exaktem Status/Location/Hop/Ziel, x10-Locale-Erhalt, Query, intentional 404 und Altanker; nur die vollständige Registry-generierte Testmatrix bleibt PT10.3/PT10.4.        | R-25, T-11         | **AP10 PT10.3/PT10.4**          |
-| **RD-14** | **Musterbefund-Daten decken die beworbene Locale-Menge nicht** — `src/content/befunde/` führt sechs Panels in **`de` und `en`**, während die sechs Routen × 10 in der Sitemap stehen und hreflang × 10 tragen. Locale-Policy und Datenlage weichen auseinander (`SEO-CONTRACT.md` S-03). | R-44, `DEC-RL-001` | **AP08**/**AP16**               |
+| ID        | Schuld                                                                                                                                                                                                            | Verletzt           | Owner        |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
+| **RD-8**  | **RESOLVED PT10.3.** Known Paths werden direkt aus konkreten Registry-Einträgen abgeleitet; Sitemap-Teilnahme ist eine separate Policy; `EXTRA_KNOWN_PATHS` ist entfernt.                                         | R-40, R-48, R-24   | **RESOLVED** |
+| **RD-9**  | **RESOLVED PT10.3.** Sitemap expandiert dynamische Registry-Familien aus den realen Service-/Article-/Befund-Sources; kein Slug-Handspiegel bleibt.                                                               | R-33, R-49         | **RESOLVED** |
+| **RD-10** | **RESOLVED PT10.3.** App, Known Paths, Sitemap, Search, SEOHead, Redirect-Ziele, Navigation-Validierung und URL-Tests leiten Pfadwahrheit aus der Registry ab; G1 verbietet stale Mirrors.                        | R-24, R-25         | **RESOLVED** |
+| **RD-11** | **RESOLVED AP06.** Epigenetik besitzt einen eigenen Header-/Footer-Bereich und eine eigenständige Registry-Routenklasse; Diagnostik modelliert sie nicht als Service.                                             | R-53, `DEC-RL-005` | **RESOLVED** |
+| **RD-12** | **RESOLVED AP07/PT10.3.** Search-Copy bleibt domänennah; seine 35 Pfade und Eligibility werden vollständig aus der Registry bezogen und G1-verifiziert.                                                           | R-50               | **RESOLVED** |
+| **RD-13** | **RESOLVED PT10.4.** `getRouteTestMatrix()` speist 43 konkrete 200-Pfade, 30 Redirect-Quellen sowie sichere unbekannte statische/dynamische und intentional-404-Klassen; G2/G9 laufen gegen Production SSR in CI. | R-25, T-11         | **RESOLVED** |
+| **RD-14** | **RESOLVED AP08.** Alle sechs Befund-Familien besitzen zehn JSON-Sprachfassungen und werden x10 geroutet, indexiert und G3-/Registry-validiert.                                                                   | R-44, `DEC-RL-001` | **RESOLVED** |
 
 Auch diese Schulden sind **Ist-Zustand**, kein erlaubtes Zielverhalten. Die ehemals zugehörigen
 Laufzeitverletzungen RD-2 (`/services*`) und RD-6 (Consumer→EN) sind inzwischen aufgelöst; die
-Registry-/Spiegel-Schulden bleiben bis PT10.3 ausdrücklich offen.
+Registry-/Spiegel-Schulden RD-8–RD-10/RD-12 sind in PT10.3 geschlossen. Die breite integrierte
+Statusmatrix aus RD-13 ist in PT10.4 geschlossen.
 
 ---
 
 ## 6. Modification Rules
 
-**M-01 — Die Kerninvariante.** _Eine Route darf niemals in nur einem der Spiegel angelegt werden._
-Bis AP10 PT10.3 die Registry etabliert, erfordert **jede** Routing-Änderung die koordinierte Prüfung von:
-
-```
-src/App.tsx
-server.ts
-src/hooks/useSearch.ts
-src/components/seo/SEOHead.tsx
-e2e/url-smoke.spec.ts
-```
-
-und, sofern der Pfad einen dynamischen Slug trägt, zusätzlich:
+**M-01 — Die Kerninvariante.** _Eine Route wird in `src/routing/routeRegistry.ts` klassifiziert; die
+Konsumenten leiten Pfade daraus ab._ Dynamische Datensätze bleiben ausschließlich in:
 
 ```
 src/data/services.tsx      (Services)
 src/data/articles.ts       (Artikel)
-src/content/befunde/index.ts (Musterbefunde)
+src/content/befunde/meta.ts  (Musterbefunde)
 ```
 
-**M-02 — Checkliste beim Anlegen einer Route.** `<Route>` in `App.tsx` · Eintrag in `SITEMAP_ROUTES`
-**oder** `EXTRA_KNOWN_PATHS` · Such-Index, falls strategisch relevant · Navigations-/Footer-Einstieg
-oder begründete Ausnahme · Testeintrag · korrekte Reihenfolge gegenüber `:slug`-Catch-alls.
+**M-02 — Checkliste beim Anlegen einer Route.** Registry-Metadaten und Komponentenbindung · echte
+dynamische Source, falls erforderlich · bewusste Sitemap-/Search-/Indexability-Entscheidung ·
+Navigation-/Footer-Einstieg oder begründete Findability-Ausnahme · `npm run check:routes`. Keine
+manuelle Pfadzeile in Server, Sitemap, Search oder URL-Testmatrix.
 
 **M-03 — Beim Entfernen einer Route** dieselben Stellen rückbauen **und** eine Redirect-Entscheidung
 treffen (AP29 PT29.2). Eine entfernte Route, die in der Sitemap bleibt, erzeugt eine gecrawlte Soft-404.
@@ -639,16 +767,14 @@ treffen (AP29 PT29.2). Eine entfernte Route, die in der Sitemap bleibt, erzeugt 
 **N1** und **N12**: `main`s Fassungen verlieren `isKnownPath`, `NOT_FOUND_MARKER`, `no-store`, die
 Legacy-Redirects und den `GermanOnlyPage`-Guard. Nur Hunks, nie Dateien.
 
-**M-05 — Nach AP10 PT10.3 sind parallele Handtabellen verboten.** Wer dann noch eine zweite Routenliste
-anlegt, verletzt R-07.
+**M-05 — Parallele Handtabellen sind verboten.** Wer eine zweite Routenliste anlegt, verletzt R-07;
+G1 muss dies als stale Mirror ablehnen.
 
-**M-06 — Die Spiegelliste aus M-01 ist unvollständig.** Bis die Registry existiert, gehören zusätzlich
-zu den dort genannten fünf Dateien auch die drei Sitemap-Tabellen in `server.ts`, `Header.tsx`,
-`Footer.tsx` und `e2e/url-smoke.spec.ts` in jede Routing-Änderung (`RD-10`, §3.1).
+**M-06 — Header/Footer bleiben kuratierte IA, keine Registry.** Ihre Targets müssen aber
+Registry-known, kanonisch und frei von Redirect-/Backlog-/Chat-Zielen sein; G1 prüft das.
 
-**M-07 — Eine Route wird nicht über die Sitemap „bekannt gemacht".** Wer heute eine Route ergänzt, trägt
-sie bewusst in die Known-Path-Wahrheit ein **und** entscheidet die Sitemap-Teilnahme getrennt. Existenz
-und Indexierbarkeit sind zwei Entscheidungen, nicht eine (R-40, `RD-8`).
+**M-07 — Eine Route wird nicht über die Sitemap „bekannt gemacht".** `knownPath`, Indexierbarkeit und
+Sitemap-Teilnahme sind getrennte Registry-Entscheidungen (R-40).
 
 **M-08 — Redirect-Ziele werden gegen die Routenwahrheit geprüft, nicht angenommen.** Ein Ziel, das keine
 bekannte kanonische Route ist, ist ein Fehler — auch wenn der Redirect „funktioniert" (R-36).

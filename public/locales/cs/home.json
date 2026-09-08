@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "POC diagnostika pro vaši ordinaci: laboratorní výsledky během minut",
-    "description": "Laboratorně přesná point-of-care diagnostika přímo ve vaší ordinaci: IVDR/CE, CV < 2 % a výsledek během minut. Nový příjem od samoplátců – vyžádejte si nabídku."
+    "title": "Point-of-care diagnostika pro ordinace | PolarisDX",
+    "description": "PolarisDX podporuje ordinace a zdravotnická zařízení v point-of-care diagnostice s IglooPro a nabízí přehledné vstupy k diagnostice, epigenetice a poradenství.",
+    "social_image_alt": "Point-of-care čtečka IglooPro od PolarisDX"
   },
   "hero": {
-    "caption": "Výkon v místě péče",
-    "title": "IglooPro:\nPoint-of-Care. Perfektní. Okamžitě.",
-    "description": "Zajistěte si výkonnostní balíček: váš IglooPro je připraven k použití za 3–5 pracovních dnů.",
+    "caption": "PolarisDX pro ordinace a zdravotnická zařízení",
+    "title": "Point-of-care diagnostika pro každodenní provoz.",
+    "description": "PolarisDX pomáhá profesionálním uživatelům začlenit point-of-care diagnostiku s IglooPro do stávajících pracovních postupů – od výběru vhodného řešení po použití na pracovišti.",
     "cta": "Vyžádat nabídku",
+    "cta_secondary": "Prozkoumat diagnostiku",
+    "visual_alt": "Point-of-care čtečka IglooPro pro profesionální použití",
     "cta_roi": "Spustit ROI kalkulačku",
     "cta_downloads": "Stáhnout informační materiály",
     "stat1": {
@@ -74,6 +77,33 @@
       }
     },
     "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace."
+  },
+  "business_pillars": {
+    "eyebrow": "Tři obchodní pilíře",
+    "title": "Tři cesty k diagnostice a profesionálnímu využití",
+    "intro": "PolarisDX spojuje point-of-care diagnostiku, čtečku IglooPro a epigenetiku v jasně oddělených oblastech.",
+    "pillars": {
+      "diagnostics": {
+        "title": "Diagnostika",
+        "text": "Point-of-care diagnostika a specializované aplikace pro ordinace a zdravotnická zařízení.",
+        "cta": "Objevte diagnostiku"
+      },
+      "igloo": {
+        "title": "IglooPro",
+        "text": "Čtečka IglooPro analyzuje kompatibilní rychlotesty přímo v místě péče.",
+        "cta": "Zobrazit IglooPro"
+      },
+      "epigenetics": {
+        "title": "Epigenetika",
+        "text": "Samostatná oblast pro epigenetické a genetické analýzy a související vzorové zprávy.",
+        "cta": "Poznejte epigenetiku"
+      }
+    },
+    "core": {
+      "eyebrow": "Vybrané aplikace",
+      "title": "Přímé vstupy podle odbornosti",
+      "intro": "Dental, Beauty a Longevity vedou do tří již publikovaných diagnostických oblastí. Kompletní portfolio zůstává dostupné v centru Diagnostiky."
+    }
   },
   "about": {
     "caption": "VÁŠ GARANT VÝKONU",
@@ -155,8 +185,8 @@
     }
   },
   "testimonials": {
-    "caption": "HLASY Z ORDINACÍ",
-    "title": "Co ordinace říkají o systému IglooPro",
+    "caption": "REFERENCE Z ORDINACE",
+    "title": "Zkušenost z každodenní praxe s IglooPro",
     "ratingLabel": "Celkové hodnocení\nna základě hodnocení z ordinací",
     "positiveLabel": "Pozitivní hodnocení",
     "richard_pollock": {
@@ -185,6 +215,7 @@
       "title": "MVZ Zahnkultur Berlin Brandenburg GmbH",
       "focus": "Okamžitá diagnostika pro parodontologii a implantologii (Vitamin D, HbA1c, cholesterol, CRP)",
       "text": "Igloo Multireader umožňuje měřit zánětlivé markery, HbA1c, cholesterol a vitamin D přímo u křesla. Parodontologické a implantační zákroky tak plánujeme bezpečněji a začínáme rychleji. Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního provozu.",
+      "proof_text": "Školení a podpora od PolarisDX jsou nekomplikované – přístroj se stal pevnou součástí našeho každodenního provozu.",
       "practice": "MVZ Zahnkultur Berlin Brandenburg"
     },
     "goran_stojanovic": {
@@ -228,28 +259,20 @@
     "title": "Časté dotazy k PolarisDX a point-of-care diagnostice",
     "items": [
       {
-        "question": "Vyplatí se IglooPro pro moji ordinaci?",
-        "answer": "S POC diagnostikou můžete stanovení biomarkerů nabízet jako službu pro samoplátce přímo v ordinaci, místo abyste je předávali externí laboratoři. Jaké vytížení a výnosy z toho ve vašem konkrétním případě vyplynou, transparentně zjistíte v ROI kalkulačce. Ještě před pořízením tak uvidíte, jak systém zapadne do struktury vaší ordinace."
+        "question": "Co nabízí PolarisDX ordinacím a zdravotnickým zařízením?",
+        "answer": "PolarisDX spojuje tři samostatné vstupy: point-of-care diagnostiku, čtečku IglooPro a epigenetiku. Každá oblast nabízí přehled a vede k již zveřejněným odborným informacím."
       },
       {
-        "question": "Je IglooPro schválený pro použití v ordinaci a má zajištěnou kvalitu?",
-        "answer": "IglooPro je v souladu s IVDR/CE, a je tak určen pro okamžitou diagnostiku v blízkosti pacienta (POCT). V celém měřicím rozsahu dosahuje systém přesnosti CV < 2 %, což podporuje reprodukovatelné výsledky. Uvedení do provozu probíhá validovaně, takže požadavky na zajištění kvality v POCT jsou zohledněny od samého začátku."
+        "question": "Jak lze point-of-care diagnostiku začlenit do provozu ordinace?",
+        "answer": "Postup na stránce zahrnuje aplikaci nebo přípravu vzorku, měření, dostupnost výsledku po době zpracování daného testu a odbornou interpretaci. Přesný postup závisí na konkrétním testu a platných pokynech."
       },
       {
-        "question": "Jsem po koupi vázán na jediného dodavatele?",
-        "answer": "Ne. IglooPro pracuje napříč výrobci, takže nejste odkázáni na testy jediného dodavatele. To vám dává flexibilitu při výběru panelů testů a chrání vaši investici, pokud se vaše diagnostické potřeby v průběhu času promění."
+        "question": "Jaký další krok je vhodný pro mé zařízení?",
+        "answer": "Sekce diagnostiky představuje zveřejněné aplikace. Pokud chcete osobně probrat požadavky, prostředí použití nebo možné řešení, můžete si vyžádat nabídku a uvést kontext svého zařízení."
       },
       {
-        "question": "Jak náročné je začlenění do každodenního provozu ordinace?",
-        "answer": "IglooPro je navržen pro použití přímo u křesla a poskytuje výsledek během minut, takže se měření vejde do probíhající návštěvy. Při uvádění do provozu zaškolíme váš tým v postupu měření i v obsluze. Poté vám stojíme po boku s technickou podporou a průběžnou péčí."
-      },
-      {
-        "question": "Jak rychle je systém připraven k použití po objednání?",
-        "answer": "Po objednání je váš IglooPro zpravidla připraven k použití do 3–5 pracovních dnů. Přístroj uvádíme do provozu validovaný, takže můžete spolehlivě měřit už od prvního pacienta. Samostatná, zdlouhavá fáze nastavení tak odpadá."
-      },
-      {
-        "question": "Jaké biomarkery mohu stanovit podle své specializace?",
-        "answer": "Systém pokrývá oborové panely pro Dental, Beauty a Longevity – od vitaminu D a CRP přes HbA1c až po metabolické a zánětlivé markery. Ve stomatologii jsou v centru pozornosti například vitamin D a zánětlivé hodnoty, v oblasti longevity pak monitorování metabolických a zánětlivých markerů. Které testy mají pro vaši specializaci smysl, individuálně sladíme během konzultace."
+        "question": "Nahrazuje point-of-care výsledek odborné posouzení?",
+        "answer": "Ne. Výsledek testu může poskytnout informace pro rozhovor a další proces péče. Individuální interpretace a diagnostická či terapeutická rozhodnutí zůstávají odpovědností kvalifikovaného odborníka."
       }
     ],
     "more": "Máte další otázky?",
@@ -260,43 +283,34 @@
   "trustbar": {
     "aria": "Znaky důvěryhodnosti",
     "ivdr": "V souladu s IVDR/CE",
-    "cv": "Laboratorní přesnost CV < 2 %",
+    "cv": "IglooPro · CV < 2 %",
     "minutes": "Výsledek během minut",
-    "compat": "Kompatibilní napříč výrobci",
-    "delivery": "Připraveno k použití za 3–5 pracovních dnů",
-    "partner": "Prémiový partner: Nobel Biocare"
+    "compat": "Kompatibilní napříč výrobci"
   },
   "why": {
-    "caption": "V místě péče",
-    "title": "Proč POC ve vaší ordinaci?",
-    "intro": "Diagnostika přímo v místě ošetření: výsledek během minut místo čekání několik dní – to mění průběh, zážitek pacienta i ekonomiku vaší ordinace.",
-    "card1": {
-      "title": "Žádné odesílání do laboratoře",
-      "text": "Výsledek máte okamžitě na místě – žádné čekání na nález z externí laboratoře."
+    "caption": "Point of Care v každodenní praxi",
+    "title": "Informace tam, kde jsou potřeba",
+    "intro": "Měření v místě péče poskytují doplňující informace přímo v pracovním postupu ordinace. Podporují odbornou interpretaci, aniž by ji automatizovala nebo nahrazovala.",
+    "signals": {
+      "access": { "title": "Přímý přístup k informacím", "text": "Naměřené hodnoty jsou v místě péče dostupné po době zpracování příslušné pro daný test." },
+      "workflow": { "title": "Součást pracovního postupu", "text": "Použití, měření a dokumentaci lze jako jasný proces začlenit do stávajících pracovních postupů ordinace." },
+      "conversation": { "title": "Podklad pro rozhovor", "text": "Dostupné hodnoty mohou podpořit odbornou konzultaci a společnou diskusi o vhodných dalších krocích." }
     },
-    "card2": {
-      "title": "Pacient zůstává v křesle",
-      "text": "Naměřte hodnoty a další krok proberte rovnou během téže návštěvy – bez nutnosti objednávat pacienta znovu."
-    },
-    "card3": {
-      "title": "Nový příjem od samoplátců",
-      "text": "POC otevírá ve vaší ordinaci nové služby pro samoplátce, místo abyste příjmy přenechávali externí laboratoři."
-    },
-    "card_cta": "Zjistit více",
-    "video_label": "INSTRUKTÁŽNÍ VIDEO",
-    "video_caption": "Takto probíhá test ve vaší ordinaci – za 3 minuty",
-    "device_alt": "POC analyzátor IglooPro"
+    "benefits": {
+      "practice": { "label": "Přínos pro ordinaci", "title": "Strukturovaně v pracovním postupu", "text": "Doplňující měření jsou dostupná v procesu Point of Care a lze je zohlednit při konzultaci a péči." },
+      "patient": { "label": "Přínos pro pacienty", "title": "Srozumitelně probrat výsledky", "text": "Dostupné hodnoty lze vysvětlit v kontextu péče. Test doplňuje odborné posouzení; nenahrazuje diagnózu ani léčbu." }
+    }
   },
   "final_cta": {
     "caption": "Připraveni začít",
     "title": "Připraveni na laboratorně přesnou diagnostiku ve vaší ordinaci?",
-    "subtitle": "Promluvte si s naším týmem nebo si spočítejte svůj potenciál úspor – kompatibilní napříč výrobci, v souladu s IVDR/CE a připraveno k použití za 3–5 pracovních dnů.",
+    "subtitle": "Promluvte si s naším týmem o vhodném point-of-care řešení nebo si ověřte vlastní předpoklady v nezávazné ROI kalkulačce.",
     "cta_primary": "Vyžádat nabídku",
     "cta_secondary": "ROI kalkulačka",
     "chips": {
-      "free": "Zdarma a nezávazně",
-      "reply": "Odpověď < 24 h",
-      "delivery": "Dodání do 3–5 pracovních dnů"
+      "free": "Nezávazná poptávka",
+      "reply": "Osobní konzultace",
+      "delivery": "Dostupné v 10 jazycích"
     }
   },
   "roi": {
@@ -362,24 +376,15 @@
     }
   },
   "steps": {
-    "caption": "TAK JEDNODUŠE ZAČNETE",
-    "title": "Validovaná POC diagnostika ve 3 krocích",
-    "intro": "Od první konzultace až po laboratorně přesnou diagnostiku přímo u křesla – bez nutnosti konfigurace.",
-    "step1": {
-      "title": "Konzultace a doporučení panelu",
-      "text": "Analyzujeme váš pracovní postup a doporučíme vhodné panely biomarkerů pro vaši odbornost.",
-      "badge": "včetně konzultace"
+    "caption": "PROCES POC",
+    "title": "Od použití k odborné interpretaci",
+    "intro": "Jasný proces umožňuje využít informace z měření v každodenní praxi a ponechává zdravotní odpovědnost na ošetřujících odbornících.",
+    "aria_label": "Proces Point of Care ve třech krocích",
+    "items": {
+      "application": { "title": "Použití a měření", "text": "Vzorek a test se připraví podle příslušného návodu a změří kompatibilním systémem." },
+      "result": { "title": "Dostupný výsledek", "text": "Po době zpracování příslušné pro daný test je naměřená hodnota dostupná v pracovním postupu ordinace — bez automatického lékařského závěru." },
+      "context": { "title": "Odborná interpretace", "text": "Odpovědný odborník posoudí hodnotu v individuálním kontextu a případně probere vhodné další kroky." }
     },
-    "step2": {
-      "title": "Nastavení Performance",
-      "text": "Dodání do 3–5 pracovních dnů včetně validovaného uvedení do provozu a jednoduchých profilů testů.",
-      "badge": "na místě"
-    },
-    "step3": {
-      "title": "První výsledky",
-      "text": "Váš tým je proškolen, první pacient je změřen – laboratorně přesně, zdokumentováno, v souladu s IVDR/CE.",
-      "badge": "Den 1"
-    },
-    "cta": "Vyžádat nabídku"
+    "safety_note": "Měření poskytují doplňující informace. Odborné posouzení a další kroky z něj vyplývající zůstávají odpovědností příslušného odborníka."
   }
 }

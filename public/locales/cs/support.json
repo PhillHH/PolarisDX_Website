@@ -55,7 +55,8 @@
       "submitting": "Odesílání...",
       "success": "Děkujeme! Vaši žádost o podporu jsme přijali a zaevidovali. Ozveme se vám co nejdříve.",
       "error": "Došlo k chybě. Zkuste to prosím později znovu.",
-      "microcopy": "Obvykle odpovídáme do jednoho pracovního dne."
+      "microcopy": "Obvykle odpovídáme do jednoho pracovního dne.",
+      "error_retryable": "Nyní se to nepovedlo. Vaše údaje jsou stále zde — zkuste to za okamžik znovu."
     },
     "info": {
       "title": "Informace o podpoře",

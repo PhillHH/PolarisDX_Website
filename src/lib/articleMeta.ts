@@ -1,22 +1,18 @@
 /**
  * Artikel-Metadaten fuer die Anzeige aufbereiten.
  *
- * Die Rohdaten in `src/data/articles.ts` tragen englische Strings
- * ("28 Nov 2025", "6 min read"). Sie bleiben unangetastet — hier wird nur
- * fuer die Anzeige in der aktiven Sprache umgeformt.
+ * Die Rohdaten in `src/data/articles.ts` tragen kanonische ISO-Kalendertage.
+ * Dieser Helper veraendert ihre Wahrheit nicht, sondern formatiert sie nur
+ * fuer die Anzeige in der aktiven Sprache.
  */
 
-const MONTHS = 'jan feb mar apr may jun jul aug sep oct nov dec'.split(' ')
-
-/** "28 Nov 2025" → Date (UTC-Mitternacht) oder null, wenn das Format abweicht. */
+/** ISO calendar day -> Date (UTC midnight), or null for invalid input. */
 export const parseArticleDate = (raw: string): Date | null => {
-  const match = /^(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{4})$/.exec(raw.trim())
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(raw.trim())
   if (!match) return null
-  const month = MONTHS.indexOf(match[2].slice(0, 3).toLowerCase())
-  if (month < 0) return null
-  // Date.UTC statt lokaler Zeit: sonst kippt das Datum je nach Zeitzone des
-  // Besuchers um einen Tag und weicht vom serverseitig gerenderten Markup ab.
-  return new Date(Date.UTC(Number(match[3]), month, Number(match[1])))
+  const value = new Date(`${raw}T00:00:00Z`)
+  if (Number.isNaN(value.valueOf()) || value.toISOString().slice(0, 10) !== raw) return null
+  return value
 }
 
 /** Sichtbares Datum in der aktiven Locale; unbekannte Formate bleiben roh. */
@@ -35,12 +31,37 @@ export const formatArticleDate = (raw: string, locale: string): string => {
   }
 }
 
-/** ISO-8601-Datum fuer JSON-LD und og:article:published_time. */
-export const articleDateIso = (raw: string): string =>
-  parseArticleDate(raw)?.toISOString().slice(0, 10) ?? raw
+/** ISO-8601 date for JSON-LD and og:article:published_time; no raw fallback. */
+export const articleDateIso = (raw: string): string => {
+  if (!parseArticleDate(raw)) throw new Error(`Invalid article ISO date: ${raw}`)
+  return raw
+}
 
 /** "6 min read" → 6; null, wenn keine Zahl drinsteht. */
 export const parseReadMinutes = (raw: string): number | null => {
   const match = /(\d+)/.exec(raw)
   return match ? Number(match[1]) : null
 }
+
+const STRUCTURAL_CONTENT_KEYS = new Set(['type', 'image', 'url'])
+const WORD_PATTERN = /[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu
+
+/** Visible prose only; discriminators, asset paths and URLs are not reading text. */
+const collectReadableStrings = (value: unknown, key?: string): string[] => {
+  if (typeof value === 'string') return key && STRUCTURAL_CONTENT_KEYS.has(key) ? [] : [value]
+  if (Array.isArray(value)) return value.flatMap((entry) => collectReadableStrings(entry))
+  if (!value || typeof value !== 'object') return []
+  return Object.entries(value).flatMap(([entryKey, entry]) =>
+    collectReadableStrings(entry, entryKey),
+  )
+}
+
+export const countArticleWords = (...content: unknown[]): number =>
+  collectReadableStrings(content).reduce(
+    (count, text) => count + (text.match(WORD_PATTERN)?.length ?? 0),
+    0,
+  )
+
+/** Deterministic display estimate: visible lead + body at 200 words/minute. */
+export const calculateArticleReadMinutes = (...content: unknown[]): number =>
+  Math.max(1, Math.ceil(countArticleWords(...content) / 200))
