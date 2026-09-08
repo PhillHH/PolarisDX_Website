@@ -43,12 +43,15 @@ COPY --from=builder /app/dist ./dist
 
 # 3. Server-Dateien kopieren (TypeScript - wird von tsx ausgeführt)
 COPY server.ts ./
+COPY src ./src
+COPY tsconfig*.json ./
 
 # 4. Public-Ordner für statische Dateien (robots.txt, sitemap.xml, locales)
 COPY public ./public
 
 # 5. Environment-Variablen
 ENV NODE_ENV=production
+ENV TSX_TSCONFIG_PATH=tsconfig.app.json
 ENV PORT=3000
 
 # 6. Port freigeben
