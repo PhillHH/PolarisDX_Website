@@ -17,12 +17,11 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
-import Footer from '../../components/layout/Footer'
 import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
 import {
   Card,
-  ConsumerHeader,
+  ConsumerShell,
   CTA,
   Disclaimer,
   FactStrip,
@@ -183,7 +182,7 @@ function SprayPageInner() {
   useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+    <ConsumerShell nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray">
       <SEOHead
         title={seoTitle}
         description={seoDescription}
@@ -214,8 +213,6 @@ function SprayPageInner() {
           ),
         ]}
       />
-
-      <ConsumerHeader nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray" />
 
       {/* 2 · HERO */}
       <Hero
@@ -423,8 +420,6 @@ function SprayPageInner() {
       />
 
       <Disclaimer>{t('spray.copy_101')}</Disclaimer>
-
-      <Footer />
-    </div>
+    </ConsumerShell>
   )
 }

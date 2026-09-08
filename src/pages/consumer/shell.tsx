@@ -22,6 +22,8 @@ import { Check, Menu, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import Reveal from '../../components/ui/Reveal'
+import Footer from '../../components/layout/Footer'
+import SkipLink, { MAIN_CONTENT_ID } from '../../components/layout/SkipLink'
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder'
 import LanguageSwitcher from '../../components/ui/LanguageSwitcher'
 import { cn } from '../../lib/utils'
@@ -178,8 +180,14 @@ export function ConsumerHeader({
           <Wordmark />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 md:flex">
+        {/* Desktop nav.
+            `min-w-0` und der kleinere Abstand bis `lg`: bei genau 768px
+            schalten Navigation UND Desktop-CTA gleichzeitig zu, waehrend der
+            Burger verschwindet. Gemessen lief die Kopfzeile dort um 15px aus
+            dem Viewport. Ohne `min-w-0` kann ein Flex-Kind nicht unter seine
+            Inhaltsbreite schrumpfen — die Navigation drueckte die rechte
+            Gruppe hinaus. */}
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 text-sm font-medium text-white/90 md:flex lg:gap-8">
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark">
               {n.label}
@@ -187,7 +195,7 @@ export function ConsumerHeader({
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex shrink-0 items-center gap-2 text-white">
           <LanguageSwitcher isMobile />
 
           {/* Desktop CTA */}
@@ -247,6 +255,67 @@ export function ConsumerHeader({
         </div>
       )}
     </header>
+  )
+}
+
+// =============================================================================
+// CONSUMER SHELL — das gemeinsame Geruest aller drei Landingpages
+// =============================================================================
+
+/**
+ * ConsumerShell (AP21 PT21.1).
+ *
+ * Bis hierher hatte jede der drei Landingpages ihr Geruest selbst
+ * zusammengesetzt: ein `<div>`, der Header, die Abschnitte, der Footer. Was
+ * dabei auf ALLEN drei Seiten fehlte, war das Wesentliche — es gab **kein
+ * `<main>`** und **keinen Sprunglink**. Gemessen am gebauten SSR-Dokument:
+ * `<main` 0-mal, `#main-content` 0-mal. Wer mit der Tastatur ankam, musste
+ * sich auf jeder Seite erst durch Logo, Navigation, Sprachumschalter und CTA
+ * tabben, und Screenreader hatten keine Hauptbereich-Landmarke.
+ *
+ * Diese Shell stellt beides genau einmal her und uebernimmt gleichzeitig den
+ * Footer — damit ist der Zugang zu Impressum, Datenschutz und AGB nicht mehr
+ * eine Sache, an die jede Seite einzeln denken muss.
+ *
+ * BEWUSST NICHT die B2B-Shell: die Consumer-Strecke hat ihre eigene, schlanke
+ * Chrome (siehe Kopfkommentar). Uebernommen werden nur `SkipLink` und
+ * `MAIN_CONTENT_ID` — dieselbe Sprungziel-Id, derselbe x10-Schluessel
+ * `common:a11y.skip_to_content`, damit es siteweit EIN Sprungziel gibt und
+ * nicht zwei konkurrierende.
+ *
+ * Der Cookie-/Consent-Banner haengt bereits siteweit in `App.tsx` und wird
+ * hier absichtlich NICHT zusaetzlich gerendert — zwei Banner waeren schlimmer
+ * als keiner.
+ */
+export function ConsumerShell({
+  nav,
+  cta,
+  page,
+  children,
+}: {
+  nav: NavLink[]
+  cta: NavLink
+  page: ConsumerPage
+  children: ReactNode
+}) {
+  return (
+    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+      {/* Erstes fokussierbares Element im Dokument — sonst greift der Sprung
+          ins Leere (WCAG 2.4.1). */}
+      <SkipLink />
+      <ConsumerHeader nav={nav} cta={cta} page={page} />
+      {/* `tabIndex={-1}`: ohne ihn scrollt der Browser beim Sprung nur und
+          setzt den Fokus nicht — die naechste Tab-Taste landete dann wieder
+          oben in der Navigation. */}
+      <main
+        id={MAIN_CONTENT_ID}
+        tabIndex={-1}
+        className="flex flex-grow flex-col focus:outline-none"
+      >
+        {children}
+      </main>
+      <Footer />
+    </div>
   )
 }
 
@@ -355,7 +424,9 @@ export function Hero({
                   <span className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
                     {price.amount}
                   </span>
-                  <span className="text-sm text-gray-500">· {price.unit}</span>
+                  {/* `text-gray-500` misst hier 3,37:1 auf Weiss und faellt
+                      bei 14px durch; `gray-600` erreicht 7,5:1. */}
+                  <span className="text-sm text-gray-600">· {price.unit}</span>
                 </p>
               )}
               {priceBadge && <div className="mt-7">{priceBadge}</div>}
@@ -379,7 +450,7 @@ export function Hero({
                       <span className="text-2xl font-semibold tracking-tight text-brand-deep sm:text-3xl">
                         {floatingStat.value}
                       </span>
-                      <span className="max-w-[7.5rem] text-xs font-medium leading-tight text-gray-500">
+                      <span className="max-w-[7.5rem] text-xs font-medium leading-tight text-gray-600">
                         {floatingStat.label}
                       </span>
                     </div>
@@ -629,7 +700,7 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
           <p className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
             {s.value}
           </p>
-          <p className="mt-2 text-sm font-medium leading-snug text-gray-500">{s.label}</p>
+          <p className="mt-2 text-sm font-medium leading-snug text-gray-600">{s.label}</p>
         </div>
       ))}
     </div>
@@ -796,7 +867,7 @@ export function FinalCTA({
 export function Disclaimer({ children }: { children: ReactNode }) {
   return (
     <div className="border-t border-slate-200 bg-slate-100">
-      <div className="mx-auto max-w-3xl px-4 py-8 text-center text-xs leading-relaxed text-gray-500 sm:px-6">
+      <div className="mx-auto max-w-3xl px-4 py-8 text-center text-xs leading-relaxed text-gray-600 sm:px-6">
         {children}
       </div>
     </div>

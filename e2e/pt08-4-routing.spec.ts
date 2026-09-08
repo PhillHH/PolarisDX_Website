@@ -64,11 +64,18 @@ async function switchLanguage(
   sourceLocale: SupportedLanguage,
   targetLocale: SupportedLanguage,
 ) {
-  await page
-    .getByRole('button', { name: languageTrigger(sourceLocale) })
-    .first()
-    .click()
-  await page.getByRole('button', { name: languageNames[targetLocale], exact: true }).click()
+  const trigger = page.getByRole('button', { name: languageTrigger(sourceLocale) }).first()
+  const option = page.getByRole('button', { name: languageNames[targetLocale], exact: true })
+  // Der Kopf kommt aus dem SSR; der Umschalter lebt erst nach der Hydration.
+  // Ein einzelner frueher Klick ging unter Last verloren und der Folgeklick
+  // lief in den Timeout (in PT21.1 zweimal reproduziert, in Einzellaeufen nie).
+  // Geklickt wird deshalb nur, solange das Menue ZU ist — idempotent, kann es
+  // also nicht versehentlich wieder schliessen.
+  await expect(async () => {
+    if ((await option.count()) === 0) await trigger.click()
+    await expect(option).toHaveCount(1, { timeout: 500 })
+  }).toPass({ timeout: 20_000 })
+  await option.click()
 }
 
 function canonicalFrom(html: string): string | undefined {

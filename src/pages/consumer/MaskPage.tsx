@@ -17,11 +17,10 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
-import Footer from '../../components/layout/Footer'
 import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import {
   Card,
-  ConsumerHeader,
+  ConsumerShell,
   CTA,
   Disclaimer,
   FactStrip,
@@ -154,7 +153,7 @@ function MaskPageInner() {
   useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+    <ConsumerShell nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks">
       <SEOHead
         title={seoTitle}
         description={seoDescription}
@@ -185,8 +184,6 @@ function MaskPageInner() {
           ),
         ]}
       />
-
-      <ConsumerHeader nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks" />
 
       {/* 2 · HERO */}
       <Hero
@@ -394,8 +391,6 @@ function MaskPageInner() {
 
       {/* 11 · FOOTER */}
       <Disclaimer>{t('mask.copy_088')}</Disclaimer>
-
-      <Footer />
-    </div>
+    </ConsumerShell>
   )
 }

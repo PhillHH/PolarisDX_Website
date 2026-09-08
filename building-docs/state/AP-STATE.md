@@ -8,13 +8,14 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: **AP20 — About, Contact, Support und Legal**
-- Status: **COMPLETE** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Predecessor: **AP19 COMPLETE / Closure PASS (RES 40/40 · C19 50/50, 2026-09-02)**
-- Last completed task: **AP20-CLOSURE (PASS, 2026-09-08)**
-- Last completed PT: **PT20.4 (PASS, 2026-09-07)** · AP20 Closure: **PASS (2026-09-08)**
-- PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** · AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)** · Next work package: **AP21 (NOT STARTED, nicht gestartet)** ·
-  AP21: **NOT STARTED** (Voraussetzung AP20-CLOSURE PASS erfuellt — Start nur mit Owner-Freigabe)
+- Work package: **AP21 — Consumer-Landingpages als 10-sprachiger SEO-Bereich**
+- Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
+- Predecessor: **AP20 COMPLETE / Closure PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
+- Last completed task: **PT21.1 (PASS, 2026-09-08)**
+- Last completed PT: **PT21.1 (PASS, 2026-09-08)**
+- Next task: **PT21.2**
+- PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** ·
+  AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
 - PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
   PT19.5: **PASS** · AP19 Closure: **PASS (RES 40/40 · C19 50/50, 2026-09-02)**
 - AP15 Closure: **PASS (EPI 40/40 · C15 50/50, 2026-09-01)**
@@ -25,7 +26,33 @@ kein `work-packages/APxx-STATE.md`).
 - AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
   unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
   Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
-- AP21: **NOT STARTED**
+- AP21: **IN_PROGRESS (PT21.1 PASS, 2026-09-08)** — PT21.2: **NOT STARTED** · PT21.3: **NOT
+  STARTED** · PT21.4: **NOT STARTED** · PT21.5: **NOT STARTED** · PT21.6: **NOT STARTED** ·
+  PT21.7: **NOT STARTED** · AP21 Closure: **NOT STARTED**
+- Consumer-Shell: **ACTIVE / PT21.1 PASS** — die drei Landingpages laufen jetzt in einer
+  gemeinsamen `ConsumerShell`. Der Ausgangszustand war gemessen und eindeutig: auf allen 30
+  Consumer-Routen gab es **kein `<main>` und keinen Sprunglink** (0/30 im gebauten
+  SSR-Dokument). Beides steht jetzt 30/30, der Sprunglink als erstes Element im Dokument, und der
+  Fokus landet nachweislich auf `#main-content` statt nur zu scrollen. Die Shell uebernimmt
+  zusaetzlich den Footer, womit Impressum, Datenschutz und AGB auf 30/30 Routen erreichbar sind;
+  der Cookie-Banner bleibt bewusst der siteweite aus `App.tsx` statt eines zweiten. Unveraendert
+  bestaetigt: 30/30 HTTP 200, Canonical und 10 hreflang plus x-default=de im ERSTEN Response,
+  keine EN-Zwangsredirects (jede gueltige Locale antwortet direkt mit 200), `/consumer` bleibt
+  404 und damit `CONSUMER_HUB = NOT_REQUIRED`, Sprachumschalter 10/10 mit erhaltenem
+  Produkt-Slug. Im Shell-Scope behoben: vier Kontrastwerte unter 4,5:1 in `shell.tsx` und ein
+  Header-Ueberlauf von 15px bei genau 768px, wo Navigation und Desktop-CTA gleichzeitig zuschalten
+  waehrend der Burger verschwindet (nachgemessen bei sechs Breiten, Ueberlauf 0). Bewusst NICHT
+  behoben, weil Produktinhalt und damit PT21.2/PT21.7: 26px Ueberlauf bei 390px auf der
+  Spray-Seite (unabhaengig vom `<main>`-Layout reproduziert) und ein Kontrast von 3,22:1 im
+  Dosierungshinweis — beide mit Messwert und Ort in `CONSUMER-CONTRACT.md`. Wichtigster
+  Discovery-Befund fuer spaeter: der Bestellpfad `/api/consumer-order` laeuft NICHT auf der
+  Shared Lead Foundation — keine Persistenz, kein Outbox/CRM, kein Retry, keine Idempotency, kein
+  Rate Limit, keine Trennung von Processing- und Marketing-Consent und keine Mengen-Allowlist,
+  obwohl die Journey `consumer_order` in der Foundation samt CRM-Ziel bereits registriert ist
+  (Owner PT21.4/PT21.5). Tests: PT21.1-Suite 8/8, direkte Abhaengigkeitssuiten 102/102,
+  Unit/Node 257/257, `check:routes`/`check:i18n`/`check:seo`/`check:colors`/`check:search-index`/
+  Typecheck/Lint/Prettier gruen. Kein voller Produktionsbuild (Fast-Delta V2). AP21 bleibt
+  IN_PROGRESS, PT21.2 ist die naechste Aufgabe und AP22 bleibt NOT STARTED.
 - About PT20.1: **PASS (2026-09-02, Fast-Delta V2)** — About-Seite als zehnsprachige
   Trust-/Positionierungsseite fertiggestellt. Bounded AP20-Discovery ausgefuehrt und in
   `building-docs/CORPORATE-CONTACT-LEGAL-CONTRACT.md` konsolidiert. Aenderungen: neue

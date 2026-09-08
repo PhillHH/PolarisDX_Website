@@ -17,13 +17,12 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
-import Footer from '../../components/layout/Footer'
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
 import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
 import maskBotanical from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
 import {
   Card,
-  ConsumerHeader,
+  ConsumerShell,
   Disclaimer,
   FactStrip,
   FAQ,
@@ -84,7 +83,7 @@ function DuoPageInner() {
   const FAQ_ITEMS = getFAQ_ITEMS(t)
   useConsumerPageView('duo')
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+    <ConsumerShell nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo">
       <SEOHead
         title={seoTitle}
         description={seoDescription}
@@ -114,8 +113,6 @@ function DuoPageInner() {
           ),
         ]}
       />
-
-      <ConsumerHeader nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo" />
 
       {/* 2 · HERO */}
       <Hero
@@ -273,8 +270,6 @@ function DuoPageInner() {
 
       {/* 11 · FOOTER */}
       <Disclaimer>{t('duo.copy_059')}</Disclaimer>
-
-      <Footer />
-    </div>
+    </ConsumerShell>
   )
 }
