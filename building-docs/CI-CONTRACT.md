@@ -21,18 +21,22 @@ Release-Candidate-Freigabe AP30.
 | Wahrheit     | ein Gate gilt erst als CI-Nachweis, wenn es auf dem **gepruefeten SHA der Relaunch-Linie** auf GitHub gelaufen ist  |
 | Pflichtcheck | **`AP27 Launch gate aggregate`** (`ap27-gate`) — ein einziger Status, der alle Jobs einschliesst                    |
 
-**Gemessener Stand 2026-09-16 (erste echte CI-Evidence):**
+**Gemessener Stand 2026-09-16 (echte CI-Evidence auf `origin`):**
 
-- Evidence-Branch `ci/ap27-evidence-2026-09-16` auf `origin`, Evidence-SHA `e14e904`
-  (Snapshot `7d34d09` des Arbeitsbaums von `console/24-25-2026-09-11T13-00-11` + ein
-  `.gitleaksignore`-Eintrag). Lauf **35074608105** (`push`, 2026-09-16 08:35–08:42 UTC):
-  <https://github.com/PhillHH/PolarisDX_Website/actions/runs/35074608105>
-- **Gruen (9):** `routing`, `seo`, `performance` (AP25), `security` (AP26), `ap27-tests`,
-  `ap27-guards`, `ap27-journeys`, `ap27-seo-regression`, `ap27-visual`.
-- **Rot (3) + Aggregat:** `quality` (20 Alt-Baselines in `e2e/design-system.spec.ts`, PT276-F9),
-  `security-runtime` (AP26 `pt26.2`, PT276-F10), `ap27-a11y` (`pt24.2`, PT276-F11) → `ap27-gate` rot.
-- Die AP27-eigene Gate-Plattform ist damit **in CI bewiesen**; die roten Jobs gehoeren AP05/AP06
-  (Baselines), AP26 (`pt26.2`) und einem Zeitproblem in AP24 (`pt24.2`).
+- Evidence-Branch `ci/ap27-evidence-2026-09-16`: Snapshot `7d34d09` des Arbeitsbaums von
+  `console/24-25-2026-09-11T13-00-11`, `e14e904` (`.gitleaksignore`-Eintrag), `a454576` (axe-Pfad, PT276-F12).
+- Lauf **35074608105** auf `e14e904` (`push`, 08:35–09:06 UTC, 2 Versuche):
+  <https://github.com/PhillHH/PolarisDX_Website/actions/runs/35074608105> — 9 gruen; rot `quality`,
+  `security-runtime`, `ap27-a11y` (Versuch 1: Flake `pt24.2`, PT276-F11; Versuch 2: `pt24.2` gruen, dann
+  `pt24.6` am Maschinenpfad gescheitert, PT276-F12).
+- Lauf **35078488402** auf **`a454576`** (`push`, 09:16–09:38 UTC) — **massgebliche Evidence**:
+  <https://github.com/PhillHH/PolarisDX_Website/actions/runs/35078488402>
+  - **Gruen (10):** `routing`, `seo`, `performance` (AP25), `security` (AP26), `ap27-tests`, `ap27-guards`,
+    `ap27-journeys`, `ap27-seo-regression`, `ap27-visual`, **`ap27-a11y`**.
+  - **Rot (2) + Aggregat:** `quality` — Schritt „Design-system visual regression" (Alt-Baselines, PT276-F9;
+    Typecheck, Lint, Format, alle Guards, Unit, Build und Smoke davor **gruen**), `security-runtime` — Schritt
+    PT26.2 (PT276-F10; PT26.1 gruen, Image-Scan dadurch uebersprungen) → `ap27-gate` **rot**.
+- **Alle AP27-eigenen Jobs sind in CI gruen**; das Aggregat bleibt rot wegen AP05/AP06-Baselines und AP26.
 - `origin/main` unveraendert `6596a90`; **keine Branch Protection** (`gh api …/branches/main/protection`
   → 404) — erforderliche Checks sind weiterhin nicht erzwungen (QG-11, Owner: Repository-Owner).
 
