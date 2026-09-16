@@ -26,7 +26,10 @@ import { createRequire } from 'node:module'
  * NICHT gelaufen.
  */
 
-const require_ = createRequire('/home/phillip/01polaris-preview/package.json')
+// AP27 PT27.6: Aufloesung relativ zu DIESER Datei. Hier stand ein absoluter Pfad der
+// Entwicklungsmaschine; auf jedem anderen Rechner — und im CI-Runner — existiert er nicht, und
+// `axe-core/axe.min.js` war nicht auffindbar (Lauf 35074608105, Job `ap27-a11y`).
+const require_ = createRequire(import.meta.url)
 const AXE_SOURCE = readFileSync(require_.resolve('axe-core/axe.min.js'), 'utf8')
 
 /** WCAG 2.0/2.1/2.2 auf Stufe A und AA — das Qualitaetsziel dieses Pakets. */
