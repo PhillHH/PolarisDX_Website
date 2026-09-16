@@ -1,8 +1,9 @@
-import { useId, useRef, useState, type FormEvent } from 'react'
+import { useId, useRef, useState, type FormEvent, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Download, Lock } from 'lucide-react'
 import { submitContentDownload, type ContentDownloadResult } from '../../api/contentDownload'
 import type { ResourceAssetLanguage } from '../../content/resources/resourceInventory'
+import { track } from '../../lib/tracking'
 
 /**
  * Wiederverwendbares Gate fuer gegatete Ressourcen (AP19 PT19.3).
@@ -13,8 +14,9 @@ import type { ResourceAssetLanguage } from '../../content/resources/resourceInve
  * DREI DINGE, die hier bewusst so sind:
  *
  *  1. Der Verarbeitungs-Consent ist Pflicht und steht getrennt vom Marketing-
- *     Consent. Analytics-Einwilligung ist an keiner Stelle Voraussetzung; das
- *     Formular kennt keinen Tracking-Aufruf.
+ *     Consent. Analytics-Einwilligung ist an keiner Stelle Voraussetzung: die
+ *     Messung haengt am Formular, nie umgekehrt. Ohne Einwilligung ist `track`
+ *     eine leere Funktion, und das Gate laeuft unveraendert durch.
  *  2. Der Idempotency-Key entsteht EINMAL beim Oeffnen. Ein zweiter Klick auf
  *     "Absenden" erzeugt deshalb keinen zweiten Lead — der Server erkennt den
  *     Wiederholer und gibt denselben Vorgang zurueck.
@@ -123,6 +125,63 @@ const ResourceGateForm = ({
     }
     setResult(response)
     setPhase('done')
+    // AP23 PT23.3 — `accepted` UND ein Downloadlink heisst: der Lead ist
+    // persistiert und ein Anspruch ausgestellt. Erst das ist die Konversion.
+    // Es geht nur die Asset-Kennung mit, nie die Anspruchs-ID oder der Token.
+    track({ name: 'lead_magnet_submit', asset: assetId })
+  }
+
+  /**
+   * Den geschuetzten Download holen und dabei den ZUSTELLERFOLG beobachten.
+   *
+   * Warum nicht einfach am Klick messen: ein Klick sagt nichts darueber, ob
+   * die Datei angekommen ist. Der Anspruch kann abgelaufen, aufgebraucht oder
+   * widerrufen sein — die geschuetzte Route antwortet dann mit 403 oder 410,
+   * und ein Ereignis am Klick haette eine Zustellung behauptet, die nie
+   * stattfand. `download_delivered` entsteht deshalb ausschliesslich nach
+   * einer beobachteten Erfolgsantwort.
+   *
+   * Warum EIN `fetch` und kein Vorabtest: jede Anfrage an die geschuetzte
+   * Route loest den Anspruch ein und zaehlt gegen das Downloadbudget. Ein
+   * Probelauf vor dem eigentlichen Laden wuerde also einen Versuch
+   * verbrennen. Es gibt genau einen Abruf, und aus dessen Antwort entsteht
+   * sowohl die Datei als auch das Ereignis.
+   *
+   * Schlaegt der Abruf fehl (Netz, Speicher, blockierter Blob-URL), faellt
+   * die Funktion auf die native Navigation zurueck und meldet NICHTS — der
+   * Download bleibt in jedem Fall moeglich, aber es wird nie ein Erfolg
+   * behauptet, der nicht beobachtet wurde.
+   */
+  const onDownload = async (event: MouseEvent<HTMLAnchorElement>) => {
+    const url = result?.downloadUrl
+    if (!url) return
+    event.preventDefault()
+    try {
+      const response = await fetch(url, { credentials: 'same-origin' })
+      if (!response.ok) {
+        // Kein Ereignis. Die native Navigation zeigt dem Leser die echte
+        // Fehlerantwort des Servers, statt sie zu verschlucken.
+        window.location.href = url
+        return
+      }
+      const blob = await response.blob()
+      const objectUrl = URL.createObjectURL(blob)
+      const anchor = document.createElement('a')
+      anchor.href = objectUrl
+      anchor.download = ''
+      document.body.appendChild(anchor)
+      anchor.click()
+      anchor.remove()
+      URL.revokeObjectURL(objectUrl)
+
+      track({
+        name: 'download_delivered',
+        asset: assetId,
+        sprache: result?.deliveredLanguage ?? assetLanguage,
+      })
+    } catch {
+      window.location.href = url
+    }
   }
 
   const invalidClass = (field: string) =>
@@ -135,6 +194,7 @@ const ResourceGateForm = ({
         <p className="mt-2 text-sm leading-6 text-gray-600">{t('gate.successText')}</p>
         <a
           href={result.downloadUrl}
+          onClick={onDownload}
           data-gate-download
           hrefLang={result.deliveredLanguage ?? assetLanguage}
           className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-accent-strong px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
@@ -219,7 +279,7 @@ const ResourceGateForm = ({
             checked={processingConsent}
             onChange={(event) => setProcessingConsent(event.target.checked)}
             aria-invalid={invalid.includes('processingConsent')}
-            className="mt-1 h-4 w-4 rounded border-slate-300 text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="mt-1 h-4 w-4 rounded border-ui-field text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
           <span>{t('gate.processingConsent')}</span>
         </label>
@@ -228,7 +288,7 @@ const ResourceGateForm = ({
             type="checkbox"
             checked={marketingConsent}
             onChange={(event) => setMarketingConsent(event.target.checked)}
-            className="mt-1 h-4 w-4 rounded border-slate-300 text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="mt-1 h-4 w-4 rounded border-ui-field text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
           <span>{t('gate.marketingConsent')}</span>
         </label>

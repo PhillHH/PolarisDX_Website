@@ -292,13 +292,30 @@
     "title": "Informace tam, kde jsou potřeba",
     "intro": "Měření v místě péče poskytují doplňující informace přímo v pracovním postupu ordinace. Podporují odbornou interpretaci, aniž by ji automatizovala nebo nahrazovala.",
     "signals": {
-      "access": { "title": "Přímý přístup k informacím", "text": "Naměřené hodnoty jsou v místě péče dostupné po době zpracování příslušné pro daný test." },
-      "workflow": { "title": "Součást pracovního postupu", "text": "Použití, měření a dokumentaci lze jako jasný proces začlenit do stávajících pracovních postupů ordinace." },
-      "conversation": { "title": "Podklad pro rozhovor", "text": "Dostupné hodnoty mohou podpořit odbornou konzultaci a společnou diskusi o vhodných dalších krocích." }
+      "access": {
+        "title": "Přímý přístup k informacím",
+        "text": "Naměřené hodnoty jsou v místě péče dostupné po době zpracování příslušné pro daný test."
+      },
+      "workflow": {
+        "title": "Součást pracovního postupu",
+        "text": "Použití, měření a dokumentaci lze jako jasný proces začlenit do stávajících pracovních postupů ordinace."
+      },
+      "conversation": {
+        "title": "Podklad pro rozhovor",
+        "text": "Dostupné hodnoty mohou podpořit odbornou konzultaci a společnou diskusi o vhodných dalších krocích."
+      }
     },
     "benefits": {
-      "practice": { "label": "Přínos pro ordinaci", "title": "Strukturovaně v pracovním postupu", "text": "Doplňující měření jsou dostupná v procesu Point of Care a lze je zohlednit při konzultaci a péči." },
-      "patient": { "label": "Přínos pro pacienty", "title": "Srozumitelně probrat výsledky", "text": "Dostupné hodnoty lze vysvětlit v kontextu péče. Test doplňuje odborné posouzení; nenahrazuje diagnózu ani léčbu." }
+      "practice": {
+        "label": "Přínos pro ordinaci",
+        "title": "Strukturovaně v pracovním postupu",
+        "text": "Doplňující měření jsou dostupná v procesu Point of Care a lze je zohlednit při konzultaci a péči."
+      },
+      "patient": {
+        "label": "Přínos pro pacienty",
+        "title": "Srozumitelně probrat výsledky",
+        "text": "Dostupné hodnoty lze vysvětlit v kontextu péče. Test doplňuje odborné posouzení; nenahrazuje diagnózu ani léčbu."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Vyžádat report",
       "sending": "Odesílání …",
       "success": "Děkujeme! Report vám brzy zašleme.",
-      "error": "Aktuálně to není možné – rezervujte si prosím přímo konzultaci."
+      "error": "Aktuálně to není možné – rezervujte si prosím přímo konzultaci.",
+      "error_retryable": "Právě teď se to nepodařilo. Zkuste to prosím za chvíli znovu – vaše údaje zůstávají zachovány."
     },
     "report_hint": "Jako PDF na váš e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "Jasný proces umožňuje využít informace z měření v každodenní praxi a ponechává zdravotní odpovědnost na ošetřujících odbornících.",
     "aria_label": "Proces Point of Care ve třech krocích",
     "items": {
-      "application": { "title": "Použití a měření", "text": "Vzorek a test se připraví podle příslušného návodu a změří kompatibilním systémem." },
-      "result": { "title": "Dostupný výsledek", "text": "Po době zpracování příslušné pro daný test je naměřená hodnota dostupná v pracovním postupu ordinace — bez automatického lékařského závěru." },
-      "context": { "title": "Odborná interpretace", "text": "Odpovědný odborník posoudí hodnotu v individuálním kontextu a případně probere vhodné další kroky." }
+      "application": {
+        "title": "Použití a měření",
+        "text": "Vzorek a test se připraví podle příslušného návodu a změří kompatibilním systémem."
+      },
+      "result": {
+        "title": "Dostupný výsledek",
+        "text": "Po době zpracování příslušné pro daný test je naměřená hodnota dostupná v pracovním postupu ordinace — bez automatického lékařského závěru."
+      },
+      "context": {
+        "title": "Odborná interpretace",
+        "text": "Odpovědný odborník posoudí hodnotu v individuálním kontextu a případně probere vhodné další kroky."
+      }
     },
     "safety_note": "Měření poskytují doplňující informace. Odborné posouzení a další kroky z něj vyplývající zůstávají odpovědností příslušného odborníka."
   }

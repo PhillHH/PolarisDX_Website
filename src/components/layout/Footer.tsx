@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/polaris_white.webp'
 import { Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { requestConsentReopen } from '../../lib/consentState'
 
 /**
  * Footer — der zweite globale Findability-Kanal (IA-INVENTORY §10.7).
@@ -141,13 +142,20 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* AP24 PT24.1: die Spaltenueberschriften standen auf `h3`, ohne dass
+              im Fussbereich jemals eine `h2` darueber existierte. Auf inhaltsarmen
+              Seiten wurde daraus ein messbarer Sprung — auf der 404-Seite folgte
+              direkt auf die `h1` eine `h3`. Die Spalten sind die obersten
+              Gliederungspunkte des `contentinfo`-Bereichs, also `h2`. Die
+              Darstellung haengt an der Klasse, nicht am Element, und aendert
+              sich dadurch nicht. */}
           <nav
             aria-label={t('footer.nav_label', 'Fußzeilen-Navigation')}
             className="grid flex-1 grid-cols-2 gap-8 text-sm md:grid-cols-3 lg:grid-cols-4"
           >
             {COLUMNS.map((column) => (
               <div key={column.heading} className="space-y-1">
-                <h3 className="mb-2 text-sm font-semibold tracking-tight">{t(column.heading)}</h3>
+                <h2 className="mb-2 text-sm font-semibold tracking-tight">{t(column.heading)}</h2>
                 <ul className="list-none space-y-1 p-0">
                   {column.links.map((link) => (
                     <li key={`${column.heading}-${link.to}`}>
@@ -163,7 +171,7 @@ const Footer = () => {
             {/* Standorte stehen in der Navigationsflaeche, tragen aber keine
                 Links — sie sind Information, kein Ziel. */}
             <div className="space-y-1">
-              <h3 className="mb-2 text-sm font-semibold tracking-tight">{t('footer.locations')}</h3>
+              <h2 className="mb-2 text-sm font-semibold tracking-tight">{t('footer.locations')}</h2>
               <p className="text-sm text-white/70">{t('footer.london')}</p>
               <p className="text-sm text-white/70">{t('footer.hamburg')}</p>
             </div>
@@ -184,6 +192,20 @@ const Footer = () => {
                 </Link>
               </li>
             ))}
+            {/*
+              AP23 PT23.1 — der einzige Weg zurueck zur Einwilligung.
+              Bis hierhin war eine getroffene Entscheidung endgueltig: der
+              Banner rendert nur, solange nichts gespeichert ist, und es gab
+              nirgends einen Einstieg, ihn erneut zu oeffnen. Ein Widerruf war
+              damit technisch unmoeglich — obwohl er genauso einfach sein muss
+              wie die Zustimmung. Bewusst ein <button> und kein Link: es wird
+              keine Seite gewechselt, sondern ein Dialog geoeffnet.
+            */}
+            <li>
+              <button type="button" onClick={requestConsentReopen} className={FOOTER_LINK}>
+                {t('footer.cookie_settings', 'Cookie-Einstellungen')}
+              </button>
+            </li>
           </ul>
         </div>
 

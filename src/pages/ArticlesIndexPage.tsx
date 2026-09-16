@@ -10,7 +10,8 @@ import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import { articles } from '../data/articles'
 import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
-import { getArticleImageUrl } from '../assets/articleImages'
+import { getArticleImageAsset } from '../assets/articleImages'
+import { ResponsivePicture } from '../components/ui/ResponsivePicture'
 
 // Map article category → topical icon for the card icon-tile (FileText fallback).
 const categoryIcon: Record<string, LucideIcon> = {
@@ -126,22 +127,27 @@ const ArticlesIndexPage = () => {
               id="article-list"
               className="mt-10 scroll-mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-              {articles.map((post) => {
+              {articles.map((post, index) => {
                 const Icon = categoryIcon[post.category] ?? FileText
-                const image = getArticleImageUrl(post.sections[0]?.image)
+                const image = getArticleImageAsset(post.sections[0]?.image)
                 const title = t(`articles:${post.id}.title`)
                 return (
                   <article key={post.id} data-article-card={post.slug}>
                     <Card to={`/articles/${post.slug}`} padding="none" aria-label={title}>
                       {image ? (
-                        <img
-                          src={image}
+                        /* AP24 PT24.5: leeres `alt` ist richtig — die Karte
+                           traegt ihren Namen ueber `aria-label={title}`, und
+                           der Titel steht darunter noch einmal als Text. */
+                        /* AP25 PT25.3 (PERF-B04/B10): die erste Karte ist ab 768 px das gemessene
+                           LCP-Element und bei 390 px 29 px unter dem Falz — nur sie mit Vorrang,
+                           alle weiteren lazy. `sizes` aus der gemessenen Kartenbreite
+                           (377 / 350 / 356 px bei 1440 / 768 / 390). */
+                        <ResponsivePicture
+                          image={image}
                           alt=""
-                          width={640}
-                          height={360}
-                          loading="lazy"
-                          decoding="async"
+                          sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
                           className="aspect-video w-full rounded-t-xl object-cover"
+                          priority={index === 0}
                         />
                       ) : (
                         <div

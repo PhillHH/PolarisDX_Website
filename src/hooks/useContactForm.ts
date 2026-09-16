@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { sendContactEmail, type ContactFormData } from '../api/contact'
 import type { SupportedLanguage } from '../i18n'
+import { track } from '../lib/tracking'
 
 export interface ContactSubmission {
   intent: string
@@ -107,6 +108,8 @@ export const useContactForm = (): UseContactFormReturn => {
         if (result.ok) {
           // 202 = Lead dauerhaft persistiert. Erst jetzt darf die UI Erfolg zeigen.
           setSubmitStatus('success')
+          // ... und erst jetzt darf die Messung eine Konversion melden.
+          track({ name: 'contact_submit' })
           return { ok: true, fields: [] }
         }
         if (!result.retryable) {

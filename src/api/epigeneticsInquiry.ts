@@ -27,13 +27,47 @@ export interface EpigeneticsInquiryData {
 export interface EpigeneticsInquiryResult {
   accepted: boolean
   leadId?: string
-  status?: 'PENDING_HANDOFF' | 'PROCESSING' | 'DELIVERED' | 'RETRY_PENDING' | 'FAILED_TERMINAL'
+  /**
+   * AP22 PT22.2: `QUEUED` ist der kanonische Name des Wartezustands,
+   * `RECONCILIATION_REQUIRED` steht fuer ein unbekanntes Providerergebnis.
+   * `PENDING_HANDOFF` bleibt als Altwert gelistet, damit eine aeltere
+   * gespeicherte Antwort weiterhin typkonform ist.
+   */
+  status?:
+    | 'VALIDATED'
+    | 'QUEUED'
+    | 'PENDING_HANDOFF'
+    | 'PROCESSING'
+    | 'DELIVERED'
+    | 'RETRY_PENDING'
+    | 'RECONCILIATION_REQUIRED'
+    | 'FAILED_TERMINAL'
   deliveryPending?: boolean
   providerConfigured?: boolean
   code?: string
   fields?: string[]
+  /** Darf dieselbe Anfrage mit demselben Idempotency-Key erneut gesendet werden? */
+  retryable?: boolean
 }
 
+/** Das Envelope aus `server/lead-foundation/api-contract.js` (AP22 PT22.5). */
+interface JourneyEnvelope {
+  success?: boolean
+  state?: EpigeneticsInquiryResult['status']
+  leadId?: string
+  deliveryPending?: boolean
+  providerConfigured?: boolean
+  code?: string
+  retryable?: boolean
+  fieldErrors?: { field: string }[]
+}
+
+/**
+ * AP26 PT26.3 (SEC-20): der Server antwortet seit AP22 PT22.5 mit dem Envelope
+ * `{ success, state }`. Dieser Client las `accepted` auf oberster Ebene — jede
+ * persistierte Anfrage erschien als Fehler, und das Formular verwarf daraufhin
+ * den Idempotency-Key: ein erneutes Absenden erzeugte einen zweiten Vorgang.
+ */
 export async function submitEpigeneticsInquiry(
   data: EpigeneticsInquiryData,
   idempotencyKey: string,
@@ -43,7 +77,25 @@ export async function submitEpigeneticsInquiry(
     headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
     body: JSON.stringify(data),
   })
-  const result = (await response.json()) as EpigeneticsInquiryResult
-  if (!response.ok) return { ...result, accepted: false }
-  return result
+  let body: JourneyEnvelope = {}
+  try {
+    body = (await response.json()) as JourneyEnvelope
+  } catch {
+    // Keine JSON-Antwort (z. B. Proxy-Fehler) — unten als Ablehnung behandelt.
+  }
+  if (!response.ok || body.success !== true) {
+    return {
+      accepted: false,
+      code: body.code,
+      fields: body.fieldErrors?.map((error) => error.field),
+      retryable: body.retryable ?? response.status >= 500,
+    }
+  }
+  return {
+    accepted: true,
+    leadId: body.leadId,
+    status: body.state,
+    deliveryPending: body.deliveryPending,
+    providerConfigured: body.providerConfigured,
+  }
 }

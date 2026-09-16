@@ -292,13 +292,30 @@
     "title": "Informazioni dove servono",
     "intro": "Le misurazioni Point of Care forniscono informazioni aggiuntive direttamente nel flusso di lavoro dello studio. Supportano l'interpretazione professionale senza automatizzarla o sostituirla.",
     "signals": {
-      "access": { "title": "Accesso diretto alle informazioni", "text": "Le misurazioni sono disponibili al Point of Care dopo il tempo di elaborazione specifico del test." },
-      "workflow": { "title": "Integrato nel flusso di lavoro", "text": "Applicazione, misurazione e documentazione possono essere integrate come processo chiaro nei flussi di lavoro esistenti dello studio." },
-      "conversation": { "title": "Una base per il colloquio", "text": "I valori disponibili possono sostenere la consulenza professionale e la discussione condivisa dei passi successivi appropriati." }
+      "access": {
+        "title": "Accesso diretto alle informazioni",
+        "text": "Le misurazioni sono disponibili al Point of Care dopo il tempo di elaborazione specifico del test."
+      },
+      "workflow": {
+        "title": "Integrato nel flusso di lavoro",
+        "text": "Applicazione, misurazione e documentazione possono essere integrate come processo chiaro nei flussi di lavoro esistenti dello studio."
+      },
+      "conversation": {
+        "title": "Una base per il colloquio",
+        "text": "I valori disponibili possono sostenere la consulenza professionale e la discussione condivisa dei passi successivi appropriati."
+      }
     },
     "benefits": {
-      "practice": { "label": "Vantaggio per lo studio", "title": "Strutturato nel flusso di lavoro", "text": "Misurazioni aggiuntive sono disponibili nel processo Point of Care e possono essere considerate nella consulenza e nell'assistenza." },
-      "patient": { "label": "Vantaggio per i pazienti", "title": "Spiegare chiaramente i risultati", "text": "I valori disponibili possono essere spiegati nel contesto assistenziale. Il test integra la valutazione professionale; non sostituisce né la diagnosi né il trattamento." }
+      "practice": {
+        "label": "Vantaggio per lo studio",
+        "title": "Strutturato nel flusso di lavoro",
+        "text": "Misurazioni aggiuntive sono disponibili nel processo Point of Care e possono essere considerate nella consulenza e nell'assistenza."
+      },
+      "patient": {
+        "label": "Vantaggio per i pazienti",
+        "title": "Spiegare chiaramente i risultati",
+        "text": "I valori disponibili possono essere spiegati nel contesto assistenziale. Il test integra la valutazione professionale; non sostituisce né la diagnosi né il trattamento."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Richiedi il report",
       "sending": "Invio in corso …",
       "success": "Grazie! Ti invieremo il report a breve.",
-      "error": "Al momento non è possibile – prenota direttamente una consulenza."
+      "error": "Al momento non è possibile – prenota direttamente una consulenza.",
+      "error_retryable": "Al momento non ha funzionato. Riprova tra un istante – i tuoi dati vengono conservati."
     },
     "report_hint": "In PDF alla vostra e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "Un processo chiaro rende le informazioni di misurazione utili nel lavoro quotidiano, lasciando la responsabilità medica ai professionisti curanti.",
     "aria_label": "Processo Point of Care in tre passaggi",
     "items": {
-      "application": { "title": "Applicazione e misurazione", "text": "Il campione e il test vengono preparati secondo le relative istruzioni e misurati con il sistema compatibile." },
-      "result": { "title": "Risultato disponibile", "text": "Dopo il tempo di elaborazione specifico del test, la misurazione è disponibile nel flusso di lavoro dello studio — senza conclusioni mediche automatizzate." },
-      "context": { "title": "Interpretazione professionale", "text": "Il professionista responsabile valuta il valore nel contesto individuale e, se opportuno, discute i passi successivi più sensati." }
+      "application": {
+        "title": "Applicazione e misurazione",
+        "text": "Il campione e il test vengono preparati secondo le relative istruzioni e misurati con il sistema compatibile."
+      },
+      "result": {
+        "title": "Risultato disponibile",
+        "text": "Dopo il tempo di elaborazione specifico del test, la misurazione è disponibile nel flusso di lavoro dello studio — senza conclusioni mediche automatizzate."
+      },
+      "context": {
+        "title": "Interpretazione professionale",
+        "text": "Il professionista responsabile valuta il valore nel contesto individuale e, se opportuno, discute i passi successivi più sensati."
+      }
     },
     "safety_note": "Le misurazioni forniscono informazioni aggiuntive. La valutazione professionale e gli eventuali passi successivi restano responsabilità del professionista competente."
   }

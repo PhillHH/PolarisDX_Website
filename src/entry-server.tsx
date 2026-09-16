@@ -16,8 +16,16 @@ import { StaticRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { I18nextProvider } from 'react-i18next'
 
-import { createI18nInstance } from './i18n.server'
-import { extractLanguageFromPathname, normalizeLanguage } from './i18n'
+import { createI18nInstance, getFallbackDelta } from './i18n.server'
+import {
+  DEFAULT_NS,
+  extractLanguageFromPathname,
+  FALLBACK_NS,
+  NAMESPACES,
+  normalizeLanguage,
+  type Namespace,
+  type SsrI18nState,
+} from './i18n'
 import App from './App'
 
 import type { HelmetServerState } from 'react-helmet-async'
@@ -31,6 +39,8 @@ export interface RenderResult {
   html: string
   /** Helmet data for head tags */
   helmet: HelmetServerState
+  /** AP25 PT25.2: beim Render benutzte Namespaces + Fallback-Delta fuer die Hydration */
+  i18nState: SsrI18nState
 }
 
 // =============================================================================
@@ -88,7 +98,27 @@ export async function render(url: string, lang: string): Promise<RenderResult> {
   // Extrahiere Helmet-Daten (helmet wird nach dem Render befüllt)
   const helmet = helmetContext.helmet!
 
-  return { html, helmet }
+  // AP25 PT25.2 (PERF-B01): react-i18next meldet jeden per useTranslation
+  // benutzten Namespace. Nur diese braucht der Client vor der Hydration.
+  // Default- und Fallback-NS immer dazu: i18next schlaegt in ihnen nach, ohne
+  // dass eine Komponente sie explizit anfordert.
+  // `reportNamespaces` setzt initReactI18next zur Laufzeit; der i18next-Typ kennt
+  // das Feld nur mit der react-i18next-Augmentation, die tsconfig.server nicht laedt.
+  const { reportNamespaces } = i18n as typeof i18n & {
+    reportNamespaces?: { getUsedNamespaces(): string[] }
+  }
+  const reported = reportNamespaces?.getUsedNamespaces() ?? []
+  const ns = [DEFAULT_NS, FALLBACK_NS, ...reported].filter(
+    (name, index, all): name is Namespace =>
+      (NAMESPACES as readonly string[]).includes(name) && all.indexOf(name) === index,
+  )
+  const i18nState: SsrI18nState = {
+    lng: urlLanguage,
+    ns,
+    fallback: getFallbackDelta(urlLanguage),
+  }
+
+  return { html, helmet, i18nState }
 }
 
 // =============================================================================

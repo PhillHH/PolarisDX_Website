@@ -19,4 +19,15 @@ export {
   type MonitoringEreignis,
   type MonitoringSink,
 } from './report'
-export { initWebVitals } from './web-vitals'
+export { initWebVitals, rateWebVital, WEB_VITAL_THRESHOLDS } from './web-vitals'
+export {
+  describeTelemetryPolicy,
+  mayRegisterTelemetryTransport,
+  resolveTelemetryPolicy,
+  TELEMETRY_SCOPES,
+  type TelemetryGate,
+  type TelemetryGateReason,
+  type TelemetryPolicy,
+  type TelemetryPolicyEvidence,
+  type TelemetryScope,
+} from './policy'

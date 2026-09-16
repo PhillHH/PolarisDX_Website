@@ -83,7 +83,8 @@
     "epi_basics": "Grundlagen",
     "epi_evidence": "Studienlage",
     "epi_docs": "Unterlagen",
-    "epi_samples": "Musterbefunde"
+    "epi_samples": "Musterbefunde",
+    "cookie_settings": "Cookie-Einstellungen"
   },
   "read_more": "Weiterlesen",
   "search": {
@@ -226,7 +227,8 @@
         "name": "Analyse",
         "description": "Analyse."
       }
-    }
+    },
+    "withdraw": "Einwilligung widerrufen"
   },
   "testimonials": {
     "positiveLabel": "Positive Bewertung"
@@ -258,6 +260,7 @@
     "honeypot": "Dieses Feld bitte leer lassen",
     "select_language": "Sprache wählen",
     "main_nav": "Hauptnavigation",
+    "breadcrumb": "Brotkrümelnavigation",
     "toggle_submenu": "{{name}} — Untermenü",
     "skip_to_content": "Zum Inhalt springen"
   },

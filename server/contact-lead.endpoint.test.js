@@ -97,7 +97,7 @@ describe('AP20 PT20.2 contact HTTP', () => {
     const response = await post(body(), { ip: '203.0.113.10' })
     expect(response.status).toBe(202)
     const json = await response.json()
-    expect(json.accepted).toBe(true)
+    expect(json.success).toBe(true)
     expect(json.journey).toBe('contact')
     // Kein Provider konfiguriert -> ehrlich gemeldet statt Erfolg behauptet.
     expect(json.providerConfigured).toBe(false)
@@ -122,9 +122,11 @@ describe('AP20 PT20.2 contact HTTP', () => {
     })
     expect(response.status).toBe(400)
     const json = await response.json()
-    expect(json.accepted).toBe(false)
+    expect(json.success).toBe(false)
     expect(json.code).toBe('VALIDATION_FAILED')
-    expect(json.fields).toEqual(expect.arrayContaining(['name', 'email', 'message']))
+    expect(json.fieldErrors.map((entry) => entry.field)).toEqual(
+      expect.arrayContaining(['name', 'email', 'message']),
+    )
   })
 
   it('lehnt fehlenden Processing-Consent mit 400 ab', async () => {
@@ -173,7 +175,7 @@ describe('AP20 PT20.2 contact HTTP', () => {
     const response = await post(body({ _hp: 'bot-filled' }), { ip: '203.0.113.18' })
     expect(response.status).toBe(200)
     const json = await response.json()
-    expect(json.accepted).toBe(true)
+    expect(json.success).toBe(true)
     const after = new Database(dbPath, { readonly: true })
     expect(after.prepare('SELECT COUNT(*) AS c FROM leads').get().c).toBe(before)
     after.close()

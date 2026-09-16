@@ -130,6 +130,20 @@ export default {
         // Bildsprache haben. `ink` traegt alle bedeutungstragenden Grafiken
         // und Beschriftungen (AA auf `soft`), `soft` die Flaechen, `DEFAULT`
         // grosse dekorative Fuellungen wie das Netzdiagramm.
+        //
+        // AP24 PT24.4 — nachgemessen und festgeschrieben:
+        //   `ink` auf eigenem `soft`: rot 4,65 · amber 4,60 · gruen 4,61
+        //   `ink` auf Weiss:          rot 5,00 · amber 4,84 · gruen 4,93
+        // Alle drei erfuellen AA fuer Text und Grafik. Die Ampel darf trotzdem
+        // NIE allein die Aussage tragen: die drei `ink`-Toene unterscheiden
+        // sich untereinander nur um 1,01–1,03:1 — wer Farbtoene nicht trennen
+        // kann, sieht drei identisch helle Flaechen. Deshalb traegt jede
+        // Einordnung zusaetzlich ihren Text (`ToneBadge`) und jeder Balken
+        // seinen Zahlenwert; die SVG-Balken selbst sind `aria-hidden`.
+        //
+        // `DEFAULT` hat Stand PT24.4 **0 Call-Sites** und bleibt reines Dekor:
+        // amber `#d69b2e` liegt auf Weiss bei 2,45:1 und darf weder Text noch
+        // eine bedeutungstragende Grafik tragen. Dafuer ist `ink` da.
         // -------------------------------------------------------------------
         befund: {
           red: { DEFAULT: '#c8553d', soft: '#fcf5f4', ink: '#bb4c35' },
@@ -155,9 +169,17 @@ export default {
         // -------------------------------------------------------------------
         // Neutrale Legacy-Aliase. KEIN Navy mehr hier drin: 'gray-900'
         // (#203864) ist entfernt — Headline-/Body-Ink ist `text-heading`.
+        //
+        // AP24 PT24.4: `gray-500` stand auf #868C98 und war damit HELLER als
+        // Tailwinds eigener Wert. Gemessen 3,38:1 auf Weiss und 3,23:1 auf
+        // slate-50 — beides unter den 4,5:1, die Fliesstext braucht, und der
+        // Alias traegt 47 Aufrufstellen: Hilfstexte, Bildunterschriften,
+        // Mikrocopy. Jetzt #6b7280: 4,83:1 auf Weiss, 4,62:1 auf slate-50.
+        // Der Wert ist kein neuer — er ist derselbe, den `ui.field` schon
+        // traegt. Zwei Token, die dasselbe meinen, haben jetzt denselben Wert.
         // -------------------------------------------------------------------
         'gray-100': '#F5F5F5',
-        'gray-500': '#868C98',
+        'gray-500': '#6b7280',
       },
       transitionDuration: DURATION,
       transitionTimingFunction: EASING,

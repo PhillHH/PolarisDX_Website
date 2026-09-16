@@ -6,16 +6,30 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        # AP23 Preview Analytics
+        # Vite benoetigt diese Werte bereits waehrend des Builds.
+        #
+        # Preview darf ausschliesslich den separaten Preview-GTM-Container
+        # verwenden. Der Production-GTM-Container wird hier bewusst NICHT
+        # uebergeben.
+        VITE_APP_ENV: preview
+        VITE_GTM_CONTAINER_ID_PREVIEW: GTM-PL26PFFH
+
     ports:
-      - '127.0.0.1:2026:3000' # Externer Reverse Proxy → Container Port
+      - '127.0.0.1:2026:3000' # Externer Reverse Proxy -> Container Port
+
     environment:
       - NODE_ENV=production
       - PORT=3000
       - BACKEND_URL=http://backend:5000 # Docker-Netzwerk DNS
+
     depends_on:
       - backend
+
     networks:
       - app-network
+
     restart: unless-stopped
 
   # ==========================================================================
@@ -25,24 +39,48 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
+
     ports:
       - '127.0.0.1:5000:5000'
+
     env_file:
       - ./server/.env
+
     environment:
       - LEAD_DB_PATH=/var/lib/polarisdx/leads.sqlite3
+
+      # AP22-CLOSURE:
+      # Support-Anhaenge liegen auf Platte, die Datenbank haelt nur ihre
+      # Metadaten.
+      #
+      # Ohne diese Zeile landeten sie im Default
+      # (/app/server/storage/support-uploads) und damit auf der
+      # veraenderlichen Container-Schicht.
+      #
+      # Ein Redeploy koennte die Dateien loeschen, waehrend die Lead-Zeile
+      # weiterhin Anhaenge referenziert.
+      #
+      # Deshalb liegen Uploads auf demselben persistenten Volume wie die
+      # Lead-Datenbank.
+      - SUPPORT_UPLOAD_DIR=/var/lib/polarisdx/support-uploads
+
     volumes:
       - lead-data:/var/lib/polarisdx
+
     networks:
       - app-network
+
     restart: unless-stopped
 
-# ============================================================================
+# =============================================================================
 # Networks
-# ============================================================================
+# =============================================================================
 networks:
   app-network:
     driver: bridge
 
+# =============================================================================
+# Persistent Volumes
+# =============================================================================
 volumes:
   lead-data:

@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useCallback, useRef, useState, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Lock } from 'lucide-react'
@@ -32,6 +32,16 @@ const ResourceGateTrigger = ({ assetId, label, className, icon }: ResourceGateTr
   const { t, i18n } = useTranslation('downloads')
   const location = useLocation()
   const [open, setOpen] = useState(false)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+
+  // AP24 PT24.2 — schliesst das Formular, kehrt der Fokus auf den Ausloeser
+  // zurueck. Gemessen war vorher: nach „Abbrechen" verschwand das Formular
+  // samt dem fokussierten Knopf, und der Fokus fiel auf `<body>` — wer mit der
+  // Tastatur arbeitet, begann die Seite von vorn.
+  const closeAndRestoreFocus = useCallback(() => {
+    setOpen(false)
+    triggerRef.current?.focus()
+  }, [])
 
   const resource = findResource(assetId)
   if (!resource || resource.deliveryClass !== 'GATED') return null
@@ -40,6 +50,7 @@ const ResourceGateTrigger = ({ assetId, label, className, icon }: ResourceGateTr
   return (
     <div data-gate-trigger={assetId}>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
@@ -63,7 +74,7 @@ const ResourceGateTrigger = ({ assetId, label, className, icon }: ResourceGateTr
             assetLanguage={variant.language}
             resourceLabel={label}
             originRoute={location.pathname}
-            onClose={() => setOpen(false)}
+            onClose={closeAndRestoreFocus}
           />
         </div>
       )}

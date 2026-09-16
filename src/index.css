@@ -3,16 +3,50 @@
 @tailwind utilities;
 
 /*
- * Groessenangepasster Fallback fuer Inter. @fontsource liefert
- * font-display: swap — ohne diese Metriken springt das Layout, sobald
- * Inter nachgeladen ist. Werte: Inter gegen Arial.
+ * Metrisch angepasster Fallback fuer Inter (AP25 PT25.4, gemessen — keine Schaetzwerte).
+ *
+ * @fontsource liefert font-display: swap; bis Inter geladen ist, rendert der Fallback.
+ * Mobil gedrosselt endet die Inter-Datei gemessen 165–308 ms NACH dem ersten Paint — der
+ * Swap ist dort der Normalfall. Die fruehere Fassung nannte nur `local('Arial')` (auf
+ * Linux/ChromeOS nicht vorhanden → Status `error`, Fallback wirkungslos) und hatte kein
+ * eigenes Fett-Face (Semibold wurde aus dem Normalschnitt synthetisiert).
+ *
+ * Herleitung (node_modules/.cache/pt25.4/metrics-probe.mjs, Chromium-Canvas): Inter Variable
+ * ascent 0,97 / descent 0,24 em; Laufweite Inter gegenueber Liberation Sans (metrisch
+ * identisch zu Arial) 400 = 105,28 %, 500 = 106,57 %, 600 = 101,36 % (echter Bold-Schnitt).
+ * Auswahl NICHT nach Canvas-Mittel, sondern nach gemessenem Layout-CLS beim Font-Swap
+ * (Schrift +2 s, 7 Routen × 390/1440, Browsermodus der Suite). Summen:
+ *   bisher im Labor (Fallback wirkungslos)             0,8152
+ *   bisher auf Arial-Plattformen (ein Face, 107,12 %)  0,0224
+ *   Normal 106,57 % + Fett 101,36 %                    0,0187
+ *   Normal 107,12 % + Fett 101,36 %  ← ausgeliefert    0,0067
+ * Das Normal-Face behaelt damit den bisherigen size-adjust (im Layout besser als die Canvas-
+ * Mittelwerte), ascent/descent sind aus den gemessenen Inter-Metriken abgeleitet
+ * (0,97 / 1,0712 und 0,24 / 1,0712). Das Fett-Face ist neu und gemessen.
+ * `local()`: Arial (Windows/macOS/iOS), Liberation Sans (Linux), Arimo (ChromeOS).
+ * Android bringt keine davon mit und nutzt weiter `system-ui` (Roboto) — dort nicht gemessen.
  */
 @font-face {
   font-family: 'Inter Fallback';
-  src: local('Arial');
+  src:
+    local('Arial'), local('ArialMT'), local('Liberation Sans'), local('LiberationSans-Regular'),
+    local('Arimo');
+  font-weight: 100 549;
   size-adjust: 107.12%;
-  ascent-override: 90.2%;
-  descent-override: 22.48%;
+  ascent-override: 90.55%;
+  descent-override: 22.4%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  src:
+    local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'),
+    local('LiberationSans-Bold'), local('Arimo Bold');
+  font-weight: 550 900;
+  size-adjust: 101.36%;
+  ascent-override: 95.7%;
+  descent-override: 23.68%;
   line-gap-override: 0%;
 }
 
@@ -196,6 +230,43 @@
   b,
   strong {
     font-weight: 600;
+  }
+
+  /* --- AP24 PT24.3: das Sicherheitsnetz fuer den sichtbaren Fokus ---
+     Der Standard-Fokusring des Browsers ist eine einzige, vom Browser
+     gewaehlte Farbe. Auf der Navy-Flaeche dieser Seite wurde er mit 1,47:1
+     gemessen — faktisch unsichtbar. Betroffen war alles, was keine eigene
+     Fokus-Utility trug: die Kopfzeile der Consumer-Seiten samt Wortmarke und
+     Navigation, der Sprachumschalter, die dunklen Handlungsflaechen im
+     Musterbefund.
+
+     Die Regel gibt deshalb ZWEI Ringe uebereinander:
+       Element | 2px weiss (box-shadow) | 2px navy (outline mit Versatz)
+     Auf hellem Grund traegt die Navy-Linie den Kontrast (12,9:1 auf Weiss),
+     auf dunklem Grund die weisse (12,9:1 auf Navy). Eine Flaeche, auf der
+     BEIDE verschwinden, gibt es in dieser Palette nicht.
+
+     `:where()` setzt die Spezifitaet auf null. Jede Komponente, die ihren
+     eigenen Ring mitbringt — und das sind die meisten — gewinnt damit
+     weiterhin; diese Regel greift nur dort, wo sonst gar nichts waere.
+     `:focus-visible` statt `:focus`: der Ring gehoert der Tastatur, nicht
+     dem Mauszeiger.
+
+     Bewusst NICHT `outline: none` irgendwo global — der sichtbare Fokus wird
+     nie entfernt, nur ersetzt. */
+  :where(
+    a[href],
+    area[href],
+    button,
+    input:not([type='hidden']),
+    select,
+    textarea,
+    summary,
+    [tabindex]:not([tabindex='-1'])
+  ):focus-visible {
+    outline: 2px solid theme('colors.brand.navy');
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px theme('colors.white');
   }
 }
 

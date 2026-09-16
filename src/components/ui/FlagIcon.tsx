@@ -105,7 +105,17 @@ const FlagIcon = ({ countryCode, className = '' }: FlagIconProps) => {
     )
   }
 
-  return <span className={`inline-block overflow-hidden ${className}`}>{flag}</span>
+  // AP24 PT24.5: `aria-hidden` am Wrapper statt an zehn einzelnen `svg`.
+  // Die Flagge ist Schmuck: das Bedienelement, in dem sie steckt, traegt
+  // seinen Namen selbst („Sprache waehlen"), und der aktive Eintrag ist ueber
+  // `aria-current` ausgezeichnet. Ohne diese Zeile standen die Flaggen als
+  // namenlose Grafiken im Accessibility-Tree — gemessen 38 Stueck ueber zehn
+  // Routen, und ALLE kamen von hier.
+  return (
+    <span aria-hidden="true" className={`inline-block overflow-hidden ${className}`}>
+      {flag}
+    </span>
+  )
 }
 
 export default FlagIcon

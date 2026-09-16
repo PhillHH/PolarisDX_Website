@@ -189,3 +189,30 @@ export function getLanguageFromPathname(pathname: string): SupportedLanguage | n
   }
   return null
 }
+
+// =============================================================================
+// SSR-I18N-ZUSTAND (AP25 PT25.2, PERF-B01)
+// =============================================================================
+
+/**
+ * ID des `<script type="application/json">`-Blocks, mit dem der Server dem
+ * Client mitteilt, welche Namespaces dieses Dokument wirklich gerendert hat.
+ */
+export const SSR_I18N_STATE_ID = 'polaris-i18n-state'
+
+/**
+ * Was der Server nach dem Render an den Client uebergibt.
+ *
+ * - `ns`: die beim SSR benutzten Namespaces (plus Default- und Fallback-NS).
+ *   Nur diese muessen VOR der Hydration geladen sein. Bewusst ohne Preload-Tags:
+ *   die haben in PT25.2 FCP und einen Schrift-Shift verschlechtert (gemessen).
+ * - `fallback`: fuer JEDEN produktiven Namespace genau die Schluessel der
+ *   Fallback-Sprache, die in `lng` fehlen (meist `{}`). Damit bleibt die
+ *   Fallback-Semantik identisch, ohne die komplette Fallback-Sprache zu laden.
+ *   `null`, wenn `lng` selbst die Fallback-Sprache ist.
+ */
+export interface SsrI18nState {
+  lng: SupportedLanguage
+  ns: Namespace[]
+  fallback: Record<Namespace, Record<string, unknown>> | null
+}

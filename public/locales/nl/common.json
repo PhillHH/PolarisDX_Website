@@ -83,7 +83,8 @@
     "epi_basics": "Basis",
     "epi_evidence": "Onderzoek",
     "epi_docs": "Documenten",
-    "epi_samples": "Voorbeeldrapporten"
+    "epi_samples": "Voorbeeldrapporten",
+    "cookie_settings": "Cookie-instellingen"
   },
   "read_more": "Lees meer",
   "search": {
@@ -227,7 +228,8 @@
         "description": "Analyse."
       }
     },
-    "reject_all": "Alleen noodzakelijke"
+    "reject_all": "Alleen noodzakelijke",
+    "withdraw": "Toestemming intrekken"
   },
   "testimonials": {
     "positiveLabel": "Positieve beoordeling"
@@ -259,6 +261,7 @@
     "honeypot": "Laat dit veld leeg",
     "select_language": "Taal kiezen",
     "main_nav": "Hoofdnavigatie",
+    "breadcrumb": "Kruimelpad",
     "toggle_submenu": "{{name}} — submenu",
     "skip_to_content": "Naar de inhoud"
   },

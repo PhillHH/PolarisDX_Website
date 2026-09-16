@@ -56,8 +56,8 @@ describe('POST /api/epigenetics-inquiry', () => {
     })
     expect(response.status).toBe(202)
     expect(await response.json()).toMatchObject({
-      accepted: true,
-      status: 'FAILED_TERMINAL',
+      success: true,
+      state: 'FAILED_TERMINAL',
       providerConfigured: false,
     })
 
@@ -94,7 +94,7 @@ describe('POST /api/epigenetics-inquiry', () => {
     })
     expect(response.status).toBe(400)
     expect(await response.json()).toMatchObject({
-      accepted: false,
+      success: false,
       code: 'PROCESSING_CONSENT_REQUIRED',
     })
   })

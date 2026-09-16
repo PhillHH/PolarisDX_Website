@@ -47,7 +47,10 @@ Alle Teile sind dockerisiert und können gemeinsam per `docker-compose` gestarte
 - **Frontend (React/Vite, `src/`)**  
   SPA mit Tailwind, i18n, Routing via `react-router-dom`. Wird als statischer Build über Nginx ausgeliefert.
 - **Mail-Service (`server/`)**  
-  Leichtgewichtiger Express-Service für Kontaktanfragen. Sendet über SendGrid (`/api/contact`) und enthält einen Mock-Chat (`/api/chat`).
+  Leichtgewichtiger Express-Service für die sieben Lead-Journeys (`/api/contact`, `/api/support`,
+  `/api/consumer-order`, `/api/roi-report`, `/api/practice-order`, `/api/epigenetics-inquiry`,
+  `/api/content-download`). Persistiert vor der Zustellung und versendet über SendGrid.
+  Einen Chat-Endpunkt gibt es nicht (`DEC-RL-007`, entfernt mit AP22 PT22.7).
 - **Optionales Payload CMS (`backend/`)**  
   Liegt getrennt, ist im Standard-Compose nicht aktiv. Kann später für redaktionelle Inhalte genutzt werden.
 - **Reverse Proxy (Nginx)**  

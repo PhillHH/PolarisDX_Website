@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Send, CheckCircle, Check, ShoppingBag } from 'lucide-react'
 import { Button } from '../ui/Button'
-import { sendContactEmail } from '../../api/contact'
+import { sendPracticeOrder, type PracticeOrderProduct } from '../../api/practiceOrder'
 import { useTranslation } from 'react-i18next'
 import { normalizeLanguage } from '../../i18n'
 
@@ -14,7 +14,9 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  *
  * Sales-Machine-System: flache weiße Karte, Teal-Eyebrow, gefüllter Teal-Submit
  * (Button variant="secondary" + !bg-accent-Override), Friction-Killer-Microcopy.
- * Sende-Logik (sendContactEmail) unverändert übernommen.
+ * AP22 PT22.5: sendet über die eigene Journey `practice_order` statt über
+ * das Kontaktformular. Vorher entschied ein Freitext im Feld `area` über den
+ * Mailempfänger.
  *
  * Vollständig prop-gesteuert (kein internes i18n), damit jede Seite ihre eigene
  * bestehende Copy (Spray = i18n, Implantologie = inline) unverändert weiterreicht.
@@ -43,6 +45,8 @@ export type PraxisOrderFormTexts = {
   /** Friction-Killer, z. B."Kostenlos & unverbindlich · Antwort < 24 h". */
   reassurance: string
   errorText: string
+  /** AP22 PT22.5: Zustellproblem statt Eingabefehler — eigener Text x10. */
+  errorRetryableText: string
   successTitle: string
   successText: string
 }
@@ -53,9 +57,11 @@ export type PraxisOrderFormProps = {
   texts: PraxisOrderFormTexts
   quantityOptions: Array<{ value: string; label: string }>
   defaultQuantity: string
-  /** E-Mail-Payload-Konfiguration (identisch zum bisherigen Verhalten). */
-  area: string
-  orderName: string
+  /**
+   * AP22 PT22.5: die serverseitig allowlistete Produkt-ID. Vorher stand hier
+   * `area` — ein deutscher Freitext, an dem der Mailempfaenger hing.
+   */
+  product: PracticeOrderProduct
   messageNoneLabel: string
 }
 
@@ -64,8 +70,7 @@ export function PraxisOrderForm({
   texts,
   quantityOptions,
   defaultQuantity,
-  area,
-  orderName,
+  product,
   messageNoneLabel,
 }: PraxisOrderFormProps) {
   const { i18n } = useTranslation()
@@ -78,7 +83,9 @@ export function PraxisOrderForm({
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'retryable'>(
+    'idle',
+  )
   // Idempotency-Key: einmal pro Formular-Instanz, bleibt ueber Retries gleich.
   const [orderIdempotencyKey] = useState(() =>
     typeof crypto !== 'undefined' && 'randomUUID' in crypto
@@ -87,7 +94,7 @@ export function PraxisOrderForm({
   )
 
   const inputClass =
-    'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent'
+    'w-full rounded-md border border-ui-field px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent'
 
   return (
     <section id={id} className="scroll-mt-24">
@@ -104,7 +111,10 @@ export function PraxisOrderForm({
         </div>
 
         {submitStatus === 'success' ? (
-          <div className="flex flex-col items-center justify-center py-8 text-center">
+          /* AP24 PT24.1: die Bestaetigung ersetzt das Formular, wurde aber
+             nicht angesagt — der Bereich wechselte fuer einen Screenreader
+             stumm den Inhalt. `role="status"` meldet ihn hoeflich. */
+          <div role="status" className="flex flex-col items-center justify-center py-8 text-center">
             <CheckCircle className="mb-4 h-12 w-12 text-accent" aria-hidden />
             <h3 className="mb-2 text-lg font-medium text-heading">{texts.successTitle}</h3>
             <p className="text-sm text-gray-700">{texts.successText}</p>
@@ -126,15 +136,19 @@ export function PraxisOrderForm({
 
               // AP20 PT20.2: derselbe Key pro Formular-Instanz haelt
               // Wiederholungen idempotent; Ergebnis ist ein SubmitResult.
-              const result = await sendContactEmail(
+              // AP22 PT22.5: eigene Journey statt Kontaktformular mit Magic
+              // String. Produkt und Menge sind IDs; der Empfaenger haengt an
+              // der Journey, nicht mehr an einem Freitextfeld.
+              const result = await sendPracticeOrder(
                 {
+                  product,
+                  quantity: Number(formData.quantity),
+                  organization: formData.praxisName,
                   name: formData.ansprechpartner,
                   email: formData.email,
                   phone: formData.phone,
-                  company: formData.praxisName,
-                  area,
-                  message: `${orderName}\n\n${texts.quantityLabel}: ${quantityOptions.find((option) => option.value === formData.quantity)?.label || formData.quantity}\n\n${texts.addressHeading}:\n${formData.praxisName}\n${formData.ansprechpartner}\n\n${texts.messageLabel}:\n${formData.message || messageNoneLabel}`,
-                  // Processing-Consent: die Bestellung ist die Kontaktaufnahme.
+                  message: formData.message || messageNoneLabel,
+                  orgType: 'praxis',
                   processingConsent: true,
                   consentAcceptedAt: new Date().toISOString(),
                   locale: normalizeLanguage(i18n.resolvedLanguage),
@@ -143,7 +157,9 @@ export function PraxisOrderForm({
               )
 
               setIsSubmitting(false)
-              setSubmitStatus(result.ok ? 'success' : 'error')
+              // Ein Zustellproblem ist kein Eingabefehler: der Server sagt,
+              // ob eine Wiederholung sicher ist.
+              setSubmitStatus(result.ok ? 'success' : result.retryable ? 'retryable' : 'error')
             }}
             className="space-y-4"
             noValidate
@@ -152,11 +168,17 @@ export function PraxisOrderForm({
               <label htmlFor="quantity" className="mb-1 block text-sm font-medium text-gray-700">
                 {texts.quantityLabel} *
               </label>
+              {/* AP24 PT24.1: Das Label trug ein Sternchen, das Bedienelement
+                  selbst war nicht als Pflichtfeld ausgezeichnet — die Angabe
+                  existierte nur optisch. Das Formular traegt `noValidate`, das
+                  Attribut aendert also nur den Accessibility-Zustand, nicht das
+                  Absendeverhalten. */}
               <select
                 id="quantity"
+                required
                 value={formData.quantity}
                 onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                className="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm font-medium focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                className="w-full rounded-md border border-ui-field px-3 py-2.5 text-sm font-medium focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               >
                 {quantityOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -243,7 +265,14 @@ export function PraxisOrderForm({
               />
             </div>
 
-            {submitStatus === 'error' && <p className="text-sm text-red-600">{texts.errorText}</p>}
+            {/* AP24 PT24.1: Die Meldung erscheint nach dem Absenden und ist
+                der einzige Hinweis darauf, dass nichts passiert ist.
+                `role="alert"` unterbricht bewusst. */}
+            {(submitStatus === 'error' || submitStatus === 'retryable') && (
+              <p role="alert" className="text-sm text-red-600">
+                {submitStatus === 'retryable' ? texts.errorRetryableText : texts.errorText}
+              </p>
+            )}
 
             <Button
               type="submit"

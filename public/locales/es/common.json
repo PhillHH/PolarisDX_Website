@@ -83,7 +83,8 @@
     "epi_basics": "Fundamentos",
     "epi_evidence": "Estudios",
     "epi_docs": "Documentos",
-    "epi_samples": "Informes de muestra"
+    "epi_samples": "Informes de muestra",
+    "cookie_settings": "Configuración de cookies"
   },
   "read_more": "Leer más",
   "cookie": {
@@ -107,7 +108,8 @@
         "description": "Para análisis de visitantes."
       }
     },
-    "reject_all": "Solo necesarias"
+    "reject_all": "Solo necesarias",
+    "withdraw": "Retirar el consentimiento"
   },
   "testimonials": {
     "positiveLabel": "Reseña positiva"
@@ -259,6 +261,7 @@
     "honeypot": "Deje este campo vacío",
     "select_language": "Seleccionar idioma",
     "main_nav": "Navegación principal",
+    "breadcrumb": "Ruta de navegación",
     "toggle_submenu": "{{name}} — submenú",
     "skip_to_content": "Ir al contenido"
   },

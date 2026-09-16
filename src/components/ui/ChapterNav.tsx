@@ -353,9 +353,17 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                 className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent"
               />
             ) : null}
+            {/* AP24 PT24.3: `px-1` schafft die vier Pixel, die der Fokusring
+                nach aussen braucht. Ohne sie schnitt `overflow-x-auto` den Ring
+                des ERSTEN Kapitels an der linken Kante ab — gemessen bei
+                `scrollLeft: 0`. Das Kapitel selbst war vollstaendig sichtbar,
+                seine Fokusmarkierung nicht. Am rechten Ende genuegt dieselbe
+                Angabe: der Browser scrollt das fokussierte Kapitel bis an die
+                Innenkante der Polsterung. Nachgemessen mit ausgelaufenem
+                `scroll-smooth` — wer frueher misst, misst die Animation. */}
             <div
               ref={listRef}
-              className="flex gap-1 overflow-x-auto [scrollbar-width:none] motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden"
+              className="flex gap-1 overflow-x-auto px-1 [scrollbar-width:none] motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden"
             >
               {chapters.map((c) => (
                 <a

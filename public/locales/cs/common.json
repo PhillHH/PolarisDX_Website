@@ -83,7 +83,8 @@
     "epi_basics": "Základy",
     "epi_evidence": "Studie",
     "epi_docs": "Dokumenty",
-    "epi_samples": "Vzorové zprávy"
+    "epi_samples": "Vzorové zprávy",
+    "cookie_settings": "Nastavení souborů cookie"
   },
   "read_more": "Číst více",
   "cookie": {
@@ -107,7 +108,8 @@
         "description": "Analýza."
       }
     },
-    "reject_all": "Pouze nezbytné"
+    "reject_all": "Pouze nezbytné",
+    "withdraw": "Odvolat souhlas"
   },
   "testimonials": {
     "positiveLabel": "Pozitivní recenze"
@@ -260,6 +262,7 @@
     "honeypot": "Toto pole prosím nechte prázdné",
     "select_language": "Vybrat jazyk",
     "main_nav": "Hlavní navigace",
+    "breadcrumb": "Drobečková navigace",
     "toggle_submenu": "{{name}} — podnabídka",
     "skip_to_content": "Přejít k obsahu"
   },

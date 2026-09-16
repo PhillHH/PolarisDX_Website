@@ -17,11 +17,13 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
+// Das JPEG bleibt die og:image-Quelle: Social-Crawler sind bei WebP
+// unzuverlaessig. Sichtbar ausgeliefert wird die responsive WebP-Fassung.
 import duoHero from '../../assets/landingpages-consumer/duo-hero-products-together.jpeg'
-import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
-import maskBotanical from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
+import { CONSUMER_IMAGES } from '../../content/consumer/images'
 import {
   Card,
+  ConsumerPicture,
   ConsumerShell,
   Disclaimer,
   FactStrip,
@@ -35,7 +37,6 @@ import {
 import { DUO_MONTHLY_ADD_ON, DUO_PRODUCT } from '../../content/consumer/products'
 import { OrderModalProvider } from './OrderModal'
 import { PriceBadge } from './PriceBadge'
-import { useConsumerPageView } from './tracking'
 import { formatCurrency } from '../../lib/localeFormat'
 
 const getNAV = (t: TFunction) => [
@@ -87,7 +88,6 @@ function DuoPageInner() {
   const socialImageAlt = t('duo.copy_023')
   const NAV = getNAV(t)
   const FAQ_ITEMS = getFAQ_ITEMS(t)
-  useConsumerPageView('duo')
   return (
     <ConsumerShell nav={NAV} cta={{ label: t('duo.copy_017'), href: '#order' }} page="duo">
       <SEOHead
@@ -136,7 +136,7 @@ function DuoPageInner() {
         primary={{ label: t('duo.copy_022'), href: '#order' }}
         secondary={{ label: t('duo.copy_001'), href: '#included' }}
         image={{
-          src: duoHero,
+          source: CONSUMER_IMAGES.duoHero,
           alt: t(DUO_PRODUCT.hero.altKey),
         }}
         price={{ amount: duoPrice, unit: t('duo.copy_024') }}
@@ -169,10 +169,9 @@ function DuoPageInner() {
             <Link
               to="/consumer/vitamin-d3-spray"
               data-gtm-event="consumer_cta_click"
-              data-gtm-cta="See the spray page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2"
             >
               {t('duo.copy_036')}
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -189,10 +188,9 @@ function DuoPageInner() {
             <Link
               to="/consumer/hydrating-masks"
               data-gtm-event="consumer_cta_click"
-              data-gtm-cta="See the mask page"
               data-gtm-page="duo"
               data-gtm-location="included-card"
-              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
+              className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2"
             >
               {t('duo.copy_039')}
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -227,20 +225,18 @@ function DuoPageInner() {
       <Section eyebrow={t('duo.copy_048')} title={t('duo.copy_049')}>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="group overflow-hidden rounded-section">
-            <img
-              src={sprayStill}
+            <ConsumerPicture
+              source={CONSUMER_IMAGES.sprayStill}
               alt={t('duo.copy_050')}
-              loading="lazy"
-              decoding="async"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>
           <div className="group overflow-hidden rounded-section">
-            <img
-              src={maskBotanical}
+            <ConsumerPicture
+              source={CONSUMER_IMAGES.maskHero}
               alt={t('duo.copy_051')}
-              loading="lazy"
-              decoding="async"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>

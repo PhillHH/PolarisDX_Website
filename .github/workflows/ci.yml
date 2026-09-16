@@ -1,10 +1,12 @@
 name: CI
 
 on:
+  # AP27 PT27.6: `ci/**` ist die Evidence-Linie — ohne sie erreicht kein Lauf den geprueften SHA
+  # (CI-CONTRACT §1). Minimale Reichweiten-Korrektur, keine Aenderung an Jobs oder Schwellen.
   pull_request:
-    branches: [main, feat/home-leadmagnet, 'console/**']
+    branches: [main, feat/home-leadmagnet, 'console/**', 'ci/**']
   push:
-    branches: [main, feat/home-leadmagnet, 'console/**']
+    branches: [main, feat/home-leadmagnet, 'console/**', 'ci/**']
 
 jobs:
   quality:
@@ -50,6 +52,11 @@ jobs:
 
       - name: Internal findability gate
         run: npm run check:internal-findability
+
+      # AP27 PT27.6 (D-12): `npm test` umfasst das vitest-Projekt `server`; dessen Abhaengigkeiten
+      # stehen in server/package.json und werden vom Root-`npm ci` nicht installiert.
+      - name: Install server dependencies
+        run: npm ci --prefix server
 
       - name: Unit tests
         run: npm test
@@ -124,6 +131,160 @@ jobs:
         env:
           CI: true
 
+  performance:
+    # AP25 PT25.5 — Performance-Budget-Gate (PERFORMANCE-CONTRACT §29). Eigener Job, damit die
+    # Jobs von AP09/AP10/AP24 unveraendert bleiben. Misst einen eigenen Build mit Manifest,
+    # erteilt nie Consent, sendet nichts ab und loest keine fremden Hosts auf.
+    name: AP25 Performance budget gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production SSR artifacts with manifest
+        run: npm run perf:budget:build
+
+      - name: Static budgets (initial JS/CSS, route chunks, fonts)
+        run: npm run check:perf-budget -- --static-only
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium --with-deps
+
+      - name: Runtime budgets (18 routes, mobile throttled + desktop, LAB)
+        run: npm run check:perf-budget -- --json perf-budget-report.json
+
+      - name: Upload budget report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-budget-report
+          path: perf-budget-report.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+  security:
+    # AP26 PT26.5 — Security-Gates (SECURITY-CONTRACT §17). Eigener Job: die Jobs von
+    # AP09/AP10/AP24/AP25 bleiben unveraendert. Kein Schritt sendet an einen Provider;
+    # Scanner sind per Version gepinnt; Secret-Funde werden redigiert ausgegeben.
+    name: AP26 Security gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Der Secret-Scan braucht die vollstaendige Historie.
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: Install dependencies (root + server)
+        run: |
+          npm ci
+          npm ci --prefix server
+
+      - name: Dependency audit (Laufzeit Root + Server, ab high)
+        run: npm run security:audit
+
+      - name: Secret scan (gitleaks, gesamte Git-Historie, redigiert)
+        run: npm run security:secrets
+
+      - name: Install nginx (Log-Redaction-Test)
+        run: sudo apt-get update && sudo apt-get install -y nginx
+
+      - name: Security contract tests (CSP, API-Negativmatrix, Replay, Preview-Isolation, Secret-/Chat-Guard)
+        run: npm run security:test
+
+  security-runtime:
+    # AP26 PT26.5 — Laufzeit-Gates: Header/CSP/API im Browser und Scan der TATSAECHLICH gebauten Images.
+    # Image-Policy: CRITICAL/HIGH mit verfuegbarem Fix blockiert; unbehebbare Funde sind in
+    # SECURITY-CONTRACT §17.4 mit Review-Termin akzeptiert. Betriebsarchitektur bleibt AP28.
+    name: AP26 Security runtime gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: Install dependencies (root + server)
+        run: |
+          npm ci
+          npm ci --prefix server
+
+      - name: Install Playwright browser and nginx
+        run: |
+          npx playwright install chromium --with-deps
+          sudo apt-get install -y nginx
+
+      - name: Build production SSR artifacts (Header-Matrix)
+        run: npm run perf:budget:build
+
+      - name: Header/HSTS matrix behind TLS proxy (PT26.1)
+        run: npx playwright test --config e2e/pt26.1.config.ts
+        env:
+          CI: true
+
+      - name: Enforced CSP and consent network (PT26.2)
+        run: npx playwright test --config e2e/pt26.2.config.ts
+        env:
+          CI: true
+
+      - name: Browser API security and origin boundary (PT26.3)
+        run: npx playwright test --config e2e/pt26.3.config.ts
+        env:
+          CI: true
+
+      - name: Build frontend and backend images
+        run: |
+          docker build --build-arg VITE_APP_ENV=production -t polaris-frontend:ci .
+          docker build -t polaris-backend:ci server
+
+      - name: Image scan (Trivy, CRITICAL/HIGH mit verfuegbarem Fix blockiert, Secrets)
+        run: |
+          for image in polaris-frontend:ci polaris-backend:ci; do
+            docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.74.0 image \
+              --scanners vuln,secret --severity CRITICAL,HIGH --ignore-unfixed \
+              --exit-code 1 --no-progress "$image"
+          done
+
+      - name: Images ohne root, ohne Paketmanager, ohne eingebackene Env-Datei
+        run: |
+          for image in polaris-frontend:ci polaris-backend:ci; do
+            test "$(docker image inspect --format '{{.Config.User}}' "$image")" = node
+            docker run --rm --network none --entrypoint /bin/sh "$image" \
+              -c 'test "$(id -u)" != 0 && ! command -v npm && ! command -v npx && test ! -e /app/.env'
+          done
+
+      - name: Upload security traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-playwright-report
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
   seo:
     name: AP09 SEO gates
     runs-on: ubuntu-latest
@@ -169,3 +330,238 @@ jobs:
             test-results/
             playwright-report/
           retention-days: 7
+
+  # ===========================================================================
+  # AP27 PT27.6 — Gate-Plattform (CI-CONTRACT.md). Eigene Jobs statt Schritte hinter `quality`:
+  # ein roter Lint-Schritt darf die Test-Evidenz nicht verdecken. Fast Fail: Typecheck, Lint,
+  # Format und Guards laufen in `quality` zuerst; die Testjobs laufen parallel. Kein Job ist
+  # `continue-on-error`, keine AP27-Config hat Retries. `ap27-gate` ist der eine Pflicht-Status und
+  # verlangt auch AP25 (performance) und AP26 (security, security-runtime).
+  # ===========================================================================
+  ap27-tests:
+    name: AP27 Unit, component, server and integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: Install dependencies (root + server)
+        run: |
+          npm ci
+          npm ci --prefix server
+
+      - name: Unit (vitest project unit)
+        run: npm run test:unit
+
+      - name: Component (vitest project component)
+        run: npm run test:component
+
+      - name: Server (vitest project server)
+        run: npm run test:server
+
+      - name: Integration (lead pipeline, gated entitlement, preview isolation)
+        run: npm run test:integration
+
+  ap27-guards:
+    name: AP27 Guards (token, i18n, meta, routes, search, reports, visual changelog)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Das Visual-Changelog-Gate vergleicht gegen den Basis-Commit.
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Token, design system, i18n x10 (self-test), navigation, search, findability, routes, SEO/meta
+        run: npm run test:guards
+
+      - name: Musterbefund SEO guard (6 x 10 SSR heads)
+        run: npm run check:befunde-seo
+
+      - name: Content claim guards (IglooPro CV < 2 % x10, Epigenetik Pflichttexte/Berichte/Assets x10)
+        run: npm run check:claims
+
+      - name: Visual baseline changelog gate
+        run: |
+          node scripts/check-visual-baseline-changelog.mjs --self-test
+          node scripts/check-visual-baseline-changelog.mjs --base "${{ github.event.pull_request.base.sha || github.event.before }}"
+
+  ap27-journeys:
+    name: AP27 HTTP integration, core journeys and consent network E2E
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: Install dependencies (root + server)
+        run: |
+          npm ci
+          npm ci --prefix server
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium --with-deps
+
+      - name: SSR/HTTP/SEO integration (request-only, fresh build)
+        run: npm run test:integration:http
+        env:
+          CI: true
+
+      - name: Core journeys (production-like build, preview backend, provider side effects 0)
+        run: npm run test:e2e:core
+        env:
+          CI: true
+
+      - name: Consent and tracking network evidence (all provider hosts intercepted)
+        run: npm run test:e2e:consent
+        env:
+          CI: true
+
+      - name: Upload journey traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ap27-journeys-report
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+  ap27-seo-regression:
+    name: AP27 Route and SEO regression (x10 matrix, fresh build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium --with-deps
+
+      - name: Route/SEO guards + url-smoke, seo-head, sitemap and PT27.5 matrix
+        run: npm run test:seo:regression
+        env:
+          CI: true
+
+  ap27-a11y:
+    name: AP27 Accessibility regression (AP24 suite, axe serious/critical 0)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium --with-deps
+
+      - name: AP24 suite PT24.1-PT24.6 (semantics, keyboard/focus, contrast, media, motion, axe gate)
+        run: npm run a11y:suite
+        env:
+          CI: true
+
+      - name: Upload accessibility traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ap27-a11y-report
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+  ap27-visual:
+    name: AP27 Visual regression (pinned Playwright image, no tolerance)
+    runs-on: ubuntu-latest
+    # Dasselbe Image wie lokal (`npm run test:visual:docker`): Baselines sind nur so bitgleich.
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trust the checked-out workspace (container user differs from checkout owner)
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Visual regression (never --update-snapshots in CI)
+        run: npm run test:visual
+        env:
+          CI: true
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ap27-visual-diffs
+          path: test-results/
+          retention-days: 7
+
+  ap27-gate:
+    name: AP27 Launch gate aggregate
+    if: always()
+    needs:
+      - quality
+      - routing
+      - performance
+      - security
+      - security-runtime
+      - seo
+      - ap27-tests
+      - ap27-guards
+      - ap27-journeys
+      - ap27-seo-regression
+      - ap27-a11y
+      - ap27-visual
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every required job succeeded (AP25 performance and AP26 security included)
+        env:
+          RESULTS: ${{ toJSON(needs) }}
+        run: |
+          node -e '
+            const needs = JSON.parse(process.env.RESULTS)
+            for (const [job, value] of Object.entries(needs)) console.log(job.padEnd(22), value.result)
+            const failed = Object.entries(needs).filter(([, value]) => value.result !== "success")
+            if (failed.length) {
+              console.error("Nicht gruen:", failed.map(([job]) => job).join(", "))
+              process.exit(1)
+            }
+          '

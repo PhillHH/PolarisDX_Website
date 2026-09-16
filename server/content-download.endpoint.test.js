@@ -123,9 +123,19 @@ describe('AP19 PT19.3 content_download HTTP', () => {
     const response = await post(body(), { ip: '203.0.113.10' })
     expect(response.status).toBe(202)
     const json = await response.json()
-    expect(json.accepted).toBe(true)
-    expect(json.downloadUrl).toContain(`/api/content-download/asset/${GATED_ID}`)
-    expect(json.downloadUrl).not.toContain(RELATIVE_PATH)
+    expect(json.success).toBe(true)
+    // AP22 PT22.5: die journeyspezifische Nutzlast ist AUFGEZAEHLT, nicht
+    // durchgereicht. Ein spaeter ergaenztes internes Feld darf nicht
+    // unbemerkt mit nach draussen fallen.
+    expect(Object.keys(json.data).sort()).toEqual([
+      'assetId',
+      'deliveredLanguage',
+      'downloadUrl',
+      'entitlementId',
+      'expiresAt',
+    ])
+    expect(json.data.downloadUrl).toContain(`/api/content-download/asset/${GATED_ID}`)
+    expect(json.data.downloadUrl).not.toContain(RELATIVE_PATH)
   })
 
   it('antwortet 400 auf fehlenden Consent und auf ein unbekanntes Asset', async () => {
@@ -149,14 +159,16 @@ describe('AP19 PT19.3 content_download HTTP', () => {
   it('schluckt Honeypot-Einreichungen mit 200', async () => {
     const response = await post(body({ _hp: 'bot' }), { ip: '203.0.113.13' })
     expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({ accepted: true })
+    // AP22 PT22.5: der Honeypot antwortet im gemeinsamen Envelope mit dem
+    // Zustand IGNORED — still angenommen, nichts gespeichert.
+    expect(await response.json()).toMatchObject({ success: true, state: 'IGNORED' })
   })
 
   it('liefert die geschuetzte Datei mit korrekten Headern aus', async () => {
     const submitted = await (
       await post(body({ email: 'header@praxis.example' }), { ip: '203.0.113.14' })
     ).json()
-    const response = await fetch(`${baseUrl}${submitted.downloadUrl}`)
+    const response = await fetch(`${baseUrl}${submitted.data.downloadUrl}`)
 
     expect(response.status).toBe(200)
     expect(response.headers.get('content-type')).toContain('application/pdf')
@@ -174,7 +186,7 @@ describe('AP19 PT19.3 content_download HTTP', () => {
     const submitted = await (
       await post(body({ email: 'guard@praxis.example' }), { ip: '203.0.113.15' })
     ).json()
-    const url = new URL(submitted.downloadUrl, baseUrl)
+    const url = new URL(submitted.data.downloadUrl, baseUrl)
     const entitlementId = url.searchParams.get('e')
     const token = url.searchParams.get('t')
 

@@ -15,12 +15,33 @@ const {
   getRuntimeContentDownloadService,
 } = require('./content-download')
 const { ContactValidationError, getRuntimeContactLeadService } = require('./contact-lead')
+const { ConsumerOrderValidationError, getRuntimeConsumerOrderService } = require('./consumer-order')
 const {
   getRuntimeSupportCaseService,
   IdempotencyConflictError: SupportIdempotencyConflictError,
+  MAX_TOTAL_BYTES: SUPPORT_MAX_TOTAL_BYTES,
   SupportValidationError,
 } = require('./support-case')
 const { AssetResolutionError } = require('./protected-assets')
+const {
+  LeadDispatcher,
+  LeadRepository,
+  createLoggerAlertSink,
+  createRequestId,
+  describeRuntimeIsolation,
+  dispatchAlerts,
+  errorEnvelope,
+  evaluateAlerts,
+  logSafeError,
+  openLeadDatabase,
+  resolveDeliveryMode,
+  resolveRetentionPolicy,
+  retentionDaysFromPolicy,
+  runRetention,
+  successEnvelope,
+} = require('./lead-foundation')
+const { PracticeOrderValidationError, getRuntimePracticeOrderService } = require('./practice-order')
+const { RoiReportValidationError, getRuntimeRoiReportService } = require('./roi-report')
 require('dotenv').config()
 
 const app = express()
@@ -82,15 +103,87 @@ function resolveLeadAttribution({ source, journey, section } = {}) {
 // otherwise a spoofed X-Forwarded-For header would set req.ip and bypass the limiter.
 app.set('trust proxy', 1)
 
-// Middleware
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-    methods: ['POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Idempotency-Key'],
-  }),
-)
-app.use(express.json({ limit: '10mb' }))
+// AP26 PT26.1 — API-Baseline. Gemessen vor PT26.1: jede API-Antwort trug
+// `X-Powered-By: Express` (auch live auf Preview und Produktion). Antworten
+// tragen Lead-Referenzen, Entitlements und Download-Links; sie gehoeren in
+// keinen Browser- oder Proxy-Cache. Einzelne Routen setzen strenger
+// (geschuetzte Auslieferung: `no-store, private`).
+app.disable('x-powered-by')
+app.use((_req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store')
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  next()
+})
+
+// AP26 PT26.3 — Origin-Modell. Der Browser ruft die API ausschliesslich
+// same-origin ueber den SSR-Proxy (`/api`, auch im Vite-Dev-Server). Eine
+// CORS-Freigabe braucht diese Architektur nicht; vorher stand sie ohne
+// Konfiguration auf `http://localhost:3000` (live: `localhost:2026`, SEC-12).
+// Sie entsteht jetzt nur fuer ausdruecklich konfigurierte Origins — nie `*`,
+// nie mit Credentials.
+const CORS_ORIGINS = String(process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean)
+if (CORS_ORIGINS.length > 0) {
+  app.use(
+    cors({
+      origin: CORS_ORIGINS,
+      methods: ['POST', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Idempotency-Key'],
+    }),
+  )
+}
+
+// AP26 PT26.3 — CSRF-Modell. Keine Cookies, keine Sitzung, keine Anmeldung:
+// ein Formular-POST traegt keine fremde Berechtigung. Die Grenze ist deshalb
+// strukturell statt eines Tokens: JSON-Pflicht und `Idempotency-Key` erzwingen
+// im Browser einen CORS-Preflight, den keine fremde Origin besteht. Browser mit
+// Fetch Metadata melden die Herkunft zusaetzlich — ein schreibender Aufruf von
+// einer fremden Seite wird dann gar nicht erst verarbeitet.
+const WRITE_ALLOWED_FETCH_SITES = new Set(['same-origin', 'none'])
+app.use((req, res, next) => {
+  if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next()
+  const site = req.get('Sec-Fetch-Site')
+  if (!site || WRITE_ALLOWED_FETCH_SITES.has(site)) return next()
+  if (CORS_ORIGINS.includes(req.get('Origin'))) return next()
+  return res.status(403).json({ accepted: false, code: 'CROSS_SITE_REQUEST' })
+})
+
+/**
+ * AP26 PT26.3 — Body erst NACH dem Rate Limit und nur mit Grenze je Route.
+ *
+ * Vorher parste `express.json({ limit: '10mb' })` global vor jeder Route: auch
+ * ein bereits gedrosselter Absender liess bis zu 10 MB JSON parsen. Jetzt:
+ * Limiter → Content-Type-Pflicht (415) → Parser mit Routengrenze (413 schon
+ * am `Content-Length`, bevor gelesen wird) → nur ein JSON-Objekt als Body.
+ */
+const JSON_BODY_LIMIT_BYTES = 64 * 1024
+// Support: Anhaenge kommen Base64-kodiert (4/3) plus Formularfelder.
+const SUPPORT_BODY_LIMIT_BYTES =
+  Math.ceil((SUPPORT_MAX_TOTAL_BYTES * 4) / 3) + JSON_BODY_LIMIT_BYTES
+function jsonBody(limit) {
+  const parse = express.json({ limit, strict: true })
+  return (req, res, next) => {
+    if (!req.is('application/json')) {
+      return res.status(415).json({ accepted: false, code: 'UNSUPPORTED_MEDIA_TYPE' })
+    }
+    return parse(req, res, (error) => {
+      if (error) return next(error)
+      if (!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) {
+        return res.status(400).json({ accepted: false, code: 'INVALID_JSON' })
+      }
+      return next()
+    })
+  }
+}
+const jsonForm = jsonBody(JSON_BODY_LIMIT_BYTES)
+const jsonSupport = jsonBody(SUPPORT_BODY_LIMIT_BYTES)
+
+// Druckbares ASCII ohne Leerzeichen, hoechstens 200 Zeichen. Vorher wurde ein
+// laengerer Schluessel still gekuerzt — zwei verschiedene Schluessel mit
+// gleichem Anfang waeren derselbe Vorgang gewesen.
+const IDEMPOTENCY_KEY_PATTERN = /^[\x21-\x7e]{1,200}$/
 
 // Per-IP rate limiter shared by the public mail form endpoints (contact/support).
 // Over the threshold the library responds with 429 by default.
@@ -102,29 +195,90 @@ const formLimiter = rateLimit({
   message: { success: false, code: ERROR_CODES.rateLimited },
 })
 
+/**
+ * AP22 PT22.5 — der eine Weg, auf dem eine Journey antwortet.
+ *
+ * Vorher hatte jeder Endpunkt seinen eigenen try/catch mit eigener
+ * Antwortform; `roi_report` antwortete sogar `{ success }` statt
+ * `{ accepted, code }`. Hier laeuft alles ueber das Envelope aus
+ * `api-contract.js`: eine Anfrage-ID, der echte Zustand, `retryable` und ein
+ * Uebersetzungsschluessel statt fertiger Prosa.
+ *
+ * Das Log bekommt ausschliesslich Fehlerklasse, Journey und Anfrage-ID —
+ * kein Body, keine Adresse, kein Stacktrace.
+ */
+async function handleJourney({ req, res, journey, submit, ValidationError, publicFields = [] }) {
+  const requestId = createRequestId()
+  const rawKey = req.get('Idempotency-Key')
+  if (rawKey !== undefined && rawKey !== '' && !IDEMPOTENCY_KEY_PATTERN.test(rawKey)) {
+    const { body, status } = errorEnvelope({
+      journey,
+      code: 'IDEMPOTENCY_KEY_INVALID',
+      requestId,
+      fieldErrors: ['idempotencyKey'],
+    })
+    return res.status(status).json(body)
+  }
+  try {
+    const result = await submit()
+    if (result.ignored) {
+      // Honeypot: still angenommen, nichts gespeichert.
+      return res.status(200).json(successEnvelope({ journey, state: 'IGNORED', requestId }))
+    }
+    return res.status(202).json(
+      successEnvelope({
+        journey,
+        state: result.status,
+        requestId,
+        leadId: result.leadId,
+        reference: result.orderReference ?? result.reportReference,
+        deliveryPending: result.deliveryPending,
+        providerConfigured: result.providerConfigured,
+        // Journeyspezifische Nutzlast wird AUSDRUECKLICH aufgezaehlt.
+        // Das Ergebnis durchzureichen waere bequem und wuerde ein spaeter
+        // ergaenztes internes Feld unbemerkt mit nach draussen nehmen.
+        data: Object.fromEntries(
+          publicFields
+            .filter((field) => result[field] !== undefined)
+            .map((field) => [field, result[field]]),
+        ),
+      }),
+    )
+  } catch (error) {
+    const isValidation = ValidationError && error instanceof ValidationError
+    const isConflict = error instanceof IdempotencyConflictError
+    const code = isConflict
+      ? 'IDEMPOTENCY_CONFLICT'
+      : isValidation
+        ? error.code
+        : 'JOURNEY_UNAVAILABLE'
+    const { body, status } = errorEnvelope({
+      journey,
+      code,
+      requestId,
+      fieldErrors: isValidation ? error.fields : undefined,
+    })
+    if (status >= 500)
+      console.error('[journey] request failed', logSafeError({ journey, code, requestId }))
+    return res.status(status).json(body)
+  }
+}
+
 // Dedicated Epigenetics journey. Unlike the legacy mail endpoints below, this
 // route commits the shared Lead + Outbox transaction before any provider path
 // can run. SendGrid is deliberately not its source of truth.
-app.post('/api/epigenetics-inquiry', formLimiter, async (req, res) => {
-  try {
-    const result = await getRuntimeEpigeneticsInquiryService().submit({
-      body: req.body,
-      idempotencyKey: req.get('Idempotency-Key'),
-    })
-    if (result.ignored) return res.status(200).json({ accepted: true })
-    return res.status(202).json(result)
-  } catch (error) {
-    if (error instanceof InquiryValidationError) {
-      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
-    }
-    if (error instanceof IdempotencyConflictError) {
-      return res.status(409).json({ accepted: false, code: error.code })
-    }
-    console.error('[epigenetics_inquiry] request failed', {
-      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
-    })
-    return res.status(500).json({ accepted: false, code: 'INQUIRY_UNAVAILABLE' })
-  }
+app.post('/api/epigenetics-inquiry', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'epigenetics_inquiry',
+    submit: () =>
+      getRuntimeEpigeneticsInquiryService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: InquiryValidationError,
+  })
 })
 
 // Ein eigener, groszuegigerer Limiter fuer das Einloesen: einen Download-Link
@@ -141,28 +295,19 @@ const downloadLimiter = rateLimit({
 
 // AP19 PT19.3 — gegateter Lead-Magnet. Wie die Epigenetik-Strecke committet
 // dieser Pfad Lead und Outbox, BEVOR irgendein Provider laufen darf.
-app.post('/api/content-download', formLimiter, async (req, res) => {
-  try {
-    const result = await getRuntimeContentDownloadService().submit({
-      body: req.body,
-      idempotencyKey: req.get('Idempotency-Key'),
-    })
-    if (result.ignored) return res.status(200).json({ accepted: true })
-    return res.status(202).json(result)
-  } catch (error) {
-    if (error instanceof ContentDownloadValidationError) {
-      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
-    }
-    if (error instanceof IdempotencyConflictError) {
-      return res.status(409).json({ accepted: false, code: error.code })
-    }
-    // Bewusst OHNE req.url: die Query traegt beim Einloesepfad ein Token, und
-    // eine gemeinsame Log-Zeile waere die einfachste Art, es doch zu leaken.
-    console.error('[content_download] request failed', {
-      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
-    })
-    return res.status(500).json({ accepted: false, code: 'CONTENT_DOWNLOAD_UNAVAILABLE' })
-  }
+app.post('/api/content-download', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'content_download',
+    submit: () =>
+      getRuntimeContentDownloadService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: ContentDownloadValidationError,
+    publicFields: ['assetId', 'deliveredLanguage', 'entitlementId', 'expiresAt', 'downloadUrl'],
+  })
 })
 
 // Geschuetzte Auslieferung. Der Client nennt eine ASSET-ID und ein Token —
@@ -176,7 +321,7 @@ app.get('/api/content-download/asset/:assetId', downloadLimiter, (req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('X-Robots-Tag', 'noindex, nofollow')
   try {
-    const { asset } = getRuntimeContentDownloadService().redeem({
+    const { asset } = getRuntimeContentDownloadService({ mailer: sgMail }).redeem({
       assetId: req.params.assetId,
       entitlementId: req.query.e,
       token: req.query.t,
@@ -215,8 +360,9 @@ if (missingEnvVars.length > 0) {
   )
 }
 
-// Set SendGrid API Key
-if (process.env.SENDGRID_API_KEY) {
+// Set SendGrid API Key — AP26 PT26.4: nicht im Trockenlauf. Eine Umgebung, die nicht
+// zustellen darf, haelt den Schluessel dann auch nicht im Mail-Client.
+if (process.env.SENDGRID_API_KEY && !resolveDeliveryMode(process.env).dryRun) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 }
 
@@ -224,41 +370,59 @@ if (process.env.SENDGRID_API_KEY) {
 // backend instance (started with DRY_RUN=1 on :5001) so preview form submits
 // never send real mail through the shared prod mailbox. Prod (:5000) runs
 // without DRY_RUN and is unaffected.
-const DRY_RUN = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true'
+// AP22 PT22.8 — der Trockenlauf haengt nicht mehr allein am Flag. Eine
+// Umgebung, die sich per APP_ENV als `preview`/`staging` ausweist, ist
+// ZWINGEND im Trockenlauf; `DRY_RUN=0` hebt das nicht auf. Was `NODE_ENV`
+// dabei nicht leisten kann, steht in `lead-foundation/environment.js`.
+const DELIVERY_MODE = resolveDeliveryMode(process.env)
+const DRY_RUN = DELIVERY_MODE.dryRun
 if (DRY_RUN) {
-  sgMail.send = async (msg) => {
-    const to = Array.isArray(msg.to) ? msg.to.join(',') : msg.to
-    console.log(`[DRY_RUN] email suppressed → to=${to} subject="${msg.subject}"`)
+  // AP22 PT22.3 — zwei Korrekturen an diesem Schalter:
+  //
+  // 1. Die alte Zeile schrieb `to=<empfaenger>` und den Betreff ins Log. Ein
+  //    Betreff enthaelt hier regelmaessig den vollen Namen der Absenderin
+  //    ("Neue Kontaktanfrage von Dr. …"), ein Support-Betreff ihr Anliegen.
+  //    Beides ist PII und hat in einem Log nichts verloren.
+  // 2. Der Stub gab `202` zurueck. Der Adapter sah damit Erfolg und der Lead
+  //    wurde mit Zeitstempel als DELIVERED abgelegt — ein Datensatz, der
+  //    behauptet, die Mail sei raus. Fuer alle Journeys auf der Foundation
+  //    entscheidet jetzt der `CrmRouter` VOR dem Adapter (`DELIVERY_RESULTS
+  //    .DRY_RUN`); dieser Stub bleibt als Netz fuer die Legacy-Mailpfade,
+  //    die noch nicht ueber die Outbox laufen (`roi_report`).
+  sgMail.send = async () => {
+    console.log('[DRY_RUN] outbound email suppressed')
     return [{ statusCode: 202, headers: {} }, {}]
   }
-  console.log('[DRY_RUN] active — no real emails will be sent')
+  console.log(
+    `[DRY_RUN] active — no real emails will be sent (reason=${DELIVERY_MODE.reason}` +
+      `, environment=${DELIVERY_MODE.environment}, forced=${DELIVERY_MODE.forced})`,
+  )
+}
+
+// Fehlbetrieb wird gemeldet, nicht verschwiegen: eine Vorschau mit
+// Live-Zustellung oder eine Produktion im Trockenlauf ist keine Ausnahme, die
+// den Start verhindern darf (das wuerde Anfragen kosten), aber sie darf auch
+// nicht still bleiben. Keine Werte, nur Befunde.
+for (const finding of describeRuntimeIsolation(process.env).findings) {
+  console.warn(`[runtime-isolation] ${finding.severity}: ${finding.code} — ${finding.detail}`)
 }
 
 // AP20 PT20.2 — die allgemeine Anfrage als eigene Lead-Journey. Wie die
 // Epigenetik- und Download-Strecke committet dieser Pfad Lead und Outbox,
 // BEVOR irgendein Provider laufen darf. SendGrid ist Side Effect, nicht
 // Quelle der Wahrheit.
-app.post('/api/contact', formLimiter, async (req, res) => {
-  try {
-    const result = await getRuntimeContactLeadService({ mailer: sgMail }).submit({
-      body: req.body,
-      idempotencyKey: req.get('Idempotency-Key'),
-    })
-    if (result.ignored) return res.status(200).json({ accepted: true })
-    return res.status(202).json(result)
-  } catch (error) {
-    if (error instanceof ContactValidationError) {
-      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
-    }
-    if (error instanceof IdempotencyConflictError) {
-      return res.status(409).json({ accepted: false, code: error.code })
-    }
-    // Bewusst nur Fehlerklasse — keine PII, keine Payload-Inhalte.
-    console.error('[contact] request failed', {
-      errorClass: error?.code || error?.name || 'UNCLASSIFIED_ERROR',
-    })
-    return res.status(500).json({ accepted: false, code: 'CONTACT_UNAVAILABLE' })
-  }
+app.post('/api/contact', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'contact',
+    submit: () =>
+      getRuntimeContactLeadService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: ContactValidationError,
+  })
 })
 
 // Support API Endpoint
@@ -267,51 +431,41 @@ app.post('/api/contact', formLimiter, async (req, res) => {
 // laufen darf. Team- + Bestaetigungsmail sind entkoppelte, retryfaehige
 // Side Effects ueber die Outbox (CrmRouter). Attachments laufen ueber
 // serverseitige Allowlist + Magic-Bytes + Limits und werden opak abgelegt.
-app.post('/api/support', formLimiter, async (req, res) => {
-  try {
-    const result = await getRuntimeSupportCaseService({ mailer: sgMail }).submit({
-      body: req.body,
-      idempotencyKey: req.get('Idempotency-Key'),
-    })
-    if (result.ignored) return res.status(200).json({ accepted: true })
-    return res.status(202).json(result)
-  } catch (error) {
-    if (error instanceof SupportValidationError) {
-      return res.status(400).json({ accepted: false, code: error.code, fields: error.fields })
-    }
-    if (error instanceof SupportIdempotencyConflictError) {
-      return res.status(409).json({ accepted: false, code: 'IDEMPOTENCY_CONFLICT' })
-    }
-    console.error('[support] unerwarteter Fehler:', error.message)
-    return res.status(500).json({ accepted: false, code: 'SUPPORT_UNAVAILABLE' })
-  }
+app.post('/api/support', formLimiter, jsonSupport, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'support',
+    submit: () =>
+      getRuntimeSupportCaseService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: SupportValidationError,
+  })
 })
 
 // =============================================================================
 // CONSUMER ORDER ENDPOINT
 // =============================================================================
-// Order intake from the unlisted consumer landing pages (/consumer/*).
+// AP21 PT21.5 — Consumer Ordering als eigene persistente Journey.
 //
-// - Recipients are fixed server-side (no `to` from the request body) to
-//   prevent the form being used as a relay.
-// - DSGVO: requires explicit consent flag in the body; otherwise 400.
-// - Spam: honeypot field `_hp`; if filled, returns 200 silently without sending.
-// - Data minimization: only the fields the order intake actually needs.
-//   Shipping address etc. is collected later by sales (no payment flow yet).
+// Vorher war das ein reiner Mailendpunkt: keine Persistenz, keine
+// Idempotency, kein Retry, kein Rate Limit. Ein SendGrid-Fehler hat die
+// Bestellanfrage ersatzlos verloren. Jetzt committet dieser Pfad Lead und
+// Outbox, BEVOR irgendein Provider laufen darf; Team- und Bestaetigungsmail
+// sind entkoppelte, retryfaehige Side Effects ueber den CrmRouter.
+//
+// - Empfaenger sind serverseitig fest verdrahtet (nie aus dem Body) — das
+//   Formular ist kein Relay.
+// - Produkt, Variante und Menge werden serverseitig allowlistet; freie
+//   Client-Labels landen nirgends mehr in Lead oder Mail.
+// - Processing-Consent ist Pflicht, Marketing optional und getrennt. Eine
+//   Analytics-Einwilligung ist keine Voraussetzung.
+// - Honeypot `_hp` → stilles 200. Rate Limit ueber formLimiter.
+// - Kein Shop, kein Cart, kein Checkout, kein Payment: das ist eine
+//   Bestellanfrage, kein Kaufvertrag.
 // =============================================================================
-
-const CONSUMER_ORDER_RECIPIENTS = [
-  'ulrikes@polarisdx.net',
-  'inesr@polarisdx.net',
-  'adrianoz@polarisdx.net',
-  'contact@polarisdx.net',
-]
-
-const CONSUMER_PRODUCT_LABELS = {
-  spray: 'Vitamin D3+K2 Spray (12-Pack)',
-  masks: 'Hydrating Masks (5-Pack)',
-  duo: 'Inside-Out Care Duo (1 spray + 5 masks)',
-}
 
 function esc(str) {
   return String(str ?? '')
@@ -322,230 +476,19 @@ function esc(str) {
     .replace(/'/g, '&#39;')
 }
 
-app.post('/api/consumer-order', async (req, res) => {
-  try {
-    const {
-      product,
-      quantity,
-      // contact
-      name,
-      email,
-      phone,
-      // company
-      company,
-      // shipping address
-      street,
-      postcode,
-      city,
-      country,
-      // free-form context
-      message,
-      quantityLabel,
-      // GDPR / spam
-      consent,
-      _hp,
-      locale,
-    } = req.body || {}
-    const mailLocale = requestMailLocale(locale, 'consumer-order')
-
-    // Honeypot — bots almost always fill all visible/hidden fields
-    if (_hp) {
-      console.log('[consumer-order] honeypot triggered, silently dropping')
-      return res.status(200).json({ success: true })
-    }
-
-    // DSGVO: explicit consent is required
-    if (consent !== true) {
-      return sendError(res, 400, ERROR_CODES.consentRequired)
-    }
-
-    if (!product || !CONSUMER_PRODUCT_LABELS[product]) {
-      return sendError(res, 400, ERROR_CODES.unknownProduct)
-    }
-    if (!name || !email || !quantity) {
-      return sendError(res, 400, ERROR_CODES.requiredFields)
-    }
-    // Cheap email shape check (server-side; UI also validates)
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return sendError(res, 400, ERROR_CODES.invalidEmail)
-    }
-
-    const productLabel = CONSUMER_PRODUCT_LABELS[product]
-
-    // Build a one-line address summary (only the parts the customer filled in)
-    const addressLine = [street, [postcode, city].filter(Boolean).join(' '), country]
-      .map((s) => (s || '').trim())
-      .filter(Boolean)
-      .join(', ')
-
-    const orderText = `Neue Bestellanfrage über die Consumer-Landingpage
-
-Produkt:     ${productLabel}
-Stückzahl:   ${quantityLabel || quantity}
-
-— Ansprechpartner —
-Name:        ${name}
-E-Mail:      ${email}
-Telefon:     ${phone || '-'}
-
-— Firma —
-Firma:       ${company || '-'}
-
-— Lieferadresse —
-Straße:      ${street || '-'}
-PLZ / Ort:   ${[postcode, city].filter(Boolean).join(' ') || '-'}
-Land:        ${country || '-'}
-
-— Nachricht / Kontext —
-${message || '-'}
-
-— Hinweis: Der Kunde hat der Datenverarbeitung zur Bestellabwicklung
-ausdrücklich zugestimmt (DSGVO Art. 6 Abs. 1 lit. b).
-`
-
-    const row = (label, value) => `
-  <tr>
-    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;font-weight:600;width:180px;color:#083358;font-family:system-ui,sans-serif;">${esc(label)}</td>
-    <td style="padding:8px 10px;border-bottom:1px solid #e2e8f0;color:#334155;font-family:system-ui,sans-serif;">${value}</td>
-  </tr>`
-    const sectionRow = (label) => `
-  <tr>
-    <td colspan="2" style="padding:14px 10px 6px;font-size:12px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:1px;font-family:system-ui,sans-serif;">${esc(label)}</td>
-  </tr>`
-
-    const orderHtml = `
-<h2 style="margin:0 0 12px;font-family:system-ui,sans-serif;color:#083358;">
-  Neue Bestellanfrage
-</h2>
-<p style="margin:0 0 16px;font-family:system-ui,sans-serif;color:#475569;">
-  über die Consumer-Landingpage
-</p>
-<table style="border-collapse:collapse;width:100%;max-width:680px;">
-  ${sectionRow('Bestellung')}
-  ${row('Produkt', esc(productLabel))}
-  ${row('Stückzahl', esc(quantityLabel || quantity))}
-
-  ${sectionRow('Ansprechpartner')}
-  ${row('Name', esc(name))}
-  ${row('E-Mail', `<a href="mailto:${esc(email)}">${esc(email)}</a>`)}
-  ${row('Telefon', esc(phone || '-'))}
-
-  ${sectionRow('Firma')}
-  ${row('Firma', esc(company || '-'))}
-
-  ${sectionRow('Lieferadresse')}
-  ${row('Straße', esc(street || '-'))}
-  ${row('PLZ / Ort', esc([postcode, city].filter(Boolean).join(' ') || '-'))}
-  ${row('Land', esc(country || '-'))}
-</table>
-${
-  message
-    ? `<p style="margin:18px 0 6px;font-family:system-ui,sans-serif;font-weight:600;color:#083358;">Nachricht / Kontext</p>
-       <p style="margin:0;font-family:system-ui,sans-serif;color:#334155;white-space:pre-line;">${esc(message)}</p>`
-    : ''
-}
-${
-  addressLine
-    ? `<p style="margin:18px 0 0;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;">
-         Adresse (Zusammenfassung): ${esc(addressLine)}
-       </p>`
-    : ''
-}
-<p style="margin:24px 0 0;font-family:system-ui,sans-serif;font-size:12px;color:#64748b;">
-  Der Kunde hat der Datenverarbeitung zur Bestellabwicklung ausdrücklich zugestimmt
-  (DSGVO Art. 6 Abs. 1 lit. b).
-</p>
-`
-
-    const msg = {
-      to: CONSUMER_ORDER_RECIPIENTS,
-      from: process.env.SENDER_EMAIL,
-      replyTo: email,
-      subject: `[${mailLocale.toUpperCase()}] Neue Bestellung — ${productLabel} (${quantityLabel || quantity})`,
-      text: orderText,
-      html: orderHtml,
-    }
-
-    await sgMail.send(msg)
-    console.log(`[consumer-order] sent: product=${product} qty=${quantity} from=${email}`)
-    res.status(200).json({ success: true })
-  } catch (error) {
-    console.error('Error sending consumer order:', error)
-    if (error.response) {
-      console.error(error.response.body)
-    }
-    sendError(res, 500, ERROR_CODES.deliveryFailed)
-  }
+app.post('/api/consumer-order', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'consumer_order',
+    submit: () =>
+      getRuntimeConsumerOrderService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: ConsumerOrderValidationError,
+  })
 })
-
-/**
- * Chat Endpoint (Mock / Placeholder)
- *
- * TODO: Integration with Microsoft Teams Bot Framework or OpenAI
- *
- * To implement full "Option C":
- * 1. Register a Bot in Azure Bot Service.
- * 2. Use `botbuilder` SDK to forward messages to the bot.
- * 3. Use `openai` SDK if you want an intermediate AI agent.
- *
- * Current implementation: Simple Echo/Mock Agent.
- */
-app.post('/api/chat', async (req, res) => {
-  try {
-    const { message } = req.body
-
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // Mock Response Logic
-    let reply =
-      'Vielen Dank für Ihre Nachricht. Ein Mitarbeiter wird sich in Kürze bei Ihnen melden.'
-
-    const lowerMsg = message.toLowerCase()
-    if (lowerMsg.includes('hallo') || lowerMsg.includes('hi')) {
-      reply = 'Hallo! Wie kann ich Ihnen heute helfen?'
-    } else if (lowerMsg.includes('preis') || lowerMsg.includes('kosten')) {
-      reply =
-        'Für Preisanfragen wenden Sie sich bitte direkt an unseren Vertrieb oder nutzen Sie das Kontaktformular.'
-    } else if (lowerMsg.includes('termin')) {
-      reply = 'Gerne! Sie können einen Termin direkt über unsere Kontaktseite buchen.'
-    }
-
-    // TODO: Connect to MS Teams Webhook or OpenAI API here
-    // Example (Pseudo-code):
-    // const aiResponse = await openai.createCompletion({ ... });
-    // reply = aiResponse.choices[0].text;
-
-    res.status(200).json({ reply })
-  } catch (error) {
-    console.error('Chat Error:', error)
-    res.status(500).json({ error: 'Chat service error' })
-  }
-})
-
-/**
- * Teams Integration Roadmap (Option C):
- *
- * 1.  **Azure Bot Service Setup**:
- *     -   Create a "Azure Bot" resource in the Azure Portal.
- *     -   Select "Multi Tenant" or "Single Tenant" based on requirements.
- *     -   Enable the "Microsoft Teams" channel in the Bot Blade.
- *
- * 2.  **Code Changes (Server)**:
- *     -   Install `botbuilder` and `botframework-connector`.
- *     -   Create a `CloudAdapter` instance using `ConfigurationBotFrameworkAuthentication`.
- *     -   Implement a Bot class extending `ActivityHandler`.
- *     -   Replace the simple `/api/chat` logic below with the adapter's `process` method.
- *
- * 3.  **Frontend Changes**:
- *     -   Currently using a custom React widget.
- *     -   To use standard Teams features, you might switch to the "Bot Framework Web Chat" component (optional, but easier)
- *     -   OR continue using this custom widget and treat it as a Direct Line client.
- *     -   If using Direct Line:
- *         -   Enable "Direct Line" channel in Azure.
- *         -   Fetch a token from a new endpoint `/api/directline/token` on this server.
- *         -   Connect via WebSocket or polling in `ChatWidget.tsx`.
- */
 
 // =============================================================================
 // ROI-REPORT (Lead-Magnet) ENDPOINT — Home ROI-Rechner (#roi-rechner)
@@ -613,117 +556,187 @@ function buildRoiPdf({ practice, area, inputs = {}, outputs = {}, locale }) {
   })
 }
 
-app.post('/api/roi-report', formLimiter, async (req, res) => {
-  try {
-    const {
-      email,
-      area,
-      areaLabel,
-      practice,
-      consent,
-      _hp,
-      locale,
-      inputs = {},
-      outputs = {},
-      source,
-      journey,
-      section,
-    } = req.body || {}
-    const mailLocale = requestMailLocale(locale, 'roi-report')
-    const c = getMailCopy(mailLocale).roi
-    const eur = (value) => formatMailCurrency(value, mailLocale)
-    const attribution = resolveLeadAttribution({ source, journey, section })
-
-    if (_hp) {
-      console.log('[roi-report] honeypot triggered, silently dropping')
-      return res.status(200).json({ success: true })
-    }
-    if (consent !== true) {
-      return sendError(res, 400, ERROR_CODES.consentRequired)
-    }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
-      return sendError(res, 400, ERROR_CODES.invalidEmail)
-    }
-
-    const resolvedArea = areaLabel || area || '-'
-    const sanArea = esc(resolvedArea)
-    const sanPractice = esc(practice || '-')
-    const rowsIn = `
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.tests)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.testsPerMonth ?? '-')}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.price)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.pricePerTest)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.material)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.materialCostPerTest)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.minutes)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(inputs.minutesPerTest ?? '-')}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.staff)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(inputs.staffCostPerHour)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.investment)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${inputs.deviceInvestment ? eur(inputs.deviceInvestment) : '-'}</td></tr>`
-    const rowsOut = `
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.month)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerMonth)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.revenue)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.revenuePerMonth)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.year)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerYear)}</td></tr>
-      <tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.perTest)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${eur(outputs.dbPerTest)}</td></tr>
-      ${outputs.payback != null ? `<tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:600;">${esc(c.payback)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${esc(outputs.payback)} ${esc(c.months)}</td></tr>` : ''}`
-
-    let attachments
-    try {
-      const pdf = await buildRoiPdf({
-        practice,
-        area: resolvedArea,
-        inputs,
-        outputs,
-        locale: mailLocale,
-      })
-      attachments = [
-        {
-          content: pdf.toString('base64'),
-          filename: 'IglooPro-ROI-Report.pdf',
-          type: 'application/pdf',
-          disposition: 'attachment',
-        },
-      ]
-    } catch (e) {
-      console.error('[roi-report] PDF generation failed, sending without attachment:', e.message)
-    }
-
-    // 1) Lead → Team
-    const leadMsg = {
-      to: ROI_REPORT_RECIPIENTS,
-      from: process.env.SENDER_EMAIL,
-      replyTo: email,
-      subject: `Neuer ROI-Report-Lead — ${area || '-'} (${email})`,
-      text: `Neuer ROI-Rechner-Lead\n\nE-Mail: ${email}\nFachrichtung: ${area || '-'}\nPraxis: ${practice || '-'}\nQuelle: ${attribution.source || '-'}\nJourney: ${attribution.journey || '-'}\nBereichskontext: ${attribution.section || '-'}\n\nEingaben: ${JSON.stringify(inputs)}\nErgebnis: ${JSON.stringify(outputs)}`,
-      html: `<h3>Neuer ROI-Report-Lead</h3>
-        <p><strong>E-Mail:</strong> ${esc(email)}<br><strong>Fachrichtung:</strong> ${sanArea}<br><strong>Praxis:</strong> ${sanPractice}<br><strong>Quelle:</strong> ${esc(attribution.source || '-')}<br><strong>Journey:</strong> ${esc(attribution.journey || '-')}<br><strong>Bereichskontext:</strong> ${esc(attribution.section || '-')}</p>
-        <h4>Eingaben</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsIn}</table>
-        <h4>Ergebnis</h4><table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>`,
-    }
-
-    // 2) Report → Anfragender
-    const reportMsg = {
-      to: email,
-      from: process.env.SENDER_EMAIL,
-      subject: c.subject,
-      text: `${attachments ? c.introAttachment : c.introNoAttachment}\n\n${c.results}:\n${c.month}: ${eur(outputs.dbPerMonth)}\n${c.revenue}: ${eur(outputs.revenuePerMonth)}\n${c.year}: ${eur(outputs.dbPerYear)}\n${c.perTest}: ${eur(outputs.dbPerTest)}\n\n${c.cta}: https://polarisdx.net/${mailLocale}/contact\n\n${c.disclaimer}\n\nPolarisDX`,
-      html: `<div lang="${mailLocale}" style="font-family:system-ui,sans-serif;max-width:600px;">
-        <h2 style="color:#083358;">${esc(c.title)}</h2>
-        <p>${esc(attachments ? c.introAttachment : c.introNoAttachment)}</p>
-        <h3 style="color:#083358;">${esc(c.results)}</h3>
-        <table style="border-collapse:collapse;width:100%;max-width:520px;">${rowsOut}</table>
-        <p style="margin-top:18px;"><a href="https://polarisdx.net/${mailLocale}/contact" style="background:#0d9488;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block;">${esc(c.cta)}</a></p>
-        <p style="color:#64748b;font-size:12px;margin-top:18px;">${esc(c.disclaimer)}</p>
-      </div>`,
-      ...(attachments ? { attachments } : {}),
-    }
-
-    await Promise.all([sgMail.send(leadMsg), sgMail.send(reportMsg)])
-    console.log(`[roi-report] processed lead from ${email} (area=${area || '-'})`)
-    res.status(200).json({ success: true })
-  } catch (error) {
-    console.error('Error processing ROI report:', error)
-    if (error.response) console.error(error.response.body)
-    sendError(res, 500, ERROR_CODES.deliveryFailed)
-  }
+app.post('/api/roi-report', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'roi_report',
+    submit: () =>
+      getRuntimeRoiReportService({ mailer: sgMail, buildPdf: buildRoiPdf }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: RoiReportValidationError,
+  })
 })
 
-// Start Server
+// =============================================================================
+// PRACTICE ORDER ENDPOINT
+// =============================================================================
+// AP22 PT22.5 — die Praxisbestellung als eigene, getypte Journey.
+//
+// Vorher gab es diesen Endpunkt nicht: eine Praxisbestellung lief durch
+// `/api/contact` und wurde dort an einem MAGIC STRING erkannt
+// (`area === 'Vitamin D3+K2 Spray BESTELLUNG'`), der ueber den Mailempfaenger
+// entschied. Der Empfaenger haengt jetzt an der Journey, nicht am Formular.
+// =============================================================================
+app.post('/api/practice-order', formLimiter, jsonForm, async (req, res) => {
+  await handleJourney({
+    req,
+    res,
+    journey: 'practice_order',
+    submit: () =>
+      getRuntimePracticeOrderService({ mailer: sgMail }).submit({
+        body: req.body,
+        idempotencyKey: req.get('Idempotency-Key'),
+      }),
+    ValidationError: PracticeOrderValidationError,
+  })
+})
+
+/**
+ * AP22 PT22.4 — der Hintergrundlauf der Outbox.
+ *
+ * Vorher drehte sie sich NUR beim Absenden eines Formulars: jeder Slice ruft
+ * `processNext()` einmal am Ende seines eigenen Submits. Ein Auftrag im
+ * Zustand RETRY_PENDING mit einem Abstand in der Zukunft wurde damit erst
+ * beim naechsten fremden Submit wieder angefasst — nachts also gar nicht.
+ * Die Wiederholung stand auf dem Papier und lief in der Praxis nicht.
+ *
+ * Der Dispatcher konsumiert die vorhandenen Services; Router, Zustellgrenze,
+ * DRY_RUN, Timeout und Journey-Zustaendigkeit gelten unveraendert weiter.
+ */
+/**
+ * AP22 PT22.8 — die Wartung auf dem Takt des Dispatchers.
+ *
+ * Zwei Jobs, beide bewusst zurueckhaltend:
+ *
+ *  - **Aufbewahrung.** Standardmaessig BERICHTET der Lauf nur, was faellig
+ *    waere. Wirklich anonymisiert wird erst mit `LEAD_RETENTION_APPLY=1`.
+ *    Ein Loeschjob, der sich mit dem Deployment selbst scharf schaltet, ist
+ *    im Betrieb nicht zu verantworten — die Freigabe ist eine bewusste
+ *    Entscheidung, keine Nebenwirkung eines Neustarts.
+ *  - **Alarme.** Bewertet Warteschlange, Datenschutzstand und
+ *    Umgebungsisolation und gibt die Befunde an die Senken. Standardsenke
+ *    ist das Log; ein echtes Monitoring haengt AP28 daran.
+ */
+function buildMaintenanceJobs() {
+  const retentionApply = process.env.LEAD_RETENTION_APPLY === '1'
+  const retentionEveryMs = Number(process.env.LEAD_RETENTION_INTERVAL_MS ?? 6 * 60 * 60_000)
+  const alertEveryMs = Number(process.env.LEAD_ALERT_INTERVAL_MS ?? 5 * 60_000)
+  const alertSinks = [createLoggerAlertSink(console)]
+
+  const withRepository = (fn) => {
+    const db = openLeadDatabase()
+    try {
+      return fn(
+        new LeadRepository(db, {
+          retentionPolicy: retentionDaysFromPolicy(resolveRetentionPolicy(process.env)),
+        }),
+      )
+    } finally {
+      db.close()
+    }
+  }
+
+  return [
+    {
+      name: 'retention',
+      everyMs: retentionEveryMs,
+      run: () =>
+        withRepository((repository) => {
+          const summary = runRetention({
+            repository,
+            storageRoot: process.env.SUPPORT_UPLOAD_DIR || null,
+            apply: retentionApply,
+            logger: {
+              info: (event, fields) => console.log(`[lead-retention] ${event}`, fields),
+              warn: (event, fields) => console.warn(`[lead-retention] ${event}`, fields),
+            },
+          })
+          if (summary.due > 0) {
+            console.log(
+              `[lead-retention] due=${summary.due} applied=${summary.applied} ` +
+                `anonymized=${summary.anonymized.length} deferred=${summary.deferred.length}`,
+            )
+          }
+          return summary
+        }),
+    },
+    {
+      name: 'alerts',
+      everyMs: alertEveryMs,
+      run: () =>
+        withRepository((repository) => {
+          const alerts = evaluateAlerts({
+            queueMetrics: repository.collectQueueMetrics(),
+            privacyMetrics: repository.collectPrivacyMetrics(),
+            isolation: describeRuntimeIsolation(process.env),
+          })
+          return dispatchAlerts(alerts, { sinks: alertSinks, logger: console })
+        }),
+    },
+  ]
+}
+
+function startLeadDispatcher() {
+  if (process.env.LEAD_DISPATCHER_DISABLED === '1') {
+    console.log('[lead-dispatcher] disabled by LEAD_DISPATCHER_DISABLED=1')
+    return null
+  }
+  const intervalMs = Number(process.env.LEAD_DISPATCHER_INTERVAL_MS ?? 30_000)
+  const handles = [
+    { name: 'contact', service: () => getRuntimeContactLeadService({ mailer: sgMail }) },
+    { name: 'support', service: () => getRuntimeSupportCaseService({ mailer: sgMail }) },
+    { name: 'consumer_order', service: () => getRuntimeConsumerOrderService({ mailer: sgMail }) },
+    {
+      name: 'epigenetics_inquiry',
+      service: () => getRuntimeEpigeneticsInquiryService({ mailer: sgMail }),
+    },
+    {
+      name: 'content_download',
+      service: () => getRuntimeContentDownloadService({ mailer: sgMail }),
+    },
+    {
+      name: 'roi_report',
+      service: () => getRuntimeRoiReportService({ mailer: sgMail, buildPdf: buildRoiPdf }),
+    },
+    { name: 'practice_order', service: () => getRuntimePracticeOrderService({ mailer: sgMail }) },
+  ].map(({ name, service }) => ({ name, processNext: () => service().processNext() }))
+
+  const dispatcher = new LeadDispatcher({
+    handles,
+    jobs: buildMaintenanceJobs(),
+    intervalMs,
+    logger: {
+      info() {},
+      warn: (event, fields) => console.warn(`[lead-dispatcher] ${event}`, fields),
+    },
+  }).start()
+  console.log(`[lead-dispatcher] running every ${intervalMs} ms for ${handles.length} journeys`)
+  return dispatcher
+}
+
+// AP26 PT26.1 — sichere Fehlersemantik fuer alles, was keine Route beantwortet.
+// Ohne NODE_ENV=production (so laeuft der Compose-Dienst) lieferte Express bei
+// kaputtem JSON oder zu grosser Nutzlast seine HTML-Fehlerseite MIT Stacktrace
+// und Dateipfaden, bei unbekanntem Pfad die Standardseite. Jetzt: JSON mit Code,
+// ohne Rohfehler; ins Log nur die Fehlerart.
+const SAFE_ERROR_CODES = {
+  'entity.parse.failed': 'INVALID_JSON',
+  'entity.too.large': 'PAYLOAD_TOO_LARGE',
+}
+app.use((_req, res) => res.status(404).json({ accepted: false, code: 'NOT_FOUND' }))
+// Vier Parameter: nur daran erkennt Express eine Fehler-Middleware.
+app.use((error, _req, res, next) => {
+  if (res.headersSent) return next(error)
+  const clientError = Number.isInteger(error?.status) && error.status >= 400 && error.status < 500
+  const status = clientError ? error.status : 500
+  const code = SAFE_ERROR_CODES[error?.type] || (clientError ? 'INVALID_REQUEST' : 'INTERNAL_ERROR')
+  if (!clientError) console.error('[api] unhandled error', { type: error?.type || error?.name })
+  return res.status(status).json({ accepted: false, code })
+})
+
 const PORT = process.env.PORT || 5000
 // Listen on 0.0.0.0 to ensure Docker accessibility.
 // Guard so importing this module for tests does not start a live server.
@@ -731,7 +744,16 @@ if (require.main === module) {
   app.listen(PORT, process.env.LISTEN_HOST || '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`)
   })
+  startLeadDispatcher()
 }
 
 // Exported for unit/endpoint tests (esc is the core HTML-escape XSS control).
-module.exports = { app, esc, ERROR_CODES, buildRoiPdf, resolveLeadAttribution }
+module.exports = {
+  app,
+  esc,
+  ERROR_CODES,
+  buildRoiPdf,
+  buildMaintenanceJobs,
+  resolveLeadAttribution,
+  startLeadDispatcher,
+}

@@ -27,6 +27,27 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-09-15 — AP27 PT27.6 · Seiten-/Zustands-Baselines (kein Vertragsbruch, kein Design-Delta)
+
+- **Ursache:** PT27.6 fuehrt `e2e/pt27.6-visual.spec.ts` ein — 21 **erstmalige** Baselines repraesentativer
+  Seiten und Zustaende. Keine bestehende Baseline wurde neu aufgenommen; die 22+6 Baselines aus PT05.5
+  bleiben unberuehrt.
+- **Produkt-/Design-Delta:** **keins.** Die Bilder halten den aktuellen Light-/Sales-Machine-Stand fest; es
+  wurde keine Art Direction eingefuehrt und keine Token-, Rollen- oder Komponentenaenderung vorgenommen.
+- **Screenshots (Desktop 1280×800):** `home`, `diagnostics-hub`, `service-detail`, `igloo-pro`,
+  `epigenetics-hub`, `musterbefund`, `article`, `resource-center`, `contact`, `support`, `legal-privacy`,
+  `consumer-spray`, `not-found` (404), `epigenetics-panel`, `resource-gate-open`, `diagnostics-megamenu-open`,
+  `search-dialog-open`, `cookie-banner`. **Mobil (390×844):** `home-mobile`, `navigation-open-mobile`,
+  `consumer-spray-mobile`.
+- **Plattform:** aufgenommen und zweimal ohne Update bestaetigt im gepinnten Image
+  `mcr.microsoft.com/playwright:v1.57.0-noble` (`npm run test:visual:docker`), Pixel-Toleranz 0.
+- **Beim Review sichtbare Ist-Befunde (festgehalten, nicht korrigiert — keine Aenderung ohne eigenen Auftrag):**
+  PT276-F1 das geoeffnete Diagnostik-Mega-Menue ragt bei 1280 px links aus dem Viewport (erste Spalte
+  abgeschnitten); PT276-F2 der fixierte Header ueberdeckt auf der Startseite die Eyebrow-Zeile des Hero;
+  PT276-F3 der geoeffnete Download-Gate-Zustand laesst die rechte Rasterspalte leer. Wird einer davon
+  behoben, ist die zugehoerige Baseline mit eigenem Eintrag hier neu aufzunehmen.
+- **Reviewer:** Agent-Review der 21 Bilder im PT27.6-Lauf; fachliche Abnahme durch Design-Owner **offen**.
+
 ### 2026-08-25 — AP06 PT06.2 · Diagnostik-Mega-Menü (kein Vertragsbruch)
 
 - **Keine** Änderung an Tokens, `.t-*`-Rollen oder Komponenten-Exporten — das Gate bleibt grün.

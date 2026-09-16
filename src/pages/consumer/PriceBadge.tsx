@@ -19,7 +19,15 @@
  *   - The Mask variant carries NO € figure — just product facts.
  */
 
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react'
 import { createPortal } from 'react-dom'
 import { Info } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -27,6 +35,10 @@ import type { TFunction } from 'i18next'
 
 import type { ConsumerOrderProduct } from '../../api/consumerOrder'
 import { formatCurrency } from '../../lib/localeFormat'
+
+const subscribeNever = () => () => {}
+const clientSnapshot = () => true
+const serverSnapshot = () => false
 
 // =============================================================================
 // PER-PRODUCT COPY
@@ -154,12 +166,11 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState<PopoverPosition | null>(null)
-  const [mounted, setMounted] = useState(false)
+  // Portal erst nach Hydration: Server-Snapshot false, Client-Snapshot true.
+  const mounted = useSyncExternalStore(subscribeNever, clientSnapshot, serverSnapshot)
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const popoverRef = useRef<HTMLDivElement | null>(null)
   const popoverId = useId()
-
-  useEffect(() => setMounted(true), [])
 
   const measure = useCallback(() => {
     if (triggerRef.current) setPos(computePosition(triggerRef.current))
@@ -229,7 +240,10 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
             onMouseEnter={() => setOpen(true)}
             onFocus={() => setOpen(true)}
             aria-expanded={open}
-            aria-controls={popoverId}
+            /* AP24 PT24.1: Das Popover haengt in einem Portal und existiert
+               nur im geoeffneten Zustand — `aria-controls` verwies sonst auf
+               eine Id, die im Dokument nicht vorkommt. */
+            aria-controls={open ? popoverId : undefined}
             aria-label={open ? copy.ariaHide : copy.ariaShow}
             className="group inline-flex items-baseline gap-1 rounded-sm align-baseline text-gray-700 transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
@@ -244,7 +258,17 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
             <div
               ref={popoverRef}
               id={popoverId}
-              role="dialog"
+              /* AP24 PT24.2: Hier stand `role="dialog"`. Ein Dialog verspricht
+                 Fokusfuehrung, Fokusfalle und einen inerten Hintergrund — nichts
+                 davon existiert hier, und nichts davon soll hier existieren:
+                 die Flaeche traegt reinen Erklaertext OHNE ein einziges
+                 Bedienelement und oeffnet bereits bei Hover und Fokus (WCAG
+                 1.4.13, damit die Maus-Information auch per Tastatur kommt).
+                 Was bleibt, ist ein Aufklapper: der Knopf traegt `aria-expanded`
+                 und im offenen Zustand `aria-controls`, Escape schliesst und
+                 gibt den Fokus zurueck. `role="note"` benennt die Flaeche als
+                 Randbemerkung, ohne Verhalten zu behaupten. */
+              role="note"
               aria-label={copy.dialogLabel}
               onMouseLeave={() => setOpen(false)}
               style={{

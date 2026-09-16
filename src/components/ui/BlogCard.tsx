@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import type { ArticleImageAsset } from '../../assets/articleImages'
+import { ResponsivePicture } from './ResponsivePicture'
 
 type BlogCardProps = {
   id: string
-  imageUrl?: string
+  image?: ArticleImageAsset
   to?: string
 }
 
-const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
+const BlogCard = ({ id, image, to }: BlogCardProps) => {
   const { t } = useTranslation('articles')
   const title = t(`articles:${id}.title`)
   const excerpt = t(`articles:${id}.excerpt`)
@@ -15,15 +17,17 @@ const BlogCard = ({ id, imageUrl, to }: BlogCardProps) => {
   return (
     <article className="glass-panel flex h-full flex-col overflow-hidden rounded-xl transition duration-300 hover:-translate-y-1 hover:bg-white/80">
       <div className="relative h-64 w-full bg-gray-100 overflow-hidden">
-        {imageUrl && (
+        {image && (
           <>
-            <img
-              src={imageUrl}
-              alt={title}
-              width={400}
-              height={256}
+            {/* AP24 PT24.5: leeres `alt` — das Bild illustriert die Ueberschrift darunter.
+                AP25 PT25.3: responsive AVIF/WebP statt einer 1024–1200-px-Datei fuer eine
+                ~380 px breite Karte; unter dem Falz, daher lazy. Die Karte hat eine feste
+                Hoehe (h-64), `object-cover` fuellt sie wie zuvor. */}
+            <ResponsivePicture
+              image={image}
+              alt=""
+              sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
             />
             <div className="absolute inset-0 bg-brand-deep/20 mix-blend-overlay" />
           </>

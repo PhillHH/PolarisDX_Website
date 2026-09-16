@@ -71,14 +71,22 @@ export interface ConsumerProduct {
   readonly slug: string
   /**
    * ID, die der Bestellpfad sendet. Sie ist serverseitig in
-   * `CONSUMER_PRODUCT_LABELS` (server/server.js) allowlistet — der Client
+   * `PRODUCT_ALLOWLIST` (server/consumer-order.js) allowlistet — der Client
    * schickt also eine feste Kennung, keinen freien Produktnamen.
    *
-   * Sie weicht bewusst vom Route-Slug ab (`spray` vs. `vitamin-d3-spray`);
-   * ein Angleich wuerde die Server-Allowlist aendern und gehoert damit zum
-   * Bestell-Backend (PT21.4/PT21.5), nicht hierher.
+   * Sie weicht bewusst vom Route-Slug ab (`spray` vs. `vitamin-d3-spray`).
+   * PT21.5 hat das entschieden statt vereinheitlicht: die Server-Allowlist
+   * in `server/consumer-order.js` fuehrt den Route-Slug als kanonische
+   * Identitaet und akzeptiert diese kurze Bestell-ID als gebundenen Alias.
+   * Beides sind feste Kennungen — keine davon ist ein freier Name.
    */
   readonly orderId: ConsumerProductKey
+  /**
+   * Das reale Gebinde, das bestellt wird (AP21 PT21.5). Der Server
+   * allowlistet denselben Wert erneut; ein unbekannter Wert wird abgelehnt
+   * statt still auf eine Standardvariante zu fallen.
+   */
+  readonly orderVariant: string
   /** i18n-Schluessel des echten Produktnamens (nicht der Marketing-Headline). */
   readonly nameKey: string
   /** i18n-Schluessel der Marketing-Headline (H1). */
@@ -117,6 +125,7 @@ export interface ConsumerBundleComponent {
 export const SPRAY_PRODUCT: ConsumerProduct = {
   slug: 'vitamin-d3-spray',
   orderId: 'spray',
+  orderVariant: 'pack-12',
   nameKey: 'spray.copy_049',
   headlineKey: 'spray.copy_050',
   seoTitleKey: 'spray.copy_046',
@@ -192,6 +201,7 @@ export const SPRAY_PRODUCT: ConsumerProduct = {
 export const MASKS_PRODUCT: ConsumerProduct = {
   slug: 'hydrating-masks',
   orderId: 'masks',
+  orderVariant: 'box-5',
   // `copy_034` ist der Produktname, `copy_035` die H1-Marketingzeile. Das
   // Product-Schema nannte bisher die Marketingzeile — derselbe Befund wie beim
   // Spray, hier mit anderen Schluesseln.
@@ -238,6 +248,7 @@ export const MASKS_PRODUCT: ConsumerProduct = {
 export const DUO_PRODUCT: ConsumerProduct = {
   slug: 'inside-out-duo',
   orderId: 'duo',
+  orderVariant: 'set',
   // Zum dritten Mal dasselbe Muster: `copy_019` ist die H1-Marketingzeile
   // ("Unterstuetzung von innen. Feuchtigkeitsspendende Pflege von aussen."),
   // `copy_018` der Produktname.

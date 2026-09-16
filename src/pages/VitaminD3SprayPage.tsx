@@ -28,7 +28,8 @@ import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
 import PraxisOrderForm from '../components/sections/PraxisOrderForm'
-import sprayImage from '../assets/VITAMIND_D3_SPRAY.jpg'
+import { VITAMIN_D3_SPRAY_IMAGE } from '../assets/articleImages'
+import { ResponsivePicture } from '../components/ui/ResponsivePicture'
 // AP19 PT19.5: dieselbe Datei, dieselbe URL wie im Resource Center — und
 // beide kommen aus DEMSELBEN Inventar. Vorher stand hier ein hartverdrahteter
 // Pfad neben einem eigenen Katalog; eine Umklassifizierung der Ressource waere
@@ -188,12 +189,16 @@ const VitaminD3SprayPage = () => {
                     </div>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-white p-7">
-                    <img
-                      src={sprayImage}
+                    {/* AP25 PT25.3: 212 × 320 px auf allen Viewports, kein LCP-Element (bei 390 px unter dem
+                        Falz) — lazy, responsive. `h-80` statt `max-h-80`: mit `w-auto` und `height: auto` gab es
+                        keine feste Dimension, das Bild war bis zum Laden 0 × 0 px und verschob die Nachbarkarte
+                        (gemessen CLS 0,0083 bei 1440 px). Das Bild war nativ immer hoeher als 320 px, die
+                        dargestellte Groesse bleibt identisch. */}
+                    <ResponsivePicture
+                      image={VITAMIN_D3_SPRAY_IMAGE}
                       alt="PolarisDX Vitamin D3+K2 Sublingual Spray"
-                      width={380}
-                      height={500}
-                      className="mx-auto max-h-80 w-auto object-contain"
+                      sizes="212px"
+                      className="mx-auto h-80 w-auto object-contain"
                     />
                   </div>
                 </section>
@@ -327,13 +332,25 @@ const VitaminD3SprayPage = () => {
                     {t('vitd3spray:pricing.title')}
                   </h2>
                   <div className="overflow-x-auto rounded-xl border border-slate-200">
+                    {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
+                        Accessibility-Tree (bisher stand sie namenlos im
+                        Dokument), `scope` bindet jede Datenzelle an ihre
+                        Kopfzelle. Text ist die bereits uebersetzte
+                        Abschnittsueberschrift — keine neue Uebersetzung. */}
                     <table className="w-full text-sm">
+                      <caption className="sr-only">{t('vitd3spray:pricing.title')}</caption>
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-5 py-3.5 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-5 py-3.5 text-left font-semibold text-heading"
+                          >
                             {t('vitd3spray:pricing.header_quantity')}
                           </th>
-                          <th className="px-5 py-3.5 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-5 py-3.5 text-left font-semibold text-heading"
+                          >
                             {t('vitd3spray:pricing.header_price')}
                           </th>
                         </tr>
@@ -380,8 +397,7 @@ const VitaminD3SprayPage = () => {
                 {/* Order Form (finale Conversion) */}
                 <div className="mb-12">
                   <PraxisOrderForm
-                    area="Vitamin D3+K2 Spray BESTELLUNG"
-                    orderName="Vitamin D3+K2 Spray"
+                    product="vitamin-d3-k2-spray"
                     messageNoneLabel={t('vitd3spray:order_message_none')}
                     defaultQuantity="12"
                     quantityOptions={quantityOptions}
@@ -406,6 +422,8 @@ const VitaminD3SprayPage = () => {
                       submitNote: t('vitd3spray:order.submit_note'),
                       reassurance: t('vitd3spray:order.reassurance'),
                       errorText: t('vitd3spray:order.error_text'),
+
+                      errorRetryableText: t('vitd3spray:order.error_retryable'),
                       successTitle: t('vitd3spray:order.success_title'),
                       successText: t('vitd3spray:order.success_text'),
                     }}
@@ -430,13 +448,14 @@ const VitaminD3SprayPage = () => {
                 </section>
 
                 {/* Disclaimer */}
-                <p className="text-xs text-gray-400">{t('vitd3spray:disclaimer')}</p>
+                {/* AP24 PT24.4: `gray-400` 2,54:1 auf Weiss -> `ui.field` 4,83:1. */}
+                <p className="text-xs text-ui-field">{t('vitd3spray:disclaimer')}</p>
 
                 {/* Back Link */}
                 <div className="mt-8 border-t border-gray-200 pt-8">
                   <Link
                     to="/"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent-strong"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-accent-strong transition-colors hover:text-brand-deep"
                   >
                     <ArrowRight className="h-4 w-4 rotate-180" />
                     {t('vitd3spray:back')}
@@ -463,7 +482,7 @@ const VitaminD3SprayPage = () => {
                   </div>
                   <a
                     href="tel:+4915159878599"
-                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
                   >
                     <Phone className="h-4 w-4" />
                     {t('vitd3spray:contact.phone')}

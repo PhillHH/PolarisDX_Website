@@ -101,7 +101,7 @@ interface MusterbefundPageProps {
    * Der unbekannte Slug des Auffangpfads liefert bewusst keinen Inhalt und
    * landet dadurch im HTTP-404-Zweig, ohne alle Befunddateien zu importieren.
    */
-  befunde?: BefundSprachen
+  befunde?: Partial<BefundSprachen>
 }
 
 const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {}) => {

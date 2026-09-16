@@ -136,19 +136,31 @@ export const SupportForm = () => {
       />
 
       {/* File Upload */}
+      {/* AP24 PT24.1: Das sichtbare Label zeigte per `htmlFor` auf das
+          Datei-Input — das ist `display:none` und nie fokussierbar. Bedient
+          wird der Knopf daneben, und der hiess nur "Datei auswaehlen": worum
+          es ueberhaupt geht, stand ausserhalb seines Namens. Label und
+          Dateiname haengen jetzt per `aria-describedby` am echten
+          Bedienelement, und der Dateiname wird beim Wechsel angesagt statt
+          nur seine Farbe zu behalten. */}
       <div className="space-y-1">
-        <label htmlFor="attachment" className="block text-sm font-medium text-gray-700">
+        <label
+          id="attachment-label"
+          htmlFor="attachment"
+          className="block text-sm font-medium text-gray-700"
+        >
           {t('support.form.attachment')}
         </label>
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
+            aria-describedby="attachment-label attachment-filename"
             className="inline-flex items-center rounded-md border border-ui-field bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
           >
             {t('support.form.attachment_button')}
           </button>
-          <span className="text-sm text-gray-500">
+          <span id="attachment-filename" role="status" className="text-sm text-gray-500">
             {fileName || t('support.form.attachment_none')}
           </span>
           <input
@@ -188,7 +200,7 @@ export const SupportForm = () => {
             name="consent"
             type="checkbox"
             required
-            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
+            className="mt-0.5 h-4 w-4 rounded border-ui-field text-accent focus:ring-accent"
           />
           <label htmlFor="consent" className="text-sm leading-relaxed text-gray-600">
             {t('support.form.consent')}
@@ -203,7 +215,9 @@ export const SupportForm = () => {
           >
             {isSubmitting ? t('support.form.submitting') : t('support.form.submit')}
           </button>
-          <p className="text-xs text-gray-400">{t('support.form.microcopy')}</p>
+          {/* AP24 PT24.4: `gray-400` liegt auf Weiss bei 2,54:1. `ui.field`
+              ist das Token fuer Hilfs- und Platzhaltertext (4,83:1). */}
+          <p className="text-xs text-ui-field">{t('support.form.microcopy')}</p>
         </div>
       </div>
     </form>

@@ -585,3 +585,612 @@ Bestell-ID vs. Route-Slug entscheiden (`spray`/`masks`/`duo` gegen `vitamin-d3-s
 
 **Drift-Signale:** Änderungen an `products.ts`, `CONSUMER_PRODUCT_LABELS`,
 `server/lead-foundation/**` oder `check-seo.ts`.
+
+---
+
+## 12. Delta PT21.5 — Consumer Ordering (2026-09-08)
+
+### 12.1 Ausgangsbefund
+
+Der Handoff aus PT21.1 §4 (`CO-01`) war unverändert gültig und wurde am Code
+nachgemessen: `POST /api/consumer-order` war ein **Legacy-Mailendpunkt**. Ohne
+Persistenz, ohne Idempotency, ohne Retry, ohne Rate Limit. Ein SendGrid-Fehler
+hat die Bestellanfrage **ersatzlos verloren** — es gab keine zweite Kopie.
+`quantity`/`quantityLabel` kamen als Freitext aus dem Client und landeten
+ungeprüft in der Mail. Die Journey `consumer_order` stand seit AP19 in
+`LEAD_JOURNEYS` und hatte in `crm.js` das Ziel `consumer`; der Endpunkt hat
+beides nicht benutzt.
+
+### 12.2 Was gebaut wurde
+
+`server/consumer-order.js` — ein Journey-Slice auf der geteilten
+Lead-Foundation, gebaut nach dem Muster von `contact-lead.js` und
+`support-case.js`. **Keine zweite Lead-Plattform**; AP22 bleibt Owner der
+Cross-Journey-Vereinheitlichung.
+
+Reihenfolge, gemessen und nicht nur behauptet:
+
+```
+validieren → Produkt/Variante/Menge allowlisten → Processing-Consent
+→ PERSISTIEREN (Lead + Outbox, eine Transaktion) → CRM-Handoff → Status
+```
+
+| Befund   | Sachverhalt                                                    | Behebung                                                                 |
+| -------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `CO-01a` | keine Persistenz — Bestellung ging bei Providerfehler verloren | `LeadRepository.createLead`, Journey `consumer_order`, Kanal `CRM`       |
+| `CO-01b` | keine Idempotency                                              | `Idempotency-Key` Pflicht; Replay → derselbe Lead, Konflikt → 409        |
+| `CO-01c` | kein Retry                                                     | `lead_outbox` + `LeadHandoffWorker`, 5xx/Timeout retryfähig              |
+| `CO-01d` | **kein Rate Limit** — der Endpunkt lief völlig ungebremst      | `formLimiter` (5 / 15 min / IP), wie Contact und Support                 |
+| `CO-01e` | keine Mengen-Allowlist                                         | 1–3 oder ausdrücklicher Beratungsfall; alles andere 400                  |
+| `CO-01f` | Processing- und Marketing-Consent vermischt                    | getrennt, mit Zeitstempel als Nachweis, Version `consumer-order-2026-09` |
+| `CO-01g` | Tracking schrieb ungefragt in `window.dataLayer`               | `pushConsumerEvent` mit Consent-Gate; ohne Einwilligung 0 Einträge       |
+
+### 12.3 Produkt-, Varianten- und Mengen-Allowlist
+
+`PRODUCT_ALLOWLIST` in `server/consumer-order.js` ist die einzige Autorität für
+Bestellidentitäten. Sie lag vorher als `CONSUMER_PRODUCT_LABELS` in
+`server/server.js`; die vier Drift-Tests in `products.test.ts` zeigen jetzt auf
+die neue Stelle und requiren sie, statt Quelltext zu greppen.
+
+**Entscheidung zur offenen Frage Bestell-ID vs. Route-Slug (Handoff §11.9):**
+Der **Route-Slug ist kanonisch** (`vitamin-d3-spray`, `hydrating-masks`,
+`inside-out-duo`) — er ist die öffentliche, in AP21 festgeschriebene
+Produktidentität. Die kurze Bestell-ID (`spray`/`masks`/`duo`) bleibt als
+**gebundener Alias** zugelassen und wird serverseitig auf den Slug normalisiert.
+Beides sind feste Kennungen; keine davon ist ein freier Name. Der Client sendet
+weiter die kurze ID, wodurch die drei bewiesenen Produkt-Suiten unverändert
+messen, was sie vorher gemessen haben.
+
+| Produkt (kanonisch) | Alias   | Variante  | Menge                           |
+| ------------------- | ------- | --------- | ------------------------------- |
+| `vitamin-d3-spray`  | `spray` | `pack-12` | 1–3 oder `MORE` (Beratungsfall) |
+| `hydrating-masks`   | `masks` | `box-5`   | 1–3 oder `MORE`                 |
+| `inside-out-duo`    | `duo`   | `set`     | 1–3 oder `MORE`                 |
+
+Die Varianten kommen aus dem Produktmodell (`orderVariant`) und spiegeln die
+Bundle-Wahrheit aus PT21.4: `set` ist ein Duo-Set, **nicht** der 12er-Pack.
+Eine fremde Variante (`spray` + `box-5`) wird **abgelehnt**, nicht still auf die
+Standardvariante gefaltet. Der Beratungsfall behauptet keine Menge — er
+persistiert `quantity: 0` mit `quantityMode: 'ADVISE'`.
+
+### 12.4 Datenminimierung
+
+Der Lead trägt exakt vierzehn Felder; alles Übrige aus dem Request fällt weg.
+Ein mitgeschickter `to`-Wert landet nirgends — die Empfänger sind serverseitig
+fest verdrahtet, das Formular ist kein Relay. Alle Textfelder sind längenbegrenzt.
+
+### 12.5 Wahrheit im Status
+
+Das hier ist eine **Bestellanfrage**, kein Kaufvertrag. Die Antwort enthält kein
+`purchased`/`paid`, die Erfolgsansicht nennt die Vorgangsnummer und den
+ausdrücklichen Hinweis `order_form.success_not_purchase` ×10. Ohne
+konfigurierten Provider meldet der Status ehrlich `NO_PROVIDER_CONFIGURED` —
+die Bestellanfrage ist trotzdem dauerhaft gespeichert. Ein Provider-Timeout wird
+als `PROVIDER_RESULT_UNKNOWN` markiert und **nicht blind nachgespielt**.
+
+### 12.6 Vorgangsnummer
+
+`PDX-XXXXXXXX`, deterministisch als `sha256('consumer_order:' + key)[0..8]`.
+Ein Replay nennt dieselbe Nummer, ohne zweiten Schreibvorgang.
+
+### 12.7 Consent und Tracking
+
+Verarbeitungs-Consent ist Pflicht (mit Zeitstempel), Marketing-Consent ist eine
+zweite, optionale Checkbox — eine Ablehnung blockiert die Bestellung nicht.
+Eine **Analytics-Einwilligung ist an keiner Stelle Voraussetzung**: der
+Bestellpfad enthält nachweislich kein `dataLayer`, `gtag`, `analytics_storage`
+oder `hasAnalyticsConsent` (Test prüft den Quelltext). Umgekehrt läuft jedes
+Consumer-Analytics-Event über `pushConsumerEvent` und passiert nur mit
+Einwilligung — kein Buffering, kein Nachsenden nach späterem Opt-in.
+Gemessen: Bestellung ohne jede Consent-Entscheidung geht durch, dabei
+**0 Provider-Requests und 0 dataLayer-Einträge**.
+
+### 12.8 Foundation-Delta
+
+`normalizeContext` um vier journey-neutrale, streng gebounded Felder erweitert:
+`reference`, `productId`, `variant`, `quantity`. Für alle anderen Journeys
+bleiben sie leer bzw. 0. Keine Änderung an Repository-Semantik, Worker, Router
+oder Migrationen. `MAIL_COPY` um den Abschnitt `consumerOrder` ×10 (13 Schlüssel)
+erweitert; die Bestätigungsmail geht in der Sprache der Bestellung raus.
+
+### 12.9 Nachweise
+
+`npx vitest run server/consumer-order.test.js` → **23/23**: alle drei Familien
+unter Slug und Alias · unbekanntes Produkt, fremde Variante, zehn ungültige
+Mengen · Datenminimierung samt Relay-Versuch · Consent getrennt · Persistenz vor
+Handoff (der **Datenbankzustand im Moment des Providerkontakts** wird gemessen)
+· Double-Click/Browser-Retry/API-Replay/Worker-Replay → ein Vorgang, eine
+Zustellung · 409-Konflikt · deterministische Vorgangsnummer · transienter
+Providerfehler → Retry → zugestellt · Timeout → `PROVIDER_RESULT_UNKNOWN` ·
+`NO_PROVIDER_CONFIGURED` ehrlich · Team- und Bestätigungsmail mit fixen
+Empfängern und cs-Copy.
+
+`npx vitest run server/consumer-order.endpoint.test.js` → **5/5**: 202 +
+persistierter Lead mit kanonischem Slug · 400 für vier Ablehnungsgründe · 409 ·
+Honeypot 200 ohne Persistenz · **429 pro IP**, fremde IP unberührt.
+
+`npx playwright test --config e2e/pt21.5.config.ts` → **11/11**: allowlistete
+Nutzlast für alle drei Familien (kein `quantityLabel` mehr) · Idempotency-Key
+als Header · Doppelklick → genau eine Anfrage · **Bestellung ohne Consent läuft
+durch, 0 Provider-Requests, 0 Events** · Erfolgsmeldung mit Vorgangsnummer und
+ohne Kaufbehauptung · retryfähiger vs. terminaler Fehler getrennt · kein Request
+ohne Verarbeitungs-Consent · Systemcopy ×10 ohne DE-Fallback · Formular ×10 ·
+Axe serious/critical 0.
+
+**Mutationsproben** (Guard entfernt → Test fällt): Mengengrenzen → 1 Fehlschlag ·
+Varianten-Allowlist → 1 · `formLimiter` → 1 · Consent-Gate im Tracking → 1 ·
+Adapteraufruf vor der Persistenz → 1. Die erste Fassung der
+Persistenz-Reihenfolge-Probe schlug **nicht** an; der Test überschrieb den
+erfassten Zustand beim zweiten, korrekten Providerlauf. Nach der Korrektur
+(nur der erste Kontakt zählt) greift er.
+
+Ohne Regression: Spray 8/8 · Masks 8/8 · Duo 8/8 · Inhaltstest 26/26 ·
+Server-/Node-Suiten 207/207 · `check:routes` · `check:i18n` · `check:seo` ·
+`check:colors` · `check:search-index` · `check:shell-i18n` ·
+`check:lead-foundation` 13/13 · `typecheck` · ESLint · Prettier.
+**Kein voller Produktionsbuild** (Fast-Delta V2 §7).
+
+### 12.10 Offene, ownergebundene Punkte
+
+| ID      | Sachverhalt                                                                                                                                                                   | Owner       |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `CO-03` | Kein Hintergrund-Worker: die Outbox wird nur beim nächsten eingehenden Request weitergedreht. Ein `RETRY_PENDING` bleibt liegen, bis jemand bestellt. Gilt für alle Journeys. | AP22        |
+| `CO-04` | Keine Retention-Frist für Bestell-Leads (Support hat 90 Tage als Metadaten). Der Löschjob fehlt journeyübergreifend.                                                          | AP22        |
+| `CO-05` | Der CRM-Adapter ist eine Team-Mail, kein echtes CRM. Ehrlich als `consumer`-Route abgebildet; ein echter Adapter ersetzt ihn ohne Änderung am Journey-Slice.                  | AP22        |
+| `CO-06` | Die Lieferadresse bleibt optional erhoben. Sie ist für eine Bestellanfrage nicht zwingend — eine Entscheidung darüber ist Fachfrage, nicht Technik.                           | Datenschutz |
+
+### 12.11 Handoff PT21.6 — breiter SEO-Gate
+
+**Bewiesen, nicht erneut erheben:** Route-Baseline (§1) · Shell (§2) ·
+Produktmodell samt Preis-, Provenienz- und Bundle-Semantik (§9.3, §11.3, §11.4) ·
+die drei Produkt-Suiten · die vollständige Bestellstrecke (§12).
+
+**PT21.6-SEO-Deltas aus PT21.5:** keine. Es wurden keine Routen, kein
+`SEOHead`, keine Meta-Daten, keine Sitemap-Einträge und keine strukturierten
+Daten verändert. `check:seo` (G3: Consumer 3×10) läuft unverändert grün. Neue
+`order_form.*`-Schlüssel sind Formularcopy und erscheinen in keinem Meta-Feld.
+
+**Weiterhin offen für PT21.6:** `DU-06` (Preisschreibweise en/pt/nl,
+Copy-Owner) · `MK-06`/`MK-07` · `SP-05`–`SP-09`.
+
+**Drift-Signale:** Änderungen an `server/consumer-order.js`,
+`server/lead-foundation/**`, `products.ts` oder `scripts/check-seo.ts`.
+
+---
+
+## 13. Delta PT21.6 — breiter Consumer-SEO-Gate (2026-09-08)
+
+### 13.1 Was dieser Task ist — und was er nicht ist
+
+PT21.6 ist der **Messtask**, nicht der Umbautask. Die SEO-Architektur der
+Consumer-Strecke stammt aus PT21.1 und war laut §5 bereits korrekt. Fast-Delta
+V2 §9 verlangt hier den breiten 30-Routen-Gate und verbietet ausdrücklich,
+die Architektur ohne echte Regression neu zu bauen.
+
+**Ergebnis: es gab nichts zu reparieren.** PT21.6 hat deshalb **keine einzige
+Produktivdatei verändert** — nur zwei neue Testdateien, die den Zustand breit
+messen und dauerhaft festnageln. Alle 30 Routen wurden einzeln geprüft, keine
+Locale aus einer anderen hochgerechnet.
+
+### 13.2 Die 30-Routen-Matrix — gemessen an der rohen Serverantwort
+
+Gemessen wurde das, was ein Crawler **ohne JavaScript** im ersten Byte sieht,
+gegen einen vollständigen Produktionsbuild (Client + SSR).
+
+| Prüfung              | Ergebnis                                                                                         |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| HTTP                 | **30/30 = 200**, direkt, ohne Weiterleitung                                                      |
+| Basic Auth / Preview | 0 — kein `WWW-Authenticate`, kein `X-Robots-Tag: noindex`                                        |
+| Redirects            | `/consumer/{slug}` → **301 → `/de/...`**; 0/30 gültige Locales umgeleitet                        |
+| EN-Zwangsredirect    | **0** — keine Locale wird nach EN gedrängt                                                       |
+| Indexierbarkeit      | **30/30** `index, follow` in `robots` **und** `googlebot`                                        |
+| Registry-Abgleich    | **30/30** — Registry `INDEX_FOLLOW` deckt sich mit dem Ausgelieferten                            |
+| Canonical            | **30/30** genau ein Self-Canonical; `og:url` identisch                                           |
+| hreflang             | **30/30** je zehn Alternativen, reziprok                                                         |
+| x-default            | **30/30** auf `de`                                                                               |
+| SSR-Head             | **30/30** Title, Description, Canonical, hreflang, OG, JSON-LD und H1 bereits im ersten Response |
+| Sitemap              | 390 URLs gesamt, davon **exakt 30 Consumer**, dublettenfrei, jede mit 200                        |
+| robots.txt           | 200, **kein** `Disallow` auf `/consumer`                                                         |
+
+### 13.3 Social
+
+Pro Produktfamilie **genau ein** eigenes OG-Bild, die drei sind verschieden,
+alle absolut und mit 200 erreichbar, Maße gesetzt. `og:type=product`,
+`twitter:card=summary_large_image`, `twitter:title` deckungsgleich mit
+`og:title`. `og:locale` steht korrekt im OpenGraph-Format `sprache_TERRITORIUM`
+(`de_DE`, `en_GB`, `cs_CZ` …) — meine erste Prüfung erwartete fälschlich den
+blossen Sprachcode und war der Fehler, nicht die Seite.
+
+**Keine falsche Locale-Behauptung:** die Bildpfade enthalten kein Sprachsegment.
+Das Bild ist sprachneutral und gibt sich auch nicht als lokalisierte Fassung
+aus; lokalisiert ist der `og:image:alt`, und der ist es in allen zehn Sprachen.
+
+### 13.4 Strukturierte Daten
+
+30/30 tragen Product + BreadcrumbList + FAQPage, `Product.url` gleich Canonical.
+Kein `offers`, `price`, `priceCurrency`, `availability`, `aggregateRating`,
+`review`, `gtin`, `sku` oder `mpn` — auch nicht verschachtelt.
+
+Bemerkenswert und im Mutationstest sichtbar geworden: `createProductSchema` in
+`structuredData.ts` kann diese Felder **strukturell gar nicht** erzeugen; es gibt
+keinen Codepfad dorthin. Der Versuch, an der Aufrufstelle ein `offers` zu
+injizieren, blieb wirkungslos. Der Test ist damit eine Regressionssperre, die
+eigentliche Garantie liegt im zentralen Builder.
+
+### 13.5 Interne Verlinkung — der ehrliche Befund
+
+Innerhalb des Consumer-Clusters ist die Verlinkung vollständig und sauber:
+
+```
+vitamin-d3-spray  ←  hydrating-masks, inside-out-duo
+hydrating-masks   ←  inside-out-duo
+inside-out-duo    ←  vitamin-d3-spray, hydrating-masks
+```
+
+Jedes Produkt hat in **jeder** der zehn Locales mindestens einen eingehenden
+Link. Alle Links tragen das Sprachpräfix, sind also **keine Redirect-Quellen**.
+270 distinkte interne Links über alle 30 Seiten geprüft: **0 tot, 0 umgeleitet**.
+
+**Was fehlt, und das steht hier ausdrücklich:** von den 36 nicht-Consumer-Seiten
+der DE-Sitemap verlinkt **keine einzige** auf die Consumer-Strecke. Der Cluster
+ist intern gut vernetzt, aber vom übrigen Web-Auftritt aus nur über die Sitemap
+erreichbar. Das ist gemessen (`0/36`), nicht geschätzt.
+
+Ich habe das **nicht behoben**, und zwar aus einem Grund, nicht aus Bequemlichkeit:
+die AP21-Regeln schliessen beide dafür verfügbaren Mechanismen namentlich aus —
+`CONSUMER_HUB = NOT_REQUIRED` und „Hauptmenü-Aufnahme ist kein künstliches DoD".
+Einen Einstiegspunkt zu erfinden wäre eine IA-Entscheidung, die dieser Task nicht
+treffen darf. Die PT21.6-Akzeptanz („All 3 products have deliberate canonical
+inlinks") ist erfüllt; die Sichtbarkeitsfrage ist als `SEO-01` owner-gebunden.
+
+### 13.6 Nachweise
+
+`npx playwright test --config e2e/pt21.6.config.ts` → **12/12** gegen einen
+vollständigen Produktionsbuild (`dist/` unberührt, isolierter outDir).
+
+Repo-Guards, alle grün: `check:routes` (G1: 25 Familien, 43 Pfade, 39 Sitemap,
+30 Redirects) · `check:nav-targets` · `check:i18n` (G4: 15 Namespaces × 10) ·
+`check:seo` (G3: 39 Familien, 390 URLs, Consumer 3×10, Structured Data,
+robots/meta/host) · `check:internal-findability` · `check:search-index` ·
+`check:befunde-seo` (60/60).
+
+**Mutationsproben:** Registry-Route auf `NOINDEX_NOFOLLOW` und ein erfundenes
+`offers` im zentralen Schema-Builder → **7 der 12 Tests fallen**. Zwei eigene
+Fehler dabei gefunden und behoben:
+
+1. Die erste Fassung prüfte `<title>` ohne Attribute und meldete 30 Fehlbefunde —
+   react-helmet setzt `data-rh`. Mein Regex, nicht das Produkt.
+2. Die erste Mutationsprobe deckte eine **echte Lücke im Gate** auf: bei
+   Registry-`NOINDEX` kollabierte das Canonical, während die Seite weiter
+   `index, follow` auslieferte. Registry und gerenderter Head sind zwei Quellen,
+   und ich hatte nur die zweite gemessen. Der Abgleich beider ist jetzt ein
+   eigener Test — genau die Divergenz, die im Betrieb unsichtbar bliebe.
+   Ausserdem lief der Gate zunächst im `serial`-Modus und brach nach dem ersten
+   Fehlschlag ab; ein Gate muss alle Befunde zeigen, der Modus ist raus.
+
+### 13.7 Offene, ownergebundene Punkte
+
+| ID       | Sachverhalt                                                                                                                                                                                                                | Owner               |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `SEO-01` | 0 von 36 nicht-Consumer-Seiten verlinken in den Cluster. Kein SEO-Defekt der 30 Routen, aber ohne Einstiegspunkt aus dem Hauptauftritt. Hub und Menü sind per AP21-Regel ausgeschlossen — es braucht eine IA-Entscheidung. | IA / AP24           |
+| `SEO-02` | `searchEligible: false` — die Consumer-Strecke steht bewusst nicht im internen Suchindex. Bestandsentscheidung aus PT21.1, hier nur bestätigt.                                                                             | bestätigt, kein Fix |
+| `DU-06`  | Preisschreibweise en/pt/nl (`duo.copy_016` vs. `Intl`) — Copy-Frage, kein SEO-Befund                                                                                                                                       | Copy-Owner          |
+
+### 13.8 Handoff PT21.7 — Consumer Runtime / A11y / Performance / Ordering
+
+**Bewiesen, nicht erneut erheben:** die vollständige 30-Routen-SEO-Matrix (§13.2)
+· Social (§13.3) · strukturierte Daten (§13.4) · interne Verlinkung (§13.5) ·
+Route-Baseline (§1) · Shell (§2) · Produktmodell (§9.3, §11.3, §11.4) · die
+Bestellstrecke (§12).
+
+**PT21.7-Integrationsdeltas:** PT21.6 hat **keine Produktivdatei angefasst** —
+es gibt aus diesem Task kein Runtime-, A11y- oder Performance-Delta. PT21.7
+startet auf demselben Code, den PT21.5 hinterlassen hat.
+
+Für PT21.7 offen und noch nicht breit gemessen: Axe über alle 30 Routen (bisher
+je Produkt eine Locale plus das Bestellformular) · Überlauf über alle zehn
+Locales (bisher de/pl/cs) · Ladeverhalten der 30 Routen · die Bestellstrecke
+gegen ein **echtes** Backend statt gegen abgefangene Requests.
+
+**Drift-Signale:** Änderungen an `routeRegistry.ts`, `SEOHead.tsx`,
+`structuredData.ts`, `sitemap.ts` oder den Consumer-Seiten.
+
+---
+
+## 14. Delta PT21.7 — breiter Consumer-Integrationsgate (2026-09-08)
+
+### 14.1 Was hier zum ersten Mal gemessen wurde
+
+PT21.2–PT21.4 haben je Produkt eine Handvoll Locales geprüft, PT21.6 die SEO-Ebene
+aller 30 Routen. PT21.7 misst die **Laufzeit** breit: alle 30 Seiten im echten
+Browser gegen einen **vollen Produktionsbuild** (Client + SSR) und — zum ersten
+Mal — die Bestellstrecke gegen ein **echtes Backend** statt gegen abgefangene
+Requests. Genau das hatte der PT21.6-Handoff als offen vermerkt.
+
+### 14.2 Der Befund: die Produktbilder
+
+Die Consumer-Bilder kamen später ins Repository als der Rest und sind nie durch
+`optimize-images.mjs` gelaufen: 33 WebP-Geschwister im übrigen `src/assets`,
+**keines** im Consumer-Ordner. Gemessen, nicht vermutet:
+
+| Befund    | Messwert                                                                                              |
+| --------- | ----------------------------------------------------------------------------------------------------- |
+| `PERF-01` | Heros mit 1122px nativ in ein 358–570px breites Feld — **Faktor 2,0× bis 3,1×**                       |
+| `PERF-02` | Kein `srcset`, kein WebP, **keine `width`/`height`** (Layoutsprung), kein `fetchPriority` am LCP-Bild |
+
+Behoben durch `scripts/build-consumer-images.mjs` (drei WebP-Breiten je Bild,
+aus der gemessenen Darstellung abgeleitet), das Modul
+`src/content/consumer/images.ts` als einzige Bildquelle und die Komponente
+`ConsumerPicture` in `shell.tsx`. Die JPEG-Originale bleiben — als
+`<picture>`-Fallback **und** als `og:image`, weil Social-Crawler bei WebP
+unzuverlässig sind.
+
+**Ergebnis, mit derselben Methode vorher und nachher gemessen:**
+
+| Produkt | erster Bildschirm @390px | @1440px     | Überdimensionierung |
+| ------- | ------------------------ | ----------- | ------------------- |
+| Spray   | 332 KB → **36 KB**       | 332 → 76 KB | 3,1× → **1,1×**     |
+| Masken  | 206 KB → **24 KB**       | 206 → 42 KB | 2,7× → **0,9×**     |
+| Duo     | 279 KB → **29 KB**       | 279 → 56 KB | 2,7× → **1,0×**     |
+
+817 KB → 89 KB auf dem Handy über die drei Einstiegsseiten. Das Budget von
+120 KB je Produkt ist als Test festgeschrieben, nicht als Absichtserklärung.
+
+### 14.3 Was ausdrücklich NICHT gelöscht wurde
+
+`spray-hero-office-single.jpeg` (237 KB) wird von keiner Produktivdatei
+importiert. Es landet damit in **keinem Bundle** und kostet zur Laufzeit
+**null Bytes** — es ist Repository-Hygiene, kein Performanceproblem. Ich habe
+es deshalb nicht entfernt, sondern als `PERF-03` vermerkt: eine Datei zu
+löschen, die jemand anderes als Rohmaterial abgelegt hat, ist nicht die
+Entscheidung dieses Tasks.
+
+### 14.4 Die 3×10-Laufzeitmatrix
+
+| Prüfung             | Ergebnis                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Rendering           | 30/30 HTTP 200, genau eine H1 mit der freigegebenen Zeile                                                                            |
+| Kein DE-Leck        | 30/30 — in den neun anderen Sprachen ist die H1 nie die deutsche Fassung                                                             |
+| Rohe i18n-Schlüssel | 0 im sichtbaren Text                                                                                                                 |
+| Hydrierungsfehler   | 0 (React 418/421/423/425 und `pageerror` mitgeschnitten)                                                                             |
+| Recht/Consent       | 30/30 Datenschutz-Link und Consent-Banner vorhanden                                                                                  |
+| Sprachwechsel       | **30 Wechsel** über den echten Umschalter — jeder landet auf demselben Produkt in der Zielsprache, keiner auf EN oder der Startseite |
+
+### 14.5 Barrierefreiheit
+
+- **Axe serious/critical = 0 auf allen 30 Seiten** und zusätzlich im geöffneten
+  Bestelldialog je Produkt.
+- 30/30: Skip-Link ist das **erste** Tab-Ziel und zeigt auf `#main-content`;
+  genau ein `<main>` mit `tabindex="-1"`; keine übersprungene
+  Überschriftenebene.
+- Bestellformular: **kein** Feld ohne verknüpfte Beschriftung, Dialog mit
+  `aria-modal` und `aria-labelledby`, Fehler als `role="alert"`-Live-Region,
+  Absendeknopf per Tastatur erreichbar.
+- Umbruch: 3 Produkte × 4 lange Locales × 3 Breiten = **36 Kombinationen**,
+  0px Überlauf. Der Dialog bleibt bei 390px bedienbar, Touch-Ziel ≥ 44px.
+
+### 14.6 Ordering gegen ein echtes Backend
+
+Voller Weg: Browser → SSR-Proxy → `server/server.js` → SQLite. Danach wurde die
+Datenbank direkt gelesen.
+
+- Alle drei Produkte: Vorgang wirklich persistiert, mit kanonischem Slug,
+  allowlisteter Variante, Menge und `PDX-`-Vorgangsnummer.
+- Ereignisfolge `LEAD_RECEIVED → LEAD_PERSISTED → HANDOFF_PENDING` **vor** dem
+  Handoff; Outbox-Zeile auf Kanal `CRM` vorhanden.
+- Ohne Provider ehrlich `FAILED_TERMINAL` / `NO_PROVIDER_CONFIGURED` — und die
+  Oberfläche behauptet trotzdem keinen Kauf.
+- Replay mit identischem Rumpf → derselbe Vorgang; abweichender Rumpf unter
+  demselben Schlüssel → **409**.
+- Honeypot 200 ohne Persistenz, Allowlist-Ablehnungen 400, **429 pro Absender**.
+- Bestellung ohne jede Consent-Entscheidung läuft durch: **0 Provider-Requests,
+  0 dataLayer-Einträge**.
+
+### 14.7 Nachweise
+
+`npx playwright test --config e2e/pt21.7.config.ts` → **17/17** gegen vollen
+Produktionsbuild und echtes Backend.
+
+Ohne Regression, alle mit eigenem Build: Shell 8/8 · Spray 8/8 · Masken 8/8 ·
+Duo 8/8 · Ordering-Client 11/11 · **SEO 12/12** (die SEO-Rebestätigung aus
+§13 läuft unverändert — `og:image` ist weiterhin das JPEG).
+
+Guards: `check:consumer-images` (neu) · `check:routes` · `check:i18n` ·
+`check:seo` · `check:colors` · `check:search-index` ·
+`check:internal-findability` · `check:shell-i18n` · `check:nav-targets` ·
+`check:lead-foundation` · `typecheck` · ESLint · Prettier. Node-Suiten
+**207/207**.
+
+**Mutationsproben:** WebP-Variante entfernt → Guard fällt · Quellbild ohne
+Neugenerierung geändert → Guard fällt · Hero verliert WebP-Quelle und Vorrang →
+3 von 4 Performancetests fallen.
+
+**Fünf eigene Testdefekte gefunden und behoben** — keiner davon ein Produktfehler:
+
+1. Axe meldete Kontrastfehler an 26 Stellen. **Nachgemessen: `#0f766e` auf
+   `#f8fafc` = 5,23:1**, Opazität 1, kein transparenter Vorfahr — sauber. Die
+   Ursache war meine Warteschleife: sie akzeptierte `opacity === 0` als
+   „fertig", und genau das ist der Zustand **vor** einer Einblendung. Für die
+   Messung werden Übergänge jetzt abgeschaltet.
+2. Mein Schlüssel-Regex lief mit `i`-Flag und traf Fließtext („…Duo" +
+   „Entdecken…", die beim Auslesen von `textContent` aneinanderstoßen).
+3. Der Sprachumschalter wurde über einen Namensregex gesucht — `/de/` traf auch
+   „Nederlands". Jetzt strukturell über den Code im Auslöser.
+4. `page.setExtraHTTPHeaders` wirkt **nicht** auf `page.request`; alle
+   Direktaufrufe teilten sich einen Limiter-Eimer und liefen ab dem fünften in 429. Absender wird jetzt explizit gesetzt.
+5. Mein Replay-Helfer erzeugte je Aufruf einen neuen Consent-Zeitstempel, also
+   einen anderen Rumpf. Der Server meldete zu Recht 409 — der Test hätte
+   Idempotenz geprüft, wo er Konflikterkennung maß.
+
+### 14.8 Offene, ownergebundene Punkte
+
+| ID                               | Sachverhalt                                                                                                                               | Owner             |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `PERF-03`                        | `spray-hero-office-single.jpeg` unbenutzt — 0 Bytes zur Laufzeit, reine Repository-Hygiene                                                | Content           |
+| `SEO-01`                         | 0 von 36 nicht-Consumer-Seiten verlinken in den Cluster; Hub und Menü sind per AP21-Regel ausgeschlossen, es braucht eine IA-Entscheidung | IA / AP24         |
+| `CO-03`                          | Kein Hintergrund-Worker: die Outbox dreht nur bei eingehenden Requests weiter                                                             | AP22              |
+| `CO-04`                          | Keine Retention-Frist für Bestell-Leads                                                                                                   | AP22              |
+| `CO-05`                          | CRM ist eine Team-Mail, kein echtes CRM — ehrlich als `consumer`-Route abgebildet                                                         | AP22              |
+| `CO-06`                          | Optionale Lieferadresse — Fachfrage                                                                                                       | Datenschutz       |
+| `DU-05`                          | 2 €/Monat unbelegt, zwei CONFIRM-Flags offen                                                                                              | Marketing         |
+| `DU-06`                          | Preisschreibweise en/pt/nl                                                                                                                | Copy-Owner        |
+| `MK-06`/`MK-07`, `SP-05`–`SP-09` | aus PT21.2/PT21.3 unverändert offen                                                                                                       | siehe §9.7, §10.7 |
+
+### 14.9 AP21-Gesamtstand für die Closure
+
+| Bereich        | Stand                                                                                                             | Beleg        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- | ------------ |
+| Shell          | Skip-Link, `<main>`, Consent, Recht, x10-Umschalter, SSR-Head                                                     | §2, §14.5    |
+| Produktinhalt  | 3 Familien × 10 echte Fassungen, keine erfundenen Zahlen, claim-sicher                                            | §9, §10, §11 |
+| Bestellstrecke | eigene Journey auf der geteilten Foundation, persistent, idempotent, retryfähig, abuse-sicher, consent-unabhängig | §12, §14.6   |
+| SEO            | 30/30 index/follow, canonical, hreflang, Sitemap, Social, Schema                                                  | §13          |
+| Laufzeit/A11y  | 30/30 gerendert, Axe 0, 36 Umbruchkombinationen, Budgets                                                          | §14.4–§14.5  |
+| Performance    | responsive WebP, 817 KB → 89 KB mobil                                                                             | §14.2        |
+| AP22-Grenze    | Shared Foundation **konsumiert**, nicht erweitert; AP22 unverändert NOT STARTED                                   | §12.8        |
+
+**Nicht behauptet:** kein Shop, kein Warenkorb, kein Checkout, keine Zahlung,
+kein Abo, keine Gutscheine. Kein echtes CRM. Kein Hintergrund-Worker. Keine
+Löschfristen. Die Consumer-Strecke hat keinen Einstiegspunkt aus dem
+Hauptauftritt (`SEO-01`).
+
+### 14.10 Handoff AP21-CLOSURE
+
+**Vollständig belegt, aber von der Closure bewusst unabhängig neu zu messen:**
+alles aus §13 und §14. Die Closure traut laut ihrem eigenen Auftrag keinem
+PT-PASS blind — die Belege hier sagen, **wo** gemessen wurde und **womit**,
+nicht, dass die Messung übersprungen werden darf.
+
+**Reproduktion:** `e2e/pt21.6.config.ts` (SEO, 12) · `e2e/pt21.7.config.ts`
+(Integration + Ordering live, 17) · `e2e/pt21.1–21.5.config.ts` (51) ·
+`npm run check:consumer-images` · Node-Suiten 207.
+
+**Bekannte Baselines, Schnittmenge mit dem AP21-Delta leer:** 35 Prettier-Dateien,
+ein jsdom-Testfile unter Node 18, ein `react-refresh`-Lintfund in
+`OrderModal.tsx` (identisch auf HEAD).
+
+---
+
+## 15. AP21-CLOSURE — unabhängige Reverifikation (2026-09-08)
+
+### 15.1 Wie unabhängig gemessen wurde
+
+Die Closure hat die PT-Testliste **nicht wiederholt**, sondern den Zustand neu
+hergeleitet. Drei Entscheidungen machen das aus:
+
+1. Die 30 Routen kommen aus `STATIC_ROUTE_DEFINITIONS` (Filter
+   `routeType === 'CONSUMER_PRODUCT'`) × `SUPPORTED_LANGUAGES` — nicht aus
+   einer im Test gepflegten Liste. Eine Registry-Regression fällt damit auf,
+   statt am Test vorbeizulaufen.
+2. Die Bestellstrecke lief gegen ein echtes Backend mit **frischer**
+   Datenbank; danach wurde die Datenbank gelesen, nicht die Antwort geglaubt.
+3. Der Claim-Audit sucht aktiv nach dem, was **nicht** dastehen darf — und hat
+   eine Gegenprobe, dass der Pflichthinweis auf jeder der 30 Seiten wirklich
+   steht. Ein Audit, der nur Verbotenes sucht, würde eine leere Seite
+   durchwinken.
+
+Belege: `e2e/ap21-closure.spec.ts` (**21/21**, voller Produktionsbuild +
+echtes Backend) · `server/ap21-closure.test.js` (**9/9**, Provider-Ausfälle
+gegen echte SQLite).
+
+### 15.2 Was die Closure selbst gemessen hat
+
+| Bereich     | Messung                                                                                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Routen      | 30/30 HTTP 200, kein Basic Auth, kein Header-`noindex`; präfixloser Pfad 301 → `/de/`, **0 EN-Zwangsredirects**                                                                   |
+| Shell       | 30/30 genau ein `<main>` mit `tabindex="-1"`, Skip-Link als **erstes** Tab-Ziel, Consent-Banner, alle drei Rechtsseiten verlinkt                                                  |
+| SSR-Head    | 30/30 Title, Description, Canonical, 11 hreflang, absolutes `og:image`, gerenderte H1 — und der **freigegebene SEO-Titel dieser Locale**                                          |
+| Inhalt      | 30/30 Headline, Pflichthinweis, ≥5 FAQ-Einträge, Bestell-CTA mit allowlisteter ID, Hero-Alt der Locale                                                                            |
+| DE-Fallback | 0 — alle Prosa-Strings ≥25 Zeichen je Locale gegen DE geprüft, mit 11 einzeln begründeten Kognaten                                                                                |
+| Claims      | 0 — pro Sprache eigenes medizinisches Vokabular, Negationserkennung, plus Gegenprobe auf den Pflichthinweis                                                                       |
+| Schema      | 30/30 Product+Breadcrumb+FAQ, `Product.name` = Produktname der Locale, kein `offers`/`price`/`availability`/`rating`/`review`/`gtin`/`sku`/`mpn`                                  |
+| SEO         | 30/30 index/follow in `robots` **und** `googlebot`, Self-Canonical, hreflang×10 + x-default `de`, Sitemap exakt 30, `robots.txt` ohne Disallow                                    |
+| Social      | je Familie genau ein erreichbares Bild, `og:locale` als `de_DE`/`en_GB`, `og:image:alt` in der Sprache der Seite, kein Sprachsegment im Bildpfad                                  |
+| Verlinkung  | jedes Produkt in **jeder** Locale mit eingehenden Links, alle mit Sprachpräfix, 0 tote/umgeleitete Links                                                                          |
+| Ordering    | 3/3 Familien persistiert, Ereignisfolge vor dem Handoff, Outbox `CRM`, ehrlich `NO_PROVIDER_CONFIGURED`                                                                           |
+| Missbrauch  | Idempotenz, 409-Konflikt, Honeypot ohne Persistenz, **10** Ablehnungsfälle (inkl. `product` als Objekt), 429 je Absender                                                          |
+| Consent     | drei Zustände geprüft — **vor** der Entscheidung, **abgelehnt**, **erteilt**: Bestellung läuft in allen dreien, 0 Provider-Requests, 0 dataLayer-Einträge vor Einwilligung        |
+| A11y        | Axe serious/critical **0** auf allen 30 Seiten und im Bestelldialog je Produkt; kein unbeschriftetes Feld                                                                         |
+| Responsive  | 36 Kombinationen (3 × 4 lange Locales × 3 Breiten), 0px Überlauf                                                                                                                  |
+| Performance | Bildbudget je Produkt eingehalten, Hero WebP + `eager` + `fetchpriority=high` + feste Maße                                                                                        |
+| Provider    | Retry bis zur Zustellung · ehrliches Aufgeben nach der letzten Wiederholung · Timeout als `PROVIDER_RESULT_UNKNOWN` **ohne** blinden Replay · Worker-Replay ohne Doppelzustellung |
+
+### 15.3 Drei Fehlbefunde — alle in meiner Messung, keiner im Produkt
+
+Der erste Closure-Lauf meldete 3 Befunde. Alle drei habe ich am Objekt
+nachgemessen und aufgelöst:
+
+1. **„Heilversprechen: cure"** auf `/en/consumer/hydrating-masks`. Der Satz
+   lautet: „It is **not intended to** diagnose, treat, **cure** or prevent any
+   skin disease." Das ist der kosmetische **Pflichthinweis** — das Gegenteil
+   eines Claims. Italienisch „cure"/„cura" ist das Substantiv _Pflege_
+   („Cura idratante", „bisognosa di cure"), derselbe Fehlalarm wie in PT21.3.
+   Behoben durch **sprachspezifische** medizinische Vokabulare plus
+   Negationserkennung im Satz — ein sprachübergreifendes Muster ist für
+   falsche Freunde untauglich.
+2. **`og:image:alt` „nicht lokalisiert"** auf `/it/consumer/vitamin-d3-spray`.
+   Der italienische Alt-Text enthält `dell'ufficio`; im Attribut steht
+   `dell&#39;ufficio`. Mein Vergleich war unmaskiert. Behoben durch
+   Entity-Dekodierung — dieselbe Ursache traf auch den SEO-Titel-Vergleich.
+3. Ein von mir selbst in der Korrektur eingefügtes `cura(?:no)?` löste 14
+   weitere Fehlalarme aus und wurde wieder entfernt.
+
+**Mutationsproben der neuen Detektoren:** ein künstlich eingesetzter
+DE-Fallback und ein echtes italienisches Heilversprechen („guarisce") lassen
+genau die beiden zuständigen Tests fallen — während die harmlosen
+„cura"-Stellen weiterhin nicht anschlagen.
+
+### 15.4 False-Ready-Audit — 0 Befunde
+
+| Verdacht                              | Messung                                                                                                                                                                            |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EN-Body-Fallback als x10 ausgegeben   | `fallbackLng: 'en'` existiert global, aber alle zehn Consumer-Namespaces sind **vollständig** (0 fehlende Keys) — der Fallback hat nichts zu tun; zusätzlich 0 DE-identische Prosa |
+| gültige Locale → EN                   | 0 Vorkommen von `redirect(301, '/en…')`; Default ist `de`                                                                                                                          |
+| Mail-only als Persistenz              | 0 — `createLead` vor `processNext`, am Quelltext geprüft                                                                                                                           |
+| Erfolg vor Persistenz                 | `createLead` (Zeile 407) steht vor `processNext` (426)                                                                                                                             |
+| fehlende Idempotenz                   | Schlüssel Pflicht, 409 bei Konflikt                                                                                                                                                |
+| fehlendes Rate Limit                  | `formLimiter` am Endpunkt, 429 gemessen                                                                                                                                            |
+| Analytics-Consent für Ordering nötig  | 0 Treffer für `dataLayer`/`gtag`/`analytics_storage`/`hasAnalyticsConsent` im gesamten Bestellpfad                                                                                 |
+| Client-Produktname als Serverwahrheit | Server löst ausschließlich über `PRODUCT_ALLOWLIST` auf                                                                                                                            |
+| erfundene Schema-Preise/Reviews       | `structuredData.ts` hat **keinen Codepfad** zu `offers`/`price`/`rating`                                                                                                           |
+| englische Social-Copy als lokalisiert | `og:image:alt` ist in allen 30 Fällen die Copy der jeweiligen Sprache                                                                                                              |
+| Shop/Payment-Scope eingeschleppt      | 0 — die einzigen Treffer sind Kommentare, die den Ausschluss dokumentieren, und ein bestehender `/voucher`-Legacy-Redirect                                                         |
+| AP22 als complete markiert            | 0 — AP22 steht auf `NOT STARTED`                                                                                                                                                   |
+
+### 15.5 AP22-Grenze
+
+Fünf Journey-Slices (`contact`, `support`, `consumer_order`,
+`content_download`, `epigenetics_inquiry`) rufen alle `createLead` derselben
+Foundation auf. `LEAD_JOURNEYS` hat genau fünf Einträge — AP21 hat keine
+sechste erfunden. Der Test prüft zusätzlich, dass **keine** Tabelle mit
+`consumer`/`order` im Namen existiert: es gibt keine zweite Plattform, nur
+`leads`, `lead_outbox`, `lead_events`. AP22 bleibt Owner der
+Cross-Journey-Vereinheitlichung.
+
+### 15.6 Ehrlich offen
+
+| ID                               | Sachverhalt                                                                                                                                                                                                                                                                               | Owner             |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `SEO-01`                         | 0 von 36 nicht-Consumer-Seiten verlinken in den Cluster. Kein Defekt der 30 Routen; Hub und Menü sind per AP21-Regel ausgeschlossen — IA-Entscheidung nötig                                                                                                                               | IA / AP24         |
+| `PERF-03`                        | `spray-hero-office-single.jpeg` unbenutzt, 0 Bytes zur Laufzeit                                                                                                                                                                                                                           | Content           |
+| `CO-03`                          | Kein Hintergrund-Worker — die Outbox dreht nur bei eingehenden Requests weiter. Journeyübergreifend                                                                                                                                                                                       | AP22              |
+| `CO-04`                          | Keine Retention-Frist für Bestell-Leads                                                                                                                                                                                                                                                   | AP22              |
+| `CO-05`                          | Der CRM-Adapter ist eine Team-Mail, kein echtes CRM — ehrlich als `consumer`-Route abgebildet                                                                                                                                                                                             | AP22              |
+| `CO-06`                          | Optionale Lieferadresse — Fachfrage                                                                                                                                                                                                                                                       | Datenschutz       |
+| `DU-05`                          | 2 €/Monat unbelegt, zwei CONFIRM-Flags offen                                                                                                                                                                                                                                              | Marketing         |
+| `DU-06`                          | Preisschreibweise en/pt/nl                                                                                                                                                                                                                                                                | Copy-Owner        |
+| `FLAKE-01`                       | Ein einzelner, **nicht reproduzierbarer** Fehlschlag in einem PT21.7-Batchlauf. Vier folgende Läufe — darunter die exakte Batch-Reihenfolge — waren 17/17 sauber. Der Testname wurde im gekürzten Batch-Report nicht erfasst; die Ursache ist damit **unbekannt** und wird nicht erfunden | AP27              |
+| `MK-06`/`MK-07`, `SP-05`–`SP-09` | aus PT21.2/PT21.3 unverändert offen                                                                                                                                                                                                                                                       | siehe §9.7, §10.7 |
+
+### 15.7 Bekannte Baselines
+
+35 Prettier-Dateien, ein jsdom-Testfile unter Node 18
+(`server/pt08-2-i18n.test.ts`, von AP21 unberührt), ein
+`react-refresh`-Lintfund in `OrderModal.tsx` (identisch auf HEAD). Die
+Schnittmenge mit dem AP21-Delta ist per `comm` geprüft **leer**.
+
+### 15.8 Handoff AP22
+
+AP22 übernimmt eine **konsumierte**, nicht erweiterte Shared Lead Foundation
+mit fünf Journeys. Konkret offen und namentlich benannt: Hintergrund-Worker
+(`CO-03`), Retention/Löschjob (`CO-04`), echter CRM-Adapter (`CO-05`). Nichts
+davon wird als erledigt behauptet.

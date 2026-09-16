@@ -5,6 +5,8 @@ import { Button } from '../ui/Button'
 import { formatCurrency } from '../../lib/localeFormat'
 import { normalizeLanguage } from '../../i18n'
 import { getHomepageSalesTarget } from '../../lib/homepageConversion'
+import { requestRoiReport } from '../../api/roiReport'
+import { track } from '../../lib/tracking'
 
 /**
  * SSR-safe interaktive ROI-Rechner-Sektion (#roi-rechner).
@@ -39,7 +41,9 @@ const RoiCalculatorSection = () => {
   const [practice, setPractice] = useState('')
   const [consent, setConsent] = useState(false)
   const [hp, setHp] = useState('')
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'retryable'>(
+    'idle',
+  )
 
   // --- Berechnung (nur aus Nutzereingaben) ---
   const personalPerTest = (num(minutesPerTest) / 60) * num(staffCostPerHour)
@@ -93,6 +97,16 @@ const RoiCalculatorSection = () => {
     },
   ]
 
+  // Ein Key pro Formular-Instanz: Doppelklick und Netzwerk-Wiederholung
+  // treffen damit denselben Vorgang statt zwei anzulegen. Als traeger
+  // Initialisierer — dasselbe Muster wie in `PraxisOrderForm`, und die
+  // unreinen Aufrufe laufen damit nicht in der Renderphase.
+  const [reportIdempotencyKey] = useState(() =>
+    typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : 'roi-' + String(Date.now()) + '-' + Math.random().toString(36).slice(2),
+  )
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -105,19 +119,17 @@ const RoiCalculatorSection = () => {
     setStatus('submitting')
 
     try {
-      const res = await fetch('/api/roi-report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          source: 'homepage',
-          journey: 'roi_report',
-          section: 'roi',
+      // AP22 PT22.5: der Report ist eine persistente Journey. Der
+      // Idempotency-Key haelt Wiederholungen auf denselben Vorgang; Erfolg
+      // wird erst gemeldet, wenn der Server die Anfrage gespeichert hat.
+      const result = await requestRoiReport(
+        {
           email,
           area,
-          areaLabel: t(`roi.form.opt_${area}`),
           practice,
           locale,
-          consent,
+          processingConsent: consent === true,
+          consentAcceptedAt: new Date().toISOString(),
           _hp: hp,
           inputs: {
             testsPerMonth,
@@ -128,15 +140,21 @@ const RoiCalculatorSection = () => {
             deviceInvestment,
           },
           outputs: { dbPerTest, dbPerMonth, dbPerYear, revenuePerMonth, payback },
-        }),
-      })
-      if (res.ok) {
+        },
+        reportIdempotencyKey,
+      )
+      if (result.ok) {
         setStatus('success')
+        // 202 = Anfrage persistiert. Der Report selbst wird spaeter zugestellt;
+        // gemeldet wird die ANFRAGE, nicht die Zustellung.
+        track({ name: 'roi_report_request' })
       } else {
-        throw new Error('request failed')
+        // Der Server sagt selbst, ob eine Wiederholung sicher ist. Ein
+        // Zustellproblem ist kein Eingabefehler der Nutzerin.
+        setStatus(result.retryable ? 'retryable' : 'error')
       }
     } catch {
-      setStatus('error')
+      setStatus('retryable')
     }
   }
 
@@ -170,7 +188,7 @@ const RoiCalculatorSection = () => {
                     inputMode="decimal"
                     value={field.value}
                     onChange={(e) => field.onChange(e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-1.5 w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
               ))}
@@ -228,7 +246,11 @@ const RoiCalculatorSection = () => {
               >
                 {t('roi.cta_report')}
               </Button>
-              <p className="mt-2 text-xs text-white/60">{t('roi.report_hint')}</p>
+              {/* AP24 PT24.4: Diese Flaeche ist `brand-blue`, nicht Navy.
+                  `white/60` liegt dort bei 4,08:1 — auf Navy waeren es 5,63:1
+                  gewesen. `white/70` bringt auf beiden Flaechen AA (4,96:1
+                  bzw. 7,10:1). */}
+              <p className="mt-2 text-xs text-white/70">{t('roi.report_hint')}</p>
             </div>
 
             <p className="mt-6 text-xs leading-relaxed text-white/80">{t('roi.disclaimer')}</p>
@@ -271,7 +293,7 @@ const RoiCalculatorSection = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -282,7 +304,7 @@ const RoiCalculatorSection = () => {
                       id="roi-area"
                       value={area}
                       onChange={(e) => setArea(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     >
                       <option value="dental">{t('roi.form.opt_dental')}</option>
                       <option value="beauty">{t('roi.form.opt_beauty')}</option>
@@ -299,7 +321,7 @@ const RoiCalculatorSection = () => {
                       type="text"
                       value={practice}
                       onChange={(e) => setPractice(e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      className="mt-1.5 w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
                 </div>
@@ -322,7 +344,7 @@ const RoiCalculatorSection = () => {
                     required
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-slate-300 text-accent focus:ring-accent"
+                    className="mt-1 h-4 w-4 rounded border-ui-field text-accent focus:ring-accent"
                   />
                   <span>
                     {t('roi.form.consent')}{' '}
@@ -332,9 +354,9 @@ const RoiCalculatorSection = () => {
                   </span>
                 </label>
 
-                {status === 'error' && (
+                {(status === 'error' || status === 'retryable') && (
                   <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700 ring-1 ring-red-200">
-                    {t('roi.form.error')}
+                    {t(status === 'retryable' ? 'roi.form.error_retryable' : 'roi.form.error')}
                   </div>
                 )}
 

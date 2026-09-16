@@ -54,10 +54,14 @@ test('PT15.6 preserves URL context, works without analytics consent and reports 
     await route.fulfill({
       status: 202,
       contentType: 'application/json',
+      // AP26 PT26.3: Antwortform des Servers (Journey-Envelope, AP22 PT22.5). Der fruehere Mock
+      // `{ accepted, status }` bildete eine Form nach, die der Server nie lieferte (SEC-20).
       body: JSON.stringify({
-        accepted: true,
+        success: true,
+        journey: 'epigenetics_inquiry',
+        state: 'FAILED_TERMINAL',
         leadId: 'lead-browser-1',
-        status: 'FAILED_TERMINAL',
+        deliveryPending: false,
         providerConfigured: false,
       }),
     })

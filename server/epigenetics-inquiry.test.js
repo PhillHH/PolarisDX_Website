@@ -216,7 +216,9 @@ describe('epigenetics_inquiry vertical slice', () => {
       },
     })
     const result = await service.submit({ body: BASE_BODY, idempotencyKey: 'unknown-1' })
-    expect(result.status).toBe('FAILED_TERMINAL')
+    // PT22.2: unbekanntes Providerergebnis ist kein Fehlschlag — der Vorgang
+    // braucht Klaerung und wird weiterhin NICHT automatisch nachgesendet.
+    expect(result.status).toBe('RECONCILIATION_REQUIRED')
     expect(repository.getLead(result.leadId).lastErrorClass).toBe('PROVIDER_RESULT_UNKNOWN')
     expect(await service.processNext()).toBeNull()
     expect(calls).toBe(1)

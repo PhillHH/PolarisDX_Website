@@ -68,6 +68,49 @@ AP26 PT26.5 (Security-QA), AP28 PT28.2/PT28.4 (Health/Deploy), AP29 (Migration),
 
 ---
 
+### 3.1 Delta AP27 PT27.1 (2026-09-15)
+
+Die Tabelle oben ist der Stand von AP01 und **historisch**. Gemessen am 2026-09-15:
+
+- `ci.yml` hat die Jobs `quality`, `routing`, `performance`, `security`, `security-runtime`, `seo`; Trigger
+  `main`, `feat/home-leadmagnet`, `console/**`. `check:colors` und `check-meta-descriptions.mjs` (ueber
+  `check:seo`) laufen in CI. Der aktive Branch hat trotzdem **0 Laeufe** (nicht auf `origin`), und `quality`
+  ist ab Lint rot — die Test-Schritte dahinter werden nicht erreicht.
+- `vitest.config.ts` hat drei Projekte (`unit`, `component`, `server`) und setzt `NODE_ENV=test`; Kommandos
+  `test:unit`, `test:component`, `test:server`, `test:guards`.
+- Aktuelle Runner-, Kommando-, Baseline- und CI-Reichweiten-Wahrheit: **`TESTING-CONTRACT.md` §2–§6**.
+  QD-1..QD-10 bleiben hier gefuehrt; ihre Aufloesung ist **PT27.6**.
+
+### 3.2 Delta AP27 PT27.6 (2026-09-15) — Gate-Integration
+
+Verbindliche CI-Beschreibung: **`CI-CONTRACT.md`**. Kurzfassung:
+
+| Gate                  | Kommando                                                        | CI-Job / Schritt                     | Lokal (2026-09-15)                          |
+| --------------------- | --------------------------------------------------------------- | ------------------------------------ | ------------------------------------------- |
+| Typecheck             | `npx tsc -b --noEmit`                                           | `quality` / Typecheck                | PASS                                        |
+| Lint                  | `npx eslint .`                                                  | `quality` / Lint                     | PASS (0 Fehler, 1 Warnung)                  |
+| Format                | `npx prettier --check .`                                        | `quality` / Format check             | PASS                                        |
+| Build                 | `npm run build`                                                 | `quality` / Build (+ frische Builds) | PASS (frische Builds in allen AP27-Configs) |
+| Design-Token-Guard    | `check:colors`, `check:ds-changelog`                            | `quality`, `ap27-guards`             | PASS                                        |
+| i18n-Guard            | `check:shell-i18n`, `check:i18n -- --self-test`                 | `quality`, `ap27-guards`             | PASS                                        |
+| Meta-Guard            | `check:seo` (Meta-Quality + SEO-Artefakte), `check:befunde-seo` | `seo`, `ap27-guards`                 | PASS (1 Laengenwarnung)                     |
+| Claim-Guard           | `check:claims`                                                  | `ap27-guards`                        | PASS (neu verdrahtet)                       |
+| Unit/Component/Server | `test:unit`, `test:component`, `test:server`                    | `ap27-tests`                         | PASS 379 / 250 / 470                        |
+| Integration           | `test:integration`, `test:integration:http`                     | `ap27-tests`, `ap27-journeys`        | siehe TESTING-CONTRACT §21                  |
+| E2E Kern / Consent    | `test:e2e:core`, `test:e2e:consent`                             | `ap27-journeys`                      | siehe TESTING-CONTRACT §21                  |
+| Route/SEO-Regression  | `test:seo:regression`                                           | `ap27-seo-regression`                | siehe TESTING-CONTRACT §21                  |
+| A11y                  | `a11y:suite`                                                    | `ap27-a11y`                          | siehe TESTING-CONTRACT §21                  |
+| Visual                | `test:visual` (Image `playwright:v1.57.0-noble`)                | `ap27-visual`                        | PASS 21/21, zweimal ohne Update bestaetigt  |
+| Visual-Changelog      | `check:visual-changelog`                                        | `ap27-guards`                        | PASS                                        |
+| Performance (AP25)    | `check:perf-budget`                                             | `performance`                        | Schwellen unveraendert (PERFORMANCE §29)    |
+| Security (AP26)       | `security:audit`, `security:secrets`, `security:test`, Laufzeit | `security`, `security-runtime`       | Policies unveraendert (SECURITY §17)        |
+| Aggregation           | —                                                               | `ap27-gate` (`needs` = alle 12 Jobs) | —                                           |
+
+QD-Aufloesung in PT27.6: Trigger erreicht die Relaunch-Linie (`console/**`); Server-Deps in CI (D-12); `quality`
+lokal gruen ab Lint (TB-04); AP27-Stufen laufen mit frischem Build und `retries: 0` (QD-4 fuer die neuen Jobs).
+**Offen:** Relaunch-Linie nicht auf `origin` und nicht committet → 0 CI-Laeufe; keine Branch Protection (QG-11);
+kein Repo-Node-Pin (TB-02); Alt-Jobs `quality`/`routing`/`seo` nutzen weiter `playwright.config.ts` mit `retries: 1`.
+
 ## 4. Target Invariants
 
 ### Beweiskraft
@@ -396,3 +439,29 @@ Die zwölf Launch-Gates aus Master-Scope §8, kanonisch verdichtet.
 
 **AP30 erzeugt keinen Release Candidate, solange ein erforderliches Gate weder grün noch ausdrücklich
 manuell nachgewiesen ist. AP31 deployt ausschließlich das eingefrorene RC-Artefakt.**
+
+### 12.1 Gate-Zuordnung AP27 PT27.6 (2026-09-15)
+
+Die Spalte „Heute" oben ist historisch. Status-Vokabular: **LOCAL_PASS** = alle zugeordneten Kommandos lokal grün
+und in CI verdrahtet, aber remote **nicht gelaufen** (CI-CONTRACT §1) · **PARTIAL** = ein Teil der Beweisdomäne
+ist nicht automatisiert oder gehört einem späteren AP · **OWNER_BOUND** = der Rest braucht eine Eigentümer-Handlung.
+Kein Gate ist hier **PASS**, solange `ap27-gate` nicht auf dem Relaunch-SHA gelaufen ist.
+
+| #   | Gate                | Owner          | Contract                                       | Command                                                                                                             | CI Step                                                       | Evidence (lokal, 2026-09-15)                                                                             | Status                                                                                                                 |
+| --- | ------------------- | -------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 1   | Language            | AP08           | I18N-/LOCALIZATION-Contract, TESTING §4        | `check:i18n -- --self-test`, `check:shell-i18n`, `test:component` (x10), `test:seo:regression`, `check:befunde-seo` | `quality`, `ap27-guards`, `ap27-tests`, `ap27-seo-regression` | Key-Parität + Self-Test grün; 430 Heads x10; Befunde 60/60; Assets bewusst DE (BEFUNDE-CONTRACT)         | **PARTIAL** — sprachabhängige Mails nicht als x10-Test gemappt                                                         |
+| 2   | Consent             | AP23/AP27      | CONSENT-TRACKING-CONTRACT, TESTING §15         | `test:e2e:consent`, `security:test` (analyticsIsolation)                                                            | `ap27-journeys`, `security`                                   | Pre-Consent 0, Reject 0, Widerruf wirksam, kein Puffer, Produktions-Property 0                           | **LOCAL_PASS** mit offenem Flake PT276-F8 (TB-05: veraltete pt23.1-Specs nicht in CI)                                  |
+| 3   | CRM                 | AP22 / AP28    | LEAD-DATA-, LEAD-DELIVERY-CONTRACT, TESTING §9 | `test:integration`, `test:server`                                                                                   | `ap27-tests`                                                  | Persistenz vor Handoff, Retry/Dead-Letter, Idempotenz/Dedup, `DRY_RUN` — Integration 16/16               | **PARTIAL / OWNER_BOUND** — Monitoring, Backup/Recovery = AP28                                                         |
+| 4   | SEO                 | AP09/AP10      | TESTING §18, SEO-/ROUTING-Contract             | `test:seo:regression`, `check:http-status`, `check:seo`                                                             | `ap27-seo-regression`, `routing`, `seo`                       | 200 43x10, 301 30x10, 404 x10, Canonical/hreflang, Legal noindex, lastmod wahr, öffentlicher Host        | **LOCAL_PASS**                                                                                                         |
+| 5   | Chat                | AP06/AP22/AP26 | SECURITY-CONTRACT                              | `test:server` (`chat-removal.test.js`), `security:test` (CSP)                                                       | `ap27-tests`, `security`                                      | kein Widget/HiHuman, `/api/chat` entfernt, CSP ohne Chat-Domains                                         | **LOCAL_PASS**                                                                                                         |
+| 6   | Epigenetics         | AP15/AP16      | EPIGENETICS-, BEFUNDE-CONTRACT, TESTING §12    | `test:e2e:core`, `check:befunde-seo`, `check:claims`                                                                | `ap27-journeys`, `ap27-guards`                                | Golden Path + Inquiry mit Panel-Kontext; Hub + 3 + 6 x10                                                 | **LOCAL_PASS**                                                                                                         |
+| 7   | Content Claim       | AP14           | IGLOOPRO-, EPIGENETICS-CONTRACT                | `check:claims`, `test:component` (IglooSpecs/TrustProof)                                                            | `ap27-guards`, `ap27-tests`                                   | `CV < 2 %` x10 inkl. Structured Data und PDF-Hash; kein `<5 %`; Epigenetik-Pflichttexte 40/40, Assets 29 | **LOCAL_PASS** (Guard erst in PT27.6 in CI verdrahtet)                                                                 |
+| 8   | CTA                 | AP06           | CONVERSION-/SHELL-Contract                     | `test:component` (Header, Footer, shell, DiagnosticsHero, IglooProductJourney)                                      | `ap27-tests`                                                  | kein „garantierte Performance"-Band, kein Ersatzband                                                     | **LOCAL_PASS**                                                                                                         |
+| 9   | Naming              | AP04/AP08      | DESIGN-SYSTEM-, I18N-Contract                  | `test:component`/`test:unit` (Button, HeroSection, i18nSchema, about.x10)                                           | `ap27-tests`                                                  | „Angebot anfragen" x10, fachliche Ausnahmen bewusst                                                      | **LOCAL_PASS**                                                                                                         |
+| 10  | Lead-Magnet         | AP19           | RESOURCES-CONTRACT, TESTING §9/§12             | `test:integration` (gated-entitlement), `test:e2e:core`, `check:assets`-Regel in `check:claims`                     | `ap27-tests`, `ap27-journeys`                                 | Gate → Consent → Persistenz → Zustellung (skriptiert) → Entitlement; Asset nur unter `storage/protected` | **LOCAL_PASS**                                                                                                         |
+| 11  | Accessibility       | AP24           | ACCESSIBILITY-CONTRACT                         | `a11y:suite`, `test:visual` (Zustände)                                                                              | `ap27-a11y`, `ap27-visual`                                    | Skip-Link/`<main>`, Tastatur/Fokus, Kontrast, Medien, Motion, axe serious/critical 0                     | **PARTIAL / OWNER_BOUND** — Screenreader-Checkliste manuell NOT_RUN_ENVIRONMENT; keine Zertifizierung                  |
+| 12  | Operations/Security | AP26 / AP28    | SECURITY-CONTRACT §17/§18, DEPLOYMENT-CONTRACT | `security:audit`, `security:secrets`, `security:test`, `security-runtime`-Schritte                                  | `security`, `security-runtime`                                | Audit 0/0, Secret-Scan 0, Image-Policy PASS (AP26)                                                       | **PARTIAL / OWNER_BOUND** — AP26-WAIVER-01 (OA-11/OA-12, SEC-04/SEC-06 offen); Health, Backup-Restore, Rollback = AP28 |
+
+**Übergreifend OWNER_BOUND:** Commit/Push der Relaunch-Linie und Branch Protection mit `AP27 Launch gate aggregate`
+als Pflichtcheck (Repository-Owner). Performance (AP25) und Security (AP26) sind über `ap27-gate.needs` Teil des
+Aggregats; ihre Schwellen und Policies bleiben in den jeweiligen Verträgen.

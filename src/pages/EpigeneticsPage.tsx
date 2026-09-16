@@ -414,6 +414,11 @@ const EpigeneticsPage = () => {
                 className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
               >
                 <table className="w-full min-w-[54rem] border-collapse text-left">
+                  {/* AP24 PT24.1: Die Tabelle stand namenlos im Dokument. Der
+                      Name des Scrollbereichs benennt den Bereich, nicht die
+                      Tabelle selbst — dieselbe sr-only-Caption wie in
+                      BefundBlocks, keine neue Uebersetzung. */}
+                  <caption className="sr-only">{t('compare.title')}</caption>
                   <thead>
                     <tr className="bg-brand-deep text-white">
                       {compareCols.map((col) => (

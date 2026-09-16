@@ -273,6 +273,7 @@ describe('AP19 PT19.3 content_download', () => {
     expect(seen[0].persisted).toBe(true)
     expect(seen[0].events).toEqual([
       'LEAD_RECEIVED',
+      'LEAD_VALIDATED',
       'LEAD_PERSISTED',
       'HANDOFF_PENDING',
       'HANDOFF_ATTEMPT',

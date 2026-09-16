@@ -8,12 +8,38 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
-- Work package: **AP21 — Consumer-Landingpages als 10-sprachiger SEO-Bereich**
+- Work package: **AP27 — Teststrategie, Regression und Quality Gates**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
-- Predecessor: **AP20 COMPLETE / Closure PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
-- Last completed task: **PT21.4 (PASS, 2026-09-08)**
-- Last completed PT: **PT21.4 (PASS, 2026-09-08)**
-- Next task: **PT21.5**
+- Vorgaenger AP26: **COMPLETE — mit akzeptiertem Risiko (COMPLETE_WITH_ACCEPTED_RISK)**; AP26 Closure: **PASS_WITH_WAIVER (AP26-WAIVER-01, 2026-09-15)** — kein uneingeschraenktes PASS
+- **WAIVER / ACCEPTED_RISK: AP26-WAIVER-01 = ACTIVE** · OA-11: **DEFERRED_ACCEPTED_RISK** · OA-12: **DEFERRED_ACCEPTED_RISK** · SEC-04 / C26-33: **technisch offen** · SEC-06 / C26-34: **technisch offen** · Owner: **Operator / Deployment** · Frist: **vor Production Go-Live, spaetestens AP30 Release-Candidate-/Pre-Launch-QA-Gate (was frueher eintritt)** · Details SECURITY-CONTRACT §18.4
+  > AP26 contains explicitly accepted operational security debt.
+  > OA-11 and OA-12 remain unresolved and must be remediated before production go-live.
+  > Their waiver releases AP27 but does not constitute technical remediation.
+- Predecessor: **AP26 COMPLETE_WITH_ACCEPTED_RISK / AP26-CLOSURE PASS_WITH_WAIVER (AP26-WAIVER-01)** · AP23/AP24/AP25 COMPLETE / Closure PASS
+- Last completed task: **PT27.5 (PASS, 2026-09-15)**
+- Last completed PT: **PT27.5 (PASS, 2026-09-15)**
+- Next task: **PT27.6**
+- AP26: **COMPLETE (COMPLETE_WITH_ACCEPTED_RISK, AP26-WAIVER-01)** · PT26.1: **PASS** · PT26.2: **PASS** · PT26.3: **PASS** · PT26.4: **PASS** · PT26.5: **PASS** · AP26-CLOSURE: **PASS_WITH_WAIVER** (Messlauf 2026-09-15 ergab BLOCKED auf SEC-04, SEC-06, C26-33, C26-34; diese Gates bleiben technisch NICHT PASS)
+- AP26-Security-Gates: Dependency Audit **0/0** · Secret Scan **0** · Image-Policy **PASS** (Backend-Rest §17.4 akzeptiert) · CI-Jobs `security`, `security-runtime` **angelegt, auf GitHub noch nicht gelaufen**
+- Operator-Rotation offen: **SendGrid-Schluessel (OA-11) — weiterhin nicht rotiert und im laufenden Produktions-Backend-Image eingebacken; DEFERRED_ACCEPTED_RISK (AP26-WAIVER-01), vor Livegang zwingend**
+- AP27: **IN_PROGRESS** · Predecessor: **freigegeben durch AP26-WAIVER-01 (nicht durch technische Behebung)** · PT27.1: **PASS (2026-09-15)** · PT27.2: **PASS (2026-09-15)** · PT27.3: **PASS (2026-09-15)** · PT27.4: **PASS (2026-09-15)** · PT27.5: **PASS (2026-09-15)** · PT27.6: **NOT STARTED** · AP27-CLOSURE: **NOT STARTED**
+- TESTING-CONTRACT: **current (PT27.5)** · Route-/SEO-Regression **76/76** (Wiederholung 76/76, Guards 4/4, 430 Heads, 301/404 x10, lastmod wahr) · Consent-E2E **11/11** (Wiederholung 11/11, Pre-Consent 0, Ablehnung 0, Widerruf wirksam, kein Puffer, Produktions-Property 0) · E2E-Kernjourneys **15/15** (Wiederholung 15/15, 0 flaky) · Shopify-Outbound **OWNER_BOUND (CTC-14)** · Unit **379/379** · Component **250/250** · Server **470/470** (Node 18; `pt08-2-i18n` 12/12 unter Node 22) · Integration **16/16** · Integration-HTTP **12/12** · Guards **9/9** · Provider-Side-Effects **0** · CI-Reichweite der Tests: **nicht erreicht** (quality rot ab Lint, D-12, Branch ohne Laeufe)
+- Frueherer PT27.1-Start-Gate-Lauf (2026-09-15, 2x `BLOCKED_PREDECESSOR`): **SUPERSEDED_BY_AP26_RISK_WAIVER** — kein Produkt-/Code-Failure,
+  kein AP27-Code/-Test geschrieben; PT27.1 startet frisch aus dem aktuellen Working Tree.
+- AP28: **NOT STARTED**
+- SECURITY-CONTRACT: **current (AP26-CLOSURE §18 + AP26-WAIVER-01 §18.4)** · HSTS: **produktionsreif im Repo, live nicht aktiv (AP31 Operator-Check)** · CSP: **durchgesetzt in Produktion (Repo), live nicht aktiv (OA-4/OA-7)** · CSP-Monitoring: **NOT_AVAILABLE (kein Report-Empfaenger)**
+- AP25: **COMPLETE** · AP25 Closure: **PASS (2026-09-15)** · PT25.1: **PASS** · PT25.2: **PASS** · PT25.3: **PASS** · PT25.4: **PASS** · PT25.5: **PASS**
+- PERFORMANCE-CONTRACT: **CURRENT (AP25-CLOSURE, §30)** · Performance Baseline: **CURRENT** · Mobile Lab: **PASS** · Desktop Lab: **PASS**
+- LCP: **WITHIN BUDGET** · CLS: **WITHIN BUDGET** · INP: **TRUTHFULLY CLASSIFIED** (INP_FIELD NOT_AVAILABLE, INP_LAB NOT_CLAIMED_AS_FIELD) · TTFB: **WITHIN BUDGET** · FIELD_METRICS: **NOT_AVAILABLE**
+- SSR: **PASS** · Hydration: **PASS** · JS Budget: **PASS** · CSS Budget: **PASS** · Image Budget: **PASS** · Font Budget: **PASS**
+- Consent Network Gate: **PASS** · Accessibility Regression: **0** · Preview Isolation: **PASS** · Decision Locks: **CURRENT (18/18)**
+- Vorheriges AP: AP24 — Accessibility / WCAG **COMPLETE**
+- Decision Locks: **18/18 LOCKED**
+- WCAG 2.2 AA: **QUALITY TARGET** (keine Zertifizierungsbehauptung)
+- Semantics / Keyboard / Focus / Contrast / Media / Reduced Motion: **PASS**
+- jsx-a11y: **PASS** · Axe serious/critical: **0** · Dynamic State Coverage: **PASS**
+- Screenreader Checklist: **current** · Manuelle Ausfuehrung: **NOT_RUN_ENVIRONMENT**
+- ACCESSIBILITY-CONTRACT: **current**
 - PT20.1: **PASS** · PT20.2: **PASS** · PT20.3: **PASS** · PT20.4: **PASS** ·
   AP20 Closure: **PASS (CORP 40/40 · C20 50/50, 2026-09-08)**
 - PT19.1: **PASS** · PT19.2: **PASS** · PT19.3: **PASS** · PT19.4: **PASS** ·
@@ -26,9 +52,1556 @@ kein `work-packages/APxx-STATE.md`).
 - AP20: **COMPLETE (Closure PASS, 2026-09-08)** — About, Contact, Support und Legal fertig;
   unabhaengiger finaler Gate neu gemessen: CORP-01..40 PASS, C20-01..50 PASS, DoD 54/54.
   Details siehe PT20.1–PT20.4-Eintraege und Contract §13 unten.
-- AP21: **IN_PROGRESS (PT21.1–PT21.4 PASS, 2026-09-08)** — PT21.5: **NOT
-  STARTED** · PT21.4: **NOT STARTED** · PT21.5: **NOT STARTED** · PT21.6: **NOT STARTED** ·
-  PT21.7: **NOT STARTED** · AP21 Closure: **NOT STARTED**
+- PT27.5: **PASS (2026-09-15)** — SEO-/Route-Regression (breiter Lauf). **`npm run test:seo:regression` 76/76**,
+  Wiederholung 76/76, `retries: 0`, 0 flaky: Guards `check:routes`, `check:search-index`, `check:seo`, `check:befunde-seo`
+  gruen, dann frischer Produktionsbuild (eigenes Verzeichnis, CSP durchgesetzt) mit den Alt-Specs `url-smoke` (50),
+  `seo-head` (9), `sitemap` (1) und der neuen `pt27.5-seo-matrix` (16). Quelle: Route Registry, keine Zahl hart kodiert.
+  **200:** 43 Pfade x10 mit vollstaendigem Head (lang, Title/Description ohne Key-/Platzhalter-Leak, Canonical = og:url,
+  oeffentlicher Host). **301:** 30 Redirects x10 + locale-los + HEAD, ein Hop; Browser: Query bleibt, Fragment clientseitig.
+  **404:** alle Familien x10 inkl. Events/Consumer/Epigenetik/Befund/Service/Artikel/Legacy, ohne Canonical/hreflang/og:url.
+  **hreflang** x10 + x-default de fuer alle indexierbaren Routen. **Legal** noindex, nofollow x10, nicht in Sitemap/Suche,
+  keine Alternates. **Consumer 3x10** und **Epigenetik x10** (Hub, 3 Vertiefungen, 6 Befunde; Guard 60/60) PASS.
+  **lastmod** nur fuer 60 Artikel-URLs = `datePublished`, differenziert, keine Zukunft; 330 bewusst ohne. **Drift:** Sitemap =
+  Registry, Suchziele x10 erreichbar. Befunde PT275-F1 (keine Self-Tests fuer check:routes/check:search-index), PT275-F2
+  (`sitemap.spec` kodiert 390), PT275-F3 (eine Laengenwarnung), PT275-F4 (nicht in CI) → PT27.6. Handoff TESTING-CONTRACT §19.
+  **PT27.6 nicht gestartet, AP28 NOT STARTED. 0 Commits.**
+- PT27.4: **PASS (2026-09-15)** — Consent-/Tracking-E2E (Fast-Delta aus Handoff PT27.3). **`npm run test:e2e:consent`
+  11/11**, Wiederholung 11/11, `retries: 0`, 0 flaky; Unit-Guards Consent/Tracking 103/103. Build wie Preview
+  (`VITE_APP_ENV=preview`, Preview-Container `GTM-PT274PRV`) plus synthetisch deklarierter Produktions-Container `GTM-PT274PRD`,
+  GA4 leer. **Netz-Isolation:** jede Google-/Marketing-Anfrage beobachtet und per `context.route` mit Stub beantwortet —
+  **Produktions-Property-Verunreinigung 0**. **Pre-Consent 0** (6 Seiten, 3 Sprachen, SPA, Interaktion; kein
+  dataLayer/Speicher). **Ablehnung 0** trotz Navigation, Anfrage 202 und Reload. **Zustimmung:** genau 1 `gtm.js` mit
+  Preview-Kennung, Produktionskennung 0, `collect` 0; nur Analyse → Werbesignale denied. **Widerruf:** Reload, Speicher
+  leer, danach 0. **Konversion:** `contact_submit` erst nach DB-Persistenz (Antwort angehalten), genau 1, ohne Parameter;
+  503 → 0. **Kein Puffer** bewiesen. **Seitenaufruf:** Erstladen App 0 (Container zaehlt), Query-Wechsel 0, je SPA genau 1.
+  **PII 0.** Outbound nur Domain nach Zustimmung, kein Kauf-Ereignis. **Befunde:** PT274-F1 (deklarierter
+  Produktions-Container im Preview-Bundle eingebettet, nur zur Laufzeit unterdrueckt) und PT274-F2 (GA4-Kennung wird in
+  Vorschau mit eigenem Container durchgereicht) — Konfigurationsrisiken, Owner AP23/Operator, Code nicht geaendert;
+  PT274-F3 TB-05 als veraltete Tests eingeordnet (PT27.6). Initial-Pageview und `collect` im echten Container bleiben
+  Operator-Evidenz. Handoff TESTING-CONTRACT §16. **PT27.5 nicht gestartet, AP28 NOT STARTED. 0 Commits.**
+- PT27.3: **PASS (2026-09-15)** — E2E Kernjourneys (Fast-Delta aus Handoff PT27.2). **`npm run test:e2e:core` 15/15**,
+  Wiederholung 15/15, `retries: 0`, 0 flaky: frischer Produktionsbuild je Lauf (Identitaet geprueft), durchgesetzte CSP,
+  Backend `APP_ENV=preview` mit temporaerer DB/Ablage, Provider-Variablen leer. Beweismuster: Journey-Antwort im Browser
+  angehalten, bis die DB den Vorgang zeigt — vorher keine Erfolgsmeldung. **B2B** Diagnostik → Service → CTA → Validierung
+  (0 Requests) → Lead vor Erfolg, Ereignisfolge, `DRY_RUN` ehrlich; 503-Fehlerpfad ohne Erfolg/Lead. **Epigenetik** Hub →
+  Panel → Musterbefund → Inquiry, Kontext locale/source/panel, UI „sicher gespeichert“ statt „weitergeleitet“. **Consumer**
+  Bestellanfrage als Inquiry, Referenz = DB = sichtbar, kein Kauf, kein Shop-/Checkout-Link; **Shopify-Outbound OWNER_BOUND**
+  (CTC-14, keine Domain im Repository). **Lead-Magnet** Gate → Anspruch vor Erfolg → echte ZIP (Groesse + SHA-256), Token
+  manipuliert 403, kein Bypass. **Support** Validierung, PDF-Anhang byte-gleich unter opaker Ablage-ID. **Sprachwechsel** 6
+  Familien inkl. Legal, x10 ohne Redirect. **Suche** Tastatur, 0 tote Treffer, 0 Registry-Drift. **Befund PT273-F1 (FIXED):**
+  Consumer-Erfolg zeigte nie die Vorgangsnummer (`consumerOrder.ts` las `orderReference`/`status` statt Envelope
+  `reference`/`state`, AP22-Drift wie SEC-20) → minimal behoben, Altformat lesbar, Unit +2 (unit 379/379, component 250/250
+  unter Shell `NODE_ENV=production`). PT273-F2 (400-`fieldErrors`-Drift, Owner AP21/AP22) nur dokumentiert. Laeufe 1/2 rot
+  durch deterministische Testannahmen + F1, alle Ursachen belegt. Artefakte 0 Adressen/Tokens. Handoff TESTING-CONTRACT §13.
+  **PT27.4 nicht gestartet, AP28 NOT STARTED. 0 Commits.**
+- PT27.2: **PASS (2026-09-15)** — Integration Tests (Fast-Delta aus Handoff PT27.1). **Harness**
+  `server/lead-foundation/testing/integration-harness.js`: echter `server.js` im Testprozess, temporaere SQLite, echte
+  Adapter; nur der SendGrid-Transport geskriptet, Client/HTTPS gesperrt und gezaehlt, Provider-Env explizit gesetzt.
+  **`npm run test:integration` 16/16:** Lead-Pipeline 7 (Validierung vor Persistenz, Persistenz vor Transport ueber zweite
+  Verbindung, Kontext, Idempotenz/409, 503 → RETRY_PENDING → Recovery nach `available_at` → derselbe Lead eine Zustellung,
+  ETIMEDOUT → RECONCILIATION_REQUIRED ohne Replay, 400 → FAILED_TERMINAL mit Lead), Gated Entitlement 7 (DB-Bindung,
+  Hash-only, ASSET_MISMATCH gegen zweites reales Asset, fremder Anspruch, 410/403/410, Rotation, Pfad-Abwehr, Token weder in
+  DB noch Log), preview-isolation 2. **`npm run test:integration:http` 12/12** (Playwright nur `request`, frischer Build je
+  Lauf mit Identitaetspruefung): SSR-Head 7 Routentypen x de/en/cs, 33 x 301 ein Hop, 8 x 404, ausgelieferte Sitemap
+  byte-gleich Registry-Ausgabe, 78 hreflang-Ziele. **Provider-Side-Effects 0.** Regression Projekt `server` 470/470 (Exit 1
+  nur TB-02). **Befund PT272-F1:** Download-Ablehnungslog echot die vom Client gesendete `assetId` (bis 64 Zeichen) — kein
+  Server-Pfad/Token, Owner Security, Produktcode nicht geaendert. Testannahme zunaechst falsch (Pfad als Server-Leak
+  gewertet), per Diagnose korrigiert. Handoff TESTING-CONTRACT §10. **PT27.3 nicht gestartet, AP28 NOT STARTED. 0 Commits.**
+- PT27.1: **PASS (2026-09-15)** — Unit/Component Tests, einmalige bounded Discovery fuer AP27. **Befund:** die seit AP22 als
+  „vorbestehend“ gefuehrten 233 roten src-Tests (`React.act is not a function`) waren Umgebung, nicht Code — Shell
+  `NODE_ENV=production` laedt Reacts Produktionsbuild; ohne Variable 590/590. **Fix:** `vitest.config.ts` setzt
+  `NODE_ENV=test` und fuehrt drei Projekte `unit`/`component`/`server` (Include-Menge 101 Dateien identisch geprueft);
+  Scripts `test:unit`, `test:component`, `test:server`, `test:guards` (die neun CI-Guards). **Neu (46 Tests):**
+  `src/routing/routeResolution.test.ts` 16 (Locale x10 fuer 43 Pfade, Segmente, Shopify-only, 30 Redirects kettenfrei,
+  Sitemap/Suche = Registry), `src/lib/i18nSchema.ts` + Test 12 (Drift-Erkennung aus dem G4-Guard herausgeloest, Guard-Ausgabe
+  vor/nach identisch, Self-Test gruen), `src/components/ui/LanguageSwitcher.test.tsx` 9,
+  `server/lead-foundation/testing/crm-test-double.js` + Test 9 (deterministischer Double ueber die echte Zustellgrenze).
+  **Gate:** unit 377/377 und component 250/250 unter Node 22 mit absichtlich gesetztem `NODE_ENV=production`; server 456/456
+  (Node 18) + `pt08-2-i18n` 12/12 (Node 22); `test:guards` Exit 0; `tsc -b` 0; eslint/Prettier Write Set sauber.
+  **Baselines TB-02..07** klassifiziert (TESTING-CONTRACT §5), u. a. Server-Deps fehlen im CI-Job `quality` (D-12) und
+  `quality` rot ab Lint → Tests in CI nicht erreicht (PT27.6). Kein Browser-/Visual-Lauf, keine Provider-Side-Effects,
+  keine Snapshot-Baseline geaendert, kein Test geskippt. Handoff TESTING-CONTRACT §8. **PT27.2 nicht gestartet, AP28 NOT
+  STARTED. 0 Commits.**
+- AP26-WAIVER-01: **ACTIVE (2026-09-15)** — bewusste Risikoakzeptanz durch Auftraggeber/Product Owner fuer den Relaunch-Fortschritt.
+  Accepted risks: OA-11 (SendGrid-Rotation / credential-tragendes Produktions-Image) und OA-12 (Preview/Production SendGrid- und
+  `APP_ENV`-Trennung), Status **DEFERRED_ACCEPTED_RISK**. **Technical remediation performed: NO.** SEC-04/C26-33 und SEC-06/C26-34
+  bleiben technisch offen; Security-Befunde, Tests und Risikoregister unveraendert. Owner Operator / Deployment. Release effect: AP27 may
+  proceed. Remediation deadline: before production go-live / AP30 release candidate gate at latest. No false-ready: YES.
+  AP26-Status daraus: COMPLETE (COMPLETE_WITH_ACCEPTED_RISK), Closure PASS_WITH_WAIVER. Keine Code-, Test- oder Secret-Aenderung.
+  "AP26 contains explicitly accepted operational security debt. OA-11 and OA-12 remain unresolved and must be remediated before
+  production go-live. Their waiver releases AP27 but does not constitute technical remediation."
+- AP26-CLOSURE: **BLOCKED (2026-09-15) → PASS_WITH_WAIVER durch AP26-WAIVER-01** — unabhaengige Neuvermessung, kein PT-PASS uebernommen, kein Produktcode geaendert.
+  **Repo/Build/Image gruen:** Server 447/447 (Security verbose 69/69), src nur vorbestehende 233 `React.act`; Audit Root 0 / Server 0;
+  gitleaks 452 Commits 0; Trivy Artefakte 0; Bundle 0; Images aus Repo gebaut: Frontend 0 Befunde, Backend Policy PASS (§17.4),
+  `USER node`, kein npm, keine `/app/.env`; Container-Smoke CSP enforced, kein `X-Powered-By`, 400/202/403/415; Budget 24/24;
+  pt26.1 5/5, pt26.2 5/5, pt26.3 3/3, pt25.2 8/8, pt23.1 9/11 und CI-Specs 100/101 nur vorbestehend. **Live-Blocker (read-only):**
+  laufendes Produktions-Backend-Image enthaelt `/app/.env` mit nicht rotiertem SendGrid-Schluessel (SEC-04/C26-33, OA-11); Preview
+  nutzt denselben Schluessel, nur `DRY_RUN=true` (SEC-06/C26-34, OA-12). Weitere Operator-Aktionen: OA-1, OA-4, OA-5, OA-8, OA-14,
+  OA-16, OA-17. CI-Jobs `security`/`security-runtime` lokal reproduziert, auf GitHub nicht gelaufen. SECURITY-CONTRACT §18.
+  **AP26 nicht COMPLETE, AP27 nicht freigegeben und nicht gestartet. 0 Commits.**
+- PT26.5: **PASS (2026-09-15)** — Security QA und CI-Gates. **Audit:** Root-Laufzeit 9 (5 high: http-proxy-middleware, path-to-regexp,
+  react-router(-dom), picomatch) und Server 7 (4 high: express/path-to-regexp, axios, form-data) → `npm audit fix` ohne `--force`,
+  semver-kompatibel → 0/0 (SEC-38). **Secrets:** gitleaks v8.30.1 Historie 0 (2 Fehlalarme per Fingerprint), Trivy-fs/Artefakte/Images 0;
+  Host-`server/.env` 644 → OA-16. **Images (gebaut, Trivy 0.74.0):** Frontend vorher Dev-Baum + root (SEC-39) → 0 Befunde, `USER node`,
+  ohne npm; Backend vorher `node:20` 71 C / 1269 H → `node:22-bookworm-slim`, `USER node`, 4 C / 52 H ohne Fix akzeptiert (§17.4, Review
+  2026-10-15, SEC-16 FIXED); Container-Smoke PASS. **CI:** additive Jobs `security` und `security-runtime`, Scanner gepinnt, bestehende
+  Jobs unveraendert; Scripts `security:audit|secrets|test`. **Eigene Regressionen gefunden und behoben (SEC-40):** Epigenetik-Konversion
+  bei retrybarer Ablehnung, AP23-CSP-Guard auf altem Pfad. **SEC-21 FIXED:** `bypassCSP` in 33 axe-Configs (CSP-Suiten ohne Bypass).
+  **Umgebung:** Shell `NODE_ENV=production` liess `npm audit fix` Dev-Abhaengigkeiten entfernen; mit `npm ci --include=dev --ignore-scripts`
+  repariert, Lockfiles hash-gleich, Caches erhalten. **Gate:** tsc 0; Server 447/447; src 233 rot = nur `React.act` (vorbestehend,
+  Versionen gleich); Security-Vertragstests 73/73 + 54/54; AP25-Budget statisch PASS; e2e pt26.1 5/5, pt25.2 8/8, pt26.2 5/5, pt26.3 3/3,
+  pt23.1 9/11 (vorbestehend), CI-Specs 99/101 (search-modal vorbestehend, Navigation-Flake: dreifach 96/96), pt21.2 7/8 (Kontrast
+  vorbestehend, SEC-43 → AP27); eslint 6 / Prettier 34 nur Nicht-AP26-Dateien (SEC-42). **Dateien:** `package.json`, `package-lock.json`,
+  `server/package-lock.json`, `Dockerfile`, `server/Dockerfile`, `.github/workflows/ci.yml`, `.gitleaksignore` (neu),
+  `playwright.config.ts` + 32 `e2e/*.config.ts`, `src/components/epigenetics/EpigeneticsInquiryForm.tsx`,
+  `src/lib/trackingTaxonomy.test.ts`, `src/lib/analyticsIsolation.test.ts`, `building-docs/SECURITY-CONTRACT.md` (§17, SEC-38..43,
+  OA-16/17), `building-docs/DEPLOYMENT-CONTRACT.md`, `building-docs/RUNTIME-CONTRACT.md`, State. **AP26-CLOSURE nicht gestartet,
+  AP27 nicht gestartet. 0 Commits.**
+- PT26.4: **PASS (2026-09-15)** — CRM, Queue, Secrets und Integration Security. **Fast-Delta:** Eingang Handoff PT26.3 §13.3; Drift
+  festgestellt: Index zwischenzeitlich vollstaendig durch Dritte gestaged (Inhalt PT26.1–PT26.3 intakt). **Secrets:** Arbeitsbaum + 514 Commits
+  0 hochspezifische Treffer (Muster je Familie mit Selbsttest), nie `.env` versioniert, Repo-Build-Kontexte 0 Env-/DB-Dateien (Wegwerf-Build),
+  Client-Bundles ohne Server-Secrets. **Kritisch (Operator):** laufendes Produktions-Backend-Image `01polaris-backend` enthaelt `/app/.env`,
+  Schluessel-Hash = Laufzeit (SEC-29 → Rotation OA-11); Preview teilt den Produktionsschluessel, Schutz nur `DRY_RUN=true` (SEC-30 → OA-12);
+  gegatetes ZIP live frei abrufbar (200) und im oeffentlichen Repo versioniert (SEC-34 → OA-14). **Behoben:** Lease-Ablauf stellte blind neu
+  zu → Klaerung (SEC-31); alle 7 Adapter machten `ETIMEDOUT`/`ECONNRESET` wiederholbar → unbekannt/Klaerung (SEC-32); Teilzustellung bei
+  Support/Consumer-Order/ROI wiederholte angenommene Mails → `sendEach`/Klaerung (SEC-33); Trockenlauf setzt keinen Schluessel mehr, Befund
+  `DRY_RUN_WITH_PROVIDER_CREDENTIAL` (SEC-30 Repo-Teil). Webhooks NOT_APPLICABLE (SEC-36), Backup-Grenze nicht oeffentlich (SEC-37, AP28).
+  Least Privilege §16.4 (SendGrid extern nicht pruefbar → OA-13). **Tests:** `integration-security.test.js` 6/6,
+  `preview-isolation.endpoint.test.js` 2/2, `secret-hygiene.test.js` 7/7, Lease-Tests angepasst, `vitest run server` 447/447 (32 Dateien).
+  **Dateien:** `server/lead-foundation/{repository,crm-delivery,environment}.js`, `server/server.js`,
+  `server/{contact-lead,consumer-order,content-download,epigenetics-inquiry,practice-order,roi-report,support-case}.js`,
+  `server/lead-queue.test.js`, `server/lead-foundation/lead-foundation.test.js`, `server/integration-security.test.js` (neu),
+  `server/preview-isolation.endpoint.test.js` (neu), `server/secret-hygiene.test.js` (neu), `building-docs/SECURITY-CONTRACT.md` (§16, SEC-29..37,
+  OA-11..15), `building-docs/LEAD-DELIVERY-CONTRACT.md`, State. **PT26.5 nicht gestartet, AP27 nicht gestartet. 0 Commits.**
+- PT26.3: **PASS (2026-09-15)** — API- und Formular-Security. **Fast-Delta:** Eingang Handoff PT26.2 §13.2; gelesen nur
+  Write-Set (server.js, Journey-Slices, api-contract, Repository-Hash, Entitlements, betroffene Clients). **Endpoint-Inventar:** 7 POST-
+  Journeys + GET Einloesen (§6.1); `/api/early-access` nicht im Repo (SEC-17 → OA-9). **Befunde und Fixes:** Parser lief global mit
+  10 MB VOR dem Limiter → Limiter → 415 → Routengrenze 64 KB / Support 14,0 MB → nur JSON-Objekt (SEC-14 FIXED); CORS-Default
+  `localhost` → nur konfigurierte Origins (SEC-12 FIXED, Env OA-5); kein Origin-Modell → Fetch-Metadata-Guard 403 + JSON-/Key-Pflicht,
+  kein Token (Modell ohne Cookies, SEC-25 FIXED); Key still auf 200 gekuerzt → Format-Pruefung (SEC-24 FIXED); \*\*Support: gleicher Key
+  - gleich benannte/grosse, andere Datei ueberschrieb die Datei des Originalvorgangs** → Inhalts-Hash, `wx`, Aufraeumen (SEC-23 FIXED);
+    **SEC-20 FIXED:\*\* Gate- und Epigenetik-Client lesen das Envelope (vorher jeder Vorgang als Fehler; Epigenetik verwarf den Key →
+    Duplikat-Leads beim erneuten Absenden). Download-Token im nginx-Access-Log → Snippet `deploy/nginx/polarisdx-download-log-redaction.conf`
+  - nginx-Test, Aktivierung OA-8 (SEC-26). Akzeptiert: Kuerzen statt Ablehnen (SEC-27). **Tests:** `api-security.endpoint.test.js` 16/16,
+    nginx-Redaction 1/1, `journeyEnvelope.test.ts` 5/5, `vitest run server` + Client 437/437 (30 Dateien), `e2e/pt26.3.spec.ts` 3/3,
+    PT26.2 5/5, PT26.1 5/5 (Limiter-Erwartung begruendet angepasst), `epigenetics-inquiry` + `befunde-navigation` mit Envelope-Mocks 4/6
+    (2 rot identisch im A/B gegen Build vor PT26.3 → vorbestehend, SEC-28/AP27). **Dateien:** `server/server.js`, `server/support-case.js`,
+    `server/lead-foundation/api-contract.js`, `src/api/contentDownload.ts`, `src/api/epigeneticsInquiry.ts`,
+    `src/components/epigenetics/EpigeneticsInquiryForm.tsx`, `deploy/nginx/polarisdx-download-log-redaction.conf` (neu),
+    `server/api-security.endpoint.test.js` (neu), `server/download-log-redaction.nginx.test.js` (neu), `src/api/journeyEnvelope.test.ts`
+    (neu), `server/ap22-closure.test.js`, `e2e/pt26.3.config.ts` (neu), `e2e/pt26.3.spec.ts` (neu), `e2e/pt26.2.spec.ts`,
+    `e2e/pt26.1.spec.ts`, `e2e/epigenetics-inquiry.spec.ts`, `e2e/befunde-navigation.spec.ts`, `building-docs/SECURITY-CONTRACT.md`,
+    `building-docs/BACKEND-API-CONTRACT.md`, State. **PT26.4 nicht gestartet, AP27 nicht gestartet. 0 Commits.**
+- PT26.2: **PASS (2026-09-15)** — CSP und Legacy-/Third-Party-Bereinigung. **Fast-Delta:** Eingang Handoff PT26.1 §13; keine
+  Rediscovery. **Vorher:** Report-Only ohne Empfaenger, `unsafe-inline`/`unsafe-eval`, `https:` in 6 Direktiven, 3 veraltete Origins.
+  **Gemessen:** Bundle/SSR/GTM-Container (Prod + Preview, einmal lesend abgerufen)/Google-Tag ohne `eval` und Inline-Skript; unter
+  strikter Policy 156 `style-src-attr`-Verstoesse (SSR-`style`-Attribute aus 16 Komponenten); Zustimmung mit echtem Container fragt
+  nur `gtm.js`, `gtag/js`, `region1…/g/collect` an (Collect lokal abgebrochen). **Umgesetzt:** einzige Quelle
+  `src/security/contentSecurityPolicy.ts`; Produktion **durchgesetzt** (Dev Report-Only, Rueckfall `POLARIS_CSP_MODE=report-only`);
+  Allowlist 2 Origins (GTM `script-src`, `region1.google-analytics.com` `connect-src`); entfernt `https:`, `unsafe-eval`, Skript-
+  `unsafe-inline`, `ssl.google-analytics.com`, Google Fonts, `www.google-analytics.com`; `<style>` per SHA-256; `form-action 'self'`,
+  `frame-src 'none'`; kein `report-uri` (kein Empfaenger, kein Monitoring-Claim). **Tests:** Guard + Chat-Guard 21/21,
+  `e2e/pt26.2.spec.ts` 5/5 (Test 5 zusaetzlich 5/5 wiederholt), PT26.1 5/5, PT25.2 8/8, PT23.1 9/11 (2 rot identisch unter
+  Report-Only → vorbestehend), CI-Specs 100/101 (`search-modal` identisch unter Report-Only → vorbestehend). **Befunde:** SEC-13
+  FIXED; SEC-18 `style-src-attr` ACCEPTED_TEMPORARILY (AP27); SEC-19 kein Report-Empfaenger (AP28/AP32); **SEC-20 Gate-UI liest
+  `accepted`/`downloadUrl`, Server liefert AP22-Envelope → Gate zeigt Fehler (funktional, vorbestehend, Owner AP22/AP19, Eingang
+  PT26.3)**; SEC-21 38 Nicht-CI-Suiten injizieren axe inline (PT26.5); SEC-22 Container/Property-Aenderungen (OA-7). **Dateien:**
+  `src/security/contentSecurityPolicy.ts` (neu), `src/security/contentSecurityPolicy.test.ts` (neu), `server.ts`,
+  `server/chat-removal.test.js`, `e2e/pt26.2.config.ts` (neu), `e2e/pt26.2.spec.ts` (neu), `e2e/pt26.1.spec.ts`, `e2e/pt25.2.spec.ts`,
+  `building-docs/SECURITY-CONTRACT.md` (§8, §10–§15), `building-docs/NETWORK-ALLOWLIST.md`, State. **PT26.3 nicht gestartet, AP27
+  nicht gestartet. 0 Commits.**
+- PT26.1: **PASS (2026-09-15)** — Security Headers und Security-Baseline. **Discovery (einmalig):** Header-Quellen App/Backend/Host-nginx
+  lokal und live (nur lesend) gemessen; Host-nginx beider Origins: TLS + HTTP→HTTPS, `X-Forwarded-For` angehaengt, **kein HSTS**,
+  `server_tokens` an; Preview doppeltes `nosniff`. **Behoben (SEC-01..09):** statische Antworten (`/assets`, `/locales`,
+  robots, favicon) hatten **keinen** Security-Header → Baseline-Middleware vor `express.static`; Backend `X-Powered-By: Express`
+  (live Prod + Preview) aus; API ohne `Cache-Control` → `no-store`; Parser-/Groessenfehler lieferten ohne `NODE_ENV` Express-HTML
+  **mit Stacktrace und Dateipfaden** → JSON-Fehler ohne Interna, JSON-404; `X-XSS-Protection: 0`; Permissions-Policy 5 Features
+  (0 Verwender); SSR-500 `no-store`. **HSTS:** Owner Reverse Proxy, `deploy/nginx/polarisdx-hsts.conf` (`max-age=31536000`, ohne
+  includeSubDomains/preload) produktionsnah nachgewiesen; Live-Aktivierung **AP31 Operator-Check**. **Tests:** `e2e/pt26.1.spec.ts`
+  5/5 (TLS-nginx → SSR-Produktionsbuild → Backend: Matrix HTML 200/301/404, Asset, Locale, API 202/400/404/413/429, geschuetzt 200/403,
+  HTTP→HTTPS, Forwarded-/Host-Spoofing, Limiter trotz gefaelschtem XFF), `server/security-headers.endpoint.test.js` 4/4,
+  `vitest run server` 415/415 (Node 18), PT25.2 8/8, url-smoke 2/2. **Offen:** PT26.2 CSP (SEC-13), PT26.3 CORS-`localhost`-Origin,
+  10-MB-Limit, `/api/early-access` ausserhalb des Repos (SEC-12/14/17), PT26.4/5 `server/Dockerfile` (SEC-16); Operator OA-1..6.
+  **Dateien:** `server.ts`, `server/server.js`, `deploy/nginx/polarisdx-hsts.conf`, `server/security-headers.endpoint.test.js`,
+  `e2e/pt26.1.config.ts`, `e2e/pt26.1.spec.ts`, `building-docs/SECURITY-CONTRACT.md` (neu), State. **PT26.2 nicht gestartet,
+  AP27 nicht gestartet. 0 Commits.**
+- AP25-CLOSURE: **PASS (2026-09-15)** — unabhaengige Neuvermessung, **kein PT-PASS uebernommen**, **kein Produktcode und kein
+  Budget geaendert**. Frischer Produktionsbuild ueber das CI-Script (Node 22.23.2), **byte-identisch** zum PT25.5-Build. Budget-Gate
+  `ci` **852/852** (Node 22), `lab` **888/888** (Node 18.20.8), statisch 24/24; Gegenproben Exit 1. Mobil gzip echtes Chrome LCP
+  504–1.048 ms, desktop 100–224 ms, CLS ≤ 0,0043, TTFB ≤ 39 ms. Lighthouse 13.4.1 unkomprimiert mobil LCP 17/17 besser als PT25.1,
+  gzip mobil simuliert 2.315–2.996 ms (5/17 > 2,5 s, Lantern, kein Budget), desktop 508–787 ms, 0 Provider in 204 Laeufen. Collector:
+  Hydration-Ende mobil 6,7–9,4 s → 5,4–6,5 s, Long Tasks max 712 → 300 ms, Locale-JSON vor Hydration 14–30 → 3–12. Bilder: 0 ohne
+  Dimensionen, 0 lazy LCP, 0 uebergross, 0 eager unter dem Falz ohne belegte Ausnahme; Consumer-Hero-Ablation: lazy ohne Byte-Gewinn.
+  Fonts 0 extern, 1 Preload, Font-Swap-CLS 0,8152 → 0,0067. Kalt gzip FCP −240 bis −528 ms; **Wiederholungsansicht +200 bis +352 ms**
+  (448–628 ms, Warm-CLS-Spitzen entfallen) — gemessener Trade-off, nicht budgetiert, AP27-Handoff. Suiten: PT25.5 8/8, PT25.2 8/8,
+  PT25.3 9/9, PT25.4 8/8, AP24-Gate `pt24.6` 25/25 (Node 22), Breitensuiten 2 vorbestehende Testfehler klassifiziert
+  (`search-modal`-Locator, `navigation`-Hydration-Race: Closure 20/20, PT25.3-Build 19/20), vitest 70/70, `check:seo` PASS.
+  **Korrektur:** Messungen PT25.5/Closure liefen unter Node 18.20.8, nicht 20.19.6 (Vertrag §30.3). PERF-01..40 PASS, C25-01..50 PASS,
+  False-Ready 0. Vertrag §30 konsolidiert. **AP26 NICHT gestartet. 0 Commits.**
+- PT25.5: **PASS (2026-09-15)** — Performance-Budgets und CI-Gate. **Kein Produktcode geaendert.** **Budgets** aus 5 Gate-Aufrufen × 3
+  verschraenkten Laeufen (Bytes/Anzahlen Streuung 0; Zeiten p90 LCP 72 / FCP 68 / TTFB 12 ms), PT25.1-Baseline und CWV-Grenzen
+  abgeleitet (`scripts/perf/budgets.json`, Regeln Vertrag §29.3): Bytes +5 %, Anzahlen exakt, Zeiten LAB schlechtester Median +
+  gemessene Streuung, CLS +0,006, CI-Zeiten = `WEB_VITAL_THRESHOLDS` (LCP 2.500 ms, CLS 0,1, TTFB 800 ms). Initial-JS-Budget
+  164.778 B gzip (gemessen 156.931, PT25.1 169.433), CSS 99.490 B roh, groesstes Route-JS 36.711 B, Musterbefund-Route 25.196 B
+  (PT25.1 118.721). **Gate** `scripts/perf/check-budgets.mjs` (statisch + 18 Routen × mobil gedrosselt/desktop, gzip-Proxy,
+  fremde Hosts nicht aufloesbar, kein Consent, nichts abgesendet): `lab` 888/888, `ci` 852/852; Gegenproben PT25.1-/PT25.3-Build und
+  zu knappes LCP-Budget → Exit 1 mit Meldung. **CI:** neuer Job `performance` in `.github/workflows/ci.yml` (andere Jobs
+  unveraendert), Scripts `perf:budget:build`, `check:perf-budget`, `check:perf-budget:lab`. **Lighthouse** 13.4.1 LAB identity +
+  gzip, 17 Routen × 2 × 3 = 204 Laeufe, 0 Provider; mobil gzip simuliert LCP 2.313–2.986 ms (6/17 > 2,5 s, Lantern; echtes Chrome
+  552–1.056 ms). **Tests:** `e2e/pt25.5.spec.ts` 8/8 (SSR/SEO 18 Routen, Kerninteraktionen ohne Absenden, Event-Timing-Surrogat
+  ≤ 136 ms, axe 24 Seiten, Responsive 390/768/1024/1440, AP23-Netz, schwere Daten), `e2e/pt25.2.spec.ts` 8/8, Breitensuiten 107/108
+  (1 vorbestehend: `search-modal`-Locator vs. `RouteAnnouncer`, identisch auf PT25.1/PT25.3), vitest monitoring/seo 70/70 (Node 22);
+  tsc/eslint/Prettier/`check:colors` sauber. **Dateien:** `scripts/perf/check-budgets.mjs`, `scripts/perf/budgets.json`,
+  `e2e/pt25.5.config.ts`, `e2e/pt25.5.spec.ts`, `e2e/pt25.5-broad.config.ts` (neu), `.github/workflows/ci.yml`, `package.json`,
+  Vertrag §29, State. **Uebergabe:** Vertrag §29.11 (CI-Job auf GitHub noch nicht gelaufen, knappe desktop-Zeitbudgets `lab`,
+  Lighthouse-PREVIEW nach Deploy, Consumer-Hero-Ablation mobil, Warm-Profil nicht budgetiert). **AP25-CLOSURE nicht gestartet,
+  AP26 nicht gestartet. 0 Commits.**
+- PT25.4: **PASS (2026-09-15)** — Fonts und CSS. **Gemessen:** Font-Inventar 8 Routen × 390/1440 (ein Preload, keine externen
+  Quellen, `latin-ext` nur pl/cs, `greek` nur Musterbefund); Fallback-Face `Inter Fallback` war auf Linux/ChromeOS wirkungslos
+  (`local('Arial')` → Status `error`); `latin` endet mobil gedrosselt 165–308 ms NACH FCP. **Umgesetzt:** (1) Fallback als zwei
+  Faces mit Arial-metrischen `local()`-Quellen (Arial/Liberation Sans/Arimo), Normal 107,12 % / 90,55 % / 22,4 %, Fett
+  101,36 % / 95,7 % / 23,68 % — per gemessenem Layout-CLS aus fuenf Kandidaten gewaehlt (Font-Swap-CLS Schrift +2 s, Suite-Modus:
+  Labor 0,8152 → 0,0067, Arial-Plattformen 0,0224 → 0,0067, keine Route schlechter). (2) App-Stylesheet inline im SSR-Kopf
+  (`server.ts`, Fallback auf `<link>`): FCP kalt mobil −448 bis −512 ms, HTML +~17 KB gzip. (3) Render-Marke `rel="expect"` in
+  `index.html`: B05-Wiederholungs-CLS 6/6 (0,23–0,42) → 0/6. **Trade-off:** Wiederholungsansicht mobil FCP +0,17 bis +0,25 s
+  (absolut 480–564 ms). **Verworfen (gemessen):** `latin-ext`-Preload (kein CLS-Gewinn), Inline ohne Fallback-Fix (CLS 0,161).
+  **Dateien:** `src/index.css`, `server.ts`, `index.html`, `scripts/perf/font-css-inventory.mjs` (neu),
+  `scripts/perf/variant-compare.mjs`, `e2e/pt25.4.config.ts`, `e2e/pt25.4.spec.ts` (neu), Vertrag §28, State.
+  Tests: `e2e/pt25.4.spec.ts` 8/8, `e2e/pt25.2.spec.ts` 8/8, `e2e/pt25.3.spec.ts` 9/9; tsc/eslint/Prettier/`check:colors` sauber.
+  **Uebergabe:** Vertrag §28.9 (PT25.5-Budget-Input, offenes Delta; AP27: `/pl/`-Navigation 1440 an der Umbruchgrenze; Android/Roboto
+  nicht gemessen). **PT25.5 nicht gestartet, AP26 nicht gestartet. 0 Commits.**
+- PT25.3: **PASS (2026-09-14)** — Bilder und LCP-Medien. **Gemessen:** Bildinventar 17 Routen × 390/768/1440
+  (`scripts/perf/image-inventory.mjs`); AVIF q60 gegen WebP q80 per PSNR (20–30 % kleiner, +1,5–2 dB).
+  **Umgesetzt:** AVIF/WebP-Varianten mit Generator + Guard (`build:`/`check:article-images`), `ResponsivePicture`
+  (`picture` als `contents`, native `width`/`height`, lazy als Standard), Artikel-Hero und erste Artikelkarte als einzige
+  neue Vorrang-Bilder (PERF-B04), responsive Artikelbilder in Artikel, Artikelliste, Startseiten-Blog und Diagnostics
+  (PERF-B10), Produktbild der B2B-Spray-Seite responsiv mit korrigierter Reservierung (`h-80`, native 618×931 — war bis
+  zum Laden 0 × 0 px, CLS 0,0083/0,012). **Ergebnis:** Artikel-LCP mobil gedrosselt 1.620 → 1.076 ms, desktop 160 → 112 ms;
+  Artikelliste desktop 176 → 132 ms; Spray desktop CLS 0,012 → 0; Bildbytes nach Scrollen z. B. Artikelliste 1440 px
+  187 → 57 KB, Spray 100 → 16 KB; OG/JSON-LD unveraendert; visuell PSNR 37,5–47,6 dB und manuell gesichtet.
+  **Gemessen ohne Aenderung:** Diagnostics-Hero `fetchpriority` (verschraenkt wirkungslos), Consumer-Heros, Logo.
+  **PERF-B05 aufgeloest als Nicht-Bild-Befund:** Paint waehrend des Parsens + unten verankerte Hero-Dekoration → PT25.4.
+  Tests: `e2e/pt25.3.spec.ts` 9/9, `e2e/pt25.2.spec.ts` gegen PT25.3-Build 8/8, beide Bild-Guards PASS, tsc/eslint/Prettier
+  sauber. **PT25.4 nicht gestartet, AP26 nicht gestartet. 0 Commits.**
+- PT25.2: **PASS (2026-09-14)** — Rendering, SSR und Hydration. **Umgesetzt:** (1) i18n-Uebergabe
+  SSR → Client: der Server meldet die beim Render benutzten Namespaces und das `en`-Fallback-Delta
+  (gemessen 0 fehlende Schluessel) als JSON-Datenblock; der Client hydratisiert nach diesen Namespaces
+  statt nach allen 15 × (Sprache + `en`) = 30 Dateien, der Rest laedt im Leerlauf nach `load`.
+  (2) Consumer-Seiten lazy (Kopf beim ersten Request ueber die Retry-Schleife, gegen frischen Server
+  geprueft). (3) Musterbefund laedt im Browser nur die URL-Sprache (`loadBefundFamily`, `loadRoute`
+  als Lazy-Fabrik), Server weiter alle zehn. (4) SSR-Warm-up nach `listen`. **Gemessen verworfen:**
+  Namespace-Preloads (FCP/LCP schlechter, Schrift-Swap-CLS 0,161 auf `/de/contact`) und
+  `react-dom/client` im Vendor-Chunk (FCP +284 bis +352 ms ohne Kompression, verschraenkte Ablation) —
+  beides zurueckgenommen. **Laufzeitbefund:** Modul-`await` in dynamischen SSR-Chunks loest unter
+  `tsx server.ts` nie auf (Hinweis AP28). **Gemessen:** Initial-JS 528,1 → 470,1 KB raw (165,5 → 152,4 KB gzip); Musterbefund-Route 115,9 → 23,4 KB gzip (+ ein Sprachchunk ~10 KB); Consumer aus dem Entry; Hydration-Ende mobil gedrosselt −2,5 s unkomprimiert / −0,9 s mit gzip bei FCP im Rauschbereich (verschraenkt); Server-TTFB verschraenkt ±1,7 ms; Kaltstart mit Warm-up gleich oder besser (Startseite 198 → 23 ms); Lighthouse LAB mobil FCP 11/11 besser; `D-29` geschlossen. Tests: `e2e/pt25.2.spec.ts` 8/8 gegen frischen
+  Produktionsserver (Kaltstart-Kopf, 18 Routen SSR/i18n-Zustand, 404/Redirects, Hydration ohne Fehler und
+  ohne Root-Fallback, nur SSR-Namespaces vor der Hydration, Suche/Menue/Sprache/Bestell-Modal/clientseitige
+  Navigation, 0 Provider ohne Consent, axe serious/critical 0 + sichtbarer Fokus); Gegenprobe gegen den
+  PT25.1-Build rot; `check:i18n`, `check:befunde` (Guard fuer `loadBefundFamily` erweitert),
+  `check:befunde-seo` PASS; `tsc` app/server, eslint, Prettier sauber. **Uebergabe:** Vertrag §26, PT25.3
+  bleibt unveraendert §23.2; PT25.4 bekommt den Schrift-Swap-Shift auf `/de/contact` als Voraussetzung fuer
+  spaetere Namespace-Preloads. **PT25.3 nicht gestartet, AP26 nicht gestartet. 0 Commits.**
+- PT25.1: **PASS (2026-09-14)** — Performance-Baseline, **kein Produktcode geaendert**. Gemessen gegen
+  einen Produktionsbuild aus HEAD `48ca775` + Arbeitsbaum (LAB, `node_modules/.cache/pt25.1`, Port 3960,
+  unkomprimierter Node-Origin) und gegen `preview.polarisdx.net` (Image `ap23-preview-20260911`, **ohne
+  AP24**, nginx gzip). Routenmatrix 18 (14 Seitentypen + 404 + en + pl x2). Lighthouse 13.4.1 (Chrome for
+  Testing 151): LAB 3 Laeufe je Route mobil+desktop, PREVIEW 1 Lauf; Collector (Playwright-Chromium 143)
+  kalt/warm mit Hydration-, Long-Task-, LCP-/CLS-Quellen-, Bild- und Fontinventar. **PREVIEW mobil LCP
+  2.031–2.933 ms, CLS ≤ 0,004, TBT ≤ 43 ms; LAB mobil LCP 4.852–6.273 ms (Kompressionsunterschied);
+  desktop ≤ 1.191 ms.** HTTP 18/18 beide Umgebungen, SSR-Root ueberall gefuellt, 0 Hydration-Fehler,
+  **0 Provider-Requests vor Consent**. `FIELD_METRICS = NOT_AVAILABLE`, INP nicht gemessen (nur
+  gekennzeichnete Surrogate). Initial-JS 528,1 KB raw / 165,5 gzip, CSS 92,1 / 16,5. **Bottlenecks:
+  P0 keiner; P1 PERF-B01 i18n-Wasserfall (30 Locale-JSON, 220 KB gzip vor Hydration), B02 Entry-Chunk
+  (react-dom-client 172,8 KB an manualChunks vorbei, Consumer statisch), B03 Musterbefund-Chunks mit allen
+  10 Locales (Route 115,9 KB gzip), B04 LCP-Bilder lazy (Artikel), B05 Warm-Navigations-CLS 0,18–0,29 nur
+  im aktuellen Build (Ursache offen, bisektieren).** Write Sets PT25.2/25.3/25.4 in
+  `PERFORMANCE-CONTRACT.md` §23. **PT25.2 nicht gestartet, AP26 nicht gestartet. 0 Commits.**
+- AP24: **COMPLETE (Closure PASS, 2026-09-11)** — PT24.1–PT24.6 alle **PASS**, AP24-CLOSURE
+  **PASS**. **AP25: NOT STARTED.**
+- AP24-CLOSURE: **PASS (2026-09-11)** — unabhaengige Nachmessung, **kein PT-PASS uebernommen**,
+  und zwar gegen einen **frisch gebauten Produktionsbuild** (Client + SSR, ausgeliefert mit
+  `NODE_ENV=production`). Das ist der entscheidende Unterschied zu allen sechs PT-Laeufen: die
+  liefen ausschliesslich gegen den Dev-SSR-Server. Die Closure prueft damit erstmals das, was
+  wirklich ausgeliefert wird. **Ergebnis: 280/280 Zusicherungen gruen** (Semantik 118, Tastatur 41,
+  Fokus 31, Kontrast 20, Medien 45, axe-Gate 25). **Dazu eigene Messungen mit eigenem Code, nicht
+  mit den PT-Tests:** ein unabhaengiger `axe`-Lauf ueber **44 oeffentliche Routen** (WCAG
+  2.0/2.1/2.2 A+AA) — **0 Verletzungen**; eine Strukturmessung ueber **27 Routen** — genau ein
+  `main`, ein `banner`, ein `contentinfo` und eine `h1` auf **27/27**, dazu 0 namenlose
+  Navigationen, 0 Heading-Spruenge, 0 redundante Rollen, 0 Click-Divs, 0 Felder ohne Label, 0
+  Bilder ohne `alt`, 0 namenlose Grafiken im Accessibility-Tree, 0 tote `aria`-Verweise, 0
+  doppelte Ids, 0 positives `tabindex`, 0 beim Laden belegte `role="alert"`; eine Fokus- und
+  Tastaturmessung ueber **acht Flaechen** (Desktop, Mobil 390px, Tablet 834px, Deutsch, Polnisch,
+  Franzoesisch) — **0 Tabziele ohne sichtbaren Fokus, 0 unter 3:1, 0 verdeckt**, und als Fallenmass
+  die laengste Wiederholung desselben Knotens: **1** auf allen acht; eine Bewegungsmessung — 87
+  bzw. 145 bzw. 114 bzw. 104 animierte Elemente werden unter `reduce` zu **0**, **ohne dass
+  Inhalt verschwindet**; eine Medienmessung ueber acht Routen — 0 Bilder ohne `alt`, 0 namenlose
+  Grafiken, 0 Icon-Bedienelemente ohne Namen, 0 Video/Audio/Autoplay/Karussell; und eine
+  **x10-Strukturpruefung ueber ALLE zehn Sprachen** — genau ein `main` und eine `h1` auf 14/14,
+  alle Strukturzaehler 0. **Zwei Meldungen der eigenen Heuristik wurden nachgesehen und als
+  Fehlalarme des Messcodes bestaetigt**, nicht als Maengel der Anwendung: eine `figure` ohne Text
+  ist das bewusst dekorative Artikel-Leitbild, eine `figure` ohne Ziffer ist der
+  Kundenstimmen-Block mit Zitat und Namen. Ehrlichkeit gehoert in beide Richtungen — auch dahin,
+  wo die eigene Messung uebertreibt. **Produktionsqualitaet:** `tsc` clean, `eslint .` 6
+  vorbestehende Probleme mit **0 jsx-a11y** (drei eng begrenzte, jeweils begruendete
+  Suppressions fuer fokussierbare Tabellen-Scrollbereiche — WAI-konform, keine Regel
+  abgeschaltet), Unit-/Server-Suiten **614/614**, Farb-Guard, G4 i18n, G1 Routen, Shell-i18n,
+  Design-System-Changelog, Meta-Quality und G3 SEO alle PASS, Prettier sauber, Produktionsbuild
+  Client und SSR erfolgreich. **False-Ready-Audit sauber:** keine mehrfachen `main`, keine
+  redundanten Rollen, kein globales `outline: none` (die zwei Treffer sind
+  `focus-visible:outline-none` MIT Ersatzring), keine Farb-Alleinaussagen, keine als
+  WCAG-Zertifizierung ausgegebene Automatik, AP25 nicht gestartet. **Ehrlich offen und
+  ausdruecklich NICHT als PASS behauptet:** (1) **Die manuelle Screenreader-Pruefung ist
+  `NOT_RUN_ENVIRONMENT`** — diese Maschine hat keinen Screenreader (Debian ohne Grafiksitzung,
+  kein `orca`, kein AT-SPI-Bus). §39 des AP24-Arbeitspakets erlaubt genau das, solange nichts
+  erfunden wird und automatisiert gegen manuell sauber getrennt ist; beides ist erfuellt.
+  Vertrag §14 haelt die zwoelf Punkte mit Route, Zustand und Erwartung bereit, dazu den maschinell
+  aufgenommenen Accessibility-Tree als Beleg — ausdruecklich als das, was er ist: er zeigt, WAS
+  die Technik vorfindet, nicht WIE sie es vorliest (`A11Y-23`). (2) **Erfolgs- und
+  Wiederholungszustand der Formulare** sind nicht im axe-Lauf; beide brauchen ein antwortendes
+  Backend (`A11Y-22`). (3) Ein `best-practice`-Eintrag
+  (`landmark-complementary-is-top-level` auf `/de/diagnostics`) bleibt bewusst stehen — kein
+  WCAG-Kriterium, und die Alternative waere, ein benanntes `complementary` und damit einen
+  Sprungpunkt aufzugeben. (4) `e2e/navigation.spec.ts` ist gegen einen Produktionsbuild
+  gelegentlich flatterhaft: der Spec greift unmittelbar nach `page.goto()` zu, ohne auf die
+  Hydration zu warten — in drei vollen Laeufen einmal rot, der Einzeltest 5/5 gruen, und das
+  Verhalten direkt nachgemessen korrekt. **Zeitproblem des Tests, kein Produktfehler**; der Spec
+  gehoert AP06 und geht als Uebergabe an AP27. **Kein bekannter WCAG-AA-Blocker in den geprueften
+  Kernpfaden.** **Keine Zertifizierungsbehauptung:** 280 gruene Zusicherungen und 0
+  axe-Verletzungen heissen „keine der geprueften Regeln verletzt", nicht „barrierefrei".
+  **AP24 = COMPLETE. Next: AP25 (NOT STARTED, nicht gestartet).** **0 Commits.**
+- PT24.6 Automatisierte Checks: **PASS (2026-09-11)** — der breite Gate steht, und er hat sich
+  sofort bezahlt gemacht. **Der wichtigste Befund des ganzen Pakets kam aus diesem Lauf:** die
+  weisse Hauptnavigation stand auf der Startseite und auf `/diagnostics` ueber einem HELLEN Hero.
+  Per Pixelabtastung gemessener Untergrund `rgb(248,250,252)`, Kontrast **1,05:1** — im
+  Bildschirmfoto ist die Navigation schlicht nicht zu lesen; `axe` meldete 16 Knoten `serious`.
+  **Warum fuenf tiefe Durchgaenge das uebersehen haben:** PT24.3 hat den FOKUSRING dieser Links
+  gemessen (weiss auf Navy-Versatz, einwandfrei), und die Kontrastmessung aus PT24.4 schliesst
+  Elemente unter fixierten Ueberlagerungen aus — also ausgerechnet die Kopfzeile selbst. Tiefe
+  ersetzt keine Breite, und genau dafuer ist dieser Task da. Behoben mit einem Schleier:
+  `bg-brand-deep/75 backdrop-blur-sm` statt `bg-transparent` im unverscrollten Zustand — auf
+  hellem Hero 6,15:1, auf dem Mintton 6,31:1, auf dunklem Hero optisch unauffaellig, weil es
+  dieselbe Navy ist. **Fuenf weitere echte Kontrastbefunde** aus demselben Lauf behoben:
+  Telefon- und Handlungslinks in `text-accent` (3,32–3,74:1) auf `accent-strong`, der ODR-Link im
+  Impressum ebenso, ein Eyebrow in `accent-strong` auf Navy (**2,36:1**) auf `accent-on-dark`
+  (6,94:1), und zweimal `gray-500` auf leicht getoenter Flaeche (4,28 bzw. **4,45:1** — Letzteres
+  im Einwilligungspanel) auf `gray-600`. Daraus die Regel, die jetzt im Vertrag steht: **`gray-500`
+  gilt fuer Weiss und slate-50, auf getoenten Flaechen `gray-600`** — der Token hat auf Weiss nur
+  0,33 Punkte Luft. **Der Gate selbst:** `axe-core` gegen **44 oeffentliche Routen** im
+  Ruhezustand, **17 dynamische Zustaende** (Mega-Menue, mobiles Menue, Suche leer/mit/ohne
+  Treffer, Einwilligungsbanner und -Einstellungen, Sprachdropdown, FAQ, Bestell-Modal,
+  Preis-Popover, Kontakt- und Bestellformular im Fehlerzustand, Resource Gate, Hash-Sprung,
+  Kapitel-Aufklapper mobil, Musterbefund-Wechsler), **vier Sprachen** (de/en/pl/fr, je 14 Routen)
+  und **mobil bei 390px** — ueberall **0 Verletzungen**, `serious`/`critical` **= 0**. Die
+  Routenliste zieht der Test aus der laufenden Sitemap, damit keine neue Route still am Gate
+  vorbeilaeuft, und **der Gate prueft sich selbst**: eine Zusicherung baut einen Kontrastfehler
+  ein und verlangt, dass `axe` ihn meldet — ohne sie waere ein Gate, der gar nicht laeuft, von
+  einem sauberen Ergebnis nicht zu unterscheiden. **Triage ausserhalb von WCAG:** genau ein
+  `best-practice`-Eintrag (`landmark-complementary-is-top-level` auf `/de/diagnostics`) — bewusst
+  belassen, weil die Alternative waere, das benannte `complementary` ganz aufzugeben und damit
+  einen Sprungpunkt zu verlieren; eine Zusicherung haelt den Bestand fest, damit ein NEUER
+  Eintrag auffaellt. `A11Y-10` (Legal-Seiten) **reproduziert nicht mehr** — die Landmark-Arbeit
+  aus PT24.1 hat ihn abgeraeumt. `A11Y-11` erledigt: `_project-knowledge/` steht jetzt in
+  `globalIgnores`; `npm run lint` faellt von 117 auf 6 Probleme, **0 davon jsx-a11y**, und **keine
+  Regel ist abgeschaltet** — eingegrenzt wurde der Geltungsbereich auf ausgelieferten Code, nicht
+  der Anspruch. `A11Y-21` erledigt: die nachweislich wirkungslose `reducedMotion`-Option ist aus
+  allen sechs Konfigurationen entfernt und durch einen Hinweis ersetzt. **Verdrahtet:**
+  `npm run a11y:gate` und `npm run a11y:suite`. **Produktionsbuild geprueft** (hier begruendet,
+  weil Tailwind die neuen Klassen erst beim Bauen erzeugt): `bg-brand-deep/75`,
+  `backdrop-blur-sm`, `text-accent-on-dark`, `text-accent-strong`, `text-gray-600`,
+  `border-ui-field`, `text-white/70`, das Fokus-Sicherheitsnetz und beide
+  `prefers-reduced-motion`-Bloecke sind im erzeugten CSS; `gray-500` steht dort als
+  `rgb(107 114 128)`, der alte Wert kommt **null** mal vor. **Tests: `e2e/pt24.6.spec.ts` 25/25.**
+  Eine Mutationsprobe greift (Schleier zurueck auf `bg-transparent` → der Gate faellt).
+  PT24.1 **118/118**, PT24.2 **41/41**, PT24.3 **31/31**, PT24.4 **20/20**, PT24.5 **45/45** —
+  zusammen **280 Zusicherungen**. Abhaengigkeitssuiten 52/55 (die zwei bekannten
+  Ankernavigations-Flatterhaftigkeiten gegen Dev-SSR und der dokumentierte Consent-Fall mit
+  synthetischem Container), Node-Suiten **614/614**, `tsc` clean, alle Guards PASS, Prettier
+  sauber. **Ehrlich offen und NICHT als PASS behauptet:** (1) **Die manuelle
+  Screenreader-Pruefung ist `NOT_RUN_ENVIRONMENT`.** Diese Maschine hat keinen Screenreader —
+  Debian ohne Grafiksitzung, kein `orca`, kein AT-SPI-Bus. Statt ein Ergebnis zu erfinden, steht
+  in Vertrag §14 eine Checkliste mit zwoelf Punkten, Route, Zustand und Erwartung je Punkt, plus
+  der maschinell aufgenommene Accessibility-Tree als BELEG — ausdruecklich als das, was er ist:
+  er zeigt, was die Technik vorfindet, nicht wie sie es vorliest. Ansageverhalten, Lesereihenfolge
+  im Browse-Modus und Tastenkuerzel bleiben offen (`A11Y-23`). (2) **Erfolgs- und
+  Wiederholungszustand der Formulare** sind nicht im axe-Lauf: beide brauchen ein antwortendes
+  Backend, das hier nicht laeuft. Der Fehlerzustand ist geprueft, weil die Anwendung ihn selbst
+  erzeugt (`A11Y-22`). **Uebergaben stehen in Vertrag §12:** AP25 bekommt den Hinweis, dass der
+  Schleier ein `backdrop-filter` in den unverscrollten Zustand bringt (messen, und im Zweifel die
+  Deckkraft erhoehen statt den Schleier zu entfernen); AP27 bekommt die vollstaendige Liste der
+  **sichtbaren** Aenderungen fuer neue Referenzbilder — allen voran der Schleier, dazu 47
+  Aufrufstellen dunklerer Hilfstext und 17 deutlich sichtbarere Bedienelement-Raender.
+  **AP24 ist NICHT COMPLETE** — das entscheidet die Closure. **0 Commits.**
+- PT24.5 Medien: **PASS (2026-09-11, Fast-Delta V2)** — Bilder, Icons, Diagramme und Bewegung im
+  echten Browser ueber zwoelf Routen gemessen. **Vier Befunde, drei davon haette man ohne Lesen
+  des Quelltexts nicht gefunden.** (1) **Der Sprachumschalter stellte 38 namenlose Grafiken in den
+  Accessibility-Tree** — zehn Flaggen und der Aufklapp-Pfeil, auf jeder Seite. Der Knopf selbst
+  war benannt, die Grafiken darin nicht. `aria-hidden` sitzt jetzt am Wrapper in `FlagIcon`: eine
+  Stelle, zehn Flaggen. Im Accessibility-Snapshot steht danach nur noch
+  `button "Sprache wählen": de`. (2) **`BlogCard` las den Artikeltitel doppelt.** Das Kachelbild
+  trug `alt={title}`, und derselbe Titel steht direkt darunter als `h3` — drei Kacheln auf der
+  Startseite, also drei doppelte Ansagen. Jetzt leeres `alt`, genau wie es die Artikelliste seit
+  jeher macht. (3) **`AgeDots` hatte die Kalenderalter-Marke zweimal im Baum**: einmal `sr-only`,
+  einmal als optische Position auf der Skala. Gemessen als „48 J.48 J.". Die optische Fassung ist
+  Grafik und ist jetzt `aria-hidden`. (4) **Die sechs leeren `alt` sind bestaetigt, nicht
+  repariert.** Ich habe mir die vier Artikelbilder angesehen, bevor ich entschieden habe — es sind
+  Stimmungsbilder zur Ueberschrift, die daneben steht, und in der Kachel traegt der Link den Titel
+  bereits als Namen. Leeres `alt` ist dort die richtige Wahl, und sie ist jetzt an jeder
+  Renderstelle **als Entscheidung kommentiert**, damit sie nicht als Versaeumnis gelesen wird.
+  Erfundene Bildbeschreibungen waeren schlechter gewesen als gar keine; das Datenmodell haelt
+  `imageAlt` und `imageCaption` x10 lokalisiert bereit, sobald ein Artikel ein Bild MIT eigener
+  Aussage bekommt. **Ergebnis, gemessen:** 0 `img` ohne `alt`, 0 Dateinamen als Alternativtext, 0
+  mechanische Praefixe, 0 Wiederholungen von Linkname oder Ueberschrift, **0 namenlose Grafiken im
+  Accessibility-Tree** (vorher 38), 0 Icon-Bedienelemente ohne Namen. **Alle fuenf
+  Darstellungsformen der Musterbefunde tragen eine Textalternative** — das Netzdiagramm eine
+  Werteliste mit allen elf Achsen, die Verlaufs-, Alters- und Ampeldarstellungen je Zeile
+  Bezeichnung, Zahlenwert und Status als Text; die Grafiken selbst sind `aria-hidden`, die
+  Befund-Miniatur ist bewusst benannt statt versteckt. **Bewegungsreduktion greift vollstaendig:**
+  87 bzw. 145 bzw. 104 animierte Elemente werden zu **0**, sanftes Scrollen zu `auto`, und — die
+  wichtigere Haelfte — **kein Inhalt verschwindet dabei**; dafuer gibt es eine eigene Zusicherung,
+  denn Bewegung gegen Unsichtbarkeit zu tauschen waere kein Fortschritt. **Kein selbstlaufendes
+  Medium** im gesamten Scope: 0 Video, 0 Audio, 0 iframe, 0 Autoplay, 0 Karussell; die Zusicherung
+  bleibt als Waechter stehen. **x10 vollstaendig:** Deckblatt-Alternativtexte, Befund-Miniatur,
+  Netzdiagramm und Consumer-Produktbilder sind in allen zehn Sprachen echt uebersetzt — 0
+  durchgereichte i18n-Schluessel, 0 deutsche Fassungen in einer anderen Sprache.
+  **Tests: `e2e/pt24.5.spec.ts` 45/45 gruen.** Vier Mutationsproben greifen (Flaggen-`aria-hidden`
+  entfernen · `alt={title}` zurueck · `aria-hidden` an der Altersskala entfernen ·
+  Reduktionsblock aus `index.css` entfernen). **Zwei Messfehler auf meiner Seite, beide
+  korrigiert, bevor sie zu falschen Befunden wurden:** ein erster Lauf fragte `aria-hidden` nur am
+  `svg` selbst ab und meldete 19 namenlose Grafiken, die der umschliessende Span laengst aus dem
+  Baum genommen hatte — `aria-hidden` wirkt auf den ganzen Teilbaum, geprueft wird jetzt mit
+  `closest()`; und die Probe „alt wiederholt den Nachbartext" lief ins Leere, weil der
+  Alternativtext gar nicht Teil von `textContent` ist — sie vergleicht jetzt gegen die
+  Ueberschrift der Karte und faellt bei der Mutation nachweislich. **PT24.1 118/118, PT24.2 41/41,
+  PT24.3 31/31, PT24.4 20/20 unveraendert gruen**, Abhaengigkeitssuiten **54/55** (nur der
+  dokumentierte Consent-Fall mit synthetischem Container), Node-Suiten **614/614**, `tsc` clean,
+  `eslint src e2e scripts server` **6 vorbestehende Probleme, 0 davon jsx-a11y**, alle Guards PASS,
+  Prettier sauber. Kein Full Build, kein axe-Breitlauf (PT24.6), **AP25 nicht angefasst**.
+  **Ehrlich offen — und es betrifft die eigene Messkette:** `use.reducedMotion` aus der
+  Playwright-Konfiguration **erreicht die Seite nicht**. Gemessen:
+  `matchMedia('(prefers-reduced-motion: reduce)').matches === false` und ueber zehn laufende
+  Animationen, obwohl die Konfiguration seit PT24.1 `reducedMotion: 'reduce'` traegt. Die Reihen
+  PT24.1–PT24.4 liefen damit entgegen ihrer Konfiguration OHNE Bewegungsreduktion — fuer deren
+  Befunde folgenlos, weil keine davon Bewegung geprueft hat, aber es gehoert benannt. PT24.5 nutzt
+  `page.emulateMedia()` und prueft die Wirkung in beide Richtungen ausdruecklich nach. Als
+  `A11Y-21` an PT24.6 uebergeben. **0 Commits.**
+- PT24.4 Kontrast: **PASS (2026-09-11, Fast-Delta V2)** — gemessen an **echten Pixeln**, wie es
+  der PT24.3-Handoff verlangt hat: Text unsichtbar schalten, Bildschirmfoto machen, die Flaeche
+  unter jedem Textknoten abtasten. Der `getComputedStyle`-Weg ist damit ersetzt; er lief die
+  Elternkette bis zur ersten nicht-transparenten Hintergrundfarbe hoch und sah keine
+  `background-image`. **Die sechs „Weiss auf Weiss"-Verdachtsfaelle aus PT24.3 waren tatsaechlich
+  Artefakte — kein einziger Befund.** Das Messverfahren selbst hat mich zweimal in die Irre
+  gefuehrt, beide Male sichtbar im Ergebnis und beide Male behoben, bevor eine Zeile Produktcode
+  angefasst wurde: (a) ein Lauf, bei dem Rechtecke und Foto zu verschiedenen Zustaenden gehoerten,
+  meldete **199 Befunde**, von denen die Mehrheit Fliesstext auf einer navyblauen Flaeche
+  behauptete, die es dort nie gab; (b) der Ausschluss verdeckter Elemente fragte nur nach `fixed`
+  und liess `sticky` aus — eine Einordnungs-Plakette unter der klebenden Kapitelleiste wurde samt
+  Navy abgetastet und als 2,58:1 gemeldet, obwohl sie auf ihrer eigenen Flaeche bei 4,65:1 liegt.
+  Beide Regeln stehen jetzt als Kommentar im Testkopf. **Nach der Korrektur blieben 22 echte
+  Befunde; behoben wurden sie token-first.** (1) **`gray-500` war der groesste Einzelposten:** der
+  Legacy-Alias stand auf `#868C98` und war damit HELLER als Tailwinds eigener Wert — 3,38:1 auf
+  Weiss, 3,23:1 auf slate-50, und er traegt **47 Aufrufstellen** (Hilfstexte, Bildunterschriften,
+  Mikrocopy). Jetzt `#6b7280`: 4,83:1. Der Wert ist kein neuer — es ist derselbe, den `ui.field`
+  schon traegt; zwei Token, die dasselbe meinen, haben jetzt denselben Wert. (2) **17 Begrenzungen
+  von Bedienelementen lagen bei 1,47:1** (`border-gray-300`/`border-slate-300`): Eingabefelder,
+  Auswahlfelder, Kontrollkaestchen und umrandete Knoepfe. WCAG 1.4.11 verlangt 3:1, wenn die
+  Begrenzung das Element ueberhaupt erst erkennbar macht — und „Nur notwendige" im
+  Einwilligungsbanner ist ein weisser Knopf auf weisser Flaeche. Alle auf `border-ui-field`
+  (4,83:1). (3) Support-Handlungslinks 14px/600 mit `text-accent` (3,74:1) und Kontakt-Schrittziffern
+  18px/600 auf Akzent-Tint (3,32:1) auf `accent-strong` — **18px semibold ist kein grosser Text**,
+  dafuer braucht es 18,66px UND fett oder 24px. (4) Mikrotext und ein Platzhalter auf `gray-400`
+  (2,54:1) auf `ui-field`. (5) Zwei Gruppenueberschriften im mobilen Menue (`white/50` auf Navy,
+  4,38:1) und ein Hinweis auf `brand-blue` (`white/60`, 4,08:1) auf `white/70`. Die vollstaendige
+  Deckkraftstufen-Tabelle steht im Vertrag: **`white/70` ist die unterste Stufe, die auf BEIDEN
+  Markenflaechen AA erfuellt.** (6) Der Hover-Rand der Kontakt-Pill (2,15:1) auf volles `accent`.
+  **Ergebnis, gemessen ueber sechs Routen und die ganze Seitenhoehe:** 0 Textbefunde, 0
+  Bedienelement-Befunde in Ruhe/Hover/Fokus, 0 Begrenzungen unter 3:1, 0 auf dunklen
+  Markenflaechen. **Die Befund-Ampel traegt ihre Aussage nicht in der Farbe:** die drei
+  `ink`-Toene erfuellen einzeln AA (4,60–5,00:1), unterscheiden sich untereinander aber nur um
+  1,01–1,03:1 — wer Farbtoene nicht trennen kann, sieht drei identisch helle Flaechen. Geprueft und
+  bestaetigt: 88 Plaketten, **0 ohne Text**; jeder Balken traegt seinen Zahlenwert; die
+  SVG-Balken sind `aria-hidden`, die eine Ausnahme ist `role="img"` mit Namen — benannt statt
+  versteckt, und das ist hier das Bessere. **Bewusst NICHT geaendert, jeweils mit Begruendung im
+  Vertrag:** deaktivierte Bedienelemente (WCAG nimmt inaktive Komponenten in 1.4.3 und 1.4.11
+  ausdruecklich aus; ein Test haelt fest, dass der Zustand gedaempft BLEIBT), der `aria-hidden`
+  Trennpunkt „●" im Consumer-Faktband (optische Entsprechung eines Leerraums, ohne Buchstabe,
+  Ziffer oder Aussage — der Test nimmt genau diese Klasse **benannt und begruendet** aus, nicht
+  stillschweigend), acht dekorative `aria-hidden`-Icons neben gleichlautendem Text, und
+  `befund.*.DEFAULT` (amber 2,45:1, aber **0 Aufrufstellen** — statt den Wert zu aendern ist die
+  Einschraenkung jetzt im Token-Kommentar festgeschrieben). **Tests: `e2e/pt24.4.spec.ts` 20/20
+  gruen.** Drei Mutationsproben greifen (`gray-500` zurueckdrehen · Consent-Rand zurueckdrehen ·
+  Token-Matrix). **Zwei Luecken in meiner eigenen Testabdeckung sind dabei aufgefallen und
+  geschlossen worden:** die erste Mutationsprobe lief durch, weil kein Test die Knoepfe des
+  Einwilligungsbanners abdeckte — der neue Test fand daraufhin **einen dritten, von mir noch nicht
+  behobenen Knopf** („Einstellungen", 1,47:1); und eine Token-Aenderung blieb unentdeckt, weil die
+  Seitenmessung nur findet, was auf einer geprueften Route auch gerendert wird. Dafuer gibt es
+  jetzt eine **deterministische Token-Matrix**, die die Werte direkt prueft. **PT24.1 118/118,
+  PT24.2 41/41, PT24.3 31/31 unveraendert gruen**, Abhaengigkeitssuiten **53/55** (dieselben zwei
+  vorbestehenden Abweichungen), Node-Suiten **614/614**, `tsc` clean, `eslint src e2e scripts
+server` **6 vorbestehende Probleme, 0 davon jsx-a11y**, Farb-Guard/G4/G1/Shell-i18n/
+  Design-System-Changelog PASS, Prettier sauber. `docs/design-system.md` nachgezogen.
+  **Sichtbar fuer AP27:** `gray-500` ist dunkler (47 Stellen), 17 Bedienelement-Raender sind
+  deutlicher, sieben Textstellen dunkler — Referenzbilder der betroffenen Seiten sind neu
+  aufzunehmen. Kein Full Build. Keine Medien (PT24.5), kein axe-Breitlauf (PT24.6), **AP25 nicht
+  angefasst**. **0 Commits.**
+- PT24.3 Fokus: **PASS (2026-09-11, Fast-Delta V2)** — gemessen im echten Browser ueber die
+  Tabkette von acht Route-/Viewport-Kombinationen (Deutsch, Polnisch, Tschechisch; 1280x900 und
+  390x844). **Der erste Messwert war falsch, und das ist der wichtigste Satz dieses Eintrags.**
+  Ein Lauf direkt nach `Tab` meldete, die Hauptnavigation habe gar keinen Fokusring: `box-shadow`
+  bestand aus drei transparenten Schatten. Nachgesehen statt gemeldet — die Bausteine tragen
+  `transition-all duration-300`, der Ring blendet ein, und nach 350ms stand er vollstaendig da.
+  Alle Messungen laufen seither mit Wartezeit; die Regel steht als Kommentar im Testkopf, damit
+  die naechste Person nicht dieselbe Falle laeuft. **Vier echte Befunde.** (1) **Der Standardring
+  des Browsers auf Navy: 1,47:1** — faktisch unsichtbar. Betroffen war alles ohne eigene
+  Fokus-Utility: die Consumer-Kopfzeile samt Wortmarke und vier Navigationspunkten, der
+  Sprachumschalter, die dunklen Handlungsflaechen im Musterbefund, „Hotline anrufen" auf der
+  Support-Seite, der mobile Anrufknopf (2,29:1 auf `brand-blue`). Behoben **token-first mit einer
+  einzigen Regel** in `@layer base`: zwei Ringe uebereinander — 2px Weiss als `box-shadow`, 2px
+  Navy als `outline` mit Versatz. Auf hellem Grund traegt die Navy-Linie den Kontrast, auf dunklem
+  die weisse; beide bei 12,9:1. Eine Flaeche, auf der BEIDE verschwinden, gibt es in dieser
+  Palette nicht. `:where()` setzt die Spezifitaet auf null — die 66 Bausteine mit eigenem Ring
+  gewinnen weiterhin, die Regel greift nur dort, wo sonst nichts waere. **Kein `outline: none`
+  irgendwo global**: der sichtbare Fokus wird nie entfernt, nur ersetzt. (2) **`ring-accent-line`
+  (Teal-500) auf Weiss: 2,49:1** — unter den 3:1, die WCAG 1.4.11 fuer eine Fokusmarkierung
+  verlangt; sechs Aufrufstellen auf der Consumer-Flaeche. Getauscht gegen `ring-accent-strong`
+  (5,47:1), denselben Ton, den die Flaeche ohnehin als Akzent traegt. Dazu das Eingabefeld im
+  Bestellformular: `focus:ring-accent-line/30` — Teal-500 bei 30 Prozent Deckkraft, rund 1,3:1,
+  zusammen mit `outline-none`. (3) **Ein Routenwechsel erreichte keine Assistenztechnik.** Ein
+  Klick auf „Epigenetik" tauscht den ganzen Inhalt aus, setzt die Scrollposition auf 0 und
+  wechselt die `h1` — gemessen gab es dabei **null Live-Regionen** und keinen Fokuswechsel. Neu
+  ist `RouteAnnouncer`: eine hoefliche Ansage des neuen Titels. **Bewusst OHNE Fokussprung auf
+  `h1` oder `main`** — der Fokus steht nach dem Klick auf dem Navigationspunkt, die Kopfzeile
+  bleibt ueber alle Routen dieselbe, und ihn wegzureissen hiesse, dass die naechste Tabulatortaste
+  NICHT beim naechsten Menuepunkt weitergeht. Gewaehlt ist damit die Variante, die die
+  Spezifikation als eigene Option nennt: Ansage plus Fokuserhalt, im Browser gegen beide Haelften
+  geprueft. Beim Erstaufruf bleibt die Region leer — den kuendigt der Browser selbst an, und
+  PT24.1 verlangt eine leere Live-Region beim Start. (4) **Ein Kapitelsprung liess den Fokus auf
+  `<body>` zurueck.** Das Scrollen war exakt (Ziel bei 159px, Sollabstand 159px), aber
+  `document.activeElement` war der Rumpf: eine Assistenztechnik erfaehrt vom Sprung nichts.
+  `ScrollToHash` setzt den Fokus jetzt auf den Zielabschnitt — `tabindex="-1"` nur geliehen und
+  beim Aufraeumen zurueckgegeben, `preventScroll` zwingend, sonst arbeitet der Browser gegen die
+  Feinkorrektur der Schleife. Dazu vier Pixel Polsterung am Kapitelstreifen: `overflow-x-auto`
+  schnitt den Ring des ersten Kapitels an der Kante ab. **Ergebnis, gemessen:** 0 Tabziele ohne
+  sichtbaren Fokus, **0 unter 3:1**, 0 vom Overflow abgeschnitten, 0 von klebenden Flaechen
+  verdeckt, 0 globale Regeln, die den Fokus ersatzlos entfernen. Der Sprunglink ist auf Deutsch
+  und Polnisch das erste Tabziel, wird bei Fokus 140x44px sichtbar, liegt trotz fixierter
+  Kopfzeile per Treffertest obenauf, setzt den Fokus auf `<main>`, und der naechste Schritt geht
+  im Inhalt weiter. **Tests: `e2e/pt24.3.spec.ts` 31/31 gruen.** Vier Mutationsproben greifen
+  (Sicherheitsnetz entfernen → 3 Fehlschlaege; Routen-Ansage abschalten → 2; Hash-Fokus abschalten
+  → 1; Polsterung am Kapitelstreifen entfernen → 1). Die vierte Probe griff im ersten Anlauf
+  NICHT — die allgemeine Tabwanderung erreicht den Kapitelstreifen gar nicht; statt die Probe
+  wegzulassen, kam ein gezielter Test dazu, der beide Enden des Streifens direkt anfaehrt.
+  **PT24.1 118/118 und PT24.2 41/41 unveraendert gruen**, Abhaengigkeitssuiten **53/55** (dieselben
+  zwei vorbestehenden Abweichungen), Node-Suiten **614/614**, `tsc` clean, `eslint src e2e scripts
+server` **6 vorbestehende Probleme, 0 davon jsx-a11y**, G4/G1/Farb-Guard/Shell-i18n PASS,
+  Prettier sauber. **Zwei eigene Fehler unterwegs, beide korrigiert statt kaschiert:** eine
+  Zusicherung in PT24.2 suchte `getByRole('status')` dokumentweit und wurde durch die neue
+  Routen-Ansage mehrdeutig — sie zielt jetzt auf die Trefferzahl IM Suchdialog; und die
+  Wiederholungsmarke im Announcer war ein literales unsichtbares Zeichen, das
+  `no-irregular-whitespace` zu Recht meldete — jetzt eine benannte Escape-Folge. Kein Full Build.
+  Kein Kontrast von Text und Flaechen (PT24.4), keine Medien (PT24.5), kein axe-Breitlauf
+  (PT24.6), **AP25 nicht angefasst**. **Ehrlich offen:** der Kontrast-Vorbefund fuer PT24.4 in
+  Contract §7.2 nennt 14 Kombinationen unter Soll, davon sind **nur acht belastbar**. Die
+  restlichen sechs melden „Weiss auf Weiss" mit 1,0:1 und sind mit hoher Wahrscheinlichkeit ein
+  Artefakt: das Messskript laeuft die Elternkette bis zur ersten nicht-transparenten
+  `background-color` hoch und sieht dabei KEINE `background-image` — weisser Text ueber einem
+  Verlauf oder Hero-Bild landet rechnerisch auf der hellen Rumpf-Flaeche. Das ist als Befund
+  ausdruecklich NICHT behauptet; PT24.4 muss diese Gruppe mit echter Pixelabtastung nachmessen.
+  **0 Commits.**
+- PT24.2 Tastatur: **PASS (2026-09-11, Fast-Delta V2)** — gemessen wurde ausschliesslich mit der
+  Tastatur im echten Browser, kein einziger Klick dort, wo die Frage lautet „geht das auch ohne
+  Maus?". Ein Klick beantwortet sie nicht. **Sechs Befunde, alle im Browser reproduziert und
+  danach im Browser als behoben nachgewiesen.** (1) **Das Bestell-Modal log.** Es trug
+  `aria-modal="true"` — die Zusage an die Assistenztechnik, der Hintergrund sei fuer die Dauer des
+  Dialogs weg — hatte aber keine Fokusfalle: gemessen ging es nach dem Absenden-Knopf per Tab in
+  den Consent-Banner und von dort auf `<body>`. Wer einen Screenreader benutzt, hoerte den
+  Hintergrund nicht; wer nur die Tastatur benutzt, stand mittendrin. Dazu fehlte die
+  Fokusrueckgabe: nach Escape fiel der Fokus auf `<body>`, und die Besucherin begann die Seite von
+  vorn. (2) **Das mobile Menue reagierte nicht auf Escape** — `aria-expanded` blieb „true", und wer
+  heraustabbte, liess ein offenes Menue zurueck. (3) **Der Sprachumschalter ebenso**, zusaetzlich
+  ohne jeden definierten Rueckweg aus der Liste. (4) **Das Preis-Popover trug `role="dialog"`** an
+  einer Flaeche, die weder Fokusfalle noch inerten Hintergrund noch ein einziges Bedienelement hat
+  und bereits bei Hover und Fokus aufgeht. (5) **Das Mega-Menue blieb offen, wenn der Fokus es
+  verliess** — `aria-expanded` meldete einen Zustand, den niemand mehr benutzte. (6) **Das Resource
+  Gate verlor den Fokus nach „Abbrechen"** an `<body>`. **Behoben, und zwar am Baustein statt an
+  der Aufrufstelle:** die Modal-Mechanik aus `Dialog.tsx` — in diesem Lauf an der Suche als
+  funktionierend gemessen — wurde unveraendert nach `src/hooks/useFocusTrap.ts` gehoben und
+  versorgt jetzt `Dialog` UND `OrderModal`; eine Mechanik, nicht zwei, und kein neu geschriebener
+  Nachbau als Risiko. Fuer die nicht-modalen Aufklapper entstand `useKeyboardDismiss` (Escape mit
+  Fokusrueckgabe, Schliessen beim Verlassen des Bereichs, **bewusst ohne Falle** — diese Flaechen
+  sperren die Seite nicht, also darf der Fokus den Hintergrund erreichen; eine Falle waere hier
+  genau der von AP24 verbotene unbeabsichtigte Keyboard Trap). Der Sprachumschalter bekam
+  zusaetzlich `ArrowDown`/`ArrowUp`/`Home`/`End` — **ohne `role="menu"`**: ein Menue-Nachbau wuerde
+  Pfeiltasten verlangen und Tab abschalten, also mehr ARIA fuer weniger native Bedienbarkeit. Die
+  Tastenbehandlung sitzt an den Knoepfen, nicht am umgebenden `div`; der erste Versuch tat es am
+  `div` und wurde von `jsx-a11y/no-static-element-interactions` zu Recht gemeldet — **die Regel
+  wurde nicht abgeschaltet, der Code wurde richtig gestellt.** Der Backdrop des Bestell-Modals war
+  ein zweiter benannter Knopf mit derselben Aufgabe wie der Schliessen-Knopf, sichtbar fuer
+  Assistenztechnik und nie per Tastatur erreichbar — jetzt `aria-hidden`, wie in `Dialog`.
+  **Keyboard Traps: 0**, auf acht Routen ueber je 60 Tabschritte gemessen, und zwar ueber die
+  **Identitaet** des fokussierten Knotens statt ueber seine Beschriftung: sechs unbeschriftete
+  Zahlenfelder im ROI-Rechner und drei gleichlautende „Weiterlesen"-Links sehen als Text identisch
+  aus und haetten eine Falle vorgetaeuscht, die es nicht gibt (laengste Wiederholung desselben
+  Knotens: 1). **0 positives `tabindex`**, **0 doppelte Tabziele** zwischen Desktop- und
+  Mobilfassung von Header und Kapitelnavigation. **Als funktionierend bestaetigt und nicht
+  angefasst:** Mega-Menue (`Enter` und `Space`), Suche (Fokus ins Eingabefeld, Falle in beide
+  Richtungen, Escape, Rueckgabe), Einwilligung (alle drei Entscheidungen per Tastatur, Panel mit
+  `Space` schaltbar, nicht modal — **AP23-Verhalten unveraendert**), ChapterNav (ab `lg` native
+  Anker mit `aria-current`, darunter ein natives `<details>`), Tabellen-Scrollbereiche,
+  Support-, Kontakt- und Gate-Formulare. **Slider/Carousel existiert im geprueften Scope nicht.**
+  **Tests: `e2e/pt24.2.spec.ts` 41/41 gruen.** Drei Mutationsproben greifen (Escape aus dem
+  Dismiss-Haken entfernen → 2 Fehlschlaege; Fokusfalle abschalten → Suche UND Bestell-Modal
+  fallen; `role="dialog"` am Popover zurueck → 2 Fehlschlaege). Eine tautologische Zusicherung im
+  ersten Entwurf (`.not.toHaveCount(-1)`, konnte nie fehlschlagen) wurde durch die echte Invariante
+  der Knopfgruppe ersetzt: immer genau eine Auswahl, und die Tastatur aendert sie.
+  **PT24.1 118/118 unveraendert gruen** (Semantik-Regression), Abhaengigkeitssuiten **53/55**
+  (dieselben zwei vorbestehenden Abweichungen wie in PT24.1, dort einzeln belegt), Node-Suiten
+  **614/614** unveraendert, `tsc` clean, `eslint src e2e scripts server` **6 vorbestehende
+  Probleme, 0 davon jsx-a11y**, keine Regel abgeschaltet, G4/G1/Farb-Guard/Shell-i18n PASS,
+  Prettier sauber. Kein Full Build. Keine Fokus-Gestaltung (PT24.3), kein Kontrast (PT24.4), keine
+  Medien (PT24.5), kein axe-Breitlauf (PT24.6), **AP25 nicht angefasst**. **Ehrlich offen:**
+  die Escape-Taste schliesst das Consent-Einstellungs-Panel und das Resource-Gate-Formular NICHT —
+  beides sind inline-Aufklapper, keine Popups; das WAI-Disclosure-Muster verlangt dort kein
+  Escape, und beide haben einen sichtbaren Ausweg („Speichern" bzw. „Abbrechen"). Bewusst so
+  belassen und hier vermerkt, statt ARIA-Erwartungen zu erfinden. Ebenfalls offen und PT-fremd:
+  der Consent-Banner steht am Dokumentende und wird erst nach der ganzen Seite ertabbt — das ist
+  die AP23-Entscheidung „nicht modal"; sie hier umzuwerfen waere ein Vorgriff, kein Fix.
+  **0 Commits.**
+- PT24.1 Semantik: **PASS (2026-09-11, Fast-Delta V2)** — die einmalige bounded Accessibility
+  Discovery ist gelaufen und hat einen Stand vorgefunden, der besser war als die historische
+  Baseline behauptet: **genau ein `<main>` und genau eine `h1` auf 26 von 26 gemessenen Routen**,
+  0 anklickbare `div`/`span`, 0 `a[href="#"]`, 0 Bilder ohne `alt`, 0 redundante Rollen, 0
+  jsx-a11y-Befunde im ausgelieferten Code. Gemessen wurde im echten Browser gegen den
+  **Dev-SSR-Server**, nicht gegen `dist/` — `dist/` ist vom 2026-09-01 und damit zehn Tage aelter
+  als der Quellstand; ein Lauf dagegen haette einen Build von vorgestern geprueft. **Vierzehn echte
+  Befunde behoben, bevorzugt am Baustein statt an der Seite.** (1) **Fuenf namenlose
+  Navigations-Landmarks** — Support-Seitenlinks (jetzt `aria-labelledby` auf die bereits sichtbare
+  Ueberschrift, keine neue Uebersetzung), S3-Brotkrumenpfad und **beide Navigationen der
+  Consumer-Kopfzeile**. (2) **Das mobile Menue war ein anonymes `div`** und enthielt die
+  vollstaendige Hauptnavigation — jetzt `nav` mit demselben Namen wie die Desktop-Fassung; beide
+  schliessen einander per Breakpoint aus, es ist also immer nur eine im Tree. (3) **`Breadcrumbs`
+  trug als Voreinstellung das feste englische `'Breadcrumb'`** auf 19 Routen — der Name eines
+  Landmarks wird vorgelesen und stand damit in neun von zehn Sprachen sprachfremd im Dokument;
+  jetzt `common:a11y.breadcrumb`, die zehn Uebersetzungen existierten bereits in `services.json`
+  und wurden von dort uebernommen. (4) **Fusszeilenspalten standen auf `h3`, ohne dass im
+  Fussbereich je eine `h2` existierte** — auf der 404-Seite war das ein messbarer Sprung `h1 → h3`;
+  jetzt `h2`, die Darstellung haengt an der Klasse und aendert sich nicht. (5) **`Input` und
+  `Textarea` gaben Feldfehler ohne `role="alert"` aus** — `FormField` macht es seit jeher richtig,
+  aber die drei echten Formulare (Kontakt, Support, Epigenetik) benutzen `Input`/`Textarea`; der
+  Fehler erschien also **stumm**. Ein Baustein-Fix, drei Formulare. (6) Vier weitere handgebaute
+  Fehlerabsaetze (Kontakt-Bereichsgruppe, Kontakt-Einwilligung, Epigenetik-Einrichtungstyp,
+  Epigenetik-Einwilligung) nachgezogen. (7) **Praxis-Bestellformular:** Fehlermeldung ohne
+  Live-Region, Erfolgsflaeche ohne Ansage, und ein `*` am Mengen-Label, dem im Bedienelement
+  nichts entsprach — Pflicht existierte nur optisch. (8) **Support-Anhang:** das sichtbare Label
+  zeigte per `htmlFor` auf ein `display:none`-Input, bedient wird aber der Knopf daneben, und der
+  hiess nur „Datei auswaehlen"; Label und Dateiname haengen jetzt per `aria-describedby` am echten
+  Bedienelement, der Dateiname wird beim Wechsel angesagt. (9) **Zwei tote `aria-controls`** —
+  Consent-Einstellungen und Preis-Popover verwiesen im geschlossenen Zustand auf Ids, die es im
+  Dokument nicht gab; die Beziehung wird jetzt nur behauptet, wenn es sie gibt. (10) **Der
+  Logo-Link trug seinen Namen dreifach** (`aria-label` + `alt` + `sr-only`-Span), der Burger
+  doppelt — native Semantik zuerst, der Alternativtext benennt den Link; im
+  Accessibility-Tree gemessen: `link "PolarisDX — POC-Diagnostik für Arztpraxen"`. (11)
+  **Sprachumschalter:** Aufklapper ohne `aria-expanded`, Knoepfe ohne `type`, und die aktive
+  Sprache war **allein an Farbe und Schriftschnitt** erkennbar — jetzt `aria-current`. (12) **Drei
+  Tabellen ohne `scope` und ohne Namen** (Vitamin-D3-Implantologie, S3-Leitlinie,
+  Vitamin-D3-Spray) plus die Epigenetik-Vergleichstabelle — `scope="col"` und sr-only-`caption`
+  aus der bereits uebersetzten Abschnittsueberschrift, kein neuer Schluessel.
+  **Neu: `building-docs/ACCESSIBILITY-CONTRACT.md`** mit Routenmatrix, Landmark-, Heading-,
+  Form-/Error-/Status-, Interactive-State-, Contrast-Surface- und Media-/Chart-Map, Test-Map,
+  zwoelf offenen Punkten mit Eigentuemer und dem exakten PT24.2-Write-Set.
+  **Tests: `e2e/pt24.1.spec.ts` 118/118 gruen** (26 Routen x Landmarks/Ueberschriften/Strukturen/
+  ARIA-Integritaet plus Formular- und Statuszusicherungen). Abhaengigkeitssuiten (`navigation`, `consumer-shell`, `consent-basic-remediation`, `i18n-core`)
+  **52/55** — die drei Abweichungen sind unter (d) und (e) einzeln belegt.
+  `tsc` clean, `eslint src e2e scripts server` unveraendert 6 vorbestehende Probleme, **0 davon
+  jsx-a11y**, keine Regel abgeschaltet. `check:i18n` G4 PASS (15 Namespaces x 10, 0 fehlende
+  Schluessel), `check:routes` G1 PASS, `check:shell-i18n` PASS, `check:colors` PASS,
+  Prettier sauber. Node-Suiten **614/614** unveraendert. Kein Full Build, kein axe-Breitlauf
+  (PT24.6), keine Tastatur-/Fokus-/Kontrast-/Medienarbeit (PT24.2–PT24.5), **AP25 nicht
+  angefasst**. **Ehrlich offen — alles vorbestehend und PT-fremd, nichts davon durch diese Arbeit
+  entstanden:** (a) **React-Render-Tests bleiben blockiert** — `React.act is not a function`,
+  `@testing-library/react` 16.3.2 gegen `react-dom` 19.2.0, 198 Vorkommen, Eigentuemer AP27;
+  kompensiert durch die Browser-Messung. (b) **`vitest` unter Node 18 bricht `jsdom` ab**
+  (`html-encoding-sniffer` verlangt ESM, `jsdom` 29 verlangt Node >= 20.19); unter Node 20 laufen
+  dafuer die Server-Suiten nicht, weil `better-sqlite3` fuer die Node-18-ABI gebaut ist. Zwei
+  Node-Versionen, zwei Haelften — gemessen wurde jede Haelfte dort, wo sie laeuft. (c) **Der
+  Dev-SSR-Start war auf dieser Maschine gar nicht moeglich:** Preview-Container laufen als root
+  gegen denselben Repositoriumspfad und besitzen `node_modules/.vite/deps` (`EACCES`), und der
+  eingecheckte Symlink `email/assets/assets` zeigt auf sich selbst, woran der Dev-Watcher mit
+  `ELOOP` den Prozess beendete. Beides in `vite.config.ts` geloest, ohne fremde Artefakte
+  anzufassen: `POLARIS_VITE_CACHE_DIR` (opt-in, Default unveraendert) und ein Watcher-Ausschluss
+  fuer `email/` — ein Verzeichnis, das weder gebaut noch importiert wird. (d) **`e2e/navigation.spec.ts`
+  „Ankernavigation" ist gegen Dev-SSR flatterhaft** — 1 bis 2 von 3 Ankern scheitern; mit der
+  **HEAD-Fassung des Headers in vier aufeinanderfolgenden Laeufen identisch reproduziert**, also
+  keine Regression, sondern ein Umgebungsartefakt (im Dev-Modus injiziert Vite das CSS zur
+  Laufzeit, das Hash-Scrollen laeuft gegen die Layoutberechnung). (e) **`consent-basic-remediation`
+  „explicit grant"** scheitert mit einem SYNTHETISCHEN Container: `gtm.js` laedt danach
+  nachweislich **genau einmal** (die Zusicherung greift), aber ein nicht existierender Container
+  liefert nie einen GA4-`collect` — die letzte Zusicherung braucht einen echten Container und
+  gehoert damit in die Closure. Die beiden anderen Zusicherungen derselben Datei sind gruen.
+  (f) **`_project-knowledge/`** ist ein eingechecktes Archiv des Alt-Codes, wird nie importiert und
+  nie gebaut, aber von `eslint .` mitgelintet — **114 Fehler, davon 3 jsx-a11y**, die nichts mit
+  der ausgelieferten Anwendung zu tun haben; **Drift-Signal fuer PT24.6**, dessen Lint-Gate auf
+  ausgelieferten Code einzugrenzen ist. (g) Die Ausloeser-Mechanik des **Resource Gate** auf
+  `/de/downloads` liess sich nicht anstossen und ist in PT24.2 nachzumessen. **0 Commits.**
+- AP23: **COMPLETE (Closure PASS, 2026-09-11)** — PT23.1–PT23.5 **PASS**,
+  AP23-CLOSURE **PASS** (12/12 Netz-E2E, 5/5 Guards, 183/183 Unit, 411/411 Node).
+  Basic Consent Mode v2 · provider-neutrale Fassade, 0 Bypaesse · Taxonomie mit
+  fuenf state-gated Konversionen · Preview-Provider isoliert · technische Metriken
+  getrennt · AP24: **NOT STARTED**
+- PT23.4 GTM/GA4-Konfiguration: ~~**BLOCKED (2026-09-09)**~~ — **UEBERHOLT, siehe PT23.4 PASS
+  (2026-09-11) weiter unten.** Der folgende Eintrag beschreibt den Stand VOR der Einrichtung des
+  Preview-Containers und bleibt als Beleg stehen. Damaliger Wortlaut: `BLOCKED_EXTERNAL_PROVIDER_CONFIG`.
+  Kein Dienstkonto, keine OAuth-Anmeldung, kein Zugriff auf `tagmanager.googleapis.com` oder
+  `analyticsadmin.googleapis.com`. Damit sind vier Scope-Punkte technisch unmoeglich:
+  Kern-Conversions konfigurieren (4), GA4-Property/Stream verifizieren (7), Realtime/DebugView (8)
+  und die Preview-Isolation IM Container (11). **Kein Fake-PASS** — PT23.5 ist NICHT freigegeben.
+  **Was trotzdem wirklich verifiziert wurde:** der oeffentlich ausgelieferte Container wurde
+  gelesen und ausgewertet — dieselbe Datei, die jeder Browser bekommt, ohne Zugang und ohne
+  Aenderung. `gtm.js?id=GTM-TW6JFX7K` antwortet mit 200 und 351.847 Bytes (SHA-256
+  `2cad50e4…`, `resource.version` 2). Der Container enthaelt **genau einen Tag** (`__googtag` auf
+  `G-PLZNWGKW0P`), **genau einen Trigger** (`gtm.init`), **keine** Konfigurationsueberschreibung,
+  **kein** Custom HTML, **keine** Auto-Event-Listener und **keinen einzigen Werbe-Tag** (weder
+  `AW-` noch `DC-`). Die Eigentuemerschaft ist durch Nutzung belegt: die Live-Domain bindet genau
+  diesen Container ein. **Daraus drei belastbare Aussagen.** (1) **CTC-10 zur Haelfte geloest:** das
+  Google-Tag laedt mit Standardeinstellungen, GA4-Standard ist `send_page_view: true` — der
+  Initial-Load wird also vom Container gezaehlt, und das Ueberspringen des ersten Mounts in
+  `GtmPageview` ist KORREKT, weder Luecke noch Doppelzaehlung. (2) **Die zweite Haelfte bleibt offen
+  und ist jetzt exakt lokalisiert:** ob GA4 bei SPA-Navigationen ZUSAETZLICH eigene `page_view`
+  erzeugt, haengt an Enhanced Measurement → „Seitenaufrufe basierend auf
+  Browserverlaufsereignissen". Das ist eine Einstellung des DATENSTREAMS, nicht des Containers, und
+  in `gtm.js` nicht sichtbar. (3) **Duplicate-Trigger-Audit containerseitig sauber** — ein Trigger,
+  keine Listener; aus dem Container kann kein zweites Ereignis entstehen. Nebenbei entschaerft sich
+  CTC-08: es gibt gar keine Click-Trigger, die `data-gtm-*` lesen. **Ein DebugView-Testlauf gegen
+  den echten Container wurde BEWUSST unterlassen** — er haette die Produktionsauswertung
+  kontaminiert, was AP23 ausdruecklich verbietet. **Befund am Live-Stand (CTC-13):**
+  `polarisdx.net/de/` liefert die Seite VOR dem Relaunch: sie setzt `consent default denied` und
+  laedt danach TROTZDEM `gtm.js`, samt `noscript`-iframe auf `ns.html`. Das ist Advanced Consent
+  Mode und verletzt zwei harte AP23-Regeln — **keine Regression dieser Arbeit**, sondern der
+  Zustand, den der Relaunch abloest (der Preview-Build enthaelt NULL GTM-Referenzen im HTML).
+  Festgehalten, damit beim Go-live niemand die Altseite fuer den geprueften Stand haelt.
+  **Repo-Haelfte erledigt:** `.env.example` neu (vier Schaltstellen, keine echte Kennung in der
+  Vorlage) · **Preview-Isolation** in `analyticsConfig.ts` — in `VITE_APP_ENV=preview|staging` wird
+  der Produktionscontainer UNTERDRUECKT, auch wenn gesetzt; es gilt ausschliesslich
+  `VITE_GTM_CONTAINER_ID_PREVIEW`, und eine undeklarierte Umgebung zaehlt als Produktion, damit die
+  Isolation nicht durch Weglassen umgangen wird. Der Grund ist konkret: der Container wird zur
+  BAUZEIT eingebacken, ein Preview-Build mit Produktionskennung schickt Testklicks in dieselbe
+  GA4-Property wie echte Besucherinnen · **CSP minimiert** — `stats.g.doubleclick.net` entfernt,
+  gemessen und nicht vermutet (kein Werbe-Tag im Container); ehrlich dazu: GA4 kann DoubleClick
+  auch ohne Werbe-Tag kontaktieren, wenn „Google-Signale" in der Property aktiv ist, und genau das
+  ist von hier aus nicht einsehbar — der Report-Only-Modus macht den Fall sichtbar statt ihn zu
+  blockieren (Signal fuer AP26 PT26.2) · `describeAnalyticsConfig` meldet weiterhin
+  `externallyVerified: false`. Tests 13/13 task-eigen, `src/lib` **118/118**, Node-Suiten
+  **411/411**, tsc/eslint/prettier clean. Vier Mutationsproben greifen (Vorschau faellt auf den
+  Produktionscontainer zurueck · Isolationsliste leeren · DoubleClick zurueck in die CSP ·
+  `externallyVerified` faelschlich auf `true`). Eine Bestandszusicherung aus PT23.1 wurde
+  angepasst: sie pinnte die exakte Form des Konfigurationsberichts fest, der jetzt zusaetzlich
+  Umgebung und Unterdrueckung meldet — weiterhin NUR Zustaende, nie eine Kennung. **Zehn exakte
+  Operator-Aktionen** stehen in `CONSENT-TRACKING-CONTRACT.md` §15.6, darunter als wichtigste:
+  Enhanced Measurement „Browserverlaufsereignisse" AUSSCHALTEN (loest CTC-10), sechs Conversion-Tags
+  anlegen und genau diese sechs als Schluesselereignis markieren (CTC-12 — heute gibt es KEINE
+  Conversion-Tags, die sechs Ereignisse landen im dataLayer und werden von nichts konsumiert),
+  eigenen Preview-Container anlegen (CTC-04), Consent-Szenarien mit SYNTHETISCHEN Daten in
+  DebugView durchspielen. Neu offen: CTC-12, CTC-13. Unveraendert offen: CTC-04, CTC-05, CTC-06,
+  CTC-07, CTC-09, CTC-11; CTC-08 entschaerft, CTC-10 halb geloest. **Stand 2026-09-09: AP23
+  IN_PROGRESS, PT23.4 BLOCKED, PT23.5 nicht freigegeben.** — **UEBERHOLT am 2026-09-11:** die
+  Betreiberin hat einen eigenen Preview-Container eingerichtet; der Blocker ist aufgeloest und
+  PT23.4 steht oben auf PASS. Dieser Eintrag bleibt als Beleg des damaligen Stands stehen und ist
+  NICHT der geltende.
+- AP23-CLOSURE: **PASS (2026-09-11)** — unabhaengige Nachmessung, kein PT-PASS uebernommen.
+  Gemessen gegen einen frisch gebauten Produktionsbuild mit einem SYNTHETISCHEN Container
+  (`GTM-AP23CLOS`); ein Lauf gegen den Produktions- oder den echten Preview-Container haette dessen
+  Auswertung verschmutzt, und genau das verbietet AP23. **12/12 Netz-E2E:** Pre-Consent-Requests
+  ueber 8 Seiten in 3 Sprachen = **0**, im SSR-HTML kein Loader, kein `noscript`-iframe, keine
+  Chat-Domain, ohne JavaScript = 0, kein Puffer (weder `dataLayer` noch `gtag` noch ein
+  Storage-Schluessel), nach Ablehnung inkl. Reload = 0, nach Zustimmung genau der konfigurierte
+  Container und nach Reload genau EIN Script, Widerruf erreichbar und danach = 0. **Die letzte
+  offene Doppelzaehlungsfrage aus PT23.3 ist im Browser beantwortet:** eine SPA-Navigation erzeugt
+  genau EINEN `page_view`, ein reiner Parameterwechsel auf demselben Pfad KEINEN zweiten.
+  `contact_submit` feuert nach der 202 genau einmal, und in der dataLayer-Nutzlast steht weder
+  E-Mail noch Firma noch Freitext. Geschaeftsvorgang nach „Nur notwendige" = 202. Einwilligungsdialog
+  in allen zehn Sprachen benannt und mit drei Knoepfen, Tastaturbedienung mit
+  `aria-expanded`/`aria-controls`. Quellseitig neu gemessen: 0 GTM-Referenzen in `index.html` und
+  `server.ts`, 0 Bypaesse im gesamten `src`-Baum, jede Konversion hinter ihrem Persistenz-Tor, kein
+  einziger Feldname mit Personenbezug im Vokabular. Guards 5/5, Unit 183/183, Node-Suiten 411/411,
+  tsc/eslint/prettier clean. **Master-Scope-DoD erfuellt** (vor Consent keine Requests; nach Consent
+  Pageviews und Conversions kontrolliert und testbar). Ehrlich offen und alles AUSSERHALB dieses
+  Repositories: die vier manuellen Preview-Konversionspruefungen (CTC-15), die
+  Produktions-GA4-Property samt Enhanced Measurement (CTC-05/CTC-10), das Produktions-Deployment
+  ohne `VITE_GTM_CONTAINER_ID` (CTC-04) und die Live-Seite im Advanced Consent Mode (CTC-13,
+  Altstand vor Relaunch). Dazu der vorbestehende, PT-fremde `React.act`-Blocker in den
+  React-Render-Tests (unveraendert seit HEAD, Owner AP27) — kompensiert durch die Browser-Messung.
+  **AP23 = COMPLETE. Next: AP24 (NOT STARTED, nicht gestartet).**
+- PT23.5 NACHTRAG (2026-09-11, zweiter Durchgang gegen die kanonische Spezifikation): **PASS,
+  bestaetigt und VERSTAERKT.** Der erneute Queue-Aufruf fuer PT23.5 traf auf einen bereits
+  abgeschlossenen Stand (PT23.5 PASS, AP23-CLOSURE PASS). Statt die Arbeit zu wiederholen oder
+  „schon erledigt" zu melden, wurde die kanonische Test-Liste der Spezifikation gegen das Ist
+  gehalten — und **vier Punkte waren NICHT abgedeckt**: die Erhebung selbst (LCP/CLS/INP/TTFB),
+  die Normalisierung der Bewertung, eine Preview-Isolation FUER METRIKEN und eine
+  maschinenlesbare Repraesentation der Policy-Entscheidung. Alle vier sind geschlossen.
+  **(1) Die Entscheidung steht jetzt als Code**, nicht nur als Prosa: `monitoring/policy.ts`
+  beantwortet genau eine Frage — darf hier ein Transport registriert werden, und wenn nein, warum
+  nicht. `NONE` ist der Auslieferungszustand; `THIRD_PARTY` verlangt vier Belege
+  (Zweck/Auftragsverarbeitung/Speicherdauer/Datenschutzerklaerung) und meldet sonst
+  `BLOCKED_POLICY_DECISION` — **mit dem genau fehlenden Punkt, nicht pauschal allen**. Ein EIGENER
+  Endpunkt derselben Herkunft braucht diese Belege bewusst nicht in derselben Tiefe: kein Dritter,
+  keine Auftragsverarbeitung, kein Drittlandtransfer. Das Modul SENDET nichts und kennt keinen
+  Anbieter; es blockiert **keinen sicheren Codepfad**, sondern ausschliesslich die Aktivierung
+  einer Uebertragung. **(2) Preview-Isolation jetzt auch fuer Metriken**
+  (`BLOCKED_PREVIEW_ISOLATION`) — dieselbe Regel wie bei den Marketingkennungen in PT23.4: eine
+  Vorschau braucht einen eigenen Endpunkt, sonst waeren Messwerte aus der Vorschau in derselben
+  Auswertung hinterher nicht mehr von echten Besuchen zu unterscheiden; eine undeklarierte
+  Umgebung gilt als Produktion, damit die Isolation nicht durch Weglassen umgangen wird.
+  **(3) Der Sammler ist nachgemessen** (18 Tests): TTFB aus der Navigation-Entry, LCP als LETZTER
+  Wert, CLS als Summe OHNE `hadRecentInput` (nutzerausgeloeste Verschiebungen sind kein
+  Layout-Fehler), INP als groesste Interaktionslatenz, alle drei erst beim Verstecken der Seite;
+  jede Meldung traegt genau fuenf Felder. **(4) Die Schwellen von web.dev sind exportiert und unter
+  Test**, inklusive Grenzfaellen — „good ≤ Schwelle" ist eine Entscheidung, die sonst lautlos
+  kippt. Tests 42/42 im Monitoring-Modul (vorher 12), `src/lib` **168/168**, Node-Suiten
+  unveraendert **411/411**, tsc/eslint/prettier clean. Vier Mutationsproben greifen (Policy-Gate
+  entfernen · Preview-Isolation aufheben · Schwellengrenze von `<=` auf `<` verschieben · CLS auch
+  nutzerausgeloeste Verschiebungen zaehlen lassen). **Zum Zustand, ehrlich:** die
+  AP23-CLOSURE-Evidenz vom selben Tag ist VOR diesen Ergaenzungen entstanden. Die geaenderten
+  Dateien (`monitoring/*`, `.env.example`) liegen auf KEINEM Consent- oder Netzpfad —
+  `initWebVitals` wird im produktiven Baum nicht aufgerufen, es ist keine Senke registriert, und
+  `tracking.ts` ist unberuehrt. Nachgemessen statt behauptet: Node-Suiten und `src/lib` gruen, und
+  `monitoring/*` enthaelt weiterhin null Marketingbegriffe. Die Closure wurde auftragsgemaess NICHT
+  erneut ausgefuehrt; wer den Stempel ausdruecklich auch ueber diese Ergaenzungen legen will, laesst
+  `e2e/ap23-closure.config.ts` einmal laufen. **AP23 bleibt COMPLETE — der Zustand wird NICHT auf
+  IN_PROGRESS zurueckgesetzt**, weil die Closure bereits bestanden ist und ein Rueckschritt im
+  Protokoll eine Unwahrheit waere. Neu offen: nichts. CTC-16 bleibt offen, ist aber jetzt
+  maschinenlesbar (`describeTelemetryPolicy()` → `NONE`/`NO_TRANSPORT_CONFIGURED`).
+- PT23.5 Performance-Monitoring getrennt: **PASS (2026-09-11, Fast-Delta V2)** — die Trennung war
+  strukturell schon da (`src/lib/monitoring/` seit AP01 PT01.3: providerneutrale Senke, Standard
+  `null`, nativer Web-Vitals-Sammler ohne Zusatz-Abhaengigkeit), aber sie stand NIRGENDS
+  geschrieben — und damit hielt sie genau bis zum naechsten schnellen Einbau. **Es haette ein
+  einziges `setMonitoringSink(…)` genuegt**, das die Web Vitals in den dataLayer schiebt: aus
+  technischer Selbstbeobachtung waere Marketing-Telemetrie geworden, vorbei an der Einwilligung, die
+  fuer Marketing gilt. Jetzt gemessen statt vermutet: `monitoring/*` nennt weder `dataLayer` noch
+  `gtag` noch eine Container-Kennung, enthaelt keinen der 17 Taxonomie-Namen und importiert nicht aus
+  `tracking`/`trackingProvider`/`googleConsent`; umgekehrt kennt `tracking.ts` keine Metriknamen. Die
+  Typen machen die Verwechslung unmoeglich (`MonitoringSink` nimmt `MonitoringEreignis`, nicht
+  `TrackingEreignis`) — ein versehentlich registrierter Marketing-Provider faellt beim Uebersetzen
+  auf, nicht erst im Netzmitschnitt. Datensparsamkeit gemessen: Pfad OHNE Query (`pathname`, nie
+  `href`), keine Props, kein State, keine `userId`/`leadId`/`email`/`sessionId`. **Und nichts
+  laeuft:** im produktiven Baum ist KEINE Senke registriert und KEIN Sammler gestartet — der
+  datensparsamste moegliche Auslieferungszustand, und damit gibt es keine Uebertragung, keinen
+  Drittanbieter und keine offene Consent-Frage. Rechts-/Betriebsgrundlage nach AP23 §28 dokumentiert
+  (Zweck, Daten, Empfaenger = keiner, Retention = entfaellt, technische Notwendigkeit, Owner
+  AP25/AP26) — **ohne eine Rechtsgrundlage zu erfinden**: `BLOCKED_POLICY_DECISION` greift erst bei
+  Aktivierung eines EXTERNEN Technical-Metrics-Providers. Tests 12/12 task-eigen, drei
+  Mutationsproben greifen (vollen `href` melden · Monitoring in den dataLayer umleiten · Sammler
+  produktiv starten). AP25-Handoff steht in §17.5; `CTC-11` (`panel_select` ohne Aufrufer) wurde
+  geprueft und bleibt bewusst offen — es ist ein Marketing-Engagement-Ereignis und wird nicht
+  kuenstlich verdrahtet, nur damit eine Liste voll aussieht. Neu offen: CTC-16 (kein Transport
+  entschieden).
+- PT23.4 GTM/GA4-Konfiguration: **PASS (2026-09-11, Fast-Delta V2)** — der Blocker vom 2026-09-09
+  ist aufgeloest. Die Betreiberin hat einen EIGENEN Preview-Container eingerichtet; alles, was sich
+  von hier aus nachpruefen liess, ist nachgeprueft worden, der Rest ist als Operator-Evidenz
+  gekennzeichnet und NICHT als eigene Messung ausgegeben. **Unabhaengig verifiziert:**
+  `gtm.js?id=GTM-PL26PFFH` antwortet mit 200 und 364.331 Bytes (SHA-256 `9d46f56a…`); der Container
+  enthaelt **6 Tags** (1 × `__googtag` auf `G-Z1SBW4CJFP`, 5 × `__gaawe`) und **6 Trigger**
+  (`gtm.init` plus exakt die fuenf Konversionsnamen der Fassade), **keine** Werbe-Tags, **keine**
+  Auto-Event-Listener, **kein** Custom HTML — der Duplicate-Trigger-Audit bleibt containerseitig
+  sauber. **Preview-Isolation am ARTEFAKT gemessen, nicht am Vorsatz:** in den vier ausgelieferten
+  Bundles von `preview.polarisdx.net` kommt `GTM-TW6JFX7K` **0×** vor, `G-PLZNWGKW0P` **0×**,
+  `GTM-PL26PFFH` **1×**; das ausgelieferte HTML traegt null GTM-Referenzen. `docker-compose.yml`
+  uebergibt `VITE_APP_ENV=preview` und den Preview-Container und die Produktionskennung
+  ausdruecklich NICHT — ein Test haelt genau das fest. **Operator-Evidenz, nicht selbst gemessen:**
+  Ladeverhalten nach Consent, `collect` mit `tid=G-Z1SBW4CJFP`, `page_view` und `contact_submit`
+  genau einmal. **Scope-Aenderung sauber eingearbeitet:** `consumer_order_submit` ist KEINE
+  geforderte Website-Konversion mehr — der Verkauf laeuft ueber Shopify, und die Website baut weder
+  einen eigenen Bestell-Konversionsweg noch spiegelt sie `view_item`/`add_to_cart`/
+  `begin_checkout`/`purchase` (ein Test haelt fest, dass diese vier Namen im Vokabular NICHT
+  vorkommen). Das Ereignis selbst BLEIBT und feuert unveraendert nach bestaetigter Persistenz: es
+  misst die Bestell-ANFRAGE der AP22-Journey `consumer_order`, also einen Lead, keinen Kauf — es
+  zaehlt nur nicht mehr als Konversion. **Die AP22-Journey selbst wurde NICHT angetastet:** sie ist
+  eine der sieben launchrelevanten Strecken, und der Shopify-Beschluss betrifft die Messung, nicht
+  die Lead-Strecke. Tests 7/7 neu (`previewProvider.test.ts`), `src/lib` 138/138, Node-Suiten
+  411/411, PT23.1-Netzsuite 11/11 unveraendert; drei Mutationsproben greifen (Produktionscontainer
+  in die Preview-Compose einschleusen · `VITE_APP_ENV` auf `production` drehen ·
+  `consumer_order_submit` wieder als Konversion). Eine Bestandszusicherung aus PT23.1 wurde
+  angepasst (Berichtsform um Umgebung und Unterdrueckung erweitert — weiterhin NUR Zustaende, nie
+  eine Kennung). **Ehrlich offen, nichts davon erfunden:** die vier Konversionen
+  `support_submit`, `roi_report_request`, `epigenetics_inquiry_submit`, `lead_magnet_submit` sind
+  im Preview NICHT manuell ausgeloest worden (CTC-15) — Tags und Trigger existieren nachweislich,
+  und `contact_submit` hat den Weg dataLayer → Trigger → Tag → GA4 belegt, aber die vier uebrigen
+  sind nicht beobachtet; die Produktions-Property samt Enhanced Measurement bleibt unverifiziert
+  (CTC-05/CTC-10), das Produktions-Deployment ohne `VITE_GTM_CONTAINER_ID` (CTC-04), die Live-Seite
+  im Advanced Consent Mode mit `noscript`-iframe (CTC-13, Altstand vor Relaunch), und die
+  Shopify-Domain fuer einen `outbound_click` ist unbekannt und wird NICHT erfunden (CTC-14).
+- PT23.3 Pageviews und Conversion Taxonomy: **PASS (2026-09-09, Fast-Delta V2)** — zwoelf kanonische
+  Ereignisse, davon sechs Journey-Konversionen, die ausnahmslos an einem PERSISTIERTEN Zustand
+  haengen: jeder Aufruf steht im `ok`-Zweig, also nachdem der Server mit 202 angenommen hat. Ein
+  Ereignis am Klick haette einen Lead behauptet, den es nie gab — Formulare scheitern serverseitig
+  an Validierung, Rate Limit oder Idempotenz-Konflikt. Ein Test liest die Quelltexte und prueft die
+  POSITION im Kontrollfluss, nicht nur die Anwesenheit des Aufrufs. **Keine Konversion traegt eine
+  Vorgangsnummer, Lead-ID oder ein Kontaktdatum** — drei tragen ueberhaupt keinen Parameter; eine
+  Vorgangsnummer waere ein personenbeziehbarer Schluessel in einer fremden Auswertung. **Zwei echte
+  Doppelzaehlungen gefunden und behoben.** (1) Der Seitenaufruf-Effekt haengt an `pathname` UND
+  `search`; da die Fassade die Query seit PT23.2 verwirft, erzeugte
+  `/de/contact?intent=quote` → `/de/contact?panel=x` ZWEI identische `page_view` fuer denselben
+  Pfad. Der zuletzt gemeldete Pfad wird jetzt festgehalten. (2) `consumer_page_view` feuerte beim
+  Mount jeder Consumer-Seite, waehrend `page_view` denselben Routenwechsel bereits meldete — zwei
+  Seitenaufruf-Ereignisse fuer eine Navigation. Entfernt; die Dimension „welche Consumer-Seite"
+  steckt im Pfad. **`download_delivered` haengt an einem beobachteten Zustellerfolg, nicht am
+  Klick.** Das Formular abzuschicken heisst, einen ANSPRUCH bekommen zu haben, nicht die Datei: ein
+  Anspruch kann abgelaufen, aufgebraucht oder widerrufen sein, und die geschuetzte Route antwortet
+  dann 403/410. Der Download laeuft deshalb ueber GENAU EINEN `fetch` — jede Anfrage loest den
+  Anspruch ein und zaehlt gegen `max_downloads` (AP19), ein Vorabtest haette einen Versuch
+  verbrannt — und das Ereignis entsteht erst nach `response.ok`. Bei jedem Fehler: Rueckfall auf die
+  native Navigation, KEIN Ereignis; der Download bleibt moeglich, aber es wird nie ein Erfolg
+  gemeldet, der nicht beobachtet wurde. Bewusst in Kauf genommen: der Download laeuft jetzt ueber
+  einen Blob statt nativ — bei den ausgelieferten PDFs unkritisch, der Rueckfallpfad deckt jeden
+  Fehlerfall. **Engagement datenschutzfreundlich:** die Suche meldet Trefferzahl und LAENGENKLASSE,
+  nie die Eingabe — eine Suche auf einer Diagnostikseite kann ein Krankheitsbild, einen
+  Medikamentennamen oder einen Praxisnamen enthalten; das Ereignis entsteht erst, wenn die Eingabe
+  zur Ruhe gekommen ist, sonst ergaebe „vitamin" sieben Ereignisse und eine Statistik, die nur das
+  Tippen abbildet. Outbound meldet nur die DOMAIN aus einer Allowlist, nie den vollen Link (ein
+  externer Link kann einen Termin oder ein geteiltes Dokument tragen); ein Listener am Dokument
+  statt eines Handlers je Link, weil die externen Links verstreut und teils aus uebersetztem HTML
+  erzeugt sind. Pfade behalten das Sprachpraefix (x10 segmentierbar), Query und Fragment fallen weg,
+  Sprache normalisiert auf zwei Kleinbuchstaben. Tests 53/53 task-eigen, `src/lib` **105/105**,
+  Node-Suiten **411/411**, PT23.1-Netzsuite unveraendert **11/11**, tsc/eslint/prettier clean, G4
+  i18n und check:routes PASS. Fuenf Mutationsproben greifen (Konversion vor das Persistenz-Tor
+  ziehen · Pfad-Schranke entfernen · `download_delivered` an den Klick haengen · rohe Suchanfrage
+  mitschicken · Outbound-Allowlist aufheben). **Zwei meiner Pruefungen waren zunaechst falsch
+  gebaut** und zaehlten das Vokabularmodul als Aufrufstelle mit — eine Typdeklaration ist keine
+  Emission; Definitions- und Adaptermodul sind jetzt ausgenommen, die Zaehlung misst wirklich
+  Aufrufer. **Ehrlich offen und NICHT hier entscheidbar (CTC-10):** die App ueberspringt den ersten
+  Mount in der Annahme, das GA4-Konfigurationstag im Container sende beim Laden ein `page_view`.
+  Trifft die Annahme nicht zu, fehlt der erste Seitenaufruf jeder Sitzung; sendet der Container
+  zusaetzlich bei SPA-Wechseln, wird doppelt gezaehlt. In diesem Repository nicht pruefbar — Owner
+  ist PT23.4, und §14.9 fuehrt acht externe Konfigurationsanforderungen exakt auf. Neu offen:
+  CTC-10, CTC-11 (`panel_select` ohne Aufrufer). Unveraendert offen: CTC-04/CTC-05 (PT23.4), CTC-06
+  (AP26), CTC-07 (AP23-CLOSURE), CTC-08 (Marketing), CTC-09 (Content). AP23 bleibt IN_PROGRESS,
+  PT23.4 ist die naechste Aufgabe und AP24 bleibt NOT STARTED.
+- PT23.2 Tracking-Fassade und Provider: **PASS (2026-09-09, Fast-Delta V2)** — die drei Umgehungen
+  aus der PT23.1-Karte sind aufgeloest, und die Typgrenze hat dabei DREI weitere gefunden, die die
+  Karte nicht hatte, weil sie nach `dataLayer.push` und `gtag(` gesucht hat. **(1) `cta_label` — der
+  UEBERSETZTE Knopftext ging als Ereignisparameter mit.** In zehn Sprachen ergab dieselbe
+  Schaltflaeche zehn Werte, und jede Redaktionsaenderung erzeugte lautlos einen neuen; eine
+  Auswertung ueber Sprachen hinweg war damit unmoeglich. Entfernt — der ORT beantwortet die Frage,
+  die die Messung stellt, die Beschriftung nicht. **(2) `audience-${a.title…}`:** auf der SprayPage
+  wurde der Modal-Ort aus der uebersetzten Kartenueberschrift SLUGIFIZIERT — ein unbegrenzter,
+  sprachabhaengiger Freitextwert direkt in der Auswertung. Ersetzt durch den festen Ort `audience`;
+  die Unterscheidung je Karte braucht eine stabile Kennung im Content (CTC-09). **(3)
+  `data-gtm-cta`:** Datenattribute im DOM trugen denselben uebersetzten Text, ausdruecklich damit
+  GTM-Click-Trigger AM JS-Ereignis VORBEI ausloesen koennen. Der Freitext ist raus, `data-gtm-page`
+  und `data-gtm-location` bleiben (beides Aufzaehlungen). Dass ein Click-Trigger diese Attribute
+  ueberhaupt am Adapter vorbei lesen kann, steht als CTC-08 offen — das ist eine Entscheidung des
+  Marketing-Owners, keine stille Loeschung durch diesen Task. Neu: `src/lib/tracking.ts` als EINE
+  Fassade mit zehn typisierten Ereignissen und `src/lib/trackingProvider.ts` als EINZIGER Ort, der
+  Google kennt; `dataLayer`/`gtag` stehen nur noch dort und in `googleConsent.ts`, und ein Test
+  liest den gesamten `src`-Baum ohne Kommentare, um das zu halten. Registrierung und Abmeldung
+  haengen an GENAU EINER Stelle (`applyGoogleConsent`/`withdrawGoogleConsent`) — der Geschaeftscode
+  ruft `setTrackingConsent` nie selbst auf, sonst waere jede Aufrufstelle eine Gelegenheit, ihn zu
+  vergessen. **CTC-02 geloest:** vorher schickte EIN Seitenwechsel zwei Ereignisse
+  (`gtag('event','page_view')` UND `dataLayer.push({virtual_pageview})`); solange kein
+  Container-Trigger auf `virtual_pageview` stand, fiel das nicht auf — sobald einer eingerichtet
+  wuerde, haette GA4 jeden Seitenwechsel doppelt gezaehlt, rueckwirkend unbemerkt. Jetzt gilt eine
+  Transporttabelle mit genau einem Weg je Ereignis; `page_view` behaelt bewusst gtag, weil er heute
+  nachweislich ohne Container-Einrichtung misst. **Pfade gehen ohne Query und Fragment raus** —
+  vorher wurde `window.location.href` samt `?panel=`, `?intent=`, `?source=` gemeldet, und
+  `page_referrer` bringt fremde Parameter mit, ueber die diese Seite nichts weiss. Die Pruefung ist
+  AUFBAUEND statt filternd: `pruefeEreignis` baut das Ereignis aus den erlaubten Feldern neu, ein
+  spaeter ergaenztes Feld faellt damit nicht unbemerkt mit nach draussen — nachgemessen mit einem
+  Ereignis, dem `email` und `nachricht` angehaengt wurden. PII-Muster als letzte Schranke (E-Mail,
+  Telefon, Token/Hash, `token|jwt|bearer|secret|password`, datumsartige Folgen). Menge ist die
+  Allowlist `1|2|3|'MORE'` statt einer freien Zahl — `'MORE'` ist eine echte Auswahl, sie als Zahl
+  zu melden waere erfunden. Tests 28/28 task-eigen, `src/lib` **80/80**, Node-Suiten
+  **411/411**, PT23.1-Netzsuite unveraendert **11/11** (Ladeverzicht, Widerruf und
+  Consent-Unabhaengigkeit haben den Umbau ueberstanden), tsc/eslint/prettier clean, G4 i18n und
+  check:routes PASS. Fuenf Mutationsproben greifen (Consent-Sperre entfernen · Nutzlastpruefung
+  umgehen = 11 Tests rot · Query im Pfad behalten · Doppelzaehlung wieder einbauen · direkten
+  dataLayer-Aufruf wieder einfuehren). Ehrlich: die drei Zusatzbefunde hat nicht das Lesen gefunden,
+  sondern `tsc` — die Typgrenze hat jede Aufrufstelle benannt, an der Freitext oder ein unbekannter
+  Wert floss. Zwei ESLint-Fehler in `src/pages/consumer/{OrderModal,PriceBadge}.tsx` bleiben
+  vorbestehend (gleiche Exporte wie in HEAD, Owner AP24/AP27). **Eine Bestandszusicherung wurde
+  angepasst, nicht abgeschwaecht:** `new-journeys.test.js` (AP22 PT22.6) prueft, dass der
+  Seitenaufruf erst mit Einwilligung geht, und tat das ueber die Zeichenkette
+  `hasAnalyticsConsent` IN `GtmPageview.tsx`. Die Sperre liegt jetzt in der Fassade — an einer
+  Stelle statt an jeder Aufrufstelle —, also prueft der Test das Staerkere: die Komponente nennt
+  weder `gtag` noch `dataLayer`, fuehrt ausschliesslich ueber die Fassade nach draussen, und die
+  Fassade traegt die Sperre. **Meine erste Fassung dieser Zusicherung war zu schwach und hat bei
+  der Probe nichts bewiesen:** sie suchte `gtag(`, und ein eingeschleustes `gtag?.('event',…)`
+  ging als Optional Chaining daran vorbei; jetzt wird auf den BEZEICHNER geprueft, und beide
+  Proben greifen. Geschlossen: CTC-01, CTC-02, CTC-03.
+  Neu offen: CTC-08 (DOM-Attribut-Trigger am Adapter vorbei), CTC-09 (Audience-Karten ohne stabile
+  Kennung). Unveraendert offen: CTC-04/CTC-05 (PT23.4), CTC-06 (AP26), CTC-07 (PT23.3). AP23 bleibt
+  IN_PROGRESS, PT23.3 ist die naechste Aufgabe und AP24 bleibt NOT STARTED.
+- PT23.1 Basic Consent Mode v2: **PASS (2026-09-09, Fast-Delta V2)** — der Ladeverzicht war zur
+  Haelfte schon da und wurde nachgemessen statt neu gebaut: `index.html` traegt seit AP06 kein
+  GTM-Script, kein noscript-iframe und keinen Preconnect, und `applyGoogleConsent` kehrte bereits
+  vor jedem Seiteneffekt zurueck. Was FEHLTE, waren drei Dinge, und jedes einzelne war ein echter
+  Mangel. **(1) Es gab keinen Widerruf.** Der Banner rendert ausschliesslich, solange nichts
+  gespeichert ist, und es existierte im gesamten Frontend KEIN Einstiegspunkt, ihn erneut zu
+  oeffnen — eine einmal getroffene Entscheidung war endgueltig, obwohl der Widerruf genauso einfach
+  sein muss wie die Zustimmung. Neu: `footer.cookie_settings` in der Fusszeile (x10) oeffnet den
+  Dialog ueber ein Ereignis, `cookie.withdraw` (x10) loescht die Entscheidung, setzt die Signale auf
+  `denied`, entfernt das Script und laedt neu, WENN in diesem Dokument bereits ein Container lief —
+  ein einmal ausgefuehrtes Providerskript laesst sich nicht zurueckrufen, Timer und offene
+  Verbindungen ueberleben ein `removeChild`. **(2) Ein kaputter Speichereintrag legte die gesamte
+  Website lahm.** Der Banner las `localStorage` roh, setzte den Wert ungeprueft in den State und
+  rendert daraus eine Liste; alles, was kein Array war — ein abgeschnittener String aus vollem
+  Speicher, ein Objekt aus einer aelteren Fassung, eine Zahl — warf beim Rendern, und zwar auf JEDER
+  Seite, weil der Banner global unter `<Routes>` haengt. Neu: `src/lib/consentState.ts` als EINE
+  Quelle fuer Format und Version; `readConsentDecision()` liefert entweder eine gueltige,
+  versionierte Entscheidung oder `null`, und `null` heisst „nicht entschieden" — im Zweifelsfall
+  immer die sichere Richtung. Im Browser gegen fuenf Korruptionsformen nachgestellt. **(3) Zwei
+  Provider-Kennungen standen fest im Quelltext** (`GTM-TW6JFX7K` in `googleConsent.ts`,
+  `G-PLZNWGKW0P` in `GtmPageview.tsx`) und wurden damit behandelt, als waeren sie geprueft. Sie sind
+  es nicht: wem der Container gehoert, welche Tags er enthaelt und ob GA4 dort haengt, ist bis heute
+  nicht extern verifiziert (Owner PT23.4). Neu: `src/lib/analyticsConfig.ts` liest sie aus der
+  Umgebung, verwirft syntaktisch falsche Werte statt sie durchzureichen und verwendet den
+  historischen Wert AUSDRUECKLICH NICHT als Standard — ohne konfigurierten Container laedt nichts.
+  **Betriebliche Folge, offen benannt (CTC-04):** solange `VITE_GTM_CONTAINER_ID` im Deployment
+  nicht gesetzt ist, laedt auch nach Zustimmung kein Container. Das ist die sichere Richtung, aber
+  eine Verhaltensaenderung; Setzen und Pruefen sind PT23.4. Weiter: Einwilligung jetzt VERSIONIERT
+  (`version: 2`) — das unversionierte Altformat belegt nicht, fuer welchen Umfang zugestimmt wurde,
+  und gilt deshalb als nicht entschieden; Bestandsnutzer werden EINMAL erneut gefragt, bewusst in
+  Kauf genommen. Widerruf ENTFERNT den Eintrag, statt ihn auf `false` zu setzen — es bleibt kein
+  Datum im Speicher, das eine Aussage ueber die Person trifft. A11y: der Banner war ein unbenanntes
+  `<div>`; jetzt `<section>` mit `aria-labelledby`, `aria-expanded`/`aria-controls` am
+  Einstellungs-Knopf. Bewusst KEIN `role="dialog"`: der Banner ist nicht modal, und eine Rolle zu
+  versprechen, deren Verhalten (Fokusfalle, Escape, inerter Hintergrund) es nicht gibt, waere
+  schlechter als keine. Netz-Evidenz (Produktionsbuild, echter Browser, 11/11):
+  **pre-consent GTM/GA4/Marketing = 0** ueber 8 Seiten in 3 Sprachen · **noscript-iframe = 0** im
+  ROHEN SSR-Dokument · **ohne JavaScript = 0** · **kein dataLayer, keine Analytics-Spur in
+  local-/sessionStorage** · nach ABLEHNUNG inkl. Reload = 0 · nach ZUSTIMMUNG genau ein Request mit
+  der konfigurierten Kennung, nach Reload genau ein Script · nach WIDERRUF = 0 · Kontaktanfrage ohne
+  Analytics-Consent = 202. Unit 36/36 task-eigen (52/52 in `src/lib`), Node-Suiten unveraendert
+  **411/411**, tsc/eslint/prettier clean, G4 i18n und shell-i18n PASS. Vier Mutationsproben greifen
+  (Versionspruefung entfernen · Altformat als Zustimmung uebernehmen · historische Kennung als
+  Standardwert · vor Consent doch initialisieren = Advanced Mode). **Eine Bestandszusicherung wurde
+  umgedreht:** `googleConsent.test.ts` hielt fest, dass das unversionierte Altformat Zustimmung
+  bedeutet — genau das ist jetzt falsch, und der Test prueft das Gegenteil. **Korrektur einer
+  frueheren Aussage:** der jsdom-Blocker aus AP22 ist KEIN kaputtes Paket, sondern schlicht Node 18
+  — unter dem projekteigenen Node 20.19.6 laufen die jsdom-Suiten. Was dort weiterhin faellt, ist
+  etwas anderes: `React.act is not a function` in den React-Render-Tests (React 19 + Testing Library
+  16, Aufloesungsproblem), unveraendert seit HEAD und ausserhalb PT23.1 — Owner AP27. Kein Full
+  Production Build ausserhalb des E2E-Builds. Neu: `building-docs/CONSENT-TRACKING-CONTRACT.md` mit
+  Provider-Inventar, Consent State Map, **Direct Bypass Map** (3 direkte Provider-Aufrufe, alle
+  consent-gated, Aufloesung = PT23.2) und **Event Source Map** (3 parallele Wege; `lib/tracking.ts`
+  ist inert, `setTrackingProvider` wird nirgends aufgerufen). Offen: CTC-01..CTC-03 (PT23.2),
+  CTC-04/CTC-05 (PT23.4), CTC-06 (AP26), CTC-07 (PT23.3). AP23 bleibt IN_PROGRESS, PT23.2 ist die
+  naechste Aufgabe und AP24 bleibt NOT STARTED.
+- AP22: **COMPLETE (LEAD 40/40 · C22 50/50 · DoD 54/54, 2026-09-09)** — PT22.1–PT22.8 **PASS**,
+  AP22 Closure **PASS**. Shared Lead Foundation = **CANONICAL** · Journey Registry **7/7** ·
+  Persistence/CRM-Routing/Outbox-Retry/Dead-Letter-Recovery/Idempotency-Dedup/Consent-Evidence/
+  DRY_RUN-Isolation/Chat-Removal/Retention-DSAR/Operational-Visibility = **PASS** ·
+  LEAD-DATA-CONTRACT **current** (§27) · Gate 3 CRM **PASS at AP22 functional boundary** ·
+  AP28 production operations remainder = **DOCUMENTED (§26.11)**, AP28 bleibt **NICHT** COMPLETE ·
+  AP23: **NOT STARTED**
+- AP22-CLOSURE: **PASS (2026-09-09)** — unabhaengiger finaler Paket-Gate, alles NEU gemessen; kein
+  PT-PASS uebernommen. Gemessen wurde gegen einen echten Serverprozess mit echter Datenbank, gegen
+  einen frischen Produktionsbuild im Browser und gegen die LAUFZEIT-Registry statt gegen
+  Dokumentation. Der Providerschluessel blieb absichtlich LEER — ohne Adapter muss ein Vorgang
+  gespeichert und ehrlich als NO_PROVIDER_CONFIGURED abgelegt werden; nach dem Lauf trug kein
+  einziger Lead einen `delivered_at`-Zeitstempel. Neue Closure-Suite `server/ap22-closure.test.js`
+  **47/47**: 7/7 Golden Path (202, gemeinsames Envelope, Zeile in der DB VOR jedem externen Effekt,
+  Consent-Evidence und Audit-Protokoll), 7/7 Idempotenz (ein Schluessel = eine Zeile, Konflikt 409),
+  7/7 Validierung (400 mit code/messageKey/fieldErrors, ohne Stacktrace/Providerdetail/internen
+  Pfad), Rate Limit serverseitig gemessen (429), Honeypot legt nichts an, alle sieben Routen hinter
+  `formLimiter`, Foundation-Singleton (kein Slice oeffnet eine eigene Datenbank, genau fuenf
+  Tabellen), Retry mit wachsendem Abstand, RECONCILIATION_REQUIRED OHNE zweiten Providerkontakt,
+  FAILED_TERMINAL sichtbar und wiedervorlagefaehig, Wiedervorlage nur mit Person UND Grund,
+  Datenschutz an der echten Datenbank dieses Laufs (Auskunft, Datenkopie, Loeschung; fremde Adressen
+  unberuehrt; laufender Vorgang ehrlich aufgeschoben). Production-like E2E `e2e/ap22-closure.spec.ts`
+  **5/5** gegen den Produktionsbuild: **pre-consent Analytics-/Marketing-Requests = 0** ueber sechs
+  Journey-Seiten UND nach Ablehnung, Kontaktanfrage nach „Nur notwendige" unveraendert 202, kein
+  Chat-Markup und kein Chat-Request im ausgelieferten Build, `/api/chat` auch durch den
+  Produktions-Proxy 404. Node-Suiten **411/411** (26 Dateien), Produktionsbuild Client + SSR PASS,
+  Guards check:routes/search-index/i18n/seo/lead-foundation/content-download **6/6 PASS**, tsc clean,
+  `eslint server scripts` clean, prettier clean, x10 bestaetigt (Server-Mailcopy 10/10 mit
+  Key-Paritaet, G4 15 Namespaces x 10). **EIN echter Befund, als kleiner Regressionsfix behoben:**
+  `docker-compose.yml` legte die DATENBANK auf ein benanntes Volume, deklarierte aber KEIN
+  `SUPPORT_UPLOAD_DIR` — die Support-Anhaenge landeten damit im Default und im Container auf der
+  VERAENDERLICHEN Schicht. Ein Redeploy haette jede hochgeladene Datei geloescht, waehrend die
+  Lead-Zeile weiter `attachments`/`caseDir` behauptet und der Zustelladapter sie von der Platte
+  lesen will; der in §26.8 definierte Sicherungsumfang haette kein Ziel gehabt. Genau die Datei,
+  derentwegen jemand den Support kontaktiert, waere weg gewesen. Behoben durch
+  `SUPPORT_UPLOAD_DIR=/var/lib/polarisdx/support-uploads` auf DEMSELBEN Mount wie die Datenbank;
+  ein Test prueft beides gegen die Compose-Datei, zwei Mutationsproben greifen. Die weitere
+  Produktionstopologie bleibt AP28. **Zweiter Befund, im Test statt im Produkt:** eine `cp`-Kopie
+  der Datenbank lieferte einen leeren Stand — WAL ohne Checkpoint; genau davor warnt
+  `describeBackupScope()`, und `createLeadBackup` sichert deshalb ueber `VACUUM INTO`. Sechs
+  Mutationsproben greifen (DRY_RUN als DELIVERED · unbekanntes Ergebnis blind wiederholen ·
+  Idempotenz abschalten = 8 Tests rot · SUPPORT_UPLOAD_DIR entfernen · Anhaenge auf fremdes Volume ·
+  DSAR-Auswahl oeffnen). LEAD-01..40 PASS, C22-01..50 PASS, DoD 54/54. **Ausdruecklich NICHT
+  bewiesen und so gemeldet:** keine vollstaendige Produktions-Restore-Uebung (Smoke traegt
+  `scope: AP22_BOUNDED_SMOKE`, AP28 PT28.5.2) · keine erzwungene Preview-Isolation OHNE `APP_ENV`
+  (LDC-24) · die jsdom-Komponententests laufen in dieser Umgebung nicht (`ERR_REQUIRE_ESM` in
+  `html-encoding-sniffer`, trifft auch unveraenderte Dateien) — kompensiert durch die Messung der
+  UI-Wahrheit im echten Browser · kein In-Place-`npm run build`, weil `dist/client/assets` im
+  Arbeitsbaum `root` gehoert (Docker-Build als root; `dist/` ist gitignoriert, Umgebungsartefakt,
+  kein Repo-Defekt) — gebaut wurde in ein Scratch-Verzeichnis · fuenf ESLint-Fehler AUSSERHALB AP22
+  in unveraenderten `src/`-Dateien (react-refresh/react-hooks, Owner AP24/AP27). Offen und nicht
+  launchkritisch: LDC-04, LDC-10, LDC-11, LDC-13, LDC-17..LDC-26 — keiner verliert einen Lead,
+  keiner behauptet einen nicht erreichten Erfolg, keiner oeffnet einen Weg an Consent oder
+  Entitlement vorbei. **AP22 = COMPLETE. AP28 NICHT COMPLETE. Next: AP23 (NOT STARTED, nicht
+  gestartet).**
+- PT22.8 Datenschutz-/Betriebsfunktionen: **PASS (2026-09-09, Fast-Delta V2)** — der Befund war
+  nicht, dass Aufbewahrung fehlte, sondern dass sie **ein Metadatum war und kein Vorgang**. AP20
+  PT20.3 hat fuer Support 90 Tage festgelegt, PT22.2 hat daraus eine indizierte Spalte gemacht und
+  `findDueForDeletion()` dazugeschrieben — und danach hat es NIEMAND aufgerufen. Die Anhaenge einer
+  Supportanfrage lagen nach 90 Tagen unveraendert auf der Platte, und die Zeile sagte faellig. Der
+  zweite Befund derselben Art: Auskunft und Loeschung waren technisch **nicht durchfuehrbar**, weil
+  es keinen Weg von einer E-Mail-Adresse zu den Vorgaengen einer Person gab (`subject_json` ist ein
+  JSON-Feld ohne Suchschluessel). Neu: Migration 004 rein ADDITIV (drei Spalten, ein Index, kein
+  Tabellenumbau) · `lead-foundation/privacy.js` (Politik mit Herkunft, Lauf, DSAR-Dienst) ·
+  `operations.js` (Alarme, Senken, Sicherungsumfang, `VACUUM INTO`-Backup, begrenzter Restore-Smoke)
+  · `environment.js` (Umgebungsentscheid) · `jobs` am vorhandenen Dispatcher-Zeitgeber statt eines
+  zweiten Schedulers · neun weitere Kommandos in `scripts/lead-ops.mjs` statt eines zweiten
+  Admin-Produkts. **Es wird keine gesetzliche Frist erfunden:** fuer sechs der sieben Journeys steht
+  `UNDECIDED`, und das heisst unentschieden, nicht unbegrenzt; eine Konfiguration
+  (`LEAD_RETENTION_DAYS_<JOURNEY>`) kann eine beschlossene Frist VERKUERZEN, aber nicht verlaengern —
+  der Versuch wirft. Der Lauf **berichtet standardmaessig und loescht nichts**; erst
+  `LEAD_RETENTION_APPLY=1` bzw. `--apply` anonymisiert, weil ein Loeschjob, der sich mit dem
+  Deployment selbst scharf schaltet, im Betrieb nicht zu verantworten ist. **Anonymisiert statt
+  geloescht**, aus einem konkreten Grund: ein `DELETE` auf `leads` raeumt per `ON DELETE CASCADE`
+  auch `lead_events` ab — also genau den Nachweis, dass ordnungsgemaess geloescht wurde. Entfernt
+  werden ALLE DREI Verkettungen zur Person (`dedup_key`, `subject_email_hash`, `request_hash` sind
+  ungesalzene Hashes ueber die Adresse), ein Downloadanspruch wird mitwiderrufen; bewusste Folge:
+  ein Replay des alten Idempotency-Keys meldet danach einen Konflikt. Zwei Faelle werden NICHT
+  geloescht und ehrlich gemeldet statt still uebersprungen: `DELIVERY_PENDING` (den Personenbezug
+  mitten in der Zustellung zu entfernen wuerde eine leere Nachricht verschicken) und `LEGAL_HOLD` —
+  die einzige Ausnahme, ausschliesslich von einer Person mit Grund eingetragen, niemals abgeleitet.
+  DSAR sucht ueber den Hash und nie ueber Text: ein `LIKE` wuerde fremde Datensaetze treffen, und
+  eine Loeschung, die fremde Datensaetze trifft, ist schlimmer als gar keine — ein Test stellt genau
+  das nach (`mila@`, `mila.k@`, `ada@` nebeneinander, nur die erste wird angefasst). **Preview:**
+  `DRY_RUN` war ein reiner Startparameter (DD-11); jetzt schaltet `APP_ENV=preview|staging` den
+  Trockenlauf ZWINGEND ein, `DRY_RUN=0` hebt das nicht auf, und der Adapter wird gar nicht erst
+  aufgerufen. Was das NICHT loest, steht als `LDC-24` da: die Preview laeuft laut Runbook selbst mit
+  `NODE_ENV=production`, eine Umgebung ohne `APP_ENV` ist von der Produktion technisch nicht
+  unterscheidbar — erzwungen ist es nur, wo die Umgebung sich benennt, sonst bleibt es bei einem
+  gemeldeten Befund (`UNDECLARED_ENVIRONMENT_WITH_PROVIDER`). Sicherung: Umfang als PRUEFBARE
+  Struktur statt Prosa (ein Test vergleicht ihn mit den real existierenden Tabellen),
+  Wiederherstellungsreihenfolge benannt, `SUPPORT_UPLOAD_DIR` ausdruecklich als eigener Teil,
+  Secrets und Download-Token ausdruecklich ausgeschlossen; der Restore-Smoke traegt
+  `scope: AP22_BOUNDED_SMOKE` und behauptet KEIN Produktionsrestore. Tests 40/40 task-eigen,
+  Node-Suiten **364/364** (25 Dateien), tsc/eslint/prettier sauber. **Sechs Mutationsproben
+  greifen**, darunter die wichtigste: die DSAR-Auswahl auf alle Zeilen geoeffnet macht vier Tests
+  rot, weil dann fremde Datensaetze mitgeloescht wuerden. Zusaetzlich operativ nachgefahren statt
+  nur behauptet: `lead-ops isolation/retention-policy/dsar-lookup/retention/retention --apply/
+alerts/backup` gegen eine echte Datenbank — der Anhang war danach wirklich von der Platte weg und
+  die Adresse nicht mehr auffindbar; der Serverstart wurde in beiden Fehlkonfigurationen gemessen.
+  **Eigener Nebenbefund aus dem Testlauf:** die Pruefung auf synthetische Testdaten hat drei echte
+  Adressen in BESTANDS-Fixtures gefunden, darunter die Arbeitsadresse einer Kollegin als
+  Formularwert — ersetzt durch reservierte Domains (RFC 2606); die eine begruendete Ausnahme
+  (`contact@polarisdx.net` als Zusicherung ueber den produktiven Empfaenger) ist benannt.
+  Geschlossen: **LDC-03**. Technisch geschlossen, RECHTLICH OFFEN: LDC-11, LDC-21 — kein
+  False-Ready. Neu offen: LDC-24 (undeklarierte Umgebung), LDC-25 (Loeschlauf haengt am
+  Anwendungsprozess, kein Cron), LDC-26 (`dsar-export` schreibt auf stdout). Unveraendert offen:
+  LDC-04, LDC-10, LDC-13, LDC-17..LDC-20, LDC-22, LDC-23. Der exakte AP28-Rest steht in
+  `LEAD-DATA-CONTRACT.md` §26.11 (Topologie, Secrets-Betrieb, stackweites Monitoring,
+  Backup-Zeitplan, vollstaendige Restore-Uebung, Rollback/Runbook, Loeschlauf-Takt); AP28 bleibt
+  ausdruecklich NICHT als COMPLETE markiert. Kein Full Production Build (Fast-Delta V2; Migration
+  additiv, keine Build-/Container-/SSR-Infrastruktur veraendert). Ehrlich offen wie zuvor: die
+  jsdom-Suiten laufen in dieser Umgebung nicht (`html-encoding-sniffer` require()t ein ES-Modul,
+  trifft auch unveraenderte Dateien) — Toolchain, nicht dieser Task. AP22 bleibt IN_PROGRESS,
+  AP22-CLOSURE ist die naechste Aufgabe und AP23 bleibt NOT STARTED.
+- PT22.7 Chat-Entfernung: **PASS (2026-09-09, Fast-Delta V2)** — von den sieben Flaechen im Scope
+  gab es nur drei ueberhaupt: Endpunkt, CSP und Doku. Chat-Env, Chat-Secret und Chat-Abhaengigkeit
+  waren **null Treffer** — das ist ein Befund, kein erledigter Punkt, und wird hier so gemeldet
+  statt als Arbeit ausgegeben. Der Endpunkt `POST /api/chat` war ein Echo-Mock mit 1 s kuenstlicher
+  Verzoegerung und vier fest verdrahteten deutschen Antworten, ohne Frontend-Aufrufer, ohne
+  Persistenz, ohne Consent — und als **einziger POST-Endpunkt ohne `formLimiter`**. Die File Map aus
+  PT22.6 liess „entfernen ODER absichern" offen; entfernt wurde, weil ein Rate Limit an einem
+  Endpunkt ohne Gegenwert nur die Angriffsflaeche verwaltet, statt sie zu beseitigen (`DEC-RL-007`).
+  Handler, Mock-Logik und der 23-zeilige Teams-/OpenAI-Roadmap-Kommentar sind raus; POST, GET, PUT
+  und DELETE laufen jetzt in den 404 von Express. **Die eigentliche Substanz lag aber nicht am
+  Endpunkt, sondern in der CSP:** `server.ts` erlaubte weiterhin in DREI Direktiven
+  `widget.hihuman.co.uk` — `script-src` (Bundle laden), `connect-src` inklusive **Wildcard**
+  `*.hihuman.co.uk` (Rueckkanal auf beliebige Subdomains) und `frame-src`. Ein entfernter Handler
+  beseitigt das nicht; genau das haelt `CONSENT-CONTRACT.md` M-04 fest („der einzige der drei Reste
+  ohne Netzwirkung"). Alle drei Direktiven sind jetzt chat-frei, die uebrigen Origins (GTM, GA4,
+  Google Fonts) unangetastet — die CSP-**Finalisierung** (Enforce, Report-URI, verbleibende
+  Wildcards) bleibt AP26 PT26.2. **Zwei Bestandstests hielten den Chat aktiv fest und haetten die
+  Entfernung rot gemeldet:** `shell.test.tsx` sicherte unter „Ownership-Grenzen bleiben gewahrt" zu,
+  dass `/api/chat` in `server/server.js` **noch da** ist und die CSP die HiHuman-Domains **weiter**
+  fuehrt. Zum Zeitpunkt von AP06 war das richtig (Schutz vor fremdem Eigentum), jetzt ist es falsch;
+  beide sind umgekehrt und in den Chat-Block verschoben, der CSP-Test misst den **Code** und nicht
+  die Prosa, damit der begruendende Kommentar ihn nicht ausloest. Doku: `CHAT_INTEGRATION.md`
+  (aktive Anleitung „der Chat ist aktuell ein Mock-Prototyp") geloescht, `README.md` („enthaelt
+  einen Mock-Chat") auf die sieben Journeys korrigiert, `docs/design-system.md` (ChatWidget in Shell
+  und UI-Liste) bereinigt, `projektverzeichnis/03-technik.md` (toter Link auf die geloeschte Datei)
+  und `10-befunde.md` Befund 10 als behoben markiert; BACKEND-API-CONTRACT AD-9/API-20,
+  NETWORK-ALLOWLIST und CONSENT-CONTRACT M-04 als erledigt vermerkt. **Bewusst NICHT entfernt:** die
+  Guards, die die Rueckkehr verhindern — `check-search-index.ts` (`/api/chat` in
+  FORBIDDEN_PREFIXES), `check-route-registry.ts`, und die Chat-Regressionstests in shell/Header/
+  Footer/`e2e/navigation.spec.ts`. Sie nennen den Begriff, behaupten aber keinen aktiven Chat.
+  Ebenso unangetastet: `_project-knowledge/**` ist ein Schnappschuss-Archiv der ALTEN Website
+  (eigenes README, ausserhalb `tsconfig`-include, von keinem produktiven Modul importiert) und die
+  Baseline-/Audit-Dokumente, die einen damaligen Zustand erheben. Tests 10/10 task-eigen
+  (`server/chat-removal.test.js`: 404 am laufenden Server fuer vier Methoden, **Gegenprobe** dass
+  `/api/contact` daneben 400 statt 404 liefert — sonst wuerde ein toter Server denselben 404
+  liefern und der Test nichts beweisen; Quellbaum, CSP-Code, beide Paketmanifeste, Env-/Secret-Namen
+  ohne Wertausgabe, Registry 7/7, Doku). Node-Suiten **324/324** (24 Dateien), tsc clean, eslint
+  clean, prettier clean, G1/check:search-index PASS. Fuenf Mutationsproben greifen (Handler wieder
+  eingesetzt → 404-Test und Quellbaum-Test rot; HiHuman zurueck in `script-src` → CSP-Test rot;
+  `CHAT_INTEGRATION.md` wiederhergestellt → Doku-Test rot; `CHAT_PROVIDER_TOKEN` in
+  `docker-compose.yml` → Env-Test rot). Ehrlich offen: **die jsdom-Suiten laufen in dieser Umgebung
+  gar nicht** — `html-encoding-sniffer` require()t ein ES-Modul (`ERR_REQUIRE_ESM`), das trifft auch
+  unveraenderte Dateien wie `Header.test.tsx` und ist ein Toolchain-Blocker der Umgebung, nicht
+  dieser Aufgabe; die beiden umgedrehten Zusicherungen in `shell.test.tsx` sind deshalb
+  **ausserhalb** von vitest in Node nachgerechnet (beide erfuellt) und zusaetzlich im
+  node-basierten `chat-removal.test.js` gespiegelt, damit die Aussage nicht an der kaputten
+  jsdom-Umgebung haengt. Kein Full Production Build (Fast-Delta V2; CSP-Header wird zur Laufzeit
+  gesetzt, keine Build-Infrastruktur geaendert). Unveraendert offen aus PT22.5/22.6: LDC-03, LDC-04,
+  LDC-10, LDC-11, LDC-13, LDC-17..LDC-23. AP22 bleibt IN_PROGRESS, PT22.8 ist die naechste Aufgabe
+  und AP23 bleibt NOT STARTED.
+- PT22.6 Neue Journeys konsolidieren: **PASS (2026-09-09, Fast-Delta V2)** — `epigenetics_inquiry`
+  und `content_download` waren bereits persistent, idempotent, rate-limitiert und consent-getrennt;
+  daran war nichts zu bauen. Was fehlte, war die ZUSTELLUNG: **beide Slices konstruierten
+  `new CrmRouter()` ohne einen einzigen Adapter**. Jede Anfrage wurde sauber gespeichert und danach
+  terminal mit NO_PROVIDER_CONFIGURED abgelegt — ehrlich gemeldet, aber niemand hat je eine
+  Epigenetik-Anfrage oder einen Lead-Magnet-Download gesehen. Fuer eine Vertriebsanfrage ist ein
+  Lead, den niemand liest, wertlos; fuer einen Lead-Magneten ist es der ganze Zweck. Das war LDC-14,
+  seit PT22.3 benannt, hier geschlossen: `SendGridEpigeneticsInquiryAdapter` (Panel, Fokus, Quelle,
+  Kampagne, Herkunftsroute) und `SendGridResourceLeadAdapter` (Asset-ID sowie angefragte UND
+  gelieferte Sprache getrennt, damit eine Sprachabweichung sichtbar bleibt). Beide beziehen den
+  Empfaenger aus der Umgebung; ohne Variablen KEIN Adapter — dann bleibt es beim ehrlichen
+  NO_PROVIDER_CONFIGURED statt eines halben Wegs. **Die AP19-Grenze bleibt, wo sie war:** die
+  Team-Mail zum Download enthaelt niemals das Token und niemals den Downloadlink und kann es
+  strukturell nicht — das Token wird nie gespeichert (nur sha256), der Adapter sieht ausschliesslich
+  den Lead aus der Datenbank und ruft `downloadUrl()` nicht auf. Ein Link in einer Team-Mail waere
+  ein zweiter, unkontrollierter Weg an der Entitlement-Pruefung vorbei. Analytics erst nach
+  Einwilligung wurde GEPRUEFT, nicht umgebaut: `src/lib/tracking.ts` ist eine inerte Schnittstelle
+  ohne Anbieter und ohne Consent, `GtmPageview` prueft vor dem gtag-Aufruf; keiner der beiden Slices
+  und keiner der beiden Clients haengt an einer Analytics-Einwilligung. Registry jetzt 7/7 auf
+  ON_FOUNDATION mit Endpunkt, Slice, eigener Worker-Zustaendigkeit und Adapter. Tests 19/19
+  task-eigen, Node-Suiten **314/314**, fuenf Mutationsproben greifen. ZWEI meiner Tests waren
+  zunaechst zu schwach und haben bei der ersten Probe nichts bewiesen: der Adaptertest suchte nur
+  nach einem `adapters`-Objekt — eines zu bauen und dann `new CrmRouter()` OHNE Argument aufzurufen
+  sieht fast gleich aus und liefert nichts aus, also genau der Ausgangszustand; jetzt wird die
+  Uebergabe geprueft UND die Zustellung einmal wirklich durch die Runtime-Fabrik gefahren. Der
+  Empfaengertest uebergab `to` im Request-Body, den die Validierung ohnehin verwirft; er setzt das
+  Feld jetzt direkt im Lead, dem einzigen Ort, an dem es dem Adapter je begegnen koennte. Ehrlich
+  offen: LDC-22 `getRuntime*({env})` steuert nur die Adapterkonfiguration, der Datenbankpfad kommt
+  immer aus `process.env` · LDC-23 die neuen Empfaengervariablen fallen auf CONTACT_RECEIVER zurueck
+  (bewusst, damit nichts still ausfaellt); unveraendert offen LDC-03, LDC-04, LDC-10, LDC-11,
+  LDC-13, LDC-17..LDC-21. Handoff PT22.7: `/api/chat` ist keine Journey, existiert weiterhin als
+  Mock ohne Frontend-Aufrufer und ist der EINZIGE POST-Endpunkt ohne formLimiter. AP22 bleibt
+  IN_PROGRESS, PT22.7 ist die naechste Aufgabe und AP23 bleibt NOT STARTED.
+- PT22.5 Bestehende Journeys migrieren: **PASS (2026-09-09, Fast-Delta V2)** — drei der fuenf lagen
+  bereits auf der Foundation; die beiden anderen nicht, und beide auf eine Art, die im Betrieb
+  zaehlt. **roi_report** war ein reiner Mailendpunkt: kein `createLead` im ganzen Handler, das PDF
+  entstand IM Request und wurde synchron verschickt — ein Providerfehler beantwortete die Anfrage
+  mit 500 und verlor sie ersatzlos. **practice_order** existierte gar nicht: eine Praxisbestellung
+  lief durch `/api/contact` und wurde dort an einem Magic String im Formularfeld `area` erkannt, der
+  ueber den Mailempfaenger entschied — wer ihn uebersetzte, schickte die Bestellung an den
+  allgemeinen Vertrieb; wer ihn kannte, konnte ihn fuer jede beliebige Kontaktanfrage setzen. Neu:
+  `server/roi-report.js` (PDF-Erzeugung liegt im ZUSTELLVERSUCH, nicht im Request — scheitert sie,
+  wird wiederholt, ohne dass die Anfrage weg ist; Fachbereich allowlistet, Rechenwerte normalisiert)
+  und `server/practice-order.js` (eigenes CRM-Ziel `practice-sales`, Produkt- und Mengen-Allowlist
+  12/24/36/48/100 aus der freigegebenen Auswahl, Bestellnummer PRX-). Magic String und
+  Sonderempfaenger aus `contact-lead.js` ENTFERNT; `contact` hat wieder genau einen Empfaenger. Ein
+  gemeinsamer `handleJourney()` fuer ALLE SIEBEN Endpunkte mit dem Envelope aus PT22.1
+  (success/requestId/journey/state/retryable/messageKey/fieldErrors) statt sieben eigener
+  try/catch-Bloecke. Dabei ZWEI Befunde: (a) der Fehlerkatalog war lueckenhaft — die sieben
+  Anhangsgruende der Support-Journey fehlten, und ein nicht katalogisierter Code faellt korrekt auf
+  JOURNEY_UNAVAILABLE zurueck; eine abgelehnte Datei haette damit 500 STATT 400 gemeldet. Ergaenzt,
+  und ein Test prueft den Katalog jetzt gegen die Codes, die die Slices wirklich werfen. (b)
+  `content_download` liefert echte Nutzlast (downloadUrl, assetId, entitlementId, expiresAt), die
+  das Envelope verworfen haette — sie steht jetzt unter `data`, AUFGEZAEHLT statt durchgereicht,
+  damit kein spaeter ergaenztes internes Feld unbemerkt mit nach draussen faellt. Alle sieben stehen
+  in der Registry auf ON_FOUNDATION; es gibt keinen LEGACY_MAIL_ONLY- und keinen
+  NOT_YET_TYPED-Eintrag mehr. x10: je ein eigener Text fuer den WIEDERHOLBAREN Fall ergaenzt
+  (`roi.form.error_retryable`, `order.error_retryable`), weil ein Zustellproblem kein Eingabefehler
+  der Nutzerin ist; der Server liefert `retryable`, der Client raet nicht mehr am Statuscode.
+  Clients `src/api/{roiReport,practiceOrder}.ts` neu, PraxisOrderForm und RoiCalculatorSection
+  umgestellt, `area`-Prop durch `product`-ID ersetzt. Tests 20/20 task-eigen, Node-Suiten
+  **295/295**, check:i18n und typecheck gruen. Fuenf Mutationsproben greifen. ZWEI meiner ersten
+  Proben waren wirkungslos und haben nichts bewiesen; die Wiederholung mit echter Umkehrung deckte
+  eine reale Testluecke auf — der Nutzlast-Test prueft jetzt die EXAKTE Feldliste statt nur die
+  Anwesenheit von `downloadUrl`. Echter Nebenbefund: `Number.parseInt('24 Sprays')` ergibt 24, mein
+  erster Mengenparser haette eine Zahl mit angehaengtem Text akzeptiert — die Zeichenkette muss die
+  Zahl jetzt SEIN. Angepasste Bestandszusicherungen: alle Endpunkttests lesen `success` statt
+  `accepted`, `state` statt `status`, `fieldErrors` statt `fields`, Download-Nutzlast unter `data`;
+  ein Test hielt das alte Spray-Routing fest und prueft jetzt das Gegenteil (bei vier verschiedenen
+  `area`-Werten immer derselbe Empfaenger). Ehrlich offen: LDC-14 unveraendert (epigenetics und
+  resources ohne CRM-Adapter; 3 von 7 Zielen wirklich konfiguriert) · LDC-20
+  PRACTICE_ORDER_RECEIVER faellt auf CONTACT_RECEIVER zurueck, wenn nicht gesetzt · LDC-21 fuer die
+  mitgespeicherten ROI-Rechenwerte fehlt weiterhin eine Aufbewahrungsfrist; unveraendert offen
+  LDC-03, LDC-04, LDC-10, LDC-13, LDC-17..LDC-19. AP22 bleibt IN_PROGRESS, PT22.6 ist die naechste
+  Aufgabe und AP23 bleibt NOT STARTED.
+- PT22.4 Queue/Retry/Dead-Letter: **PASS (2026-09-09, Fast-Delta V2)** — DREI Befunde, alle
+  nachgestellt. (1) **Der schwerste: ein Submit toetete fremde Vorgaenge.** Fuenf Journey-Slices
+  betreiben je einen Worker gegen DIESELBE Outbox, und `claimNext()` war journey-blind — ein Worker
+  griff fremde Auftraege, loeste deren Journey auf, fand in SEINEM Router keinen Adapter und legte
+  den Vorgang als FAILED_TERMINAL / NO_PROVIDER_CONFIGURED ab. Nachgestellt: ein wartender
+  Support-Vorgang starb, sobald irgendwo eine Kontaktanfrage abgeschickt wurde, obwohl die
+  Support-Strecke einen funktionierenden Adapter hat. Kein theoretisches Rennen — es passiert bei
+  jedem Formularversand, solange ein anderer Vorgang wartet. Behoben durch
+  `claimNext({journeys})` und `LeadHandoffWorker({journeys})`; jeder Slice-Worker gibt seine eigene
+  Journey an. (2) **Die Wiederholung lief nie.** Die Outbox drehte sich nur beim Absenden eines
+  Formulars; ein RETRY_PENDING mit Abstand in der Zukunft wurde erst beim naechsten FREMDEN Submit
+  angefasst, nachts also gar nicht. Neu: `LeadDispatcher`, im Serverstart verdrahtet, konsumiert die
+  vorhandenen Services statt einen zweiten Zustellweg zu bauen — Router, Zustellgrenze, DRY_RUN,
+  Timeout und Zustaendigkeit gelten unveraendert; ueberlappungsfrei, ein kaputtes Handle reisst die
+  uebrigen nicht mit, Zeitgeber unref'd, abschaltbar per LEAD_DISPATCHER_DISABLED. (3) **Fester
+  Abstand statt Backoff** (1 s, dreimal). Neu: `retry-policy.js`, exponentiell 1/2/4/8/16 s mit
+  Deckel 5 min und Streuung NUR nach unten (bis 20 %), damit die Obergrenze eine bleibt; Zufall
+  einspeisbar, unsinnige Politik wird zurueckgewiesen. Dead Letter: `findDeadLetters()` mit
+  Vorgangsnummer, Journey, Versuchen, Fehlerklasse, Zustellschluessel und Zeitpunkt — OHNE
+  Kontaktdaten (im Test geprueft). Manuelle Wiedervorlage `requeueForDelivery()`: Person und Grund
+  Pflicht, nur aus einem Endzustand (ein wartender Auftrag wuerde eine zweite gleichzeitige
+  Zustellung riskieren), wiederholungssicher, protokolliert als MANUAL_REQUEUE, und die
+  Versuchszahl BLEIBT stehen — sie auf 0 zu setzen wuerde die Historie faelschen. Werkzeug
+  `npm run lead:ops` als CLI und bewusst NICHT als HTTP-Endpunkt: eine Betriebssicht und ein Knopf
+  "nochmal zustellen" brauchen Autorisierung, ein ungeschuetzter Endpunkt waere zusaetzliche
+  Angriffsflaeche fuer genau die Daten, die AP22 schuetzt. Kennzahlen `collectQueueMetrics()` mit
+  Zustaenden, Warteschlangentiefe, Alter, Journey-Aufschluesselung und Fehlerklassen, ebenfalls ohne
+  Inhalte. Tests 27/27 task-eigen (Claim-Rennen, zwei parallele Worker, abgelaufene Lease,
+  Absturz/Neustart, transient→Retry→Erfolg, Budget erschoepft, nicht wiederholbar, unbekanntes
+  Ergebnis, Dead Letter, Wiedervorlage, Kennzahlen, Hintergrundlauf, DRY_RUN im Dauerbetrieb, alle
+  sieben Journeys einzeln), Node-Suiten **274/274**, sechs Mutationsproben greifen. Ehrlich offen:
+  LDC-17 Betriebssicht nur als CLI, eine autorisierte HTTP-Oberflaeche ist eine eigene Entscheidung
+  · LDC-18 der Dispatcher laeuft pro Prozess, bei mehreren Instanzen ohne Fuehrungswahl (der atomare
+  Claim macht es korrekt, aber unkoordiniert) · LDC-19 es gibt keinen Weg, beim Provider
+  NACHZUSEHEN, ob eine Nachricht bei unbekanntem Ergebnis doch ankam — die Entscheidung bleibt
+  menschlich und unbelegt; unveraendert offen LDC-01..LDC-16 mit Ausnahme der hier behobenen
+  LDC-01/LDC-02/LDC-12. AP22 bleibt IN_PROGRESS, PT22.5 ist die naechste Aufgabe und AP23 bleibt
+  NOT STARTED.
+- PT22.3 CRM-Handoff: **PASS (2026-09-09, Fast-Delta V2)** — eine zentrale, truth-safe
+  Zustellgrenze fuer alle sieben Journeys. Erneute ABWEICHUNG vom eigenen Vorgaenger-Handoff,
+  benannt statt stillschweigend: §21.8 hatte die Endpunkt-Migration vorgeschlagen, die kanonische
+  Aufgabenstellung definiert PT22.3 als CRM-Handoff — LDC-05/LDC-06 ruecken nach PT22.4. ZWEI
+  Befunde, beide nachgemessen und nachgestellt: (1) **DRY_RUN galt als Zustellung**. Die
+  Preview-Instanz ersetzte `sgMail.send` durch einen Stub mit 202, der Adapter sah Erfolg, der Lead
+  wurde mit `delivered_at` als DELIVERED abgelegt — ein Datensatz, der behauptet, die Mail sei raus,
+  obwohl nichts das Haus verlassen hat; das verletzt die harte Regel unmittelbar. Dieselbe Logzeile
+  schrieb Empfaenger UND Betreff, und ein Betreff enthaelt hier regelmaessig den vollen Namen der
+  Absenderin. (2) **Kein ausdruecklicher Timeout** an irgendeiner Stelle. Neu:
+  `server/lead-foundation/crm-delivery.js` als EINZIGER Weg zum Provider — vorher lag dasselbe an
+  drei Stellen (Klassifikation im Worker, Adapter in drei Slices, Preview-Schalter als globaler
+  Monkey-Patch). `withDeliveryGuards` prueft DRY_RUN, BEVOR der Adapter aufgerufen wird (in einer
+  Preview darf kein Provider kontaktiert werden, auch nicht durch einen Adapter mit eigenem
+  Transport), begrenzt die Laufzeit auf 10 s und uebersetzt jedes Ergebnis in genau eine von sechs
+  Klassen: DELIVERED, RETRYABLE_ERROR, TERMINAL_ERROR, NO_PROVIDER_CONFIGURED, DRY_RUN,
+  UNKNOWN_RESULT. Die Unterscheidung RETRYABLE vs. UNKNOWN ist keine Feinheit — beim ersten ist
+  gesichert, dass nichts ankam, beim zweiten nicht; ein automatischer zweiter Versuch erzeugte dort
+  eine ZWEITE Mail. Timeouts landen deshalb in RECONCILIATION_REQUIRED (aus PT22.2) ohne
+  Wiederholung. Routing 7/7 auf sieben VERSCHIEDENE Ziele, ausschliesslich aus `lead.journey`; ein
+  mitgeschicktes `target`/`crmTarget`/`to` wird ignoriert, ein Adapter fuer ein Ziel ohne Journey
+  beim Konstruieren abgelehnt. `crmLogFields` baut die Logfelder auf statt zu filtern — nur sieben
+  allowlistete Felder existieren; ein echter Zustellversuch wurde protokolliert und der Logstrom
+  durchsucht, weder Adresse noch Name noch Nachrichtentext erscheinen. Keine Geheimnisse und keine
+  Mailadresse im Quelltext der Grenze. Tests 21/21 task-eigen, Node-Suiten **247/247**, fuenf
+  Mutationsproben greifen (DRY_RUN ruft trotzdem auf, DRY_RUN als Erfolg, Timeout entfernt,
+  Log-Allowlist ausgehebelt, Ziel aus dem Lead-Objekt). Eine bestehende Zusicherung angepasst:
+  ap21-closure prueft jetzt das VERHALTEN des aufgeloesten Adapters statt seines Klassennamens —
+  die staerkere Aussage. Ehrlich offen: **LDC-14 — nur 3 von 7 Zielen haben ueberhaupt einen
+  Adapter**; `epigenetics_inquiry` und `content_download` konstruieren `new CrmRouter()` ganz ohne
+  Adapter, speichern ihre Anfragen und stellen sie nie zu (ehrlich als NO_PROVIDER_CONFIGURED
+  gemeldet, aber niemand bekommt sie ueber diesen Weg) · LDC-15 der deliveryKey ist KEIN
+  Provider-Idempotenzschluessel, SendGrid bietet keinen; der Schutz gegen Doppelzustellung beruht
+  darauf, dass UNKNOWN_RESULT nicht wiederholt wird · LDC-16 der DRY_RUN-Stub bleibt als Netz fuer
+  die Legacy-Mailpfade; unveraendert offen LDC-01..LDC-13. AP22 bleibt IN_PROGRESS, PT22.4 ist die
+  naechste Aufgabe und AP23 bleibt NOT STARTED.
+- PT22.2 Persistentes Lead-Datenmodell: **PASS (2026-09-09, Fast-Delta V2)** — das Modell auf 7/7
+  konsolidiert. ABWEICHUNG vom eigenen PT22.1-Handoff, benannt statt stillschweigend: §20 hatte die
+  Endpunkt-Migration als PT22.2-Write-Set vorgeschlagen, die kanonische Aufgabenstellung definiert
+  PT22.2 aber als Datenmodell — die Aufgabenstellung hat Vorrang, die Endpunkte ruecken nach PT22.3.
+  Migration `003_lead_model_consolidation.sql`: `RECONCILIATION_REQUIRED` als eigener Zustand (ein
+  Provider-Timeout landete bisher in FAILED_TERMINAL und behauptete damit Wissen, das es nicht gibt
+  — bei ETIMEDOUT ist offen, ob die Mail rausging; die Outbox bleibt terminal, es wird also weiterhin
+  NICHTS automatisch nachgesendet) · `QUEUED` als kanonischer Name des Wartezustands, `PENDING_HANDOFF`
+  nur noch lesbarer Altwert · `VALIDATED` plus Ereignis `LEAD_VALIDATED` · `reference` als eindeutige
+  Spalte statt nur im JSON der Consumer-Bestellung · `dedup_key` (nur SHA-256, nie die E-Mail) ·
+  `retention_delete_after` als indizierte Spalte · vier Lebenszyklus-Zeitstempel. Der gefaehrliche
+  Teil: SQLite kann eine CHECK-Bedingung nicht per ALTER TABLE aendern, ein neuer Statuswert verlangt
+  einen Tabellenumbau — mit aktiven Fremdschluesseln haette `DROP TABLE leads` die Kindzeilen in
+  lead_outbox, lead_events und resource_entitlements per ON DELETE CASCADE MITGELOESCHT.
+  `applyMigrations` schaltet sie deshalb um den Lauf herum ab und prueft danach mit
+  `foreign_key_check`; die Mutationsprobe belegt, dass der Schutz greift. Dedup ist journeyspezifisch
+  mit eigenem Fenster je Journey und mindestens einem Feld ausser der E-Mail — ein globales
+  E-Mail-Dedup haette verschluckt, dass dieselbe Person am selben Tag Support anfragt UND ein
+  Whitepaper laedt UND bestellt. Retention enthaelt NUR die eine entschiedene Frist (support 90 Tage
+  aus AP20); fuer die uebrigen sechs steht `null` — nicht "unbegrenzt", sondern "Entscheidung fehlt"
+  (LDC-11, Datenschutz). Datenminimierung gemessen: 3–14 Subjektfelder je Journey, 20 allowlistete
+  journey-neutrale Kontextfelder; die beiden neuen (`reportArea`, `orgType`) sind bewusst kategorial,
+  weder Rechenwerte noch Praxisname. Tests 16/16 task-eigen, darunter der Containerfall: der ECHTE
+  server.js startet auf einer Altbestand-Datenbank, migriert beim Oeffnen und nimmt eine neue Anfrage
+  mit 202 an, waehrend der Altbestand unveraendert danebenliegt. Node-Suiten **226/226**, alle Guards,
+  typecheck, ESLint, Prettier. Vier Mutationsproben greifen. ACHT bestehende Testzusicherungen
+  angepasst, weil sie das ALTE Verhalten festhielten (vier Ereignisfolgen, drei Timeout-Zustaende,
+  zwei Wartezustaende) — die Substanz blieb jeweils erhalten. Ehrlich offen: LDC-11 keine
+  Aufbewahrungsfrist fuer sechs Journeys, LDC-12 kein Werkzeug zur Klaerung von
+  RECONCILIATION_REQUIRED, LDC-13 `findRecentDuplicate()` existiert, wird aber von keiner Journey
+  aufgerufen; unveraendert offen LDC-01..LDC-10. AP22 bleibt IN_PROGRESS, PT22.3 ist die naechste
+  Aufgabe und AP23 bleibt NOT STARTED.
+- PT22.1 Gemeinsamer Formular-/API-Standard: **PASS (2026-09-09, Fast-Delta V2)** — die einmalige
+  bounded Capability-/Journey-Discovery. Befund: **5 von 7** Journeys liegen bereits vollstaendig
+  auf der Shared Lead Foundation (contact, support, consumer_order, epigenetics_inquiry,
+  content_download) — persistent, idempotent, retryfaehig, rate-limitiert, consent-getrennt, am
+  Quelltext bestaetigt. Die beiden fehlenden fehlten aus konkretem Grund: `roi_report` laeuft als
+  reiner Mailendpunkt (`/api/roi-report`, **0** createLead-Aufrufe im gesamten Handler, altes
+  Antwortformat `{success}`), und `practice_order` existierte ueberhaupt nicht als Journey — eine
+  Praxisbestellung laeuft durch `/api/contact` und wird dort an einem MAGIC STRING erkannt
+  (`area === 'Vitamin D3+K2 Spray BESTELLUNG'` entscheidet ueber den Mailempfaenger; gesetzt von
+  VitaminD3SprayPage.tsx und VitaminD3ImplantologyPage.tsx). Geliefert: Registry auf **7/7** in
+  `JOURNEY_REGISTRY` mit ehrlichem Zustand je Journey (ON_FOUNDATION / LEGACY_MAIL_ONLY /
+  NOT_YET_TYPED), `LEAD_JOURNEYS` und `DEFAULT_JOURNEY_ROUTES` daraus ABGELEITET statt
+  zweitgepflegt (vorher zwei Stellen; eine neue Journey ohne CRM-Route haette den
+  CrmRouter-Konstruktor beim Start zerlegt) · neues `api-contract.js` mit dem gemeinsamen Envelope
+  (success, requestId, journey, state, retryable, messageKey, fieldErrors) und Fehlerkatalog. Vier
+  Angaben fehlten bisher ueberall: requestId, state auf Fehlerantworten, retryable und messageKey —
+  letzterer lag in FUENF Clients dupliziert. Leckschutz: das Envelope filtert nicht, sondern baut
+  nur auf; ein unbekannter Code wird zu JOURNEY_UNAVAILABLE statt durchgereicht (gemessen mit
+  SENDGRID_401, ECONNREFUSED, SQLITE_CONSTRAINT und einem script-Tag), fieldErrors nennt nur
+  Feldnamen und nie Inhalte, logSafeError liefert genau journey/errorClass/requestId. `/api/chat`
+  ist keine Journey und steht nicht in der Registry. NEU: `building-docs/LEAD-DATA-CONTRACT.md` mit
+  Capability-Matrix, 7-Journey-Matrix, API-/Fehlervertrag, Consent- und Abuse-Grundlinie und dem
+  PT22.2-Write-Set. Tests 20/20 task-eigen; vier Mutationsproben (Journey entfernt, unbekannte
+  Codes durchgereicht, Rate Limit abgenommen, Feldfehler-Normalisierung ausgehebelt) lassen die
+  zustaendigen Tests fallen. Node-Suiten **236/236**, alle Guards, typecheck, ESLint, Prettier.
+  **KEIN Endpunkt migriert** — das ist Absicht und der Write Set von PT22.2. Ehrlich offen:
+  LDC-01 kein Hintergrund-Worker (Outbox dreht nur bei eingehenden Requests), LDC-02 keine
+  Dead-Letter-Sicht, LDC-03 keine Retention, LDC-04 kein echtes CRM (alle Ziele sind Team-Mails),
+  LDC-05 roi_report ohne Persistenz, LDC-06 practice_order untypisiert, LDC-07 support ohne
+  Marketing-Consent (Bestand, benannt statt stillschweigend), LDC-08 Code→Text in fuenf Clients
+  dupliziert, LDC-09 Rate Limit nur prozesslokal. AP22 bleibt IN_PROGRESS, PT22.2 ist die naechste
+  Aufgabe und AP23 bleibt NOT STARTED.
+- AP21: **COMPLETE (CON 40/40 · C21 50/50, 2026-09-08)** — PT21.1–PT21.7 **PASS**,
+  AP21 Closure **PASS**. Consumer Shell, 3x10, Content Model, Ordering, Persistence,
+  CRM/Retry, Idempotency, Abuse Protection, SEO, A11y und Performance jeweils **PASS**;
+  CONSUMER-CONTRACT **current**; Shared Lead Foundation **CONSUMED**; AP22 Cross-Journey
+  Lead Platform **NICHT als complete behauptet**.
+- AP21-CLOSURE: **PASS (2026-09-08)** — unabhaengiger finaler Paket-Gate, alles neu gemessen und
+  KEIN PT-PASS blind uebernommen. Der Gate leitet die 30 Routen aus `STATIC_ROUTE_DEFINITIONS`
+  (routeType CONSUMER_PRODUCT) x `SUPPORTED_LANGUAGES` ab statt aus einer Testliste, misst die
+  Bestellstrecke gegen ein echtes Backend mit frischer Datenbank und liest danach die Datenbank,
+  statt der Antwort zu glauben. Gemessen: 30/30 HTTP 200 ohne Basic Auth und ohne Header-noindex,
+  praefixloser Pfad 301 auf /de/, 0 EN-Zwangsredirects · 30/30 genau ein <main> mit tabindex=-1,
+  Skip-Link als erstes Tab-Ziel, Consent-Banner, alle drei Rechtsseiten verlinkt · 30/30 SSR-Head
+  im ersten Byte inkl. freigegebenem SEO-Titel der Locale · 30/30 Headline, Pflichthinweis, >=5
+  FAQ, Bestell-CTA mit allowlisteter ID, Hero-Alt der Locale · 0 DE-Dauerfallback (alle Prosa >=25
+  Zeichen geprueft, 11 begruendete Kognaten) · Claim-Audit 0 mit sprachspezifischen medizinischen
+  Vokabularen, Negationserkennung UND Gegenprobe, dass der Pflichthinweis wirklich auf jeder Seite
+  steht · Schema 30/30 ohne offers/price/availability/rating/review/gtin/sku/mpn, Product.name ist
+  der Produktname der Locale · SEO 30/30 index/follow, Self-Canonical, hreflang x10 + x-default de,
+  Sitemap exakt 30, robots.txt ohne Disallow · Social je Familie genau ein erreichbares Bild,
+  og:locale de_DE/en_GB, og:image:alt in der Sprache der Seite, kein Sprachsegment im Bildpfad ·
+  interne Verlinkung in JEDER Locale eingehend, alle mit Praefix, 0 tote Links · Ordering 3/3
+  persistiert mit Ereignisfolge vor dem Handoff, Outbox CRM, ehrlich NO_PROVIDER_CONFIGURED ·
+  Idempotenz, 409-Konflikt, Honeypot ohne Persistenz, 10 Ablehnungsfaelle, 429 je Absender ·
+  Consent in DREI Zustaenden (vor der Entscheidung, abgelehnt, erteilt) — Bestellung laeuft in
+  allen dreien, 0 Provider-Requests und 0 dataLayer-Eintraege vor der Einwilligung · Axe
+  serious/critical 0 auf allen 30 Seiten und im Bestelldialog · 36 Umbruchkombinationen 0px ·
+  Bildbudget eingehalten, Hero WebP/eager/fetchpriority/feste Masse · Provider-Ausfaelle
+  node-seitig: Retry bis zur Zustellung, ehrliches Aufgeben, Timeout als PROVIDER_RESULT_UNKNOWN
+  ohne blinden Replay, Worker-Replay ohne Doppelzustellung. Tests: Closure-Spec 21/21 (voller
+  Produktionsbuild + echtes Backend) + Closure-Node 9/9; Korroboration PT21.1–21.7 8/8/8/8/8/11/
+  12/17; Node-Suiten 216/216; alle Guards inkl. check:consumer-images; typecheck, ESLint, Prettier.
+  Zwei Mutationsproben (kuenstlicher DE-Fallback, echtes italienisches Heilversprechen "guarisce")
+  lassen genau die beiden zustaendigen Tests fallen. DREI Fehlbefunde im ersten Lauf waren
+  ausnahmslos Messfehler, am Objekt nachgewiesen: englisch "cure" steht ausschliesslich im
+  kosmetischen PFLICHTHINWEIS ("not intended to diagnose, treat, cure or prevent"), italienisch
+  "cura/cure" ist das Substantiv Pflege, und der it-Alt-Text `dell'ufficio` steht im Attribut als
+  `dell&#39;ufficio` — mein Vergleich war unmaskiert. False-Ready-Audit 0 Befunde (12 Verdachte
+  einzeln gegen die Quellen geprueft). AP22-Grenze: fuenf Journeys, alle auf createLead derselben
+  Foundation, keine consumer-eigene Tabelle, keine zweite Plattform. Ehrlich offen und KEIN Fail:
+  SEO-01 (0/36 eingehende Links aus dem Hauptauftritt — Hub und Menue sind per AP21-Regel
+  ausgeschlossen, es braucht eine IA-Entscheidung), PERF-03, CO-03..CO-06, DU-05, DU-06 sowie
+  FLAKE-01 (ein einzelner, NICHT reproduzierbarer PT21.7-Fehlschlag in einem Batchlauf; vier
+  folgende Laeufe inkl. exakter Batch-Reihenfolge 17/17 sauber, Testname im gekuerzten Report
+  nicht erfasst — Ursache unbekannt und nicht erfunden). **AP21 = COMPLETE. Next: AP22
+  (NOT STARTED, nicht gestartet).**
+- Consumer-Integration: **ACTIVE / PT21.7 PASS** — der breite Runtime-/A11y-/Performance-/
+  Ordering-Gate gegen einen VOLLEN Produktionsbuild (Client + SSR) und erstmals gegen ein ECHTES
+  Backend: Browser → SSR-Proxy → `server/server.js` → SQLite, danach die Datenbank direkt gelesen.
+  Genau diese Luecke hatte der PT21.6-Handoff vermerkt. Echter Befund und behoben: die
+  Consumer-Bilder kamen spaeter ins Repository als der Rest und sind nie durch `optimize-images.mjs`
+  gelaufen — 33 WebP-Geschwister im uebrigen `src/assets`, KEINES im Consumer-Ordner. Gemessen:
+  Heros mit 1122px nativ in ein 358–570px breites Feld (Faktor 2,0x–3,1x), ohne srcset, ohne WebP,
+  ohne width/height (Layoutsprung) und ohne fetchPriority am LCP-Bild. Neu: Generator
+  `scripts/build-consumer-images.mjs` (3 WebP-Breiten je Bild, aus der gemessenen Darstellung
+  abgeleitet), `src/content/consumer/images.ts` als einzige Bildquelle, Komponente
+  `ConsumerPicture` in der Shell, Drift-Guard `check:consumer-images`. Die JPEG-Originale bleiben
+  als <picture>-Fallback UND als og:image (Social-Crawler sind bei WebP unzuverlaessig). Ergebnis
+  mit derselben Methode vorher/nachher gemessen: erster Bildschirm bei 390px Spray 332→36 KB,
+  Masken 206→24 KB, Duo 279→29 KB, zusammen 817→89 KB; Ueberdimensionierung 2,0–3,1x → 0,9–1,1x.
+  Budget 120 KB je Produkt als Test festgeschrieben. NICHT geloescht: `spray-hero-office-single.jpeg`
+  wird von keiner Produktivdatei importiert, landet in keinem Bundle und kostet zur Laufzeit null
+  Bytes — reine Repository-Hygiene, als PERF-03 owner-gebunden statt eigenmaechtig entfernt.
+  Breit gemessen: 30/30 gerendert mit genau einer H1, 0 DE-Lecks, 0 rohe i18n-Schluessel, 0
+  Hydrierungsfehler, Recht und Consent auf jeder Seite; 30 Sprachwechsel ueber den echten
+  Umschalter, jeder behaelt das Produkt; Axe serious/critical = 0 auf allen 30 Seiten UND im
+  Bestelldialog je Produkt; 30/30 Skip-Link als erstes Tab-Ziel auf #main-content, genau ein <main>
+  mit tabindex=-1, keine uebersprungene Ueberschriftenebene; Formular ohne unbeschriftetes Feld,
+  Dialog mit aria-modal/aria-labelledby, Fehler als role=alert; 36 Umbruchkombinationen (3 Produkte
+  x 4 lange Locales x 3 Breiten) mit 0px Ueberlauf, Touch-Ziel >= 44px. Ordering live: alle drei
+  Produkte wirklich persistiert mit kanonischem Slug, Variante, Menge und PDX-Vorgangsnummer;
+  Ereignisfolge RECEIVED→PERSISTED→PENDING vor dem Handoff; ohne Provider ehrlich FAILED_TERMINAL /
+  NO_PROVIDER_CONFIGURED ohne Kaufbehauptung; Replay identisch = derselbe Vorgang, abweichender
+  Rumpf = 409; Honeypot 200 ohne Persistenz, Allowlist 400, Rate Limit 429 je Absender; Bestellung
+  ohne jede Consent-Entscheidung laeuft durch mit 0 Provider-Requests und 0 dataLayer-Eintraegen.
+  Tests 17/17; ohne Regression Shell 8/8, Spray 8/8, Masken 8/8, Duo 8/8, Ordering-Client 11/11,
+  SEO 12/12 (og:image weiterhin JPEG), Node 207/207, alle Guards. Drei Mutationsproben lassen die
+  neuen Guards fallen. FUENF eigene Testdefekte gefunden und behoben, keiner ein Produktfehler —
+  am wichtigsten: Axe meldete an 26 Stellen Kontrastfehler, nachgemessen ist der Knoten mit
+  #0f766e auf #f8fafc bei 5,23:1 sauber; meine Warteschleife akzeptierte `opacity === 0` als
+  fertig, und das ist genau der Zustand VOR der Einblendung. AP21 bleibt IN_PROGRESS, AP21-CLOSURE
+  ist die naechste Aufgabe und AP22 bleibt NOT STARTED.
+- Consumer-SEO: **ACTIVE / PT21.6 PASS** — der breite 30-Routen-Gate (3 Familien x 10 Locales),
+  gemessen an der ROHEN Serverantwort gegen einen vollstaendigen Produktionsbuild (Client + SSR im
+  isolierten outDir, `dist/` unberuehrt). Ergebnis: **es gab nichts zu reparieren** — die
+  SEO-Architektur aus PT21.1 haelt. PT21.6 hat deshalb **keine einzige Produktivdatei veraendert**,
+  nur zwei neue Testdateien, die den Zustand breit messen und festnageln. 30/30 HTTP 200 ohne
+  Weiterleitung, ohne Basic Auth, ohne Header-noindex · 0 von 30 gueltigen Locales wird umgeleitet,
+  schon gar nicht nach EN; nur der praefixlose Pfad geht 301 auf DE · 30/30 index/follow in `robots`
+  UND `googlebot`, deckungsgleich mit der Registry-Deklaration · 30/30 genau ein Self-Canonical,
+  `og:url` identisch · 30/30 zehn hreflang plus x-default auf de, reziprok · 30/30 haben Title,
+  Description, Canonical, hreflang, OG, JSON-LD und H1 bereits im ERSTEN Byte · Sitemap 390 URLs
+  gesamt, davon exakt 30 Consumer, dublettenfrei, jede mit 200 · robots.txt ohne Disallow auf
+  /consumer · Social: je Familie genau ein eigenes, erreichbares Bild, `og:locale` korrekt im
+  OpenGraph-Format `de_DE`/`en_GB`, kein Sprachsegment im Bildpfad (keine falsche
+  Locale-Behauptung), Alt-Text x10 · Schema: Product + Breadcrumb + FAQ, kein offers/price/
+  availability/rating/review/gtin/sku, auch nicht verschachtelt — der zentrale Builder
+  `createProductSchema` kann diese Felder strukturell gar nicht erzeugen · interne Verlinkung:
+  jedes Produkt hat in JEDER Locale eingehende Links, alle mit Sprachpraefix (keine
+  Redirect-Quellen), 270 distinkte interne Links geprueft, 0 tot. Tests 12/12; Guards check:routes,
+  check:nav-targets, check:i18n, check:seo (G3 39 Familien/390 URLs), check:internal-findability,
+  check:search-index, check:befunde-seo alle gruen. Zwei Mutationen (Registry auf NOINDEX,
+  erfundenes offers im Schema-Builder) lassen 7 von 12 Tests fallen. Zwei eigene Fehler dabei
+  gefunden: mein Title-Regex ignorierte react-helmets `data-rh` (30 Fehlbefunde, meine Schuld), und
+  die erste Mutationsprobe deckte eine ECHTE Luecke im Gate auf — bei Registry-NOINDEX kollabierte
+  das Canonical, waehrend die Seite weiter `index, follow` auslieferte; Registry und gerenderter
+  Head sind zwei Quellen, und ich hatte nur die zweite gemessen. Der Abgleich ist jetzt ein eigener
+  Test, und der `serial`-Modus ist raus, damit der Gate alle Befunde zeigt statt beim ersten
+  abzubrechen. Ehrlich offen (`SEO-01`): von den 36 nicht-Consumer-Seiten der DE-Sitemap verlinkt
+  KEINE in den Cluster — gemessen 0/36. Kein Defekt der 30 Routen, aber ohne Einstiegspunkt aus dem
+  Hauptauftritt; nicht behoben, weil die AP21-Regeln beide dafuer verfuegbaren Mechanismen
+  namentlich ausschliessen (`CONSUMER_HUB = NOT_REQUIRED`, Hauptmenue kein DoD) — es braucht eine
+  IA-Entscheidung. AP21 bleibt IN_PROGRESS, PT21.7 ist die naechste Aufgabe und AP22 bleibt
+  NOT STARTED.
+- Consumer Ordering: **ACTIVE / PT21.5 PASS** — der Bestellpfad lief bis hierhin als reiner
+  Legacy-Mailendpunkt: keine Persistenz, keine Idempotency, kein Retry und — ungebremst — kein
+  Rate Limit; ein SendGrid-Fehler hat die Bestellanfrage ersatzlos verloren, `quantity` kam als
+  englischer Freitext aus dem Client direkt in die Mail. Neu: `server/consumer-order.js` als
+  Journey-Slice auf der geteilten lead-foundation (Muster contact-lead/support-case, KEINE zweite
+  Plattform): validieren → Produkt/Variante/Menge allowlisten → Processing-Consent → Lead + Outbox
+  committen → CRM-Handoff. `formLimiter` jetzt am Endpunkt (429 pro IP gemessen, fremde IP
+  unberuehrt). Idempotency-Key Pflicht; Replay liefert denselben Lead, ein abweichender Body unter
+  demselben Key 409. Vorgangsnummer `PDX-XXXXXXXX` deterministisch aus dem Key. Offene Frage aus
+  dem PT21.4-Handoff ENTSCHIEDEN statt vereinheitlicht: der Route-Slug ist kanonisch, die kurze
+  Bestell-ID bleibt gebundener Alias — beides feste Kennungen, der Client bleibt unveraendert und
+  die drei Produkt-Suiten messen weiter dasselbe. Mengen-Allowlist 1–3 oder ausdruecklicher
+  Beratungsfall (`quantity: 0`, `quantityMode: ADVISE`); fremde Variante wird abgelehnt statt still
+  auf die Standardvariante gefaltet. Consent getrennt: Verarbeitung Pflicht mit Zeitstempel,
+  Marketing optional als zweite Checkbox; eine Analytics-Einwilligung ist an keiner Stelle
+  Voraussetzung — Bestellung ohne jede Consent-Entscheidung laeuft durch, dabei 0 Provider-Requests
+  und 0 dataLayer-Eintraege (`pushConsumerEvent` als Consent-Gate). Statuswahrheit: Bestellanfrage,
+  kein Kaufvertrag; ohne Provider ehrlich NO_PROVIDER_CONFIGURED, Timeout als
+  PROVIDER_RESULT_UNKNOWN ohne blinden Replay. Foundation-Delta klein und journey-neutral
+  (`normalizeContext` um reference/productId/variant/quantity; `MAIL_COPY.consumerOrder` x10).
+  Tests: 23/23 Journey + 5/5 HTTP + 11/11 Browser, Spray/Masks/Duo 8/8/8 und Inhaltstest 26/26 ohne
+  Regression, Server-/Node-Suiten 207/207, alle Guards gruen. Fuenf Mutationsproben belegen, dass
+  die Guards greifen; die erste Fassung der Persistenz-Reihenfolge-Probe schlug nicht an und wurde
+  korrigiert. Kein voller Produktionsbuild. Ehrlich offen: kein Hintergrund-Worker (Outbox dreht
+  nur bei eingehenden Requests weiter), keine Retention-Frist fuer Bestell-Leads, CRM ist weiterhin
+  eine Team-Mail — alle drei journeyuebergreifend und AP22-Owner. AP21 bleibt IN_PROGRESS,
+  PT21.6 ist die naechste Aufgabe und AP22 bleibt NOT STARTED.
 - Inside-Out-Care-Duo: **ACTIVE / PT21.4 PASS** — 61 `duo.*`-Schluessel x10 mit identischer
   Struktur; sechs Strings sind in einzelnen Sprachen mit DE identisch und wurden einzeln begruendet
   ("Routine" in de/en/fr/it, das Lehnwort "Shop Duo" in de/da, "1 × Vitamin D3+K2 Spray" als Ziffer
@@ -2390,6 +3963,35 @@ tabIndex={-1}>` — ohne `tabIndex` scrollt der Browser nur, statt den Fokus zu 
 
 ## Files Changed by Current AP
 
+**AP25 PT25.3 — Bilder und LCP-Medien (2026-09-14):**
+
+- `src/components/ui/ResponsivePicture.tsx` (neu), `src/assets/articleImages.ts` — responsive AVIF/WebP-Quellen
+- `src/pages/ArticlePage.tsx`, `src/pages/ArticlesIndexPage.tsx`, `src/components/ui/BlogCard.tsx`, `src/components/sections/BlogSection.tsx`, `src/components/sections/DiagnosticsRelatedArticlesSection.tsx`, `src/pages/VitaminD3SprayPage.tsx`
+- `src/assets/{green,homeclinic,makemoney,Testbild1,VITAMIND_D3_SPRAY}-<Breite>w.{avif,webp}` — 24 neue Bilddateien, Originale unveraendert
+- `scripts/build-article-images.mjs`, `scripts/check-article-images.mjs` (neu), `package.json` (2 Skripte)
+- `scripts/perf/image-inventory.mjs` (neu), `scripts/perf/cls-warm-repro.mjs` (Blockier-Optionen), `scripts/perf/variant-compare.mjs` (unveraendert seit PT25.2)
+- `e2e/pt25.3.config.ts`, `e2e/pt25.3.spec.ts` (neu)
+- `building-docs/PERFORMANCE-CONTRACT.md` §27, diese State-Datei
+
+**AP25 PT25.2 — Rendering, SSR und Hydration (2026-09-14):**
+
+- `src/i18n.ts`, `src/i18n.server.ts`, `src/i18n.client.ts`, `src/entry-server.tsx`, `src/entry-client.tsx`, `server.ts` — i18n-Zustand SSR → Client, SSR-Warm-up
+- `src/App.tsx`, `vite.config.ts` (nur Kommentar) — Consumer lazy, Musterbefund `loadRoute`
+- `src/content/befunde/model.ts`, `src/pages/musterbefund/*.tsx` (6), `src/pages/MusterbefundPage.tsx` (Prop-Typ) — Befunde je Sprache
+- `scripts/check-befunde.ts`, `building-docs/BEFUNDE-CONTRACT.md` — Guard/Vertrag fuer `loadBefundFamily`
+- `e2e/pt25.2.config.ts`, `e2e/pt25.2.spec.ts` — neu; `e2e/pt25.1.*` nur parametrisiert
+- `scripts/perf/{ssr-render-cost,cold-start-ttfb,ttfb-interleaved,gzip-proxy,variant-compare}.mjs` — neu; `bundle-report.mjs` korrigiert
+- `building-docs/PERFORMANCE-CONTRACT.md` §26, diese State-Datei
+
+**AP25 PT25.1 — Performance-Baseline (2026-09-14, kein Produktcode):**
+
+- `building-docs/PERFORMANCE-CONTRACT.md` — neu: Baseline, Routenmatrix, Bottlenecks PERF-B01..B15, Write Sets
+- `scripts/perf/routes.mjs`, `http-matrix.mjs`, `lighthouse-matrix.mjs`, `bundle-report.mjs`,
+  `chunk-attribution.mjs`, `baseline-tables.mjs`, `cls-warm-repro.mjs` — neu: reproduzierbare Messwerkzeuge
+- `e2e/pt25.1.config.ts`, `e2e/pt25.1.spec.ts` — neu: Browser-Collector + Mess-Integritaet
+- `package.json` — nur Skripte `perf:build`, `perf:bundle`, `perf:http`, `perf:lighthouse`, `perf:collect`
+- diese State-Datei
+
 **AP18-CLOSURE — unabhängige Reverification:**
 
 - `e2e/ap18-fixed-clock.cjs`, `e2e/ap18-closure-boundary.spec.ts`,
@@ -3313,6 +4915,15 @@ npx tsx server.ts`). `NODE_ENV` muss für `npm ci` **ungesetzt** sein. Das Root-
   (`D-13`). **Cold-Render-Regel** (`RUNTIME-CONTRACT.md` M-08) beachten.
 
 ## Handoff
+
+- **PT25.3: `PASS` (2026-09-14) → Next: PT25.4.** Uebergabe in `PERFORMANCE-CONTRACT.md` §27.8: PT25.4 Write Set = §23.3 plus `HeroSection.tsx`/`EpigeneticsPage.tsx` (nur Hero-Dekoration, PERF-B05) und Fallback-Metriken fuer den Schrift-Swap-Shift auf `/de/contact`. Keine offenen Bild-Deltas mit Launch-Relevanz.
+- **PT25.2: `PASS` (2026-09-14) → Next: PT25.3.** Uebergabe in `PERFORMANCE-CONTRACT.md` §26.12: PT25.3 Write Set unveraendert §23.2 (B04 lazy LCP-Bild Artikel, B05 Warm-CLS weiter offen); PT25.4 bekommt den latenten Schrift-Swap-Shift auf `/de/contact` (CLS 0,161). Lighthouse-LCP nur mit Spanne und Chrome-Gegenmessung bewerten (§26.9).
+- **PT25.1: `PASS` (2026-09-14) → Next: PT25.2.** Uebergabe vollstaendig in
+  `building-docs/PERFORMANCE-CONTRACT.md`: §3 Messumgebungen + Reproduktion, §5–§11 Baseline,
+  §21 Bottlenecks (P1: B01–B05), §22 Drift, **§23 exakte Write Sets PT25.2/PT25.3/PT25.4**, §24 Proven.
+  PT25.2 startet mit B01 (i18n vor Hydration), B02 (Entry-Chunk), B03 (Musterbefund-Locales) und misst
+  vorher/nachher mit `npm run perf:*` gegen einen frischen LAB-Build; PREVIEW-Vergleiche erst nach einem
+  Preview-Image vom selben Stand (Drift §22.1).
 
 - **AP18-CLOSURE: `PASS` (2026-09-01).** Unabhängige Reverification bestätigt EVT 40/40 und
   C18 50/50: 5 aktuelle + 4 historische stabile IDs, x10 i18n-Parität, harte Negativvalidierung,

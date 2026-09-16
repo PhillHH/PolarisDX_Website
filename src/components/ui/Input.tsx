@@ -97,8 +97,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
 
+        {/* AP24 PT24.1: `role="alert"` wie in FormField. Ohne ihn erschien
+            der Fehler nur optisch — wer nicht hinsieht, erfuhr nichts davon. */}
         {error && typeof error === 'string' && (
-          <p id={errorId} className="t-error">
+          <p id={errorId} role="alert" className="t-error">
             {error}
           </p>
         )}

@@ -74,7 +74,14 @@ test('PT16.3 preserves focus, campaign and report provenance through reload and 
     await route.fulfill({
       status: 202,
       contentType: 'application/json',
-      body: JSON.stringify({ accepted: true, leadId: 'pt16-3', status: 'PENDING_HANDOFF' }),
+      // AP26 PT26.3: Antwortform des Servers (Journey-Envelope, AP22 PT22.5). Der fruehere Mock
+      // `{ accepted, status }` bildete eine Form nach, die der Server nie lieferte (SEC-20).
+      body: JSON.stringify({
+        success: true,
+        journey: 'epigenetics_inquiry',
+        state: 'QUEUED',
+        leadId: 'pt16-3',
+      }),
     })
   })
   await page.goto(

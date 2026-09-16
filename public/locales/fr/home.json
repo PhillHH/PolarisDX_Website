@@ -292,13 +292,30 @@
     "title": "L'information là où elle est utile",
     "intro": "Les mesures au point de soins fournissent des informations supplémentaires directement dans le flux du cabinet. Elles soutiennent l'interprétation professionnelle sans l'automatiser ni la remplacer.",
     "signals": {
-      "access": { "title": "Accès direct à l'information", "text": "Les mesures sont disponibles au point de soins après le temps de traitement propre à chaque test." },
-      "workflow": { "title": "Intégré au flux de travail", "text": "Application, mesure et documentation peuvent former un processus clair au sein de l'organisation existante du cabinet." },
-      "conversation": { "title": "Une base de discussion", "text": "Les valeurs disponibles peuvent soutenir le conseil professionnel et l'échange sur les prochaines étapes appropriées." }
+      "access": {
+        "title": "Accès direct à l'information",
+        "text": "Les mesures sont disponibles au point de soins après le temps de traitement propre à chaque test."
+      },
+      "workflow": {
+        "title": "Intégré au flux de travail",
+        "text": "Application, mesure et documentation peuvent former un processus clair au sein de l'organisation existante du cabinet."
+      },
+      "conversation": {
+        "title": "Une base de discussion",
+        "text": "Les valeurs disponibles peuvent soutenir le conseil professionnel et l'échange sur les prochaines étapes appropriées."
+      }
     },
     "benefits": {
-      "practice": { "label": "Bénéfice pour le cabinet", "title": "Structuré dans le flux de travail", "text": "Des mesures supplémentaires sont disponibles dans le processus au point de soins et peuvent être prises en compte dans le conseil et la prise en charge." },
-      "patient": { "label": "Bénéfice pour les patients", "title": "Expliquer clairement les résultats", "text": "Les valeurs disponibles peuvent être expliquées dans le contexte de la prise en charge. Le test complète l'évaluation professionnelle ; il ne remplace ni le diagnostic ni le traitement." }
+      "practice": {
+        "label": "Bénéfice pour le cabinet",
+        "title": "Structuré dans le flux de travail",
+        "text": "Des mesures supplémentaires sont disponibles dans le processus au point de soins et peuvent être prises en compte dans le conseil et la prise en charge."
+      },
+      "patient": {
+        "label": "Bénéfice pour les patients",
+        "title": "Expliquer clairement les résultats",
+        "text": "Les valeurs disponibles peuvent être expliquées dans le contexte de la prise en charge. Le test complète l'évaluation professionnelle ; il ne remplace ni le diagnostic ni le traitement."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Demander le rapport",
       "sending": "Envoi en cours …",
       "success": "Merci ! Nous vous envoyons le rapport sous peu.",
-      "error": "Actuellement indisponible – veuillez réserver directement un conseil."
+      "error": "Actuellement indisponible – veuillez réserver directement un conseil.",
+      "error_retryable": "Cela n'a pas fonctionné à l'instant. Merci de réessayer dans un moment – vos données sont conservées."
     },
     "report_hint": "En PDF, envoyé à votre e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "Un processus clair rend les informations de mesure utilisables au quotidien tout en laissant la responsabilité médicale aux professionnels qui assurent la prise en charge.",
     "aria_label": "Processus au point de soins en trois étapes",
     "items": {
-      "application": { "title": "Application et mesure", "text": "L'échantillon et le test sont préparés selon les instructions correspondantes, puis mesurés avec le système compatible." },
-      "result": { "title": "Résultat disponible", "text": "Après le temps de traitement propre au test, la mesure est disponible dans le flux du cabinet — sans conclusion médicale automatisée." },
-      "context": { "title": "Interprétation professionnelle", "text": "Le professionnel responsable évalue la valeur dans son contexte individuel et discute, le cas échéant, des prochaines étapes pertinentes." }
+      "application": {
+        "title": "Application et mesure",
+        "text": "L'échantillon et le test sont préparés selon les instructions correspondantes, puis mesurés avec le système compatible."
+      },
+      "result": {
+        "title": "Résultat disponible",
+        "text": "Après le temps de traitement propre au test, la mesure est disponible dans le flux du cabinet — sans conclusion médicale automatisée."
+      },
+      "context": {
+        "title": "Interprétation professionnelle",
+        "text": "Le professionnel responsable évalue la valeur dans son contexte individuel et discute, le cas échéant, des prochaines étapes pertinentes."
+      }
     },
     "safety_note": "Les mesures fournissent des informations supplémentaires. L'évaluation professionnelle et les étapes qui en découlent restent sous la responsabilité du professionnel compétent."
   }

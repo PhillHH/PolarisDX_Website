@@ -141,7 +141,7 @@ describe('MobileCallButton', () => {
   })
 })
 
-describe('Chat ist aus dem produktiven Frontend entfernt (DEC-RL-007)', () => {
+describe('Chat ist vollstaendig entfernt — Frontend, Backend, CSP (DEC-RL-007)', () => {
   it('rendert kein Chat-Element in der Shell', () => {
     const { container } = renderShell()
     expect(container.querySelector('[id*="chat" i]')).toBeNull()
@@ -158,6 +158,19 @@ describe('Chat ist aus dem produktiven Frontend entfernt (DEC-RL-007)', () => {
     expect(Object.keys(SOURCES)).not.toContain('/src/components/ui/ChatWidget.tsx')
   })
 
+  it('das Backend kennt keine Chat-Route mehr (AP22 PT22.7)', () => {
+    // Frueher Ownership-Grenze ("bleibt bis AP22 stehen"), seit PT22.7 entfernt:
+    // kein Handler, kein Mock, kein Rest — ein POST laeuft in den 404 von Express.
+    expect(src('server/server.js')).not.toMatch(/api\/chat/)
+    expect(src('server/server.js')).not.toMatch(/chat/i)
+  })
+
+  it('die CSP fuehrt keine Chat-Domain mehr (AP22 PT22.7)', () => {
+    // Auf dem CODE, nicht auf der Prosa: der Kommentar darf begruenden, warum
+    // die Domain weg ist, ohne den Test auszuloesen.
+    expect(code('server.ts')).not.toMatch(/hihuman/i)
+  })
+
   it('laedt nirgends im produktiven Frontend einen HiHuman-Loader', () => {
     // Der GESAMTE ausgelieferte Quellbaum, nicht nur die Shell.
     const hits = Object.entries(SOURCES)
@@ -169,15 +182,6 @@ describe('Chat ist aus dem produktiven Frontend entfernt (DEC-RL-007)', () => {
 })
 
 describe('Ownership-Grenzen bleiben gewahrt', () => {
-  it('das Backend /api/chat ist unveraendert (Owner AP22)', () => {
-    // AP06 darf es nicht entfernen — die Zusicherung haelt fest, dass es noch da ist.
-    expect(src('server/server.js')).toMatch(/api\/chat/)
-  })
-
-  it('die CSP fuehrt die HiHuman-Domains weiterhin (Owner AP26)', () => {
-    expect(src('server.ts')).toContain('widget.hihuman.co.uk')
-  })
-
   it('AP06 hat keine Consent-Logik angefasst (Owner AP23)', () => {
     const banner = src('src/components/ui/CookieBanner.tsx')
     // Consent Mode und GTM-Gating bleiben, wo sie sind.

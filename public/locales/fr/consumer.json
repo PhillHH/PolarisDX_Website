@@ -313,6 +313,7 @@
   "price_badge.copy_023": "Masquer l'explication du chiffre inférieur à 2 € par mois",
   "price_badge.copy_024": "Comment est construit le montant supplémentaire de moins de 2 € par mois",
   "shell.copy_001": "PolarisDX",
+  "shell.nav_label": "Navigation principale",
   "shell.open_menu": "Ouvrir le menu",
   "shell.close_menu": "Fermer le menu",
   "shell.image_placeholder": "Image du produit",
@@ -352,5 +353,10 @@
   "price_badge.duo_line_2": "plus Vitamine D3+K2 Spray 12-pack",
   "price_badge.duo_line_3": "Spray appliqué une fois par jour – environ 71 jours par bouteille",
   "duo.seo_description": "Inside-Out Care Duo associe un spray quotidien de vitamine D3+K2 à 5 masques en tissu hydratants : une routine intérieure et extérieure simple au prix préférentiel de {{price}}.",
-  "duo.bundle_lead": "Une façon plus intelligente de créer une routine complète de soins Inside-Out : débloquez la valeur Duo. Complétez votre commande de masques avec l'ajout du support quotidien D3+K2 pour seulement {{price}} par mois."
+  "duo.bundle_lead": "Une façon plus intelligente de créer une routine complète de soins Inside-Out : débloquez la valeur Duo. Complétez votre commande de masques avec l'ajout du support quotidien D3+K2 pour seulement {{price}} par mois.",
+  "order_form.error_retryable": "Cela n'a pas fonctionné à l'instant. Merci de réessayer dans un moment – vos informations sont conservées.",
+  "order_form.error_terminal": "Cette demande de commande ne peut pas être finalisée en l'état. Merci de recharger la page ou de nous écrire à contact@polarisdx.net.",
+  "order_form.marketing_consent": "Facultatif : je souhaite recevoir par e-mail les actualités et les offres de PolarisDX. Ce consentement est facultatif et n'est pas nécessaire pour la commande.",
+  "order_form.reference_label": "Votre numéro de dossier :",
+  "order_form.success_not_purchase": "Il s'agit d'une demande de commande, non d'un contrat de vente ni d'un paiement. Le prix, la disponibilité et la livraison sont confirmés séparément."
 }

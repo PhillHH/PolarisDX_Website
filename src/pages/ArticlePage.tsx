@@ -10,6 +10,7 @@ import { articleDateIso, calculateArticleReadMinutes, formatArticleDate } from '
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
 import { Alert } from '../components/ui/Alert'
 import { getArticleImageAsset, getArticleImageUrl } from '../assets/articleImages'
+import { ResponsivePicture } from '../components/ui/ResponsivePicture'
 import {
   getRelatedArticles,
   getRelatedEpigeneticsRoute,
@@ -132,14 +133,18 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
     if (!image) return null
     return (
       <figure className="space-y-3">
-        <img
-          src={image.src}
+        {/* AP24 PT24.5 — das leere `alt` ist eine Entscheidung, kein Versaeumnis.
+            Die Abschnittsbilder sind Stimmungsbilder zur Ueberschrift, die
+            direkt daneben steht; sie tragen keine Information, die nicht schon
+            im Text steht. `imageAlt` (x10 lokalisiert, siehe
+            `src/content/articles/model.ts`) ist da, sobald ein Artikel ein
+            Bild MIT eigener Aussage bekommt — dann gehoert dort ein Text hin,
+            und `imageCaption` daneben. */}
+        {/* AP25 PT25.3: Abschnittsbilder liegen unter dem Falz — lazy, responsive. */}
+        <ResponsivePicture
+          image={image}
           alt={section.imageAlt ?? ''}
-          width={image.width}
-          height={image.height}
           sizes="(min-width: 768px) 68ch, calc(100vw - 2rem)"
-          loading="lazy"
-          decoding="async"
           className="h-auto w-full rounded-2xl object-cover"
         />
         {section.imageCaption ? (
@@ -349,15 +354,15 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
 
               {articleImage ? (
                 <figure className="mt-10 space-y-3">
-                  <img
-                    src={articleImage.src}
+                  {/* Leeres `alt` bewusst — siehe `renderSectionImage`. */}
+                  {/* AP25 PT25.3 (PERF-B04): gemessenes LCP-Element bei 390, 768 und 1440 px —
+                      daher nicht lazy, sondern mit Vorrang. Nur dieses eine Bild der Seite. */}
+                  <ResponsivePicture
+                    image={articleImage}
                     alt={article.imageAlt ?? ''}
-                    width={articleImage.width}
-                    height={articleImage.height}
                     sizes="(min-width: 768px) 68ch, calc(100vw - 2rem)"
-                    loading="lazy"
-                    decoding="async"
                     className="h-auto w-full rounded-2xl object-cover"
+                    priority
                   />
                   {article.imageCaption ? (
                     <figcaption className="text-sm leading-relaxed text-gray-700">

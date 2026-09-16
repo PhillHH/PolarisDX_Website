@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import SectionHeader from '../ui/SectionHeader'
 import BlogCard from '../ui/BlogCard'
 import { blogPosts } from '../../data/blogPosts'
-import { getArticleImageUrl } from '../../assets/articleImages'
+import { getArticleImageAsset } from '../../assets/articleImages'
 import { getCanonicalRouteEntries } from '../../routing'
 
 const registryEntries = getCanonicalRouteEntries()
@@ -29,14 +29,14 @@ const BlogSection = () => {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {blogPosts.slice(0, 3).map((post) => {
           // SSR-safe: Verwende zentrale Bild-Imports statt dynamischer URLs
-          const imageUrl = getArticleImageUrl(post.image)
+          const image = getArticleImageAsset(post.image)
 
           return (
             <BlogCard
               key={post.id}
               id={post.id}
               to={requireArticleTarget(`article-detail:${post.id}`)}
-              imageUrl={imageUrl}
+              image={image}
             />
           )
         })}

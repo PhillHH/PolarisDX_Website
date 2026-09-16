@@ -116,10 +116,21 @@
     <!-- SSR HELMET HEAD INJECTION POINT -->
     <!-- ================================================================== -->
     <!--helmet-head-->
+    <link rel="expect" href="#polaris-render-ready" blocking="render" />
   </head>
   <body class="antialiased">
     <!-- React App Root - SSR Content wird hier injiziert -->
     <div id="root"><!--ssr-outlet--></div>
+    <!--
+      AP25 PT25.4 (PERF-B05): Rendermarke. Der `rel="expect"`-Link im Kopf haelt den ersten
+      Paint zurueck, bis der Parser diese Marke hinter dem SSR-Inhalt erreicht hat. Gemessen:
+      bei warmem Cache malte Chromium sonst mitten im Hero (Sektion 0–361 px statt 1.001–1.187 px)
+      und der unten verankerte Deko-Kreis sprang — CLS 0,12–0,29 bei Wiederholungsaufrufen, mit
+      Marke 0/6. Kosten gemessen +20–60 ms FCP mobil. Browser ohne `rel="expect"` ignorieren beides.
+      Liegt ausserhalb von #root: keine Hydrationsauswirkung; `hidden`: nicht sichtbar, nicht im
+      Accessibility-Baum.
+    -->
+    <div id="polaris-render-ready" hidden></div>
 
     <script type="module" src="/src/entry-client.tsx"></script>
   </body>

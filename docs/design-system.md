@@ -44,24 +44,24 @@
 
 Tailwind-`theme.extend.colors`. **Exakte Klassennamen** in der linken Spalte.
 
-| Token / Klasse                                    | Hex                               | Verwendung im Repo                                                                                                             |
-| ------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `brand-deep` / `brand-navy`                       | `#083358`                         | **Kanonisches Navy.** Hero-Flächen, Final-CTA, dunkle Bänder (`bg-brand-deep`). Beide Klassen identischer Hex.                 |
-| `brand-primary` / `blue` / `accentBlue`           | `#0d527f`                         | Mittelblau. **Footer-Fläche** (`bg-brand-primary`), Links in `rich-content`, Header-Submenu-Hover.                             |
-| `brand-secondary` / `blue-bright`                 | `#2f6fa0`                         | Helles Blau. Gradient-Start (Button-Primary, Eyebrow-Rand), Footer-Link-Hover (`hover:text-brand-secondary`).                  |
-| `brand-navy-hover` / `brand-navy-mid`             | `#0a3f63`                         | CTA-Hover-Navy / theme-color + OG.                                                                                             |
-| `text-heading`                                    | `#083358`                         | **Überschriften-Ink.** Klasse `text-heading` = brand-deep (siehe Divergenz D1).                                                |
-| `gray-900` (Legacy)                               | `#203864`                         | Legacy-„Navy". `:root`-Textfarbe, `Eyebrow`-Caption, `SectionHeader`-H2, globaler `a`. **NICHT** identisch mit `text-heading`. |
-| `accent` (DEFAULT)                                | `#0d9488` (teal-600)              | **Akzent / Primär-CTA / Icon-Tiles / Links auf hell.** `bg-accent`, `text-accent`.                                             |
-| `accent-strong`                                   | `#0f766e` (teal-700)              | Eyebrow-Text-Emphasis, CTA-Hover (`hover:bg-accent-strong`, `hover:text-accent-strong`).                                       |
-| `accent-line`                                     | `#14b8a6` (teal-500)              | Deko-Linien, Check-Icons in Chips (`text-accent-line`).                                                                        |
-| `accent-soft`                                     | `#f0fdfa` (teal-50)               | weiche Tints / Pill-BG.                                                                                                        |
-| `accent-border`                                   | `#99f6e4` (teal-200)              | Pill-Ränder.                                                                                                                   |
-| `accent-on-dark`                                  | `#5eead4` (teal-300)              | Akzent-Hover auf dem dunklen Header.                                                                                           |
-| `success` / `success-soft` / `success-strong`     | `#10b981` / `#ecfdf5` / `#059669` | **Separater** Health/Erfolg-Scale (S3-Leitlinie, D3-Implantologie) — bewusst getrennt vom Akzent.                              |
-| `ui-border` / `ui-border-hover` / `ui-text-muted` | `#e2e8f0` / `#cbd5e1` / `#94a3b8` | slate-200/300/400 als UI-Grau.                                                                                                 |
-| `gray-100` / `gray-500`                           | `#F5F5F5` / `#868C98`             | Legacy-Flat-Grau; `gray-500`/`#868c98` ist `rich-content`-Body.                                                                |
-| `social-linkedin`                                 | `#0077b5`                         | Social-Icon.                                                                                                                   |
+| Token / Klasse                                    | Hex                               | Verwendung im Repo                                                                                                                                                                                                                         |
+| ------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `brand-deep` / `brand-navy`                       | `#083358`                         | **Kanonisches Navy.** Hero-Flächen, Final-CTA, dunkle Bänder (`bg-brand-deep`). Beide Klassen identischer Hex.                                                                                                                             |
+| `brand-primary` / `blue` / `accentBlue`           | `#0d527f`                         | Mittelblau. **Footer-Fläche** (`bg-brand-primary`), Links in `rich-content`, Header-Submenu-Hover.                                                                                                                                         |
+| `brand-secondary` / `blue-bright`                 | `#2f6fa0`                         | Helles Blau. Gradient-Start (Button-Primary, Eyebrow-Rand), Footer-Link-Hover (`hover:text-brand-secondary`).                                                                                                                              |
+| `brand-navy-hover` / `brand-navy-mid`             | `#0a3f63`                         | CTA-Hover-Navy / theme-color + OG.                                                                                                                                                                                                         |
+| `text-heading`                                    | `#083358`                         | **Überschriften-Ink.** Klasse `text-heading` = brand-deep (siehe Divergenz D1).                                                                                                                                                            |
+| `gray-900` (Legacy)                               | `#203864`                         | Legacy-„Navy". `:root`-Textfarbe, `Eyebrow`-Caption, `SectionHeader`-H2, globaler `a`. **NICHT** identisch mit `text-heading`.                                                                                                             |
+| `accent` (DEFAULT)                                | `#0d9488` (teal-600)              | **Akzent / Primär-CTA / Icon-Tiles / Links auf hell.** `bg-accent`, `text-accent`.                                                                                                                                                         |
+| `accent-strong`                                   | `#0f766e` (teal-700)              | Eyebrow-Text-Emphasis, CTA-Hover (`hover:bg-accent-strong`, `hover:text-accent-strong`).                                                                                                                                                   |
+| `accent-line`                                     | `#14b8a6` (teal-500)              | Deko-Linien, Check-Icons in Chips (`text-accent-line`).                                                                                                                                                                                    |
+| `accent-soft`                                     | `#f0fdfa` (teal-50)               | weiche Tints / Pill-BG.                                                                                                                                                                                                                    |
+| `accent-border`                                   | `#99f6e4` (teal-200)              | Pill-Ränder.                                                                                                                                                                                                                               |
+| `accent-on-dark`                                  | `#5eead4` (teal-300)              | Akzent-Hover auf dem dunklen Header.                                                                                                                                                                                                       |
+| `success` / `success-soft` / `success-strong`     | `#10b981` / `#ecfdf5` / `#059669` | **Separater** Health/Erfolg-Scale (S3-Leitlinie, D3-Implantologie) — bewusst getrennt vom Akzent.                                                                                                                                          |
+| `ui-border` / `ui-border-hover` / `ui-text-muted` | `#e2e8f0` / `#cbd5e1` / `#94a3b8` | slate-200/300/400 als UI-Grau.                                                                                                                                                                                                             |
+| `gray-100` / `gray-500`                           | `#F5F5F5` / `#6b7280`             | Legacy-Flat-Grau; `gray-500` traegt Hilfstext und `rich-content`-Body. **AP24 PT24.4:** war `#868C98` und lag damit bei 3,38:1 auf Weiss — unter AA. Jetzt `#6b7280`, derselbe Wert wie `ui-field`: 4,83:1 auf Weiss, 4,62:1 auf slate-50. |
+| `social-linkedin`                                 | `#0077b5`                         | Social-Icon.                                                                                                                                                                                                                               |
 
 **Nicht-Token-Grautöne, die in migrierten Seiten real genutzt werden:** Body-Text läuft überwiegend
 über **Tailwind-Default `text-gray-700` (#374151)** und `text-white/80` auf Navy — **nicht** über einen
@@ -107,7 +107,7 @@ Brand-Body-Token. Section-Hintergründe: `bg-slate-50` (section-soft), `bg-white
   Hamburg** + Logo/Social + Copyright + Legal-Links + „IglooPro ist ein Produkt der DX365 GmbH".
   ⚠️ Fläche ist `brand-primary`, nicht Navy `brand-deep` (siehe D3).
 - **`Layout.tsx`** — Shell-Wrapper (Header + `<main>` + Footer + ScrollToTop). `MainLayout` (in `App.tsx`)
-  ergänzt `MobileCallButton`, `ChatWidget`, `<Outlet/>`. Consumer-Seiten (`/consumer/*`) nutzen `Layout` **nicht**.
+  ergänzt `MobileCallButton` und `<Outlet/>`. Consumer-Seiten (`/consumer/*`) nutzen `Layout` **nicht**.
 - **`ScrollToTop.tsx`**, **`analytics/GtmPageview.tsx`** (GA4 SPA page_view).
 
 ### UI-Primitive — `src/components/ui/`
@@ -130,7 +130,7 @@ border-slate-300 text-slate-400`, `role="img"`, optionales `label`). Für „Anw
 - **`CookieBanner.tsx`** — `fixed bottom-0 left-0 right-0 z-[70]` (korrekt über Header z-30), GTM-Consent-Mode.
   ⚠️ generische `blue-600/blue-50/gray-900`-Farben statt Brand-Navy/Teal (siehe global-fixes G1).
 - Weitere: `ServiceCard.tsx`, `BlogCard.tsx`, `StatItem.tsx`, `Input.tsx`, `Textarea.tsx`, `Alert.tsx`,
-  `LanguageSwitcher.tsx`, `FlagIcon.tsx`, `SearchModal.tsx`, `MobileCallButton.tsx`, `ChatWidget.tsx`,
+  `LanguageSwitcher.tsx`, `FlagIcon.tsx`, `SearchModal.tsx`, `MobileCallButton.tsx`,
   `LoadingSpinner.tsx`, `PageTransition.tsx`, `icons/Tooth.tsx`.
 
 ### Sektions-Bausteine — `src/components/sections/`

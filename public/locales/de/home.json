@@ -368,7 +368,8 @@
       "submit": "Report anfordern",
       "sending": "Wird gesendet …",
       "success": "Danke! Wir senden Ihnen den Report in Kürze.",
-      "error": "Aktuell nicht möglich – bitte buchen Sie direkt eine Beratung."
+      "error": "Aktuell nicht möglich – bitte buchen Sie direkt eine Beratung.",
+      "error_retryable": "Das hat gerade nicht geklappt. Bitte versuchen Sie es in einem Moment erneut – Ihre Eingaben bleiben erhalten."
     },
     "report_hint": "Als PDF an Ihre E-Mail"
   },

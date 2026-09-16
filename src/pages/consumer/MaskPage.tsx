@@ -17,7 +17,10 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
+// Das JPEG bleibt die og:image-Quelle: Social-Crawler sind bei WebP
+// unzuverlaessig. Sichtbar ausgeliefert wird die responsive WebP-Fassung.
 import maskHero from '../../assets/landingpages-consumer/mask-hero-botanical.jpeg'
+import { CONSUMER_IMAGES } from '../../content/consumer/images'
 import {
   Card,
   ConsumerShell,
@@ -35,9 +38,9 @@ import {
   Steps,
 } from './shell'
 import { MASKS_PRODUCT } from '../../content/consumer/products'
-import { OrderModalProvider, useOrderModal } from './OrderModal'
+import { OrderModalProvider } from './OrderModal'
+import { useOrderModal } from './orderModalContext'
 import { PriceBadge } from './PriceBadge'
-import { useConsumerPageView } from './tracking'
 
 // Accent bars on the four ingredient cards — matches brief slide 13.
 const INGREDIENT_ACCENTS = ['teal', 'navy', 'green', 'blue'] as const
@@ -151,7 +154,6 @@ function MaskPageInner() {
   const seoTitle = t('mask.copy_031')
   const seoDescription = t('mask.copy_032')
   const socialImageAlt = t('mask.copy_037')
-  useConsumerPageView('masks')
   const orderModal = useOrderModal()
   return (
     <ConsumerShell nav={NAV} cta={{ label: t('mask.copy_033'), href: '#order' }} page="masks">
@@ -197,7 +199,7 @@ function MaskPageInner() {
         primary={{ label: t('mask.copy_033'), href: '#order' }}
         secondary={{ label: t('spray.copy_028'), href: '#how' }}
         image={{
-          src: maskHero,
+          source: CONSUMER_IMAGES.maskHero,
           alt: t(MASKS_PRODUCT.hero.altKey),
         }}
         // KEIN Listenpreis: die 45 € standen als Literal im JSX und sind in
@@ -321,7 +323,7 @@ function MaskPageInner() {
             <CTA
               onClick={() => orderModal?.open('5-pack-offer')}
               variant="navy"
-              track={{ label: t('mask.copy_033'), page: 'masks', location: '5-pack-offer' }}
+              track={{ page: 'masks', location: '5-pack-offer' }}
             >
               {t('mask.copy_033')}
             </CTA>
@@ -362,22 +364,14 @@ function MaskPageInner() {
           <CTA
             to="/consumer/inside-out-duo"
             variant="navy"
-            track={{
-              label: t('spray.copy_095'),
-              page: 'masks',
-              location: 'bridge',
-            }}
+            track={{ page: 'masks', location: 'bridge' }}
           >
             {t('spray.copy_095')}
           </CTA>
           <CTA
             to="/consumer/vitamin-d3-spray"
             variant="outline-navy"
-            track={{
-              label: t('mask.copy_084'),
-              page: 'masks',
-              location: 'bridge',
-            }}
+            track={{ page: 'masks', location: 'bridge' }}
           >
             {t('mask.copy_084')}
           </CTA>

@@ -1,61 +1,64 @@
 /**
- * Consumer landing pages — GTM dataLayer helpers
+ * Consumer-Landingpages — Ereignisse der Bestellstrecke.
  *
- * GTM (GTM-TW6JFX7K) and Consent Mode v2 are already wired up in
- * index.html. This module just emits *structured events* into the
- * dataLayer so that:
- *   - GA4 / Meta Pixel / LinkedIn Insight (all managed inside GTM)
- *     can be attached to a stable event name with stable parameters,
- *   - the marketing team can set up Conversion tags in GTM without
- *     having to read React code or coordinate code deploys.
+ * AP23 PT23.2 — dieses Modul schreibt NICHT mehr selbst in den dataLayer.
+ * Vorher lag hier ein eigener Weg zum Provider (`window.dataLayer.push`), mit
+ * eigenem Vokabular und eigener Nutzlastform; die Einwilligung wurde an
+ * dieser Stelle ein zweites Mal geprueft. Beides ist jetzt eine Aufgabe der
+ * Fassade (`lib/tracking.ts`): sie kennt die Typen, prueft die Nutzlast und
+ * entscheidet, ob ueberhaupt ein Anbieter existiert.
  *
- * Emitted events:
- *   - `consumer_page_view`   on mount, with { consumer_page }
- *   - `consumer_cta_click`   on CTA click, with { cta_label,
- *                                                  consumer_page,
- *                                                  cta_location }
+ * Was bleibt: die drei Hilfsfunktionen, die die Consumer-Seiten aufrufen.
+ * Sie uebersetzen Seitenwissen in ein typisiertes Ereignis — mehr nicht.
  *
- * SSR safety: every push is guarded against `typeof window === 'undefined'`.
+ * Die Bestellstrecke haengt an KEINER Stelle an der Messung: eine Bestellung
+ * ohne Analytics-Einwilligung laeuft vollstaendig durch.
  */
 
-import { useEffect } from 'react'
+import { track, type ConsumerMenge, type ConsumerPage, type CtaLocation } from '../../lib/tracking'
 
-export type ConsumerPage = 'spray' | 'masks' | 'duo'
+export type { ConsumerPage, CtaLocation } from '../../lib/tracking'
 
-// The global `window.dataLayer` type is already declared in
-// src/components/ui/CookieBanner.tsx as `Array<Record<string, unknown>>`.
-// We reuse that — every event we push is structurally compatible.
-
-interface DataLayerEvent extends Record<string, unknown> {
-  event: string
+/**
+ * Freitext-Beschriftungen gehen NICHT mit.
+ *
+ * Vorher floss `cta_label` mit — der uebersetzte Knopftext. In zehn Sprachen
+ * ergab dasselbe Ereignis zehn verschiedene Werte, und der Text aendert sich
+ * mit jeder Redaktion. Der ORT beantwortet die Frage ("traegt der Hero oder
+ * der Abschluss-CTA?"), die Beschriftung nicht.
+ */
+export function trackConsumerCtaClick(seite: ConsumerPage, ort: CtaLocation): void {
+  track({ name: 'cta_click', seite, ort })
 }
 
-function push(event: DataLayerEvent): void {
-  if (typeof window === 'undefined') return
-  window.dataLayer = window.dataLayer || []
-  window.dataLayer.push(event)
-}
-
-export function trackConsumerCtaClick(
-  cta_label: string,
-  consumer_page: ConsumerPage,
-  cta_location?: string,
+export function trackConsumerOrderModalOpen(
+  seite: ConsumerPage,
+  produkt: string,
+  ort?: CtaLocation,
 ): void {
-  push({
-    event: 'consumer_cta_click',
-    cta_label,
-    consumer_page,
-    ...(cta_location ? { cta_location } : {}),
-  })
+  track({ name: 'consumer_order_modal_open', seite, produkt, ort })
+}
+
+export function trackConsumerOrderModalClose(seite: ConsumerPage, produkt: string): void {
+  track({ name: 'consumer_order_modal_close', seite, produkt })
+}
+
+/** Nur nach bestaetigter Persistenz aufrufen — der Aufrufer prueft `res.ok`. */
+export function trackConsumerOrderSubmit(
+  seite: ConsumerPage,
+  produkt: string,
+  menge: ConsumerMenge,
+): void {
+  track({ name: 'consumer_order_submit', seite, produkt, menge })
 }
 
 /**
- * React hook — fires `consumer_page_view` once per mount.
- * Call near the top of each consumer page component.
+ * AP23 PT23.3 — `useConsumerPageView` ist ENTFALLEN.
+ *
+ * Es meldete beim Mount einer Consumer-Seite ein eigenes
+ * `consumer_page_view`, waehrend `GtmPageview` denselben Routenwechsel
+ * bereits als `page_view` meldete: ein Wechsel auf /de/consumer/… erzeugte
+ * ZWEI Seitenaufruf-Ereignisse. Die Dimension „welche Consumer-Seite" steckt
+ * im Pfad und laesst sich daraus ableiten — ein zweites Ereignis dafuer war
+ * eine Doppelzaehlung mit anderem Namen.
  */
-export function useConsumerPageView(consumer_page: ConsumerPage): void {
-  useEffect(() => {
-    push({ event: 'consumer_page_view', consumer_page })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-}

@@ -16,6 +16,7 @@ import {
   readEpigeneticsInquirySource,
   type EpigeneticsPanel,
 } from '../../lib/epigeneticsContext'
+import { track } from '../../lib/tracking'
 
 interface SampleItem {
   slug: EpigeneticsPanel
@@ -115,7 +116,17 @@ export default function EpigeneticsInquiryForm() {
         idempotencyKey.current,
       )
       setResult(response)
-      if (!response.accepted) idempotencyKey.current = null
+      if (response.accepted) {
+        // AP23 PT23.3 — `accepted` heisst: der Vorgang ist persistiert. Erst
+        // dann eine Konversion. Es geht ausschliesslich der allowlistete
+        // Panel-Slug mit — keine Vorgangsnummer, kein Kontaktdatum, kein
+        // Freitext aus dem Nachrichtenfeld.
+        track({ name: 'epigenetics_inquiry_submit', panel: panel || undefined })
+      } else if (!response.retryable) {
+        // AP26 PT26.3: nur eine endgueltige Ablehnung verwirft den Schluessel. Nach 429/5xx
+        // kann der Vorgang schon gespeichert sein — ein neuer Schluessel waere ein zweiter Lead.
+        idempotencyKey.current = null
+      }
     } catch {
       setResult({ accepted: false, code: 'INQUIRY_UNAVAILABLE' })
       idempotencyKey.current = null
@@ -224,7 +235,9 @@ export default function EpigeneticsInquiryForm() {
             ))}
           </select>
           {errors.facilityType ? (
-            <p id="epigenetics-facility-error" className="t-error">
+            /* AP24 PT24.1: `role="alert"` wie in Input/Textarea/FormField —
+               diese beiden handgebauten Fehler blieben sonst stumm. */
+            <p id="epigenetics-facility-error" role="alert" className="t-error">
               {errors.facilityType}
             </p>
           ) : null}
@@ -303,7 +316,7 @@ export default function EpigeneticsInquiryForm() {
           </span>
         </label>
         {errors.processingConsent ? (
-          <p id="epigenetics-processing-consent-error" className="t-error">
+          <p id="epigenetics-processing-consent-error" role="alert" className="t-error">
             {errors.processingConsent}
           </p>
         ) : null}

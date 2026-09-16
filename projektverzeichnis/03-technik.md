@@ -118,10 +118,11 @@ Abhängigkeiten: `@sendgrid/mail`, `cors`, `dotenv`, `express-rate-limit`, `pdfk
 Konfiguration über `server/.env` (nicht im Repo).
 `POST /api/consumer-order` hat als einziger Formular-Endpunkt **kein** Rate-Limit.
 
-Der Chat ist ein Prototyp: das Widget öffnet sich auf Desktop automatisch, zeigt eine
-Ankündigungsnachricht und bekommt vom Backend Mock-Antworten. Der geplante Weg über
-Azure Bot Service / Direct Line nach Microsoft Teams steht in
-[CHAT_INTEGRATION.md](../CHAT_INTEGRATION.md).
+Einen Chat gibt es nicht mehr. Das Widget ist mit AP06 PT06.4 aus dem Frontend
+entfernt worden, der Mock-Endpunkt `POST /api/chat` samt Teams-/Direct-Line-Roadmap mit
+AP22 PT22.7 aus dem Backend; auch die Chat-Domains in der CSP sind weg. Ein POST auf die
+alte Route antwortet 404. Grundlage ist `DEC-RL-007` (kein Chat im Relaunch), das frühere
+Root-Dokument `CHAT_INTEGRATION.md` ist mitentfernt.
 
 `RoiCalculatorSection.tsx:108` trägt noch einen TODO-Kommentar, der Endpoint sei „noch
 nicht live" — im Backend existiert er inzwischen.

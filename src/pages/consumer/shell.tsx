@@ -27,9 +27,10 @@ import SkipLink, { MAIN_CONTENT_ID } from '../../components/layout/SkipLink'
 import ImagePlaceholder from '../../components/ui/ImagePlaceholder'
 import LanguageSwitcher from '../../components/ui/LanguageSwitcher'
 import { cn } from '../../lib/utils'
-import { trackConsumerCtaClick, type ConsumerPage } from './tracking'
-import { useOrderModal } from './OrderModal'
+import { trackConsumerCtaClick, type ConsumerPage, type CtaLocation } from './tracking'
+import { useOrderModal } from './orderModalContext'
 import logoWhite from '../../assets/polaris_white.webp'
+import { webpSrcSet, type ResponsiveImage } from '../../content/consumer/images'
 
 // =============================================================================
 // TYPES
@@ -49,12 +50,17 @@ type AccentBar = 'teal' | 'navy' | 'green' | 'blue' | 'none'
 type CTAVariant = 'navy' | 'outline-navy' | 'teal' | 'white' | 'outline-white'
 
 export interface TrackingMeta {
-  /** Human-readable label of the CTA, e.g."Buy 12-pack". */
-  label: string
   /** Which consumer page emitted the click. */
   page: ConsumerPage
-  /** Where on the page the CTA sat, e.g."hero" /"audience-card" /"final". */
-  location?: string
+  /**
+   * AP23 PT23.2 — der Ort ist jetzt PFLICHT und eine Aufzaehlung.
+   *
+   * Das frueher mitgefuehrte `label` (der uebersetzte Knopftext) ist
+   * entfallen: in zehn Sprachen ergab dasselbe Ereignis zehn verschiedene
+   * Werte, und der Text aendert sich mit jeder Redaktion. Der Ort beantwortet
+   * die Frage, die die Messung stellt — die Beschriftung nicht.
+   */
+  location: CtaLocation
 }
 
 interface CTAProps {
@@ -79,7 +85,7 @@ export function CTA({
   track,
 }: CTAProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-line'
+    'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-strong'
   const sizes = {
     sm: 'px-5 py-2.5 text-sm',
     md: 'px-7 py-3.5 text-base',
@@ -94,17 +100,24 @@ export function CTA({
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
   const handleClick = () => {
-    if (track) trackConsumerCtaClick(track.label, track.page, track.location)
+    if (track) trackConsumerCtaClick(track.page, track.location)
     if (onClick) onClick()
   }
-  // GTM-friendly data attributes (so marketing can target with built-in
-  // Click triggers without relying on the JS event push above).
+  /*
+    GTM-freundliche Datenattribute, damit Marketing mit eingebauten
+    Click-Triggern arbeiten kann, ohne am JS-Ereignis oben zu haengen.
+
+    AP23 PT23.2 — `data-gtm-cta` trug den UEBERSETZTEN Knopftext und ist
+    entfallen: Freitext aus dem Content gehoert aus demselben Grund nicht in
+    ein Datenattribut wie nicht in eine Ereignisnutzlast. Seite und Ort sind
+    Aufzaehlungen und bleiben. Dass ein Click-Trigger diese Attribute
+    ueberhaupt am Adapter vorbei lesen kann, ist als CTC-08 festgehalten.
+  */
   const dataAttrs = track
     ? {
         'data-gtm-event': 'consumer_cta_click',
-        'data-gtm-cta': track.label,
         'data-gtm-page': track.page,
-        ...(track.location ? { 'data-gtm-location': track.location } : {}),
+        'data-gtm-location': track.location,
       }
     : {}
   if (to) {
@@ -127,6 +140,54 @@ export function CTA({
     <a href={href ?? '#'} className={cls} onClick={handleClick} {...dataAttrs}>
       {children}
     </a>
+  )
+}
+
+// =============================================================================
+// RESPONSIVE PRODUKTBILD (AP21 PT21.7)
+// =============================================================================
+
+/**
+ * Ein Produktbild als `<picture>`: WebP in drei gemessenen Breiten, das
+ * JPEG-Original als Fallback.
+ *
+ * Vorher lieferte jede Produktseite das 1122px-JPEG in ein 358–570px breites
+ * Feld — Faktor 2,0x bis 3,1x. Ausserdem fehlten `width`/`height`, wodurch
+ * das Layout beim Nachladen sprang, und der LCP-Hero hatte keine Prioritaet.
+ *
+ * `sizes` beschreibt die GEMESSENE Darstellung, nicht eine geschaetzte:
+ * bis 640px fuellt das Bild die Spalte, darueber ist es auf 448px begrenzt,
+ * ab 1024px auf rund 570px.
+ */
+export function ConsumerPicture({
+  source,
+  alt,
+  className,
+  priority = false,
+  sizes = '(min-width: 1024px) 570px, (min-width: 640px) 448px, 100vw',
+}: {
+  source: ResponsiveImage
+  alt: string
+  className?: string
+  /** Nur fuer das LCP-Bild: eager laden und dem Browser Vorrang signalisieren. */
+  priority?: boolean
+  sizes?: string
+}) {
+  return (
+    <picture>
+      <source type="image/webp" srcSet={webpSrcSet(source)} sizes={sizes} />
+      <img
+        src={source.fallback}
+        alt={alt}
+        width={source.width}
+        height={source.height}
+        sizes={sizes}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+        decoding={priority ? 'sync' : 'async'}
+        className={className}
+      />
+    </picture>
   )
 }
 
@@ -187,7 +248,10 @@ export function ConsumerHeader({
             dem Viewport. Ohne `min-w-0` kann ein Flex-Kind nicht unter seine
             Inhaltsbreite schrumpfen — die Navigation drueckte die rechte
             Gruppe hinaus. */}
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 text-sm font-medium text-white/90 md:flex lg:gap-8">
+        <nav
+          aria-label={t('shell.nav_label')}
+          className="hidden min-w-0 flex-1 items-center justify-center gap-5 text-sm font-medium text-white/90 md:flex lg:gap-8"
+        >
           {nav.map((n) => (
             <a key={n.href} href={n.href} className="transition-colors hover:text-accent-on-dark">
               {n.label}
@@ -205,7 +269,7 @@ export function ConsumerHeader({
               onClick={desktopClick}
               variant="teal"
               size="sm"
-              track={{ label: cta.label, page, location: 'header' }}
+              track={{ page, location: 'header' }}
             >
               {cta.label}
             </CTA>
@@ -228,7 +292,7 @@ export function ConsumerHeader({
       {open && (
         <div className="border-t border-white/10 bg-brand-deep md:hidden">
           <div className="mx-auto max-w-container px-4 py-4 sm:px-6">
-            <nav className="flex flex-col gap-1">
+            <nav aria-label={t('shell.nav_label')} className="flex flex-col gap-1">
               {nav.map((n) => (
                 <a
                   key={n.href}
@@ -246,7 +310,7 @@ export function ConsumerHeader({
                 onClick={mobileClick}
                 variant="teal"
                 size="sm"
-                track={{ label: cta.label, page, location: 'header-mobile' }}
+                track={{ page, location: 'header-mobile' }}
               >
                 {cta.label}
               </CTA>
@@ -341,7 +405,7 @@ export function Hero({
   sub: ReactNode
   primary: NavLink
   secondary?: NavLink
-  image?: { src?: string; alt: string; placeholder?: string }
+  image?: { src?: string; source?: ResponsiveImage; alt: string; placeholder?: string }
   /** Which consumer page — wires the hero CTAs into the dataLayer. */
   page: ConsumerPage
   /** Optional inline badge rendered above the fold below the CTAs
@@ -388,7 +452,7 @@ export function Hero({
                   href={primary.href}
                   onClick={primaryClick}
                   variant="navy"
-                  track={{ label: primary.label, page, location: 'hero' }}
+                  track={{ page, location: 'hero' }}
                 >
                   {primary.label}
                 </CTA>
@@ -396,7 +460,7 @@ export function Hero({
                   <CTA
                     href={secondary.href}
                     variant="outline-navy"
-                    track={{ label: secondary.label, page, location: 'hero-secondary' }}
+                    track={{ page, location: 'hero-secondary' }}
                   >
                     {secondary.label}
                   </CTA>
@@ -434,15 +498,15 @@ export function Hero({
 
             {/* Image · right (responsive: stacks below text on mobile) */}
             <div className="relative">
-              {image?.src ? (
+              {image?.source ? (
                 <div className="group relative mx-auto w-full max-w-md overflow-visible rounded-2xl lg:max-w-none">
                   <div className="overflow-hidden rounded-2xl ring-1 ring-brand-deep/5">
-                    <img
-                      src={image.src}
+                    {/* LCP-Bild: eager, mit Vorrang und festen Abmessungen. */}
+                    <ConsumerPicture
+                      source={image.source}
                       alt={image.alt}
-                      loading="eager"
-                      decoding="async"
-                      className="block w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      priority
+                      className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     />
                   </div>
                   {floatingStat && (
@@ -819,7 +883,7 @@ export function FinalCTA({
             href={primary.href}
             onClick={primaryClick}
             variant="teal"
-            track={{ label: primary.label, page, location: 'final' }}
+            track={{ page, location: 'final' }}
           >
             {primary.label}
           </CTA>
@@ -827,7 +891,7 @@ export function FinalCTA({
             <CTA
               href={secondary.href}
               variant="outline-white"
-              track={{ label: secondary.label, page, location: 'final-secondary' }}
+              track={{ page, location: 'final-secondary' }}
             >
               {secondary.label}
             </CTA>

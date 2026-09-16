@@ -1,0 +1,8 @@
+# AP26 PT26.5 — geprueft und als Fehlalarm klassifiziert (SECURITY-CONTRACT §17.2).
+# Keine pauschale Ausnahme: jeder Eintrag ist genau ein Fundstellen-Fingerprint
+# (Commit:Datei:Regel:Zeile). Neue Fundstellen bleiben rot.
+#
+# Idempotency-Key-Literal eines E2E-Missbrauchstests, kein Credential.
+11ef36a08d6666bb6b7e33af82b82ccefe455147:e2e/ap19-integration.spec.ts:generic-api-key:347
+# Name eines localStorage-Schluessels in einer inzwischen entfernten Komponente, kein Credential.
+0598e735c60000c6a94251ec2e71de2aa1c0bf05:src/components/sections/DealPopup.tsx:generic-api-key:6

@@ -4,6 +4,7 @@
 > **Preview**, nicht Prod. Prod-`./deploy.sh` (Docker) hier **nicht** verwenden.
 
 ## Wie die Preview läuft
+
 - **Kein** Docker, **kein** systemd, **kein** pm2/tmux. Der Preview-Server ist ein **detached
   Node-Prozess** (PPID 1), gestartet via `npx tsx server.ts`.
 - Verzeichnis: `/home/phillip/01polaris-preview`
@@ -14,12 +15,14 @@
 - **`server.ts` autoloaded KEIN `.env`** (kein dotenv-Import) → Env muss beim Start gesetzt werden.
 
 ## Wichtig: Production-Mode serviert aus `dist/`, NICHT aus der Quelle
+
 `server.ts` (Z. 273–290, 468–478): bei `NODE_ENV=production` werden `dist/client/index.html` und
 `dist/server/entry-server.js` geladen. **Änderungen an `src/` werden erst nach `npm run build` sichtbar.**
 `dist/` ist **gitignored** (`.gitignore:11-12`). Beleg für das Muster: dist-Build `2026-07-03 12:56`,
-Server-Start `2026-07-03 12:57:11` — also *build → start*.
+Server-Start `2026-07-03 12:57:11` — also _build → start_.
 
 ## Restart-/Rebuild-Prozedur (nach `src/`-Änderungen)
+
 ```bash
 cd /home/phillip/01polaris-preview
 
@@ -46,6 +49,7 @@ tail -n 20 /home/phillip/01polaris-preview/preview.log
 ```
 
 ### Hinweise
+
 - **Downtime:** kurzes Fenster zwischen Kill und erneutem `listen` (~2–3 s). Für eine noindex-Preview ok.
 - Über SSH `ssh phillip-server "bash -lc '<obige Schritte>'"` ausführen. `setsid` + `&` sorgt dafür, dass
   der Prozess nach SSH-Logout weiterläuft.
@@ -53,4 +57,7 @@ tail -n 20 /home/phillip/01polaris-preview/preview.log
 - Backend-Proxy zeigt auf `127.0.0.1:5001` (Preview-Backend). Kontaktformular-POSTs `/api/*` gehen dorthin.
 - **Validierungsstatus:** Mechanismus aus Prozess-Env + `server.ts` hergeleitet (read-only). Erste echte
   Ausführung erfolgt im Screenshot-Schritt von Slice 1.
+
+```
+
 ```

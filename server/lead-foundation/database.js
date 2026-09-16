@@ -35,10 +35,41 @@ function applyMigrations(db, migrationsDirectory = MIGRATIONS_DIRECTORY) {
     )
   })
 
-  for (const version of migrations) {
-    if (!appliedVersions.has(version)) {
+  const pending = migrations.filter((version) => !appliedVersions.has(version))
+  if (pending.length === 0) return migrations
+
+  /**
+   * AP22 PT22.2 — Fremdschluessel waehrend der Migration abschalten.
+   *
+   * SQLite kann eine CHECK-Bedingung nicht per ALTER TABLE aendern; ein
+   * neuer Statuswert verlangt deshalb einen Tabellenumbau. Bliebe dabei
+   * `foreign_keys` aktiv, wuerde `DROP TABLE leads` die Kindzeilen in
+   * `lead_outbox`, `lead_events` und `resource_entitlements` per ON DELETE
+   * CASCADE mitloeschen — also genau den Datenverlust erzeugen, den eine
+   * Migration verhindern soll.
+   *
+   * `PRAGMA foreign_keys` ist innerhalb einer Transaktion wirkungslos,
+   * deshalb wird es AUSSERHALB gesetzt. Nach dem Lauf prueft
+   * `foreign_key_check`, dass keine haengende Referenz zurueckbleibt.
+   */
+  const foreignKeysWereOn = db.pragma('foreign_keys', { simple: true }) === 1
+  if (foreignKeysWereOn) db.pragma('foreign_keys = OFF')
+  try {
+    for (const version of pending) {
       migrate.immediate(version, fs.readFileSync(path.join(migrationsDirectory, version), 'utf8'))
     }
+  } finally {
+    if (foreignKeysWereOn) db.pragma('foreign_keys = ON')
+  }
+
+  const dangling = db.pragma('foreign_key_check')
+  if (dangling.length > 0) {
+    throw new Error(
+      `migration left ${dangling.length} dangling foreign key reference(s): ${dangling
+        .map((row) => `${row.table}#${row.rowid}`)
+        .slice(0, 5)
+        .join(', ')}`,
+    )
   }
 
   return migrations

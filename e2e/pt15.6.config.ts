@@ -15,6 +15,9 @@ export default defineConfig({
   ],
   timeout: 30_000,
   use: {
+    // AP26 PT26.5: axe wird per addScriptTag inline eingefuegt; die durchgesetzte CSP blockt das.
+    // Diese Suite misst nicht die CSP (das tun e2e/pt26.2 und e2e/pt26.3, ohne Bypass).
+    bypassCSP: true,
     baseURL: process.env.PT156_BASE_URL || 'http://127.0.0.1:3326',
     channel: 'chromium',
     reducedMotion: 'reduce',

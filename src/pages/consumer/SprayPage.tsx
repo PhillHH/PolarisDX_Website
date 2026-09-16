@@ -17,10 +17,13 @@ import {
   createFAQSchema,
   createProductSchema,
 } from '../../components/seo'
+// Das JPEG bleibt die og:image-Quelle: Social-Crawler sind bei WebP
+// unzuverlaessig. Sichtbar ausgeliefert wird die responsive WebP-Fassung.
 import sprayHero from '../../assets/landingpages-consumer/spray-hero-12pack-office.jpeg'
-import sprayStill from '../../assets/landingpages-consumer/spray-still-life.jpeg'
+import { CONSUMER_IMAGES } from '../../content/consumer/images'
 import {
   Card,
+  ConsumerPicture,
   ConsumerShell,
   CTA,
   Disclaimer,
@@ -36,9 +39,9 @@ import {
   Steps,
 } from './shell'
 import { SPRAY_PRODUCT } from '../../content/consumer/products'
-import { OrderModalProvider, useOrderModal } from './OrderModal'
+import { OrderModalProvider } from './OrderModal'
+import { useOrderModal } from './orderModalContext'
 import { PriceBadge } from './PriceBadge'
-import { useConsumerPageView } from './tracking'
 
 const getNAV = (t: TFunction) => [
   { label: t('spray.copy_001'), href: '#why' },
@@ -178,7 +181,6 @@ function SprayPageInner() {
   const seoTitle = t('spray.copy_046')
   const seoDescription = t('spray.copy_047')
   const socialImageAlt = t('spray.copy_053')
-  useConsumerPageView('spray')
   const orderModal = useOrderModal()
   return (
     <ConsumerShell nav={NAV} cta={{ label: t('spray.copy_048'), href: '#order' }} page="spray">
@@ -225,7 +227,7 @@ function SprayPageInner() {
         primary={{ label: t('spray.copy_052'), href: '#order' }}
         secondary={{ label: t('spray.copy_003'), href: '#how' }}
         image={{
-          src: sprayHero,
+          source: CONSUMER_IMAGES.sprayHero,
           alt: t(SPRAY_PRODUCT.hero.altKey),
         }}
         // KEIN Listenpreis: die 169 € standen als Literal im JSX und sind
@@ -291,14 +293,19 @@ function SprayPageInner() {
               <p className="mt-3 flex-grow leading-relaxed text-gray-600">{a.body}</p>
               <button
                 type="button"
-                onClick={() =>
-                  orderModal?.open(`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`)
-                }
+                /*
+                  AP23 PT23.2 — hier stand `audience-${a.title…}`: der Ort
+                  wurde aus der UEBERSETZTEN Kartenueberschrift gebaut. In
+                  zehn Sprachen ergab dieselbe Karte zehn verschiedene Werte,
+                  und jede Textaenderung erzeugte lautlos einen neuen. Bis die
+                  Karten eine stabile Kennung tragen, meldet die Sektion einen
+                  Ort (siehe CTC-09).
+                */
+                onClick={() => orderModal?.open('audience')}
                 data-gtm-event="consumer_cta_click"
-                data-gtm-cta={a.cta}
                 data-gtm-page="spray"
                 data-gtm-location={`audience-${a.title.toLowerCase().replace(/[ &]+/g, '-')}`}
-                className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2"
+                className="group mt-6 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-accent-strong transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2"
               >
                 {a.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -341,12 +348,11 @@ function SprayPageInner() {
             </dl>
           </Card>
           <div className="group mx-auto w-full max-w-sm overflow-hidden rounded-2xl lg:max-w-md">
-            <img
-              src={sprayStill}
+            <ConsumerPicture
+              source={CONSUMER_IMAGES.sprayStill}
               alt={t('spray.copy_074')}
-              loading="lazy"
-              decoding="async"
-              className="w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              sizes="(min-width: 1024px) 448px, (min-width: 640px) 384px, 100vw"
+              className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>
         </div>
@@ -410,11 +416,7 @@ function SprayPageInner() {
         <CTA
           to="/consumer/inside-out-duo"
           variant="teal"
-          track={{
-            label: t('spray.copy_095'),
-            page: 'spray',
-            location: 'bridge-to-duo',
-          }}
+          track={{ page: 'spray', location: 'bridge-to-duo' }}
         >
           {t('spray.copy_095')}
         </CTA>

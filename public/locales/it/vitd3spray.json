@@ -94,7 +94,8 @@
     "reassurance": "Gratuito e senza impegno · Risposta < 24 h",
     "success_title": "Grazie per il tuo ordine!",
     "success_text": "Abbiamo ricevuto la tua richiesta d’ordine. Il nostro team ti contatterà a breve per i prossimi passi.",
-    "error_text": "Si è verificato un errore. Riprova oppure chiamaci."
+    "error_text": "Si è verificato un errore. Riprova oppure chiamaci.",
+    "error_retryable": "Al momento non ha funzionato. Riprova tra un istante – i dati dell'ordine vengono conservati."
   },
   "contact": {
     "title": "Il tuo referente",

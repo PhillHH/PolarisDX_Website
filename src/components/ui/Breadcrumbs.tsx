@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ChevronRight } from 'lucide-react'
 
 export interface BreadcrumbItem {
@@ -10,6 +11,10 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[]
   variant?: 'light' | 'dark'
   className?: string
+  /**
+   * Nur setzen, wenn ein Kontext wirklich einen abweichenden Namen braucht.
+   * Ohne Angabe kommt der lokalisierte Standardname aus `common:a11y.breadcrumb`.
+   */
   ariaLabel?: string
 }
 
@@ -17,12 +22,18 @@ export function Breadcrumbs({
   items,
   variant = 'light',
   className = '',
-  ariaLabel = 'Breadcrumb',
+  ariaLabel,
 }: BreadcrumbsProps) {
+  const { t } = useTranslation('common')
   const isDark = variant === 'dark'
 
+  // AP24 PT24.1: die Voreinstellung war das feste englische 'Breadcrumb'.
+  // Der Name eines Landmarks wird vorgelesen — auf allen Routen mit
+  // Brotkruemelpfad stand er damit in neun von zehn Sprachen sprachfremd da.
+  const label = ariaLabel ?? t('a11y.breadcrumb', 'Brotkrümelnavigation')
+
   return (
-    <nav aria-label={ariaLabel} className={`text-sm ${className}`}>
+    <nav aria-label={label} className={`text-sm ${className}`}>
       <ol className="flex flex-wrap items-center gap-1">
         {items.map((item, index) => {
           const isLast = index === items.length - 1

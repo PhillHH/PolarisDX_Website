@@ -47,9 +47,16 @@ for (const slug of BEFUND_ORDER) {
   const importedLocaleFiles = SUPPORTED_LANGUAGES.filter((locale) =>
     source.includes(`/befunde/${slug}.${locale}.json`),
   )
+  // AP25 PT25.2 (PERF-B03): das Routenmodul darf die zehn Fassungen auch als
+  // explizite Loader an `loadBefundFamily` geben (Server validiert alle zehn,
+  // Browser nur die URL-Sprache). Die x10-Literalpfade bleiben Pflicht; der
+  // Inhalt selbst wird unten weiterhin vollstaendig mit defineBefundFamily geprueft.
   if (
     importedLocaleFiles.length !== SUPPORTED_LANGUAGES.length ||
-    !source.includes(`defineBefundFamily('${slug}'`)
+    !(
+      source.includes(`defineBefundFamily('${slug}'`) ||
+      source.includes(`loadBefundFamily('${slug}'`)
+    )
   ) {
     throw new Error(`${slug}: route module is not an explicit validated x10 family loader`)
   }

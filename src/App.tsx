@@ -18,6 +18,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import RouteAnnouncer from './components/layout/RouteAnnouncer'
 import GtmPageview from './components/analytics/GtmPageview'
 import {
   getArticleRouteEntries,
@@ -81,13 +82,26 @@ const EpigeneticsEvidencePage = lazy(() => import('./pages/EpigeneticsEvidencePa
 const EpigeneticsDocsPage = lazy(() => import('./pages/EpigeneticsDocsPage'))
 // Musterbefunde: je Slug ein eigenes Routenmodul, damit Vite pro Befund
 // splittet. Ein gemeinsames Inhaltsmodul wuerde alle sechs Panels und alle
-// Sprachfassungen in denselben Chunk ziehen.
-const MusterbefundMetabolicHealth = lazy(() => import('./pages/musterbefund/metabolic-health'))
-const MusterbefundHealthyAging = lazy(() => import('./pages/musterbefund/healthy-aging'))
-const MusterbefundAltersuhr = lazy(() => import('./pages/musterbefund/biologische-altersuhr'))
-const MusterbefundTelomer = lazy(() => import('./pages/musterbefund/telomer-analyse'))
-const MusterbefundStress = lazy(() => import('./pages/musterbefund/stress-monitor'))
-const MusterbefundHealthySport = lazy(() => import('./pages/musterbefund/healthy-sport'))
+// Sprachfassungen in denselben Chunk ziehen. AP25 PT25.2: `loadRoute` laedt
+// zusaetzlich nur die Sprachfassung der URL (siehe src/pages/musterbefund/*.tsx).
+const MusterbefundMetabolicHealth = lazy(() =>
+  import('./pages/musterbefund/metabolic-health').then((route) => route.loadRoute()),
+)
+const MusterbefundHealthyAging = lazy(() =>
+  import('./pages/musterbefund/healthy-aging').then((route) => route.loadRoute()),
+)
+const MusterbefundAltersuhr = lazy(() =>
+  import('./pages/musterbefund/biologische-altersuhr').then((route) => route.loadRoute()),
+)
+const MusterbefundTelomer = lazy(() =>
+  import('./pages/musterbefund/telomer-analyse').then((route) => route.loadRoute()),
+)
+const MusterbefundStress = lazy(() =>
+  import('./pages/musterbefund/stress-monitor').then((route) => route.loadRoute()),
+)
+const MusterbefundHealthySport = lazy(() =>
+  import('./pages/musterbefund/healthy-sport').then((route) => route.loadRoute()),
+)
 // Ohne passenden Slug rendert die Seite ihren Nicht-gefunden-Zweig (HTTP 404).
 const MusterbefundPage = lazy(() => import('./pages/MusterbefundPage'))
 const VitaminD3ImplantologyPage = lazy(() => import('./pages/VitaminD3ImplantologyPage'))
@@ -104,15 +118,16 @@ const DownloadsPage = lazy(() => import('./pages/DownloadsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 // Consumer-Landingpages (eigene Chrome, kein B2B-Layout)
-// Eager imports for the consumer landing pages (not lazy).
-// Why: these are paid-traffic landing pages from Instagram/LinkedIn. The
-// page <title>, meta description and OG tags are SEO/share-preview-critical
-// and must be in the SSR HTML on the very first request — otherwise the
-// React.lazy() fallback gets served and the head ends up with the static
-// IglooPro defaults from index.html.
-import ConsumerSprayPage from './pages/consumer/SprayPage'
-import ConsumerMaskPage from './pages/consumer/MaskPage'
-import ConsumerDuoPage from './pages/consumer/DuoPage'
+// AP25 PT25.2 (PERF-B02): frueher eager importiert, damit Titel/Meta/OG schon
+// bei der allerersten SSR-Anfrage im HTML stehen. Das sichert heute die
+// head-gated Retry-Schleife in server.ts (rendert erneut, bis Helmet einen
+// echten Titel hat) — geprueft in e2e/pt25.2.spec.ts gegen einen frisch
+// gestarteten Server. Eager kosteten die drei Seiten samt Shell, Bestellformular
+// und Preis-Badge rund 50 KB im Entry-Chunk JEDER B2B-Route.
+const ConsumerSprayPage = lazy(() => import('./pages/consumer/SprayPage'))
+const ConsumerMaskPage = lazy(() => import('./pages/consumer/MaskPage'))
+const ConsumerDuoPage = lazy(() => import('./pages/consumer/DuoPage'))
+import { useOutboundTracking } from './lib/useOutboundTracking'
 
 // =============================================================================
 // SUSPENSE WRAPPER
@@ -267,6 +282,35 @@ function ScrollToHash() {
     const stopOnUserInput = () => {
       aborted = true
     }
+
+    /**
+     * AP24 PT24.3 — den Fokus mitnehmen.
+     *
+     * Gemessen war: nach `Enter` auf einem Kapitellink scrollt die Seite
+     * korrekt, `document.activeElement` ist danach aber `<body>`. Chromium
+     * setzt zwar den Startpunkt fuer die naechste Tabulatortaste an das Ziel —
+     * eine Assistenztechnik folgt dem jedoch nicht, und angesagt wird nichts.
+     * Wer nicht sieht, dass gescrollt wurde, bleibt ohne Rueckmeldung.
+     *
+     * Deshalb bekommt das Ziel den Fokus. `tabindex="-1"` nur, wenn es nicht
+     * ohnehin fokussierbar ist: es soll ein Sprungziel werden, kein neuer
+     * Tabstop. `preventScroll` ist Pflicht — ohne das scrollt der Browser
+     * selbst und arbeitet gegen die Feinkorrektur dieser Schleife.
+     *
+     * `outline: none` am programmatisch fokussierten Abschnitt ist dieselbe
+     * bewusste Ausnahme wie am `<main>` in `Layout.tsx`: hier ist niemand
+     * hingetabbt, ein Rahmen um einen ganzen Abschnitt waere Rauschen. Die
+     * Bedienelemente IM Abschnitt behalten ihren Ring vollstaendig.
+     */
+    const focusTarget = (target: HTMLElement) => {
+      if (aborted || document.activeElement === target) return
+      if (!target.hasAttribute('tabindex')) {
+        target.setAttribute('tabindex', '-1')
+        target.dataset.hashFocusTarget = 'true'
+      }
+      target.style.outline = 'none'
+      target.focus({ preventScroll: true })
+    }
     window.addEventListener('wheel', stopOnUserInput, { passive: true, once: true })
     window.addEventListener('touchstart', stopOnUserInput, { passive: true, once: true })
     window.addEventListener('keydown', stopOnUserInput, { once: true })
@@ -306,6 +350,7 @@ function ScrollToHash() {
           window.scrollTo({ top: Math.max(window.scrollY + delta, 0), behavior: 'auto' })
           stable = 0
         } else if (stable >= STABLE_FRAMES) {
+          focusTarget(target)
           return // Position stimmt und der Offset hat sich beruhigt.
         }
       }
@@ -319,6 +364,13 @@ function ScrollToHash() {
       window.removeEventListener('wheel', stopOnUserInput)
       window.removeEventListener('touchstart', stopOnUserInput)
       window.removeEventListener('keydown', stopOnUserInput)
+      // Das geliehene `tabindex` wieder abgeben: der Abschnitt soll kein
+      // dauerhafter Tabstop werden, nur ein Sprungziel gewesen sein.
+      document.querySelectorAll<HTMLElement>('[data-hash-focus-target]').forEach((el) => {
+        el.removeAttribute('tabindex')
+        el.style.removeProperty('outline')
+        delete el.dataset.hashFocusTarget
+      })
     }
   }, [location])
 
@@ -334,14 +386,15 @@ function ScrollToHash() {
  * (Header/Footer) und den Mobile-Call-Button. Die einzelnen Seiten erscheinen
  * über <Outlet />; der Cookie-Banner haengt global unter <Routes>.
  *
- * KEIN CHAT (`DEC-RL-007`): Hier stand bis AP06 PT06.4 ein <ChatWidget />, das
- * auf JEDER B2B-Seite unbedingt `https://widget.hihuman.co.uk/bundle.js`
- * nachlud — ohne Bedingung, ohne Consent. Frontend-Rendering und Loader sind
- * entfernt, die Datei geloescht.
+ * KEIN CHAT (`DEC-RL-007`): Hier stand bis AP06 PT06.4 ein Chat-Widget, das
+ * auf JEDER B2B-Seite unbedingt ein Drittanbieter-Bundle nachlud — ohne
+ * Bedingung, ohne Consent. Frontend-Rendering und Loader sind entfernt, die
+ * Datei geloescht.
  *
- * Ownership-Grenze, bewusst NICHT hier erledigt:
- *   - `POST /api/chat` im Backend  -> AP22 PT22.7
- *   - HiHuman-Domains in der CSP   -> AP26 PT26.2
+ * Mit AP22 PT22.7 ist auch der Rest weg: der Mock-Endpunkt im Backend
+ * (POST auf die Chat-Route antwortet jetzt 404) und die Chat-Domains in der
+ * CSP. Es gibt keinen produktiven Chat-Rest mehr, den ein spaeteres AP noch
+ * aufraeumen muesste.
  */
 function MainLayout() {
   return (
@@ -357,6 +410,10 @@ function MainLayout() {
 // =============================================================================
 
 function App() {
+  // AP23 PT23.3 — ein Listener fuer alle externen Links (siehe
+  // `useOutboundTracking`). Ohne Einwilligung ist `track` eine leere Funktion.
+  useOutboundTracking()
+
   return (
     <>
       {/* Sendet bei jedem clientseitigen Routenwechsel einen GA4 page_view
@@ -424,6 +481,10 @@ function App() {
       {/* Nach <Routes> gerendert: der Effect von <ScrollToTop> im Layout laeuft
           damit zuerst, das rAF-Scrollen hier gewinnt. */}
       <ScrollToHash />
+      {/* AP24 PT24.3: Ein Routenwechsel tauscht den ganzen Inhalt aus, ohne
+          dass eine Assistenztechnik davon erfaehrt. Diese Region sagt den
+          neuen Titel an — hoeflich, und ohne den Fokus anzufassen. */}
+      <RouteAnnouncer />
       {/* Cookie consent — site-wide so the consumer landing pages get it too (GTM/Consent Mode). */}
       <CookieBanner />
     </>

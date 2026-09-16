@@ -83,7 +83,8 @@
     "epi_basics": "Grundlag",
     "epi_evidence": "Studier",
     "epi_docs": "Dokumenter",
-    "epi_samples": "Eksempelrapporter"
+    "epi_samples": "Eksempelrapporter",
+    "cookie_settings": "Cookieindstillinger"
   },
   "read_more": "Læs mere",
   "cookie": {
@@ -107,7 +108,8 @@
         "description": "Analyse."
       }
     },
-    "reject_all": "Kun nødvendige"
+    "reject_all": "Kun nødvendige",
+    "withdraw": "Tilbagetræk samtykke"
   },
   "testimonials": {
     "positiveLabel": "Positiv anmeldelse"
@@ -259,6 +261,7 @@
     "honeypot": "Lad venligst dette felt stå tomt",
     "select_language": "Vælg sprog",
     "main_nav": "Hovednavigation",
+    "breadcrumb": "Brødkrummenavigation",
     "toggle_submenu": "{{name}} — undermenu",
     "skip_to_content": "Gå til indhold"
   },

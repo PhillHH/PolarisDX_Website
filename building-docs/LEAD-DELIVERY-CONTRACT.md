@@ -113,6 +113,15 @@ Fehler des Gesamtvorgangs, sondern ein Zwischenzustand mit eigener Weiterverarbe
 nach Ablauf seiner Bearbeitungszusage (Lease/Sichtbarkeitsfenster) erneut ausgeliefert. Kombiniert mit
 LDV-11 führt das nicht zu Doppelzustellung.
 
+> **Stand AP26 PT26.4 (2026-09-15, gemessen):** LDV-11 ist im Code nicht umgesetzt — kein Kanal prüft vor
+> dem Senden, ob er für den Lead bereits erfolgreich war, und SendGrid kennt keinen Idempotenzschlüssel.
+> Die automatische Neuauslieferung nach Lease-Ablauf konnte deshalb doppelt zustellen. Seit PT26.4 geht
+> ein abgelaufener Claim in `RECONCILIATION_REQUIRED` (`HANDOFF_LEASE_EXPIRED`) statt erneut zugestellt
+> zu werden; verloren geht er nicht und bleibt über `requeueForDelivery` bewusst wiederholbar. Ebenso
+> **LDV-10:** Mehrere Mails eines Versuchs laufen über `sendEach` — ein Teilerfolg ergibt
+> `PROVIDER_PARTIAL_DELIVERY` → Klärung statt Wiederholung. Transportfehler (`ETIMEDOUT`, `ECONNRESET`)
+> der Adapter gelten als unbekanntes Ergebnis statt als wiederholbar. Details `SECURITY-CONTRACT.md` §16.
+
 **LDV-14 · Nebenläufige Bearbeitung desselben Auftrags ist ausgeschlossen** — über Lease, Lock oder
 Sichtbarkeitsfenster; die Technik entscheidet AP22 PT22.4 mit der Queue-Wahl.
 

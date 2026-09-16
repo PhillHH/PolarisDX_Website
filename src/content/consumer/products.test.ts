@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 
 import { SUPPORTED_LANGUAGES } from '../../i18n'
 import {
@@ -38,6 +39,20 @@ const namespaceKeys = (locale: string, prefix: string): string[] =>
 const sprayKeys = (locale: string): string[] => namespaceKeys(locale, 'spray.')
 
 /** JPEG-Abmessungen aus der Datei lesen — keine Annahme, keine Schaetzung. */
+/**
+ * Die serverseitige Produkt-Allowlist. PT21.5 hat sie aus `server/server.js`
+ * in den eigenen Journey-Slice `server/consumer-order.js` gezogen; sie ist
+ * weiterhin die einzige Autoritaet fuer Bestellidentitaeten.
+ */
+const serverAllowlist = (): Record<
+  string,
+  { orderId: string; label: string; variants: string[] }
+> => createRequire(import.meta.url)('../../../server/consumer-order.js').PRODUCT_ALLOWLIST
+
+const allowlistedSlugs = (): string[] => Object.keys(serverAllowlist())
+const allowlistedOrderIds = (): string[] =>
+  Object.values(serverAllowlist()).map((product) => product.orderId)
+
 const jpegSize = (file: string): { width: number; height: number } => {
   const data = readFileSync(file)
   let offset = 2
@@ -146,12 +161,10 @@ describe('PT21.2 Vitamin-D3-Spray — Inhalt', () => {
   it('haelt Identitaet und Bestellkontext stabil', () => {
     expect(SPRAY_PRODUCT.slug).toBe('vitamin-d3-spray')
     // Die Bestell-ID muss serverseitig allowlistet sein — kein freier Name.
-    const server = readFileSync('server/server.js', 'utf8')
-    const allowlist = server.slice(
-      server.indexOf('const CONSUMER_PRODUCT_LABELS'),
-      server.indexOf('const CONSUMER_PRODUCT_LABELS') + 300,
-    )
-    expect(allowlist).toContain(`${SPRAY_PRODUCT.orderId}:`)
+    // PT21.5 hat die Allowlist von server.js nach consumer-order.js verschoben
+    // und fuehrt seither den Route-Slug als kanonische Identitaet.
+    expect(allowlistedSlugs()).toContain(SPRAY_PRODUCT.slug)
+    expect(allowlistedOrderIds()).toContain(SPRAY_PRODUCT.orderId)
     expect(SPRAY_PRODUCT.orderId).not.toContain(' ')
   })
 
@@ -294,9 +307,8 @@ describe('PT21.3 Hydrating Masks — Inhalt', () => {
 
   it('haelt Identitaet und Bestellkontext stabil', () => {
     expect(MASKS_PRODUCT.slug).toBe('hydrating-masks')
-    const server = readFileSync('server/server.js', 'utf8')
-    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
-    expect(server.slice(start, start + 300)).toContain(`${MASKS_PRODUCT.orderId}:`)
+    expect(allowlistedSlugs()).toContain(MASKS_PRODUCT.slug)
+    expect(allowlistedOrderIds()).toContain(MASKS_PRODUCT.orderId)
     expect(MASKS_PRODUCT.orderId).not.toContain(' ')
   })
 
@@ -378,10 +390,7 @@ describe('PT21.4 Inside-Out Care Duo — Inhalt', () => {
       expect(CONSUMER_PRODUCTS[component.of], `${component.of} existiert`).toBeTruthy()
     }
     // Der Server beschreibt dasselbe Bundle.
-    const server = readFileSync('server/server.js', 'utf8')
-    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
-    const allowlist = server.slice(start, start + 400)
-    expect(allowlist).toContain('1 spray + 5 masks')
+    expect(serverAllowlist()['inside-out-duo'].label).toContain('1 spray + 5 masks')
 
     for (const locale of SUPPORTED_LANGUAGES) {
       // Die sichtbare Zusammensetzung nennt beide Zahlen.
@@ -458,9 +467,8 @@ describe('PT21.4 Inside-Out Care Duo — Inhalt', () => {
 
   it('haelt Identitaet und Bestellkontext stabil', () => {
     expect(DUO_PRODUCT.slug).toBe('inside-out-duo')
-    const server = readFileSync('server/server.js', 'utf8')
-    const start = server.indexOf('const CONSUMER_PRODUCT_LABELS')
-    expect(server.slice(start, start + 300)).toContain(`${DUO_PRODUCT.orderId}:`)
+    expect(allowlistedSlugs()).toContain(DUO_PRODUCT.slug)
+    expect(allowlistedOrderIds()).toContain(DUO_PRODUCT.orderId)
     expect(DUO_PRODUCT.orderId).not.toContain(' ')
   })
 

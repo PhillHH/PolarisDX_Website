@@ -9,18 +9,31 @@
  * - Production: Lädt statische Assets aus dist/client
  */
 
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
-import { DEFAULT_LANGUAGE, getLanguageFromPathname, type SupportedLanguage } from './src/i18n'
+import {
+  DEFAULT_LANGUAGE,
+  getLanguageFromPathname,
+  SSR_I18N_STATE_ID,
+  type SsrI18nState,
+  type SupportedLanguage,
+} from './src/i18n'
 import { generateSitemapXml } from './src/components/seo/sitemap'
 import {
+  getCanonicalRouteEntries,
   getRegistryRedirectTarget,
   isKnownCanonicalPath,
   normalizeRoutePath,
 } from './src/routing/routeRegistry'
+import {
+  buildContentSecurityPolicy,
+  cspHeaderName,
+  resolveCspMode,
+} from './src/security/contentSecurityPolicy'
 
 import type { Request, Response, NextFunction } from 'express'
 import type { ViteDevServer } from 'vite'
@@ -82,8 +95,104 @@ interface RenderModule {
       link: { toString: () => string }
       script: { toString: () => string }
     }
+    i18nState?: SsrI18nState
   }>
   preloadAllTranslations?: () => void
+}
+
+// =============================================================================
+// SSR-I18N-UEBERGABE (AP25 PT25.2, PERF-B01)
+// =============================================================================
+
+/**
+ * Kopf-Tag fuer die Hydration: der i18n-Zustand als JSON-Datenblock.
+ * `type="application/json"` wird nie ausgefuehrt; `<` wird escaped, damit kein
+ * Inhalt den Block beenden kann. `lng` und `ns` stammen aus der Sprach-/
+ * Namespace-Whitelist in src/i18n.ts.
+ *
+ * Bewusst OHNE `<link rel="preload" as="fetch">` fuer die Namespaces (gemessen in
+ * PT25.2, siehe PERFORMANCE-CONTRACT §26): Preloads mit Standardprioritaet
+ * verschoben FCP/LCP auf Mobil und liessen die Schrift nach dem ersten Paint
+ * tauschen (/de/contact CLS 0,161); mit `fetchpriority="low"` trat derselbe
+ * Shift noch sporadisch auf. Ohne Preload laden die SSR-Namespaces nach dem
+ * Entry-JS — trotzdem ~0,8 s frueher hydriert als mit allen 30 Dateien.
+ */
+function i18nHeadTags(state: SsrI18nState | undefined): string {
+  if (!state) return ''
+  const json = JSON.stringify(state).replace(/</g, '\\u003c')
+  return `<script type="application/json" id="${SSR_I18N_STATE_ID}">${json}</script>`
+}
+
+// =============================================================================
+// STYLESHEET INLINE (AP25 PT25.4)
+// =============================================================================
+
+/**
+ * Liefert das (einzige) App-Stylesheet als `<style>` im Kopf statt als `<link>`.
+ *
+ * Gemessen (PT25.4, mobil gedrosselt hinter gzip, verschraenkt je 5–7 Laeufe): die CSS-Datei
+ * brauchte eine eigene Rundreise und endete bei ~770 ms; inline sinkt FCP um ~490–550 ms
+ * (z. B. /de/contact 1.096 → 544 ms). Das CSS ist unveraendert, synchron und vor dem Inhalt
+ * verfuegbar: kein FOUC, Fokus-Stile ab dem ersten Frame, kein Async-CSS.
+ * Preis: rund 17 KB gzip mehr HTML je Voll-Navigation, weil das CSS nicht mehr separat
+ * gecacht wird (clientseitige Navigation laedt kein HTML nach). Ohne die gemessenen
+ * Fallback-Metriken in index.css brachte inline Font-Swap-CLS bis 0,161 — beides gehoert
+ * zusammen. Faellt das Lesen der Datei aus, bleibt der `<link>` unveraendert stehen.
+ */
+let inlineStylesheetCache: { href: string; tag: string; hash: string } | null = null
+function inlineStylesheet(template: string): { html: string; styleHashes: string[] } {
+  const match = template.match(/<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/)
+  if (!match) return { html: template, styleHashes: [] }
+  try {
+    if (!inlineStylesheetCache || inlineStylesheetCache.href !== match[1]) {
+      const css = fs
+        .readFileSync(path.resolve(CLIENT_DIST_DIR, match[1].slice(1)), 'utf-8')
+        .replace(/<\/style/gi, '<\\/style')
+      inlineStylesheetCache = {
+        href: match[1],
+        tag: `<style data-inline-stylesheet="${match[1]}">${css}</style>`,
+        // AP26 PT26.2: die CSP gibt genau diesen Inhalt per Hash frei statt `'unsafe-inline'`.
+        hash: createHash('sha256').update(css, 'utf8').digest('base64'),
+      }
+    }
+    const { tag, hash } = inlineStylesheetCache
+    return { html: template.replace(match[0], () => tag), styleHashes: [hash] }
+  } catch {
+    return { html: template, styleHashes: [] }
+  }
+}
+
+// =============================================================================
+// SSR-WARM-UP (AP25 PT25.2)
+// =============================================================================
+
+/**
+ * Rendert nach dem Start jede kanonische Route einmal in der Default-Sprache.
+ *
+ * Grund (gemessen in PT25.2): der ERSTE Request je Route nach einem Deploy
+ * zahlt den Lazy-Import des Routenchunks plus die head-gated Retry-Schleife
+ * (Startseite ~200 ms, Musterbefund ~100 ms, lazy Consumer-Seiten ~40 ms statt
+ * ~10 ms warm). Der Warm-up zieht diese Importe vor den ersten Besucher. Er
+ * laeuft nach `listen`, blockiert keinen Request, gibt zwischen den Routen die
+ * Event-Loop frei und darf den Start nie verhindern: Fehler werden nur geloggt.
+ * Die Chunks sind sprachunabhaengig; Befund-Routen laden serverseitig ohnehin
+ * alle zehn Fassungen.
+ */
+async function warmUpSsrRoutes(render: RenderModule['render']): Promise<void> {
+  const started = performance.now()
+  const paths = [...new Set(getCanonicalRouteEntries().map((entry) => entry.path))]
+  let failed = 0
+  for (const routePath of paths) {
+    try {
+      await render(`/${DEFAULT_LANGUAGE}${routePath === '/' ? '/' : routePath}`, DEFAULT_LANGUAGE)
+    } catch {
+      failed += 1
+    }
+    await new Promise<void>((resolve) => setImmediate(resolve))
+  }
+  console.log(
+    `[ssr-warmup] ${paths.length - failed}/${paths.length} Routen in ${Math.round(performance.now() - started)} ms vorgewaermt`,
+  )
 }
 
 // =============================================================================
@@ -136,6 +245,30 @@ function isStaticAsset(pathname: string): boolean {
 const NOT_FOUND_MARKER = /name="prerender-status-code"[^>]*content="404"/i
 
 // =============================================================================
+// SECURITY BASELINE HEADERS (AP26 PT26.1)
+// =============================================================================
+
+/**
+ * Security-Baseline, von der App auf JEDE Antwort gesetzt (SECURITY-CONTRACT §4).
+ *
+ * Die App ist alleiniger Owner dieser Header; der Reverse Proxy besitzt TLS und
+ * HSTS (DEP-32). Zwei Setzer fuer denselben Header erzeugten auf der Preview
+ * doppelte `X-Content-Type-Options`-Zeilen (gemessen PT26.1).
+ */
+const SECURITY_BASELINE_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',
+  // Frame-Schutz fuer Browser ohne CSP-`frame-ancestors`; in Produktion setzt die CSP
+  // `frame-ancestors 'self'` seit AP26 PT26.2 zusaetzlich durch.
+  'X-Frame-Options': 'SAMEORIGIN',
+  // Den XSS-Auditor alter Browser ausdruecklich abschalten: der Filter war selbst ein
+  // Seitenkanal, aktuelle Browser haben ihn entfernt (vorher `1; mode=block`).
+  'X-XSS-Protection': '0',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  // Keine dieser Schnittstellen hat einen Verwender in src/ (Code-Suche PT26.1).
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+} as const
+
+// =============================================================================
 // SERVER SETUP
 // =============================================================================
 
@@ -144,6 +277,20 @@ async function createServer() {
 
   // Entferne den X-Powered-By: Express Header (Informations-Leak vermeiden).
   app.disable('x-powered-by')
+
+  const cspHeader = cspHeaderName(resolveCspMode(process.env))
+
+  // AP26 PT26.1: vor den statischen Middlewares registriert. Vorher liefen die Header erst
+  // danach, und `express.static` beantwortete /assets, /locales, robots.txt und favicon ohne
+  // jeden Security-Header (gemessen lokal und live). Antworten des API-Proxys ueberschreiben
+  // gleichnamige Header mit den Backend-Werten (etwa `Referrer-Policy: no-referrer` auf
+  // geschuetzten Downloads) — `setHeader` ersetzt, es entsteht keine Doppelung.
+  app.use((_req, res, next) => {
+    for (const [name, value] of Object.entries(SECURITY_BASELINE_HEADERS)) {
+      res.setHeader(name, value)
+    }
+    next()
+  })
 
   let vite: ViteDevServer | undefined
 
@@ -191,35 +338,14 @@ async function createServer() {
   }
 
   // ---------------------------------------------------------------------------
-  // SECURITY HEADERS
+  // CONTENT SECURITY POLICY (AP26 PT26.2)
   // ---------------------------------------------------------------------------
+  // Inhalt und Modus kommen aus src/security/contentSecurityPolicy.ts (SECURITY-CONTRACT §8).
+  // Produktion setzt durch; ohne Report-Empfaenger gibt es kein `report-uri`. Diese Middleware
+  // deckt Redirects, API-Proxy und Fehler ab; der SSR-Handler ersetzt den Header durch die
+  // Fassung mit dem Hash des inline ausgelieferten Stylesheets.
   app.use((_req, res, next) => {
-    res.setHeader('X-Frame-Options', 'SAMEORIGIN')
-    res.setHeader('X-Content-Type-Options', 'nosniff')
-    res.setHeader('X-XSS-Protection', '1; mode=block')
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
-
-    // Schränke sensible Browser-Features ein (Site braucht keine davon).
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
-
-    // Content-Security-Policy im REPORT-ONLY Modus: bricht die Live-Seite NICHT,
-    // protokolliert nur Verstöße. Erlaubt self + die tatsächlich genutzten
-    // Drittanbieter: Google Tag Manager, Google Analytics, HiHuman Chat-Widget
-    // und Google Fonts. Bewusst permissiv (https:/data: für Bilder/Styles/Fonts).
-    const cspReportOnly = [
-      "default-src 'self'",
-      "base-uri 'self'",
-      "object-src 'none'",
-      "frame-ancestors 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://widget.hihuman.co.uk https:",
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://widget.hihuman.co.uk https://*.hihuman.co.uk https:",
-      "img-src 'self' data: https:",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https:",
-      "font-src 'self' data: https://fonts.gstatic.com https:",
-      "frame-src 'self' https://www.googletagmanager.com https://widget.hihuman.co.uk https:",
-    ].join('; ')
-    res.setHeader('Content-Security-Policy-Report-Only', cspReportOnly)
-
+    res.setHeader(cspHeader, buildContentSecurityPolicy())
     next()
   })
 
@@ -354,6 +480,7 @@ async function createServer() {
       // Template laden
       let template: string
       let render: RenderModule['render']
+      let styleHashes: string[] = []
 
       if (!isProduction && vite) {
         // -----------------------------------------------------------------------
@@ -375,6 +502,7 @@ async function createServer() {
         // -----------------------------------------------------------------------
         template = fs.readFileSync(path.resolve(CLIENT_DIST_DIR, 'index.html'), 'utf-8')
         template = template.replace('</head>', `${getFontPreloadTag()}</head>`)
+        ;({ html: template, styleHashes } = inlineStylesheet(template))
 
         const serverEntryPath = path.resolve(SERVER_DIST_DIR, 'entry-server.js')
         const ssrModule = (await import(/* @vite-ignore */ serverEntryPath)) as RenderModule
@@ -383,7 +511,7 @@ async function createServer() {
       }
 
       // App rendern mit voller URL (inkl. Sprach-Prefix) und erkannter Sprache
-      let { html: appHtml, helmet } = await render(routerUrl, lang)
+      let { html: appHtml, helmet, i18nState } = await render(routerUrl, lang)
 
       // React 19 renderToString returns the Suspense fallback while the first
       // lazy route import is still resolving. A response must not leave with
@@ -412,7 +540,7 @@ async function createServer() {
         headRenderAttempt += 1
       ) {
         await new Promise<void>((resolve) => setTimeout(resolve, 25))
-        ;({ html: appHtml, helmet } = await render(routerUrl, lang))
+        ;({ html: appHtml, helmet, i18nState } = await render(routerUrl, lang))
       }
 
       // -----------------------------------------------------------------------
@@ -499,6 +627,9 @@ async function createServer() {
         .replace('<!--ssr-outlet-->', cleanAppHtml)
         .replace('<!--helmet-head-->', helmetTags)
         .replace('<html lang="de">', `<html lang="${lang}">`)
+        // AP25 PT25.2: i18n-Zustand ans Ende des Kopfes. Funktionsersatz statt
+        // Ersatzstring, damit `$` in Uebersetzungen nie als Muster wirkt.
+        .replace('</head>', () => `${i18nHeadTags(i18nState)}</head>`)
 
       // HTML NIE cachen: die Seite referenziert content-gehashte Assets, die sich
       // bei jedem Deploy ändern. Ohne no-store zeigen Browser (heuristisch gecachte)
@@ -509,6 +640,7 @@ async function createServer() {
         .set({
           'Content-Type': 'text/html',
           'Cache-Control': 'no-store, no-cache, must-revalidate',
+          [cspHeader]: buildContentSecurityPolicy({ styleHashes }),
         })
         .end(finalHtml)
     } catch (error) {
@@ -531,7 +663,8 @@ async function createServer() {
     console.error('Server Error:', err.stack)
 
     if (isProduction) {
-      res.status(500).send('Internal Server Error')
+      // AP26 PT26.1: eine Fehlerseite darf in keinem Cache landen.
+      res.status(500).set('Cache-Control', 'no-store').send('Internal Server Error')
     } else {
       res.status(500).send(`
         <html>
@@ -549,6 +682,12 @@ async function createServer() {
   // START SERVER
   // ---------------------------------------------------------------------------
   app.listen(PORT, '127.0.0.1', () => {
+    if (isProduction) {
+      const serverEntryPath = path.resolve(SERVER_DIST_DIR, 'entry-server.js')
+      import(/* @vite-ignore */ serverEntryPath)
+        .then((ssrModule: RenderModule) => warmUpSsrRoutes(ssrModule.render))
+        .catch((error) => console.warn('[ssr-warmup] uebersprungen:', error))
+    }
     console.log(`
 ╔════════════════════════════════════════════════════════════╗
 ║                                                            ║

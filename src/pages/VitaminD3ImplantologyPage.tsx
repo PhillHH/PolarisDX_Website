@@ -262,16 +262,31 @@ const VitaminD3ImplantologyPage = () => {
 
                   {/* Dosing Table */}
                   <div className="my-8 overflow-x-auto rounded-lg border border-slate-200">
+                    {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
+                        Accessibility-Tree (bisher stand sie namenlos im
+                        Dokument), `scope` bindet jede Datenzelle an ihre
+                        Kopfzelle. Text ist die bereits uebersetzte
+                        Abschnittsueberschrift — keine neue Uebersetzung. */}
                     <table className="w-full text-sm">
+                      <caption className="sr-only">{t('vitamin_d3_implantology.copy_066')}</caption>
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('vitamin_d3_implantology.copy_070')}
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('vitamin_d3_implantology.copy_071')}
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('vitamin_d3_implantology.copy_072')}
                           </th>
                         </tr>
@@ -378,7 +393,7 @@ const VitaminD3ImplantologyPage = () => {
                       {t('vitamin_d3_implantology.copy_092')}{' '}
                       <Link
                         to="/diagnostics/dental"
-                        className="font-semibold text-accent hover:underline"
+                        className="font-semibold text-accent-strong hover:underline"
                       >
                         {t('vitamin_d3_implantology.copy_093')}
                       </Link>
@@ -417,8 +432,7 @@ const VitaminD3ImplantologyPage = () => {
                 {/* Order Form (finale Conversion) */}
                 <div className="my-12">
                   <PraxisOrderForm
-                    area="Vitamin D3+K2 Spray BESTELLUNG"
-                    orderName="Vitamin D3+K2 Spray"
+                    product="vitamin-d3-k2-spray"
                     messageNoneLabel={t('vitd3spray:order_message_none')}
                     defaultQuantity="10"
                     quantityOptions={[
@@ -449,6 +463,8 @@ const VitaminD3ImplantologyPage = () => {
                       submitNote: t('vitd3spray:order.submit_note'),
                       reassurance: t('vitd3spray:order.reassurance'),
                       errorText: t('vitd3spray:order.error_text'),
+
+                      errorRetryableText: t('vitd3spray:order.error_retryable'),
                       successTitle: t('vitd3spray:order.success_title'),
                       successText: t('vitd3spray:order.success_text'),
                     }}
@@ -506,7 +522,7 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
                   <a
                     href="tel:+4915175011699"
-                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
                   >
                     <Phone className="h-4 w-4" />
                     +49 151 75011699

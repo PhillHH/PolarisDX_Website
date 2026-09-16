@@ -94,7 +94,8 @@
     "reassurance": "Gratis & uforpligtende · Svar < 24 t",
     "success_title": "Mange tak for din bestilling!",
     "success_text": "Vi har modtaget din ordreforespørgsel. Vores team kontakter dig snart om de næste trin.",
-    "error_text": "Der opstod en fejl. Prøv venligst igen, eller ring til os."
+    "error_text": "Der opstod en fejl. Prøv venligst igen, eller ring til os.",
+    "error_retryable": "Det lykkedes ikke lige nu. Prøv igen om et øjeblik – dine bestillingsoplysninger bevares."
   },
   "contact": {
     "title": "Din kontaktperson",

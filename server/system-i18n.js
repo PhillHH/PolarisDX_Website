@@ -7,6 +7,23 @@
  */
 const MAIL_COPY = {
   de: {
+    consumerOrder: {
+      subject: 'Ihre Bestellanfrage ist eingegangen',
+      title: 'Ihre Bestellanfrage ist eingegangen',
+      greeting: 'Hallo',
+      received:
+        'vielen Dank für Ihre Bestellanfrage. Wir haben sie erhalten und melden uns mit Preis-, Versand- und Zahlungsdetails bei Ihnen.',
+      details: 'Ihre Angaben',
+      reference: 'Vorgangsnummer',
+      product: 'Produkt',
+      variant: 'Variante',
+      quantity: 'Menge',
+      quantityAdvice: 'Mehr – bitte beraten',
+      notPurchase:
+        'Dies ist eine Bestellanfrage, kein Kaufvertrag und keine Zahlung. Preis, Verfügbarkeit und Lieferung bestätigen wir separat.',
+      regards: 'Mit freundlichen Grüßen',
+      team: 'Ihr PolarisDX Team',
+    },
     support: {
       subject: 'Ihre Support-Anfrage wurde empfangen',
       title: 'Ihre Support-Anfrage wurde empfangen',
@@ -49,6 +66,23 @@ const MAIL_COPY = {
     },
   },
   en: {
+    consumerOrder: {
+      subject: 'Your order enquiry has been received',
+      title: 'Your order enquiry has been received',
+      greeting: 'Hello',
+      received:
+        'thank you for your order enquiry. We have received it and will get back to you with price, shipping and payment details.',
+      details: 'Your details',
+      reference: 'Reference number',
+      product: 'Product',
+      variant: 'Variant',
+      quantity: 'Quantity',
+      quantityAdvice: 'More – please advise',
+      notPurchase:
+        'This is an order enquiry, not a purchase contract and not a payment. Price, availability and delivery are confirmed separately.',
+      regards: 'Kind regards',
+      team: 'Your PolarisDX team',
+    },
     support: {
       subject: 'Your support request has been received',
       title: 'Your support request has been received',
@@ -91,6 +125,23 @@ const MAIL_COPY = {
     },
   },
   pl: {
+    consumerOrder: {
+      subject: 'Otrzymaliśmy Twoje zapytanie o zamówienie',
+      title: 'Otrzymaliśmy Twoje zapytanie o zamówienie',
+      greeting: 'Dzień dobry',
+      received:
+        'dziękujemy za zapytanie o zamówienie. Otrzymaliśmy je i skontaktujemy się z Tobą, podając cenę oraz szczegóły wysyłki i płatności.',
+      details: 'Twoje dane',
+      reference: 'Numer sprawy',
+      product: 'Produkt',
+      variant: 'Wariant',
+      quantity: 'Ilość',
+      quantityAdvice: 'Więcej – proszę o poradę',
+      notPurchase:
+        'To jest zapytanie o zamówienie, a nie umowa kupna ani płatność. Cenę, dostępność i dostawę potwierdzamy osobno.',
+      regards: 'Z poważaniem',
+      team: 'Zespół PolarisDX',
+    },
     support: {
       subject: 'Otrzymaliśmy Twoje zgłoszenie do pomocy technicznej',
       title: 'Otrzymaliśmy Twoje zgłoszenie do pomocy technicznej',
@@ -133,6 +184,23 @@ const MAIL_COPY = {
     },
   },
   fr: {
+    consumerOrder: {
+      subject: 'Votre demande de commande a bien été reçue',
+      title: 'Votre demande de commande a bien été reçue',
+      greeting: 'Bonjour',
+      received:
+        "merci pour votre demande de commande. Nous l'avons bien reçue et reviendrons vers vous avec le prix ainsi que les détails de livraison et de paiement.",
+      details: 'Vos informations',
+      reference: 'Numéro de dossier',
+      product: 'Produit',
+      variant: 'Variante',
+      quantity: 'Quantité',
+      quantityAdvice: 'Plus – merci de nous conseiller',
+      notPurchase:
+        "Il s'agit d'une demande de commande, non d'un contrat de vente ni d'un paiement. Le prix, la disponibilité et la livraison sont confirmés séparément.",
+      regards: 'Cordialement',
+      team: 'Votre équipe PolarisDX',
+    },
     support: {
       subject: 'Votre demande d’assistance a bien été reçue',
       title: 'Votre demande d’assistance a bien été reçue',
@@ -175,6 +243,23 @@ const MAIL_COPY = {
     },
   },
   it: {
+    consumerOrder: {
+      subject: "Abbiamo ricevuto la tua richiesta d'ordine",
+      title: "Abbiamo ricevuto la tua richiesta d'ordine",
+      greeting: 'Salve',
+      received:
+        "grazie per la tua richiesta d'ordine. L'abbiamo ricevuta e ti risponderemo con prezzo, spedizione e dettagli di pagamento.",
+      details: 'I tuoi dati',
+      reference: 'Numero di pratica',
+      product: 'Prodotto',
+      variant: 'Variante',
+      quantity: 'Quantità',
+      quantityAdvice: 'Di più – chiedo consiglio',
+      notPurchase:
+        "Questa è una richiesta d'ordine, non un contratto di acquisto né un pagamento. Prezzo, disponibilità e consegna vengono confermati separatamente.",
+      regards: 'Cordiali saluti',
+      team: 'Il team PolarisDX',
+    },
     support: {
       subject: 'La tua richiesta di assistenza è stata ricevuta',
       title: 'La tua richiesta di assistenza è stata ricevuta',
@@ -217,6 +302,23 @@ const MAIL_COPY = {
     },
   },
   es: {
+    consumerOrder: {
+      subject: 'Hemos recibido su solicitud de pedido',
+      title: 'Hemos recibido su solicitud de pedido',
+      greeting: 'Hola',
+      received:
+        'gracias por su solicitud de pedido. La hemos recibido y nos pondremos en contacto con usted con el precio y los detalles de envío y pago.',
+      details: 'Sus datos',
+      reference: 'Número de expediente',
+      product: 'Producto',
+      variant: 'Variante',
+      quantity: 'Cantidad',
+      quantityAdvice: 'Más – solicito asesoramiento',
+      notPurchase:
+        'Esto es una solicitud de pedido, no un contrato de compra ni un pago. El precio, la disponibilidad y la entrega se confirman por separado.',
+      regards: 'Atentamente',
+      team: 'Su equipo de PolarisDX',
+    },
     support: {
       subject: 'Hemos recibido su solicitud de asistencia',
       title: 'Hemos recibido su solicitud de asistencia',
@@ -259,6 +361,23 @@ const MAIL_COPY = {
     },
   },
   pt: {
+    consumerOrder: {
+      subject: 'Recebemos o seu pedido de encomenda',
+      title: 'Recebemos o seu pedido de encomenda',
+      greeting: 'Olá',
+      received:
+        'obrigado pelo seu pedido de encomenda. Recebemo-lo e entraremos em contacto consigo com o preço e os detalhes de envio e pagamento.',
+      details: 'Os seus dados',
+      reference: 'Número de processo',
+      product: 'Produto',
+      variant: 'Variante',
+      quantity: 'Quantidade',
+      quantityAdvice: 'Mais – peço aconselhamento',
+      notPurchase:
+        'Isto é um pedido de encomenda, não um contrato de compra nem um pagamento. O preço, a disponibilidade e a entrega são confirmados separadamente.',
+      regards: 'Com os melhores cumprimentos',
+      team: 'A sua equipa PolarisDX',
+    },
     support: {
       subject: 'Recebemos o seu pedido de suporte',
       title: 'Recebemos o seu pedido de suporte',
@@ -301,6 +420,23 @@ const MAIL_COPY = {
     },
   },
   da: {
+    consumerOrder: {
+      subject: 'Vi har modtaget din bestillingsforespørgsel',
+      title: 'Vi har modtaget din bestillingsforespørgsel',
+      greeting: 'Hej',
+      received:
+        'tak for din bestillingsforespørgsel. Vi har modtaget den og vender tilbage med pris samt forsendelses- og betalingsdetaljer.',
+      details: 'Dine oplysninger',
+      reference: 'Sagsnummer',
+      product: 'Produkt',
+      variant: 'Variant',
+      quantity: 'Antal',
+      quantityAdvice: 'Flere – bed om rådgivning',
+      notPurchase:
+        'Dette er en bestillingsforespørgsel, ikke en købsaftale og ikke en betaling. Pris, tilgængelighed og levering bekræftes særskilt.',
+      regards: 'Med venlig hilsen',
+      team: 'Dit PolarisDX-team',
+    },
     support: {
       subject: 'Vi har modtaget din supportanmodning',
       title: 'Vi har modtaget din supportanmodning',
@@ -343,6 +479,23 @@ const MAIL_COPY = {
     },
   },
   nl: {
+    consumerOrder: {
+      subject: 'We hebben uw bestelaanvraag ontvangen',
+      title: 'We hebben uw bestelaanvraag ontvangen',
+      greeting: 'Hallo',
+      received:
+        'hartelijk dank voor uw bestelaanvraag. We hebben deze ontvangen en nemen contact met u op met de prijs en de verzend- en betaalgegevens.',
+      details: 'Uw gegevens',
+      reference: 'Dossiernummer',
+      product: 'Product',
+      variant: 'Variant',
+      quantity: 'Aantal',
+      quantityAdvice: 'Meer – graag advies',
+      notPurchase:
+        'Dit is een bestelaanvraag, geen koopovereenkomst en geen betaling. Prijs, beschikbaarheid en levering bevestigen we apart.',
+      regards: 'Met vriendelijke groet',
+      team: 'Uw PolarisDX-team',
+    },
     support: {
       subject: 'Uw supportaanvraag is ontvangen',
       title: 'Uw supportaanvraag is ontvangen',
@@ -385,6 +538,23 @@ const MAIL_COPY = {
     },
   },
   cs: {
+    consumerOrder: {
+      subject: 'Přijali jsme vaši objednávkovou poptávku',
+      title: 'Přijali jsme vaši objednávkovou poptávku',
+      greeting: 'Dobrý den',
+      received:
+        'děkujeme za vaši objednávkovou poptávku. Přijali jsme ji a ozveme se vám s cenou a s údaji o dopravě a platbě.',
+      details: 'Vaše údaje',
+      reference: 'Číslo případu',
+      product: 'Produkt',
+      variant: 'Varianta',
+      quantity: 'Množství',
+      quantityAdvice: 'Více – prosím o radu',
+      notPurchase:
+        'Toto je objednávková poptávka, nikoli kupní smlouva ani platba. Cenu, dostupnost a dodání potvrzujeme samostatně.',
+      regards: 'S pozdravem',
+      team: 'Váš tým PolarisDX',
+    },
     support: {
       subject: 'Obdrželi jsme váš požadavek na podporu',
       title: 'Obdrželi jsme váš požadavek na podporu',

@@ -313,6 +313,7 @@
   "price_badge.copy_023": "Skrýt vysvětlení hodnoty pod 2 EUR měsíčně",
   "price_badge.copy_024": "Jak se staví přídavná hodnota pod 2 EUR měsíčně",
   "shell.copy_001": "PolarisDX",
+  "shell.nav_label": "Hlavní navigace",
   "shell.open_menu": "Otevřít nabídku",
   "shell.close_menu": "Zavřít nabídku",
   "shell.image_placeholder": "Obrázek produktu",
@@ -352,5 +353,10 @@
   "price_badge.duo_line_2": "plus Vitamin D3+K2 Spray 12-balení",
   "price_badge.duo_line_3": "Sprej aplikovaný jednou denně – přibližně 71 dní na lahvičku",
   "duo.seo_description": "Inside-Out Care Duo spojuje denní sprej s vitamínem D3+K2 s 5 hydratačními plátýnkovými maskami: jedna jednoduchá vnitřní i vnější rutina za preferovanou cenu balíčku {{price}}.",
-  "duo.bundle_lead": "Chytřejší způsob, jak vytvořit úplnou rutinu Inside-Out Care: odemkněte hodnotu Duo. Dokončete svou objednávku masek přidáním denní podpory D3+K2 za pouhých {{price}} měsíčně."
+  "duo.bundle_lead": "Chytřejší způsob, jak vytvořit úplnou rutinu Inside-Out Care: odemkněte hodnotu Duo. Dokončete svou objednávku masek přidáním denní podpory D3+K2 za pouhých {{price}} měsíčně.",
+  "order_form.error_retryable": "Právě teď se to nepodařilo. Zkuste to prosím za chvíli znovu – vaše údaje zůstávají zachovány.",
+  "order_form.error_terminal": "Tuto objednávkovou poptávku takto nelze dokončit. Načtěte stránku znovu nebo nám napište na contact@polarisdx.net.",
+  "order_form.marketing_consent": "Volitelné: chci e-mailem dostávat novinky a nabídky PolarisDX. Tento souhlas je dobrovolný a pro objednávku není nutný.",
+  "order_form.reference_label": "Vaše číslo případu:",
+  "order_form.success_not_purchase": "Toto je objednávková poptávka, nikoli kupní smlouva ani platba. Cenu, dostupnost a dodání potvrzujeme samostatně."
 }

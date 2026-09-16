@@ -1,6 +1,12 @@
 /**
  * Consumer order intake form + matching section wrapper
  *
+ * AP21 PT21.5 — Consumer Ordering laeuft ueber die geteilte Lead-Foundation:
+ * `useConsumerOrderForm` haelt die Statusmaschine, sendet einen stabilen
+ * Idempotency-Key und meldet Erfolg erst, wenn der Server die Anfrage
+ * dauerhaft persistiert hat. Produkt, Variante und Menge gehen als
+ * allowlistete IDs raus, nie als freie Labels.
+ *
  * GDPR-friendly:
  *   - Explicit, separate consent checkbox (NOT pre-ticked) with a clear
  * purpose statement and the legal basis (Art. 6(1)(b) GDPR).
@@ -19,8 +25,14 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 
-import { sendConsumerOrder, type ConsumerOrderProduct } from '../../api/consumerOrder'
-import type { ConsumerPage } from './tracking'
+import type {
+  ConsumerOrderProduct,
+  ConsumerOrderQuantity,
+  ConsumerOrderVariant,
+} from '../../api/consumerOrder'
+import { CONSUMER_PRODUCTS } from '../../content/consumer/products'
+import { useConsumerOrderForm } from '../../hooks/useConsumerOrderForm'
+import { trackConsumerOrderSubmit, type ConsumerPage } from './tracking'
 import { normalizeLanguage } from '../../i18n'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -29,35 +41,50 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 // PRODUCT METADATA
 // =============================================================================
 
+/**
+ * Die Menge ist eine ALLOWLISTETE Kennung, kein freier Text. Bis PT21.4
+ * ging hier ein englischer Satz wie `'1 pack (12 bottles)'` ungeprueft an
+ * den Server und von dort direkt in die Mail. Jetzt gehen 1/2/3 oder der
+ * ausdrueckliche Beratungsfall raus; das Gebinde steckt in der Variante.
+ * Die sichtbaren Labels bleiben die freigegebene x10-Copy.
+ */
 const getQuantityOptions = (
   t: TFunction,
-): Record<ConsumerOrderProduct, { value: string; label: string }[]> => ({
+): Record<ConsumerOrderProduct, { value: ConsumerOrderQuantity; label: string }[]> => ({
   spray: [
-    { value: '1 pack (12 bottles)', label: t('order_form.copy_001') },
-    { value: '2 packs (24 bottles)', label: t('order_form.copy_002') },
-    { value: '3 packs (36 bottles)', label: t('order_form.copy_003') },
-    { value: 'More — please advise', label: t('order_form.copy_004') },
+    { value: 1, label: t('order_form.copy_001') },
+    { value: 2, label: t('order_form.copy_002') },
+    { value: 3, label: t('order_form.copy_003') },
+    { value: 'MORE', label: t('order_form.copy_004') },
   ],
   masks: [
-    { value: '1 box (5 masks)', label: t('order_form.copy_005') },
-    { value: '2 boxes (10 masks)', label: t('order_form.copy_006') },
-    { value: '3 boxes (15 masks)', label: t('order_form.copy_007') },
-    { value: 'More — please advise', label: t('order_form.copy_004') },
+    { value: 1, label: t('order_form.copy_005') },
+    { value: 2, label: t('order_form.copy_006') },
+    { value: 3, label: t('order_form.copy_007') },
+    { value: 'MORE', label: t('order_form.copy_004') },
   ],
   duo: [
-    { value: '1 Duo set', label: t('order_form.copy_008') },
-    { value: '2 Duo sets', label: t('order_form.copy_009') },
-    { value: '3 Duo sets', label: t('order_form.copy_010') },
-    { value: 'More — please advise', label: t('order_form.copy_004') },
+    { value: 1, label: t('order_form.copy_008') },
+    { value: 2, label: t('order_form.copy_009') },
+    { value: 3, label: t('order_form.copy_010') },
+    { value: 'MORE', label: t('order_form.copy_004') },
   ],
 })
+
+const parseQuantity = (raw: string): ConsumerOrderQuantity =>
+  raw === 'MORE' ? 'MORE' : (Number(raw) as 1 | 2 | 3)
 
 // =============================================================================
 // INPUT PRIMITIVES (light styling, brand-aligned focus ring)
 // =============================================================================
 
+// AP24 PT24.3: der Fokusring war `accent-line/30` — Teal-500 bei 30 Prozent
+// Deckkraft auf Weiss, gemessen rund 1,3:1. Zusammen mit `outline-none` blieb
+// vom Fokus praktisch nichts uebrig. `accent-strong` liegt bei 5,47:1 auf
+// Weiss und ist derselbe Ton, den die Consumer-Flaeche ohnehin als Akzent
+// traegt.
 const inputClass =
-  'w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-heading placeholder:text-gray-400 transition-colors focus:border-accent-line focus:outline-none focus:ring-2 focus:ring-accent-line/30 disabled:bg-slate-100'
+  'w-full rounded-md border border-ui-field bg-white px-4 py-3 text-heading placeholder:text-ui-field transition-colors focus:border-accent-strong focus:outline-none focus:ring-2 focus:ring-accent-strong disabled:bg-slate-100'
 
 const labelClass = 'mb-1.5 block text-sm font-semibold text-heading'
 
@@ -124,82 +151,63 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
   const [city, setCity] = useState('')
   const [country, setCountry] = useState('')
   // Order
-  const [quantity, setQuantity] = useState(QUANTITY_OPTIONS[product][0].value)
+  const [quantity, setQuantity] = useState<ConsumerOrderQuantity>(
+    QUANTITY_OPTIONS[product][0].value,
+  )
   const [message, setMessage] = useState('')
-  // Consent + spam
+  // Consent + spam — Verarbeitung ist Pflicht, Marketing strikt getrennt.
   const [consent, setConsent] = useState(false)
+  const [marketingConsent, setMarketingConsent] = useState(false)
   const [hp, setHp] = useState('') // honeypot — must stay empty
 
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const { isSubmitting, status, orderReference, submit } = useConsumerOrderForm()
   const [errorMsg, setErrorMsg] = useState('')
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (status === 'submitting') return
-    if (!name.trim()) {
-      setErrorMsg(t('order_form.name_required'))
-      setStatus('error')
-      return
-    }
-    if (!EMAIL_RE.test(email.trim())) {
-      setErrorMsg(t('order_form.email_invalid'))
-      setStatus('error')
-      return
-    }
-    if (!consent) {
-      setErrorMsg(t('order_form.consent_required'))
-      setStatus('error')
-      return
-    }
-    setStatus('submitting')
+    if (isSubmitting) return
+    if (!name.trim()) return setErrorMsg(t('order_form.name_required'))
+    if (!EMAIL_RE.test(email.trim())) return setErrorMsg(t('order_form.email_invalid'))
+    if (!consent) return setErrorMsg(t('order_form.consent_required'))
     setErrorMsg('')
 
-    const res = await sendConsumerOrder({
+    const res = await submit({
       product,
+      variant: CONSUMER_PRODUCTS[product].orderVariant as ConsumerOrderVariant,
       quantity,
-      quantityLabel:
-        QUANTITY_OPTIONS[product].find((option) => option.value === quantity)?.label || quantity,
-      name: name.trim(),
-      email: email.trim(),
-      phone: phone.trim() || undefined,
-      company: company.trim() || undefined,
-      street: street.trim() || undefined,
-      postcode: postcode.trim() || undefined,
-      city: city.trim() || undefined,
-      country: country.trim() || undefined,
-      message: message.trim() || undefined,
+      name,
+      email,
+      phone,
+      company,
+      street,
+      postcode,
+      city,
+      country,
+      message,
       consent,
-      _hp: hp,
+      marketingConsent,
       locale: normalizeLanguage(i18n.resolvedLanguage),
+      _hp: hp,
     })
 
     if (res.ok) {
-      setStatus('success')
-      // GTM dataLayer — conversion event for the team to wire up
-      if (typeof window !== 'undefined') {
-        // Existing AP23-owned tracking path; PT08 only adds locale propagation
-        // and must not change its consent/event semantics.
-        // eslint-disable-next-line react-hooks/immutability
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({
-          event: 'consumer_order_submit',
-          consumer_page: page,
-          product,
-          quantity,
-        })
-      }
+      // Tracking erst NACH bestaetigter Persistenz und nur mit
+      // Analytics-Einwilligung. Ohne Consent wird nichts gepusht — die
+      // Bestellung selbst haengt daran an keiner Stelle.
+      trackConsumerOrderSubmit(page, product, quantity)
       onSubmitted?.()
     } else {
-      setStatus('error')
-      const errorKey =
-        res.code === 'CONSENT_REQUIRED'
-          ? 'order_form.consent_required'
-          : res.code === 'INVALID_EMAIL'
-            ? 'order_form.email_invalid'
-            : res.code === 'REQUIRED_FIELDS'
-              ? 'order_form.required_fields'
-              : 'order_form.error_default'
-      setErrorMsg(t(errorKey))
+      setErrorMsg(
+        t(
+          res.retryable
+            ? 'order_form.error_retryable'
+            : res.fields.includes('email')
+              ? 'order_form.email_invalid'
+              : res.fields.includes('name') || res.fields.length > 0
+                ? 'order_form.required_fields'
+                : 'order_form.error_default',
+        ),
+      )
     }
   }
 
@@ -223,6 +231,15 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
         </div>
         <h3 className="mt-5 text-2xl font-semibold text-heading">{t('order_form.copy_011')}</h3>
         <p className="mx-auto mt-3 max-w-md text-gray-600">{t('order_form.copy_012')}</p>
+        {orderReference && (
+          <p className="mx-auto mt-4 max-w-md text-sm text-gray-600">
+            {t('order_form.reference_label')}{' '}
+            <span className="font-semibold text-heading">{orderReference}</span>
+          </p>
+        )}
+        <p className="mx-auto mt-4 max-w-md text-xs text-gray-600">
+          {t('order_form.success_not_purchase')}
+        </p>
       </div>
     )
   }
@@ -362,12 +379,12 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           <select
             id="order-quantity"
             required
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            value={String(quantity)}
+            onChange={(e) => setQuantity(parseQuantity(e.target.value))}
             className={inputClass}
           >
             {QUANTITY_OPTIONS[product].map((o) => (
-              <option key={o.value} value={o.value}>
+              <option key={String(o.value)} value={String(o.value)}>
                 {o.label}
               </option>
             ))}
@@ -394,7 +411,7 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-4 w-4 flex-none rounded border-slate-300 text-accent focus:ring-accent-line"
+          className="mt-1 h-4 w-4 flex-none rounded border-ui-field text-accent focus:ring-accent-strong"
         />
         <span className="text-sm leading-relaxed text-gray-600">
           {t('order_form.copy_030')}{' '}
@@ -407,9 +424,32 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
           .
         </span>
       </label>
-      <p className="mt-2 pl-7 text-xs text-gray-500">{t('order_form.copy_032')}</p>
+      <p className="mt-2 pl-7 text-xs text-gray-600">{t('order_form.copy_032')}</p>
 
-      {status === 'error' && errorMsg && (
+      {/* Marketing-Consent — ausdruecklich OPTIONAL und getrennt von der
+          Verarbeitung. Eine Ablehnung blockiert die Bestellanfrage nicht. */}
+      <label className="mt-4 flex items-start gap-3">
+        <input
+          type="checkbox"
+          checked={marketingConsent}
+          onChange={(e) => setMarketingConsent(e.target.checked)}
+          className="mt-1 h-4 w-4 flex-none rounded border-ui-field text-accent focus:ring-accent-strong"
+        />
+        <span className="text-sm leading-relaxed text-gray-600">
+          {t('order_form.marketing_consent')}
+        </span>
+      </label>
+
+      {status === 'terminal-error' && (
+        <div
+          role="alert"
+          className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+        >
+          {t('order_form.error_terminal')}
+        </div>
+      )}
+
+      {status !== 'terminal-error' && errorMsg && (
         <div
           role="alert"
           className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
@@ -421,15 +461,13 @@ export function OrderForm({ product, page, submitLabel, onSubmitted }: OrderForm
       <div className="mt-7">
         <button
           type="submit"
-          disabled={status === 'submitting'}
+          disabled={isSubmitting}
           data-gtm-event="consumer_order_submit"
           data-gtm-page={page}
           data-gtm-product={product}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-line focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-7 py-3.5 text-base font-semibold tracking-tight text-white transition-colors hover:bg-brand-navy-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === 'submitting'
-            ? t('order_form.sending')
-            : submitLabel || t('order_form.submit')}
+          {isSubmitting ? t('order_form.sending') : submitLabel || t('order_form.submit')}
         </button>
       </div>
 

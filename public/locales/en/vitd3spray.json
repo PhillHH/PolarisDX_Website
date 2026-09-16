@@ -94,7 +94,8 @@
     "reassurance": "Free & non-binding · Reply within 24 h",
     "success_title": "Thank You for Your Order!",
     "success_text": "We have received your order request. Our team will contact you shortly with the next steps.",
-    "error_text": "An error occurred. Please try again or call us."
+    "error_text": "An error occurred. Please try again or call us.",
+    "error_retryable": "That didn't go through just now. Please try again in a moment — your order details are kept."
   },
   "contact": {
     "title": "Your Contact",
@@ -137,22 +138,56 @@
     "bio": "2× bioavailability"
   },
   "hero_stats": [
-    { "value": "2,000 IU", "label": "per spray" },
-    { "value": "71", "label": "applications / bottle" },
-    { "value": "2×", "label": "bioavailability" }
+    {
+      "value": "2,000 IU",
+      "label": "per spray"
+    },
+    {
+      "value": "71",
+      "label": "applications / bottle"
+    },
+    {
+      "value": "2×",
+      "label": "bioavailability"
+    }
   ],
   "visual_chips": [
-    { "value": "2,000 IU", "label": "Vitamin D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "per bottle" }
+    {
+      "value": "2,000 IU",
+      "label": "Vitamin D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "per bottle"
+    }
   ],
   "stats": [
-    { "value": "2,000 IU", "label": "Vitamin D3 per spray" },
-    { "value": "15 µg", "label": "Vitamin K2 (MK-7)" },
-    { "value": "71", "label": "applications per bottle" },
-    { "value": "from €10.90", "label": "per unit (practice bundle)" }
+    {
+      "value": "2,000 IU",
+      "label": "Vitamin D3 per spray"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamin K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "applications per bottle"
+    },
+    {
+      "value": "from €10.90",
+      "label": "per unit (practice bundle)"
+    }
   ],
-  "benefit_titles": ["Bones & calcium", "Osseointegration", "Periodontal prevention"],
+  "benefit_titles": [
+    "Bones & calcium",
+    "Osseointegration",
+    "Periodontal prevention"
+  ],
   "badges": {
     "vegan": "Vegan",
     "made_in": "Made in Germany"

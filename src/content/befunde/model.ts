@@ -1,4 +1,8 @@
-import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '../../i18n'
+import {
+  extractLanguageFromPathname,
+  SUPPORTED_LANGUAGES,
+  type SupportedLanguage,
+} from '../../i18n'
 import { BEFUND_ORDER, BEFUND_PANEL_NAMES, RADAR_VALUES, type BefundSlug } from './meta'
 
 export const BEFUND_BLOCK_TYPES = [
@@ -214,6 +218,38 @@ export const defineBefundFamily = (
   return Object.fromEntries(
     SUPPORTED_LANGUAGES.map((locale) => [locale, validateBefund(rawLocales[locale], slug, locale)]),
   ) as BefundSprachen
+}
+
+/** Laedt genau eine Sprachfassung eines Befunds (dynamischer JSON-Import). */
+export type BefundLoader = () => Promise<{ default: unknown }>
+
+/**
+ * AP25 PT25.2 (PERF-B03): wie `defineBefundFamily`, aber mit einem Loader je
+ * Sprache. Der Server laedt und validiert alle zehn Fassungen (er rendert jede
+ * Sprache aus demselben Modul), der Browser nur die Sprache aus der URL — die
+ * einzige, die er rendern kann, weil ein Sprachwechsel immer ein Vollreload ist.
+ * Vorher lagen alle zehn Fassungen in jedem Befund-Chunk (bis 323 KB).
+ */
+export const loadBefundFamily = async (
+  slug: BefundSlug,
+  loaders: Record<SupportedLanguage, BefundLoader>,
+): Promise<Partial<BefundSprachen>> => {
+  const actualLocales = Object.keys(loaders).sort()
+  const expectedLocales = [...SUPPORTED_LANGUAGES].sort()
+  if (actualLocales.join(',') !== expectedLocales.join(',')) {
+    fail(slug, `locale set must be exactly ${expectedLocales.join(',')}`)
+  }
+  const locales: readonly SupportedLanguage[] =
+    typeof window === 'undefined'
+      ? SUPPORTED_LANGUAGES
+      : [extractLanguageFromPathname(window.location.pathname)]
+  const entries = await Promise.all(
+    locales.map(
+      async (locale) =>
+        [locale, validateBefund((await loaders[locale]()).default, slug, locale)] as const,
+    ),
+  )
+  return Object.fromEntries(entries) as Partial<BefundSprachen>
 }
 
 export const validateBefundInventory = (families: readonly { slug: string }[]): void => {

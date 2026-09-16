@@ -101,6 +101,7 @@ describe('AP20 PT20.2 contact journey', () => {
     // Persist-before-Handoff: die Ereigniskette zeigt Commit vor Versuch.
     expect(eventsFor(lead.id)).toEqual([
       'LEAD_RECEIVED',
+      'LEAD_VALIDATED',
       'LEAD_PERSISTED',
       'HANDOFF_PENDING',
       'HANDOFF_ATTEMPT',
@@ -259,13 +260,27 @@ describe('AP20 PT20.2 contact journey', () => {
     expect(repository.getLead(state.leadId).lastErrorClass).toBe('NO_PROVIDER_CONFIGURED')
   })
 
-  it('routet Spray-Bestellungen an die zustaendige Empfaengerin', async () => {
+  it('waehlt den Empfaenger NIE aus einem Formularfeld', async () => {
+    // Bis PT22.4 schaltete der Adapter auf eine andere Zieladresse um, sobald
+    // `area` einen bestimmten deutschen Bestelltext enthielt. Der Empfaenger
+    // einer echten Bestellung hing damit an einem Freitext aus dem Client:
+    // wer ihn uebersetzte, schickte die Bestellung an den allgemeinen
+    // Vertrieb; wer ihn kannte, konnte ihn fuer jede Anfrage setzen.
+    //
+    // Praxisbestellungen haben seit PT22.5 die eigene Journey
+    // `practice_order` mit eigenem CRM-Ziel. `contact` hat genau EINEN
+    // Empfaenger — was immer im Formular steht.
     const service = setup()
-    await service.submit({
-      body: { ...BASE_BODY, area: 'Vitamin D3+K2 Spray BESTELLUNG' },
-      idempotencyKey: 'k-12',
-    })
-    expect(sent[0].to).toBe('spray@example.test')
+    for (const [index, area] of [
+      'Vitamin D3+K2 Spray BESTELLUNG',
+      'BESTELLUNG',
+      'ulrike@polarisdx.example',
+      'beliebiger Freitext',
+    ].entries()) {
+      await service.submit({ body: { ...BASE_BODY, area }, idempotencyKey: `k-12-${index}` })
+    }
+    expect(sent).toHaveLength(4)
+    expect(new Set(sent.map((message) => message.to))).toEqual(new Set(['team@polarisdx.example']))
   })
 
   it('multiplexed keinen Sonderjourney-Typ — freie Parameter werden ignoriert, Journey bleibt contact', async () => {

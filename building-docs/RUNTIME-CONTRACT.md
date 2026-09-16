@@ -58,7 +58,7 @@ AP26 (Header, Exposition), AP27 (Nachweise), AP32 (Betriebsmetriken), AP33 PT33.
 | `vite.config.ts`                                                       | Client-/SSR-Build, SSR-Externals, Dev-Proxy                                                                                                  | G2     |
 | `docker-compose.yml`                                                   | zwei Services, Netz, Restart Policies; **kein Worker, kein `volumes:`**                                                                      | **G3** |
 | `Dockerfile`                                                           | zweistufig, **Node 22-alpine**, `HEALTHCHECK`                                                                                                | **G3** |
-| `server/Dockerfile`                                                    | **Node 20**, kein `HEALTHCHECK`                                                                                                              | **G3** |
+| `server/Dockerfile`                                                    | **Node 22** (`bookworm-slim`, AP26 PT26.5), kein `HEALTHCHECK`                                                                               |
 | `docs/deploy-preview.md`                                               | Preview-Runbook (detachter Host-Prozess)                                                                                                     | G1     |
 | `nginx.conf`, `vercel.json`, `Dockerfile.dev`, `scripts/prerender.mjs` | **Altlast**, wirken aktiv (§6)                                                                                                               | G1     |
 
@@ -502,6 +502,16 @@ Ist-Zustand, **kein zulässiges Zielverhalten**.
 | **RD-8**  | **PII in Logs** — E-Mail-Adressen im Klartext an zwei Stellen, rohe Provider-Antwortkörper an vier                                                                                                                   | RT-35                       |
 | **RD-9**  | **Stale Laufzeitdokumentation** — `DOCS.md` beschreibt einen nginx-ausgelieferten SPA und ein nicht existierendes `backend/`-CMS                                                                                     | RT-01; AP01 PT01.4.4        |
 | **RD-10** | **Kein `/api/monitoring/*`-Ziel** — der Import-Kandidat für Web-Vitals sendet an Endpunkte, die es nirgends gibt                                                                                                     | RT-36                       |
+
+> **Stand AP26 PT26.5 (2026-09-15, gemessen mit Trivy auf dem gebauten Image):** `server/Dockerfile` ist
+> mehrstufig auf **`node:22-bookworm-slim`** (vorher `FROM node:20`, volles Debian, Node 20 seit 2026-04 EOL):
+> `npm ci --omit=dev` statt `npm install`, Laufzeit-Stage ohne npm/yarn/Compiler/git, `apt-get upgrade`,
+> **`USER node`**, `CMD node server.js`, beschreibbar nur `/var/lib/polarisdx`. Befunde vorher 71 CRITICAL /
+> 1269 HIGH, nachher 4 CRITICAL / 52 HIGH ohne verfuegbaren Fix (akzeptiert, SECURITY-CONTRACT §17.4). Der Frontend-
+> `Dockerfile` installiert keine Dev-Abhaengigkeiten mehr ins Laufzeit-Image (`tsx` ist Laufzeitabhaengigkeit),
+> entfernt npm, spielt `apk upgrade` ein, prueft den Healthcheck per `node` statt `curl` und laeuft als
+> **`USER node`** (Trivy: 0 Befunde). RD-4 betrifft die Images nicht mehr (beide Node 22); lokal und `engines` bleiben offen, RD-5 bleibt. Weiter offen: Backend-`HEALTHCHECK`; bestehende Volumes mit
+> root-eigenen Dateien muessen vor dem Rollout fuer UID 1000 schreibbar gemacht werden (SECURITY-CONTRACT OA-17, AP28).
 
 ### 6.1 Rendering-Schulden (AP02 PT02.1, gemessen 2026-08-24)
 

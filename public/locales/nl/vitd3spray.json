@@ -94,7 +94,8 @@
     "reassurance": "Gratis & vrijblijvend · Antwoord < 24 u",
     "success_title": "Hartelijk dank voor uw bestelling!",
     "success_text": "Wij hebben uw bestelaanvraag ontvangen. Ons team neemt binnenkort contact op over de volgende stappen.",
-    "error_text": "Er is een fout opgetreden. Probeer het opnieuw of bel ons."
+    "error_text": "Er is een fout opgetreden. Probeer het opnieuw of bel ons.",
+    "error_retryable": "Dat lukte zojuist niet. Probeer het over een moment opnieuw – uw bestelgegevens blijven behouden."
   },
   "contact": {
     "title": "Uw contactpersoon",

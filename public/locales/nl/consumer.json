@@ -313,6 +313,7 @@
   "price_badge.copy_023": "Verberg de uitleg van het bedrag onder de € 2,- per maand",
   "price_badge.copy_024": "Hoe het extra bedrag van minder dan € 2 per maand wordt opgebouwd",
   "shell.copy_001": "PolarisDX",
+  "shell.nav_label": "Hoofdnavigatie",
   "shell.open_menu": "Menu openen",
   "shell.close_menu": "Menu sluiten",
   "shell.image_placeholder": "Productafbeelding",
@@ -352,5 +353,10 @@
   "price_badge.duo_line_2": "plus Vitamine D3+K2 Spray 12-pack",
   "price_badge.duo_line_3": "Eén keer per dag sprayen — ongeveer 71 dagen per fles",
   "duo.seo_description": "Inside-Out Care Duo combineert een dagelijkse vitamine D3+K2-spray met 5 hydraterende sheetmaskers: één eenvoudige binnen- en buitenroutine tegen de voorkeursbundelwaarde van {{price}}.",
-  "duo.bundle_lead": "Een slimmere manier om de volledige Inside-Out Care-routine op te bouwen: ontgrendel de Duo-waarde. Maak uw maskerbestelling compleet met de toevoeging van dagelijkse D3+K2-ondersteuning voor slechts {{price}} per maand."
+  "duo.bundle_lead": "Een slimmere manier om de volledige Inside-Out Care-routine op te bouwen: ontgrendel de Duo-waarde. Maak uw maskerbestelling compleet met de toevoeging van dagelijkse D3+K2-ondersteuning voor slechts {{price}} per maand.",
+  "order_form.error_retryable": "Dat lukte zojuist niet. Probeer het over een moment opnieuw – uw gegevens blijven behouden.",
+  "order_form.error_terminal": "Deze bestelaanvraag kan zo niet worden afgerond. Laad de pagina opnieuw of mail ons op contact@polarisdx.net.",
+  "order_form.marketing_consent": "Optioneel: ik ontvang graag nieuws en aanbiedingen van PolarisDX per e-mail. Deze toestemming is vrijwillig en niet nodig voor de bestelling.",
+  "order_form.reference_label": "Uw dossiernummer:",
+  "order_form.success_not_purchase": "Dit is een bestelaanvraag, geen koopovereenkomst en geen betaling. Prijs, beschikbaarheid en levering bevestigen we apart."
 }

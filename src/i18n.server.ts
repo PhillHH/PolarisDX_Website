@@ -233,3 +233,49 @@ export function preloadAllTranslations(): void {
     `[i18n-server] Preloaded ${languages.length} languages × ${NAMESPACES.length} namespaces`,
   )
 }
+
+// =============================================================================
+// FALLBACK-DELTA FUER DEN CLIENT (AP25 PT25.2, PERF-B01)
+// =============================================================================
+
+/**
+ * Teilbaum von `reference` mit genau den Blaettern, die in `candidate` fehlen.
+ * i18next faellt nur fuer fehlende (`undefined`/`null`) Schluessel auf die
+ * Fallback-Sprache zurueck — genau diese Schluessel braucht der Client.
+ * Arrays gelten als Einheit (i18next liefert sie per `returnObjects` als Ganzes).
+ */
+function missingSubset(reference: unknown, candidate: unknown): unknown {
+  if (candidate === undefined || candidate === null) return reference
+  if (!reference || typeof reference !== 'object' || Array.isArray(reference)) return undefined
+  if (typeof candidate !== 'object' || Array.isArray(candidate)) return undefined
+  const out: Record<string, unknown> = {}
+  for (const [key, value] of Object.entries(reference)) {
+    const sub = missingSubset(value, (candidate as Record<string, unknown>)[key])
+    if (sub !== undefined) out[key] = sub
+  }
+  return Object.keys(out).length > 0 ? out : undefined
+}
+
+const fallbackDeltaCache = new Map<SupportedLanguage, Record<Namespace, Record<string, unknown>>>()
+
+/**
+ * Fuer jede produktive Namespace-Datei die Schluessel der Fallback-Sprache, die
+ * in `language` fehlen. Einmal je Sprache berechnet und gecacht (die Dateien
+ * aendern sich nur mit einem Deploy). `null` fuer die Fallback-Sprache selbst.
+ */
+export function getFallbackDelta(
+  language: string,
+): Record<Namespace, Record<string, unknown>> | null {
+  const normalizedLang = normalizeLanguage(language)
+  if (normalizedLang === FALLBACK_LANGUAGE) return null
+  const cached = fallbackDeltaCache.get(normalizedLang)
+  if (cached) return cached
+  const delta = {} as Record<Namespace, Record<string, unknown>>
+  for (const ns of NAMESPACES) {
+    const reference = loadTranslation(FALLBACK_LANGUAGE, ns) ?? {}
+    const candidate = loadTranslation(normalizedLang, ns) ?? undefined
+    delta[ns] = (missingSubset(reference, candidate) as Record<string, unknown> | undefined) ?? {}
+  }
+  fallbackDeltaCache.set(normalizedLang, delta)
+  return delta
+}

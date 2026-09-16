@@ -263,8 +263,14 @@ export const AgeDots = ({
     <figure className="m-0">
       {chronologicalLabel ? (
         <figcaption className="mb-3 text-sm text-gray-600 sm:grid sm:grid-cols-[minmax(0,11rem)_1fr_auto] sm:gap-3">
+          {/* Die Beschriftung EINMAL im Accessibility-Tree. Ab `sm` wird der
+              erste Span optisch ausgeblendet und die Zahl stattdessen an ihrer
+              Position auf der Skala gezeigt — beide Fassungen standen aber im
+              Tree, gemessen als „48 J.48 J.". Die optische Fassung ist eine
+              Position auf einer Grafik, also `aria-hidden`; angesagt wird die
+              sr-only-Fassung. (AP24 PT24.5) */}
           <span className="sm:sr-only">{chronologicalLabel}</span>
-          <div className="relative hidden h-4 sm:block">
+          <div className="relative hidden h-4 sm:block" aria-hidden="true">
             <span
               className="absolute -translate-x-1/2 whitespace-nowrap text-xs text-gray-600"
               style={{ left: `${pct(chronological)}%` }}

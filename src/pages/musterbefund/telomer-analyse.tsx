@@ -1,28 +1,37 @@
 /**
  * Routenmodul fuer /epigenetics/musterbefund/telomer-analyse.
  *
- * Es importiert AUSSCHLIESSLICH seine zehn Inhaltsdateien. Dadurch legt Vite
- * je Slug einen eigenen Chunk an, statt alle sechs Panels in einen gemeinsamen
- * Inhalts-Chunk zu packen.
+ * Es kennt AUSSCHLIESSLICH seine zehn Inhaltsdateien, jede als eigener
+ * dynamischer Import: Vite legt je Sprache einen eigenen Chunk an. Der Server
+ * laedt alle zehn, der Browser nur die Sprache aus der URL (AP25 PT25.2,
+ * PERF-B03).
+ *
+ * `loadRoute` ist die Fabrik fuer `React.lazy` in App.tsx: das Lazy-Promise
+ * loest erst auf, wenn der Inhalt da ist — die Hydration findet exakt den
+ * Inhalt des SSR-HTML vor. Bewusst KEIN `await` auf Modulebene: unter `tsx`
+ * (Produktionsstart von server.ts) loest ein Modul-`await` in einem dynamisch
+ * importierten SSR-Chunk nie auf; gemessen in PT25.2.
  *
  * Die Seite selbst steht in ../MusterbefundPage; hier kommt nur der Inhalt dazu.
  */
 
-import de from '../../content/befunde/telomer-analyse.de.json'
-import en from '../../content/befunde/telomer-analyse.en.json'
-import pl from '../../content/befunde/telomer-analyse.pl.json'
-import fr from '../../content/befunde/telomer-analyse.fr.json'
-import it from '../../content/befunde/telomer-analyse.it.json'
-import es from '../../content/befunde/telomer-analyse.es.json'
-import pt from '../../content/befunde/telomer-analyse.pt.json'
-import da from '../../content/befunde/telomer-analyse.da.json'
-import nl from '../../content/befunde/telomer-analyse.nl.json'
-import cs from '../../content/befunde/telomer-analyse.cs.json'
-import { defineBefundFamily } from '../../content/befunde/model'
+import type { ComponentType } from 'react'
+import { loadBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const befunde = defineBefundFamily('telomer-analyse', { de, en, pl, fr, it, es, pt, da, nl, cs })
-
-const TelomerAnalyse = () => <MusterbefundPage slug="telomer-analyse" befunde={befunde} />
-
-export default TelomerAnalyse
+export const loadRoute = async (): Promise<{ default: ComponentType }> => {
+  const befunde = await loadBefundFamily('telomer-analyse', {
+    de: () => import('../../content/befunde/telomer-analyse.de.json'),
+    en: () => import('../../content/befunde/telomer-analyse.en.json'),
+    pl: () => import('../../content/befunde/telomer-analyse.pl.json'),
+    fr: () => import('../../content/befunde/telomer-analyse.fr.json'),
+    it: () => import('../../content/befunde/telomer-analyse.it.json'),
+    es: () => import('../../content/befunde/telomer-analyse.es.json'),
+    pt: () => import('../../content/befunde/telomer-analyse.pt.json'),
+    da: () => import('../../content/befunde/telomer-analyse.da.json'),
+    nl: () => import('../../content/befunde/telomer-analyse.nl.json'),
+    cs: () => import('../../content/befunde/telomer-analyse.cs.json'),
+  })
+  const TelomerAnalyse = () => <MusterbefundPage slug="telomer-analyse" befunde={befunde} />
+  return { default: TelomerAnalyse }
+}

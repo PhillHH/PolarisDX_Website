@@ -23,6 +23,19 @@ import path from 'path'
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
 
+  // =============================================================================
+  // DEP-OPTIMIZER-CACHE (opt-in, Default unveraendert)
+  // =============================================================================
+  // Ohne gesetzte Variable bleibt alles wie bisher (`node_modules/.vite`).
+  // Grund fuer die Ausweichmoeglichkeit: auf dieser Maschine laufen
+  // Preview-Container als root gegen denselben Repositoriumspfad und legen
+  // `node_modules/.vite/deps` root-eigen an. Ein Dev-SSR-Start als normale
+  // Nutzerin scheitert dann mit `EACCES: permission denied, unlink
+  // .vite/deps/_metadata.json`. Test-/Messlaeufe setzen deshalb
+  // `POLARIS_VITE_CACHE_DIR` auf ein eigenes Verzeichnis, statt fremde,
+  // moeglicherweise gerade benutzte Container-Artefakte zu veraendern.
+  cacheDir: process.env.POLARIS_VITE_CACHE_DIR || undefined,
+
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),
@@ -57,6 +70,11 @@ export default defineConfig(({ isSsrBuild }) => ({
           output: {
             manualChunks: {
               // Vendor: React Core (wird auf jeder Seite gebraucht)
+              // AP25 PT25.2: `react-dom/client` bleibt bewusst im App-Entry, obwohl die
+              // App ihn importiert (173 KB). Gemessen (verschraenkte Ablation, mobil
+              // gedrosselt): als modulepreload im Vendor-Chunk verschob er FCP ohne
+              // Kompression um +284 bis +352 ms, mit gzip ohne messbaren Gewinn. Der
+              // Cache-Vorteil ueber Deploys ist nicht belegt — erst mit Messung aendern.
               'vendor-react': ['react', 'react-dom', 'react-router-dom'],
 
               // i18n: Internationalisierung (wird auf jeder Seite gebraucht)
@@ -84,6 +102,18 @@ export default defineConfig(({ isSsrBuild }) => ({
   // SERVER CONFIGURATION (für Vite Dev Server / HMR im SSR-Modus)
   // =============================================================================
   server: {
+    // 0. watch.ignored: `email/` ist der Python-Mailversand, kein Teil der
+    //    Anwendung — er wird weder gebaut noch importiert. Er enthaelt aber den
+    //    eingecheckten Symlink `email/assets/assets` -> `/home/phillip/01polaris/
+    //    email/assets`, also einen Verweis auf sich selbst. Der Dev-Watcher lief
+    //    darin in eine Endlosschleife und beendete den Prozess mit
+    //    `ELOOP: too many symbolic links encountered`. Ausschliessen statt den
+    //    eingecheckten Symlink anzufassen: der gehoert nicht in dieses Paket.
+    //    Betrifft nur den Dev-Watcher, nicht `vite build`.
+    watch: {
+      ignored: ['**/email/**'],
+    },
+
     // 1. host: Bindet den Server an 0.0.0.0, damit er innerhalb des Docker-Netzwerks erreichbar ist.
     host: '0.0.0.0',
 

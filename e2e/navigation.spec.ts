@@ -8,8 +8,9 @@ import { test, expect, type Page } from '@playwright/test'
  * einen echten Seitenwechsel. Die Struktur- und Rollenzusicherungen stehen in
  * den Komponententests und werden hier nicht wiederholt.
  *
- * Nicht Gegenstand von AP06 und deshalb bewusst nicht geprueft:
- * `/api/chat` (AP22), CSP-Domains (AP26), der Suchindex (AP07).
+ * Nicht Gegenstand von AP06 und deshalb hier nicht geprueft: der Suchindex (AP07).
+ * `/api/chat` und die Chat-CSP-Domains sind mit AP22 PT22.7 entfernt; der Nachweis
+ * dafuer steht in `server/chat-removal.test.js`, nicht hier.
  */
 
 const LOCALES = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
@@ -193,7 +194,13 @@ test.describe('Screenreader-Beschriftungen', () => {
       for (const root of scope) {
         if (!root) continue
         for (const el of root.querySelectorAll('a[href], button')) {
-          const name = (el.getAttribute('aria-label') || el.textContent || '').trim()
+          // AP24 PT24.1: `alt` eines enthaltenen Bildes gehoert zum Namen —
+          // genau so rechnet der Browser (accname). Ohne diesen Zweig galt der
+          // Logo-Link als unbenannt, sobald sein zusaetzliches `aria-label`
+          // entfiel; die Accessibility-Tree-Messung sagt "link
+          // \"PolarisDX — POC-Diagnostik fuer Arztpraxen\"".
+          const fromImage = el.querySelector('img[alt]')?.getAttribute('alt') || ''
+          const name = (el.getAttribute('aria-label') || el.textContent || fromImage).trim()
           if (!name) bad.push(el.outerHTML.slice(0, 60))
         }
       }

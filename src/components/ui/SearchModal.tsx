@@ -6,6 +6,7 @@ import { useSearch, type SearchResult, type SearchResultType } from '../../hooks
 import { Dialog } from './Dialog'
 import { EmptyState, ErrorState, LoadingState } from './StateBlock'
 import { Input } from './Input'
+import { track } from '../../lib/tracking'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -29,6 +30,18 @@ const groupResults = (results: readonly SearchResult[]) =>
     results: results.filter((result) => result.type === type),
   })).filter((group) => group.results.length > 0)
 
+/**
+ * AP23 PT23.3 — Laengenklasse statt Laenge, und die Eingabe NIE selbst.
+ *
+ * Eine Suchanfrage auf einer Diagnostikseite kann ein Krankheitsbild, einen
+ * Medikamentennamen oder den Namen einer Praxis enthalten. Genau diese Daten
+ * gibt diese Website nicht in eine fremde Auswertung. Gemeldet wird, was die
+ * Frage beantwortet, ob die Suche traegt: Trefferzahl und Groessenordnung der
+ * Eingabe.
+ */
+const laengenklasse = (laenge: number): 'kurz' | 'mittel' | 'lang' =>
+  laenge <= 3 ? 'kurz' : laenge <= 9 ? 'mittel' : 'lang'
+
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const { t } = useTranslation('common')
   const [query, setQuery] = React.useState('')
@@ -36,6 +49,27 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const { results, isSearching, error } = useSearch(query)
   const normalizedQuery = query.trim()
   const groups = React.useMemo(() => groupResults(results), [results])
+
+  /**
+   * Gemeldet wird ein Suchvorgang erst, wenn er zur Ruhe gekommen ist.
+   *
+   * Bei jedem Tastendruck zu melden ergaebe fuer „vitamin" sieben Ereignisse
+   * und damit eine Trefferstatistik, die nur das Tippen abbildet. Der
+   * Abstand fasst die Eingabe zusammen; der `isSearching`-Zustand haelt das
+   * Ereignis zurueck, solange das Ergebnis noch nicht steht.
+   */
+  React.useEffect(() => {
+    if (!isOpen || isSearching || error) return
+    if (normalizedQuery.length < 1) return
+    const id = window.setTimeout(() => {
+      track({
+        name: 'search',
+        treffer: results.length,
+        laenge: laengenklasse(normalizedQuery.length),
+      })
+    }, 900)
+    return () => window.clearTimeout(id)
+  }, [isOpen, isSearching, error, normalizedQuery, results.length])
 
   const handleClose = React.useCallback(() => {
     setQuery('')

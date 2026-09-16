@@ -313,6 +313,7 @@
   "price_badge.copy_023": "Ocultar a explicação do valor inferior a 2 euros por mês",
   "price_badge.copy_024": "Como é construído o valor adicional inferior a 2 euros por mês",
   "shell.copy_001": "PolarisDX",
+  "shell.nav_label": "Navegação principal",
   "shell.open_menu": "Abrir menu",
   "shell.close_menu": "Fechar menu",
   "shell.image_placeholder": "Imagem do produto",
@@ -352,5 +353,10 @@
   "price_badge.duo_line_2": "mais Vitamina D3 + K2 Spray 12 unidades",
   "price_badge.duo_line_3": "Spray aplicado uma vez ao dia – aproximadamente 71 dias por frasco",
   "duo.seo_description": "Inside-Out Care Duo combina um spray diário de vitamina D3 + K2 com 5 máscaras hidratantes: uma rotina simples interna e externa pelo valor preferencial de pacote de {{price}}.",
-  "duo.bundle_lead": "Uma maneira mais inteligente de construir a rotina completa Inside-Out Care: desbloqueie o valor Duo. Conclua seu pedido de máscaras com a adição de suporte diário D3+K2 por apenas {{price}} por mês."
+  "duo.bundle_lead": "Uma maneira mais inteligente de construir a rotina completa Inside-Out Care: desbloqueie o valor Duo. Conclua seu pedido de máscaras com a adição de suporte diário D3+K2 por apenas {{price}} por mês.",
+  "order_form.error_retryable": "Neste momento não funcionou. Tente novamente daqui a pouco — os seus dados são mantidos.",
+  "order_form.error_terminal": "Este pedido de encomenda não pode ser concluído assim. Recarregue a página ou escreva-nos para contact@polarisdx.net.",
+  "order_form.marketing_consent": "Opcional: pretendo receber novidades e ofertas da PolarisDX por e-mail. Este consentimento é voluntário e não é necessário para a encomenda.",
+  "order_form.reference_label": "O seu número de processo:",
+  "order_form.success_not_purchase": "Isto é um pedido de encomenda, não um contrato de compra nem um pagamento. O preço, a disponibilidade e a entrega são confirmados separadamente."
 }

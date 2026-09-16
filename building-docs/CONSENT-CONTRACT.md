@@ -211,6 +211,11 @@ Drei unabhängige Reste sind zu entfernen: `ChatWidget.tsx` samt Einhängung, `P
 Chat-Domains in der CSP. **Das Entfernen von `/api/chat` allein beseitigt die Exposition nicht** — es ist
 der einzige der drei Reste ohne Netzwirkung.
 
+> **Alle drei erledigt:** `ChatWidget.tsx` mit AP06 PT06.4, Endpunkt **und** Chat-Domains mit
+> AP22 PT22.7 (2026-09-09). Der Punkt „Chat" ist damit keine Vorbedingung mehr für AP26 PT26.2;
+> die CSP-Finalisierung (Enforce, Report-URI, verbleibende Wildcards) bleibt dort unverändert offen.
+> Nachweis: `server/chat-removal.test.js`, `LEAD-DATA-CONTRACT.md` §25.9.
+
 **M-05 — Consent-Änderungen berühren immer auch die Datenschutzerklärung.** Wer Kategorien, Provider oder
 Speicherformat ändert, meldet das an AP20 PT20.4.5–.7. Gate 2 verlangt konsistente Dokumentation.
 

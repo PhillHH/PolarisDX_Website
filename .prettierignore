@@ -4,3 +4,13 @@ public/locales/
 *.min.js
 *.min.css
 package-lock.json
+
+# AP27 PT27.6 — ausdruecklich nicht formatierte, nicht-laufzeitrelevante Quellen (QUALITY-GATES §6.3):
+# eingecheckter Archiv-Schnappschuss (auch von eslint ausgenommen)
+_project-knowledge/
+# statische Design-Wireframes, weder gebaut noch importiert
+wireframes/
+# Agenten-Workflow-Konfiguration, nicht Teil der Anwendung
+.archon/
+# E-Mail-HTML des separaten Mail-Containers: whitespace-sensitiv im Mailclient, bewusst unveraendert
+email/*.html

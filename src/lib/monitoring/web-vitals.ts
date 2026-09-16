@@ -18,8 +18,14 @@ import { reportWebVital, type WebVitalSample } from './report'
 
 type Rating = WebVitalSample['rating']
 
-/** web.dev-Schwellen [good ≤, poor >]. */
-const THRESHOLDS: Record<WebVitalSample['name'], [number, number]> = {
+/**
+ * web.dev-Schwellen [good ≤, poor >].
+ *
+ * AP23 PT23.5 — exportiert, damit die Normalisierung pruefbar ist. Eine
+ * Bewertung, die niemand nachmisst, wandert mit der naechsten Anpassung
+ * lautlos in eine andere Bedeutung.
+ */
+export const WEB_VITAL_THRESHOLDS: Record<WebVitalSample['name'], [number, number]> = {
   LCP: [2500, 4000],
   CLS: [0.1, 0.25],
   INP: [200, 500],
@@ -27,15 +33,16 @@ const THRESHOLDS: Record<WebVitalSample['name'], [number, number]> = {
   FCP: [1800, 3000],
 }
 
-function rate(name: WebVitalSample['name'], value: number): Rating {
-  const [good, poor] = THRESHOLDS[name]
+/** Messwert in die drei Klassen von web.dev einordnen. */
+export function rateWebVital(name: WebVitalSample['name'], value: number): Rating {
+  const [good, poor] = WEB_VITAL_THRESHOLDS[name]
   if (value <= good) return 'good'
   if (value <= poor) return 'needs-improvement'
   return 'poor'
 }
 
 function emit(name: WebVitalSample['name'], value: number): void {
-  reportWebVital({ name, value, rating: rate(name, value) })
+  reportWebVital({ name, value, rating: rateWebVital(name, value) })
 }
 
 function observe(

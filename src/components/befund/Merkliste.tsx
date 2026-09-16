@@ -135,7 +135,7 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
         <button
           type="button"
           onClick={clear}
-          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+          className="inline-flex items-center justify-center rounded-full border border-ui-field bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
         >
           {t('merk.clear')}
         </button>

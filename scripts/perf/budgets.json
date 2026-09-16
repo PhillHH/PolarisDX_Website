@@ -1,0 +1,556 @@
+{
+  "version": 1,
+  "task": "AP25 PT25.5",
+  "contract": "building-docs/PERFORMANCE-CONTRACT.md §29",
+  "derivedAt": "2026-09-15",
+  "calibration": {
+    "build": "node_modules/.cache/pt25.5 (identisch mit PT25.4-Endstand: gleiche Asset-Hashes)",
+    "runs": "5 Gate-Aufrufe × 3 verschraenkte Laeufe, Profil lab, Median je Aufruf",
+    "loadPerRun": [
+      [1.81, 1.63, 1.73],
+      [2.13, 1.43, 1.33],
+      [1.66, 1.78, 1.42],
+      [1.17, 1.59, 1.66],
+      [2.45, 1.5, 2.21]
+    ],
+    "environment": "AMD EPYC 9634, 8 vCPU; Node 20.19.6; Playwright-Chromium (channel chromium); gzip-Proxy -6"
+  },
+  "rules": {
+    "bytes": "gemessenes Maximum + 5 % (Inhaltswachstum ohne Architekturwechsel); nie ueber einer PT25.1-Baseline mit nachgewiesener Verbesserung",
+    "counts": "exakt wie gemessen (Font-Requests, Font-Faces, Preloads), keine Toleranz",
+    "timingLab": "schlechtester Aufruf-Median + gemessene Streuung dieser Route (max − min), mindestens p90 der Streuung aller Routen (LCP 72 ms, FCP 68 ms, TTFB 12.400000095367432 ms), auf 10 ms aufgerundet; nie ueber der CWV-Grenze „gut\"",
+    "clsLab": "groesster Einzellauf + 0.006 (gemessener Font-Swap-Rest §28.8, max 0,0059)",
+    "timingCi": "CWV-Grenzen „gut\" aus src/lib/monitoring/web-vitals.ts (WEB_VITAL_THRESHOLDS) — Runner-Hardware ist nicht die Kalibrierumgebung"
+  },
+  "static": {
+    "initialJsGzip": 164778,
+    "initialCssGzip": 17858,
+    "initialCssRaw": 99490,
+    "maxRouteJsGzip": 36711,
+    "routeJsGzip": {
+      "home": 0,
+      "diagnostics-hub": 5909,
+      "service-detail": 9185,
+      "igloo-pro": 5217,
+      "epigenetics-hub": 30222,
+      "epigenetics-deep": 11315,
+      "musterbefund": 25196,
+      "articles-index": 6232,
+      "article-detail": 36711,
+      "events": 6615,
+      "downloads": 13232,
+      "contact": 11711,
+      "consumer-d3": 15166,
+      "consumer-duo": 13884,
+      "not-found": 2099
+    },
+    "interFontFaces": 7,
+    "fallbackFaces": 2,
+    "fontFilesBytes": 229438
+  },
+  "runtime": {
+    "all": {
+      "fontPreloads": 1,
+      "fetchpriorityHigh": 1
+    },
+    "timing": {
+      "ci": {
+        "lcpMs": 2500,
+        "cls": 0.1,
+        "ttfbMs": 800
+      }
+    },
+    "routes": {
+      "home": {
+        "mobile": {
+          "htmlBytes": 34712,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 920,
+          "fcpMs": 780,
+          "ttfbMs": 50,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 34712,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 260,
+          "fcpMs": 260,
+          "ttfbMs": 60,
+          "cls": 0.006
+        }
+      },
+      "diagnostics-hub": {
+        "mobile": {
+          "htmlBytes": 32705,
+          "jsBytes": 171260,
+          "imageBytes": 89249,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 720,
+          "fcpMs": 720,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 32705,
+          "jsBytes": 171260,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 220,
+          "fcpMs": 220,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "service-detail": {
+        "mobile": {
+          "htmlBytes": 31025,
+          "jsBytes": 175398,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 690,
+          "fcpMs": 680,
+          "ttfbMs": 50,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 31025,
+          "jsBytes": 175398,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 220,
+          "fcpMs": 220,
+          "ttfbMs": 60,
+          "cls": 0.006
+        }
+      },
+      "igloo-pro": {
+        "mobile": {
+          "htmlBytes": 30034,
+          "jsBytes": 170407,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 880,
+          "fcpMs": 690,
+          "ttfbMs": 40,
+          "cls": 0.011
+        },
+        "desktop": {
+          "htmlBytes": 30034,
+          "jsBytes": 170407,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 230,
+          "fcpMs": 220,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "epigenetics-hub": {
+        "mobile": {
+          "htmlBytes": 43096,
+          "jsBytes": 195918,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 970,
+          "fcpMs": 960,
+          "ttfbMs": 60,
+          "cls": 0.011
+        },
+        "desktop": {
+          "htmlBytes": 43096,
+          "jsBytes": 195918,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 330,
+          "fcpMs": 330,
+          "ttfbMs": 60,
+          "cls": 0.006
+        }
+      },
+      "epigenetics-deep": {
+        "mobile": {
+          "htmlBytes": 29171,
+          "jsBytes": 176669,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 740,
+          "fcpMs": 730,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 29171,
+          "jsBytes": 176669,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 240,
+          "fcpMs": 240,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "musterbefund": {
+        "mobile": {
+          "htmlBytes": 46591,
+          "jsBytes": 201711,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 2,
+          "fontBytes": 70615,
+          "lcpMs": 1010,
+          "fcpMs": 1010,
+          "ttfbMs": 60,
+          "cls": 0.011
+        },
+        "desktop": {
+          "htmlBytes": 46591,
+          "jsBytes": 201711,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 2,
+          "fontBytes": 70615,
+          "lcpMs": 280,
+          "fcpMs": 270,
+          "ttfbMs": 50,
+          "cls": 0.006
+        }
+      },
+      "articles-index": {
+        "mobile": {
+          "htmlBytes": 28575,
+          "jsBytes": 172062,
+          "imageBytes": 161477,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 660,
+          "fcpMs": 660,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 28575,
+          "jsBytes": 172062,
+          "imageBytes": 123509,
+          "lcpImageBytes": 11139,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 230,
+          "fcpMs": 220,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "article-detail": {
+        "mobile": {
+          "htmlBytes": 30459,
+          "jsBytes": 203191,
+          "imageBytes": 91749,
+          "lcpImageBytes": 21938,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 1130,
+          "fcpMs": 690,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 30459,
+          "jsBytes": 203191,
+          "imageBytes": 91749,
+          "lcpImageBytes": 21938,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 260,
+          "fcpMs": 250,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "events": {
+        "mobile": {
+          "htmlBytes": 27281,
+          "jsBytes": 172113,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 670,
+          "fcpMs": 670,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 27281,
+          "jsBytes": 172113,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 200,
+          "fcpMs": 200,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "downloads": {
+        "mobile": {
+          "htmlBytes": 29832,
+          "jsBytes": 178884,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 710,
+          "fcpMs": 700,
+          "ttfbMs": 50,
+          "cls": 0.011
+        },
+        "desktop": {
+          "htmlBytes": 29832,
+          "jsBytes": 178884,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 250,
+          "fcpMs": 250,
+          "ttfbMs": 60,
+          "cls": 0.006
+        }
+      },
+      "contact": {
+        "mobile": {
+          "htmlBytes": 30090,
+          "jsBytes": 177268,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 710,
+          "fcpMs": 700,
+          "ttfbMs": 50,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 30090,
+          "jsBytes": 177268,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 230,
+          "fcpMs": 230,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "consumer-d3": {
+        "mobile": {
+          "htmlBytes": 31824,
+          "jsBytes": 180731,
+          "imageBytes": 144261,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 740,
+          "fcpMs": 740,
+          "ttfbMs": 40,
+          "cls": 0.006
+        },
+        "desktop": {
+          "htmlBytes": 31824,
+          "jsBytes": 180731,
+          "imageBytes": 144261,
+          "lcpImageBytes": 74450,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 260,
+          "fcpMs": 260,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "consumer-duo": {
+        "mobile": {
+          "htmlBytes": 29163,
+          "jsBytes": 179301,
+          "imageBytes": 122333,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 720,
+          "fcpMs": 710,
+          "ttfbMs": 40,
+          "cls": 0.007
+        },
+        "desktop": {
+          "htmlBytes": 29163,
+          "jsBytes": 179301,
+          "imageBytes": 122333,
+          "lcpImageBytes": 52521,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 240,
+          "fcpMs": 240,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "not-found": {
+        "mobile": {
+          "htmlBytes": 25225,
+          "jsBytes": 167520,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 600,
+          "fcpMs": 600,
+          "ttfbMs": 40,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 25225,
+          "jsBytes": 167520,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 210,
+          "fcpMs": 210,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "home-en": {
+        "mobile": {
+          "htmlBytes": 34257,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 870,
+          "fcpMs": 810,
+          "ttfbMs": 50,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 34257,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 1,
+          "fontBytes": 50669,
+          "lcpMs": 260,
+          "fcpMs": 260,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "home-pl": {
+        "mobile": {
+          "htmlBytes": 35013,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 2,
+          "fontBytes": 139991,
+          "lcpMs": 920,
+          "fcpMs": 770,
+          "ttfbMs": 50,
+          "cls": 0.01
+        },
+        "desktop": {
+          "htmlBytes": 35013,
+          "jsBytes": 165050,
+          "imageBytes": 89249,
+          "lcpImageBytes": 19438,
+          "fontRequests": 2,
+          "fontBytes": 139991,
+          "lcpMs": 280,
+          "fcpMs": 270,
+          "ttfbMs": 40,
+          "cls": 0.006
+        }
+      },
+      "musterbefund-pl": {
+        "mobile": {
+          "htmlBytes": 47304,
+          "jsBytes": 202206,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 3,
+          "fontBytes": 159936,
+          "lcpMs": 990,
+          "fcpMs": 990,
+          "ttfbMs": 50,
+          "cls": 0.011
+        },
+        "desktop": {
+          "htmlBytes": 47304,
+          "jsBytes": 202206,
+          "imageBytes": 69812,
+          "lcpImageBytes": 0,
+          "fontRequests": 3,
+          "fontBytes": 159936,
+          "lcpMs": 270,
+          "fcpMs": 270,
+          "ttfbMs": 50,
+          "cls": 0.006
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "eagerBelowFold": [
+      {
+        "route": "diagnostics-hub",
+        "device": "mobile",
+        "image": "Igloo-pro-frontal",
+        "evidence": "PT25.3 §27.3/§27.5: LCP ab 768 px; verschraenkte Ablation ohne fetchpriority mobil 1.092 vs. 1.104 ms (Rauschen)"
+      },
+      {
+        "route": "consumer-d3",
+        "device": "mobile",
+        "image": "spray-hero-12pack-office-",
+        "evidence": "PT25.3 §27.1 PERF-B09: 48 px unter dem Falz bei 390 px, LCP ab 768 px, bewusst unveraendert; Ablation mobil offen (AP25-CLOSURE)"
+      },
+      {
+        "route": "consumer-duo",
+        "device": "mobile",
+        "image": "duo-hero-products-together-",
+        "evidence": "PT25.3 §27.1 PERF-B09: wie Spray; Ablation mobil offen (AP25-CLOSURE)"
+      }
+    ]
+  }
+}

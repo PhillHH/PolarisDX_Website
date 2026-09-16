@@ -11,6 +11,17 @@ folgt zwingend der Kontextpflicht in §7. Blindes Editieren ist untersagt.
 > „keine Entscheidung" **und** „ausdrücklich abgelehnt" identisch.
 > **Dieser Vertrag beschreibt SOLL-Verhalten** und ist kein Beleg für Konformität.
 
+> ## Stand AP26 PT26.2 (2026-09-15, gemessen)
+>
+> Die Warnung oben ist historisch (Baseline `961f65d`). Heute: GTM lädt erst nach Zustimmung (AP23),
+> HiHuman ist entfernt (AP22 PT22.7). Die CSP ist in Produktion **durchgesetzt**, Quelle
+> `src/security/contentSecurityPolicy.ts`, mit genau zwei Third-Party-Origins: `www.googletagmanager.com`
+> (`script-src`) und `region1.google-analytics.com` (`connect-src`). Es gibt kein `https:`, keine Wildcard,
+> kein `'unsafe-eval'`, kein `'unsafe-inline'` für Skripte oder `<style>`; Styles werden per Hash freigegeben,
+> ausgenommen `style-src-attr` (Rest-Risiko SEC-18). Es gibt keinen Report-Empfänger, deshalb auch kein
+> `report-uri` und keinen Monitoring-Claim. Belege: `SECURITY-CONTRACT.md` §8, `e2e/pt26.2.spec.ts`,
+> `src/security/contentSecurityPolicy.test.ts`.
+
 ---
 
 ## 1. Purpose
@@ -41,15 +52,16 @@ produktive Reste werden entfernt"_), **AP26 PT26.2** (CSP), **AP23 PT23.1** (Lad
 
 ## 3. Current Participating Files / Origins
 
-| Datei                                                                                     | Rolle                                                                                | Guard  |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------ |
-| `server.ts` (`:432-444`)                                                                  | aktive CSP — heute **`Content-Security-Policy-Report-Only`**, zehn Direktiven        | **G3** |
-| `index.html`                                                                              | GTM-Loader (`:71-81`), `noscript`-iframe (`:188-201`) — die beiden Bootstrap-Origins | **G3** |
-| `src/components/ui/ChatWidget.tsx`                                                        | injiziert das HiHuman-Bundle                                                         | **G3** |
-| `src/entry-client.tsx` (`:23`)                                                            | `@fontsource-variable/inter` — **selbstgehostete** Schrift, keine CDN                | G1     |
-| `src/components/layout/Footer.tsx`, `TeamSection.tsx`, `AboutPage.tsx`, `ImprintPage.tsx` | `href`-Ziele — **keine** Subressourcen                                               | G1     |
-| `src/components/seo/structuredData.ts`                                                    | `schema.org` als `@context`-Bezeichner und `sameAs`-Angaben — **kein** Netzaufruf    | G2     |
-| `public/robots.txt`                                                                       | Crawler-Policy                                                                       | G1     |
+| Datei                                                                                     | Rolle                                                                             | Guard  |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------ |
+| `src/security/contentSecurityPolicy.ts`                                                   | **einzige CSP-Quelle** (PT26.2): Direktiven, Third-Party-Allowlist, Modus         | **G3** |
+| `server.ts`                                                                               | setzt den CSP-Header (Produktion durchgesetzt) und berechnet den Style-Hash       | **G3** |
+| `src/lib/googleConsent.ts`                                                                | consent-gegateter GTM-Loader (AP23); `index.html` enthält keinen Loader mehr      | **G3** |
+| ~~`src/components/ui/ChatWidget.tsx`~~                                                    | entfernt (AP22 PT22.7)                                                            | —      |
+| `src/entry-client.tsx` (`:23`)                                                            | `@fontsource-variable/inter` — **selbstgehostete** Schrift, keine CDN             | G1     |
+| `src/components/layout/Footer.tsx`, `TeamSection.tsx`, `AboutPage.tsx`, `ImprintPage.tsx` | `href`-Ziele — **keine** Subressourcen                                            | G1     |
+| `src/components/seo/structuredData.ts`                                                    | `schema.org` als `@context`-Bezeichner und `sameAs`-Angaben — **kein** Netzaufruf | G2     |
+| `public/robots.txt`                                                                       | Crawler-Policy                                                                    | G1     |
 
 **Klassifikationsschema dieses Vertrags:**
 
@@ -120,27 +132,27 @@ in Canonical, Sitemap oder OG. _(`SEO-CONTRACT.md` S-15, AP29 PT29.3.3)_
 Bestandsaufnahme aus `CONSENT-TRACKING-NETWORK-BASELINE.md` §9 und §10, mit Zielklassifikation.
 **„Runtime Permission" beschreibt den SOLL-Zustand**, nicht den heutigen.
 
-| Origin                         | Purpose                                                   | Target Classification                                                   | Consent Required?  | Runtime Permission                                                                                                                                  |
-| ------------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `www.googletagmanager.com`     | Tag-Manager-Container (`gtm.js`, `ns.html`)               | **CONSENT_ANALYTICS** _(bzw. CONSENT_MARKETING, je nach geladenem Tag)_ | **JA**             | erst nach Einwilligung: `script-src`, `connect-src`; `frame-src` nur, falls ein Tag es nachweislich braucht. **Kein `noscript`-iframe vor Consent** |
-| `www.google-analytics.com`     | GA4-Erfassung                                             | **CONSENT_ANALYTICS**                                                   | **JA**             | erst nach Analytics-Einwilligung: `connect-src`                                                                                                     |
-| `region1.google-analytics.com` | regionaler GA4-Endpunkt                                   | **CONSENT_ANALYTICS**                                                   | **JA**             | wie oben; nur beibehalten, wenn tatsächlich angesprochen                                                                                            |
-| `ssl.google-analytics.com`     | historische GA-Domain                                     | **STALE_REMOVE**                                                        | —                  | **keine** — von GA4 nicht mehr verwendet; aus `script-src` entfernen                                                                                |
-| `stats.g.doubleclick.net`      | Ads-/Remarketing-Signale                                  | **CONSENT_MARKETING**                                                   | **JA (Marketing)** | ausschließlich nach Marketing-Einwilligung: `connect-src`. Ohne aktives Ads-Ziel: entfernen                                                         |
-| `widget.hihuman.co.uk`         | Chat-Widget-Bundle                                        | **FORBIDDEN**                                                           | —                  | **keine.** Aus Code **und** aus `script-src`, `connect-src`, `frame-src` entfernen (`DEC-RL-007`, Gate 5)                                           |
-| `*.hihuman.co.uk`              | Chat-Rückkanäle (Wildcard)                                | **FORBIDDEN**                                                           | —                  | **keine.** Aus `connect-src` entfernen                                                                                                              |
-| `fonts.googleapis.com`         | Google-Fonts-Stylesheet                                   | **STALE_REMOVE**                                                        | —                  | **keine** — Fonts sind selbstgehostet (`entry-client.tsx:23`); aus `style-src` entfernen                                                            |
-| `fonts.gstatic.com`            | Google-Fonts-Dateien                                      | **STALE_REMOVE**                                                        | —                  | **keine** — dito; aus `font-src` entfernen                                                                                                          |
-| `www.linkedin.com`             | Social-Profil-Links, `sameAs` im Schema                   | **NAVIGATION_ONLY**                                                     | —                  | **keine.** Kein CSP-Eintrag. Ein LinkedIn-Insight-Tag wäre eine **neue** Origin-Entscheidung nach N-12                                              |
-| `www.instagram.com`            | Social-Profil-Link im Footer                              | **NAVIGATION_ONLY**                                                     | —                  | **keine.** Kein CSP-Eintrag                                                                                                                         |
-| `ec.europa.eu`                 | OS-Plattform-Link im Impressum (rechtlich vorgeschrieben) | **NAVIGATION_ONLY**                                                     | —                  | **keine.** Kein CSP-Eintrag. Der Link selbst bleibt bestehen                                                                                        |
-| `dx365.world`                  | Partner-Link auf der About-Seite                          | **NAVIGATION_ONLY**                                                     | —                  | **keine.** Kein CSP-Eintrag                                                                                                                         |
-| `polarisdx.net`                | eigene Origin: Canonical, Sitemap, Assets, `/api`         | **ESSENTIAL**                                                           | nein               | `default-src 'self'` deckt die Auslieferung; Canonical/Sitemap sind Inhalte, keine Subressourcen                                                    |
-| `schema.org`                   | `@context`-Bezeichner in JSON-LD                          | **NAVIGATION_ONLY** _(faktisch: kein Netzaufruf)_                       | —                  | **keine.** Ein `@context`-Wert wird nicht abgerufen; **niemals** in die CSP aufnehmen                                                               |
+| Origin                         | Purpose                                                     | Target Classification                             | Consent Required?  | Runtime Permission                                                                                                                                     |
+| ------------------------------ | ----------------------------------------------------------- | ------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `www.googletagmanager.com`     | Tag-Manager-Container (`gtm.js`) und Google-Tag (`gtag/js`) | **CONSENT_ANALYTICS**                             | **JA**             | **PT26.2 gemessen:** nur `script-src`. `connect-src`/`frame-src` nicht beobachtet (nur gesampelte Diagnose-Pings/optionales SW-iframe) → nicht erlaubt |
+| `www.google-analytics.com`     | GA4-Erfassung ohne Regionskonfiguration                     | **STALE_REMOVE** _(PT26.2)_                       | —                  | **keine** — beide Properties senden an `region1`; das Google-Tag nutzt `www` nur ohne Region                                                           |
+| `region1.google-analytics.com` | regionaler GA4-Endpunkt                                     | **CONSENT_ANALYTICS**                             | **JA**             | **PT26.2 gemessen:** `connect-src` (`/g/collect`) nach Zustimmung                                                                                      |
+| `ssl.google-analytics.com`     | historische GA-Domain                                       | **STALE_REMOVE**                                  | —                  | **keine** — von GA4 nicht mehr verwendet; aus `script-src` entfernen                                                                                   |
+| `stats.g.doubleclick.net`      | Ads-/Remarketing-Signale                                    | **CONSENT_MARKETING**                             | **JA (Marketing)** | ausschließlich nach Marketing-Einwilligung: `connect-src`. Ohne aktives Ads-Ziel: entfernen                                                            |
+| `widget.hihuman.co.uk`         | Chat-Widget-Bundle                                          | **FORBIDDEN**                                     | —                  | **keine.** Aus Code **und** aus `script-src`, `connect-src`, `frame-src` entfernen (`DEC-RL-007`, Gate 5)                                              |
+| `*.hihuman.co.uk`              | Chat-Rückkanäle (Wildcard)                                  | **FORBIDDEN**                                     | —                  | **keine.** Aus `connect-src` entfernen                                                                                                                 |
+| `fonts.googleapis.com`         | Google-Fonts-Stylesheet                                     | **STALE_REMOVE**                                  | —                  | **keine** — Fonts sind selbstgehostet (`entry-client.tsx:23`); aus `style-src` entfernen                                                               |
+| `fonts.gstatic.com`            | Google-Fonts-Dateien                                        | **STALE_REMOVE**                                  | —                  | **keine** — dito; aus `font-src` entfernen                                                                                                             |
+| `www.linkedin.com`             | Social-Profil-Links, `sameAs` im Schema                     | **NAVIGATION_ONLY**                               | —                  | **keine.** Kein CSP-Eintrag. Ein LinkedIn-Insight-Tag wäre eine **neue** Origin-Entscheidung nach N-12                                                 |
+| `www.instagram.com`            | Social-Profil-Link im Footer                                | **NAVIGATION_ONLY**                               | —                  | **keine.** Kein CSP-Eintrag                                                                                                                            |
+| `ec.europa.eu`                 | OS-Plattform-Link im Impressum (rechtlich vorgeschrieben)   | **NAVIGATION_ONLY**                               | —                  | **keine.** Kein CSP-Eintrag. Der Link selbst bleibt bestehen                                                                                           |
+| `dx365.world`                  | Partner-Link auf der About-Seite                            | **NAVIGATION_ONLY**                               | —                  | **keine.** Kein CSP-Eintrag                                                                                                                            |
+| `polarisdx.net`                | eigene Origin: Canonical, Sitemap, Assets, `/api`           | **ESSENTIAL**                                     | nein               | `default-src 'self'` deckt die Auslieferung; Canonical/Sitemap sind Inhalte, keine Subressourcen                                                       |
+| `schema.org`                   | `@context`-Bezeichner in JSON-LD                            | **NAVIGATION_ONLY** _(faktisch: kein Netzaufruf)_ | —                  | **keine.** Ein `@context`-Wert wird nicht abgerufen; **niemals** in die CSP aufnehmen                                                                  |
 
-**15 Origins klassifiziert.** Verteilung im Zielbild: 1 × `ESSENTIAL` · 3 × `CONSENT_ANALYTICS` ·
-1 × `CONSENT_MARKETING` · 2 × `FORBIDDEN` · 3 × `STALE_REMOVE` · 5 × `NAVIGATION_ONLY` ·
-0 × `UNKNOWN_REQUIRES_REVIEW`.
+**15 Origins klassifiziert.** Verteilung im Zielbild (Stand PT26.2): 1 × `ESSENTIAL` · 2 × `CONSENT_ANALYTICS` ·
+1 × `CONSENT_MARKETING` (ohne CSP-Eintrag, kein Werbe-Tag) · 2 × `FORBIDDEN` · 4 × `STALE_REMOVE` ·
+5 × `NAVIGATION_ONLY` · 0 × `UNKNOWN_REQUIRES_REVIEW`.
 
 **Nicht klassifizierbar und deshalb nicht aufgenommen:** was das HiHuman-Bundle nach dem Laden
 kontaktiert. Da die Origin `FORBIDDEN` ist, entfällt die Frage — sie wird nicht ersatzweise durch eine
@@ -160,6 +172,12 @@ Wildcard beantwortet (N-13).
 | **ND-6** | **HiHuman in drei Direktiven erlaubt** — `script-src`, `connect-src` (inkl. Wildcard `*.hihuman.co.uk`), `frame-src`                                                                                    | N-05                   |
 | **ND-7** | **Kein `Strict-Transport-Security`** — HSTS fehlt am produktiven Origin                                                                                                                                 | Gate 12, AP26 PT26.1.2 |
 | **ND-8** | **Kein Netz-Guard** — keine Prüfung stellt fest, welche Origins die Seite tatsächlich anfordert                                                                                                         | §8                     |
+
+**Stand PT26.2 (2026-09-15):** ND-1 erledigt (AP23 PT23.1, HiHuman AP22) · ND-2, ND-3, ND-5, ND-6 **erledigt**
+(PT26.2) · ND-4 **erledigt, indem die Policy durchgesetzt wird statt Report-Only ohne Empfänger zu laufen**;
+ein Report-Empfänger existiert weiterhin nicht (Betrieb AP28/AP32) · ND-7 im Repo erledigt, live OA-1 (PT26.1) ·
+ND-8 erledigt (`e2e/pt23.1.spec.ts`, `e2e/pt25.2.spec.ts` Test 6, `e2e/pt26.2.spec.ts`). Die statischen Guards
+N-G7, N-G9 und N-G10 prüft `src/security/contentSecurityPolicy.test.ts`; N-G7 zusätzlich `server/chat-removal.test.js`.
 
 **Positiv zu erhalten:** Der Schriftpfad ist bereits selbstgehostet (N-02 erfüllt); `default-src 'self'`,
 `base-uri 'self'`, `object-src 'none'` und `frame-ancestors 'self'` sind korrekt gesetzt und bleiben.
@@ -260,18 +278,18 @@ _(AP26 PT26.5.3, AP27 PT27.6)_
 
 ## 10. AP Ownership / Lifecycle
 
-| Phase                 | AP                                 | Ergebnis                                                                                                          |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Ladeverzicht          | **AP23 PT23.1**                    | vor Consent keine nicht-essenzielle Origin                                                                        |
-| Provider-Lebenszyklus | **AP23 PT23.2**                    | wer wann geladen wird → `TRACKING-CONTRACT.md`                                                                    |
-| Chat-Entfernung       | **AP06 PT06.4.6**, **AP22 PT22.7** | Widget und Endpunkt raus — **Voraussetzung** für die CSP-Finalisierung                                            |
-| **CSP/Eigentum**      | **AP26 PT26.2**                    | Chat-Domains entfernen, GTM/GA4 consent-gesteuert, Report-Empfänger, Enforce-Readiness, keine unnötigen Wildcards |
-| Security-Header       | **AP26 PT26.1**                    | HSTS, Referrer-/Permissions-/Frame-Policies                                                                       |
-| Assets/Fonts          | **AP05 PT05.2**, **AP25 PT25.4**   | selbstgehostete Schrift bleibt das Modell                                                                         |
-| Absicherung           | **AP26 PT26.5.3**, **AP27 PT27.6** | Header-/CSP-Tests in CI                                                                                           |
-| Betrieb               | **AP28 PT28.2**, **AP32 PT32.1.7** | Reverse Proxy, CSP-Reports beobachten                                                                             |
-| Abnahme               | **AP30 PT30.4.3**, **AP31 PT31.3** | Security-QA und Livecheck                                                                                         |
-| Dokumentation         | **AP33 PT33.1.8**                  | Netz-/Consent-Architektur in der Entwicklerdoku                                                                   |
+| Phase                 | AP                                             | Ergebnis                                                                                                                                                                                                                  |
+| --------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ladeverzicht          | **AP23 PT23.1**                                | vor Consent keine nicht-essenzielle Origin                                                                                                                                                                                |
+| Provider-Lebenszyklus | **AP23 PT23.2**                                | wer wann geladen wird → `TRACKING-CONTRACT.md`                                                                                                                                                                            |
+| Chat-Entfernung       | **AP06 PT06.4.6**, **AP22 PT22.7** ✅ erledigt | Widget, Endpunkt **und** die drei Chat-Direktiven raus — **Voraussetzung** für die CSP-Finalisierung                                                                                                                      |
+| **CSP/Eigentum**      | **AP26 PT26.2**                                | GTM/GA4 consent-gesteuert, Report-Empfänger, Enforce-Readiness, keine unnötigen Wildcards. **Chat-Domains sind bereits weg (AP22 PT22.7)** — `widget.hihuman.co.uk` und `*.hihuman.co.uk` stehen in keiner Direktive mehr |
+| Security-Header       | **AP26 PT26.1**                                | HSTS, Referrer-/Permissions-/Frame-Policies                                                                                                                                                                               |
+| Assets/Fonts          | **AP05 PT05.2**, **AP25 PT25.4**               | selbstgehostete Schrift bleibt das Modell                                                                                                                                                                                 |
+| Absicherung           | **AP26 PT26.5.3**, **AP27 PT27.6**             | Header-/CSP-Tests in CI                                                                                                                                                                                                   |
+| Betrieb               | **AP28 PT28.2**, **AP32 PT32.1.7**             | Reverse Proxy, CSP-Reports beobachten                                                                                                                                                                                     |
+| Abnahme               | **AP30 PT30.4.3**, **AP31 PT31.3**             | Security-QA und Livecheck                                                                                                                                                                                                 |
+| Dokumentation         | **AP33 PT33.1.8**                              | Netz-/Consent-Architektur in der Entwicklerdoku                                                                                                                                                                           |
 
 **Änderungen an diesem Vertrag** verantwortet AP26, bei Providerbezug gemeinsam mit AP23.
 Decision Locks werden hier nie geändert.

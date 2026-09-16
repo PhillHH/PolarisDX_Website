@@ -53,7 +53,7 @@ unverändert die Zielautorität; es wird kein alternatives Produktionsmodell ein
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
 | `docker-compose.yml`                                                   | zwei Services (`frontend`, `backend`), Bridge-Netz, `restart: unless-stopped`, `depends_on`; **keine `volumes:`-Sektion**, **kein Worker**, **kein `healthcheck:`**, **kein `image:`-Tag** | **G3** |
 | `Dockerfile`                                                           | zweistufig, **Node 22-alpine**, `npm pkg delete scripts.prepare`, `HEALTHCHECK` per curl, `CMD npx tsx server.ts`                                                                          | **G3** |
-| `server/Dockerfile`                                                    | **`FROM node:20`**, `npm install`, **kein `HEALTHCHECK`**                                                                                                                                  | **G3** |
+| `server/Dockerfile`                                                    | **`node:22-bookworm-slim`** mehrstufig, `npm ci --omit=dev`, `USER node`, ohne npm (AP26 PT26.5); **kein `HEALTHCHECK`**                                                                   |
 | `deploy.sh`                                                            | `build \| up \| test \| logs \| down` über `docker compose`; baut mit `--no-cache frontend`                                                                                                | **G3** |
 | `docs/deploy-preview.md`                                               | Preview-Runbook (detachter Host-Prozess auf `:9100`)                                                                                                                                       | G1     |
 | `nginx.conf`, `vercel.json`, `Dockerfile.dev`, `scripts/prerender.mjs` | **Altlast**, wirken aktiv (§6)                                                                                                                                                             | G1     |
@@ -187,6 +187,45 @@ _(AP28 PT28.1.6, `LEAD-DELIVERY-CONTRACT.md` LDV-16)_
 
 **DEP-29 · `DRY_RUN` bzw. Testadapter greifen in Preview/Staging, wo Nebenwirkungen möglich wären.**
 Der Schalter ist **deklariert**, nicht implizit. **Keine Flags erfinden** — Deklaration über AP22/AP28.
+
+> **Umsetzungsstand AP22 PT22.8 (2026-09-09).** Der Trockenlauf hängt nicht mehr allein an
+> `DRY_RUN`: eine Umgebung, die sich per **`APP_ENV`** (oder `DEPLOY_ENV`) als `preview`/`staging`
+> ausweist, ist **zwingend** im Trockenlauf, und `DRY_RUN=0` hebt das nicht auf. Der Provider-Adapter
+> wird dann gar nicht erst aufgerufen. **Daraus folgt eine Deployment-Anforderung:** jede
+> Preview-/Staging-Instanz **muss** `APP_ENV=preview` bzw. `staging` setzen. `NODE_ENV` kann das
+> nicht leisten — die Preview läuft laut Runbook selbst mit `NODE_ENV=production`. Eine Umgebung
+> ohne `APP_ENV` ist von der Produktion technisch nicht unterscheidbar; diese Kombination wird beim
+> Start als Befund gemeldet (`UNDECLARED_ENVIRONMENT_WITH_PROVIDER`) und über `lead-ops isolation`
+> sichtbar, aber nicht erzwungen. Verbleibendes Risiko: `LEAD-DATA-CONTRACT.md` `LDC-24`, Owner
+> **AP28 PT28.4**. Damit ist **DD-11** zur Hälfte aufgelöst: der Schalter ist deklarierbar und
+> wirkt aus der Umgebung; die Containerisierung der Preview bleibt offen.
+
+> **AP23 PT23.4 (2026-09-09) — Analytics-Isolation der Vorschau.** Der
+> GTM-Container wird zur **Bauzeit** eingebacken; ein Preview-Build mit der
+> Produktionskennung schickt Testklicks in dieselbe GA4-Property wie echte
+> Besucherinnen, und der Auswertung sieht hinterher niemand an, welche Zeile
+> aus einer Vorschau kam. **Deployment-Anforderung:** jede Preview-/Staging-
+> Umgebung setzt `VITE_APP_ENV=preview` bzw. `staging` **und** einen eigenen
+> `VITE_GTM_CONTAINER_ID_PREVIEW`. Ohne eigenen Container lädt dort gar
+> keiner — der Produktionscontainer wird ausdrücklich unterdrückt, auch wenn
+> `VITE_GTM_CONTAINER_ID` gesetzt ist. Eine **undeklarierte** Umgebung gilt als
+> Produktion, damit die Isolation nicht durch Weglassen umgangen werden kann.
+> Schema und Begründung: `.env.example`; Nachweis:
+> `src/lib/analyticsIsolation.test.ts`.
+>
+> **Umgesetzt für die Vorschau (2026-09-11).** `preview.polarisdx.net` baut mit
+> `VITE_APP_ENV=preview` und `VITE_GTM_CONTAINER_ID_PREVIEW=GTM-PL26PFFH`
+> (eigener Container, eigene GA4-Property `G-Z1SBW4CJFP`). Am Artefakt
+> nachgemessen: in den ausgelieferten Bundles kommt der Produktionscontainer
+> `GTM-TW6JFX7K` **0×** vor, die Preview-Kennung 1×. `docker-compose.yml`
+> übergibt die Produktionskennung **nicht** — ein Test hält genau das fest
+> (`src/lib/previewProvider.test.ts`).
+>
+> **Für die Produktion weiterhin offen:** `VITE_GTM_CONTAINER_ID` ist nicht
+> gesetzt, es lädt dort kein Container (`CONSENT-TRACKING-CONTRACT.md`
+> `CTC-04`). Beim Go-live gehört dazu, dass die ausgelieferte Seite **kein**
+> statisches `gtm.js` und **kein** `noscript`-iframe mehr enthält — der
+> aktuelle Live-Stand tut beides noch (`CTC-13`).
 
 **DEP-30 · Eine Preview-Umgebung ist als solche erkennbar** und nicht indexierbar.
 _(`SEO-CONTRACT.md` S-15)_
@@ -410,22 +449,32 @@ in **AP31/AP32**.
 
 Ist-Zustand, **kein zulässiges Zielverhalten**.
 
-| ID        | Schuld                                                                                                                                                                                                                                                                                                                            | Verletzt       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| **DD-1**  | **Keine persistente Speicherung** — `docker-compose.yml` hat **keine `volumes:`-Sektion** und keinen Datenbankdienst                                                                                                                                                                                                              | DEP-10, DEP-16 |
-| **DD-2**  | **Kein Worker-Service**                                                                                                                                                                                                                                                                                                           | §5.1           |
-| **DD-3**  | **Keine Image-Versionierung** — Compose baut unversionierte lokale Images; kein `image:`-Tag, keine SHA-Rückführbarkeit                                                                                                                                                                                                           | DEP-04, DEP-05 |
-| **DD-4**  | **Kein „einmal bauen, dann befördern"** — `deploy.sh build` baut mit `--no-cache frontend` direkt am Zielort                                                                                                                                                                                                                      | DEP-03         |
-| **DD-5**  | **Kein Health-Gate nach dem Deploy** — `deploy.sh up` startet und wartet fest 5 s                                                                                                                                                                                                                                                 | DEP-08, DEP-09 |
-| **DD-6**  | **Healthchecks unvollständig** — nur der Frontend-`Dockerfile` hat einen `HEALTHCHECK`; `server/Dockerfile` **keinen**; `docker-compose.yml` deklariert für **keinen** Service einen                                                                                                                                              | DEP-34         |
-| **DD-7**  | **Toolchain-Drift auch im Deployment** — Frontend-Image **Node 22-alpine**, Backend-Image **`FROM node:20`**                                                                                                                                                                                                                      | DEP-06; AP01   |
-| **DD-8**  | **Kein Backup, kein Restore, kein Restore-Test** — mangels Persistenz gibt es kein Objekt dafür                                                                                                                                                                                                                                   | DEP-15, DEP-17 |
-| **DD-9**  | **Kein image-basiertes Rollback** — ohne Versionierung existiert kein identifizierbarer Vorgängerstand                                                                                                                                                                                                                            | DEP-22, DEP-26 |
-| **DD-10** | **Widersprüchliche, aktiv wirkende Alt-Konfiguration** — `nginx.conf` (statisches SPA-Setup, passt weder zum SSR-Container noch zur Preview), `vercel.json` (SPA-Rewrite aus der Vercel-Zeit), `Dockerfile.dev` (von nichts referenziert), `scripts/prerender.mjs` (nur über `build:prerender` erreichbar, veraltete Routenliste) | DEP-02         |
-| **DD-11** | **Preview weicht vom Zielmodell ab** — detachter Host-Prozess statt Container; `DRY_RUN` nur als Startparameter, in keiner Konfigurationsdatei deklariert                                                                                                                                                                         | DEP-27, DEP-29 |
-| **DD-12** | **Kein Monitoring, keine Alarme**                                                                                                                                                                                                                                                                                                 | DEP-35         |
-| **DD-13** | **Kein Image-/Dependency-Scan in CI**                                                                                                                                                                                                                                                                                             | DEP-33         |
-| **DD-14** | **Kein HSTS am produktiven Origin**                                                                                                                                                                                                                                                                                               | DEP-32         |
+| ID        | Schuld                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Verletzt       |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| **DD-1**  | **Keine persistente Speicherung** — `docker-compose.yml` hat **keine `volumes:`-Sektion** und keinen Datenbankdienst                                                                                                                                                                                                                                                                                                                                      | DEP-10, DEP-16 |
+| **DD-2**  | **Kein Worker-Service**                                                                                                                                                                                                                                                                                                                                                                                                                                   | §5.1           |
+| **DD-3**  | **Keine Image-Versionierung** — Compose baut unversionierte lokale Images; kein `image:`-Tag, keine SHA-Rückführbarkeit                                                                                                                                                                                                                                                                                                                                   | DEP-04, DEP-05 |
+| **DD-4**  | **Kein „einmal bauen, dann befördern"** — `deploy.sh build` baut mit `--no-cache frontend` direkt am Zielort                                                                                                                                                                                                                                                                                                                                              | DEP-03         |
+| **DD-5**  | **Kein Health-Gate nach dem Deploy** — `deploy.sh up` startet und wartet fest 5 s                                                                                                                                                                                                                                                                                                                                                                         | DEP-08, DEP-09 |
+| **DD-6**  | **Healthchecks unvollständig** — nur der Frontend-`Dockerfile` hat einen `HEALTHCHECK`; `server/Dockerfile` **keinen**; `docker-compose.yml` deklariert für **keinen** Service einen                                                                                                                                                                                                                                                                      | DEP-34         |
+| **DD-7**  | **Toolchain-Drift auch im Deployment** — Frontend-Image **Node 22-alpine**, Backend-Image **`FROM node:20`**                                                                                                                                                                                                                                                                                                                                              | DEP-06; AP01   |
+| **DD-8**  | **Kein Backup, kein Restore, kein Restore-Test** — mangels Persistenz gibt es kein Objekt dafür. **Teilweise aufgelöst mit AP22 PT22.8:** Persistenz existiert, der Sicherungsumfang ist als prüfbare Struktur definiert (`describeBackupScope()`), `VACUUM INTO`-Sicherung und ein **begrenzter** Restore-Smoke laufen im Test. Zeitplan, Ablage, Beobachtbarkeit und die vollständige Restore-Übung bleiben AP28 (`LEAD-DATA-CONTRACT.md` §26.8/§26.11) | DEP-15, DEP-17 |
+| **DD-9**  | **Kein image-basiertes Rollback** — ohne Versionierung existiert kein identifizierbarer Vorgängerstand                                                                                                                                                                                                                                                                                                                                                    | DEP-22, DEP-26 |
+| **DD-10** | **Widersprüchliche, aktiv wirkende Alt-Konfiguration** — `nginx.conf` (statisches SPA-Setup, passt weder zum SSR-Container noch zur Preview), `vercel.json` (SPA-Rewrite aus der Vercel-Zeit), `Dockerfile.dev` (von nichts referenziert), `scripts/prerender.mjs` (nur über `build:prerender` erreichbar, veraltete Routenliste)                                                                                                                         | DEP-02         |
+| **DD-11** | **Preview weicht vom Zielmodell ab** — detachter Host-Prozess statt Container; `DRY_RUN` nur als Startparameter, in keiner Konfigurationsdatei deklariert                                                                                                                                                                                                                                                                                                 | DEP-27, DEP-29 |
+| **DD-12** | **Kein Monitoring, keine Alarme**                                                                                                                                                                                                                                                                                                                                                                                                                         | DEP-35         |
+| **DD-13** | **Kein Image-/Dependency-Scan in CI**                                                                                                                                                                                                                                                                                                                                                                                                                     | DEP-33         |
+| **DD-14** | **Kein HSTS am produktiven Origin**                                                                                                                                                                                                                                                                                                                                                                                                                       | DEP-32         |
+
+> **Stand AP26 PT26.5 (2026-09-15, gemessen mit Trivy auf dem gebauten Image):** `server/Dockerfile` ist
+> mehrstufig auf **`node:22-bookworm-slim`** (vorher `FROM node:20`, volles Debian, Node 20 seit 2026-04 EOL):
+> `npm ci --omit=dev` statt `npm install`, Laufzeit-Stage ohne npm/yarn/Compiler/git, `apt-get upgrade`,
+> **`USER node`**, `CMD node server.js`, beschreibbar nur `/var/lib/polarisdx`. Befunde vorher 71 CRITICAL /
+> 1269 HIGH, nachher 4 CRITICAL / 52 HIGH ohne verfuegbaren Fix (akzeptiert, SECURITY-CONTRACT §17.4). Der Frontend-
+> `Dockerfile` installiert keine Dev-Abhaengigkeiten mehr ins Laufzeit-Image (`tsx` ist Laufzeitabhaengigkeit),
+> entfernt npm, spielt `apk upgrade` ein, prueft den Healthcheck per `node` statt `curl` und laeuft als
+> **`USER node`** (Trivy: 0 Befunde). DD-7 (Toolchain-Drift im Deployment) ist damit fuer die Images aufgeloest (beide Node 22); DD-6 bleibt. Weiter offen: Backend-`HEALTHCHECK`; bestehende Volumes mit
+> root-eigenen Dateien muessen vor dem Rollout fuer UID 1000 schreibbar gemacht werden (SECURITY-CONTRACT OA-17, AP28).
 
 **Neu aus AP02 PT02.5 (gemessen 2026-08-24):**
 
@@ -437,10 +486,10 @@ Ist-Zustand, **kein zulässiges Zielverhalten**.
 
 **Neu aus einem realen Deployment-Versuch (gemessen 2026-08-25, nach AP04-Closure):**
 
-| ID        | Schuld                                                                                                                                                                                                                                                                                                                                                                                                                     | Verletzt                | Owner           |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------- |
+| ID        | Schuld                                                                                                                                                                                                                                                                                                                                                                                                              | Verletzt               | Owner           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------- |
 | **DD-18** | **Der SSR-Dienst der Relaunch-Linie ist nicht containerfähig** — `server.ts:775` bindet hart auf `app.listen(PORT, '127.0.0.1', …)`. In einem Compose-Bridge-Netz ist der Prozess damit hinter dem Portmapping **unerreichbar**; der Container wird `healthy` gemeldet und liefert trotzdem `502`. Der Backend-Dienst macht es bereits richtig (`server/server.js:727` → `process.env.LISTEN_HOST \|\| '0.0.0.0'`). | DEP-08, DEP-38, DEP-42 | **AP28 PT28.2** |
-| **DD-19** | **Der Preview-Port der Compose-Datei kollidiert mit der Produktion** — `docker-compose.yml` bindet `frontend` fest auf `127.0.0.1:2026`, und genau dorthin proxyt der produktive `polarisdx.net`-vhost. Ein `docker compose up` aus einem zweiten Arbeitsbaum trifft damit den Live-Port. Der Port ist nicht über eine Umgebungsvariable parametrisiert.                                                                    | DEP-27, DEP-29, DEP-38 | **AP28 PT28.4** |
+| **DD-19** | **Der Preview-Port der Compose-Datei kollidiert mit der Produktion** — `docker-compose.yml` bindet `frontend` fest auf `127.0.0.1:2026`, und genau dorthin proxyt der produktive `polarisdx.net`-vhost. Ein `docker compose up` aus einem zweiten Arbeitsbaum trifft damit den Live-Port. Der Port ist nicht über eine Umgebungsvariable parametrisiert.                                                            | DEP-27, DEP-29, DEP-38 | **AP28 PT28.4** |
 
 ### 6.1 Belege zu DD-18 / DD-19
 
@@ -458,13 +507,13 @@ gestartet sind").
 
 **Linienvergleich.** Der Bind-Host unterscheidet die beiden Produktlinien:
 
-| Linie                                                   | `server.ts`                              | containerfähig |
-| ------------------------------------------------------- | ---------------------------------------- | -------------- |
-| Relaunch (`feat/home-leadmagnet`, Baseline `961f65d`)   | `app.listen(PORT, '127.0.0.1', …)`       | **nein**       |
-| `main`                                                   | `app.listen(PORT, …)` → bindet `0.0.0.0` | ja             |
-| Backend `server/server.js` (beide Linien)               | `process.env.LISTEN_HOST \|\| '0.0.0.0'` | ja             |
+| Linie                                                 | `server.ts`                              | containerfähig |
+| ----------------------------------------------------- | ---------------------------------------- | -------------- |
+| Relaunch (`feat/home-leadmagnet`, Baseline `961f65d`) | `app.listen(PORT, '127.0.0.1', …)`       | **nein**       |
+| `main`                                                | `app.listen(PORT, …)` → bindet `0.0.0.0` | ja             |
+| Backend `server/server.js` (beide Linien)             | `process.env.LISTEN_HOST \|\| '0.0.0.0'` | ja             |
 
-Eingeführt mit `dbe992b` (*feat(contact): Multi-Intent-Kontaktformular*) — die Bindung an `127.0.0.1`
+Eingeführt mit `dbe992b` (_feat(contact): Multi-Intent-Kontaktformular_) — die Bindung an `127.0.0.1`
 ist dort ein Nebeneffekt, keine Betriebsentscheidung. Dass die produktive Seite heute läuft, liegt
 allein daran, dass das aktive Image aus der `main`-Linie stammt.
 
@@ -574,15 +623,15 @@ _(Verankerung: `QUALITY-GATES.md` §9 und §12 Gate 12)_
 
 ### 9.1 Ergänzende Nachweise aus AP02 PT02.5
 
-| #         | Prüfung                           | Erwartung                                                                                                     | Owner-AP    |
-| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------- |
-| **D-T16** | **Private Netzgrenze**            | Dienst-zu-Dienst läuft über das interne Netz; kein App-Container ist unbeabsichtigt öffentlich erreichbar     | AP28 · AP26 |
-| **D-T17** | **Keine überflüssigen Ports**     | jeder veröffentlichte Host-Port ist begründet; nicht benötigte Veröffentlichungen existieren nicht            | AP28 PT28.2 |
-| **D-T18** | **Proxy-Cache-Verträglichkeit**   | HTML bleibt hinter dem Proxy `no-store`; gehashte Assets bleiben langzeit-cachebar                            | AP28 · AP25 |
-| **D-T19** | **Forwarded-Header**              | Host, Protokoll und Client-Adresse sind hinter dem Proxy korrekt rekonstruierbar (Canonical, Redirect, Limit) | AP28 · AP26 |
-| **D-T20** | **Readiness ≠ Startreihenfolge**  | ein noch nicht bereiter Nachbardienst führt nicht zu einem als „gesund" geltenden Deployment                  | AP28 PT28.2 |
-| **D-T21** | **Healthcheck ohne Nebenwirkung** | eine Gesundheitsprüfung erzeugt keinen Lead, keine Mail, keinen CRM-Datensatz und gibt keine Secrets aus      | AP28 · AP27 |
-| **D-T22** | **Logdatensparsamkeit**           | Betriebsdiagnose ist ohne vollständige Lead-/Bestellnutzlast und ohne Secrets möglich                         | AP26 PT26.5 |
+| #         | Prüfung                           | Erwartung                                                                                                                                                                                  | Owner-AP        |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| **D-T16** | **Private Netzgrenze**            | Dienst-zu-Dienst läuft über das interne Netz; kein App-Container ist unbeabsichtigt öffentlich erreichbar                                                                                  | AP28 · AP26     |
+| **D-T17** | **Keine überflüssigen Ports**     | jeder veröffentlichte Host-Port ist begründet; nicht benötigte Veröffentlichungen existieren nicht                                                                                         | AP28 PT28.2     |
+| **D-T18** | **Proxy-Cache-Verträglichkeit**   | HTML bleibt hinter dem Proxy `no-store`; gehashte Assets bleiben langzeit-cachebar                                                                                                         | AP28 · AP25     |
+| **D-T19** | **Forwarded-Header**              | Host, Protokoll und Client-Adresse sind hinter dem Proxy korrekt rekonstruierbar (Canonical, Redirect, Limit)                                                                              | AP28 · AP26     |
+| **D-T20** | **Readiness ≠ Startreihenfolge**  | ein noch nicht bereiter Nachbardienst führt nicht zu einem als „gesund" geltenden Deployment                                                                                               | AP28 PT28.2     |
+| **D-T21** | **Healthcheck ohne Nebenwirkung** | eine Gesundheitsprüfung erzeugt keinen Lead, keine Mail, keinen CRM-Datensatz und gibt keine Secrets aus                                                                                   | AP28 · AP27     |
+| **D-T22** | **Logdatensparsamkeit**           | Betriebsdiagnose ist ohne vollständige Lead-/Bestellnutzlast und ohne Secrets möglich                                                                                                      | AP26 PT26.5     |
 | **D-T23** | **Container-Erreichbarkeit**      | jeder Dienst ist aus seinem Netz heraus tatsächlich erreichbar — nicht nur gestartet. Der Bind-Host ist konfigurierbar und nicht auf Loopback festverdrahtet (`DD-18`)                     | **AP28 PT28.2** |
 | **D-T24** | **Healthcheck prüft von außen**   | die Gesundheitsprüfung erreicht den Dienst auf demselben Weg wie der Reverse Proxy. Ein Container, der nur intern gegen `127.0.0.1` antwortet, gilt **nicht** als gesund (`DD-18`, DEP-08) | **AP28 PT28.2** |
 | **D-T25** | **Umgebungsportfreiheit**         | keine zwei Umgebungen konkurrieren um denselben Host-Port; der veröffentlichte Port stammt aus der Umgebungskonfiguration, nicht aus einer festverdrahteten Compose-Zeile (`DD-19`)        | **AP28 PT28.4** |

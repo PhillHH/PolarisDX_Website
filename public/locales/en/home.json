@@ -368,7 +368,8 @@
       "submit": "Request report",
       "sending": "Sending …",
       "success": "Thank you! We'll send you the report shortly.",
-      "error": "Not possible at the moment – please book a consultation directly."
+      "error": "Not possible at the moment – please book a consultation directly.",
+      "error_retryable": "That didn't go through just now. Please try again in a moment — your entries are kept."
     },
     "report_hint": "As a PDF to your email"
   },

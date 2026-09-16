@@ -1,8 +1,10 @@
 const {
+  CrmAdapter,
   CrmRouter,
   IdempotencyConflictError,
   LeadHandoffWorker,
   LeadRepository,
+  PENDING_DELIVERY_STATUSES,
   openLeadDatabase,
 } = require('./lead-foundation')
 const { EntitlementError, EntitlementRepository } = require('./lead-foundation/entitlements')
@@ -123,7 +125,7 @@ function publicState({ lead, entitlement, token, asset }) {
     accepted: Boolean(lead?.id),
     leadId: lead?.id,
     status: lead?.status,
-    deliveryPending: ['PENDING_HANDOFF', 'PROCESSING', 'RETRY_PENDING'].includes(lead?.status),
+    deliveryPending: PENDING_DELIVERY_STATUSES.includes(lead?.status),
     providerConfigured:
       lead?.lastErrorClass === 'NO_PROVIDER_CONFIGURED'
         ? false
@@ -137,6 +139,98 @@ function publicState({ lead, entitlement, token, asset }) {
     entitlementId: entitlement.id,
     expiresAt: entitlement.expiresAt,
     downloadUrl: downloadUrl({ assetId: asset.assetId, entitlementId: entitlement.id, token }),
+  }
+}
+
+function escHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+/**
+ * CRM-Adapter der `resources`-Route (AP22 PT22.6).
+ *
+ * VORHER: dieser Slice baute `new CrmRouter()` OHNE Adapter. Jeder gegatete
+ * Download wurde persistiert und danach terminal mit
+ * `NO_PROVIDER_CONFIGURED` abgelegt — der Lead-Magnet erzeugte Leads, die
+ * niemand las.
+ *
+ * SICHERHEITSGRENZE: diese Mail enthaelt NIEMALS das Download-Token oder die
+ * Download-URL. Sie kann es strukturell nicht: das Token wird nie
+ * gespeichert, nur sein SHA-256, und der Adapter sieht ausschliesslich den
+ * Lead aus der Datenbank. Die Nutzerin bekommt den Link in der
+ * HTTP-Antwort — der Team-Hinweis nennt nur, WER WELCHES Asset angefordert
+ * hat. Ein Link in einer Team-Mail waere ein zweiter, unkontrollierter Weg
+ * an der Entitlement-Pruefung vorbei.
+ */
+class SendGridResourceLeadAdapter extends CrmAdapter {
+  constructor({ send, recipient, sender }) {
+    super()
+    if (typeof send !== 'function') throw new TypeError('send is required')
+    if (!recipient || !sender) throw new TypeError('recipient and sender are required')
+    this.send = send
+    this.recipient = recipient
+    this.sender = sender
+  }
+
+  async deliver({ lead }) {
+    const subject = lead.subject || {}
+    const context = lead.context || {}
+    const rows = [
+      ['Name', subject.name],
+      ['E-Mail', subject.email],
+      ['Organisation', subject.organization],
+      ['Asset-ID', context.assetId],
+      ['Angefragte Sprache', context.requestedLanguage],
+      ['Gelieferte Sprache', context.deliveredLanguage],
+      ['Quelle', context.source],
+      ['Kampagne', context.campaign],
+      ['Herkunftsroute', context.originRoute],
+    ]
+
+    try {
+      await this.send({
+        to: this.recipient,
+        from: this.sender,
+        replyTo: subject.email,
+        subject: `[${String(context.locale || 'de').toUpperCase()}] Download angefordert: ${context.assetId || 'unbekannt'}`,
+        text: [
+          'Neue Anforderung eines gegateten Dokuments.',
+          '',
+          ...rows.map(([label, value]) => `${label}: ${value || '-'}`),
+          '',
+          'Hinweis: Der Downloadlink wird ausschliesslich der Anforderin in der',
+          'Antwort ausgeliefert und steht bewusst NICHT in dieser Mail.',
+        ].join('\n'),
+        html: `<h3>Neue Anforderung eines gegateten Dokuments</h3>
+<table style="border-collapse:collapse;width:100%;max-width:600px;">
+${rows
+  .map(
+    ([label, value]) =>
+      `<tr><td style="padding:6px 8px;border-bottom:1px solid #eee;font-weight:bold;">${escHtml(label)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">${escHtml(value || '-')}</td></tr>`,
+  )
+  .join('')}
+</table>
+<p style="color:#64748b;font-size:12px;">Der Downloadlink wird ausschliesslich der Anforderin in der Antwort ausgeliefert und steht bewusst nicht in dieser Mail.</p>`,
+      })
+      return { status: 'DELIVERED' }
+    } catch (error) {
+      const statusCode = Number(error?.response?.statusCode ?? 0)
+      const errorCode = String(error?.code || '')
+      // AP26 PT26.4: nur ein eindeutiger 5xx ist wiederholbar. ETIMEDOUT/ECONNRESET bleiben
+      // unveraendert und werden an der Zustellgrenze als UNBEKANNT eingestuft — vorher
+      // machte dieser Zweig daraus SENDGRID_TEMPORARY und sendete blind nach.
+      if (statusCode >= 500) {
+        throw Object.assign(new Error('SENDGRID_TEMPORARY'), {
+          code: 'SENDGRID_TEMPORARY',
+          retryable: true,
+        })
+      }
+      throw error
+    }
   }
 }
 
@@ -237,23 +331,37 @@ function createContentDownloadService({
 }
 
 let runtime
-function getRuntimeContentDownloadService() {
+function getRuntimeContentDownloadService({ mailer, env = process.env } = {}) {
   if (runtime) return runtime
   const db = openLeadDatabase()
   const repository = new LeadRepository(db)
+
+  const adapters = {}
+  const recipient = env.RESOURCE_LEAD_RECEIVER || env.CONTACT_RECEIVER
+  if (mailer && env.SENDGRID_API_KEY && recipient && env.SENDER_EMAIL) {
+    adapters.resources = new SendGridResourceLeadAdapter({
+      send: (msg) => mailer.send(msg),
+      recipient,
+      sender: env.SENDER_EMAIL,
+    })
+  }
   runtime = createContentDownloadService({
     repository,
     entitlements: new EntitlementRepository(db),
     worker: new LeadHandoffWorker({
       repository,
-      router: new CrmRouter(),
+      router: new CrmRouter({ adapters }),
       workerId: `content-download-${process.pid}`,
+      // Nur die eigene Journey: sonst uebernimmt dieser Worker fremde
+      // Auftraege, fuer die sein Router keinen Adapter hat.
+      journeys: [JOURNEY],
     }),
   })
   return runtime
 }
 
 module.exports = {
+  SendGridResourceLeadAdapter,
   CONSENT_VERSION,
   ContentDownloadValidationError,
   EntitlementError,

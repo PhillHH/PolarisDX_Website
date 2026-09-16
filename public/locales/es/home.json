@@ -292,13 +292,30 @@
     "title": "Información allí donde se necesita",
     "intro": "Las mediciones Point of Care aportan información adicional directamente en el flujo de trabajo de la consulta. Apoyan la interpretación profesional sin automatizarla ni sustituirla.",
     "signals": {
-      "access": { "title": "Acceso directo a la información", "text": "Las mediciones están disponibles en el punto de atención tras el tiempo de procesamiento específico de cada test." },
-      "workflow": { "title": "Integrado en el flujo de trabajo", "text": "La aplicación, la medición y la documentación pueden integrarse como un proceso claro en la rutina de la consulta." },
-      "conversation": { "title": "Una base para la conversación", "text": "Los valores disponibles pueden apoyar el asesoramiento profesional y la conversación conjunta sobre los siguientes pasos adecuados." }
+      "access": {
+        "title": "Acceso directo a la información",
+        "text": "Las mediciones están disponibles en el punto de atención tras el tiempo de procesamiento específico de cada test."
+      },
+      "workflow": {
+        "title": "Integrado en el flujo de trabajo",
+        "text": "La aplicación, la medición y la documentación pueden integrarse como un proceso claro en la rutina de la consulta."
+      },
+      "conversation": {
+        "title": "Una base para la conversación",
+        "text": "Los valores disponibles pueden apoyar el asesoramiento profesional y la conversación conjunta sobre los siguientes pasos adecuados."
+      }
     },
     "benefits": {
-      "practice": { "label": "Beneficio para la consulta", "title": "Estructurado en el flujo de trabajo", "text": "Las mediciones adicionales están disponibles en el proceso Point of Care y pueden tenerse en cuenta en el asesoramiento y la atención." },
-      "patient": { "label": "Beneficio para los pacientes", "title": "Explicar los resultados con claridad", "text": "Los valores disponibles pueden explicarse en el contexto asistencial. El test complementa la evaluación profesional; no sustituye el diagnóstico ni el tratamiento." }
+      "practice": {
+        "label": "Beneficio para la consulta",
+        "title": "Estructurado en el flujo de trabajo",
+        "text": "Las mediciones adicionales están disponibles en el proceso Point of Care y pueden tenerse en cuenta en el asesoramiento y la atención."
+      },
+      "patient": {
+        "label": "Beneficio para los pacientes",
+        "title": "Explicar los resultados con claridad",
+        "text": "Los valores disponibles pueden explicarse en el contexto asistencial. El test complementa la evaluación profesional; no sustituye el diagnóstico ni el tratamiento."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Solicitar el informe",
       "sending": "Enviando …",
       "success": "¡Gracias! Le enviaremos el informe en breve.",
-      "error": "No es posible en este momento; reserve directamente un asesoramiento."
+      "error": "No es posible en este momento; reserve directamente un asesoramiento.",
+      "error_retryable": "Ahora mismo no ha funcionado. Inténtelo de nuevo en un momento: sus datos se conservan."
     },
     "report_hint": "En PDF a su correo electrónico"
   },
@@ -381,9 +399,18 @@
     "intro": "Un proceso claro permite utilizar la información de las mediciones en el trabajo diario y mantiene la responsabilidad médica en los profesionales que atienden al paciente.",
     "aria_label": "Proceso Point of Care en tres pasos",
     "items": {
-      "application": { "title": "Aplicación y medición", "text": "La muestra y el test se preparan conforme a las instrucciones correspondientes y se miden con el sistema compatible." },
-      "result": { "title": "Resultado disponible", "text": "Tras el tiempo de procesamiento específico del test, la medición está disponible en el flujo de trabajo de la consulta, sin una conclusión médica automatizada." },
-      "context": { "title": "Interpretación profesional", "text": "El profesional responsable valora el resultado en su contexto individual y, cuando procede, comenta los siguientes pasos adecuados." }
+      "application": {
+        "title": "Aplicación y medición",
+        "text": "La muestra y el test se preparan conforme a las instrucciones correspondientes y se miden con el sistema compatible."
+      },
+      "result": {
+        "title": "Resultado disponible",
+        "text": "Tras el tiempo de procesamiento específico del test, la medición está disponible en el flujo de trabajo de la consulta, sin una conclusión médica automatizada."
+      },
+      "context": {
+        "title": "Interpretación profesional",
+        "text": "El profesional responsable valora el resultado en su contexto individual y, cuando procede, comenta los siguientes pasos adecuados."
+      }
     },
     "safety_note": "Las mediciones aportan información adicional. La evaluación profesional y los pasos derivados de ella siguen siendo responsabilidad del profesional competente."
   }

@@ -292,13 +292,30 @@
     "title": "Information dér, hvor den er nødvendig",
     "intro": "Point-of-Care-målinger giver yderligere information direkte i klinikkens arbejdsgang. De understøtter den faglige fortolkning uden at automatisere eller erstatte den.",
     "signals": {
-      "access": { "title": "Direkte adgang til information", "text": "Målingerne er tilgængelige ved Point of Care efter den testspecifikke behandlingstid." },
-      "workflow": { "title": "Forankret i arbejdsgangen", "text": "Anvendelse, måling og dokumentation kan integreres som en klar proces i klinikkens eksisterende arbejdsgange." },
-      "conversation": { "title": "Et grundlag for samtalen", "text": "Tilgængelige værdier kan understøtte faglig rådgivning og en fælles drøftelse af relevante næste skridt." }
+      "access": {
+        "title": "Direkte adgang til information",
+        "text": "Målingerne er tilgængelige ved Point of Care efter den testspecifikke behandlingstid."
+      },
+      "workflow": {
+        "title": "Forankret i arbejdsgangen",
+        "text": "Anvendelse, måling og dokumentation kan integreres som en klar proces i klinikkens eksisterende arbejdsgange."
+      },
+      "conversation": {
+        "title": "Et grundlag for samtalen",
+        "text": "Tilgængelige værdier kan understøtte faglig rådgivning og en fælles drøftelse af relevante næste skridt."
+      }
     },
     "benefits": {
-      "practice": { "label": "Fordel for klinikken", "title": "Struktureret i arbejdsgangen", "text": "Yderligere målinger er tilgængelige i Point-of-Care-processen og kan indgå i rådgivning og behandling." },
-      "patient": { "label": "Fordel for patienter", "title": "Forklar resultaterne tydeligt", "text": "Tilgængelige værdier kan forklares i behandlingskonteksten. Testen supplerer den faglige vurdering; den erstatter hverken diagnose eller behandling." }
+      "practice": {
+        "label": "Fordel for klinikken",
+        "title": "Struktureret i arbejdsgangen",
+        "text": "Yderligere målinger er tilgængelige i Point-of-Care-processen og kan indgå i rådgivning og behandling."
+      },
+      "patient": {
+        "label": "Fordel for patienter",
+        "title": "Forklar resultaterne tydeligt",
+        "text": "Tilgængelige værdier kan forklares i behandlingskonteksten. Testen supplerer den faglige vurdering; den erstatter hverken diagnose eller behandling."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Anmod om rapport",
       "sending": "Sender …",
       "success": "Tak! Vi sender dig rapporten inden længe.",
-      "error": "Ikke muligt i øjeblikket – book venligst en rådgivning direkte."
+      "error": "Ikke muligt i øjeblikket – book venligst en rådgivning direkte.",
+      "error_retryable": "Det lykkedes ikke lige nu. Prøv igen om et øjeblik – dine indtastninger bevares."
     },
     "report_hint": "Som PDF til jeres e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "En klar proces gør måleinformation anvendelig i hverdagen og lader det medicinske ansvar blive hos de behandlende fagpersoner.",
     "aria_label": "Point-of-Care-proces i tre trin",
     "items": {
-      "application": { "title": "Anvendelse og måling", "text": "Prøven og testen forberedes efter den relevante vejledning og måles med det kompatible system." },
-      "result": { "title": "Resultat tilgængeligt", "text": "Efter den testspecifikke behandlingstid er målingen tilgængelig i klinikkens arbejdsgang — uden en automatisk medicinsk konklusion." },
-      "context": { "title": "Faglig fortolkning", "text": "Den ansvarlige fagperson vurderer værdien i dens individuelle kontekst og drøfter om nødvendigt relevante næste skridt." }
+      "application": {
+        "title": "Anvendelse og måling",
+        "text": "Prøven og testen forberedes efter den relevante vejledning og måles med det kompatible system."
+      },
+      "result": {
+        "title": "Resultat tilgængeligt",
+        "text": "Efter den testspecifikke behandlingstid er målingen tilgængelig i klinikkens arbejdsgang — uden en automatisk medicinsk konklusion."
+      },
+      "context": {
+        "title": "Faglig fortolkning",
+        "text": "Den ansvarlige fagperson vurderer værdien i dens individuelle kontekst og drøfter om nødvendigt relevante næste skridt."
+      }
     },
     "safety_note": "Målinger giver yderligere information. Den faglige vurdering og de næste skridt, der følger heraf, er fortsat den ansvarlige fagpersons opgave."
   }

@@ -242,8 +242,15 @@ for (const panel of panels) {
   }
 }
 
+// Gated Bundles liegen seit AP19 nicht mehr oeffentlich, sondern unter `storage/protected`
+// (gleiche Regel wie `scripts/check-resource-assets.ts`, RESOURCES-CONTRACT rsc-epi-019).
+const gatedFiles = new Set(['PolarisDX_Musterbefunde_DE.zip'])
 const linkedAssetRows = [...linkedFiles].sort().map((file) => {
-  const path = resolve(root, 'public/downloads/epigenetics', file)
+  const path = resolve(
+    root,
+    gatedFiles.has(file) ? 'storage/protected/epigenetics' : 'public/downloads/epigenetics',
+    file,
+  )
   if (!existsSync(path)) errors.push(`missing linked asset: ${file}`)
   const type = file.toLowerCase().endsWith('.pdf') ? 'PDF' : 'ZIP'
   if (type === 'PDF' && existsSync(path)) {

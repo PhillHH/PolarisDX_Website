@@ -24,7 +24,7 @@ import '@fontsource-variable/inter'
 import './index.css'
 
 // i18n init — exportiert ein Promise das resolvet wenn Translations geladen sind
-import { i18nReady } from './i18n.client'
+import { i18nReady, loadRemainingNamespaces } from './i18n.client'
 
 // App - Client-Version mit lazy loading für Code-Splitting
 import App from './App'
@@ -71,4 +71,16 @@ i18nReady.then(() => {
       </HelmetProvider>
     </StrictMode>,
   )
+
+  // AP25 PT25.2 (PERF-B01): restliche Namespaces erst nach dem Laden der Seite
+  // und im Leerlauf holen — sie werden erst bei clientseitiger Navigation gebraucht.
+  const scheduleRemaining = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadRemainingNamespaces, { timeout: 5000 })
+    } else {
+      setTimeout(loadRemainingNamespaces, 2000)
+    }
+  }
+  if (document.readyState === 'complete') scheduleRemaining()
+  else window.addEventListener('load', scheduleRemaining, { once: true })
 })

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, Search } from 'lucide-react'
@@ -7,6 +7,7 @@ import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
 import logo from '../../assets/polaris_white.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
+import { useKeyboardDismiss } from '../../hooks/useKeyboardDismiss'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 
 interface NavChild {
@@ -197,6 +198,8 @@ const Header = () => {
 
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const location = useLocation()
+  const mobileToggleRef = useRef<HTMLButtonElement>(null)
+  const mobileNavRef = useRef<HTMLElement>(null)
 
   // Beim Seitenwechsel schliesst das mobile Menue. Das aufgeklappte
   // Untermenue wird hier NICHT mehr zurueckgesetzt: es ist nur innerhalb des
@@ -218,25 +221,88 @@ const Header = () => {
       setOpenSubmenu(null)
       trigger?.focus()
     }
+
+    // AP24 PT24.2 — wandert der Fokus aus dem Menuepunkt heraus, schliesst das
+    // Untermenue. Gemessen war vorher: nach dem letzten Untermenue-Eintrag ging
+    // es per Tab auf den naechsten Hauptpunkt, waehrend das Untermenue offen
+    // stehen blieb und `aria-expanded` weiter "true" meldete — ein Zustand,
+    // den niemand mehr benutzte. Der Fokus wird dabei NICHT angefasst: er ist
+    // bereits dort, wo die Nutzerin ihn haben wollte.
+    const onFocusIn = (event: FocusEvent) => {
+      const trigger = document.querySelector<HTMLElement>(`[data-submenu-trigger="${openSubmenu}"]`)
+      const scope = trigger?.closest('[data-submenu-scope]')
+      const target = event.target as Node | null
+      if (!scope || !target || scope.contains(target)) return
+      setOpenSubmenu(null)
+    }
+
     document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
+    document.addEventListener('focusin', onFocusIn)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('focusin', onFocusIn)
+    }
   }, [openSubmenu])
+
+  // AP24 PT24.2 — das mobile Menue schliesst mit Escape, der Fokus kehrt auf
+  // den Burger zurueck. Gemessen war vorher: Escape tat nichts,
+  // `aria-expanded` blieb "true", und wer heraustabbte, liess ein offenes
+  // Menue hinter sich.
+  //
+  // Bewusst OHNE Fokusfalle: dieses Menue ist nicht modal — es sperrt den
+  // Hintergrund nicht und verdeckt ihn nicht vollstaendig. Eine Falle waere
+  // hier genau der „unbeabsichtigte Keyboard Trap", den AP24 verbietet.
+  useKeyboardDismiss({
+    open: mobileMenu.isOpen,
+    onDismiss: mobileMenu.onClose,
+    containerRef: mobileNavRef,
+    triggerRef: mobileToggleRef,
+  })
 
   return (
     <>
+      {/*
+        AP24 PT24.6 — DER KOPFZEILEN-SCHLEIER.
+
+        Hier stand `bg-transparent`, solange die Seite nicht gescrollt war. Die
+        Navigation ist weiss, und das funktioniert genau so lange, wie unter
+        der Kopfzeile etwas Dunkles liegt. Auf der Startseite und auf
+        `/diagnostics` liegt dort aber ein HELLER Hero: gemessen wurde der
+        tatsaechliche Untergrund per Pixelabtastung als `rgb(248,250,252)` —
+        weisse Schrift darauf ergibt **1,05:1**. Die Hauptnavigation war auf
+        der Landingpage praktisch unsichtbar; `axe` meldet dafuer 16 Knoten
+        der Stufe `serious`.
+
+        Warum das bis hierher durchkam: PT24.3 hat den FOKUSRING dieser Links
+        gemessen (weiss auf Navy-Versatz, einwandfrei), und die
+        Kontrastmessung in PT24.4 schliesst Elemente unter fixierten
+        Ueberlagerungen aus — also ausgerechnet die Kopfzeile selbst. Erst der
+        breite axe-Lauf trifft sie.
+
+        Der Schleier loest das, ohne die Gestaltung umzubauen: `brand-deep/75`
+        ergibt auf dem hellen Hero **6,15:1**, auf dem Mintton **6,31:1** und
+        auf dunklem Hero faellt er nicht auf, weil er dieselbe Navy ist.
+        `backdrop-blur-sm` haelt den Eindruck, dass der Hero durchscheint.
+
+        SICHTBARE AENDERUNG — gehoert in die AP27-Referenzbilder.
+      */}
       <header
         className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
           isScrolled
             ? 'bg-brand-navy/85 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl border-b border-white/5'
-            : 'bg-transparent'
+            : 'bg-brand-deep/75 backdrop-blur-sm'
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
           {/* min-h-[44px]: Trefferflaeche des Logo-Links auf WCAG-2.5.5-Mindestmass.
               Das Bild bleibt h-10/h-12, nur die Klickflaeche waechst. */}
+          {/* AP24 PT24.1: der Link trug seinen Namen dreimal — `aria-label`,
+              `alt` am Bild und ein `sr-only`-Span. `aria-label` gewinnt, die
+              beiden anderen waren wirkungslos, und der Span haette den Namen
+              zu "... PolarisDX" verlaengert, sobald das `aria-label` faellt.
+              Native Semantik zuerst: der Alternativtext benennt den Link. */}
           <Link
             to="/"
-            aria-label={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
             className="flex min-h-[44px] shrink-0 items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
           >
             <img
@@ -246,7 +312,6 @@ const Header = () => {
               height={40}
               className="h-10 w-auto sm:h-12 transition-all duration-300"
             />
-            <span className="sr-only">PolarisDX</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -261,6 +326,11 @@ const Header = () => {
               return (
                 <div
                   key={item.label}
+                  // Stabile Marke statt `.closest('.relative')`: der
+                  // Fokus-Waechter unten muss den Menuepunkt sicher finden,
+                  // und `relative` ist eine Gestaltungsklasse, die jederzeit
+                  // an einem anderen Vorfahren auftauchen kann.
+                  data-submenu-scope={item.label}
                   className="relative"
                   onMouseEnter={() => item.children && setOpenSubmenu(item.label)}
                   onMouseLeave={() => item.children && setOpenSubmenu(null)}
@@ -443,6 +513,7 @@ const Header = () => {
             <LanguageSwitcher className="text-white" isMobile />
 
             <button
+              ref={mobileToggleRef}
               type="button"
               className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-colors duration-300 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
               onClick={() => {
@@ -452,7 +523,8 @@ const Header = () => {
               aria-label={t('a11y.toggle_nav', 'Navigation umschalten')}
               aria-expanded={mobileMenu.isOpen}
             >
-              <span className="sr-only">{t('a11y.toggle_nav', 'Navigation umschalten')}</span>
+              {/* AP24 PT24.1: der `sr-only`-Span wiederholte nur das
+                  `aria-label` und trug nichts zum Namen bei. */}
               <div className="space-y-1.5">
                 <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
                 <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
@@ -464,7 +536,9 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenu.isOpen && (
-          <div
+          <nav
+            ref={mobileNavRef}
+            aria-label={t('a11y.main_nav', 'Hauptnavigation')}
             className={`md:hidden overflow-y-auto max-h-[80vh] backdrop-blur-xl transition-all duration-300 ${
               isScrolled
                 ? 'bg-brand-navy/95 border-t border-white/10 shadow-xl'
@@ -478,6 +552,7 @@ const Header = () => {
                 return (
                   <div
                     key={item.label}
+                    data-submenu-scope={item.label}
                     className="border-b border-white/5 pb-2 last:border-0 last:pb-0"
                   >
                     <div className="flex items-center justify-between gap-2">
@@ -528,7 +603,11 @@ const Header = () => {
                       <div className="mt-3 space-y-3 border-l-2 border-white/20 pl-4">
                         {item.groups?.map((group) => (
                           <div key={group.heading} className="space-y-1">
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/50">
+                            {/* AP24 PT24.4: `text-white/50` liegt auf der Navy
+                                des Menues bei 4,38:1 — knapp unter den 4,5:1
+                                fuer Fliesstext, und 11px ist kein grosser Text.
+                                `white/70` bringt 7,1:1. */}
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
                               {t(`nav.${group.heading}`)}
                             </p>
                             {group.items.map((child) => (
@@ -573,7 +652,11 @@ const Header = () => {
 
                         {item.crosslinks && (
                           <div className="space-y-1 pt-1">
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/50">
+                            {/* AP24 PT24.4: `text-white/50` liegt auf der Navy
+                                des Menues bei 4,38:1 — knapp unter den 4,5:1
+                                fuer Fliesstext, und 11px ist kein grosser Text.
+                                `white/70` bringt 7,1:1. */}
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
                               {t('nav.group_crosslink')}
                             </p>
                             {item.crosslinks.map((cross) => (
@@ -605,7 +688,7 @@ const Header = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </nav>
         )}
       </header>
 

@@ -292,13 +292,30 @@
     "title": "Informacja tam, gdzie jest potrzebna",
     "intro": "Pomiary Point of Care dostarczają dodatkowych informacji bezpośrednio w toku pracy gabinetu. Wspierają profesjonalną interpretację, nie automatyzując jej ani nie zastępując.",
     "signals": {
-      "access": { "title": "Bezpośredni dostęp do informacji", "text": "Wyniki pomiarów są dostępne w miejscu opieki po czasie przetwarzania właściwym dla danego testu." },
-      "workflow": { "title": "Element toku pracy", "text": "Wykonanie, pomiar i dokumentację można włączyć jako przejrzysty proces do istniejącej organizacji pracy gabinetu." },
-      "conversation": { "title": "Podstawa rozmowy", "text": "Dostępne wartości mogą wspierać profesjonalną konsultację i wspólne omówienie odpowiednich kolejnych kroków." }
+      "access": {
+        "title": "Bezpośredni dostęp do informacji",
+        "text": "Wyniki pomiarów są dostępne w miejscu opieki po czasie przetwarzania właściwym dla danego testu."
+      },
+      "workflow": {
+        "title": "Element toku pracy",
+        "text": "Wykonanie, pomiar i dokumentację można włączyć jako przejrzysty proces do istniejącej organizacji pracy gabinetu."
+      },
+      "conversation": {
+        "title": "Podstawa rozmowy",
+        "text": "Dostępne wartości mogą wspierać profesjonalną konsultację i wspólne omówienie odpowiednich kolejnych kroków."
+      }
     },
     "benefits": {
-      "practice": { "label": "Korzyść dla gabinetu", "title": "Uporządkowane w toku pracy", "text": "Dodatkowe wyniki są dostępne w procesie Point of Care i można je uwzględnić w konsultacji oraz opiece." },
-      "patient": { "label": "Korzyść dla pacjentek i pacjentów", "title": "Zrozumiałe omówienie wyników", "text": "Dostępne wartości można wyjaśnić w kontekście opieki. Test uzupełnia profesjonalną ocenę; nie zastępuje diagnozy ani leczenia." }
+      "practice": {
+        "label": "Korzyść dla gabinetu",
+        "title": "Uporządkowane w toku pracy",
+        "text": "Dodatkowe wyniki są dostępne w procesie Point of Care i można je uwzględnić w konsultacji oraz opiece."
+      },
+      "patient": {
+        "label": "Korzyść dla pacjentek i pacjentów",
+        "title": "Zrozumiałe omówienie wyników",
+        "text": "Dostępne wartości można wyjaśnić w kontekście opieki. Test uzupełnia profesjonalną ocenę; nie zastępuje diagnozy ani leczenia."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Zamów raport",
       "sending": "Wysyłanie …",
       "success": "Dziękujemy! Wkrótce prześlemy Ci raport.",
-      "error": "Obecnie niemożliwe – prosimy o bezpośrednie umówienie konsultacji."
+      "error": "Obecnie niemożliwe – prosimy o bezpośrednie umówienie konsultacji.",
+      "error_retryable": "Tym razem się nie udało. Spróbuj ponownie za chwilę – Twoje dane zostaną zachowane."
     },
     "report_hint": "W formacie PDF na Państwa e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "Przejrzysty proces pozwala wykorzystać informacje pomiarowe w codziennej pracy, pozostawiając odpowiedzialność medyczną po stronie personelu prowadzącego.",
     "aria_label": "Proces Point of Care w trzech krokach",
     "items": {
-      "application": { "title": "Wykonanie i pomiar", "text": "Próbkę i test przygotowuje się zgodnie z odpowiednią instrukcją, a następnie mierzy za pomocą kompatybilnego systemu." },
-      "result": { "title": "Dostępny wynik", "text": "Po czasie przetwarzania właściwym dla testu wynik pomiaru jest dostępny w toku pracy gabinetu — bez automatycznego wniosku medycznego." },
-      "context": { "title": "Profesjonalna interpretacja", "text": "Odpowiedzialna osoba ocenia wartość w indywidualnym kontekście i w razie potrzeby omawia zasadne kolejne kroki." }
+      "application": {
+        "title": "Wykonanie i pomiar",
+        "text": "Próbkę i test przygotowuje się zgodnie z odpowiednią instrukcją, a następnie mierzy za pomocą kompatybilnego systemu."
+      },
+      "result": {
+        "title": "Dostępny wynik",
+        "text": "Po czasie przetwarzania właściwym dla testu wynik pomiaru jest dostępny w toku pracy gabinetu — bez automatycznego wniosku medycznego."
+      },
+      "context": {
+        "title": "Profesjonalna interpretacja",
+        "text": "Odpowiedzialna osoba ocenia wartość w indywidualnym kontekście i w razie potrzeby omawia zasadne kolejne kroki."
+      }
     },
     "safety_note": "Pomiary dostarczają dodatkowych informacji. Profesjonalna ocena i wynikające z niej kolejne kroki pozostają w gestii odpowiedzialnej osoby."
   }

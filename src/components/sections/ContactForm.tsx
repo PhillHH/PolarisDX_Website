@@ -209,7 +209,10 @@ export const ContactForm = () => {
       'rounded-full border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
       active
         ? 'border-accent bg-accent-soft text-accent-strong'
-        : 'border-ui-field bg-white text-gray-700 hover:border-accent/60 hover:text-accent-strong',
+        : // AP24 PT24.4: `border-accent/60` lag im Hover bei 2,15:1 — die
+          // Begrenzung eines Bedienelements braucht 3:1 (WCAG 1.4.11). Volles
+          // `accent` bringt 3,74:1 und bleibt derselbe Ton.
+          'border-ui-field bg-white text-gray-700 hover:border-accent hover:text-accent-strong',
     )
 
   const alertFocusClass = 'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
@@ -399,8 +402,10 @@ export const ContactForm = () => {
             <span>{fieldHint}</span>
           </div>
         )}
+        {/* AP24 PT24.1: `role="alert"` wie bei den Input-Feldern. Diese beiden
+            Fehler waren handgebaut und blieben als einzige stumm. */}
         {errors.field && (
-          <p id="field-error" className="text-sm font-medium text-red-600">
+          <p id="field-error" role="alert" className="text-sm font-medium text-red-600">
             {errors.field}
           </p>
         )}
@@ -469,7 +474,7 @@ export const ContactForm = () => {
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" className="text-sm font-medium text-red-600">
+          <p id="consent-error" role="alert" className="text-sm font-medium text-red-600">
             {errors.consent}
           </p>
         )}
@@ -482,7 +487,7 @@ export const ContactForm = () => {
             type="checkbox"
             checked={marketingConsent}
             onChange={(e) => setMarketingConsent(e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
+            className="mt-0.5 h-4 w-4 rounded border-ui-field text-accent focus:ring-accent"
           />
           <label htmlFor="marketing-consent" className="text-sm leading-relaxed text-gray-600">
             {t('contact.form.marketing_consent')}

@@ -83,7 +83,8 @@
     "epi_basics": "Basics",
     "epi_evidence": "Evidence",
     "epi_docs": "Documents",
-    "epi_samples": "Sample reports"
+    "epi_samples": "Sample reports",
+    "cookie_settings": "Cookie settings"
   },
   "read_more": "Read More",
   "search": {
@@ -226,7 +227,8 @@
         "name": "Analytics",
         "description": "Analytics."
       }
-    }
+    },
+    "withdraw": "Withdraw consent"
   },
   "testimonials": {
     "positiveLabel": "Positive Review"
@@ -258,6 +260,7 @@
     "honeypot": "Leave this field blank",
     "select_language": "Select language",
     "main_nav": "Main navigation",
+    "breadcrumb": "Breadcrumb",
     "toggle_submenu": "{{name}} — submenu",
     "skip_to_content": "Skip to content"
   },

@@ -190,7 +190,11 @@ const SupportPage = () => {
                   {c.value && (
                     <span className="mt-4 block text-sm font-medium text-heading">{c.value}</span>
                   )}
-                  <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent group-hover:text-accent-strong">
+                  {/* AP24 PT24.4: `text-accent` liegt auf Weiss bei 3,74:1 —
+                      das reicht fuer grossen Text, und 14px/600 ist keiner.
+                      `accent-strong` bringt 5,47:1; der Hover geht weiter in
+                      dieselbe Richtung (dunkler) statt zurueck. */}
+                  <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
                     {c.action}
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -254,10 +258,10 @@ const SupportPage = () => {
 
                 {/* Helpful links */}
                 <section className="mt-6 rounded-xl border border-slate-200 bg-white p-7">
-                  <h2 className="text-xs font-medium text-gray-500">
+                  <h2 id="support-helpful-links" className="text-xs font-medium text-gray-500">
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h2>
-                  <nav className="mt-4 space-y-2.5">
+                  <nav aria-labelledby="support-helpful-links" className="mt-4 space-y-2.5">
                     {helpfulLinks.map((link) => (
                       <Link
                         key={link.to}

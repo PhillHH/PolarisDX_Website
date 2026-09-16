@@ -94,7 +94,8 @@
     "reassurance": "Kostenlos & unverbindlich · Antwort < 24 h",
     "success_title": "Vielen Dank für Ihre Bestellung!",
     "success_text": "Wir haben Ihre Bestellanfrage erhalten. Unser Team meldet sich in Kürze mit den nächsten Schritten.",
-    "error_text": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns an."
+    "error_text": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
+    "error_retryable": "Das hat gerade nicht geklappt. Bitte versuchen Sie es in einem Moment erneut – Ihre Bestellangaben bleiben erhalten."
   },
   "contact": {
     "title": "Ihr Ansprechpartner",
@@ -137,22 +138,56 @@
     "bio": "2× Bioverfügbarkeit"
   },
   "hero_stats": [
-    { "value": "2.000 IE", "label": "pro Sprühstoß" },
-    { "value": "71", "label": "Anwendungen / Flasche" },
-    { "value": "2×", "label": "Bioverfügbarkeit" }
+    {
+      "value": "2.000 IE",
+      "label": "pro Sprühstoß"
+    },
+    {
+      "value": "71",
+      "label": "Anwendungen / Flasche"
+    },
+    {
+      "value": "2×",
+      "label": "Bioverfügbarkeit"
+    }
   ],
   "visual_chips": [
-    { "value": "2.000 IE", "label": "Vitamin D3" },
-    { "value": "15 µg K2", "label": "MK-7" },
-    { "value": "71×", "label": "pro Flasche" }
+    {
+      "value": "2.000 IE",
+      "label": "Vitamin D3"
+    },
+    {
+      "value": "15 µg K2",
+      "label": "MK-7"
+    },
+    {
+      "value": "71×",
+      "label": "pro Flasche"
+    }
   ],
   "stats": [
-    { "value": "2.000 IE", "label": "Vitamin D3 pro Sprühstoß" },
-    { "value": "15 µg", "label": "Vitamin K2 (MK-7)" },
-    { "value": "71", "label": "Anwendungen pro Flasche" },
-    { "value": "ab 10,90 €", "label": "pro Einheit (Praxispaket)" }
+    {
+      "value": "2.000 IE",
+      "label": "Vitamin D3 pro Sprühstoß"
+    },
+    {
+      "value": "15 µg",
+      "label": "Vitamin K2 (MK-7)"
+    },
+    {
+      "value": "71",
+      "label": "Anwendungen pro Flasche"
+    },
+    {
+      "value": "ab 10,90 €",
+      "label": "pro Einheit (Praxispaket)"
+    }
   ],
-  "benefit_titles": ["Knochen & Calcium", "Osseointegration", "Parodontale Prävention"],
+  "benefit_titles": [
+    "Knochen & Calcium",
+    "Osseointegration",
+    "Parodontale Prävention"
+  ],
   "badges": {
     "vegan": "Vegan",
     "made_in": "Made in Germany"

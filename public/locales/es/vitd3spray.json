@@ -94,7 +94,8 @@
     "reassurance": "Gratis y sin compromiso · Respuesta < 24 h",
     "success_title": "¡Muchas gracias por su pedido!",
     "success_text": "Hemos recibido su solicitud de pedido. Nuestro equipo se pondrá en contacto con usted en breve para indicarle los siguientes pasos.",
-    "error_text": "Se ha producido un error. Inténtelo de nuevo o llámenos."
+    "error_text": "Se ha producido un error. Inténtelo de nuevo o llámenos.",
+    "error_retryable": "Ahora mismo no ha funcionado. Inténtelo de nuevo en un momento: los datos de su pedido se conservan."
   },
   "contact": {
     "title": "Su persona de contacto",

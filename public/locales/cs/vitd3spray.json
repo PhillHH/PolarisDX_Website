@@ -94,7 +94,8 @@
     "reassurance": "Zdarma a nezávazně · Odpověď < 24 h",
     "success_title": "Děkujeme za vaši objednávku!",
     "success_text": "Obdrželi jsme vaši žádost o objednávku. Náš tým se vám brzy ozve s dalšími kroky.",
-    "error_text": "Došlo k chybě. Zkuste to prosím znovu nebo nám zavolejte."
+    "error_text": "Došlo k chybě. Zkuste to prosím znovu nebo nám zavolejte.",
+    "error_retryable": "Právě teď se to nepodařilo. Zkuste to prosím za chvíli znovu – údaje objednávky zůstávají zachovány."
   },
   "contact": {
     "title": "Váš kontaktní partner",

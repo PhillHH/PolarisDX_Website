@@ -292,13 +292,30 @@
     "title": "Informatie waar die nodig is",
     "intro": "Point-of-Care-metingen bieden aanvullende informatie direct binnen de workflow van de praktijk. Ze ondersteunen de professionele interpretatie zonder die te automatiseren of te vervangen.",
     "signals": {
-      "access": { "title": "Directe toegang tot informatie", "text": "Metingen zijn na de testspecifieke verwerkingstijd beschikbaar op het Point of Care." },
-      "workflow": { "title": "Verankerd in de workflow", "text": "Toepassing, meting en documentatie kunnen als een duidelijk proces in bestaande praktijkworkflows worden opgenomen." },
-      "conversation": { "title": "Basis voor het gesprek", "text": "Beschikbare waarden kunnen professionele advisering en het gezamenlijk bespreken van passende vervolgstappen ondersteunen." }
+      "access": {
+        "title": "Directe toegang tot informatie",
+        "text": "Metingen zijn na de testspecifieke verwerkingstijd beschikbaar op het Point of Care."
+      },
+      "workflow": {
+        "title": "Verankerd in de workflow",
+        "text": "Toepassing, meting en documentatie kunnen als een duidelijk proces in bestaande praktijkworkflows worden opgenomen."
+      },
+      "conversation": {
+        "title": "Basis voor het gesprek",
+        "text": "Beschikbare waarden kunnen professionele advisering en het gezamenlijk bespreken van passende vervolgstappen ondersteunen."
+      }
     },
     "benefits": {
-      "practice": { "label": "Voordeel voor de praktijk", "title": "Gestructureerd in de workflow", "text": "Aanvullende metingen zijn beschikbaar binnen het Point-of-Care-proces en kunnen bij advies en zorg worden betrokken." },
-      "patient": { "label": "Voordeel voor patiënten", "title": "Resultaten helder bespreken", "text": "Beschikbare waarden kunnen binnen de zorgcontext worden uitgelegd. De test vult de professionele beoordeling aan; hij vervangt diagnose noch behandeling." }
+      "practice": {
+        "label": "Voordeel voor de praktijk",
+        "title": "Gestructureerd in de workflow",
+        "text": "Aanvullende metingen zijn beschikbaar binnen het Point-of-Care-proces en kunnen bij advies en zorg worden betrokken."
+      },
+      "patient": {
+        "label": "Voordeel voor patiënten",
+        "title": "Resultaten helder bespreken",
+        "text": "Beschikbare waarden kunnen binnen de zorgcontext worden uitgelegd. De test vult de professionele beoordeling aan; hij vervangt diagnose noch behandeling."
+      }
     }
   },
   "final_cta": {
@@ -351,7 +368,8 @@
       "submit": "Rapport aanvragen",
       "sending": "Bezig met verzenden …",
       "success": "Bedankt! Wij sturen u het rapport binnenkort toe.",
-      "error": "Momenteel niet mogelijk – boek direct een adviesgesprek."
+      "error": "Momenteel niet mogelijk – boek direct een adviesgesprek.",
+      "error_retryable": "Dat lukte zojuist niet. Probeer het over een moment opnieuw – uw gegevens blijven behouden."
     },
     "report_hint": "Als PDF naar uw e-mail"
   },
@@ -381,9 +399,18 @@
     "intro": "Een helder proces maakt meetinformatie bruikbaar in de dagelijkse praktijk en laat de medische verantwoordelijkheid bij de behandelende professionals.",
     "aria_label": "Point-of-Care-proces in drie stappen",
     "items": {
-      "application": { "title": "Toepassing en meting", "text": "Het monster en de test worden volgens de bijbehorende instructies voorbereid en met het compatibele systeem gemeten." },
-      "result": { "title": "Resultaat beschikbaar", "text": "Na de testspecifieke verwerkingstijd is de meting beschikbaar in de praktijkworkflow — zonder geautomatiseerde medische conclusie." },
-      "context": { "title": "Professionele interpretatie", "text": "De verantwoordelijke professional beoordeelt de waarde in de individuele context en bespreekt waar passend zinvolle vervolgstappen." }
+      "application": {
+        "title": "Toepassing en meting",
+        "text": "Het monster en de test worden volgens de bijbehorende instructies voorbereid en met het compatibele systeem gemeten."
+      },
+      "result": {
+        "title": "Resultaat beschikbaar",
+        "text": "Na de testspecifieke verwerkingstijd is de meting beschikbaar in de praktijkworkflow — zonder geautomatiseerde medische conclusie."
+      },
+      "context": {
+        "title": "Professionele interpretatie",
+        "text": "De verantwoordelijke professional beoordeelt de waarde in de individuele context en bespreekt waar passend zinvolle vervolgstappen."
+      }
     },
     "safety_note": "Metingen bieden aanvullende informatie. De professionele beoordeling en de daaruit voortvloeiende vervolgstappen blijven de verantwoordelijkheid van de bevoegde professional."
   }

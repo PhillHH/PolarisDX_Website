@@ -1,7 +1,8 @@
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { getArticleImageUrl } from '../../assets/articleImages'
+import { getArticleImageAsset } from '../../assets/articleImages'
+import { ResponsivePicture } from '../ui/ResponsivePicture'
 import { diagnosticsContextTargets, diagnosticsRelatedArticles } from '../../data/diagnosticsHub'
 import Eyebrow from '../ui/Eyebrow'
 
@@ -27,7 +28,7 @@ const DiagnosticsRelatedArticlesSection = () => {
           {diagnosticsRelatedArticles.map(({ article, route }) => {
             const title = t(`articles:${article.id}.title`)
             const image = article.sections?.[0]?.image
-            const imageUrl = image ? getArticleImageUrl(image) : undefined
+            const imageAsset = image ? getArticleImageAsset(image) : undefined
 
             return (
               <article
@@ -35,14 +36,13 @@ const DiagnosticsRelatedArticlesSection = () => {
                 data-diagnostics-related-article={article.id}
                 className="flex min-h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
               >
-                {imageUrl && (
-                  <img
-                    src={imageUrl}
+                {imageAsset && (
+                  /* AP25 PT25.3: dieselben Artikelbilder wie in der Artikelliste — responsive,
+                     unter dem Falz lazy; feste Hoehe (h-48) + object-cover wie zuvor. */
+                  <ResponsivePicture
+                    image={imageAsset}
                     alt=""
-                    width={400}
-                    height={256}
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
                     className="h-48 w-full object-cover"
                   />
                 )}

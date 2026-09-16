@@ -94,7 +94,8 @@
     "reassurance": "Gratuit & sans engagement · Réponse < 24 h",
     "success_title": "Merci pour votre commande !",
     "success_text": "Nous avons reçu votre demande de commande. Notre équipe vous contactera prochainement pour les étapes suivantes.",
-    "error_text": "Une erreur s'est produite. Veuillez réessayer ou nous appeler."
+    "error_text": "Une erreur s'est produite. Veuillez réessayer ou nous appeler.",
+    "error_retryable": "Cela n'a pas fonctionné à l'instant. Merci de réessayer dans un moment – les données de votre commande sont conservées."
   },
   "contact": {
     "title": "Votre interlocuteur",

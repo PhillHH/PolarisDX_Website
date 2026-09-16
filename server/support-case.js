@@ -8,8 +8,10 @@ const {
   IdempotencyConflictError,
   LeadHandoffWorker,
   LeadRepository,
+  PENDING_DELIVERY_STATUSES,
   openLeadDatabase,
 } = require('./lead-foundation')
+const { sendEach } = require('./lead-foundation/crm-delivery')
 const { resolveMailLocale, getMailCopy } = require('./system-i18n')
 
 /**
@@ -190,13 +192,19 @@ function validateAttachment(raw, index, idempotencyKey = '') {
   if (signature && !signature.match(buffer)) {
     throw new SupportValidationError('ATTACHMENT_SPOOFED', ['attachments'])
   }
+  // AP26 PT26.3 — der Inhalt gehoert zur Identitaet. Vorher bestimmten nur Key,
+  // Index und Name Speicherort und Request-Hash: derselbe Key mit gleich
+  // benannter, gleich grosser, aber ANDERER Datei galt als Replay und
+  // ueberschrieb die gespeicherte Datei des Originalvorgangs.
+  const sha256 = crypto.createHash('sha256').update(buffer).digest('hex')
   return {
     originalName,
     mime,
     extension,
     size: buffer.length,
+    sha256,
     buffer,
-    storageId: `${crypto.createHash('sha256').update(`support-file:${idempotencyKey}:${index}:${originalName}`).digest('hex').slice(0, 32)}.${extension}`,
+    storageId: `${crypto.createHash('sha256').update(`support-file:${idempotencyKey}:${index}:${originalName}:${sha256}`).digest('hex').slice(0, 32)}.${extension}`,
   }
 }
 
@@ -274,7 +282,7 @@ function publicCaseState(lead) {
     leadId: lead?.id,
     journey: lead?.journey,
     status: lead?.status,
-    deliveryPending: ['PENDING_HANDOFF', 'PROCESSING', 'RETRY_PENDING'].includes(lead?.status),
+    deliveryPending: PENDING_DELIVERY_STATUSES.includes(lead?.status),
     providerConfigured:
       lead?.lastErrorClass === 'NO_PROVIDER_CONFIGURED'
         ? false
@@ -294,17 +302,42 @@ function resolveInsideRoot(root, ...segments) {
 
 /**
  * Schreibt die validierten Attachments unter `<root>/<caseDir>/` — generierte
- * UUID-Namen, Originalname kommt nur in die Metadaten. Der Root liegt im
+ * Namen, Originalname kommt nur in die Metadaten. Der Root liegt im
  * Server-Verzeichnis und wird von keiner Route statisch ausgeliefert.
+ *
+ * Nie ueberschreiben (`wx`): eine bereits vorhandene Datei traegt wegen des
+ * Inhalts-Hashs im Namen denselben Inhalt. Zurueck kommen nur die Dateien, die
+ * DIESER Aufruf angelegt hat — nur die darf ein Fehlschlag wieder entfernen.
  */
 function writeAttachmentFiles(storageRoot, caseDir, attachments) {
   const dir = resolveInsideRoot(storageRoot, caseDir)
   fs.mkdirSync(dir, { recursive: true })
-  for (const attachment of attachments) {
-    const target = resolveInsideRoot(dir, attachment.storageId)
-    fs.writeFileSync(target, attachment.buffer)
+  const created = []
+  try {
+    for (const attachment of attachments) {
+      const target = resolveInsideRoot(dir, attachment.storageId)
+      try {
+        fs.writeFileSync(target, attachment.buffer, { flag: 'wx' })
+        created.push(target)
+      } catch (error) {
+        if (error?.code !== 'EEXIST') throw error
+      }
+    }
+  } catch (error) {
+    removeCreatedFiles(created)
+    throw error
   }
-  return dir
+  return created
+}
+
+function removeCreatedFiles(files) {
+  for (const file of files) {
+    try {
+      fs.unlinkSync(file)
+    } catch {
+      // Bereits weg — nichts zu tun.
+    }
+  }
 }
 
 /**
@@ -393,12 +426,15 @@ class SendGridSupportMailAdapter extends CrmAdapter {
     }
 
     try {
-      await Promise.all([this.send(teamMail), this.send(confirmationMail)])
+      await sendEach(this.send, [teamMail, confirmationMail])
       return { status: 'DELIVERED' }
     } catch (error) {
       const statusCode = Number(error?.response?.statusCode ?? 0)
       const errorCode = String(error?.code || '')
-      if (statusCode >= 500 || errorCode === 'ETIMEDOUT' || errorCode === 'ECONNRESET') {
+      // AP26 PT26.4: nur ein eindeutiger 5xx ist wiederholbar. ETIMEDOUT/ECONNRESET bleiben
+      // unveraendert und werden an der Zustellgrenze als UNBEKANNT eingestuft — vorher
+      // machte dieser Zweig daraus SENDGRID_TEMPORARY und sendete blind nach.
+      if (statusCode >= 500) {
         throw Object.assign(new Error('SENDGRID_TEMPORARY'), {
           code: 'SENDGRID_TEMPORARY',
           retryable: true,
@@ -431,7 +467,7 @@ function createSupportCaseService({ repository, worker, storageRoot }) {
       // Storage-IDs, kein Datenmuell) und erzeugt denselben Kontext —
       // erst der requestHash-Vergleich unterscheidet Replay von Konflikt.
       const caseDir = `case-${crypto.createHash('sha256').update(`support:${key}`).digest('hex').slice(0, 32)}`
-      writeAttachmentFiles(storageRoot, caseDir, attachments)
+      const createdFiles = writeAttachmentFiles(storageRoot, caseDir, attachments)
 
       const retention = {
         caseDays: RETENTION_DAYS,
@@ -441,21 +477,29 @@ function createSupportCaseService({ repository, worker, storageRoot }) {
           .slice(0, 10),
       }
 
-      const lead = repository.createLead({
-        journey: JOURNEY,
-        idempotencyKey: key,
-        subject: request.subject,
-        context: {
-          locale: request.locale,
-          source: 'support_center',
-          originRoute: `/${request.locale}/support`,
-          caseDir,
-          attachments: attachments.map(({ buffer: _buffer, ...meta }) => meta),
-          retention,
-        },
-        consent,
-        channels: ['CRM'],
-      })
+      let lead
+      try {
+        lead = repository.createLead({
+          journey: JOURNEY,
+          idempotencyKey: key,
+          subject: request.subject,
+          context: {
+            locale: request.locale,
+            source: 'support_center',
+            originRoute: `/${request.locale}/support`,
+            caseDir,
+            attachments: attachments.map(({ buffer: _buffer, ...meta }) => meta),
+            retention,
+          },
+          consent,
+          channels: ['CRM'],
+        })
+      } catch (error) {
+        // Konflikt oder Speicherfehler: kein Vorgang referenziert die eben
+        // geschriebenen Dateien. Dateien eines bestehenden Vorgangs bleiben.
+        removeCreatedFiles(createdFiles)
+        throw error
+      }
 
       // Erst jetzt darf der externe Handoff laufen. Der Case ist committet —
       // ein Provider-Fehler verliert ihn nicht.
@@ -494,6 +538,9 @@ function getRuntimeSupportCaseService({ mailer, env = process.env } = {}) {
     repository,
     router: new CrmRouter({ adapters }),
     workerId: `support-${process.pid}`,
+    // Nur die eigene Journey: sonst uebernimmt dieser Worker fremde
+    // Auftraege, fuer die sein Router keinen Adapter hat.
+    journeys: [JOURNEY],
   })
   runtime = createSupportCaseService({ repository, worker, storageRoot })
   return runtime

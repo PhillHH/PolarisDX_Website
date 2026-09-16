@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { sendSupportEmail, type SupportFormData } from '../api/support'
 import type { SupportedLanguage } from '../i18n'
+import { track } from '../lib/tracking'
 
 export type SupportSubmitStatus =
   | 'idle'
@@ -133,6 +134,7 @@ export const useSupportForm = (): UseSupportFormReturn => {
         if (result.ok) {
           // 202 = Case dauerhaft persistiert. Erst jetzt darf die UI Erfolg zeigen.
           setSubmitStatus('success')
+          track({ name: 'support_submit' })
           return { ok: true, fields: [] }
         }
         if (!result.retryable) {

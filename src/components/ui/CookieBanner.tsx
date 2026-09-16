@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Shield, ChevronDown, ChevronUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { applyGoogleConsent, type GoogleConsentPreferences } from '../../lib/googleConsent'
+import { applyGoogleConsent, withdrawGoogleConsent } from '../../lib/googleConsent'
+import {
+  CONSENT_REOPEN_EVENT,
+  clearConsentDecision,
+  readConsentDecision,
+  writeConsentDecision,
+} from '../../lib/consentState'
 
 // =============================================================================
 // TYPES
@@ -18,7 +24,7 @@ interface CookieCategory {
 /**
  * Extract consent preferences from category array
  */
-const extractConsentFromCategories = (categories: CookieCategory[]): GoogleConsentPreferences => {
+const extractConsentFromCategories = (categories: CookieCategory[]) => {
   const analytics = categories.find((c) => c.id === 'analytics')
   const marketing = categories.find((c) => c.id === 'marketing')
 
@@ -63,33 +69,67 @@ export const CookieBanner: React.FC = () => {
   ]
 
   const [categories, setCategories] = useState<CookieCategory[]>(defaultCategories)
+  /** Gibt es ueberhaupt etwas zu widerrufen? Steuert den Widerruf-Knopf. */
+  const [hasStoredDecision, setHasStoredDecision] = useState(false)
 
-  // Check for existing consent on mount
+  /**
+   * AP23 PT23.1 — der gespeicherte Zustand wird GEPRUEFT, nicht uebernommen.
+   *
+   * Vorher las diese Stelle `localStorage` roh und setzte das Ergebnis
+   * ungeprueft in den State, aus dem unten eine Liste gerendert wird. Stand
+   * dort etwas anderes als das erwartete Array — ein abgeschnittener String
+   * aus einem vollen Speicher, ein Objekt aus einer aelteren Fassung, eine
+   * Zahl — warf `categories.map` beim Rendern, und zwar auf JEDER Seite,
+   * weil der Banner global unter `<Routes>` haengt. Ein kaputter
+   * Speichereintrag legte damit die gesamte Website lahm.
+   *
+   * `readConsentDecision()` liefert stattdessen entweder eine gueltige,
+   * versionierte Entscheidung oder `null`. `null` heisst „nicht entschieden"
+   * — der Dialog erscheint, und das ist in jedem Zweifelsfall die richtige
+   * Richtung.
+   */
   useEffect(() => {
-    let consent: string | null = null
-    try {
-      consent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null
-    } catch {
-      // ignore storage access errors in restricted environments
-    }
-
-    if (!consent) {
-      // Der gespeicherte Zustand darf erst nach der Hydrierung gelesen werden:
-      // der Server kennt den localStorage nicht und wuerde sonst einen anderen
-      // Zustand ausliefern als der Browser. Deshalb hier und nicht als
-      // Anfangswert - die Regel kennt diesen Fall nicht.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+    // Erst nach der Hydrierung: der Server kennt den localStorage nicht und
+    // wuerde sonst einen anderen Zustand ausliefern als der Browser.
+    const decision = readConsentDecision()
+    // Die Regel warnt vor kaskadierenden Renders durch setState im Effekt.
+    // Hier ist genau das die Absicht und der einzige korrekte Weg: der
+    // gespeicherte Zustand DARF erst nach der Hydrierung gelesen werden,
+    // sonst liefert der Server einen anderen Baum aus als der Browser.
+    /* eslint-disable react-hooks/set-state-in-effect */
+    setHasStoredDecision(decision !== null)
+    if (!decision) {
       setIsVisible(true)
-    } else {
-      // Load saved preferences
-      try {
-        const savedCategories = JSON.parse(consent) as CookieCategory[]
-        setCategories(savedCategories)
-        applyGoogleConsent(extractConsentFromCategories(savedCategories))
-      } catch {
-        setIsVisible(true)
-      }
+      return
     }
+    setCategories((prev) =>
+      prev.map((category) =>
+        category.required
+          ? category
+          : { ...category, enabled: decision[category.id as 'analytics' | 'marketing'] === true },
+      ),
+    )
+    /* eslint-enable react-hooks/set-state-in-effect */
+    applyGoogleConsent({ analytics: decision.analytics, marketing: decision.marketing })
+  }, [])
+
+  /**
+   * Wiederaufruf von aussen (Fusszeile, Datenschutzerklaerung).
+   *
+   * Ohne diesen Weg war eine einmal getroffene Entscheidung endgueltig: der
+   * Banner rendert nur ohne gespeicherte Entscheidung, und es gab keinen
+   * einzigen Einstiegspunkt, ihn erneut zu oeffnen. Ein Widerruf war damit
+   * technisch unmoeglich — obwohl er genauso einfach sein muss wie die
+   * Zustimmung.
+   */
+  useEffect(() => {
+    const reopen = () => {
+      setHasStoredDecision(readConsentDecision() !== null)
+      setIsVisible(true)
+      setShowSettings(true)
+    }
+    window.addEventListener(CONSENT_REOPEN_EVENT, reopen)
+    return () => window.removeEventListener(CONSENT_REOPEN_EVENT, reopen)
   }, [])
 
   /**
@@ -139,16 +179,36 @@ export const CookieBanner: React.FC = () => {
   }, [isVisible, showSettings])
 
   const saveConsent = useCallback((preferences: CookieCategory[]) => {
-    try {
-      localStorage.setItem('cookie-consent', JSON.stringify(preferences))
-    } catch {
-      // Ignore storage errors
-    }
-
     const consentPrefs = extractConsentFromCategories(preferences)
+    // Versioniert und ohne Personenbezug: nur Version, Zeitpunkt und zwei
+    // Boolesche. Die Speicherung liegt im Zustandsmodul, damit Format und
+    // Version genau EINE Quelle haben.
+    writeConsentDecision(consentPrefs)
     applyGoogleConsent(consentPrefs)
 
+    setHasStoredDecision(true)
     setIsVisible(false)
+    setShowSettings(false)
+  }, [])
+
+  /**
+   * Vollstaendiger Widerruf.
+   *
+   * Die Entscheidung wird geloescht (Zustand: „nicht entschieden"), die
+   * Zustimmungssignale gehen sofort auf `denied`. Lief in diesem Dokument
+   * bereits ein Container, ist ein Neuladen noetig: ein einmal ausgefuehrtes
+   * Providerskript laesst sich nicht zuverlaessig zurueckrufen — Timer,
+   * offene Verbindungen und registrierte Listener ueberleben das Entfernen
+   * des Elements. Ohne geladenen Provider bleibt der Nutzer, wo er ist.
+   */
+  const handleWithdraw = useCallback(() => {
+    clearConsentDecision()
+    const { reloadRequired } = withdrawGoogleConsent()
+    setCategories((prev) => prev.map((c) => ({ ...c, enabled: c.required })))
+    setHasStoredDecision(false)
+    setIsVisible(true)
+    setShowSettings(true)
+    if (reloadRequired) window.location.reload()
   }, [])
 
   const handleAcceptAll = useCallback(() => {
@@ -180,8 +240,20 @@ export const CookieBanner: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div
+    /*
+       AP23 PT23.1 — der Banner war ein unbenanntes <div>. Ein Screenreader
+       las den Inhalt als losen Text am Seitenende, ohne dass erkennbar war,
+       worum es sich handelt oder dass hier eine Entscheidung verlangt wird.
+       Bewusst ein <section> mit Namen (implizite Rolle `region`) und NICHT
+       `dialog`: der Banner ist nicht modal, er
+       sperrt die Seite nicht und faengt den Fokus nicht ein. Ein
+       `role="dialog"` wuerde Verhalten versprechen (Fokusfalle, Escape,
+       Hintergrund inert), das hier absichtlich nicht existiert — die Seite
+       bleibt ohne Entscheidung vollstaendig bedienbar.
+    */
+    <section
       ref={bannerRef}
+      aria-labelledby="cookie-banner-title"
       className="fixed bottom-0 left-0 right-0 z-[70] p-3 bg-white border-t border-gray-200 shadow-lg md:p-6 animate-in slide-in-from-bottom duration-300"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
@@ -192,7 +264,10 @@ export const CookieBanner: React.FC = () => {
               <Shield size={24} />
             </div>
             <div>
-              <h3 className="text-base md:text-lg font-semibold text-heading mb-1">
+              <h3
+                id="cookie-banner-title"
+                className="text-base md:text-lg font-semibold text-heading mb-1"
+              >
                 {t('cookie.title', 'Wir respektieren Ihre Privatsphäre')}
               </h3>
               <p className="text-gray-600 text-sm md:text-base max-w-3xl">
@@ -212,7 +287,7 @@ export const CookieBanner: React.FC = () => {
           <div className="grid w-full grid-cols-2 gap-2 md:flex md:w-auto md:min-w-[300px] md:gap-3">
             <button
               onClick={handleRejectAll}
-              className="inline-flex min-h-[44px] items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
+              className="inline-flex min-h-[44px] items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-ui-field rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
             >
               {t('cookie.reject_all', 'Nur notwendige')}
             </button>
@@ -224,7 +299,13 @@ export const CookieBanner: React.FC = () => {
             </button>
             <button
               onClick={() => setShowSettings(!showSettings)}
-              className="col-span-2 inline-flex min-h-[44px] items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
+              aria-expanded={showSettings}
+              /* AP24 PT24.1: Das Panel wird erst beim Aufklappen gerendert.
+                 `aria-controls` zeigte im zugeklappten Zustand auf eine Id,
+                 die es nicht gab. Der Zustand steht in `aria-expanded`; die
+                 Beziehung wird nur behauptet, wenn es sie gibt. */
+              aria-controls={showSettings ? 'cookie-settings-panel' : undefined}
+              className="col-span-2 inline-flex min-h-[44px] items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-ui-field rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
             >
               {showSettings
                 ? t('cookie.hide', 'Ausblenden')
@@ -236,7 +317,10 @@ export const CookieBanner: React.FC = () => {
 
         {/* Settings Panel */}
         {showSettings && (
-          <div className="mt-4 border-t border-gray-100 pt-4 animate-in fade-in duration-200">
+          <div
+            id="cookie-settings-panel"
+            className="mt-4 border-t border-gray-100 pt-4 animate-in fade-in duration-200"
+          >
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {categories.map((category) => (
                 <div
@@ -274,11 +358,28 @@ export const CookieBanner: React.FC = () => {
                       ></div>
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500">{t(category.descriptionKey)}</p>
+                  {/* AP24 PT24.6: Die Kategorienkarte ist leicht getoent;
+                      `gray-500` landet dort bei 4,45:1 und verfehlt AA um
+                      Haaresbreite. `gray-600` bringt 6,7:1. Dieselbe Regel wie
+                      auf der S3-Seite: `gray-500` fuer Weiss und slate-50, auf
+                      getoenten Flaechen `gray-600`. */}
+                  <p className="text-xs text-gray-600">{t(category.descriptionKey)}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex justify-end">
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+              {/* Der Widerruf erscheint nur, wenn es etwas zu widerrufen gibt.
+                  Er muss genauso erreichbar sein wie die Zustimmung — deshalb
+                  hier, im selben Panel, mit derselben Trefferflaeche. */}
+              {hasStoredDecision && (
+                <button
+                  type="button"
+                  onClick={handleWithdraw}
+                  className="inline-flex min-h-[44px] items-center justify-center px-6 py-2 text-sm font-medium text-gray-700 bg-white border border-ui-field rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors"
+                >
+                  {t('cookie.withdraw', 'Einwilligung widerrufen')}
+                </button>
+              )}
               <button
                 onClick={handleSaveSettings}
                 className="inline-flex min-h-[44px] items-center justify-center px-6 py-2 text-sm font-medium text-white bg-brand-deep rounded-md hover:bg-brand-navy-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-deep transition-colors"
@@ -289,6 +390,6 @@ export const CookieBanner: React.FC = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   )
 }

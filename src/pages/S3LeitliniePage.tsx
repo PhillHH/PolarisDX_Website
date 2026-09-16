@@ -24,6 +24,7 @@ import FinalCtaSection from '../components/sections/FinalCtaSection'
 
 const S3LeitliniePage = () => {
   const { t, i18n } = useTranslation('specialty')
+  const { t: tCommon } = useTranslation('common')
   // Author data for E-E-A-T
   const author = {
     name: t('s3_leitlinie.copy_001'),
@@ -112,16 +113,29 @@ const S3LeitliniePage = () => {
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-[900px] mx-auto">
                 {/* Breadcrumb */}
-                <nav className="mb-6 flex items-center gap-1.5 text-sm text-white/60">
-                  <Link to="/" className="hover:text-brand-secondary transition-colors">
-                    {t('s3_leitlinie.copy_042')}
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <Link to="/articles" className="hover:text-brand-secondary transition-colors">
-                    {t('s3_leitlinie.copy_043')}
-                  </Link>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  <span className="text-white/80">{t('s3_leitlinie.copy_045')}</span>
+                <nav
+                  aria-label={tCommon('a11y.breadcrumb', 'Brotkrümelnavigation')}
+                  className="mb-6 text-sm text-white/60"
+                >
+                  <ol className="flex list-none items-center gap-1.5 p-0">
+                    <li>
+                      <Link to="/" className="hover:text-brand-secondary transition-colors">
+                        {t('s3_leitlinie.copy_042')}
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      <Link to="/articles" className="hover:text-brand-secondary transition-colors">
+                        {t('s3_leitlinie.copy_043')}
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span aria-current="page" className="text-white/80">
+                        {t('s3_leitlinie.copy_045')}
+                      </span>
+                    </li>
+                  </ol>
                 </nav>
 
                 {/* Category Label */}
@@ -210,7 +224,12 @@ const S3LeitliniePage = () => {
                         <strong>{t('s3_leitlinie.copy_071')}</strong> {t('s3_leitlinie.copy_072')}
                       </li>
                     </ol>
-                    <p className="mt-4 text-xs text-gray-500">{t('s3_leitlinie.copy_073')}</p>
+                    {/* AP24 PT24.6: `gray-500` haelt auf Weiss 4,83:1, auf der
+                        getoenten Evidenzflaeche (brand-primary bei 5 Prozent
+                        ueber Weiss) nur noch 4,28:1. `gray-600` bringt dort
+                        6,69:1. Regel: `gray-500` gilt fuer Weiss und slate-50,
+                        auf getoenten Flaechen `gray-600`. */}
+                    <p className="mt-4 text-xs text-gray-600">{t('s3_leitlinie.copy_073')}</p>
                   </div>
 
                   <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
@@ -239,16 +258,31 @@ const S3LeitliniePage = () => {
                       Andeutung. -slate setzt die Deckfarbe auf die Flaeche
                       dieser Seite (slate-50). Siehe src/index.css. */}
                   <div className="table-scroll table-scroll-slate my-8 rounded-lg border border-gray-200">
+                    {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
+                        Accessibility-Tree (bisher stand sie namenlos im
+                        Dokument), `scope` bindet jede Datenzelle an ihre
+                        Kopfzelle. Text ist die bereits uebersetzte
+                        Abschnittsueberschrift — keine neue Uebersetzung. */}
                     <table className="w-full text-sm">
+                      <caption className="sr-only">{t('s3_leitlinie.copy_075')}</caption>
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('s3_leitlinie.copy_082')}
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('s3_leitlinie.copy_083')}
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-heading">
+                          <th
+                            scope="col"
+                            className="px-4 py-3 text-left font-semibold text-heading"
+                          >
                             {t('s3_leitlinie.copy_084')}
                           </th>
                         </tr>
@@ -381,7 +415,7 @@ const S3LeitliniePage = () => {
                         <p className="text-xs text-gray-600">{t('s3_leitlinie.copy_122')}</p>
                       </div>
                     </div>
-                    <p className="mt-4 text-xs text-gray-500">{t('s3_leitlinie.copy_123')}</p>
+                    <p className="mt-4 text-xs text-gray-600">{t('s3_leitlinie.copy_123')}</p>
                   </div>
 
                   <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
@@ -695,7 +729,9 @@ const S3LeitliniePage = () => {
 
                 {/* CTA Box */}
                 <div className="rounded-xl bg-brand-deep p-5 text-white">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                  {/* AP24 PT24.6: `accent-strong` liegt auf Navy bei 2,36:1.
+                      `accent-on-dark` ist genau fuer diese Flaeche da: 6,94:1. */}
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
                     {t('s3_leitlinie.copy_177')}
                   </p>
                   <p className="mb-4 text-sm">{t('s3_leitlinie.copy_178')}</p>

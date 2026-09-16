@@ -4,6 +4,7 @@ const {
   IdempotencyConflictError,
   LeadHandoffWorker,
   LeadRepository,
+  PENDING_DELIVERY_STATUSES,
   openLeadDatabase,
 } = require('./lead-foundation')
 
@@ -43,8 +44,20 @@ const FIELDS = new Set([
 const HOMEPAGE_SALES_SECTIONS = new Set(['hero', 'roi', 'final_cta'])
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const CONSENT_VERSION = 'contact-2026-09'
-const SPRAY_ORDER_MARKER = 'Vitamin D3+K2 Spray BESTELLUNG'
-const SPRAY_ORDER_RECIPIENT = 'ulrikes@polarisdx.net'
+/**
+ * AP22 PT22.5 — der Magic String ist WEG.
+ *
+ * Hier stand bis PT22.4 eine Marker-Konstante mit einem deutschen
+ * Produkt-Bestelltext, und der Adapter schaltete auf eine andere Zieladresse
+ * um, sobald das Formularfeld `area` diese Zeichenkette enthielt. Der
+ * Empfaenger einer echten Bestellung hing damit an einem Freitext aus dem
+ * Client. Weder der Name der Konstante noch die Zeichenkette stehen noch in
+ * dieser Datei — `journey-migration.test.js` prueft genau das.
+ *
+ * Praxisbestellungen laufen jetzt ueber die eigene Journey `practice_order`
+ * (`server/practice-order.js`) mit eigenem CRM-Ziel. `contact` ist wieder
+ * ausschliesslich die allgemeine Sales-/Beratungsanfrage.
+ */
 
 class ContactValidationError extends Error {
   constructor(code, fields = []) {
@@ -159,7 +172,7 @@ function publicLeadState(lead) {
     leadId: lead?.id,
     journey: lead?.journey,
     status: lead?.status,
-    deliveryPending: ['PENDING_HANDOFF', 'PROCESSING', 'RETRY_PENDING'].includes(lead?.status),
+    deliveryPending: PENDING_DELIVERY_STATUSES.includes(lead?.status),
     providerConfigured:
       lead?.lastErrorClass === 'NO_PROVIDER_CONFIGURED'
         ? false
@@ -176,14 +189,13 @@ function publicLeadState(lead) {
  * 5xx/Timeouts sind retryfaehig, alles andere terminal.
  */
 class SendGridTeamMailAdapter extends CrmAdapter {
-  constructor({ send, recipient, sender, sprayRecipient = SPRAY_ORDER_RECIPIENT }) {
+  constructor({ send, recipient, sender }) {
     super()
     if (typeof send !== 'function') throw new TypeError('send is required')
     if (!recipient || !sender) throw new TypeError('recipient and sender are required')
     this.send = send
     this.recipient = recipient
     this.sender = sender
-    this.sprayRecipient = sprayRecipient
   }
 
   async deliver({ lead }) {
@@ -227,14 +239,11 @@ class SendGridTeamMailAdapter extends CrmAdapter {
 <p><strong>Nachricht:</strong></p>
 <p>${esc(subject.message || '-').replace(/\n/g, '<br>')}</p>`
 
-    // Spray-Bestellungen laufen weiterhin direkt an die zustaendige Person.
-    const recipient = String(subject.area || '').includes(SPRAY_ORDER_MARKER)
-      ? this.sprayRecipient
-      : this.recipient
-
+    // Genau EIN Empfaenger: das Ziel kommt aus der Journey, nicht aus dem
+    // Formular. Praxisbestellungen haben ihre eigene Journey.
     try {
       await this.send({
-        to: recipient,
+        to: this.recipient,
         from: this.sender,
         replyTo: subject.email,
         subject: `[${String(context.locale || 'de').toUpperCase()}] Neue Kontaktanfrage von ${subject.name}`,
@@ -245,7 +254,10 @@ class SendGridTeamMailAdapter extends CrmAdapter {
     } catch (error) {
       const statusCode = Number(error?.response?.statusCode ?? 0)
       const errorCode = String(error?.code || '')
-      if (statusCode >= 500 || errorCode === 'ETIMEDOUT' || errorCode === 'ECONNRESET') {
+      // AP26 PT26.4: nur ein eindeutiger 5xx ist wiederholbar. ETIMEDOUT/ECONNRESET bleiben
+      // unveraendert und werden an der Zustellgrenze als UNBEKANNT eingestuft — vorher
+      // machte dieser Zweig daraus SENDGRID_TEMPORARY und sendete blind nach.
+      if (statusCode >= 500) {
         throw Object.assign(new Error('SENDGRID_TEMPORARY'), {
           code: 'SENDGRID_TEMPORARY',
           retryable: true,
@@ -318,6 +330,9 @@ function getRuntimeContactLeadService({ mailer, env = process.env } = {}) {
     repository,
     router: new CrmRouter({ adapters }),
     workerId: `contact-${process.pid}`,
+    // Nur die eigene Journey: sonst uebernimmt dieser Worker fremde
+    // Auftraege, fuer die sein Router keinen Adapter hat.
+    journeys: [JOURNEY],
   })
   runtime = createContactLeadService({ repository, worker })
   return runtime
@@ -329,7 +344,6 @@ module.exports = {
   IdempotencyConflictError,
   JOURNEY,
   SendGridTeamMailAdapter,
-  SPRAY_ORDER_MARKER,
   createContactLeadService,
   getRuntimeContactLeadService,
   normalizeRequest,

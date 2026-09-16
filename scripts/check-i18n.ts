@@ -13,6 +13,11 @@ import {
   PRODUCTIVE_NAMESPACES,
   SUPPORTED_LANGUAGES,
 } from '../src/i18n'
+import {
+  findLocaleSchemaDrift,
+  findNamespaceFileDrift,
+  flattenLocaleSchema as flattenSchema,
+} from '../src/lib/i18nSchema'
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json }
 
@@ -53,7 +58,6 @@ const schemaReference: Record<(typeof PRODUCTIVE_NAMESPACES)[number], string> = 
 }
 
 const optionalEmpty = new Set(['home:testimonials.goran_stojanovic.practice'])
-const pluralSuffix = /_(zero|one|two|few|many|other)$/
 const diagnostics: string[] = []
 const warn = (message: string) => diagnostics.push(message)
 
@@ -64,29 +68,6 @@ function readJson(path: string): Json {
     warn(`${relative(root, path)} ist nicht parsebar: ${(error as Error).message}`)
     return {}
   }
-}
-
-function normalizedKey(key: string): string {
-  return key.replace(pluralSuffix, '')
-}
-
-function flattenSchema(
-  value: Json,
-  prefix = '',
-  out = new Map<string, string>(),
-): Map<string, string> {
-  if (Array.isArray(value)) {
-    value.forEach((entry, index) => flattenSchema(entry, `${prefix}[${index}]`, out))
-  } else if (value && typeof value === 'object') {
-    for (const [key, entry] of Object.entries(value)) {
-      if (key === '_translationStatus') continue
-      const path = prefix ? `${prefix}.${normalizedKey(key)}` : normalizedKey(key)
-      flattenSchema(entry, path, out)
-    }
-  } else {
-    out.set(prefix, value === null ? 'null' : typeof value)
-  }
-  return out
 }
 
 function walkLeaves(value: Json, visit: (path: string, value: Json) => void, prefix = ''): void {
@@ -101,17 +82,13 @@ function walkLeaves(value: Json, visit: (path: string, value: Json) => void, pre
   }
 }
 
+// AP27 PT27.1: Erkennung in `src/lib/i18nSchema.ts` (unit-getestet); Meldungstexte unveraendert.
 function compareSchema(label: string, reference: Json, candidate: Json): void {
-  const left = flattenSchema(reference)
-  const right = flattenSchema(candidate)
-  for (const [path, type] of left) {
-    if (!right.has(path)) warn(`${label}: Pflicht-Key fehlt: ${path}`)
-    else if (right.get(path) !== type) {
-      warn(`${label}: Typabweichung ${path}: ${right.get(path)} statt ${type}`)
-    }
-  }
-  for (const path of right.keys()) {
-    if (!left.has(path)) warn(`${label}: unerwarteter Key: ${path}`)
+  for (const issue of findLocaleSchemaDrift(reference, candidate)) {
+    if (issue.kind === 'missing') warn(`${label}: Pflicht-Key fehlt: ${issue.path}`)
+    else if (issue.kind === 'type') {
+      warn(`${label}: Typabweichung ${issue.path}: ${issue.actual} statt ${issue.expected}`)
+    } else warn(`${label}: unerwarteter Key: ${issue.path}`)
   }
 }
 
@@ -338,12 +315,11 @@ function run(): void {
       .filter((name) => name.endsWith('.json'))
       .map((name) => name.slice(0, -5))
       .sort()
-    for (const namespace of files) {
-      if (!classified.has(namespace)) warn(`${locale}/${namespace}.json ist nicht klassifiziert`)
+    const namespaceDrift = findNamespaceFileDrift(files, classified)
+    for (const namespace of namespaceDrift.unclassified) {
+      warn(`${locale}/${namespace}.json ist nicht klassifiziert`)
     }
-    for (const namespace of classified) {
-      if (!files.includes(namespace)) warn(`${locale}/${namespace}.json fehlt`)
-    }
+    for (const namespace of namespaceDrift.missing) warn(`${locale}/${namespace}.json fehlt`)
   }
 
   for (const namespace of PRODUCTIVE_NAMESPACES) {

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { X } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import { useFocusTrap } from '../../hooks/useFocusTrap'
 
 /**
  * Dialog — Modal und Drawer auf einer Mechanik.
@@ -30,15 +31,6 @@ import { cn } from '../../lib/utils'
  * `motion-reduce:animate-none`-Angabe hier macht das zusaetzlich explizit.
  * Die vollstaendige Motion-Abnahme ist PT05.5.
  */
-
-const FOCUSABLE = [
-  'a[href]',
-  'button:not([disabled])',
-  'input:not([disabled]):not([type="hidden"])',
-  'select:not([disabled])',
-  'textarea:not([disabled])',
-  '[tabindex]:not([tabindex="-1"])',
-].join(',')
 
 export type DialogProps = {
   open: boolean
@@ -75,35 +67,27 @@ export const Dialog = ({
   className,
 }: DialogProps) => {
   const panelRef = React.useRef<HTMLDivElement>(null)
-  const previouslyFocused = React.useRef<HTMLElement | null>(null)
   const titleId = React.useId()
   const descriptionId = React.useId()
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => setMounted(true), [])
 
-  // Fokus hinein, Fokus zurueck. Bewusst EIN Effekt: das Merken des
-  // ausloesenden Elements und seine Wiederherstellung gehoeren zusammen,
-  // sonst zeigt das Cleanup irgendwann auf ein anderes Element.
-  // `mounted` MUSS in den Deps stehen: im ersten Durchlauf ist es false, der
-  // Dialog rendert null und `panelRef` ist leer. Ohne das Dep liefe dieser
+  // Fokus hinein, Fokusfalle, Escape, Fokusrueckgabe — alles in einem Haken.
+  // AP24 PT24.2: die Mechanik lag frueher hier und war damit an genau EINEN
+  // Dialog gebunden; `OrderModal` hatte sie nie und liess den Fokus trotz
+  // `aria-modal="true"` hinter sich aus dem Dialog laufen.
+  //
+  // `active` MUSS `mounted` beruecksichtigen: im ersten Durchlauf ist es
+  // false, der Dialog rendert null und `panelRef` ist leer. Ohne das liefe der
   // Effekt genau einmal — auf einem Panel, das es noch nicht gibt — und der
   // Fokus bliebe draussen.
-  React.useEffect(() => {
-    if (!open || !mounted) return
-    previouslyFocused.current = document.activeElement as HTMLElement | null
-
-    const panel = panelRef.current
-    const first = panel?.querySelector<HTMLElement>(FOCUSABLE)
-    ;(initialFocusRef?.current ?? first ?? panel)?.focus()
-
-    return () => {
-      const target = previouslyFocused.current
-      // Nur zurueckgeben, wenn das Element noch existiert — sonst landet der
-      // Fokus auf <body> und der Nutzer verliert seine Position.
-      if (target && document.contains(target)) target.focus()
-    }
-  }, [open, mounted, initialFocusRef])
+  useFocusTrap({
+    active: open && mounted,
+    containerRef: panelRef,
+    onEscape: onClose,
+    initialFocusRef,
+  })
 
   // Scroll Lock inklusive Ausgleich fuer die verschwindende Scrollleiste.
   React.useEffect(() => {
@@ -121,49 +105,6 @@ export const Dialog = ({
       body.style.paddingRight = previousPadding
     }
   }, [open])
-
-  // Escape und Fokusfalle.
-  React.useEffect(() => {
-    if (!open) return
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        event.stopPropagation()
-        onClose()
-        return
-      }
-      if (event.key !== 'Tab') return
-
-      const panel = panelRef.current
-      if (!panel) return
-      // Bewusst OHNE Sichtbarkeitsfilter ueber `offsetParent`: der Wert haengt
-      // am Layout, ist in jeder layoutlosen Umgebung null und haette die Falle
-      // dort auf ein einziges Element zusammenschrumpfen lassen. `:disabled`
-      // und `tabindex="-1"` sind bereits im Selektor ausgeschlossen; ein
-      // zusaetzlich verstecktes Element im offenen Dialog ist der seltene Fall
-      // und waere die unsichere Optimierung nicht wert.
-      const items = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE))
-      if (items.length === 0) {
-        event.preventDefault()
-        panel.focus()
-        return
-      }
-      const first = items[0]
-      const last = items[items.length - 1]
-      const active = document.activeElement
-
-      if (!event.shiftKey && active === last) {
-        event.preventDefault()
-        first.focus()
-      } else if (event.shiftKey && (active === first || active === panel)) {
-        event.preventDefault()
-        last.focus()
-      }
-    }
-
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [open, onClose])
 
   if (!mounted || !open) return null
 

@@ -47,13 +47,13 @@ CRM, kein Gating implementiert**.
 
 ## 3. Current Participating Files / Current State
 
-| Datei                                              | Rolle heute                                                                                                                                                                | Guard  |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| `server/server.js`                                 | `/api/contact`, `/api/support`, `/api/consumer-order`, `/api/chat`, `/api/roi-report`; `formLimiter` an drei von vier Formularrouten; `express.json({limit:'10mb'})`; CORS | **G3** |
-| `src/api/{contact,support,consumerOrder}.ts`       | typisierte Clients; **verwerfen die `error`-Strings der 4xx-Antworten** (Ausnahme: `consumerOrder.ts`)                                                                     | G2     |
-| `src/components/sections/RoiCalculatorSection.tsx` | ruft `/api/roi-report` **inline** auf, ohne `src/api/`-Client                                                                                                              | G2     |
-| `server.ts`                                        | `/api/*`-Proxy auf `BACKEND_URL`, vor dem SSR-Catch-all                                                                                                                    | **G3** |
-| `src/hooks/use{Contact,Support}Form.ts`            | Payload-Zusammenbau, Client-Validierung                                                                                                                                    | G2     |
+| Datei                                              | Rolle heute                                                                                                                                                                                                                                            | Guard  |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| `server/server.js`                                 | `/api/contact`, `/api/support`, `/api/consumer-order`, `/api/roi-report` (Stand der Aufnahme); `formLimiter` an drei von vier Formularrouten; `express.json({limit:'10mb'})`; CORS. **`/api/chat` ist mit AP22 PT22.7 entfernt** — POST antwortet 404. | **G3** |
+| `src/api/{contact,support,consumerOrder}.ts`       | typisierte Clients; **verwerfen die `error`-Strings der 4xx-Antworten** (Ausnahme: `consumerOrder.ts`)                                                                                                                                                 | G2     |
+| `src/components/sections/RoiCalculatorSection.tsx` | ruft `/api/roi-report` **inline** auf, ohne `src/api/`-Client                                                                                                                                                                                          | G2     |
+| `server.ts`                                        | `/api/*`-Proxy auf `BACKEND_URL`, vor dem SSR-Catch-all                                                                                                                                                                                                | **G3** |
+| `src/hooks/use{Contact,Support}Form.ts`            | Payload-Zusammenbau, Client-Validierung                                                                                                                                                                                                                | G2     |
 
 ---
 
@@ -170,6 +170,12 @@ ausschließlich validierte Nutzlast.
 **API-20 · `POST /api/chat` hat in der Zielarchitektur keinen Platz.** Der Endpunkt wird entfernt, samt
 Mock-Antworten und Integrations-Roadmap-Kommentaren. _(`DEC-RL-007`, AP22 PT22.7, Gate 5)_
 
+> **Erledigt mit AP22 PT22.7 (2026-09-09).** Handler, Mock-Logik und Teams-Roadmap-Kommentar sind aus
+> `server/server.js` entfernt; ein POST läuft in den 404 von Express. Zusätzlich entfernt: die
+> HiHuman-Domains aus allen drei CSP-Direktiven in `server.ts` (`script-src`, `connect-src` inkl.
+> Wildcard, `frame-src`). Chat-Env, Chat-Secret und Chat-Abhängigkeit gab es keine. Nachweis:
+> `server/chat-removal.test.js`, `src/components/layout/shell.test.tsx`.
+
 ---
 
 ## 5. Target Model / Lifecycle
@@ -245,9 +251,19 @@ Für alle vier Verträge identisch. **Fünf getrennte Ebenen — keine ersetzt e
 | **AD-6**  | **Keine `request_id`** in Antwort oder Logs                                                                      | API-12         |
 | **AD-7**  | **Empfängerwahl über Client-Freitext** — ein Substring in `area` bestimmt die Zieladresse                        | API-18         |
 | **AD-8**  | **Keine Feldlängenbegrenzung**; einzige Schranke ist ein 10-MB-Bodylimit                                         | API-05         |
-| **AD-9**  | **`/api/chat` existiert** — verwaist, ohne Frontend-Aufrufer                                                     | API-20         |
+| **AD-9**  | ~~**`/api/chat` existiert** — verwaist, ohne Frontend-Aufrufer~~ · **behoben AP22 PT22.7** (404)                 | API-20         |
 | **AD-10** | **`DRY_RUN` nur für Mail** und in keiner Konfigurationsdatei deklariert                                          | API-19         |
 | **AD-11** | **Kein Endpunkt-Test** — die gesamte Backend-Abdeckung sind sechs Fälle für `esc()`                              | §9             |
+
+**Stand AP26 PT26.3 (2026-09-15, gemessen; Details `SECURITY-CONTRACT.md` §6):** AD-4 erledigt (alle sieben
+Schreibrouten mit `formLimiter`, jetzt **vor** dem Parser). AD-8 erledigt: Feldgrenzen je Journey, Body-Grenze je
+Route (64 KB, Support 14,0 MB) statt 10 MB global; ueberlange Felder werden gekuerzt statt abgelehnt
+(SEC-27, akzeptiert). AD-2: jede Route hat ein serverseitiges Schema aus benannten Feldern; unbekannte Felder
+werden angenommen, aber nie gespeichert oder gespiegelt. **API-13:** schreibende Routen verlangen
+`application/json` (sonst 415) und ein JSON-Objekt. **API-22:** Modell ohne Cookies/Sitzung → kein CSRF-Token;
+Fetch-Metadata-Guard (403 fuer cross-site/same-site), JSON- und `Idempotency-Key`-Pflicht (Preflight),
+CORS nur fuer ausdruecklich konfigurierte Origins. **API-21** bleibt fuer den Download-Link verletzt
+(Token im Query-String, SEC-26: Log-Redaction per nginx-Snippet, Operator OA-8).
 
 ---
 
@@ -346,7 +362,7 @@ _(AP27 PT27.2, PT27.3)_
 | **Standard/Eigentum** | **AP22 PT22.1**                                   | Formular-/API-Standard: Validierung, Fehlerformat, Idempotenz, Honeypot, Rate Limit, Consent-Trennung, Kontextfelder |
 | Migration             | **AP22 PT22.5**                                   | vier bestehende Endpunkte überführen; PraxisOrder sauber typisieren                                                  |
 | Neue Journeys         | **AP22 PT22.6**, **AP15 PT15.6**, **AP19 PT19.3** | Epigenetik-Inquiry, Gated Content                                                                                    |
-| Chat-Entfernung       | **AP22 PT22.7**                                   | `/api/chat` entfernen — Gate 5                                                                                       |
+| Chat-Entfernung       | **AP22 PT22.7** ✅ erledigt                       | `/api/chat` entfernt, CSP ohne Chat-Domains — Gate 5                                                                 |
 | Security              | **AP26 PT26.3**                                   | Schemas, Rate Limits inkl. Consumer Order, Grenzen, Idempotenz, Fehler ohne Interna                                  |
 | Consumer              | **AP21 PT21.5**                                   | Bestellstrecke nach diesem Standard                                                                                  |
 | Absicherung           | **AP27 PT27.2**                                   | Integrationstests — Voraussetzung für Gate 3                                                                         |

@@ -1,101 +1,95 @@
 /**
- * GtmPageview — sendet bei jedem clientseitigen Routenwechsel einen GA4 page_view.
+ * GtmPageview — meldet bei jedem clientseitigen Routenwechsel einen Seitenaufruf.
  *
- * Warum: polarisdx.net ist eine React-SPA. GTM (und das darin geladene GA4
- * Google-Tag) feuert einen page_view nur beim initialen Dokumenten-Load.
- * Clientseitige Navigationen (z. B. /de/ → /de/contact, /en/…) ändern die URL
- * über die History-API OHNE Reload, deshalb sieht GA4 sie nie und zählt nur
- * EINEN page_view pro Sitzung. Diese Komponente schließt genau diese Lücke.
+ * Warum: polarisdx.net ist eine React-SPA. Ein Provider zaehlt einen page_view
+ * nur beim initialen Dokumenten-Load. Clientseitige Navigationen (z. B.
+ * /de/ → /de/contact) aendern die URL ueber die History-API OHNE Reload,
+ * deshalb sieht die Auswertung sie nie und zaehlt nur EINEN page_view pro
+ * Sitzung. Diese Komponente schliesst genau diese Luecke.
  *
- * Sie läuft site-weit (in App eingehängt, über der B2B-Shell UND den
- * Consumer-Landingpages), damit page_views für ALLE Sprachen und alle Routen
+ * Sie laeuft site-weit (in App eingehaengt, ueber der B2B-Shell UND den
+ * Consumer-Landingpages), damit Seitenaufrufe fuer ALLE Sprachen und Routen
  * erfasst werden.
  *
+ * AP23 PT23.2 — diese Komponente kennt Google nicht mehr:
+ *
+ * - Sie meldet an die Fassade (`lib/tracking.ts`). Ob und wie daraus ein
+ *   Providerereignis wird, entscheidet allein `lib/trackingProvider.ts`.
+ *   Vorher standen hier `gtag(...)` und `dataLayer.push(...)` nebeneinander.
+ * - **Die Doppelzaehlung ist damit weg.** Vorher ging bei JEDEM Wechsel ein
+ *   `gtag('event','page_view')` UND ein `dataLayer.push({virtual_pageview})`
+ *   raus. Solange kein Container-Trigger auf `virtual_pageview` stand, fiel
+ *   das nicht auf — sobald einer eingerichtet wuerde, haette GA4 jeden
+ *   Seitenwechsel doppelt gezaehlt, rueckwirkend unbemerkt.
+ * - **Die URL geht ohne Query und Fragment raus.** Vorher wurde
+ *   `window.location.href` samt `?panel=`, `?intent=`, `?source=` gemeldet.
+ *   Aus demselben Grund entfaellt `page_referrer`: eine Referrer-URL bringt
+ *   fremde Parameter mit, ueber die diese Seite nichts weiss.
+ * - Es gibt hier keinen Consent-Check mehr. Ohne Einwilligung oder ohne
+ *   Anbieter ist `track` eine leere Funktion — und puffert nichts.
+ *
+ * AP23 PT23.3 — genau EIN Seitenaufruf je Navigation:
+ *
+ * - **Der Pfad wird verglichen, nicht die Location.** Der Effekt haengt an
+ *   `pathname` UND `search`; eine reine Parameteraenderung
+ *   (`/de/contact?intent=quote` → `/de/contact?panel=x`) loeste ihn deshalb
+ *   erneut aus. Da die Fassade die Query ohnehin verwirft, waeren das ZWEI
+ *   identische Seitenaufrufe fuer denselben Pfad gewesen. Der zuletzt
+ *   gemeldete Pfad wird jetzt festgehalten und ein unveraenderter Pfad
+ *   uebersprungen.
+ * - Ein spaeter erteiltes Einverstaendnis loest hier NICHTS aus: die
+ *   Komponente bleibt montiert, der Effekt laeuft nicht erneut. Den aktuellen
+ *   Seitenaufruf zaehlt der Container beim Laden.
+ *
  * Details:
- * - Der allererste Mount (Initial-Load) wird ÜBERSPRUNGEN, weil das Google-Tag
- *   von GTM diese Seite beim Laden bereits zählt → vermeidet Doppelzählung der
- *   Landingpage.
- * - Wir lesen bewusst window.location (nicht die Router-Location): der
- *   BrowserRouter hat basename=`/${lang}`, der das Sprachpräfix aus
- *   location.pathname entfernt. window.location behält /de bzw. /en, damit GA4
- *   nach Sprache segmentieren kann.
- * - Der Versand wird einen Animation-Frame verzögert, damit react-helmet-async
- *   den neuen <title> committet hat, bevor wir document.title lesen.
- * - Zusätzlich wird ein sauberes dataLayer-Event 'virtual_pageview' gepusht
- *   (für GTM-verwaltete Tags / Meta / LinkedIn). Es ist derzeit inert, solange
- *   kein passender GTM-Trigger existiert. HINWEIS: Falls künftig ein
- *   GTM-Tag auf 'virtual_pageview' einen GA4 page_view sendet, muss der direkte
- *   gtag('event','page_view')-Aufruf unten entfernt werden, sonst Doppelzählung.
+ * - Der allererste Mount (Initial-Load) wird UEBERSPRUNGEN, weil der Provider
+ *   diese Seite beim Laden bereits zaehlt. **Das ist eine Annahme ueber die
+ *   Container-Konfiguration** (GA4-Konfigurationstag sendet `page_view` beim
+ *   Laden) und in diesem Repository nicht pruefbar — Owner der externen
+ *   Verifikation ist PT23.4, gefuehrt als `CTC-10`.
+ * - Wir lesen bewusst `window.location` (nicht die Router-Location): der
+ *   BrowserRouter hat basename=`/${lang}`, der das Sprachpraefix aus
+ *   `location.pathname` entfernt. `window.location` behaelt /de bzw. /en,
+ *   damit die Auswertung nach Sprache segmentieren kann.
+ * - Der Versand wird einen Animation-Frame verzoegert, damit
+ *   react-helmet-async den neuen <title> committet hat.
  */
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { hasAnalyticsConsent } from '../../lib/googleConsent'
+import { track } from '../../lib/tracking'
 
 function GtmPageview() {
   const location = useLocation()
   const isFirst = useRef(true)
-  const prevHref = useRef<string | null>(null)
+  /** Zuletzt gemeldeter Pfad — die Schranke gegen Doppelzaehlung. */
+  const lastPath = useRef<string | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const w = window as unknown as {
-      gtag?: (...args: unknown[]) => void
-      dataLayer?: Array<Record<string, unknown>>
-      requestAnimationFrame?: (cb: () => void) => number
-      cancelAnimationFrame?: (id: number) => void
-    }
-
-    // Initial-Load überspringen — das Google-Tag von GTM zählt ihn bereits.
+    // Initial-Load überspringen — der Provider zählt ihn bereits.
     if (isFirst.current) {
       isFirst.current = false
-      prevHref.current = window.location.href
+      lastPath.current = window.location.pathname
       return
     }
 
-    // Referrer SYNCHRON beim Erkennen der Navigation festhalten, bevor die
-    // (verzögerte) rAF-Callback läuft. So kann eine abgebrochene rAF bei
-    // zwei schnellen Navigationen die Referrer-Kette nicht mehr desynchronisieren.
-    const referrerForThisNav = prevHref.current || document.referrer || undefined
-    prevHref.current = window.location.href
-
     const fire = () => {
-      // Basic Consent Mode: events before an explicit analytics grant are
-      // discarded. In particular, do not create a dataLayer as a buffer.
-      if (!hasAnalyticsConsent() || typeof w.gtag !== 'function') return
-
-      const page_location = window.location.href
-      const page_path = window.location.pathname + window.location.search
-      const page_title = document.title
-      const page_referrer = referrerForThisNav
-      const page_language = document.documentElement.lang || undefined
-
-      const params: Record<string, unknown> = {
-        page_location,
-        page_path,
-        page_title,
-        page_language,
-        // Deterministisches Routing auf das einzige GA4-Ziel im Container.
-        // Heute funktioniert das Broadcast-Routing implizit (nur ein Ziel);
-        // send_to macht es robust, falls je ein zweites GA4/Ads-Ziel ins
-        // GTM-Container kommt. Keine Doppelzählung (weiterhin 1 Event/Navi).
-        send_to: 'G-PLZNWGKW0P',
-      }
-      if (page_referrer) params.page_referrer = page_referrer
-
-      // Primär: echter GA4 page_view über das von GTM geladene Google-Tag.
-      // Funktioniert ohne GTM-Container-Änderung (gtag ist global definiert).
-      w.gtag('event', 'page_view', params)
-
-      // Sekundär: sauberes dataLayer-Event für GTM-verwaltete Tags.
-      w.dataLayer?.push({ event: 'virtual_pageview', ...params })
+      const pfad = window.location.pathname
+      // Gleicher Pfad, nur andere Parameter: kein zweiter Seitenaufruf.
+      if (pfad === lastPath.current) return
+      lastPath.current = pfad
+      track({
+        name: 'page_view',
+        pfad,
+        sprache: document.documentElement.lang || undefined,
+        titel: document.title,
+      })
     }
 
-    if (typeof w.requestAnimationFrame === 'function') {
-      const id = w.requestAnimationFrame(fire)
-      return () => {
-        if (typeof w.cancelAnimationFrame === 'function') w.cancelAnimationFrame(id)
-      }
+    if (typeof window.requestAnimationFrame === 'function') {
+      const id = window.requestAnimationFrame(fire)
+      return () => window.cancelAnimationFrame(id)
     }
     fire()
   }, [location.pathname, location.search])

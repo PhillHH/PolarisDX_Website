@@ -94,7 +94,8 @@
     "reassurance": "Grátis e sem compromisso · Resposta < 24 h",
     "success_title": "Muito obrigado pela sua encomenda!",
     "success_text": "Recebemos o seu pedido de encomenda. A nossa equipa entrará em contacto em breve com os próximos passos.",
-    "error_text": "Ocorreu um erro. Tente novamente, por favor, ou contacte-nos por telefone."
+    "error_text": "Ocorreu um erro. Tente novamente, por favor, ou contacte-nos por telefone.",
+    "error_retryable": "Neste momento não funcionou. Tente novamente daqui a pouco — os dados da sua encomenda são mantidos."
   },
   "contact": {
     "title": "O seu contacto",

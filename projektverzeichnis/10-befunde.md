@@ -97,11 +97,14 @@ zweisprachig, die PDF-Fassung nicht.
 `DownloadsPage` kennt die Kategorien `tech` und `info`; `downloads.json` enthält
 ausschließlich `info`-Einträge. Der Abschnitt „Technische Broschüren" ist leer.
 
-## 10. Chat-Widget ist ein Mock
+## 10. Chat-Widget ist ein Mock — **behoben**
 
-`POST /api/chat` antwortet mit festen Strings und simulierter Verzögerung; das Widget
-öffnet sich auf Desktop automatisch und kündigt an, der Chat werde „in den nächsten Tagen
-aktiviert" (`CHAT_INTEGRATION.md`). Der Text ist zeitlich gefasst und altert.
+_Ursprünglicher Befund:_ `POST /api/chat` antwortete mit festen Strings und simulierter
+Verzögerung; das Widget öffnete sich auf Desktop automatisch und kündigte an, der Chat
+werde „in den nächsten Tagen aktiviert". Der Text war zeitlich gefasst und alterte.
+
+_Stand:_ erledigt. Widget mit AP06 PT06.4, Endpunkt, Mock-Logik, Provider-Roadmap und
+CSP-Domains mit AP22 PT22.7 entfernt (`DEC-RL-007`). Ein POST auf die alte Route ist 404.
 
 ## 11. Legacy-Farb-Aliase noch in Benutzung
 

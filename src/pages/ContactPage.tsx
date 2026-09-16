@@ -194,8 +194,12 @@ const ContactPage = () => {
             {['one', 'two', 'three'].map((step, i) => (
               <Reveal key={step} width="100%" delay={i * REVEAL_STAGGER}>
                 <div className="relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
+                  {/* AP24 PT24.4: 18px/600 zaehlt NICHT als grosser Text
+                      (dafuer braucht es 18,66px UND fett oder 24px). Auf der
+                      Akzent-Tintflaeche lag `text-accent` bei 3,32:1.
+                      `accent-strong` bringt dort 4,85:1. */}
                   <span
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-lg font-semibold text-accent"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-lg font-semibold text-accent-strong"
                     aria-hidden
                   >
                     {i + 1}

@@ -1,28 +1,37 @@
 /**
  * Routenmodul fuer /epigenetics/musterbefund/healthy-sport.
  *
- * Es importiert AUSSCHLIESSLICH seine zehn Inhaltsdateien. Dadurch legt Vite
- * je Slug einen eigenen Chunk an, statt alle sechs Panels in einen gemeinsamen
- * Inhalts-Chunk zu packen.
+ * Es kennt AUSSCHLIESSLICH seine zehn Inhaltsdateien, jede als eigener
+ * dynamischer Import: Vite legt je Sprache einen eigenen Chunk an. Der Server
+ * laedt alle zehn, der Browser nur die Sprache aus der URL (AP25 PT25.2,
+ * PERF-B03).
+ *
+ * `loadRoute` ist die Fabrik fuer `React.lazy` in App.tsx: das Lazy-Promise
+ * loest erst auf, wenn der Inhalt da ist — die Hydration findet exakt den
+ * Inhalt des SSR-HTML vor. Bewusst KEIN `await` auf Modulebene: unter `tsx`
+ * (Produktionsstart von server.ts) loest ein Modul-`await` in einem dynamisch
+ * importierten SSR-Chunk nie auf; gemessen in PT25.2.
  *
  * Die Seite selbst steht in ../MusterbefundPage; hier kommt nur der Inhalt dazu.
  */
 
-import de from '../../content/befunde/healthy-sport.de.json'
-import en from '../../content/befunde/healthy-sport.en.json'
-import pl from '../../content/befunde/healthy-sport.pl.json'
-import fr from '../../content/befunde/healthy-sport.fr.json'
-import it from '../../content/befunde/healthy-sport.it.json'
-import es from '../../content/befunde/healthy-sport.es.json'
-import pt from '../../content/befunde/healthy-sport.pt.json'
-import da from '../../content/befunde/healthy-sport.da.json'
-import nl from '../../content/befunde/healthy-sport.nl.json'
-import cs from '../../content/befunde/healthy-sport.cs.json'
-import { defineBefundFamily } from '../../content/befunde/model'
+import type { ComponentType } from 'react'
+import { loadBefundFamily } from '../../content/befunde/model'
 import MusterbefundPage from '../MusterbefundPage'
 
-const befunde = defineBefundFamily('healthy-sport', { de, en, pl, fr, it, es, pt, da, nl, cs })
-
-const HealthySport = () => <MusterbefundPage slug="healthy-sport" befunde={befunde} />
-
-export default HealthySport
+export const loadRoute = async (): Promise<{ default: ComponentType }> => {
+  const befunde = await loadBefundFamily('healthy-sport', {
+    de: () => import('../../content/befunde/healthy-sport.de.json'),
+    en: () => import('../../content/befunde/healthy-sport.en.json'),
+    pl: () => import('../../content/befunde/healthy-sport.pl.json'),
+    fr: () => import('../../content/befunde/healthy-sport.fr.json'),
+    it: () => import('../../content/befunde/healthy-sport.it.json'),
+    es: () => import('../../content/befunde/healthy-sport.es.json'),
+    pt: () => import('../../content/befunde/healthy-sport.pt.json'),
+    da: () => import('../../content/befunde/healthy-sport.da.json'),
+    nl: () => import('../../content/befunde/healthy-sport.nl.json'),
+    cs: () => import('../../content/befunde/healthy-sport.cs.json'),
+  })
+  const HealthySport = () => <MusterbefundPage slug="healthy-sport" befunde={befunde} />
+  return { default: HealthySport }
+}

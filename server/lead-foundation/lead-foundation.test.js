@@ -70,7 +70,10 @@ describe('shared lead foundation', () => {
     expect(lead).toMatchObject({
       id: 'lead-1',
       journey: 'epigenetics_inquiry',
-      status: 'PENDING_HANDOFF',
+      // PT22.2: `QUEUED` ist der kanonische Name des Wartezustands.
+      // `PENDING_HANDOFF` bleibt als Altwert lesbar, wird aber nicht mehr
+      // geschrieben — zwei Namen fuer denselben Zustand waeren eine Dublette.
+      status: 'QUEUED',
       context: {
         locale: 'de',
         source: 'epigenetics',
@@ -87,6 +90,7 @@ describe('shared lead foundation', () => {
     })
     expect(repository.getEvents(lead.id).map(({ eventType }) => eventType)).toEqual([
       'LEAD_RECEIVED',
+      'LEAD_VALIDATED',
       'LEAD_PERSISTED',
       'HANDOFF_PENDING',
     ])
@@ -97,7 +101,7 @@ describe('shared lead foundation', () => {
     expect(repository.getLead('lead-1')).toMatchObject({
       id: 'lead-1',
       journey: 'epigenetics_inquiry',
-      status: 'PENDING_HANDOFF',
+      status: 'QUEUED',
     })
     // Die Aussage ist "jede Migration genau einmal angewandt", nicht "es gibt
     // genau eine". PT19.3 hat eine zweite hinzugefuegt; gezaehlt wird deshalb
@@ -260,10 +264,16 @@ describe('shared lead foundation', () => {
       workerId: 'crm-worker-1',
     })
 
-    expect((await worker.processNext()).status).toBe('FAILED_TERMINAL')
+    // PT22.2: unbekanntes Ergebnis ist kein Fehlschlag, sondern ein Fall fuer
+    // Klaerung. Entscheidend bleibt, dass NICHTS automatisch nachgesendet wird.
+    const lead2 = await worker.processNext()
+    expect(lead2.status).toBe('RECONCILIATION_REQUIRED')
+    expect(lead2.reconciliationReason).toBe('PROVIDER_RESULT_UNKNOWN')
     expect(repository.getLead(lead.id).lastErrorClass).toBe('PROVIDER_RESULT_UNKNOWN')
     expect(await worker.processNext()).toBeNull()
     expect(calls).toBe(1)
+    // Und der Vorgang ist auffindbar, statt still liegenzubleiben.
+    expect(repository.findReconciliationRequired().map((row) => row.id)).toEqual([lead.id])
   })
 
   it('reports NO_PROVIDER_CONFIGURED as terminal truth and never as CRM success', async () => {
@@ -293,20 +303,21 @@ describe('shared lead foundation', () => {
       expect(secondRepository.claimNext({ workerId: 'worker-b', leaseMs: 10 })).toBeNull()
 
       clockMs += 11
-      const reclaimed = secondRepository.claimNext({ workerId: 'worker-b', leaseMs: 10 })
-      expect(reclaimed.deliveryKey).toBe(firstClaim.deliveryKey)
-      expect(reclaimed.attempt).toBe(2)
-      secondRepository.markDelivered(reclaimed)
+      // AP26 PT26.4: ein abgelaufener Claim wird nicht erneut zugestellt (Ergebnis unbekannt),
+      // sondern in die Klaerung gegeben.
+      expect(secondRepository.claimNext({ workerId: 'worker-b', leaseMs: 10 })).toBeNull()
+      expect(repository.getLead(lead.id).status).toBe('RECONCILIATION_REQUIRED')
 
+      // Der verspaetete erste Worker kann den Zustand nicht mehr ueberschreiben.
       repository.markFailed(firstClaim, {
         retryable: true,
         errorClass: 'STALE_WORKER_TIMEOUT',
         retryDelayMs: 0,
       })
-      expect(repository.getLead(lead.id).status).toBe('DELIVERED')
+      expect(repository.getLead(lead.id).status).toBe('RECONCILIATION_REQUIRED')
       expect(repository.getOutboxForLead(lead.id)[0]).toMatchObject({
-        status: 'DELIVERED',
-        attempts: 2,
+        status: 'FAILED_TERMINAL',
+        attempts: 1,
       })
     } finally {
       secondDb.close()

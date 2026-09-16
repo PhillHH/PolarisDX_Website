@@ -94,7 +94,8 @@
     "reassurance": "Bezpłatnie i niezobowiązująco · Odpowiedź < 24 h",
     "success_title": "Dziękujemy za zamówienie!",
     "success_text": "Otrzymaliśmy Twoje zapytanie dotyczące zamówienia. Nasz zespół wkrótce skontaktuje się w sprawie kolejnych kroków.",
-    "error_text": "Wystąpił błąd. Spróbuj ponownie lub zadzwoń do nas."
+    "error_text": "Wystąpił błąd. Spróbuj ponownie lub zadzwoń do nas.",
+    "error_retryable": "Tym razem się nie udało. Spróbuj ponownie za chwilę – dane zamówienia zostaną zachowane."
   },
   "contact": {
     "title": "Twój opiekun",

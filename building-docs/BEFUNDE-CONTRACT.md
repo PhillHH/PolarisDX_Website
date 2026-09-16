@@ -44,7 +44,7 @@ the historical eager DE/EN `BEFUNDE` content import.
 - `BefundSlug` and the exact x10 `BefundSprachen` mapping;
 - a discriminated `BefundBlock` union for every currently productive block type;
 - normalized document metadata (`slug`, `panel`, `title`, `introduction`, `blocks`);
-- runtime/build validation through `defineBefundFamily`, `validateBefund` and
+- runtime/build validation through `defineBefundFamily` (guards) / `loadBefundFamily` (route modules since AP25 PT25.2: server validates all ten locales, the browser loads and validates only the URL locale), `validateBefund` and
   `validateBefundInventory`;
 - a named `BefundValidationError` hard-failure contract.
 

@@ -142,7 +142,7 @@ const ImprintPage = () => {
                 __html: t('imprint.section6.content')
                   .replace(
                     '<1>',
-                    '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">',
+                    '<a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-accent-strong hover:underline">',
                   )
                   .replace('</1>', '</a>'),
               }}

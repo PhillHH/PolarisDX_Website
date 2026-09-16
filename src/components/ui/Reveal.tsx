@@ -1,4 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
+const subscribeNever = () => () => {}
+const clientSnapshot = () => true
+const serverSnapshot = () => false
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  typeof window.matchMedia === 'function' &&
+  window.matchMedia(REDUCED_MOTION_QUERY).matches
+function subscribeReducedMotion(onChange: () => void) {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return () => {}
+  const query = window.matchMedia(REDUCED_MOTION_QUERY)
+  query.addEventListener?.('change', onChange)
+  return () => query.removeEventListener?.('change', onChange)
+}
 
 interface RevealProps {
   children: React.ReactNode
@@ -39,46 +54,36 @@ const Reveal = ({
   // Start with true to match SSR (content visible)
   // This ensures hydration matches and content is always visible to crawlers
   const [isRevealed, setIsRevealed] = useState(true)
-  const [isHydrated, setIsHydrated] = useState(false)
-  const [reduceMotion, setReduceMotion] = useState(false)
+  // AP27 PT27.6: Hydrationszustand und Bewegungspraeferenz kommen aus externen Quellen und werden
+  // gelesen statt per synchronem setState im Effekt gespiegelt (react-hooks/set-state-in-effect).
+  // Server-Snapshot `false` haelt das SSR-Markup identisch: Inhalt sichtbar, kein Animationsstil.
+  const isHydrated = useSyncExternalStore(subscribeNever, clientSnapshot, serverSnapshot)
+  const reduceMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    prefersReducedMotion,
+    serverSnapshot,
+  )
 
   useEffect(() => {
-    // Mark as hydrated - animations can now be enabled
-    setIsHydrated(true)
-
-    // Respect the user's reduced-motion preference: keep the content immediately
-    // visible, skip the reveal transition entirely and don't observe scrolling.
-    if (
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
-      setReduceMotion(true)
-      setIsRevealed(true)
-      return
-    }
+    // Reduced motion: content stays immediately visible, no transition, no observer.
+    if (reduceMotion) return
 
     const element = ref.current
     if (!element) return
 
-    // Check if element is already in viewport
-    const rect = element.getBoundingClientRect()
-    const isInViewport = rect.top < window.innerHeight * 0.9
+    // Already in view: keep visible, no animation and no observer needed.
+    if (element.getBoundingClientRect().top < window.innerHeight * 0.9) return
+    if (typeof IntersectionObserver === 'undefined') return
 
-    if (isInViewport) {
-      // Already in view, keep visible (no animation needed)
-      setIsRevealed(true)
-      return
-    }
-
-    // Not in view - prepare for reveal animation
-    setIsRevealed(false)
-
+    // The observer reports the current position asynchronously right after `observe()`: an element
+    // that is still further down is hidden then and revealed once it scrolls in.
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight * 0.9) {
           setIsRevealed(true)
           observer.disconnect()
+        } else {
+          setIsRevealed(false)
         }
       },
       {
@@ -90,7 +95,7 @@ const Reveal = ({
     observer.observe(element)
 
     return () => observer.disconnect()
-  }, [])
+  }, [reduceMotion])
 
   // Build animation styles
   // - SSR (not hydrated): no animation styles, content fully visible

@@ -83,7 +83,8 @@
     "epi_basics": "Notions de base",
     "epi_evidence": "Études",
     "epi_docs": "Documents",
-    "epi_samples": "Exemples de rapports"
+    "epi_samples": "Exemples de rapports",
+    "cookie_settings": "Paramètres des cookies"
   },
   "read_more": "Lire la suite",
   "search": {
@@ -227,7 +228,8 @@
         "description": "Analyse."
       }
     },
-    "reject_all": "Uniquement nécessaires"
+    "reject_all": "Uniquement nécessaires",
+    "withdraw": "Retirer le consentement"
   },
   "testimonials": {
     "positiveLabel": "Avis positif"
@@ -259,6 +261,7 @@
     "honeypot": "Veuillez laisser ce champ vide",
     "select_language": "Choisir la langue",
     "main_nav": "Navigation principale",
+    "breadcrumb": "Fil d’Ariane",
     "toggle_submenu": "{{name}} — sous-menu",
     "skip_to_content": "Aller au contenu"
   },
