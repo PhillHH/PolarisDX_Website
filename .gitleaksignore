@@ -6,3 +6,8 @@
 11ef36a08d6666bb6b7e33af82b82ccefe455147:e2e/ap19-integration.spec.ts:generic-api-key:347
 # Name eines localStorage-Schluessels in einer inzwischen entfernten Komponente, kein Credential.
 0598e735c60000c6a94251ec2e71de2aa1c0bf05:src/components/sections/DealPopup.tsx:generic-api-key:6
+# AP27 PT27.6 — Evidence-Snapshot bringt `e2e/pt26.3.spec.ts` erstmals in die Historie. Zeile 146
+# setzt den Header `Idempotency-Key` auf das feste Testkennzeichen `pt26...-1` (16 Zeichen, dasselbe
+# Muster wie in pt26.1/pt26.2/ap21-closure/consumer-ordering-live) — ein synthetischer
+# Wiederholungsschluessel eines Missbrauchstests, kein Credential. Geprueft 2026-09-16.
+7d34d09a319e9e76d7cbc5d638a58c31d8ca726e:e2e/pt26.3.spec.ts:generic-api-key:146
