@@ -38,9 +38,11 @@ sleep 1
 ss -ltnH 'sport = :9100' | grep -q . && kill -KILL -"$PGID" 2>/dev/null   # Fallback
 
 # 3) Neu starten, detached (überlebt SSH-Logout), gleiche Env, mit Logfile
-PORT=9100 NODE_ENV=production BACKEND_URL=http://127.0.0.1:5001 \
-  setsid bash -c 'cd /home/phillip/01polaris-preview && exec npx tsx server.ts' \
-  > /home/phillip/01polaris-preview/preview.log 2>&1 &
+# TSX_TSCONFIG_PATH ist Pflicht (wie im `start`-Script): server.ts importiert TSX-Module mit JSX
+# (src/data/services.tsx); ohne tsconfig.app.json startet tsx mit "ReferenceError: React is not defined".
+PORT=9100 NODE_ENV=production BACKEND_URL=http://127.0.0.1:5001 TSX_TSCONFIG_PATH=tsconfig.app.json \
+  setsid -f bash -c 'cd /home/phillip/01polaris-preview && exec npx tsx server.ts' \
+  > /home/phillip/01polaris-preview/preview.log 2>&1
 
 # 4) Verifizieren
 sleep 3
