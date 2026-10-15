@@ -13,14 +13,16 @@ export default defineConfig({
   testDir: './e2e',
   timeout: 30000,
   fullyParallel: true,
-  retries: 1,
+  // AP27-CLOSURE (PT276-F6): keine Wiederholung — ein wackeliger Test soll rot werden, nicht beim
+  // zweiten Versuch still durchgehen. Gleiche Regel wie in allen AP27-Configs.
+  retries: 0,
   use: {
     // AP26 PT26.5: axe wird per addScriptTag inline eingefuegt; die durchgesetzte CSP blockt das.
     // Diese Suite misst nicht die CSP (das tun e2e/pt26.2 und e2e/pt26.3, ohne Bypass).
     bypassCSP: true,
     baseURL: `http://127.0.0.1:${PORT}`,
     channel: 'chromium',
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     // Deterministische Aufnahmen: keine Animation, keine Zwischenbilder.
     reducedMotion: 'reduce',
   },
