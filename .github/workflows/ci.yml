@@ -394,6 +394,10 @@ jobs:
       - name: Musterbefund SEO guard (6 x 10 SSR heads)
         run: npm run check:befunde-seo
 
+      # AP27-CLOSURE: diese Guards liefen bisher in keinem Job (TESTING-CONTRACT §6).
+      - name: Content/resource guards (assets, resources, lead magnet gate, consumer/article images)
+        run: npm run test:guards:content
+
       - name: Content claim guards (IglooPro CV < 2 % x10, Epigenetik Pflichttexte/Berichte/Assets x10)
         run: npm run check:claims
 

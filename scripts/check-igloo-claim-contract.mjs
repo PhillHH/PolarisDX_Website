@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 // `import.meta.dirname` gibt es erst ab Node 20.11; unter Node 18 war es
@@ -51,7 +51,7 @@ const staleFiles = [...filesBelow('src'), ...filesBelow('public/locales')]
   .filter((path) => /\.(?:[cm]?[jt]sx?|json|html|md)$/u.test(path))
   .flatMap((path) => {
     const findings = staleIglooClaimFindings(readFileSync(path, 'utf8'))
-    return findings.length ? [{ path: path.slice(root.length + 1), findings }] : []
+    return findings.length ? [{ path: relative(root, path), findings }] : []
   })
 if (staleFiles.length)
   errors.push(`productive/source stale <5 findings: ${JSON.stringify(staleFiles)}`)

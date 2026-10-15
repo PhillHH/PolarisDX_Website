@@ -44,6 +44,7 @@
     "check:visual-changelog": "node scripts/check-visual-baseline-changelog.mjs --self-test && node scripts/check-visual-baseline-changelog.mjs --worktree",
     "test:seo:regression": "npm run check:routes && npm run check:search-index && npm run check:seo && npm run check:befunde-seo && playwright test --config e2e/pt27.5.config.ts",
     "test:guards": "npm run check:colors && npm run check:ds-changelog && npm run check:shell-i18n && npm run check:i18n -- --self-test && npm run check:nav-targets && npm run check:search-index && npm run check:internal-findability && npm run check:routes && npm run check:seo",
+    "test:guards:content": "npm run check:assets && npm run check:epigenetics-resources && npm run check:resource-inventory && npm run check:resource-center && npm run check:content-download && npm run check:lead-magnets && npm run check:consumer-images && npm run check:article-images",
     "test:e2e": "playwright test",
     "server": "cd server && npm install && npm start",
     "prepare": "lefthook install",

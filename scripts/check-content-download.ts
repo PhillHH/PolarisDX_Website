@@ -125,11 +125,23 @@ if (/INSERT INTO resource_entitlements[\s\S]{0,400}\btoken\b(?!_hash)/u.test(ent
 }
 
 // -------------------------------- 6. Der Ablauf haengt nicht an Analytics
+// AP19 verbot jeden Tracking-Import. Seit AP23 ist `track` aus `lib/tracking` die consent-gesperrte
+// Fassade (ohne Einwilligung ein No-Op); das Gate meldet darueber die Konversion NACH dem Erfolg
+// (AP23 PT23.3). Erlaubt ist deshalb genau das: die Fassade, nie awaited, erst nach dem
+// Erfolgszustand. Direkter Anbieterzugriff bleibt verboten (AP27-CLOSURE, 2026-10-15).
 const gateSource = read('src/components/resources/ResourceGateForm.tsx')
-for (const forbidden of ['lib/tracking', 'googleConsent', 'gtag', 'dataLayer', 'track(']) {
+for (const forbidden of ['googleConsent', 'gtag', 'dataLayer']) {
   if (gateSource.includes(forbidden)) {
     fail(`Gate-Formular haengt an Analytics/Tracking (${forbidden})`)
   }
+}
+if (/import[^\n]*\btrack\b[^\n]*from '(?!\.\.\/\.\.\/lib\/tracking')/u.test(gateSource)) {
+  fail('Gate-Formular importiert track nicht aus der consent-gesperrten Fassade lib/tracking')
+}
+if (/await\s+track\(/u.test(gateSource)) fail('Gate-Formular wartet auf Tracking')
+const firstTrack = gateSource.indexOf('track({')
+if (firstTrack !== -1 && firstTrack < gateSource.indexOf("setPhase('done')")) {
+  fail('Gate-Formular meldet Tracking vor dem Erfolgszustand')
 }
 // Verarbeitung und Marketing muessen zwei getrennte Felder sein.
 for (const needle of ['processingConsent', 'marketingConsent']) {
