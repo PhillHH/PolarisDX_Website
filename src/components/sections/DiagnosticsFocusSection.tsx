@@ -13,10 +13,12 @@ const DiagnosticsFocusSection = () => {
     <>
       <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
-          <div className="mb-14 text-center">
-            <Eyebrow>{t('services:overview.ia.groups.workflow.eyebrow')}</Eyebrow>
-            <h2 className="mt-3 t-h2">{t('services:overview.ia.groups.workflow.title')}</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-gray-700">
+          <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+            <div>
+              <Eyebrow>{t('services:overview.ia.groups.workflow.eyebrow')}</Eyebrow>
+              <h2 className="mt-3 t-h2">{t('services:overview.ia.groups.workflow.title')}</h2>
+            </div>
+            <p className="text-lg leading-relaxed text-gray-600">
               {t('services:overview.ia.groups.workflow.text')}
             </p>
           </div>
@@ -30,14 +32,14 @@ const DiagnosticsFocusSection = () => {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 pb-24 lg:pb-28">
-          <div className="rounded-2xl bg-accent-strong p-7 lg:p-7 text-white flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="brand-ring relative flex flex-col gap-4 rounded-card bg-brand-deep p-7 text-white md:flex-row md:items-center md:justify-between lg:p-8">
             <div>
-              <p className="font-medium">{t('home:igloo_widget.help_title')}</p>
-              <p className="text-sm text-white">{t('home:igloo_widget.help_text')}</p>
+              <p className="text-lg font-semibold">{t('home:igloo_widget.help_title')}</p>
+              <p className="text-sm text-white/80">{t('home:igloo_widget.help_text')}</p>
             </div>
             <Link
               to="/contact"
-              className="whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90"
+              className="whitespace-nowrap rounded-full bg-white px-6 py-3 font-semibold text-brand-deep transition hover:bg-accent-soft"
             >
               {t('home:igloo_widget.help_cta', 'Angebot anfragen')}
             </Link>

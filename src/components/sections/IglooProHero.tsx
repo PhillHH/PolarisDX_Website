@@ -15,68 +15,63 @@ import { Breadcrumbs } from '../ui/Breadcrumbs'
 export default function IglooProHero() {
   const { t } = useTranslation(['products', 'common'])
 
+  // AP34 PT34.2e (SC-003): Produkt-Buehne auf Navy — das Geraet mit Halo ist
+  // das einzige Vorrang-Bild (LCP, 650×650), Text steht davor.
   return (
     <section
       aria-labelledby="igloo-hero-title"
       data-igloo-hero
-      className="relative overflow-hidden bg-paper"
+      className="relative overflow-hidden bg-brand-deep text-white"
     >
-      <div
-        aria-hidden="true"
-        data-igloo-header-contrast
-        className="absolute inset-x-0 top-0 h-20 bg-brand-deep"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-28 top-12 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-28 bottom-0 h-80 w-80 rounded-full bg-brand-deep/10 blur-3xl"
-      />
-
-      <div className="relative mx-auto grid max-w-container gap-10 px-6 py-12 sm:px-8 sm:py-16 lg:min-h-[680px] lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-center lg:gap-16 lg:px-0 lg:py-20">
+      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-16 pt-28 sm:px-6 lg:min-h-[680px] lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-0 lg:pb-20 lg:pt-32">
         <div className="flex min-w-0 flex-col items-start">
           <Breadcrumbs
-            className="mb-6"
+            variant="dark"
+            className="mb-8"
             items={[{ label: t('common:nav.home'), href: '/' }, { label: 'IglooPro' }]}
           />
 
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-strong">
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25">
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
             {t('products:hero.caption')}
           </p>
           <h1
             id="igloo-hero-title"
-            className="mt-5 max-w-4xl text-balance text-[clamp(2.4rem,5.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.04em] text-brand-deep"
+            className="mt-6 max-w-4xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white"
           >
             {t('products:hero.title')}
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-text-secondary sm:text-lg">
+          <p className="mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85">
             {t('products:hero.description')}
           </p>
 
-          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             <Button
               to="/contact"
-              variant="secondary"
+              variant="light"
               data-cta-intent="GENERAL_SALES"
-              className="w-full justify-center !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent sm:w-auto"
+              className="w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
             >
               {t('products:hero.cta_order')}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <span
+                aria-hidden="true"
+                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </Button>
             <Button
               to="/#roi-rechner"
               variant="ghost"
               data-igloo-hero-secondary
-              className="w-full justify-center text-brand-deep hover:bg-white sm:w-auto"
+              className="w-full justify-center !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
             >
               <Calculator className="h-4 w-4" aria-hidden="true" />
               {t('products:hero.cta_secondary')}
             </Button>
           </div>
 
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-600">
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/70">
             {t('products:hero.subline')}
           </p>
         </div>
@@ -87,7 +82,7 @@ export default function IglooProHero() {
         >
           <div
             aria-hidden="true"
-            className="absolute inset-[8%] rounded-full bg-white shadow-[0_32px_80px_-36px_rgba(15,23,42,0.42)]"
+            className="absolute inset-[8%] rounded-full bg-white/5 ring-1 ring-white/15"
           />
           <img
             src={IglooProImage}

@@ -27,6 +27,24 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — AP34 PT34.2d–e (SC-003) · Editorial-Bühnen für Diagnostik, Service-Seiten, IglooPro und die gemeinsame Unterseiten-Bühne (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** SC-003 / AP34 PT34.2. Die Bereichs- und Produktseiten folgen dem Editorial-Stil der
+  Startseite und der Epigenetik-Strecke.
+- **Geändert:**
+  - `DiagnosticsHero`: Navy-Bühne, Kicker als Pille, weiße Pille `light` mit Pfeilkreis, Produktkarte rechts. Das IglooPro-Bild bleibt das einzige Vorrang-Bild (Desktop-LCP). DOM-Reihenfolge Text → Aktionen → Visual ist unverändert.
+  - `IglooProHero`: Produkt-Bühne auf Navy, Gerät mit Halo, weiße Pille.
+  - `SubpageHero` (Service-Seiten, Kontakt, Support, Über uns, Blog, Downloads, Rechtstexte, Vitamin D3): Kicker als Pille, größere Überschrift, weiße Pille statt eckigem Akzentknopf. Mobil kompakt, die Höhe entspricht dem Vorstand (Blog 412 px: 501 statt 506 px, `eagerBelowFold` 0).
+  - Diagnostik-Abschnitte: Überschriften linksbündig mit Einleitung rechts, Karten mit `rounded-card`, CTA-Band Navy mit Punktring und weißer Pille.
+  - IglooPro: Merkmale-Überschrift linksbündig; Abschluss mit Punktring und Pille `light`.
+- **Bewusst nicht in diesem Schritt:** Bereichsleiste und „Nächster Schritt" auf Diagnostik, Service und IglooPro. Diese Routen haben 250–450 Byte Route-JS-Puffer; die Bausteine kosten etwa 2 KB. Das wird nicht gegen gelockerte Budgets gebaut, sondern als Owner-Entscheidung geführt (AP-STATE).
+- **Budgets (PT25.5, nicht gelockert):** statisch 24/24, Laufzeit ci 852/852, Lab 456/456 (Diagnostik, Service, IglooPro, Kontakt, Downloads, Blog, Startseite × 3). Initial-CSS 17,2 KB gzip.
+- **A11y:** PT24.1–PT24.6 grün. PT24.6 lief mit dem 180-s-Limit der offiziellen Konfiguration.
+- **Betroffene Screenshots (13):**
+  - `pt27.6-visual` (7): `diagnostics-hub`, `service-detail`, `igloo-pro`, `contact`, `support`, `resource-center`, `legal-privacy` (alle Desktop; neue Bühnen).
+  - `design-system` (6): `hero-diagnostics`, `longform-service`, `final-cta-articles` (je Desktop und Mobil).
+- **Reviewer:** Owner-Abnahme in PT34.4.
+
 ### 2026-10-15 — AP34 PT34.2a–c (SC-003) · Führungssystem und Epigenetik-Strecke (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** SC-003 (`building-docs/SCOPE-CHANGELOG.md`). Der Owner hat Entwurf 4

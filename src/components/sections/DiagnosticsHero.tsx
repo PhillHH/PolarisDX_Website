@@ -4,7 +4,6 @@ import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 import { diagnosticsGeneralSalesTarget } from '../../data/diagnosticsHub'
 import { Breadcrumbs } from '../ui/Breadcrumbs'
 import { Button } from '../ui/Button'
-import Eyebrow from '../ui/Eyebrow'
 
 /**
  * Registry-backed, SSR-first Diagnostics entry surface.
@@ -19,21 +18,20 @@ const DiagnosticsHero = () => {
     t('services:overview.hero.entry.trust.context'),
   ]
 
+  // AP34 PT34.2d (SC-003): Editorial-Buehne wie auf der Startseite — Navy-Flaeche,
+  // weisse Pille, Produktkarte rechts. Das IglooPro-Bild bleibt das einzige
+  // Vorrang-Bild (Desktop-LCP, 650×650); mobil steht es nach den Aktionen.
   return (
     <section
       aria-labelledby="diagnostics-hero-title"
       data-diagnostics-hero
-      className="relative overflow-hidden border-b border-paper-line bg-paper"
+      className="relative overflow-hidden bg-brand-deep text-white"
     >
-      <div
-        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-16 pt-24 md:pt-44 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-center lg:px-0 lg:pb-20 lg:pt-28">
+      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-16 pt-28 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-0 lg:pb-20 lg:pt-32">
         <div className="min-w-0">
           <Breadcrumbs
-            className="mb-7"
+            variant="dark"
+            className="mb-8"
             ariaLabel={t('services:overview.hero.entry.breadcrumb_label')}
             items={[
               { label: t('common:nav.home', 'Home'), href: '/' },
@@ -41,35 +39,43 @@ const DiagnosticsHero = () => {
             ]}
           />
 
-          <Eyebrow>{t('services:overview.hero.entry.eyebrow')}</Eyebrow>
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25">
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
+            {t('services:overview.hero.entry.eyebrow')}
+          </p>
           <h1
             id="diagnostics-hero-title"
-            className="mt-4 max-w-3xl text-balance text-[clamp(2.35rem,5vw,4.25rem)] font-medium leading-[1.04] tracking-[-0.035em] text-brand-deep"
+            className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white"
           >
             {t('services:overview.hero.entry.title')}
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-text-secondary sm:text-lg">
+          <p className="mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85">
             {t('services:overview.hero.entry.description')}
           </p>
 
-          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             <Button
               to={diagnosticsGeneralSalesTarget}
-              variant="secondary"
+              variant="light"
               data-cta-intent="GENERAL_SALES"
               data-cta-source="diagnostics"
               data-cta-journey="general_sales"
               data-cta-section="hero"
-              className="w-full justify-center !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent sm:w-auto"
+              className="w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
             >
               {t('services:overview.hero.entry.primary_cta')}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <span
+                aria-hidden="true"
+                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </Button>
             <Button
               href="#diagnostics-services"
               variant="ghost"
               data-diagnostics-secondary-entry
-              className="w-full justify-center border border-slate-300 bg-white text-brand-deep hover:bg-paper-deep sm:w-auto"
+              className="w-full justify-center !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
             >
               {t('services:overview.hero.entry.secondary_cta')}
             </Button>
@@ -78,16 +84,16 @@ const DiagnosticsHero = () => {
           <aside
             aria-label={t('services:overview.hero.entry.trust_label')}
             data-diagnostics-hero-trust
-            className="mt-9 border-t border-paper-line pt-6"
+            className="mt-10 border-t border-white/15 pt-6"
           >
-            <p className="text-sm font-semibold text-heading">
+            <p className="text-sm font-semibold text-white">
               {t('services:overview.hero.entry.trust_label')}
             </p>
-            <ul className="mt-3 grid gap-3 text-sm leading-6 text-gray-700 sm:grid-cols-3">
+            <ul className="mt-3 grid gap-3 text-sm leading-6 text-white/80 sm:grid-cols-3">
               {trustSignals.map((signal) => (
                 <li key={signal} className="flex items-start gap-2">
                   <CheckCircle2
-                    className="mt-1 h-4 w-4 shrink-0 text-accent-strong"
+                    className="mt-1 h-4 w-4 shrink-0 text-accent-on-dark"
                     aria-hidden="true"
                   />
                   <span>{signal}</span>
@@ -99,12 +105,8 @@ const DiagnosticsHero = () => {
 
         <figure
           data-diagnostics-hero-visual
-          className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-3xl border border-paper-line bg-white p-6 shadow-card sm:p-8"
+          className="relative mx-auto w-full max-w-[480px] overflow-hidden rounded-card bg-white p-6 text-heading shadow-card sm:p-8"
         >
-          <div
-            className="absolute inset-x-12 top-10 aspect-square rounded-full bg-accent/10"
-            aria-hidden="true"
-          />
           <img
             src={IglooProImage}
             alt={t('services:overview.hero.entry.visual.alt')}
@@ -113,13 +115,13 @@ const DiagnosticsHero = () => {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="relative mx-auto aspect-square h-auto w-full max-w-[390px] object-contain"
+            className="relative mx-auto aspect-square h-auto w-full max-w-[340px] object-contain"
           />
           <figcaption className="relative mt-3 rounded-2xl bg-paper p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-strong">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('services:overview.hero.entry.visual.eyebrow')}
             </p>
-            <p className="mt-2 text-lg font-medium text-heading">
+            <p className="mt-2 text-lg font-semibold text-heading">
               {t('services:overview.hero.entry.visual.title')}
             </p>
             <p className="mt-2 text-sm leading-6 text-gray-700">

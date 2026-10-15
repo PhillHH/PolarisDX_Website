@@ -28,12 +28,14 @@ const IglooFeaturesSection = () => {
   return (
     <section aria-labelledby="igloo-features-title" data-igloo-features className="bg-white">
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
-        <div className="mb-14 text-center">
-          <Eyebrow>{t('product_story.eyebrow')}</Eyebrow>
-          <h2 id="igloo-features-title" className="mt-3 t-h2">
-            {t('product_story.title')}
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-gray-700">{t('product_story.description')}</p>
+        <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+          <div>
+            <Eyebrow>{t('product_story.eyebrow')}</Eyebrow>
+            <h2 id="igloo-features-title" className="mt-3 t-h2">
+              {t('product_story.title')}
+            </h2>
+          </div>
+          <p className="text-lg leading-relaxed text-gray-600">{t('product_story.description')}</p>
         </div>
 
         <ul className="grid gap-8 md:grid-cols-3">

@@ -48,8 +48,9 @@ const GAUGE_C = 2 * Math.PI * GAUGE_R
 function HeroCtaButton({ cta, variant }: { cta: HeroCta; variant: 'primary' | 'secondary' }) {
   const cls =
     variant === 'primary'
-      ? 'inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
-      : 'inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10'
+      ? // AP34 (SC-002/SC-003): weisse Pille auf Navy wie Startseite und Bereichsbuehnen.
+        'inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-deep shadow-card sm:text-base transition hover:bg-accent-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
+      : 'inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white ring-1 ring-inset ring-white/25 transition hover:bg-white/10 sm:text-base'
   return cta.to ? (
     <Link to={cta.to} className={cls} {...cta.attributes}>
       {cta.label}
@@ -89,28 +90,35 @@ export function SubpageHero({
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div
-        className={`relative mx-auto max-w-container px-4 lg:px-0 pt-24 pb-16 lg:pt-28 ${
+        className={`relative mx-auto max-w-container px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-0 lg:pb-20 lg:pt-32 ${
           hasVisual ? 'grid items-center gap-8 lg:grid-cols-2' : ''
         }`}
       >
         {/* LEFT — copy */}
         <div>
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <Breadcrumbs variant="dark" className="mb-4" items={breadcrumbs} />
+            <Breadcrumbs variant="dark" className="mb-6 sm:mb-8" items={breadcrumbs} />
           )}
 
           {eyebrow && (
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25">
+              <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
               {eyebrow}
-            </span>
+            </p>
           )}
 
-          <h1 className="mt-5 t-h1">{title}</h1>
+          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+            {title}
+          </h1>
 
-          {subtitle && <p className="mt-4 max-w-xl leading-relaxed text-white/80">{subtitle}</p>}
+          {subtitle && (
+            <p className="mt-4 max-w-[60ch] text-pretty text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
+              {subtitle}
+            </p>
+          )}
 
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3 sm:gap-5">
               {primaryCta && <HeroCtaButton cta={primaryCta} variant="primary" />}
               {secondaryCta && <HeroCtaButton cta={secondaryCta} variant="secondary" />}
             </div>
@@ -144,7 +152,7 @@ export function SubpageHero({
         {/* RIGHT — unified rich visual */}
         {hasVisual && (
           <div className="hidden lg:block" aria-hidden="true">
-            <div className="relative min-h-[320px] rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+            <div className="relative min-h-[320px] rounded-card bg-white/5 p-7 ring-1 ring-white/10">
               <div className="relative mx-auto flex h-44 w-44 items-center justify-center">
                 <span className="hero-pulse-ring absolute inset-0 rounded-full ring-2 ring-accent/40" />
                 {gauge ? (

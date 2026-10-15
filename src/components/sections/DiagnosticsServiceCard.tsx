@@ -39,7 +39,7 @@ export const DiagnosticsServiceCard = ({
       className={`min-h-[280px] border-t-4 p-7 ${styles.card}`}
     >
       <span
-        className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent [&>svg]:h-6 [&>svg]:w-6"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-strong [&>svg]:h-6 [&>svg]:w-6"
         aria-hidden="true"
       >
         {service.icon}

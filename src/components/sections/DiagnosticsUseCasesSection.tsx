@@ -14,12 +14,16 @@ const DiagnosticsUseCasesSection = () => {
       className="bg-white"
     >
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-28">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <Eyebrow>{t('services:overview.focus.eyebrow')}</Eyebrow>
-          <h2 id="diagnostics-focus-title" className="mt-3 t-h2">
-            {t('services:overview.focus.title')}
-          </h2>
-          <p className="mt-4 text-gray-700">{t('services:overview.focus.intro')}</p>
+        <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+          <div>
+            <Eyebrow>{t('services:overview.focus.eyebrow')}</Eyebrow>
+            <h2 id="diagnostics-focus-title" className="mt-3 t-h2">
+              {t('services:overview.focus.title')}
+            </h2>
+          </div>
+          <p className="text-lg leading-relaxed text-gray-600">
+            {t('services:overview.focus.intro')}
+          </p>
         </div>
 
         <div data-diagnostics-focus-grid className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -31,7 +35,7 @@ const DiagnosticsUseCasesSection = () => {
                 data-diagnostics-focus-area={id}
                 data-focus-service={entry.service.id}
                 data-focus-tag={requiredTag}
-                className="flex min-h-[250px] flex-col rounded-2xl border border-paper-line bg-paper p-6"
+                className="flex min-h-[250px] flex-col rounded-card border border-paper-line bg-paper p-6"
               >
                 <span
                   className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-accent shadow-sm [&>svg]:h-5 [&>svg]:w-5"
@@ -60,7 +64,7 @@ const DiagnosticsUseCasesSection = () => {
         <div data-diagnostics-context-boundaries className="mt-12 grid gap-5 lg:grid-cols-2">
           <article
             data-diagnostics-boundary="igloo"
-            className="rounded-2xl border border-accent/30 bg-accent/5 p-7"
+            className="rounded-card border border-accent/30 bg-accent/5 p-7"
           >
             <MonitorSmartphone className="h-7 w-7 text-accent" aria-hidden="true" />
             <h3 className="mt-5 text-2xl font-medium text-heading">
@@ -82,7 +86,7 @@ const DiagnosticsUseCasesSection = () => {
 
           <article
             data-diagnostics-boundary="epigenetics"
-            className="rounded-2xl border border-paper-line bg-paper p-7"
+            className="rounded-card border border-paper-line bg-paper p-7"
           >
             <Dna className="h-7 w-7 text-accent" aria-hidden="true" />
             <h3 className="mt-5 text-2xl font-medium text-heading">

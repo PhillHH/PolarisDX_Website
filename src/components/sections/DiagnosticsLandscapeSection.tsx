@@ -20,11 +20,11 @@ const DiagnosticsLandscapeSection = () => {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="rounded-xl border border-ui-border bg-white p-7">
+          <article className="rounded-card border border-paper-line bg-white p-7">
             <h3 className="text-xl font-medium text-heading">{t('overview.ia.poc.title')}</h3>
             <p className="mt-3 text-base leading-7 text-gray-700">{t('overview.ia.poc.text')}</p>
           </article>
-          <article className="rounded-xl border border-ui-border bg-white p-7">
+          <article className="rounded-card border border-paper-line bg-white p-7">
             <h3 className="text-xl font-medium text-heading">{t('overview.ia.extended.title')}</h3>
             <p className="mt-3 text-base leading-7 text-gray-700">
               {t('overview.ia.extended.text')}

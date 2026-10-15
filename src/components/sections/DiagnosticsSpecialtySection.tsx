@@ -25,10 +25,14 @@ const DiagnosticsSpecialtySection = ({
       className={`scroll-mt-28 ${sectionClassName ?? 'bg-white'}`}
     >
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
-        <div className="text-center mb-14">
-          <Eyebrow>{eyebrow ?? t('services:overview.ia.groups.practice.eyebrow')}</Eyebrow>
-          <h2 className="mt-3 t-h2">{title ?? t('services:overview.ia.groups.practice.title')}</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-gray-700">
+        <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+          <div>
+            <Eyebrow>{eyebrow ?? t('services:overview.ia.groups.practice.eyebrow')}</Eyebrow>
+            <h2 className="mt-3 t-h2">
+              {title ?? t('services:overview.ia.groups.practice.title')}
+            </h2>
+          </div>
+          <p className="text-lg leading-relaxed text-gray-600">
             {subtitle ?? t('services:overview.ia.groups.practice.text')}
           </p>
         </div>

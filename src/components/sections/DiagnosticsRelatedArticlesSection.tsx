@@ -34,7 +34,7 @@ const DiagnosticsRelatedArticlesSection = () => {
               <article
                 key={article.id}
                 data-diagnostics-related-article={article.id}
-                className="flex min-h-full flex-col overflow-hidden rounded-2xl border border-paper-line bg-white"
+                className="flex min-h-full flex-col overflow-hidden rounded-card border border-paper-line bg-white"
               >
                 {imageAsset && (
                   /* AP25 PT25.3: dieselben Artikelbilder wie in der Artikelliste — responsive,
