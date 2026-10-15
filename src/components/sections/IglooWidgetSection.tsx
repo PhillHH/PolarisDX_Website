@@ -60,7 +60,7 @@ const IglooWidgetSection = () => {
   ]
 
   return (
-    <section id="fachrichtung" className="bg-slate-50">
+    <section id="fachrichtung" className="bg-paper">
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         {/* Kopf */}
         <div className="mx-auto max-w-2xl text-center mb-14">
@@ -83,7 +83,7 @@ const IglooWidgetSection = () => {
           {segments.map((segment) => (
             <div
               key={segment.id}
-              className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7"
+              className="flex h-full flex-col rounded-xl border border-paper-line bg-white p-7"
             >
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                 {segment.icon}

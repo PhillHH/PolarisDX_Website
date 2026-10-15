@@ -51,7 +51,7 @@ const FAQSection = ({
       />
 
       <div className="mx-auto max-w-3xl">
-        <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
+        <div className="divide-y divide-paper-line rounded-card border border-paper-line bg-white shadow-card">
           {Array.isArray(faqItems) &&
             faqItems.map((item, index) => {
               const buttonId = `${idPrefix}-faq-question-${index}`
@@ -63,7 +63,7 @@ const FAQSection = ({
                     id={buttonId}
                     type="button"
                     onClick={() => toggleItem(index)}
-                    className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary motion-reduce:transition-none"
+                    className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary motion-reduce:transition-none"
                     aria-expanded={openIndex === index}
                     aria-controls={answerId}
                   >

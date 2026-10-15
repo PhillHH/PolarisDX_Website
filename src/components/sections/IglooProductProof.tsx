@@ -22,7 +22,7 @@ export default function IglooProductProof() {
       aria-labelledby="igloo-proof-title"
       aria-label={t('proof.aria_label')}
       data-igloo-proof
-      className="border-y border-slate-200 bg-white"
+      className="border-y border-paper-line bg-white"
     >
       <div className="mx-auto max-w-container px-6 py-16 sm:px-8 lg:px-0 lg:py-20">
         <div className="max-w-3xl">
@@ -40,11 +40,11 @@ export default function IglooProductProof() {
             <li
               key={key}
               data-proof-signal={key}
-              className="rounded-xl border border-slate-200 bg-slate-50 p-6"
+              className="rounded-xl border border-paper-line bg-paper p-6"
             >
               <span
                 aria-hidden="true"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent-strong"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-soft text-accent-strong"
               >
                 <Icon className="h-5 w-5" />
               </span>

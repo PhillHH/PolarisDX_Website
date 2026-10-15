@@ -31,7 +31,7 @@ const alertVariants = cva('relative w-full rounded-lg border p-4 flex gap-3 item
   variants: {
     variant: {
       default: 'bg-gray-50 border-gray-200 text-gray-800',
-      info: 'bg-slate-50 border-ui-border text-heading',
+      info: 'bg-paper border-ui-border text-heading',
       success: 'bg-success-soft border-success/30 text-success-strong',
       warning: 'bg-warning-soft border-warning/40 text-warning-strong',
       error: 'bg-red-50 border-red-200 text-red-800',

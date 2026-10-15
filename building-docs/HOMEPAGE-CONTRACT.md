@@ -37,7 +37,10 @@ hardening remain AP22-owned and are not claimed as complete.
 ### 2.2 Visual and LCP strategy
 
 - Asset: existing approved product cutout `src/assets/Igloo-pro-frontal.webp`.
-- The visual shows the actual IglooPro reader; no decorative stock image or generated asset is used.
+- The visual shows the actual IglooPro reader. **SC-001 (2026-10-15):** it sits inside a photo mosaic
+  of four practice/lab motifs (`src/assets/home/`, Unsplash licence, served locally as AVIF/WebP at
+  240/480 px, decorative `alt=""`, lazy). No generated asset is used; the product cutout stays the
+  only eager, high-priority image.
 - One image is rendered and one matching image is preloaded by `SEOHead`; the former mismatched
   `hero_doctor.webp` preload and four-slide carousel were removed. React 19 derives the preload from
   the eager, high-priority image during SSR; `HomePage` carries no duplicate manual preload list.

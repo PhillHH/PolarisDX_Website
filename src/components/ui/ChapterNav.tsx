@@ -228,7 +228,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
   const aktionKlasse = `inline-flex h-9 min-w-0 shrink items-center rounded-full px-4 text-sm font-semibold transition-colors lg:shrink-0 ${
     istAnfrage
       ? 'bg-accent-strong text-white hover:brightness-110'
-      : 'border border-slate-300 text-brand-deep hover:border-brand-primary hover:bg-slate-50'
+      : 'border border-slate-300 text-brand-deep hover:border-brand-primary hover:bg-paper'
   }`
 
   /** Nach der Auswahl schliesst sich das Kapitel-Sheet wieder. */
@@ -239,7 +239,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
   return (
     <div
       ref={barRef}
-      className={`sticky ${TOP} z-20 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80`}
+      className={`sticky ${TOP} z-20 border-b border-paper-line bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80`}
     >
       {/* Auf schmalen Viewports bekommen die Kapitel eine eigene Zeile — zu
           dritt in einer Reihe bleibt fuer sie ein Spalt von Zentimetern. */}
@@ -247,7 +247,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
         {back ? (
           <Link
             to={back.to}
-            className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full px-2 text-sm font-medium text-brand-deep transition-colors hover:bg-slate-100"
+            className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full px-2 text-sm font-medium text-brand-deep transition-colors hover:bg-paper-deep"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">{back.label}</span>
@@ -266,7 +266,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                 aria-hidden="true"
               />
             </summary>
-            <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white py-2 shadow-lg">
+            <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-paper-line bg-white py-2 shadow-lg">
               <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-600">{switcher.label}</p>
               {/* Die Seite, auf der man steht, gehoert nicht in eine Liste
                   mit der Ueberschrift "die anderen Musterbefunde". */}
@@ -276,7 +276,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                   <Link
                     key={o.slug}
                     to={switcher.hrefFor(o.slug)}
-                    className={`block px-4 py-2.5 text-base transition-colors hover:bg-slate-50 ${
+                    className={`block px-4 py-2.5 text-base transition-colors hover:bg-paper ${
                       o.slug === switcher.currentSlug
                         ? 'font-semibold text-brand-primary'
                         : 'text-heading'
@@ -318,7 +318,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
             {/* Absolut ueber dem Inhalt statt in der Leiste: sonst waechst die
                 Leiste beim Aufklappen auf halbe Bildschirmhoehe und schoebe
                 den Text weg, den der Leser gerade liest. */}
-            <ul className="absolute inset-x-0 top-full z-30 max-h-[60vh] list-none overflow-y-auto border-b border-slate-200 bg-white p-2 shadow-lg">
+            <ul className="absolute inset-x-0 top-full z-30 max-h-[60vh] list-none overflow-y-auto border-b border-paper-line bg-white p-2 shadow-lg">
               {chapters.map((c) => (
                 <li key={c.id}>
                   <a
@@ -328,7 +328,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                     className={`flex min-h-[44px] items-center rounded-xl px-4 py-2 text-base ${
                       active === c.id
                         ? 'bg-brand-deep font-semibold text-white'
-                        : 'text-heading hover:bg-slate-50'
+                        : 'text-heading hover:bg-paper'
                     }`}
                   >
                     {c.label}
@@ -374,7 +374,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                   className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
                     active === c.id
                       ? 'bg-brand-deep font-semibold text-white'
-                      : 'text-gray-600 hover:bg-slate-100 hover:text-brand-deep'
+                      : 'text-gray-600 hover:bg-paper-deep hover:text-brand-deep'
                   }`}
                 >
                   {c.label}

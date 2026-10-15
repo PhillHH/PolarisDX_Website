@@ -52,7 +52,7 @@ const ResourceCardView = ({ card }: { card: ResourceCard }) => {
       data-resource-id={resource.id}
       data-resource-access={resource.deliveryClass}
       data-language-fallback={card.languageFallback ? 'true' : 'false'}
-      className="group relative flex h-full flex-col justify-between rounded-xl border border-slate-200 bg-white p-7 transition-all hover:-translate-y-1 hover:border-accent/40"
+      className="group relative flex h-full flex-col justify-between rounded-xl border border-paper-line bg-white p-7 transition-all hover:-translate-y-1 hover:border-accent/40"
     >
       <div>
         <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
@@ -78,7 +78,7 @@ const ResourceCardView = ({ card }: { card: ResourceCard }) => {
               // Gemessen mit axe: `text-accent` auf `bg-accent/10` liegt bei
               // 3,32:1 und faellt bei 12px durch. `accent-strong` erreicht
               // 4,86:1 auf derselben Flaeche.
-              gated ? 'bg-slate-200 text-heading' : 'bg-accent/10 text-accent-strong'
+              gated ? 'bg-paper-line text-heading' : 'bg-accent-soft text-accent-strong'
             }`}
           >
             {gated ? (
@@ -121,7 +121,7 @@ const ResourceCardView = ({ card }: { card: ResourceCard }) => {
             target="_blank"
             rel="noopener noreferrer"
             hrefLang={variant.language}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-paper-line py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             <Download className="h-4 w-4" aria-hidden />
             {t('downloads:downloadBtn')}
@@ -138,7 +138,7 @@ const ResourceCardView = ({ card }: { card: ResourceCard }) => {
             aria-expanded={gateOpen}
             data-gate-asset={card.gate.assetId}
             data-gate-locale={card.gate.requestedLocale}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-paper-line py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             <Lock className="h-4 w-4" aria-hidden />
             {t('downloads:gate.submit')}
@@ -210,7 +210,7 @@ const DownloadsPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50">
+      <div className="bg-paper">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <div className="space-y-14">
             {/* `buildResourceCenter` liefert ausschliesslich nicht-leere
@@ -262,7 +262,7 @@ const DownloadsPage = () => {
             </div>
           </Reveal>
 
-          {/* Quick-Links — `text-accent` auf `bg-slate-50` misst 3,57:1 und
+          {/* Quick-Links — `text-accent` auf `bg-paper` misst 3,57:1 und
               faellt bei 14px durch. Die Reihenfolge folgt jetzt der
               Link-Rezeptur aus `index.css`: `accent-strong` ruhend,
               `accent` beim Hover. */}

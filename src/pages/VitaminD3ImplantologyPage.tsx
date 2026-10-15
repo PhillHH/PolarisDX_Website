@@ -137,7 +137,7 @@ const VitaminD3ImplantologyPage = () => {
       {/* Evidenz-Leiste direkt unter dem Hero */}
       <section
         aria-label={t('vitamin_d3_implantology.copy_033')}
-        className="border-b border-slate-200 bg-slate-50"
+        className="border-b border-paper-line bg-paper"
       >
         <div className="mx-auto max-w-container px-4 py-7 lg:px-0">
           <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
@@ -157,7 +157,7 @@ const VitaminD3ImplantologyPage = () => {
       </section>
 
       {/* Article Container */}
-      <div className="bg-slate-50">
+      <div className="bg-paper">
         {/* Main Content with Sidebar */}
         <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
@@ -165,7 +165,7 @@ const VitaminD3ImplantologyPage = () => {
             <article className="article-col">
               <Reveal width="100%">
                 {/* Author Box - E-E-A-T Signal */}
-                <div className="mb-10 flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
+                <div className="mb-10 flex items-center gap-4 rounded-lg border border-paper-line bg-white p-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 text-lg font-semibold text-accent">
                     {t('vitamin_d3_implantology.copy_038')}
                   </div>
@@ -261,7 +261,7 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
 
                   {/* Dosing Table */}
-                  <div className="my-8 overflow-x-auto rounded-lg border border-slate-200">
+                  <div className="my-8 overflow-x-auto rounded-lg border border-paper-line">
                     {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
                         Accessibility-Tree (bisher stand sie namenlos im
                         Dokument), `scope` bindet jede Datenzelle an ihre
@@ -352,7 +352,7 @@ const VitaminD3ImplantologyPage = () => {
                 </section>
 
                 {/* Mid-CTA: Diagnostics System with Image */}
-                <div className="my-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+                <div className="my-10 overflow-hidden rounded-xl border border-paper-line bg-white">
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-2/5">
                       <img
@@ -506,7 +506,7 @@ const VitaminD3ImplantologyPage = () => {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-6">
                 {/* Phone Contact Box */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="rounded-xl border border-paper-line bg-white p-5">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       <Phone className="h-5 w-5" />
@@ -522,7 +522,7 @@ const VitaminD3ImplantologyPage = () => {
                   </div>
                   <a
                     href="tel:+4915175011699"
-                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
+                    className="flex items-center justify-center gap-2 rounded-md bg-accent-soft px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
                   >
                     <Phone className="h-4 w-4" />
                     +49 151 75011699
@@ -548,7 +548,7 @@ const VitaminD3ImplantologyPage = () => {
                 </div>
 
                 {/* Related Articles */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="rounded-xl border border-paper-line bg-white p-5">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-heading">
                     <BookOpen className="h-4 w-4 text-accent" />
                     {t('vitamin_d3_implantology.copy_119')}

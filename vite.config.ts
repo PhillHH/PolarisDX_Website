@@ -61,6 +61,13 @@ export default defineConfig(({ isSsrBuild }) => ({
     // die Seite neu). Für Prod-Debugging bei Bedarf temporär wieder aktivieren.
     sourcemap: false,
 
+    // Relaunch SC-001: die Startseiten-Fotos (`src/assets/home/`) bleiben Dateien, auch wenn
+    // eine 240-px-AVIF-Stufe unter Vites 4-KB-Inline-Grenze faellt. Als Base64 im Initial-JS
+    // zaehlten sie gemessen +4,3 KB gzip gegen `initialJsGzip` (PT25.5) — als Datei laedt sie
+    // nur, wer die Kachel sieht. Alle anderen Assets behalten das Standardverhalten.
+    assetsInlineLimit: (filePath: string) =>
+      filePath.includes('/src/assets/home/') ? false : undefined,
+
     // ==========================================================================
     // CODE-SPLITTING: Nur für Client-Build, NICHT für SSR
     // Reduziert Initial Load und ermöglicht paralleles Laden

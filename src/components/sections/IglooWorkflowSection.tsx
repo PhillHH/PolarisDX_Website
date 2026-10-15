@@ -17,7 +17,7 @@ export default function IglooWorkflowSection() {
   const { t } = useTranslation('products')
 
   return (
-    <section aria-labelledby="igloo-workflow-title" data-igloo-workflow className="bg-slate-50">
+    <section aria-labelledby="igloo-workflow-title" data-igloo-workflow className="bg-paper">
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
         <div className="max-w-3xl">
           <Eyebrow>{t('workflow.eyebrow')}</Eyebrow>
@@ -32,12 +32,12 @@ export default function IglooWorkflowSection() {
             <li
               key={key}
               data-workflow-step={key}
-              className="relative rounded-xl border border-slate-200 bg-white p-7"
+              className="relative rounded-xl border border-paper-line bg-white p-7"
             >
               <div className="flex items-center justify-between gap-4">
                 <span
                   aria-hidden="true"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent-strong"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-soft text-accent-strong"
                 >
                   <Icon className="h-5 w-5" />
                 </span>

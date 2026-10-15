@@ -47,7 +47,7 @@ export default function IglooCompatibilitySection() {
               {t('compatibility.title')}
             </h2>
             <p className="mt-4 text-gray-700">{t('compatibility.description')}</p>
-            <p className="mt-6 rounded-lg bg-slate-50 px-5 py-4 text-sm leading-relaxed text-gray-700">
+            <p className="mt-6 rounded-lg bg-paper px-5 py-4 text-sm leading-relaxed text-gray-700">
               {t('compatibility.boundary')}
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function IglooCompatibilitySection() {
               <li
                 key={key}
                 data-compatibility-check={key}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-6"
+                className="rounded-xl border border-paper-line bg-paper p-6"
               >
                 <Icon className="h-5 w-5 text-accent-strong" aria-hidden="true" />
                 <h3 className="mt-4 text-base font-medium text-heading">
@@ -79,7 +79,7 @@ export default function IglooCompatibilitySection() {
                 <Link
                   to={path}
                   data-related-route-id={routeId}
-                  className="group flex min-h-[52px] h-full items-center justify-between gap-3 rounded-lg border border-slate-200 px-4 py-3 text-sm font-medium text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
+                  className="group flex min-h-[52px] h-full items-center justify-between gap-3 rounded-lg border border-paper-line px-4 py-3 text-sm font-medium text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
                 >
                   <span className="flex items-center gap-2">
                     {key === 'downloads' && <FileText className="h-4 w-4" aria-hidden="true" />}

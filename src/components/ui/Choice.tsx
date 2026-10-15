@@ -5,7 +5,7 @@ import { cn } from '../../lib/utils'
  * Choice Controls — Checkbox, Radio, Select.
  *
  * Farben kommen aus den PT05.1-Tokens: die Begrenzung eines Bedienelements ist
- * `ui-field` (#6b7280, 4,83:1 — WCAG 1.4.11 verlangt 3:1), der aktive Zustand
+ * `ui-field` (#5e6a78, 5,51:1 — WCAG 1.4.11 verlangt 3:1), der aktive Zustand
  * traegt den Akzent, der Fokusring ist derselbe wie an Input/Textarea.
  *
  * TOUCH TARGET: Checkbox und Radio sind visuell 16px (`h-4 w-4`) — das ist die

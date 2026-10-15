@@ -28,14 +28,14 @@ const TestimonialsSection = () => {
       id="testimonials"
       aria-labelledby="homepage-proof-title"
       data-home-proof
-      className="bg-brand-deep py-16 text-white lg:py-20"
+      className="bg-paper pb-16 lg:pb-20"
     >
-      <div className="mx-auto grid max-w-container items-center gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(220px,0.65fr)_minmax(0,1.35fr)] lg:px-0">
-        <div>
-          <Eyebrow tone="dark">{t('testimonials.caption')}</Eyebrow>
+      <div className="mx-auto max-w-container px-4 lg:px-0">
+        <div className="max-w-3xl">
+          <Eyebrow>{t('testimonials.caption')}</Eyebrow>
           <h2
             id="homepage-proof-title"
-            className="mt-3 max-w-xl text-3xl font-medium tracking-tight text-white sm:text-4xl"
+            className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading"
           >
             {t('testimonials.title')}
           </h2>
@@ -44,7 +44,7 @@ const TestimonialsSection = () => {
         <figure
           data-testimonial-id={testimonial.id}
           data-claim-id="HCL-006"
-          className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white text-heading shadow-lg sm:grid-cols-[180px_minmax(0,1fr)]"
+          className="mt-10 grid overflow-hidden rounded-band border border-paper-line bg-white text-heading shadow-card sm:grid-cols-[260px_minmax(0,1fr)] lg:grid-cols-[340px_minmax(0,1fr)]"
         >
           {testimonial.avatar && (
             <img
@@ -54,15 +54,15 @@ const TestimonialsSection = () => {
               height={300}
               loading="lazy"
               decoding="async"
-              className="h-52 w-full object-cover sm:h-full"
+              className="h-64 w-full object-cover sm:h-full"
             />
           )}
-          <div className="flex flex-col justify-center p-6 sm:p-8">
+          <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
             <Quote className="h-7 w-7 text-accent" aria-hidden="true" />
-            <blockquote className="mt-4 text-lg leading-relaxed text-gray-700">
+            <blockquote className="mt-4 text-xl font-medium leading-snug tracking-tight text-heading sm:text-2xl">
               <p>„{t(`testimonials.${testimonial.id}.proof_text`)}“</p>
             </blockquote>
-            <figcaption className="mt-6 border-t border-slate-200 pt-4">
+            <figcaption className="mt-7 border-t border-paper-line pt-5">
               <p className="font-semibold text-heading">{testimonial.name}</p>
               <p className="mt-1 text-sm text-gray-600">
                 {role} · {practice}

@@ -7,8 +7,8 @@ import { cn } from '../../lib/utils'
  * Card — die eine Kartenflaeche der Sales-Machine.
  *
  * Das Rezept ist aus dem Bestand uebernommen (Diagnostik-/Igloo-Karten):
- * `rounded-xl border bg-white`, Hover-Lift nur dort, wo die Karte wirklich
- * fuehrt. `ui-border` (#e2e8f0) ist hier korrekt — ein Kartenrand ist Dekor,
+ * `rounded-card border bg-white`, Hover-Lift nur dort, wo die Karte wirklich
+ * fuehrt. `paper-line` (#e3e0d7, Relaunch SC-001) ist hier korrekt — ein Kartenrand ist Dekor,
  * keine Begrenzung eines Bedienelements (DESIGN-SYSTEM-CONTRACT §3.4).
  *
  * INTERAKTIV vs. STATISCH ist eine Verhaltensfrage, keine Stilfrage:
@@ -23,7 +23,7 @@ import { cn } from '../../lib/utils'
  * NICHT zwanghaft hierauf vereinheitlicht; sie duerfen diese Karte nutzen,
  * muessen es aber nicht.
  */
-const cardVariants = cva('rounded-xl border border-ui-border bg-white', {
+const cardVariants = cva('rounded-card border border-paper-line bg-white', {
   variants: {
     padding: {
       none: 'p-0',

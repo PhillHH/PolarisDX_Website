@@ -113,7 +113,7 @@ const EpigeneticsDocsPage = () => {
                 className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-card ${
                   sheet.featured
                     ? 'border-accent-border ring-1 ring-accent-border'
-                    : 'border-slate-200'
+                    : 'border-paper-line'
                 }`}
               >
                 <div>
@@ -122,7 +122,7 @@ const EpigeneticsDocsPage = () => {
                       className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${
                         sheet.featured
                           ? 'bg-accent-soft text-accent-strong'
-                          : 'bg-slate-100 text-brand-primary'
+                          : 'bg-paper-deep text-brand-primary'
                       }`}
                     >
                       {sheet.num}
@@ -138,7 +138,7 @@ const EpigeneticsDocsPage = () => {
                   <p className="mt-2 text-base leading-7 text-gray-600">{sheet.desc}</p>
                 </div>
 
-                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-paper-line pt-4">
                   <span className="text-sm text-gray-600">
                     {sheet.meta} ·{' '}
                     <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
@@ -168,7 +168,7 @@ const EpigeneticsDocsPage = () => {
         {/* Parameteruebersicht und "Werte verstehen" — die zwei Blaetter, die
             nicht in der Neuner-Reihe stehen. */}
         <Reveal width="100%">
-          <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-paper-line bg-white p-6">
             {extras.map((extra) => (
               <a
                 key={extra.doc}
@@ -191,7 +191,7 @@ const EpigeneticsDocsPage = () => {
         <Reveal width="100%">
           <div
             id="musterbefunde"
-            className="mt-8 flex scroll-mt-[var(--chapterbar-offset,148px)] flex-col gap-5 rounded-3xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:justify-between"
+            className="mt-8 flex scroll-mt-[var(--chapterbar-offset,148px)] flex-col gap-5 rounded-3xl border border-paper-line bg-white p-7 sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="max-w-[62ch]">
               <h2 className="t-h3">{t('downloads.samplesTitle')}</h2>

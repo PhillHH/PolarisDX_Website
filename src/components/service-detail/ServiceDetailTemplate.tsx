@@ -24,7 +24,7 @@ export function ServiceDetailTemplate({ model }: { model: ServiceDetailViewModel
       />
       <ServiceDetailHero model={model} />
       <TrustBar />
-      <div className="bg-slate-50" data-service-detail-template="v1">
+      <div className="bg-paper" data-service-detail-template="v1">
         <div className="mx-auto flex max-w-container flex-col gap-8 px-4 py-12 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,1.4fr)] lg:items-start lg:gap-8 lg:px-0 lg:py-16">
           <article className="min-w-0 space-y-10 text-gray-700">
             <ServiceDetailSections model={model} />

@@ -23,7 +23,7 @@ const DiagnosticsHero = () => {
     <section
       aria-labelledby="diagnostics-hero-title"
       data-diagnostics-hero
-      className="relative overflow-hidden border-b border-slate-200 bg-slate-50"
+      className="relative overflow-hidden border-b border-paper-line bg-paper"
     >
       <div
         className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
@@ -69,7 +69,7 @@ const DiagnosticsHero = () => {
               href="#diagnostics-services"
               variant="ghost"
               data-diagnostics-secondary-entry
-              className="w-full justify-center border border-slate-300 bg-white text-brand-deep hover:bg-slate-100 sm:w-auto"
+              className="w-full justify-center border border-slate-300 bg-white text-brand-deep hover:bg-paper-deep sm:w-auto"
             >
               {t('services:overview.hero.entry.secondary_cta')}
             </Button>
@@ -78,7 +78,7 @@ const DiagnosticsHero = () => {
           <aside
             aria-label={t('services:overview.hero.entry.trust_label')}
             data-diagnostics-hero-trust
-            className="mt-9 border-t border-slate-200 pt-6"
+            className="mt-9 border-t border-paper-line pt-6"
           >
             <p className="text-sm font-semibold text-heading">
               {t('services:overview.hero.entry.trust_label')}
@@ -99,7 +99,7 @@ const DiagnosticsHero = () => {
 
         <figure
           data-diagnostics-hero-visual
-          className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8"
+          className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-3xl border border-paper-line bg-white p-6 shadow-card sm:p-8"
         >
           <div
             className="absolute inset-x-12 top-10 aspect-square rounded-full bg-accent/10"
@@ -115,7 +115,7 @@ const DiagnosticsHero = () => {
             decoding="async"
             className="relative mx-auto aspect-square h-auto w-full max-w-[390px] object-contain"
           />
-          <figcaption className="relative mt-3 rounded-2xl bg-slate-50 p-5">
+          <figcaption className="relative mt-3 rounded-2xl bg-paper p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-strong">
               {t('services:overview.hero.entry.visual.eyebrow')}
             </p>

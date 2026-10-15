@@ -104,7 +104,7 @@ const S3LeitliniePage = () => {
       />
 
       {/* Article Container */}
-      <div className="bg-slate-50">
+      <div className="bg-paper">
         {/* Hero / Above the Fold */}
         <section className="relative overflow-hidden bg-brand-deep text-white">
           <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />

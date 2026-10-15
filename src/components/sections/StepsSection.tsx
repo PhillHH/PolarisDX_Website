@@ -21,13 +21,13 @@ const StepsSection = () => {
   const { t } = useTranslation('home')
 
   return (
-    <section id="ablauf" aria-labelledby="process-title" className="bg-white">
+    <section id="ablauf" aria-labelledby="process-title" className="bg-paper">
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
         <div className="max-w-3xl">
           <Eyebrow className="mb-4">{t('steps.caption', 'Der POC-Prozess')}</Eyebrow>
           <h2
             id="process-title"
-            className="text-3xl font-medium tracking-tight text-heading sm:text-4xl"
+            className="text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading"
           >
             {t('steps.title', 'Von der Anwendung zur fachlichen Einordnung')}
           </h2>
@@ -44,12 +44,12 @@ const StepsSection = () => {
             <li
               key={id}
               data-process-step={id}
-              className="relative border-t-2 border-accent-strong pt-7 md:min-h-64"
+              className="relative flex flex-col rounded-card border border-paper-line bg-white p-7 shadow-card md:min-h-64"
             >
-              <span className="text-sm font-semibold tracking-[0.12em] text-accent-strong">
+              <span className="icon-tile h-11 w-11 text-sm font-semibold tracking-[0.08em]">
                 {number}
               </span>
-              <h3 className="mt-5 text-xl font-medium text-heading">
+              <h3 className="mt-5 text-xl font-semibold text-heading">
                 {t(`steps.items.${id}.title`)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-700">
@@ -59,7 +59,7 @@ const StepsSection = () => {
           ))}
         </ol>
 
-        <p className="mt-10 max-w-3xl border-l-2 border-accent-strong pl-5 text-sm leading-relaxed text-gray-700">
+        <p className="mt-8 max-w-3xl rounded-r-xl border-l-[3px] border-accent bg-white py-3 pl-5 pr-5 text-sm leading-relaxed text-gray-700">
           {t(
             'steps.safety_note',
             'Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson.',

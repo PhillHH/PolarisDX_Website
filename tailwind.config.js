@@ -103,7 +103,9 @@ export default {
           // brauchen als Text 4,5:1. `border` und `text-muted` darueber
           // bleiben, wo sie sind: sie tragen Trennlinien und Beiwerk, nichts,
           // das man bedient.
-          field: '#6b7280', // 4,83:1 auf Weiss — Rahmen, Placeholder und Hilfstext
+          // Relaunch SC-001: #6b7280 erreichte auf `paper` nur 4,35:1 (axe, PT24.6).
+          // #5e6a78 misst 5,51:1 auf Weiss, 4,97:1 auf paper, 4,61:1 auf paper.deep.
+          field: '#5e6a78', // Rahmen, Placeholder und Hilfstext
         },
         // Kanonische Headline-/Body-Ink. `text-heading` ist die EINE Navy.
         // Der frühere Alias "gray-900" (#203864) wurde entfernt — es gibt
@@ -178,6 +180,16 @@ export default {
         // Der Wert ist kein neuer — er ist derselbe, den `ui.field` schon
         // traegt. Zwei Token, die dasselbe meinen, haben jetzt denselben Wert.
         // -------------------------------------------------------------------
+        // RELAUNCH 2026-10-15 — warme Neutralflaeche (SC-001). `paper` ist die
+        // Seitenflaeche des Relaunch-Designs, `paper.deep` die abgesetzte Fuellung,
+        // `paper.line` die Dekor-Trennlinie darauf. Dekor, nie Bedienelement-
+        // Begrenzung (dafuer bleibt `ui.field`). Gemessene Kontraste auf `paper`:
+        // heading 12,2:1 · gray-700 9,1:1 · accent.strong 4,95:1 · ui.field 4,59:1.
+        paper: {
+          DEFAULT: '#f5f3ee',
+          deep: '#ecebe4',
+          line: '#e3e0d7',
+        },
         'gray-100': '#F5F5F5',
         'gray-500': '#6b7280',
       },
@@ -220,6 +232,9 @@ export default {
       },
       borderRadius: {
         section: '24px',
+        // Relaunch-Flaechen: Karten 22 px, grosse Baender 34 px.
+        card: '22px',
+        band: '34px',
       },
       keyframes: {
         'fade-in-scale': {

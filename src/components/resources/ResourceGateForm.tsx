@@ -189,7 +189,7 @@ const ResourceGateForm = ({
 
   if (phase === 'done' && result?.downloadUrl) {
     return (
-      <div data-gate-state="success" className="rounded-xl border border-slate-200 bg-white p-6">
+      <div data-gate-state="success" className="rounded-xl border border-paper-line bg-white p-6">
         <h3 className="text-lg font-medium text-heading">{t('gate.successTitle')}</h3>
         <p className="mt-2 text-sm leading-6 text-gray-600">{t('gate.successText')}</p>
         <a
@@ -220,7 +220,7 @@ const ResourceGateForm = ({
       noValidate
       data-gate-state={phase}
       data-gate-asset={assetId}
-      className="rounded-xl border border-slate-200 bg-white p-6"
+      className="rounded-xl border border-paper-line bg-white p-6"
     >
       <h3 className="flex items-center gap-2 text-lg font-medium text-heading">
         <Lock className="h-4 w-4" aria-hidden />

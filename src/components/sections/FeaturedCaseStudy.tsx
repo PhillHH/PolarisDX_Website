@@ -8,7 +8,7 @@ const FeaturedCaseStudy = () => {
   const { t } = useTranslation('casestudies')
 
   return (
-    <section className="relative py-24 bg-slate-50 overflow-hidden">
+    <section className="relative py-24 bg-paper overflow-hidden">
       {/* Hintergrund-Akzent */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
 

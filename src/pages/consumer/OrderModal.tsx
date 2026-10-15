@@ -177,10 +177,10 @@ function OrderModalDialog({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-slate-50 shadow-2xl animate-modal-card-in focus:outline-none motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl"
+        className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-paper shadow-2xl animate-modal-card-in focus:outline-none motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl"
       >
         {/* Header */}
-        <div className="relative flex-none border-b border-slate-200 bg-white px-6 py-5 sm:px-8">
+        <div className="relative flex-none border-b border-paper-line bg-white px-6 py-5 sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {titleCopy.eyebrow}
           </p>
@@ -195,7 +195,7 @@ function OrderModalDialog({
             type="button"
             onClick={onClose}
             aria-label={t('order_modal.copy_007')}
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-slate-100 hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-paper-deep hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
           >
             <X className="h-5 w-5" aria-hidden />
           </button>

@@ -149,7 +149,7 @@
   }
 
   /* --- Kleintext und Formularrollen ---
-     `ui-field` (#6b7280, 4,83:1) ist die EINE Farbe fuer Hilfs-, Platzhalter-
+     `ui-field` (#5e6a78, 5,51:1 auf Weiss, 4,97:1 auf paper) ist die EINE Farbe fuer Hilfs-, Platzhalter-
      und Bildunterschrifttext (DESIGN-SYSTEM-CONTRACT §3.4).
      Fehlertext ist `red-600` (4,83:1) — `red-500` erreicht auf Weiss nur
      3,76:1 und ist als Textfarbe nicht AA-tauglich. */
@@ -183,6 +183,25 @@
     @apply rounded-sm text-sm font-semibold text-accent-strong hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2;
   }
 
+  /* --- Relaunch SC-001: wiederkehrende Startseiten-Bausteine ---
+     Einmal definiert statt viermal im HTML: das SSR-HTML der Startseite liegt
+     am `htmlBytes`-Budget (PT25.5), jede Wiederholung einer Klassenkette zaehlt. */
+  .home-tile {
+    @apply relative aspect-square overflow-hidden rounded-card bg-paper-deep shadow-card;
+  }
+
+  .home-tile-label {
+    @apply absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-lg bg-white px-2 py-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.08em] text-heading sm:text-[11px];
+  }
+
+  .home-signal {
+    @apply flex items-center gap-3.5 border-b border-paper-line px-5 py-5 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0;
+  }
+
+  .icon-tile {
+    @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-strong;
+  }
+
   .glass-panel {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
   }
@@ -201,7 +220,8 @@
   :root {
     font-family: theme('fontFamily.sans');
     color: theme('colors.heading');
-    background-color: #f8fafc;
+    /* Relaunch 2026-10-15 (SC-001): warme Papierflaeche statt slate-50. */
+    background-color: theme('colors.paper.DEFAULT');
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

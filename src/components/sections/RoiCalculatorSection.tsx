@@ -159,14 +159,14 @@ const RoiCalculatorSection = () => {
   }
 
   return (
-    <section id="roi-rechner" className="bg-slate-50">
+    <section id="roi-rechner" className="bg-white">
       <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0">
         {/* Kopf */}
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
             {t('roi.caption')}
           </p>
-          <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl">
+          <h2 className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading">
             {t('roi.title')}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-gray-600">{t('roi.intro')}</p>
@@ -174,7 +174,7 @@ const RoiCalculatorSection = () => {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           {/* LINKS: Eingabe-Karte */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-7">
+          <div className="rounded-card border border-paper-line bg-paper p-7">
             <div className="grid gap-6 sm:grid-cols-2">
               {inputs.map((field) => (
                 <div key={field.id} className="flex flex-col">
@@ -197,10 +197,10 @@ const RoiCalculatorSection = () => {
           </div>
 
           {/* RECHTS: Ergebnis-Karte */}
-          <div className="rounded-2xl bg-brand-deep p-7 text-white">
+          <div className="rounded-card bg-brand-deep p-7 text-white shadow-card">
             {/* Grosse Kennzahl */}
             <p className="text-sm text-white/70">{t('roi.out.month')}</p>
-            <p className="mt-1 text-4xl font-semibold tracking-tight sm:text-5xl">
+            <p className="mt-1 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
               {eur(dbPerMonth)}
             </p>
 
@@ -275,7 +275,7 @@ const RoiCalculatorSection = () => {
 
         {/* CAPTURE-FORM (Toggle) */}
         {showForm && (
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7">
+          <div className="mt-8 rounded-card border border-paper-line bg-paper p-7">
             {status === 'success' ? (
               <div className="rounded-lg bg-accent/10 px-4 py-3 text-sm text-heading ring-1 ring-accent-line">
                 {t('roi.form.success')}

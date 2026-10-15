@@ -15,8 +15,8 @@ const BlogCard = ({ id, image, to }: BlogCardProps) => {
   const excerpt = t(`articles:${id}.excerpt`)
 
   return (
-    <article className="glass-panel flex h-full flex-col overflow-hidden rounded-xl transition duration-300 hover:-translate-y-1 hover:bg-white/80">
-      <div className="relative h-64 w-full bg-gray-100 overflow-hidden">
+    <article className="flex h-full flex-col overflow-hidden rounded-card border border-paper-line bg-white shadow-card transition duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+      <div className="relative h-56 w-full bg-paper-deep overflow-hidden">
         {image && (
           <>
             {/* AP24 PT24.5: leeres `alt` — das Bild illustriert die Ueberschrift darunter.
@@ -33,7 +33,7 @@ const BlogCard = ({ id, image, to }: BlogCardProps) => {
           </>
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-6">
         <h3 className="text-base font-semibold tracking-tight text-heading">{title}</h3>
         <p className="text-sm leading-relaxed text-gray-600">{excerpt}</p>
         {to && (

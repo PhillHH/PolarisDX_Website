@@ -329,7 +329,7 @@ function SprayPageInner() {
         </div>
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <Card className="p-0">
-            <dl className="divide-y divide-slate-100">
+            <dl className="divide-y divide-paper-line">
               {/* Bei 390px passten `w-40` (160px), `px-8` (64px) und `gap-6`
                   (24px) plus Wert nicht nebeneinander — gemessen 26px
                   Ueberlauf (CD-01 aus PT21.1). Unter `sm` stapelt die Zeile

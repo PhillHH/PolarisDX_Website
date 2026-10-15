@@ -36,7 +36,7 @@ const IglooParametersSection = () => {
 
         <div className="grid gap-8 md:grid-cols-3">
           {GROUPS.map(({ g, items }) => (
-            <div key={g} className="rounded-xl border border-slate-200 bg-white p-7">
+            <div key={g} className="rounded-xl border border-paper-line bg-white p-7">
               <h3 className="text-lg font-medium text-heading">{t('parameters.groups.' + g)}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {items.map((item) => (

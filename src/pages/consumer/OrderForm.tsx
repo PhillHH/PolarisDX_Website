@@ -84,7 +84,7 @@ const parseQuantity = (raw: string): ConsumerOrderQuantity =>
 // Weiss und ist derselbe Ton, den die Consumer-Flaeche ohnehin als Akzent
 // traegt.
 const inputClass =
-  'w-full rounded-md border border-ui-field bg-white px-4 py-3 text-heading placeholder:text-ui-field transition-colors focus:border-accent-strong focus:outline-none focus:ring-2 focus:ring-accent-strong disabled:bg-slate-100'
+  'w-full rounded-md border border-ui-field bg-white px-4 py-3 text-heading placeholder:text-ui-field transition-colors focus:border-accent-strong focus:outline-none focus:ring-2 focus:ring-accent-strong disabled:bg-paper-deep'
 
 const labelClass = 'mb-1.5 block text-sm font-semibold text-heading'
 

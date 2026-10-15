@@ -15,7 +15,7 @@ const LanguageFallbackNotice = ({ lang }: { lang: string }) => {
   const { t } = useTranslation('common')
 
   return (
-    <div lang={lang} className="border-b border-slate-200 bg-slate-100">
+    <div lang={lang} className="border-b border-paper-line bg-paper-deep">
       <div className="mx-auto flex max-w-container items-center gap-2.5 px-4 py-2.5 lg:px-0">
         <Languages className="h-4 w-4 shrink-0 text-gray-500" aria-hidden="true" />
         <p className="text-sm text-gray-500">{t('languageFallback.notice')}</p>

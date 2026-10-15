@@ -223,7 +223,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
       </section>
 
       {/* ================ UPCOMING: Highlight + Kalender-Liste ================ */}
-      <section data-events-upcoming className="bg-slate-50">
+      <section data-events-upcoming className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24">
           <div className="mb-12 text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -240,7 +240,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
           {upcoming.length === 0 ? (
             /* Kein Termin mehr im Kalender — lieber ehrlich leer als abgelaufene Termine. */
             <Reveal width="100%">
-              <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-10 text-center">
+              <div className="mx-auto max-w-2xl rounded-2xl border border-paper-line bg-white p-10 text-center">
                 <h3 className="text-xl font-medium text-heading">
                   {t('events:empty_title', 'No upcoming events')}
                 </h3>
@@ -315,7 +315,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
               {/* KALENDER-LISTE */}
               {listEvents.length > 0 && (
                 <Reveal width="100%" delay={0.1}>
-                  <ul className="h-full divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <ul className="h-full divide-y divide-paper-line overflow-hidden rounded-2xl border border-paper-line bg-white">
                     {listEvents.map((event) => {
                       const d = parseIsoDate(event.date)
                       const tag = t(`events:items.${event.id}.tag`, '')
@@ -327,10 +327,10 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
                           key={event.id}
                           data-event-id={event.id}
                           data-event-status={getEventStatus(event, today)}
-                          className="group p-4 transition hover:bg-slate-50 sm:p-5"
+                          className="group p-4 transition hover:bg-paper sm:p-5"
                         >
                           <article className="flex min-w-0 items-start gap-3 sm:gap-4">
-                            <div className="w-12 shrink-0 rounded-lg bg-slate-100 py-2 text-center">
+                            <div className="w-12 shrink-0 rounded-lg bg-paper-deep py-2 text-center">
                               <div className="text-xs font-medium text-brand-deep">
                                 {months[d.month]}
                               </div>

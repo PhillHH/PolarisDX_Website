@@ -150,9 +150,17 @@ test('PT11.6 page-level accessibility and performance structure stay regression-
   await expect(page.locator('main')).toHaveCount(1)
   await expect(page.locator('footer')).toHaveCount(1)
   await expect(page.locator('main img:not([alt])')).toHaveCount(0)
-  await expect(page.locator('[data-home-hero] img')).toHaveAttribute('loading', 'eager')
-  await expect(page.locator('[data-home-hero] img')).toHaveAttribute('width', '650')
-  await expect(page.locator('[data-home-hero] img')).toHaveAttribute('height', '650')
+  // SC-001: the Hero carries one product image (eager, high priority, 650×650) plus
+  // decorative mosaic photos — every one of those is `alt=""` and lazy.
+  const heroProduct = page.locator('[data-home-hero] img[fetchpriority="high"]')
+  await expect(heroProduct).toHaveCount(1)
+  await expect(heroProduct).toHaveAttribute('loading', 'eager')
+  await expect(heroProduct).toHaveAttribute('width', '650')
+  await expect(heroProduct).toHaveAttribute('height', '650')
+  await expect(page.locator('[data-home-hero] img:not([fetchpriority="high"])')).toHaveCount(4)
+  await expect(
+    page.locator('[data-home-hero] img:not([fetchpriority="high"]):not([alt=""][loading="lazy"])'),
+  ).toHaveCount(0)
   await expect(page.locator('main img[loading="eager"]')).toHaveCount(1)
 
   const firstQuestion = page.locator('#faq button').first()

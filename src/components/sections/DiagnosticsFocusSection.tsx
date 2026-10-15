@@ -11,7 +11,7 @@ const DiagnosticsFocusSection = () => {
 
   return (
     <>
-      <section className="bg-slate-50">
+      <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
           <div className="mb-14 text-center">
             <Eyebrow>{t('services:overview.ia.groups.workflow.eyebrow')}</Eyebrow>

@@ -6,11 +6,11 @@ import { Card } from '../ui/Card'
 const priorityStyles = {
   PRIMARY: {
     card: 'border-t-accent hover:border-accent/60 hover:shadow-card',
-    badge: 'bg-accent/10 text-accent-strong',
+    badge: 'bg-accent-soft text-accent-strong',
   },
   STANDARD: {
     card: 'border-t-slate-300 hover:border-accent/50 hover:shadow-card',
-    badge: 'bg-slate-100 text-slate-700',
+    badge: 'bg-paper-deep text-slate-700',
   },
 } as const
 

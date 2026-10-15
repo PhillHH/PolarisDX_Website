@@ -178,10 +178,10 @@ const AboutPage = () => {
       </section>
 
       {/* Stat strip */}
-      <section className="bg-slate-50 py-16 lg:py-24">
+      <section className="bg-paper py-16 lg:py-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%">
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-paper-line bg-paper-line lg:grid-cols-4">
               {statStrip.map((s) => (
                 <div key={s.label} className="bg-white p-6 text-center lg:p-8">
                   <div className="text-3xl font-medium tracking-tight text-heading lg:text-4xl">
@@ -209,7 +209,7 @@ const AboutPage = () => {
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {values.map((v, i) => (
               <Reveal key={v.key} width="100%" delay={i * REVEAL_STAGGER}>
-                <div className="h-full rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
+                <div className="h-full rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <v.icon className="h-5 w-5" aria-hidden="true" />
                   </span>

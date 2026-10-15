@@ -8,7 +8,7 @@ const DiagnosticsLandscapeSection = () => {
     <section
       aria-labelledby="diagnostics-landscape-title"
       data-diagnostics-landscape
-      className="bg-slate-50 py-20 lg:py-24"
+      className="bg-paper py-20 lg:py-24"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
         <div className="max-w-3xl">

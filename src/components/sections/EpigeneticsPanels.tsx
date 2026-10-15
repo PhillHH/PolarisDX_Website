@@ -111,7 +111,7 @@ const EpigeneticsPanels = ({
               className={`flex h-full flex-col overflow-hidden rounded-3xl bg-white transition-shadow ${
                 activePanel === sample.slug
                   ? 'border-2 border-brand-primary shadow-lg ring-2 ring-brand-primary/20'
-                  : 'border-2 border-slate-200'
+                  : 'border-2 border-paper-line'
               }`}
             >
               {BEFUND_IMAGES[sample.slug] ? (
@@ -124,7 +124,7 @@ const EpigeneticsPanels = ({
                   loading="lazy"
                   decoding="async"
                   alt={t('samples.imgAlt', { panel: sample.panel })}
-                  className="w-full border-b border-slate-200 object-cover"
+                  className="w-full border-b border-paper-line object-cover"
                 />
               ) : null}
 
@@ -149,11 +149,11 @@ const EpigeneticsPanels = ({
 
                 {/* Dieselben Achsen wie in der Vergleichstabelle — so laesst sich
                     von der Karte auf die Tabelle und zurueck lesen. */}
-                <dl className="mt-5 border-t border-slate-100">
+                <dl className="mt-5 border-t border-paper-line">
                   {cols.slice(1).map((col, i) => (
                     <div
                       key={col}
-                      className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 border-b border-slate-100 py-2"
+                      className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 border-b border-paper-line py-2"
                     >
                       <dt className="text-sm text-gray-600">{col}</dt>
                       <dd className="text-sm font-semibold text-heading">{row[i + 1]}</dd>
@@ -207,7 +207,7 @@ const EpigeneticsPanels = ({
       {/* Beispieldaten-Hinweis und ZIP wie bisher — die Bilder zeigen echte
           Befundlayouts mit frei erfundenen Werten, das muss dabeistehen. */}
       <Reveal width="100%">
-        <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-paper-line bg-paper p-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-sm leading-relaxed text-gray-600">{t('samples.note')}</p>
           {/* AP19 PT19.4: Gate statt Dateilink — siehe Unterlagen-Seite. */}
           <ResourceGateTrigger

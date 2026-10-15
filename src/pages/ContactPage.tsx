@@ -102,7 +102,7 @@ const ContactPage = () => {
       <TrustBar />
 
       {/* Form + aside */}
-      <section className="bg-slate-50">
+      <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)] lg:items-start lg:gap-8">
             {/* Aside */}
@@ -134,7 +134,7 @@ const ContactPage = () => {
                     <a
                       key={key}
                       href={href}
-                      className="group flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                      className="group flex items-start gap-4 rounded-xl border border-paper-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                       {...(external ? {} : { 'aria-label': t(`contact.channels.${key}.label`) })}
                     >
                       <span
@@ -165,7 +165,7 @@ const ContactPage = () => {
               <section
                 id="kontaktformular"
                 aria-label={t('contact.form_aside.title')}
-                className="scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white"
+                className="scroll-mt-28 overflow-hidden rounded-2xl border border-paper-line bg-white"
               >
                 <div className="h-1.5 w-full bg-accent" aria-hidden />
                 <div className="p-6 sm:p-8 lg:p-10">
@@ -193,13 +193,13 @@ const ContactPage = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {['one', 'two', 'three'].map((step, i) => (
               <Reveal key={step} width="100%" delay={i * REVEAL_STAGGER}>
-                <div className="relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
+                <div className="relative flex h-full flex-col rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
                   {/* AP24 PT24.4: 18px/600 zaehlt NICHT als grosser Text
                       (dafuer braucht es 18,66px UND fett oder 24px). Auf der
                       Akzent-Tintflaeche lag `text-accent` bei 3,32:1.
                       `accent-strong` bringt dort 4,85:1. */}
                   <span
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-lg font-semibold text-accent-strong"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-soft text-lg font-semibold text-accent-strong"
                     aria-hidden
                   >
                     {i + 1}
@@ -216,7 +216,7 @@ const ContactPage = () => {
       </section>
 
       {/* Locations */}
-      <section className="bg-slate-50">
+      <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="mb-12 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
@@ -230,7 +230,7 @@ const ContactPage = () => {
           <div className="grid gap-8 md:grid-cols-2">
             {offices.map((office) => (
               <Reveal key={office.key} width="100%">
-                <div className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1">
+                <div className="flex h-full flex-col rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
                   <div className="flex items-center gap-4">
                     <span
                       className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
@@ -251,7 +251,7 @@ const ContactPage = () => {
                       </span>
                     ))}
                   </address>
-                  <div className="mt-6 flex flex-col gap-2 border-t border-slate-100 pt-5 text-sm">
+                  <div className="mt-6 flex flex-col gap-2 border-t border-paper-line pt-5 text-sm">
                     <a
                       href={`tel:${office.phone.replace(/\s/g, '')}`}
                       className="inline-flex items-center gap-2 font-medium text-accent-strong hover:underline"

@@ -154,7 +154,7 @@ const VitaminD3SprayPage = () => {
       {/* Trust-Signal-Leiste direkt unter dem Hero */}
       <section
         aria-label={t('vitd3spray:trustbar.aria')}
-        className="border-b border-slate-200 bg-slate-50"
+        className="border-b border-paper-line bg-paper"
       >
         <div className="mx-auto max-w-container px-4 py-7 lg:px-0">
           <ul className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
@@ -168,7 +168,7 @@ const VitaminD3SprayPage = () => {
         </div>
       </section>
 
-      <div className="bg-slate-50">
+      <div className="bg-paper">
         {/* Main Content */}
         <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
           <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
@@ -188,7 +188,7 @@ const VitaminD3SprayPage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white p-7">
+                  <div className="rounded-2xl border border-paper-line bg-white p-7">
                     {/* AP25 PT25.3: 212 × 320 px auf allen Viewports, kein LCP-Element (bei 390 px unter dem
                         Falz) — lazy, responsive. `h-80` statt `max-h-80`: mit `w-auto` und `height: auto` gab es
                         keine feste Dimension, das Bild war bis zum Laden 0 × 0 px und verschob die Nachbarkarte
@@ -204,7 +204,7 @@ const VitaminD3SprayPage = () => {
                 </section>
 
                 {/* USP: Tiny Technology */}
-                <section className="mb-12 rounded-xl border border-slate-200 bg-white p-7 sm:p-7">
+                <section className="mb-12 rounded-xl border border-paper-line bg-white p-7 sm:p-7">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       <Sparkles className="h-5 w-5" />
@@ -216,7 +216,7 @@ const VitaminD3SprayPage = () => {
                   <p className="mb-4 text-[15px] leading-relaxed text-gray-700">
                     {t('vitd3spray:usp.text')}
                   </p>
-                  <div className="border-t border-slate-100 pt-4">
+                  <div className="border-t border-paper-line pt-4">
                     <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                       {t('vitd3spray:usp.dosing_label')}
                     </p>
@@ -228,7 +228,7 @@ const VitaminD3SprayPage = () => {
                 {/* Kennzahlen-Streifen */}
                 {statStrip.length > 0 && (
                   <section className="mb-12">
-                    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-paper-line bg-paper-line sm:grid-cols-4">
                       {statStrip.map((s) => (
                         <div key={s.label} className="bg-white p-5 text-center">
                           <div className="text-2xl font-medium text-heading sm:text-3xl">
@@ -246,7 +246,7 @@ const VitaminD3SprayPage = () => {
                   <h2 className="mb-6 text-xl font-medium tracking-tight text-heading sm:text-2xl">
                     {t('vitd3spray:product.title')}
                   </h2>
-                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                  <div className="overflow-hidden rounded-xl border border-paper-line bg-white">
                     {[
                       {
                         label: t('vitd3spray:product.composition_label'),
@@ -309,7 +309,7 @@ const VitaminD3SprayPage = () => {
                       return (
                         <div
                           key={i}
-                          className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1"
+                          className="rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1"
                         >
                           <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                             <Icon className="h-5 w-5" aria-hidden />
@@ -331,7 +331,7 @@ const VitaminD3SprayPage = () => {
                   <h2 className="mb-6 text-xl font-medium tracking-tight text-heading sm:text-2xl">
                     {t('vitd3spray:pricing.title')}
                   </h2>
-                  <div className="overflow-x-auto rounded-xl border border-slate-200">
+                  <div className="overflow-x-auto rounded-xl border border-paper-line">
                     {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
                         Accessibility-Tree (bisher stand sie namenlos im
                         Dokument), `scope` bindet jede Datenzelle an ihre
@@ -369,7 +369,7 @@ const VitaminD3SprayPage = () => {
 
                 {/* PDF Download CTA */}
                 <section className="mb-12">
-                  <div className="flex flex-col items-center gap-4 rounded-xl border border-slate-200 bg-white p-7 sm:flex-row sm:gap-6">
+                  <div className="flex flex-col items-center gap-4 rounded-xl border border-paper-line bg-white p-7 sm:flex-row sm:gap-6">
                     <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                       <FileText className="h-7 w-7" />
                     </div>
@@ -468,7 +468,7 @@ const VitaminD3SprayPage = () => {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-6">
                 {/* Phone Contact */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="rounded-xl border border-paper-line bg-white p-5">
                   <div className="mb-3 flex items-center gap-3">
                     <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       <Phone className="h-5 w-5" />
@@ -482,7 +482,7 @@ const VitaminD3SprayPage = () => {
                   </div>
                   <a
                     href="tel:+4915159878599"
-                    className="flex items-center justify-center gap-2 rounded-md bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
+                    className="flex items-center justify-center gap-2 rounded-md bg-accent-soft px-4 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent/20"
                   >
                     <Phone className="h-4 w-4" />
                     {t('vitd3spray:contact.phone')}
@@ -510,7 +510,7 @@ const VitaminD3SprayPage = () => {
                 </div>
 
                 {/* PDF Download */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="rounded-xl border border-paper-line bg-white p-5">
                   <p className="mb-2 text-sm font-semibold text-heading">
                     {t('vitd3spray:sidebar.download_caption')}
                   </p>
@@ -530,7 +530,7 @@ const VitaminD3SprayPage = () => {
                 </div>
 
                 {/* Related */}
-                <div className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="rounded-xl border border-paper-line bg-white p-5">
                   <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-heading">
                     <BookOpen className="h-4 w-4 text-accent" />
                     {t('vitd3spray:related.title')}

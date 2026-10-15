@@ -59,7 +59,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
 
   if (loading) {
     return (
-      <div className="flex h-screen items-center justify-center bg-slate-50">
+      <div className="flex h-screen items-center justify-center bg-paper">
         <LoadingSpinner size="lg" />
       </div>
     )
@@ -84,7 +84,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
           )}
           notFound
         />
-        <div className="flex h-screen flex-col items-center justify-center gap-4 bg-slate-50 p-4">
+        <div className="flex h-screen flex-col items-center justify-center gap-4 bg-paper p-4">
           {error ? (
             <div className="w-full max-w-md">
               <Alert variant="destructive" title={t('common:errors.root.title')}>
@@ -182,7 +182,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
                       <th
                         key={i}
                         scope="col"
-                        className="border-b border-slate-200 py-3 font-semibold text-heading"
+                        className="border-b border-paper-line py-3 font-semibold text-heading"
                       >
                         {header}
                       </th>
@@ -228,7 +228,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
             )}
             <div className="grid gap-6 sm:grid-cols-3">
               {(section as KeyPointsSection).points.map((point, pIndex) => (
-                <div key={pIndex} className="rounded-xl border border-slate-200 bg-white p-7">
+                <div key={pIndex} className="rounded-xl border border-paper-line bg-white p-7">
                   <h3 className="mb-2 font-medium text-heading">{point.title}</h3>
                   <p className="t-small">{point.description}</p>
                 </div>
@@ -393,7 +393,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               </div>
 
               {article.sources?.length ? (
-                <section className="mt-14 border-t border-slate-200 pt-10">
+                <section className="mt-14 border-t border-paper-line pt-10">
                   <h2 className="text-2xl font-medium tracking-tight text-heading">
                     {t('articles:detail.sources')}
                   </h2>
@@ -419,7 +419,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               ) : null}
 
               {relatedArticles.length > 0 && (
-                <section className="mt-14 border-t border-slate-200 pt-10">
+                <section className="mt-14 border-t border-paper-line pt-10">
                   <h2 className="text-2xl font-medium tracking-tight text-heading">
                     {t('articles:ui.articles')}
                   </h2>
@@ -428,7 +428,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
                       <Link
                         key={related.id}
                         to={`/articles/${related.slug}`}
-                        className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        className="group rounded-xl border border-paper-line bg-paper p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                       >
                         <span className="font-medium text-heading group-hover:text-accent-strong">
                           {t(`articles:${related.id}.title`)}
@@ -446,7 +446,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               )}
 
               {relatedServices.length > 0 && (
-                <section className="mt-14 border-t border-slate-200 pt-10">
+                <section className="mt-14 border-t border-paper-line pt-10">
                   <h2 className="text-2xl font-medium tracking-tight text-heading">
                     {t('articles:detail.related_services', 'Passende Diagnostik')}
                   </h2>
@@ -455,7 +455,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
                       <Link
                         key={service.id}
                         to={route.path}
-                        className="group rounded-xl border border-slate-200 bg-slate-50 p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        className="group rounded-xl border border-paper-line bg-paper p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                       >
                         <span className="font-medium text-heading group-hover:text-accent-strong">
                           {t(`home:services.${service.translationKey}.title`, service.title)}

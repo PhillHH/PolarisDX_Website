@@ -75,6 +75,13 @@ einführen will, verletzt `DEC-RL-003`. Das ist kein Design-, sondern ein Scope-
 | `brand.blue`             | `#0d527f` | Sekundäres Markenblau: Footer-Fläche, Prosa-Links.                                 |
 | `brand.secondary`        | `#2f6fa0` | Helles Blau: Gradient-Start, Link-Hover.                                           |
 
+**Relaunch SC-001 (2026-10-15) — warme Neutralfläche:** `paper` `#f5f3ee` ist die Seitenfläche,
+`paper.deep` `#ecebe4` die abgesetzte Füllung, `paper.line` `#e3e0d7` die Dekor-Trennlinie. Sie
+ersetzen `slate-50/100/200` außerhalb der Musterbefund-Seiten. Dekor, nie Bedienelement-Begrenzung
+(dafür bleibt `ui.field`). Gemessen auf `paper`: `heading` 12,2:1 · `gray-700` 9,1:1 ·
+`accent.strong` 4,95:1 · `ui.field` 4,59:1 — alle AA. Schaltflächen sind Pillen (`rounded-full`),
+Karten `rounded-card` (22 px), große Bänder `rounded-band` (34 px). Die Kopfzeile ist hell.
+
 ### 3.2 Akzent — genau einer
 
 | Token            | Hex       | Rolle                                        | Kontrast                                                  |
@@ -123,7 +130,7 @@ Die entscheidende Trennung im System — **Dekor ≠ Bedienelement**:
 | `ui.border`           | `#e2e8f0`     | 1,23:1            | Dekor/Trennlinien — **0 Call-Sites**                      |
 | `ui.border-hover`     | `#cbd5e1`     | 1,48:1            | Dekor (0 Call-Sites)                                      |
 | `ui.text-muted`       | `#94a3b8`     | 2,56:1            | Dekor — **0 Call-Sites**, nie für Text                    |
-| **`ui.field`**        | **`#6b7280`** | **4,83:1**        | **Rahmen, Placeholder und Hilfstext von Bedienelementen** |
+| **`ui.field`**        | **`#5e6a78`** | **5,51:1**        | **Rahmen, Placeholder und Hilfstext von Bedienelementen** |
 | `gray-500`            | `#868C98`     | 3,38:1            | `rich-content`-Body (Legacy)                              |
 | `gray-700` (Tailwind) | `#374151`     | 10,31:1           | Standard-Fließtext                                        |
 

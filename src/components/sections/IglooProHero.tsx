@@ -19,7 +19,7 @@ export default function IglooProHero() {
     <section
       aria-labelledby="igloo-hero-title"
       data-igloo-hero
-      className="relative overflow-hidden bg-slate-50"
+      className="relative overflow-hidden bg-paper"
     >
       <div
         aria-hidden="true"

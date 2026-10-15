@@ -80,7 +80,7 @@ const EpigeneticsBasicsPage = () => {
         <div className="grid gap-5 lg:grid-cols-3">
           {principleCards.map((card, index) => (
             <Reveal key={card.title} width="100%" delay={0.05 * index} className={STRETCH}>
-              <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
+              <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
                 <h2 className="text-xl font-semibold tracking-tight text-heading">{card.title}</h2>
                 <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
               </div>
@@ -110,7 +110,7 @@ const EpigeneticsBasicsPage = () => {
       ================================================================ */}
       <section
         id="werte-verstehen"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
       >
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
           <Reveal width="100%">
@@ -121,7 +121,7 @@ const EpigeneticsBasicsPage = () => {
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {concepts.map((item, index) => (
               <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                <div className="h-full rounded-3xl border border-paper-line bg-paper p-7">
                   <div className="flex items-start gap-4">
                     <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
                       {item.num}
@@ -131,7 +131,7 @@ const EpigeneticsBasicsPage = () => {
                     </h3>
                   </div>
                   <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
-                  <p className="mt-4 border-t border-slate-200 pt-4 text-base font-medium text-accent-strong">
+                  <p className="mt-4 border-t border-paper-line pt-4 text-base font-medium text-accent-strong">
                     {item.key}
                   </p>
                 </div>
@@ -143,7 +143,7 @@ const EpigeneticsBasicsPage = () => {
               Ergebnisformen zum ersten Mal auftauchen, und hier, wo sie
               hergeleitet werden. Dieselbe Quelle, kein zweiter Wortlaut. */}
           <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div className="mt-6 rounded-3xl border border-paper-line bg-paper p-7">
               <p className={LABEL}>{t('basics.scaleTitle')}</p>
               <dl className="mt-4 grid gap-5 lg:grid-cols-3">
                 {scales.map((scale, scaleIndex) => (

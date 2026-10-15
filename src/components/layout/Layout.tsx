@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+    <div className="flex min-h-screen flex-col bg-paper text-heading">
       {/* Erstes fokussierbares Element im Dokument — sonst greift der Sprung
           ins Leere (WCAG 2.4.1). */}
       <SkipLink />

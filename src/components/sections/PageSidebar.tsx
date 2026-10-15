@@ -106,7 +106,7 @@ export function PageSidebar({ widgets }: { widgets: SidebarWidget[] }) {
                       to={`/articles/${post.slug}`}
                       className={
                         variant === 'card'
-                          ? 'block rounded-lg p-3 transition hover:bg-slate-50'
+                          ? 'block rounded-lg p-3 transition hover:bg-paper'
                           : 'block group'
                       }
                     >

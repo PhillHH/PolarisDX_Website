@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
-// Rahmen, Placeholder und Hilfstext laufen ueber `ui.field` (#6b7280, 4,83:1 auf
+// Rahmen, Placeholder und Hilfstext laufen ueber `ui.field` (#5e6a78, 5,51:1 auf
 // Weiss) — nicht ueber `ui.border`/`ui.text-muted` (1,23:1 / 2,56:1). WCAG 1.4.11
 // verlangt 3:1 fuer die Begrenzung eines Bedienelements, Platzhalter- und
 // Hilfstext als Text 4,5:1. Input.tsx nutzt dieselbe Rollenzuordnung.

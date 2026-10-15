@@ -54,7 +54,7 @@ const HomePage = () => {
       <BusinessPillarsSection />
       <WhyPocSection />
       <StepsSection />
-      <div className="mt-24 lg:mt-32">
+      <div className="pt-20 lg:pt-24">
         <Reveal width="100%">
           <TestimonialsSection />
         </Reveal>
@@ -65,7 +65,7 @@ const HomePage = () => {
           <BlogSection />
         </Reveal>
       </div>
-      <div className="mx-auto flex max-w-container flex-col px-4 py-24 lg:px-0 lg:py-32">
+      <div className="mx-auto flex max-w-container flex-col px-4 pb-24 pt-4 lg:px-0 lg:pb-32">
         <Reveal width="100%">
           <FAQSection />
         </Reveal>

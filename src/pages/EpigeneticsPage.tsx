@@ -217,7 +217,7 @@ const EpigeneticsPage = () => {
       />
 
       <div
-        className="bg-slate-50 text-heading"
+        className="bg-paper text-heading"
         data-epigenetics-hub="true"
         data-route-id="epigenetics"
       >
@@ -356,7 +356,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="vergleich"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-slate-200 bg-slate-50"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-paper-line bg-paper"
         >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
             <Reveal width="100%">
@@ -411,7 +411,7 @@ const EpigeneticsPage = () => {
                 // keyboard focus; the generic lint rule cannot infer that.
                 // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 tabIndex={0}
-                className="mt-10 overflow-x-auto rounded-3xl border border-slate-200 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                className="mt-10 overflow-x-auto rounded-3xl border border-paper-line bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
               >
                 <table className="w-full min-w-[54rem] border-collapse text-left">
                   {/* AP24 PT24.1: Die Tabelle stand namenlos im Dokument. Der
@@ -430,7 +430,7 @@ const EpigeneticsPage = () => {
                   </thead>
                   <tbody>
                     {visibleRows.map((row, rowIndex) => (
-                      <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-slate-50' : 'bg-white'}>
+                      <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-paper' : 'bg-white'}>
                         {row.map((cell, cellIndex) => (
                           <td
                             key={`${row[0]}-${cellIndex}`}
@@ -460,7 +460,7 @@ const EpigeneticsPage = () => {
                 nicht erst rund 4.900px weiter unten unter "Werte verstehen".
                 Eine Legende, die man erst suchen muss, ist keine Legende. */}
             <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+              <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
                 <p className={LABEL}>{t('basics.scaleTitle')}</p>
                 <dl className="mt-4 grid gap-5 lg:grid-cols-3">
                   {scales.map((scale, scaleIndex) => (
@@ -479,7 +479,7 @@ const EpigeneticsPage = () => {
             <div className="mt-6 grid gap-5 lg:grid-cols-3">
               {compareShared.map((item, index) => (
                 <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-6">
+                  <div className="h-full rounded-3xl border border-paper-line bg-white p-6">
                     <p className="text-lg font-semibold text-heading">{item.title}</p>
                     <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
                   </div>
@@ -511,7 +511,7 @@ const EpigeneticsPage = () => {
                 PDF stand hier als eigener Knopf — sie liegt jetzt im
                 Unterlagen-Abschnitt bei allen anderen Blaettern. */}
             <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+              <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
                 <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
               </div>
             </Reveal>
@@ -542,7 +542,7 @@ const EpigeneticsPage = () => {
                 delay={index * REVEAL_STAGGER}
                 className={STRETCH}
               >
-                <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
+                <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
                   <h3 className="text-xl font-semibold tracking-tight text-heading">
                     {card.title}
                   </h3>
@@ -577,7 +577,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="werte-verstehen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
@@ -588,7 +588,7 @@ const EpigeneticsPage = () => {
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {concepts.map((item, index) => (
                 <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                  <div className="h-full rounded-3xl border border-paper-line bg-paper p-7">
                     <div className="flex items-start gap-4">
                       <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
                         {item.num}
@@ -598,7 +598,7 @@ const EpigeneticsPage = () => {
                       </h3>
                     </div>
                     <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
-                    <p className="mt-4 border-t border-slate-200 pt-4 text-base font-medium text-accent-strong">
+                    <p className="mt-4 border-t border-paper-line pt-4 text-base font-medium text-accent-strong">
                       {item.key}
                     </p>
                   </div>
@@ -627,7 +627,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="analysen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
           <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
           <EpigeneticsPanels activePanel={context.panel} focus={panelGroup} />
@@ -661,7 +661,7 @@ const EpigeneticsPage = () => {
             {steps.map((step, index) => (
               <li key={index} className="h-full">
                 <Reveal width="100%" delay={(index % 3) * REVEAL_STAGGER} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-7">
+                  <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
                       {index + 1}
                     </span>
@@ -688,7 +688,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="studienlage"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
@@ -719,7 +719,7 @@ const EpigeneticsPage = () => {
               </Reveal>
 
               <Reveal width="100%" delay={REVEAL_STAGGER} className={STRETCH}>
-                <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-7 lg:p-7">
+                <div className="h-full rounded-3xl border border-paper-line bg-paper p-7 lg:p-7">
                   <h3 className="flex items-center gap-2 text-xs font-medium text-gray-600">
                     <Minus className="h-4 w-4" />
                     {t('evidence.preliminaryTitle')}
@@ -759,10 +759,10 @@ const EpigeneticsPage = () => {
               <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('faq.lead')}</p>
             </div>
           </Reveal>
-          <div className="mx-auto mt-10 max-w-[68ch] divide-y divide-slate-200 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+          <div className="mx-auto mt-10 max-w-[68ch] divide-y divide-paper-line overflow-hidden rounded-3xl border border-paper-line bg-white">
             {faq.map((item) => (
               <details key={item.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-heading transition-colors hover:bg-slate-50 lg:px-8">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-heading transition-colors hover:bg-paper lg:px-8">
                   <span>{item.q}</span>
                   <ChevronDown className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180" />
                 </summary>
@@ -777,7 +777,7 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="downloads"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
@@ -819,7 +819,7 @@ const EpigeneticsPage = () => {
                     className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-6 transition-all hover:-translate-y-0.5 ${
                       sheet.featured
                         ? 'border-accent-border ring-1 ring-accent-border'
-                        : 'border-slate-200'
+                        : 'border-paper-line'
                     }`}
                   >
                     <div>
@@ -828,7 +828,7 @@ const EpigeneticsPage = () => {
                           className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${
                             sheet.featured
                               ? 'bg-accent-soft text-accent-strong'
-                              : 'bg-slate-100 text-brand-primary'
+                              : 'bg-paper-deep text-brand-primary'
                           }`}
                         >
                           {sheet.num}
@@ -841,7 +841,7 @@ const EpigeneticsPage = () => {
                       <p className="mt-2 text-base leading-7 text-gray-600">{sheet.desc}</p>
                     </div>
 
-                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-paper-line pt-4">
                       <span className="text-sm text-gray-600">
                         {sheet.meta} ·{' '}
                         <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
@@ -868,7 +868,7 @@ const EpigeneticsPage = () => {
                 aufgefuehrt sind. Ohne diese Zeile waeren sie nach dem
                 Zusammenfuehren nicht mehr erreichbar. */}
             <Reveal width="100%">
-              <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-paper-line bg-paper p-6">
                 <a
                   href={`${ASSET_BASE}${t('compare.file')}`}
                   download
@@ -893,7 +893,7 @@ const EpigeneticsPage = () => {
             </Reveal>
 
             <Reveal width="100%">
-              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-paper-line bg-paper p-7 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-[62ch]">
                   <p className="text-lg font-semibold text-heading">
                     {t('downloads.samplesTitle')}
@@ -912,7 +912,7 @@ const EpigeneticsPage = () => {
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-white">
+        <section className="border-y border-paper-line bg-white">
           <div className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
             <h2 className={LABEL}>{t('common:read_more', 'Weiterlesen')}</h2>
             <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -920,7 +920,7 @@ const EpigeneticsPage = () => {
                 <Link
                   key={vertiefung.key}
                   to={vertiefung.to}
-                  className="group flex flex-col rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:bg-white hover:shadow-card"
+                  className="group flex flex-col rounded-3xl border border-paper-line bg-paper p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:bg-white hover:shadow-card"
                 >
                   <span className={LABEL}>{t(vertiefung.captionKey)}</span>
                   <span className="mt-2 inline-flex items-start gap-1.5 text-lg font-semibold tracking-tight text-heading">
@@ -971,7 +971,7 @@ const EpigeneticsPage = () => {
               </a>
             </div>
 
-            <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-paper-line bg-white p-6 shadow-card sm:p-8">
               <EpigeneticsInquiryForm />
             </div>
 

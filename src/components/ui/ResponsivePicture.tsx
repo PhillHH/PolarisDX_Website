@@ -18,25 +18,33 @@ export function ResponsivePicture({
   sizes,
   className,
   priority = false,
+  lean = false,
 }: {
   image: ArticleImageAsset
   alt: string
   sizes: string
   className?: string
   priority?: boolean
+  /**
+   * Relaunch SC-001: nur die AVIF-`<source>`, der `<img src>` (groesste WebP) bleibt der
+   * Rueckfall. Spart je Bild eine `srcset`-Zeile mit gehashten URLs — die Startseite liegt am
+   * `htmlBytes`-Budget (PT25.5). Fuer Bilder, bei denen der WebP-Rueckfall ohne Breitenwahl
+   * reicht (kleine Kacheln, Kartenfotos).
+   */
+  lean?: boolean
 }) {
   const srcSet = (format: 'avif' | 'webp') =>
     image.variants.map((variant) => `${variant[format]} ${variant.width}w`).join(', ')
   return (
     <picture className="contents">
       <source type="image/avif" srcSet={srcSet('avif')} sizes={sizes} />
-      <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />
+      {!lean && <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />}
       <img
         src={image.src}
         alt={alt}
         width={image.width}
         height={image.height}
-        sizes={sizes}
+        sizes={lean ? undefined : sizes}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : undefined}
         decoding="async"

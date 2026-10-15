@@ -39,7 +39,7 @@ function RootFallback({ reset }: { reset: () => void }) {
   const { t } = useTranslation('common')
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-50 px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-paper px-4">
       <ErrorState
         title={t('errors.root.title')}
         description={t('errors.root.body')}

@@ -40,7 +40,7 @@ function TextSection({ section, index }: { section: ServiceDetailTextSection; in
   return (
     <section
       aria-labelledby={section.heading ? `${section.id}-title` : undefined}
-      className="rounded-xl border border-slate-200 bg-white p-7"
+      className="rounded-xl border border-paper-line bg-white p-7"
     >
       {section.heading && (
         <div className="flex items-start gap-4">
@@ -87,7 +87,7 @@ function WorkflowSection({ workflow }: { workflow: ServiceDetailWorkflow }) {
   return (
     <section
       aria-labelledby="service-workflow-title"
-      className="rounded-xl border border-slate-200 bg-white p-7"
+      className="rounded-xl border border-paper-line bg-white p-7"
     >
       <h2
         id="service-workflow-title"
@@ -169,7 +169,7 @@ export function ServiceDetailSections({ model }: { model: ServiceDetailViewModel
 
           {stats.length > 0 && (
             <ul
-              className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-4"
+              className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-paper-line bg-paper-line sm:grid-cols-4"
               aria-label={labels.introEyebrow}
             >
               {stats.map((stat) => (
@@ -203,7 +203,7 @@ export function ServiceDetailSections({ model }: { model: ServiceDetailViewModel
             <Link
               key={link.id}
               to={link.to}
-              className="rounded-xl border border-slate-200 bg-white p-5 font-semibold text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="rounded-xl border border-paper-line bg-white p-5 font-semibold text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
               {link.label}
               {link.description && (

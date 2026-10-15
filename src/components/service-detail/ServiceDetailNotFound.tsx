@@ -29,7 +29,7 @@ export function ServiceDetailNotFound() {
           </Link>
           <Link
             to={serviceDetailContextRoutes.home.path}
-            className="rounded-md border border-slate-200 bg-white px-5 py-3 font-medium text-heading transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="rounded-md border border-paper-line bg-white px-5 py-3 font-medium text-heading transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             {t('common:notFound.backHome')}
           </Link>

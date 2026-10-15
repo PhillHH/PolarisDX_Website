@@ -13,7 +13,7 @@ const DiagnosticsRelatedArticlesSection = () => {
     <section
       aria-labelledby="diagnostics-related-title"
       data-diagnostics-related-articles
-      className="border-t border-slate-200 bg-slate-50"
+      className="border-t border-paper-line bg-paper"
     >
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0 lg:py-28">
         <div className="max-w-3xl">
@@ -34,7 +34,7 @@ const DiagnosticsRelatedArticlesSection = () => {
               <article
                 key={article.id}
                 data-diagnostics-related-article={article.id}
-                className="flex min-h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
+                className="flex min-h-full flex-col overflow-hidden rounded-2xl border border-paper-line bg-white"
               >
                 {imageAsset && (
                   /* AP25 PT25.3: dieselben Artikelbilder wie in der Artikelliste — responsive,

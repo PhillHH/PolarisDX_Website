@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolarisDX Relaunch — Entwurf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f3ee; --paper-2:#ecebe4; --white:#fff;
+  --ink:#083358; --navy-2:#0a3f63; --blue:#0d527f;
+  --muted:#5a6672; --line:#dcd9d0;
+  --teal:#0d9488; --teal-strong:#0f766e; --teal-soft:#e6f4f1; --teal-on-dark:#2dd4bf;
+  --r-lg:22px; --r-md:14px;
+  --shadow:0 18px 50px rgba(8,51,88,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.5}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,calc(100% - 64px));margin:0 auto}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-strong)}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.02}
+h2{font-size:44px}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.2}
+p.lead{font-size:19px;color:var(--muted);line-height:1.55}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 26px;font-weight:600;font-size:16px;border:1.5px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:0 10px 24px rgba(8,51,88,.22)}
+.btn-primary .arr{width:30px;height:30px;border-radius:50%;background:var(--teal);display:grid;place-items:center;margin-right:-10px}
+.btn-ghost{color:var(--ink);border-color:var(--ink)}
+.btn-ghost.on-dark{color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 10px 24px rgba(13,148,136,.3)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:#fff;border:1px solid var(--line);padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* top bar + nav */
+.topbar{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:8px;letter-spacing:.02em}
+.topbar b{color:var(--teal-on-dark)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:38px;height:38px}
+.logo .w{font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.logo .w span{color:var(--teal-strong)}
+.logo small{display:block;font-size:10px;letter-spacing:.22em;font-weight:700;color:var(--muted);margin-top:3px}
+.navlinks{display:flex;gap:30px;font-weight:600;font-size:15.5px}
+.navlinks .sec{font-size:10.5px;letter-spacing:.22em;line-height:1.5;font-weight:700;color:var(--ink);margin-right:10px}
+.navright{display:flex;align-items:center;gap:14px}
+.lang{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.lang span{padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
+.lang span.on{background:var(--ink);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:36px 0 56px}
+.hero h1{font-size:82px;letter-spacing:-.045em;line-height:.98;margin:18px 0 26px}
+.hero h1 em{font-style:normal;color:var(--teal-strong)}
+.hero p.lead{max-width:520px}
+.hero .ctas{display:flex;align-items:center;gap:22px;margin-top:34px}
+.hero .micro{display:flex;gap:26px;margin-top:30px;font-size:14px;font-weight:600;color:var(--ink)}
+.hero .micro span{display:flex;align-items:center;gap:8px}
+.hero .micro svg{color:var(--teal-strong)}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:200px 220px;gap:12px}
+.tile{position:relative;border-radius:18px;overflow:hidden;background:#dfe6ec;box-shadow:0 10px 30px rgba(8,51,88,.12)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile .lab{position:absolute;left:12px;bottom:12px;font-size:11px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.tile.t1{transform:translateY(22px)} .tile.t3{transform:translateY(22px)}
+.tile.t4{transform:translateY(22px)} .tile.t6{transform:translateY(22px)}
+.tile.product{background:#fff;display:grid;place-items:center;padding:14px}
+.tile.product img{width:88%;height:auto;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(8,51,88,.18))}
+.tile.product .lab{color:var(--ink);text-shadow:none}
+.tile .badge{position:absolute;top:12px;left:12px;background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px}
+
+/* stat strip */
+.stats{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);display:grid;grid-template-columns:repeat(4,1fr);margin-top:8px;box-shadow:var(--shadow)}
+.stats div{padding:26px 30px;border-right:1px solid var(--line)}
+.stats div:last-child{border:0}
+.stats b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em}
+.stats span{font-size:14px;color:var(--muted)}
+
+/* segment chips */
+.segs{display:flex;align-items:center;gap:12px;padding:44px 0 10px;flex-wrap:wrap}
+.segs .q{font-size:14px;font-weight:600;color:var(--muted);margin-right:6px}
+.segs .pill{padding:11px 18px;font-size:15px}
+.segs .pill .dot.d{background:#1b67b1}.segs .pill .dot.b{background:#9b4f5a}.segs .pill .dot.l{background:#3f6b3a}.segs .pill .dot.e{background:#b4601a}
+.segs-note{font-size:13px;color:var(--muted);padding:0 0 10px 2px}
+
+/* sections */
+section{padding:88px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px}
+.sec-head h2{margin-top:14px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.card .img{height:240px;position:relative}
+.card .img img{width:100%;height:100%;object-fit:cover}
+.card .img .tag{position:absolute;left:16px;top:16px}
+.card .body{padding:26px 26px 28px}
+.card .body p{color:var(--muted);font-size:15.5px;margin:10px 0 18px}
+.card .link{font-weight:700;color:var(--teal-strong);display:flex;align-items:center;gap:8px;font-size:15px}
+.card .meta{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* product band */
+.band{background:var(--ink);color:#fff;border-radius:34px;padding:70px 70px 70px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;overflow:hidden}
+.band:before{content:"";position:absolute;right:-120px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.35),transparent 65%)}
+.band .eyebrow{color:var(--teal-on-dark)}
+.band h2{color:#fff;margin:14px 0 18px;font-size:48px}
+.band p.lead{color:rgba(255,255,255,.78)}
+.band ul{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}
+.band li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.band li svg{color:var(--teal-on-dark);flex:none;margin-top:3px}
+.band .vis{position:relative;display:grid;place-items:center}
+.band .vis .disc{width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 40% 30%,#f7f6f2,#dfe3e8 70%);display:grid;place-items:center;box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.band .vis .disc img{width:78%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+.band .vis .chip{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;font-size:13px;font-weight:600;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.band .vis .chip b{display:block;font-size:20px;letter-spacing:-.02em}
+.band .vis .c1{left:-10px;top:40px}.band .vis .c2{right:-6px;top:120px}.band .vis .c3{left:20px;bottom:30px}
+.band .ctas{display:flex;gap:16px;margin-top:34px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;gap:14px}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--teal-soft);color:var(--teal-strong);font-weight:800;display:grid;place-items:center;font-size:15px}
+.step .ph{height:150px;border-radius:14px;overflow:hidden}
+.step .ph img{width:100%;height:100%;object-fit:cover}
+.step p{color:var(--muted);font-size:14.5px}
+.note{margin-top:26px;border-left:3px solid var(--teal);padding:12px 18px;color:var(--muted);font-size:14px;background:#fff;border-radius:0 12px 12px 0}
+
+/* testimonial */
+.quote{display:grid;grid-template-columns:420px 1fr;gap:50px;align-items:center;background:#fff;border-radius:34px;border:1px solid var(--line);overflow:hidden}
+.quote .ph{height:460px}
+.quote .ph img{width:100%;height:100%;object-fit:cover}
+.quote .txt{padding:50px 60px 50px 10px}
+.quote blockquote{font-size:28px;line-height:1.3;letter-spacing:-.02em;font-weight:600;margin:16px 0 26px}
+.quote .who b{display:block;font-size:16px}
+.quote .who span{font-size:14px;color:var(--muted)}
+.quote .rating{display:flex;align-items:center;gap:12px;margin-top:26px;font-size:14px;color:var(--muted)}
+.quote .stars{color:#e8a824;letter-spacing:2px;font-size:18px}
+
+/* roi */
+.roi{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.roi .calc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow)}
+.roi .row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.roi .row span{color:var(--muted)}
+.roi .row .sl{width:180px;height:6px;border-radius:99px;background:var(--paper-2);position:relative}
+.roi .row .sl:after{content:"";position:absolute;left:0;top:0;height:100%;width:var(--v);background:var(--teal);border-radius:99px}
+.roi .row .sl:before{content:"";position:absolute;left:calc(var(--v) - 9px);top:-6px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--teal);z-index:1}
+.roi .out{margin-top:22px;background:var(--ink);color:#fff;border-radius:16px;padding:24px 26px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.roi .out b{font-size:38px;letter-spacing:-.03em;display:block;line-height:1}
+.roi .out small{color:rgba(255,255,255,.7);font-size:13px}
+.roi .out .r{text-align:right}.roi .out .r b{font-size:22px;color:var(--teal-on-dark)}
+
+/* final cta */
+.final{background:var(--ink);color:#fff;border-radius:34px;padding:80px;text-align:center;position:relative;overflow:hidden}
+.final:before{content:"";position:absolute;inset:auto -200px -300px auto;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.3),transparent 65%)}
+.final h2{color:#fff;font-size:52px;max-width:760px;margin:14px auto 18px}
+.final p{color:rgba(255,255,255,.78);font-size:18px;max-width:620px;margin:0 auto}
+.final .ctas{display:flex;gap:16px;justify-content:center;margin-top:34px}
+.final .chips{display:flex;gap:10px;justify-content:center;margin-top:28px}
+.final .chips span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 14px;font-size:13px;color:rgba(255,255,255,.85)}
+.final .eyebrow{color:var(--teal-on-dark)}
+
+footer{padding:60px 0 30px;color:var(--muted);font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;border-top:1px solid var(--line);padding-top:40px}
+footer h4{color:var(--ink);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+footer li{list-style:none;margin:8px 0}
+footer .bottom{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-size:13px}
+
+.tile:after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(to top,rgba(8,51,88,.75),transparent)}
+.tile.product:after{display:none}
+.tile .lab{z-index:2}
+.navlinks a{white-space:nowrap}
+.menu-btn{display:none}
+@media (max-width:900px){
+  .wrap{width:calc(100% - 32px)}
+  nav{padding:14px 0}
+  .navlinks,.lang,.navright .btn{display:none}
+  .menu-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-weight:600;font-size:14px}
+  .hero{grid-template-columns:1fr;gap:28px;padding:16px 0 32px}
+  .hero h1{font-size:50px}
+  .hero p.lead{font-size:17px}
+  .hero .ctas{flex-direction:column;align-items:stretch;gap:12px}
+  .hero .ctas .btn{justify-content:center}
+  .hero .micro{flex-wrap:wrap;gap:12px 18px}
+  .mosaic{grid-template-columns:repeat(3,1fr);grid-template-rows:150px 170px;gap:8px}
+  .tile.t1,.tile.t3,.tile.t4,.tile.t6{transform:none}
+  .tile .lab{font-size:9px;letter-spacing:.1em;left:8px;bottom:8px;right:8px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div{padding:18px;border-bottom:1px solid var(--line)}
+  .stats div:nth-child(2n){border-right:0}
+  .stats b{font-size:24px}
+  .segs{padding:28px 0 6px}
+  section{padding:52px 0}
+  h2{font-size:32px}
+  .sec-head{grid-template-columns:1fr;gap:12px;margin-bottom:24px}
+  .cards3,.steps{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr;padding:36px 24px;border-radius:24px}
+  .band h2{font-size:32px}
+  .band ul{grid-template-columns:1fr}
+  .band .ctas{flex-direction:column}
+  .band .ctas .btn{justify-content:center}
+  .band .vis{margin-top:20px}
+  .band .vis .disc{width:260px;height:260px}
+  .band .vis .chip{font-size:11px;padding:8px 10px}.band .vis .chip b{font-size:14px}
+  .band .vis .c1{left:0;top:0}.band .vis .c2{right:0;top:30px}.band .vis .c3{left:10px;bottom:0}
+  .quote{grid-template-columns:1fr;border-radius:24px}
+  .quote .ph{height:240px}
+  .quote .txt{padding:28px 24px}
+  .quote blockquote{font-size:21px}
+  .roi{grid-template-columns:1fr}
+  .roi .row .sl{width:90px}
+  .roi .out{grid-template-columns:1fr}.roi .out .r{text-align:left}
+  .final{padding:44px 24px;border-radius:24px}
+  .final h2{font-size:32px}
+  .final .ctas,.final .chips{flex-direction:column;align-items:center}
+  footer .cols{grid-template-columns:1fr 1fr}
+  footer .bottom{flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">Relaunch-Entwurf · <b>IglooPro</b> jetzt in 3–5 Werktagen einsatzbereit · Beratung in 10 Sprachen</div>
+<div class="wrap">
+<nav>
+  <a class="logo" href="#"><img src="polarisdx-mark.svg" alt=""><div><div class="w">Polaris<span>DX</span></div><small>POINT-OF-CARE FÜR PRAXEN</small></div></a>
+  <div class="navlinks"><span class="sec">MESSEN<br>VERSTEHEN<br>ENTSCHEIDEN</span><a>Diagnostik</a><a>IglooPro</a><a>Epigenetik</a><a>Wissen</a><a>Termine</a><a>Über uns</a></div>
+  <div class="navright"><button class="menu-btn">Menü <svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="lang"><span class="on">DE</span><span>EN</span><span>PL</span></div><a class="btn btn-primary" style="padding:12px 20px">Angebot anfragen <span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+</nav>
+
+<section class="hero" style="padding-top:28px">
+  <div>
+    <span class="pill"><span class="dot"></span>IglooPro · IVDR · CE · CV &lt; 2 %</span>
+    <h1>Laborwerte.<br>In Minuten.<br><em>In Ihrer Praxis.</em></h1>
+    <p class="lead">Point-of-Care-Diagnostik, die in den Praxisalltag passt: Kapillarblut, IglooPro Reader, Ergebnis chairside – ohne Laborlogistik, mit fachlicher Einordnung durch Sie.</p>
+    <div class="ctas"><a class="btn btn-primary">Angebot anfragen <span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn btn-ghost" style="border:0;padding-left:0">IglooPro kennenlernen →</a></div>
+    <div class="micro">
+      <span><svg class="i" viewBox="0 0 24 24"><path d="M12 2v6M12 22a7 7 0 0 0 7-7c0-4-7-11-7-11S5 11 5 15a7 7 0 0 0 7 7z"/></svg>Kapillarblut</span>
+      <span><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Ergebnis in Minuten</span>
+      <span><svg class="i" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg>IVDR-konform</span>
+    </div>
+  </div>
+  <div class="mosaic">
+    <div class="tile t1"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=75&fit=crop"><span class="lab">Zahnarztpraxis</span></div>
+    <div class="tile t2"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=75&fit=crop"><span class="lab">Hausarztpraxis</span></div>
+    <div class="tile t3"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&q=75&fit=crop"><span class="lab">Ästhetik &amp; Beauty</span></div>
+    <div class="tile t4 product"><span class="badge">IglooPro</span><img src="Igloo-pro-frontal.webp"><span class="lab">Der Reader</span></div>
+    <div class="tile t5"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=700&q=75&fit=crop"><span class="lab">Longevity</span></div>
+    <div class="tile t6"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a177?w=700&q=75&fit=crop"><span class="lab">Epigenetik</span></div>
+  </div>
+</section>
+
+<div class="stats">
+  <div><b>3–5 Tage</b><span>Einsatzbereit nach Bestellung</span></div>
+  <div><b>CV &lt; 2 %</b><span>Präzision über den Messbereich</span></div>
+  <div><b>&lt; 15 Min.</b><span>Von der Probe zum Messwert</span></div>
+  <div><b>40+</b><span>Kompatible Tests, herstellerübergreifend</span></div>
+</div>
+
+<div class="segs"><span class="q">Für welche Praxis?</span>
+  <span class="pill"><span class="dot d"></span>Zahnmedizin &amp; Implantologie</span>
+  <span class="pill"><span class="dot b"></span>Ästhetik &amp; Beauty</span>
+  <span class="pill"><span class="dot l"></span>Longevity &amp; Prävention</span>
+  <span class="pill"><span class="dot e"></span>Allgemeinmedizin</span>
+</div>
+<p class="segs-note">Eine Orientierung nach Fachbereich. Alle Tests im Diagnostik-Hub.</p>
+
+<section>
+  <div class="sec-head"><div><span class="eyebrow">Drei Wege</span><h2>Diagnostik, Reader, Epigenetik – klar getrennt.</h2></div><p class="lead">PolarisDX bündelt Point-of-Care-Diagnostik, den IglooPro Reader und einen eigenständigen Epigenetik-Bereich. Jeder Einstieg führt direkt zur passenden Fachinformation.</p></div>
+  <div class="cards3">
+    <div class="card"><div class="img"><img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=800&q=75&fit=crop"><span class="pill tag"><span class="dot"></span>Diagnostik</span></div><div class="body"><h3>Point-of-Care-Diagnostik</h3><p>Vitamin D, CRP, HbA1c, Hormone, Lipide – Tests nach Fachbereich mit Anwendungshinweisen für den Praxisablauf.</p><a class="link">Diagnostik entdecken <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="card"><div class="img" style="background:#e9edf1"><img src="igloo_explode.webp" style="object-fit:contain;padding:24px"><span class="pill tag"><span class="dot"></span>IglooPro</span></div><div class="body"><h3>Der IglooPro Reader</h3><p>Wertet kompatible Schnelltests direkt am Point of Care aus. Kompakt, laborgenau, in 3–5 Werktagen einsatzbereit.</p><a class="link">IglooPro ansehen <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="card"><div class="img"><img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=75&fit=crop"><span class="pill tag"><span class="dot"></span>Epigenetik</span></div><div class="body"><h3>Epigenetische Analysen</h3><p>Biologisches Alter, Telomere, Stress-Monitor – mit Musterbefunden, die Patientinnen und Patienten verstehen.</p><a class="link">Epigenetik kennenlernen <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="band">
+    <div>
+      <span class="eyebrow">IglooPro Reader</span>
+      <h2>Der neue Maßstab für chairside Diagnostik.</h2>
+      <p class="lead">Ein Reader, viele Tests: IglooPro misst Fluoreszenz-Immunoassays herstellerübergreifend und liefert laborgenaue Werte dort, wo das Gespräch stattfindet.</p>
+      <ul>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Kapillarblut statt Venenpunktion</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Ergebnis in unter 15 Minuten</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>CV &lt; 2 % über den Messbereich</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>IVDR · CE · Druck &amp; Export</li>
+      </ul>
+      <div class="ctas"><a class="btn btn-teal">Angebot anfragen</a><a class="btn btn-ghost on-dark">Datenblatt (PDF)</a></div>
+    </div>
+    <div class="vis">
+      <div class="disc"><img src="Igloo-pro-frontal.webp" alt=""></div>
+      <div class="chip c1"><b>25-OH Vitamin D</b>38,4 ng/ml · 12 Min.</div>
+      <div class="chip c2"><b>CRP</b>&lt; 1,0 mg/l · 3 Min.</div>
+      <div class="chip c3"><b>HbA1c</b>5,4 % · 5 Min.</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sec-head"><div><span class="eyebrow">Der POC-Prozess</span><h2>In vier Schritten zum Messwert.</h2></div><p class="lead">Ein klarer Ablauf macht Messinformationen im Praxisalltag nutzbar – die medizinische Verantwortung bleibt bei den behandelnden Fachpersonen.</p></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="ph"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&q=70&fit=crop"></div><h3>Probe nehmen</h3><p>Wenige Tropfen Kapillarblut aus der Fingerbeere – kein Venenzugang, kein Versand.</p></div>
+    <div class="step"><div class="n">2</div><div class="ph" style="background:#e9edf1;display:grid;place-items:center"><img src="Igloo-pro-frontal.webp" style="width:60%;height:auto;object-fit:contain"></div><h3>Test einlegen</h3><p>Kassette in den IglooPro, Testcode scannen, starten. Der Reader führt durch jeden Schritt.</p></div>
+    <div class="step"><div class="n">3</div><div class="ph"><img src="https://images.unsplash.com/photo-1606206591513-adbfbdd7a177?w=600&q=70&fit=crop"></div><h3>Messwert erhalten</h3><p>Nach der testspezifischen Zeit steht der Wert bereit – quantitativ, dokumentierbar, druckbar.</p></div>
+    <div class="step"><div class="n">4</div><div class="ph"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=70&fit=crop"></div><h3>Fachlich einordnen</h3><p>Sie bewerten den Wert im individuellen Kontext und besprechen sinnvolle nächste Schritte.</p></div>
+  </div>
+  <div class="note">Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten Schritte bleiben Aufgabe der verantwortlichen Fachperson.</div>
+</section>
+
+<section style="padding-top:0">
+  <div class="quote">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=75&fit=crop"></div>
+    <div class="txt">
+      <span class="eyebrow">Praxisreferenz</span>
+      <blockquote>„Vitamin-D-Spiegel direkt vor Ort zu messen, verändert die Behandlungsergebnisse spürbar. Ein einfacher Kapillarbluttest – und ich berate gezielt.“</blockquote>
+      <div class="who"><b>Dr. Richard Pollock</b><span>Biological Dentist &amp; Implant Surgeon · Chelsea Dental Clinic</span></div>
+      <div class="rating"><span class="stars">★★★★★</span> 4,9 / 5 · basierend auf Praxis-Bewertungen</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="roi">
+    <div>
+      <span class="eyebrow">ROI-Rechner</span>
+      <h2 style="margin:14px 0 18px">Was bringt POC-Diagnostik Ihrer Praxis?</h2>
+      <p class="lead">In unter einer Minute sehen, welches Selbstzahler-Potenzial chairside Diagnostik in Ihrer Praxis hat. Beispielwerte – bitte an Ihre Praxis anpassen.</p>
+      <div class="ctas" style="display:flex;gap:16px;margin-top:30px"><a class="btn btn-primary">ROI-Report anfordern <span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+    </div>
+    <div class="calc">
+      <div class="row"><span>Tests pro Monat</span><div class="sl" style="--v:35%"></div><b>30</b></div>
+      <div class="row"><span>Preis pro Test</span><div class="sl" style="--v:40%"></div><b>35 €</b></div>
+      <div class="row"><span>Materialkosten</span><div class="sl" style="--v:20%"></div><b>6 €</b></div>
+      <div class="row" style="border:0"><span>Minuten pro Test</span><div class="sl" style="--v:25%"></div><b>5</b></div>
+      <div class="out"><div><small>Deckungsbeitrag / Monat</small><b>980 €</b></div><div class="r"><small>pro Jahr</small><b>11.760 €</b><br><small>Amortisation ≈ 4 Monate</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="final">
+    <span class="eyebrow">Bereit loszulegen</span>
+    <h2>Bereit für laborgenaue Diagnostik in Ihrer Praxis?</h2>
+    <p>Sprechen Sie mit unserem Team über die passende Point-of-Care-Lösung – oder prüfen Sie Ihre Annahmen im unverbindlichen ROI-Rechner.</p>
+    <div class="ctas"><a class="btn btn-teal">Angebot anfragen</a><a class="btn btn-ghost on-dark">Termin vereinbaren</a></div>
+    <div class="chips"><span>Unverbindliche Anfrage</span><span>Persönliche Beratung</span><span>In 10 Sprachen</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="cols">
+    <div><div class="logo"><img src="polarisdx-mark.svg" alt=""><div><div class="w">Polaris<span>DX</span></div><small>POINT-OF-CARE FÜR PRAXEN</small></div></div><p style="margin-top:16px;max-width:360px">Ihr Partner für Point-of-Care-Diagnostik. Laborgenaue Sofortdiagnostik für Dental, Beauty und Longevity.</p><p style="margin-top:12px">Polaris Diagnostics Europe GmbH · Willy-Brandt-Straße 49 · 20457 Hamburg</p></div>
+    <div><h4>Diagnostik</h4><ul><li>Alle Tests</li><li>Dental</li><li>Beauty</li><li>Longevity</li><li>Musterbefunde</li></ul></div>
+    <div><h4>Unternehmen</h4><ul><li>Über uns</li><li>Termine</li><li>Wissen &amp; Blog</li><li>Downloads</li><li>Support</li></ul></div>
+    <div><h4>Rechtliches</h4><ul><li>Impressum</li><li>Datenschutz</li><li>AGB</li><li>Cookie-Einstellungen</li></ul></div>
+  </div>
+  <div class="bottom"><span>© 2026 Polaris Diagnostics Europe GmbH</span><span>Relaunch-Entwurf · Bilder: Platzhalter (Unsplash)</span></div>
+</footer>
+</div>
+</body>
+</html>

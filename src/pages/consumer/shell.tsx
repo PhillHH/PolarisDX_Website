@@ -95,7 +95,7 @@ export function CTA({
     'outline-navy':
       'bg-white border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white ',
     teal: 'bg-accent-strong text-white hover:brightness-110 ',
-    white: 'bg-white text-brand-deep hover:bg-slate-50 ',
+    white: 'bg-white text-brand-deep hover:bg-paper ',
     'outline-white': 'border border-white/60 text-white hover:bg-white/10',
   }
   const cls = `${base} ${sizes[size]} ${variants[variant]}`
@@ -363,7 +363,7 @@ export function ConsumerShell({
   children: ReactNode
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-heading">
+    <div className="flex min-h-screen flex-col bg-paper text-heading">
       {/* Erstes fokussierbares Element im Dokument — sonst greift der Sprung
           ins Leere (WCAG 2.4.1). */}
       <SkipLink />
@@ -510,7 +510,7 @@ export function Hero({
                     />
                   </div>
                   {floatingStat && (
-                    <div className="absolute -bottom-5 -left-3 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3.5 shadow-[0_16px_40px_rgba(8,51,88,0.18)] sm:-left-6">
+                    <div className="absolute -bottom-5 -left-3 flex items-center gap-3 rounded-2xl border border-paper-line bg-white px-5 py-3.5 shadow-[0_16px_40px_rgba(8,51,88,0.18)] sm:-left-6">
                       <span className="text-2xl font-semibold tracking-tight text-brand-deep sm:text-3xl">
                         {floatingStat.value}
                       </span>
@@ -540,7 +540,7 @@ export function Hero({
 
 export function FactStrip({ items }: { items: string[] }) {
   return (
-    <div className="border-y border-slate-200 bg-white">
+    <div className="border-y border-paper-line bg-white">
       <div className="mx-auto flex max-w-container flex-wrap items-center justify-center gap-x-3 gap-y-2 px-4 py-5 text-center text-sm text-heading sm:px-6 lg:px-0">
         {items.map((it, i) => (
           <span key={i} className="flex items-center gap-3">
@@ -623,7 +623,7 @@ export function Section({
   children?: ReactNode
 }) {
   const isDark = tone === 'dark'
-  const bg = tone === 'tint' ? 'bg-slate-50' : isDark ? 'bg-brand-deep' : 'bg-white'
+  const bg = tone === 'tint' ? 'bg-paper' : isDark ? 'bg-brand-deep' : 'bg-white'
 
   return (
     <section id={id} className={`${bg} py-24`}>
@@ -692,7 +692,7 @@ export function Card({
   return (
     <div
       className={cn(
-        'rounded-2xl border border-slate-100 bg-white p-7 ',
+        'rounded-2xl border border-paper-line bg-white p-7 ',
         hoverClass,
         accentClass,
         className,
@@ -759,7 +759,7 @@ export function Stats({ items }: { items: { value: string; label: string }[] }) 
       {items.map((s) => (
         <div
           key={s.label}
-          className="rounded-2xl border border-slate-100 bg-white p-7 text-center transition duration-200 hover:-translate-y-1 hover:border-accent-border motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          className="rounded-2xl border border-paper-line bg-white p-7 text-center transition duration-200 hover:-translate-y-1 hover:border-accent-border motion-reduce:transition-none motion-reduce:hover:translate-y-0"
         >
           <p className="text-3xl font-semibold tracking-tight text-brand-deep sm:text-4xl">
             {s.value}
@@ -820,7 +820,7 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
       {items.map((it, i) => (
         <details
           key={i}
-          className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 transition-shadow"
+          className="group rounded-2xl border border-paper-line bg-white px-6 py-5 transition-shadow"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-heading">
             <span className="text-lg">{it.q}</span>
@@ -930,7 +930,7 @@ export function FinalCTA({
 
 export function Disclaimer({ children }: { children: ReactNode }) {
   return (
-    <div className="border-t border-slate-200 bg-slate-100">
+    <div className="border-t border-paper-line bg-paper-deep">
       <div className="mx-auto max-w-3xl px-4 py-8 text-center text-xs leading-relaxed text-gray-600 sm:px-6">
         {children}
       </div>

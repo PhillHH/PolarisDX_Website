@@ -87,7 +87,7 @@ const EpigeneticsEvidencePage = () => {
           </Reveal>
 
           <Reveal width="100%" delay={0.08} className={STRETCH}>
-            <div className="h-full rounded-3xl border border-slate-200 bg-white p-7 lg:p-8">
+            <div className="h-full rounded-3xl border border-paper-line bg-white p-7 lg:p-8">
               <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-gray-500">
                 <Minus className="h-4 w-4" aria-hidden="true" />
                 {t('evidence.preliminaryTitle')}
@@ -127,7 +127,7 @@ const EpigeneticsEvidencePage = () => {
       ================================================================ */}
       <section
         id="grenzen"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-slate-200 bg-white"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
       >
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
           <Reveal width="100%">
@@ -150,9 +150,9 @@ const EpigeneticsEvidencePage = () => {
               Belegfuehrung, nicht ans Ende einer Verkaufsseite. Wortlaut
               unveraendert. */}
           <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div className="mt-6 rounded-3xl border border-paper-line bg-paper p-7">
               <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
-              <p className="mt-6 max-w-[80ch] border-t border-slate-200 pt-6 text-sm leading-relaxed text-gray-600">
+              <p className="mt-6 max-w-[80ch] border-t border-paper-line pt-6 text-sm leading-relaxed text-gray-600">
                 {t('contact.note')}
               </p>
               <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>

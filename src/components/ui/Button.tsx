@@ -14,7 +14,8 @@ import { cn } from '../../lib/utils'
  * Eine Schaltflaeche, die navigiert, waere weder mit der Tastatur noch mit
  * dem Kontextmenue benutzbar — deshalb diese Trennung.
  *
- * Die drei Bestandsvarianten `primary`/`secondary`/`outline` sind unveraendert;
+ * Relaunch 2026-10-15 (SC-001): alle Varianten sind Pillen (`rounded-full`,
+ * Semibold). Die drei Bestandsvarianten `primary`/`secondary`/`outline` bleiben;
  * `primary` behaelt ihr Zwei-Schichten-Rendering (aeussere Flaeche als Rand,
  * innerer weisser Layer). `ghost` ist neu fuer textnahe Sekundaeraktionen.
  *
@@ -28,7 +29,7 @@ import { cn } from '../../lib/utils'
  * zugaenglichen Namen.
  */
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 rounded-md font-medium tracking-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50',
+  'inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -38,7 +39,7 @@ const buttonVariants = cva(
         outline:
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
         ghost:
-          'bg-transparent text-brand-deep hover:bg-gray-50 focus-visible:ring-brand-primary border-0',
+          'bg-transparent text-brand-deep hover:bg-paper-deep focus-visible:ring-brand-primary border-0',
       },
       size: {
         default: 'min-h-[44px] px-8 py-4 text-base',
@@ -144,7 +145,7 @@ const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
         <Component ref={ref} {...commonProps}>
           <span
             className={cn(
-              'flex h-full w-full items-center justify-center gap-2 rounded-[4px] bg-white text-brand-deep transition-colors hover:bg-gray-50',
+              'flex h-full w-full items-center justify-center gap-2 rounded-full bg-white text-brand-deep transition-colors hover:bg-paper',
               size === 'lg' && 'px-10 py-5 text-lg',
               (size === 'default' || !size) && 'px-8 py-4 text-base',
               size === 'sm' && 'px-6 py-3 text-sm',

@@ -27,6 +27,56 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-15 — Relaunch SC-001 · Papierfläche, Fotografie, Pillen (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Entscheidung SC-001 (`building-docs/SCOPE-CHANGELOG.md`): der Stand wirkte für
+  einen Relaunch „noch nicht schön". Entwurf in `wireframes/relaunch-entwurf/`, Orientierung an
+  `panels.polarisdx.net` (warme Fläche, große Headline, Bild-Mosaik, Pillen).
+- **Neu (Token):** `paper` `#f5f3ee` · `paper.deep` `#ecebe4` · `paper.line` `#e3e0d7` — Seitenfläche,
+  Füllung, Dekor-Linie (`PALETTE_HEX` mitgepflegt, DS-CL-5). `borderRadius.card` 22 px, `borderRadius.band`
+  34 px. Keine Farbe entfernt, kein Alias umbenannt.
+- **Geändert (Komponenten, gleiche Exporte):** `Button` — alle Varianten `rounded-full`, Semibold;
+  `Card` — `rounded-card`, Rand `paper-line`. `Header` — helle Papier-Kopfzeile, dunkles Logo,
+  Fokusringe navy mit Papier-Versatz, kein Navy-Schleier mehr (PT24.6-Begründung entfällt, Kontrast
+  jetzt 12,2:1). `:root`-Hintergrund `paper` statt `#f8fafc`; `slate-50/100/200` repo-weit auf
+  `paper`/`paper.deep`/`paper.line` (außer Musterbefund/Befund-Komponenten und Hydrations-Fallback).
+- **Startseite:** Hero mit Foto-Mosaik (vier Motive, `src/assets/home/`, AVIF/WebP 240/480 px, lazy,
+  `alt=""`) um das unveränderte 650×650-Produktbild; `hero.title` neu in 10 Sprachen; TrustBar als
+  weiße Signalleiste (Strings byte-gleich); Säulen-Karten mit Foto; Ablauf als Karten; Referenz als
+  großes Zitat-Band; Final-CTA als Navy-Band im Container. DOM-Hooks und Claim-Register unverändert
+  (Komponententests 201/201).
+- **Perf-Budget (PT25.5, nicht gelockert):** Startseite gemessen Bild 67,3 KB mobil / 78,1 KB desktop
+  (Budget 87,2/89,2 KB), HTML 33,8 KB (Budget 33,9 KB), Initial-JS 157,2 KB gzip. Dafür: `favicon.ico`
+  von 57 KB (7 PNG-Stufen bis 256 px) auf 8,7 KB (16/24/32/48 px; 192 px und Apple-Icon bleiben eigene
+  PNGs) — das ICO zählte auf **jeder** Route zum `imageBytes`; Kopfzeilen-Logo als 272-px-Datei
+  (`polarisdx_logo-272w.webp`, 6,7 KB, vorher 400 px „oversized"); Footer-Logo `loading="lazy"` (liegt
+  immer unter dem Falz); `vite.config.ts` `assetsInlineLimit` schließt `src/assets/home/` vom
+  Base64-Inlining aus (+4,3 KB gzip im Initial-JS vermieden); `ResponsivePicture` bekommt `lean`
+  (nur AVIF-`<source>` + WebP-`<img>`, spart gehashte `srcset`-URLs im SSR-HTML).
+- **A11y-Nachmessung (PT24.6 axe):** `ui.field` von `#6b7280` auf `#5e6a78` (auf `paper` 4,35:1 → 4,97:1;
+  Weiß 5,51:1), `PALETTE_HEX` mitgepflegt; `bg-accent/10` + `text-accent-strong` (auf `paper` gemischt
+  4,42:1) überall auf die solide Tönung `bg-accent-soft` (≥ 5:1). Signal-Icons der Why-POC-`<dl>` sitzen
+  im `<dt>` (axe `definition-list`); IglooPro-Badge im Hero auf `accent.strong` (weiße Schrift 5,47:1).
+- **Test mitgeändert, nicht geschwächt:** `e2e/home-faq-seo-integration.spec.ts` (PT11.6) adressiert
+  das Produktbild jetzt über `img[fetchpriority="high"]` (vorher: einziges `img` im Hero) und prüft
+  zusätzlich, dass alle vier Mosaik-Fotos `alt=""` **und** `loading="lazy"` tragen; `main
+img[loading="eager"]` bleibt genau 1.
+- **Bewusst nicht:** Figtree (Entwurf) — Inter bleibt wegen PT25.4-Font-Pipeline und Perf-Budget.
+- **Betroffene Screenshots (27):** `pt27.6-visual` 19 von 21 — alle Seiten- und Zustandsbilder außer
+  `consumer-spray-desktop/-mobile` (eigene Consumer-Shell, unverändert): `home-desktop`, `home-mobile`,
+  `diagnostics-hub`, `service-detail`, `igloo-pro`, `epigenetics-hub`, `epigenetics-panel`,
+  `musterbefund`, `article`, `resource-center`, `contact`, `support`, `legal-privacy`, `not-found`,
+  `cookie-banner`, `diagnostics-megamenu-open`, `search-dialog-open`, `resource-gate-open`,
+  `navigation-open-mobile`. `design-system` 8 von 28 — `buttons` (Pillen), `hero-diagnostics`,
+  `longform-service`, `final-cta-articles` (je desktop/mobil, helle Kopfzeile + Papierfläche); die
+  übrigen 20 Galerie-Oberflächen blieben innerhalb der 1-%-Toleranz.
+- **Plattform:** aufgenommen im gepinnten Image `mcr.microsoft.com/playwright:v1.57.0-noble` mit
+  `--update-snapshots`, danach ohne Update bestätigt: PT27.6 21/21, Design-System 35/35. Gates nach der
+  Umsetzung: A11y-Suite PT24.1–24.6 komplett grün (118/41/31/20/45/25), Perf-Budget PT25.5 852/852,
+  Core-E2E (Home, Navigation, Suche, Smoke, Findability) grün.
+- **Reviewer:** Owner-Abnahme der Umsetzung gegen den Entwurf **offen**; Agent-Umsetzung (Claude Code,
+  2026-10-15).
+
 ### 2026-10-15 — AP27-CLOSURE · PT276-F9: PT05.5-Baselines auf den Relaunch-Stand (kein Vertragsbruch)
 
 - **Ursache:** Die 22+6 Baselines aus `e2e/design-system.spec.ts` (PT05.5, Oberflaechen zuletzt neu in
@@ -145,7 +195,7 @@ Diese Blöcke werden vom Gate gelesen. **Nicht von Hand kürzen** — sie sind d
 `befund.green.ink` · `befund.green.soft` · `befund.red` · `befund.red.ink` · `befund.red.soft` ·
 `brand.blue` · `brand.blue-bright` · `brand.deep` · `brand.navy` · `brand.navy-hover` ·
 `brand.navy-mid` · `brand.primary` · `brand.secondary` · `gray-100` · `gray-500` · `heading` ·
-`social.linkedin` · `success` · `success.soft` · `success.strong` · `ui.border` ·
+`paper` · `paper.deep` · `paper.line` · `social.linkedin` · `success` · `success.soft` · `success.strong` · `ui.border` ·
 `ui.border-hover` · `ui.field` · `ui.text-muted` · `warning` · `warning.soft` · `warning.strong`
 
 <!-- /SURFACE:colors -->

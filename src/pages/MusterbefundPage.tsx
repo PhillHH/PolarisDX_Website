@@ -531,13 +531,13 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
         {/* Hinweisband und Weg zurueck. Der Beispieldaten-Hinweis steht hier ein
             zweites Mal, weil die Seite lang ist und die Rechtstexte oben am
             Deckblatt beim Lesen laengst aus dem Blick sind. */}
-        <section className="border-t border-slate-200 bg-white">
+        <section className="border-t border-paper-line bg-white">
           <div className="mx-auto max-w-container px-4 py-12 lg:px-0 lg:py-16">
             {/* Die Merkliste steht vor dem Hinweisband: wer bis hierher
                 gelesen hat, entscheidet jetzt. Sie erscheint nur, wenn etwas
                 darin steht, und liegt allein im Browser dieses Geraets. */}
             <Merkliste className="mb-6" />
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div className="rounded-3xl border border-paper-line bg-paper p-7">
               <p className="max-w-[80ch] text-sm leading-relaxed text-gray-600">
                 {t('samples.note')}
               </p>
@@ -582,7 +582,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
             </div>
 
             <div
-              className="mt-10 grid gap-4 border-y border-slate-200 py-6 sm:grid-cols-2"
+              className="mt-10 grid gap-4 border-y border-paper-line py-6 sm:grid-cols-2"
               data-report-pagination
             >
               {previous ? (
@@ -590,7 +590,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                   to={reportHref(previous.slug)}
                   rel="prev"
                   data-report-previous={previous.slug}
-                  className="group inline-flex min-h-12 items-center gap-3 rounded-2xl px-3 py-2 text-left transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  className="group inline-flex min-h-12 items-center gap-3 rounded-2xl px-3 py-2 text-left transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                 >
                   <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden />
                   <span>
@@ -610,7 +610,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                   to={reportHref(next.slug)}
                   rel="next"
                   data-report-next={next.slug}
-                  className="group inline-flex min-h-12 items-center justify-end gap-3 rounded-2xl px-3 py-2 text-right transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  className="group inline-flex min-h-12 items-center justify-end gap-3 rounded-2xl px-3 py-2 text-right transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                 >
                   <span>
                     <span className="block text-xs font-medium text-gray-600">
@@ -633,7 +633,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
                       key={o.slug}
                       to={reportHref(o.slug)}
                       data-report-sibling={o.slug}
-                      className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary hover:bg-slate-50"
+                      className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-base font-medium text-brand-deep transition-colors hover:border-brand-primary hover:bg-paper"
                     >
                       {o.panel}
                     </Link>

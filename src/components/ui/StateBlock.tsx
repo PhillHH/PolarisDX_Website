@@ -50,7 +50,7 @@ export type EmptyStateProps = {
 
 export const EmptyState = ({ title, description, action, icon, className }: EmptyStateProps) => (
   <div className={cn(shell, className)}>
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent-strong">
+    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-soft text-accent-strong">
       {icon ?? <Inbox className="h-5 w-5" aria-hidden="true" />}
     </span>
     <h3 className="t-h3">{title}</h3>

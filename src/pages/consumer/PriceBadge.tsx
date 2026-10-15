@@ -289,7 +289,7 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
                   {copy.popoverEyebrow}
                 </p>
-                <span className="h-px flex-1 bg-slate-200" aria-hidden />
+                <span className="h-px flex-1 bg-paper-line" aria-hidden />
               </div>
 
               <ul className="mt-3 space-y-2 text-sm leading-snug text-gray-700">

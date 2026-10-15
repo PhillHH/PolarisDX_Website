@@ -45,7 +45,7 @@ const TeamSection = () => {
   const emailLabel = t('team.email', 'E-Mail')
 
   return (
-    <section className="bg-slate-50 py-24">
+    <section className="bg-paper py-24">
       <div className="mx-auto max-w-container px-4 lg:px-0">
         <SectionHeader
           caption={t('team.caption', 'UNSER TEAM')}
@@ -60,7 +60,7 @@ const TeamSection = () => {
             return (
               <div
                 key={member.id}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-paper-line bg-white transition hover:-translate-y-1"
               >
                 {member.image ? (
                   <div className="relative w-full overflow-hidden bg-gray-100">
@@ -90,7 +90,7 @@ const TeamSection = () => {
                     {t(`team.members.${member.id}.bio`)}
                   </p>
 
-                  <div className="mt-5 flex gap-4 border-t border-slate-100 pt-4">
+                  <div className="mt-5 flex gap-4 border-t border-paper-line pt-4">
                     <a
                       href={`mailto:${member.email}`}
                       aria-label={`${emailLabel}: ${name}`}

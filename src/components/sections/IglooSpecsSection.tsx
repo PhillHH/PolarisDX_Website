@@ -15,7 +15,7 @@ export default function IglooSpecsSection() {
     <section
       aria-labelledby="igloo-specification-title"
       data-igloo-specification
-      className="bg-slate-50"
+      className="bg-paper"
     >
       <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
         <div className="max-w-3xl">
@@ -28,7 +28,7 @@ export default function IglooSpecsSection() {
           </p>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <div className="mt-10 overflow-hidden rounded-xl border border-paper-line bg-white">
           <table
             aria-describedby="igloo-specification-description"
             className="w-full table-fixed border-collapse text-left"

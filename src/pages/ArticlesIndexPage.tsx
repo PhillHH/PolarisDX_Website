@@ -99,7 +99,7 @@ const ArticlesIndexPage = () => {
         ]}
       />
 
-      <div className="bg-slate-50">
+      <div className="bg-paper">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <SectionHeader
@@ -116,7 +116,7 @@ const ArticlesIndexPage = () => {
               {categories.map((category) => (
                 <span
                   key={category}
-                  className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-strong"
+                  className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong"
                 >
                   {t(`common:category.${category}`, category)}
                 </span>
@@ -158,7 +158,7 @@ const ArticlesIndexPage = () => {
                         </div>
                       )}
                       <div className="flex flex-1 flex-col p-7">
-                        <span className="inline-flex w-fit rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent-strong">
+                        <span className="inline-flex w-fit rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent-strong">
                           {t(`common:category.${post.category}`, post.category)}
                         </span>
                         <h2 className="mt-5 text-lg font-medium text-heading transition-colors group-hover:text-accent">

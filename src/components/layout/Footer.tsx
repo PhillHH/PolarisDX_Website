@@ -113,7 +113,18 @@ const Footer = () => {
       <div className="mx-auto flex max-w-container flex-col gap-8 px-4 pb-12 pt-12 lg:pb-16 lg:pt-16">
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           <div className="space-y-4">
-            <img src={logo} alt="" width={136} height={40} className="h-10 w-auto sm:h-12" />
+            {/* Relaunch SC-001: die Kopfzeile traegt jetzt das dunkle Logo; die weisse
+                Datei wird hier erstmals gebraucht und liegt immer unter dem Falz — lazy,
+                sonst zaehlt das Perf-Budget sie als "eager below fold". */}
+            <img
+              src={logo}
+              alt=""
+              width={136}
+              height={40}
+              loading="lazy"
+              decoding="async"
+              className="h-10 w-auto sm:h-12"
+            />
             <p className="max-w-sm text-sm text-white/70">{t('footer.description')}</p>
 
             {/* h-11/w-11: 44px Trefferflaeche (WCAG 2.5.5); die Icons bleiben 24px.

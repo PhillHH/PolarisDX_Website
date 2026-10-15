@@ -30,7 +30,7 @@ const sectionVariants = cva('', {
       /** Standardflaeche. */
       white: 'bg-white',
       /** Ruhige Absetzung zwischen zwei weissen Sektionen. */
-      soft: 'bg-slate-50',
+      soft: 'bg-paper',
       /** Navy-Kontrastband: Hero, Final-CTA, Beweisstrecken. */
       navy: 'relative overflow-hidden bg-brand-deep text-white',
       /** Erbt die Flaeche des Elternelements. */

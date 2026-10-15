@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-001 — Relaunch-Design-Iteration: Papierfläche, Fotografie, Pillen
+
+- **Datum:** 2026-10-15
+- **Status:** ACCEPTED
+- **Betroffene IDs:** DEC-RL-002 (Art Direction), HOMEPAGE-CONTRACT §2.2, DESIGN-SYSTEM-CONTRACT §1/§3, AP05, AP11, AP27 (Baselines)
+- **Vorheriger Zustand:** Sales-Machine auf kühlen Slate-Neutralen (`slate-50` Seitenfläche, `#f8fafc`), Navy-Kopfzeile mit Schleier, Icon-Karten ohne Fotografie, Hero mit freigestelltem Produkt auf weißer Scheibe, `rounded-md`-Schaltflächen; HOMEPAGE-CONTRACT §2.2: „no decorative stock image or generated asset is used".
+- **Neuer Zustand:** Dieselbe Marke (Navy `#083358`, Teal-Akzent, Inter 400/500/600) auf einer warmen Papierfläche (`paper` #f5f3ee / `paper.deep` / `paper.line`), helle Kopfzeile mit dunklem Logo, Pillen-Schaltflächen, 22-px-Karten, 34-px-Bänder; Hero als Foto-Mosaik (vier Praxis-/Labor-Motive, Unsplash-Lizenz, lokal als AVIF/WebP) um das unveränderte 650×650-Produktbild; Fotos auf zwei Säulen-Karten. Headline `hero.title` neu in zehn Sprachen („Laborwerte. In Minuten. In Ihrer Praxis.").
+- **Begründung:** Der Owner bewertete den Stand vom 2026-10-15 als „noch nicht schön" für eine Relaunch-Seite, ließ einen Entwurf (`wireframes/relaunch-entwurf/`) mit Orientierung an `panels.polarisdx.net` erstellen und beauftragte die vollständige Umsetzung „ohne die Technik zu brechen".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner (Phillip), 2026-10-15, im Arbeitsauftrag.
+- **Auswirkung auf Scope:** Kein neuer Bereich, keine neue Journey, keine neuen Claims. DEC-RL-002 bleibt im Kern (eine Art Direction, Light-Theme nach DEC-RL-003); die Bildsprache ist eine Erweiterung derselben Art Direction um Fotografie und warme Neutrale, keine zweite.
+- **Auswirkung auf Abhängigkeiten:** Inter bleibt (PT25.4-Font-Pipeline, Perf-Budget); Figtree aus dem Entwurf wurde bewusst NICHT übernommen. Claim-Register HCL-001..014 unverändert; TrustBar-Strings byte-gleich.
+- **Auswirkung auf Gates:** Neue Farbtoken in `tailwind.config.js` + `PALETTE_HEX` (DS-CL-5); alle visuellen Baselines (`pt27.6-visual`, `design-system`) werden im gepinnten Playwright-Image neu aufgenommen und im DESIGN-SYSTEM-CHANGELOG begründet; Perf-Budget der Startseite (`imageBytes` ≤ 89 249 B, `oversizedImages` 0) wird gegen den neuen Stand gemessen, nicht gelockert.
+- **Aktualisierte kanonische Dokumente:** `building-docs/HOMEPAGE-CONTRACT.md` (§2.2), `building-docs/DESIGN-SYSTEM-CHANGELOG.md` (Change Note + SURFACE:colors), `building-docs/DESIGN-SYSTEM-CONTRACT.md` (§3.1 Hinweis auf `paper`).
+
 ### SC-000 — Baseline der Change Control (Initialisierung)
 
 - **Datum:** 2026-08-24

@@ -59,9 +59,13 @@ const PALETTE_HEX = new Set([
   '#b45309', // warning.strong
   '#fffbeb', // warning.soft
   '#0077b5', // social.linkedin (Fremdmarke)
+  '#5e6a78', // ui.field — 5,51:1 auf Weiss, 4,97:1 auf paper (Relaunch SC-001)
   '#e2e8f0', // ui.border
   '#cbd5e1', // ui.border-hover
   '#94a3b8', // ui.text-muted
+  '#f5f3ee', // paper — warme Seitenflaeche (Relaunch SC-001)
+  '#ecebe4', // paper.deep
+  '#e3e0d7', // paper.line
   '#f5f5f5', // gray-100
   '#868c98', // gray-500
   '#f8fafc', // neutraler Seiten-/Panel-Hintergrund

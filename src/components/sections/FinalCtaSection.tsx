@@ -71,22 +71,23 @@ const FinalCtaSection = ({
   return (
     <section
       id="los-gehts"
-      className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-brand-deep text-white"
+      className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-paper px-4 pb-20 text-white lg:px-0 lg:pb-24"
     >
-      <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
+      <div className="relative mx-auto max-w-container overflow-hidden rounded-band bg-brand-deep px-6 py-20 text-center sm:px-12 lg:py-24">
+        <div className="pointer-events-none absolute -bottom-40 -right-20 h-[420px] w-[420px] rounded-full bg-accent-on-dark/20 blur-3xl" />
+        <p className="relative text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}
         </p>
-        <h2 className="mx-auto mt-4 max-w-3xl font-medium tracking-[-0.02em] text-white text-[clamp(28px,5vw,48px)] leading-[clamp(34px,5.6vw,56px)]">
+        <h2 className="relative mx-auto mt-4 max-w-3xl text-balance font-semibold tracking-[-0.035em] text-white text-[clamp(30px,5vw,52px)] leading-[1.05]">
           {t('final_cta.title', 'Bereit für laborgenaue Diagnostik in Ihrer Praxis?')}
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+        <p className="relative mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
           {t(
             'final_cta.subtitle',
             'Sprechen Sie mit unserem Team über eine passende Point-of-Care-Lösung oder prüfen Sie Ihre eigenen Annahmen im unverbindlichen ROI-Rechner.',
           )}
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="relative mt-10 flex flex-wrap justify-center gap-4">
           <Button
             to={primaryTarget}
             variant="secondary"
@@ -99,7 +100,7 @@ const FinalCtaSection = ({
             {t('final_cta.cta_secondary', 'ROI-Rechner')}
           </Button>
         </div>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="relative mt-8 flex flex-wrap justify-center gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
             <Check size={13} className="text-accent-line" aria-hidden />
             {t('final_cta.chips.free', 'Unverbindliche Anfrage')}

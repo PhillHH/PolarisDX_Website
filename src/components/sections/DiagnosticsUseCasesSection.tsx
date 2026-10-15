@@ -31,7 +31,7 @@ const DiagnosticsUseCasesSection = () => {
                 data-diagnostics-focus-area={id}
                 data-focus-service={entry.service.id}
                 data-focus-tag={requiredTag}
-                className="flex min-h-[250px] flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6"
+                className="flex min-h-[250px] flex-col rounded-2xl border border-paper-line bg-paper p-6"
               >
                 <span
                   className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-accent shadow-sm [&>svg]:h-5 [&>svg]:w-5"
@@ -82,7 +82,7 @@ const DiagnosticsUseCasesSection = () => {
 
           <article
             data-diagnostics-boundary="epigenetics"
-            className="rounded-2xl border border-slate-200 bg-slate-50 p-7"
+            className="rounded-2xl border border-paper-line bg-paper p-7"
           >
             <Dna className="h-7 w-7 text-accent" aria-hidden="true" />
             <h3 className="mt-5 text-2xl font-medium text-heading">

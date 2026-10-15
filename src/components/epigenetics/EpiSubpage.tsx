@@ -108,7 +108,7 @@ const EpiSubpage = ({
       />
 
       <div
-        className="bg-slate-50 text-heading"
+        className="bg-paper text-heading"
         data-epigenetics-subpage={source}
         data-route-id={vertiefung.routeId}
       >
@@ -202,7 +202,7 @@ const EpiSubpage = ({
               <Link
                 key={v.key}
                 to={v.to}
-                className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:shadow-card"
+                className="group flex flex-col rounded-3xl border border-paper-line bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:shadow-card"
               >
                 <span className={LABEL}>{t(v.captionKey)}</span>
                 <span className="mt-2 inline-flex items-start gap-1.5 text-lg font-semibold tracking-tight text-heading">

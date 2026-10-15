@@ -41,7 +41,7 @@ const IglooFeaturesSection = () => {
             <li
               key={k}
               data-product-characteristic={k}
-              className="rounded-xl border border-slate-200 bg-white p-7 flex flex-col"
+              className="rounded-xl border border-paper-line bg-white p-7 flex flex-col"
             >
               <span
                 aria-hidden="true"
