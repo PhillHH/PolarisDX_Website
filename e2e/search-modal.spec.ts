@@ -66,7 +66,11 @@ test.describe('SearchModal — Desktop-Tastatur', () => {
 
     await expect(page.getByRole('heading', { name: 'Keine Ergebnisse' })).toBeVisible()
     await expect(page.getByText(/unauffindbar-xyz/)).toBeVisible()
-    await expect(page.getByRole('status')).toContainText('Keine Ergebnisse')
+    // Die Seite hat inzwischen eine zweite Live-Region ausserhalb des Dialogs; gemeint ist die Ansage
+    // des Suchdialogs selbst.
+    await expect(
+      page.getByRole('dialog', { name: 'Website durchsuchen' }).getByRole('status'),
+    ).toContainText('Keine Ergebnisse')
   })
 })
 
