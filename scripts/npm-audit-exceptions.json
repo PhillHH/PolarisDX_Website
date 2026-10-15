@@ -1,0 +1,19 @@
+{
+  "contract": "building-docs/SECURITY-CONTRACT.md §17.4 / §17.5 — jede Ausnahme braucht dort einen gleichlautenden Eintrag",
+  "exceptions": [
+    {
+      "advisory": "GHSA-vfj7-8cjw-p6xm",
+      "package": "braces",
+      "scope": "root",
+      "severity": "high",
+      "installed": "3.0.3",
+      "path": "http-proxy-middleware 3.0.7 > micromatch 4.0.8 > braces 3.0.3",
+      "reachability": "Stack-Ueberlauf beim Expandieren tief verschachtelter Brace-MUSTER. server.ts setzt keinen pathFilter; der Default '/' ist ein String-Pfad und wird per indexOf geprueft (http-proxy-middleware dist/path-filter.js matchSingleStringPath). micromatch/braces werden zur Laufzeit nie aufgerufen, Besucher-Eingaben erreichen sie nicht.",
+      "fix": "keiner veroeffentlicht (alle Versionen <= 3.0.3 betroffen, Advisory vom 2026-09-18); auch http-proxy-middleware 4.2.0 haengt an micromatch",
+      "decision": "ACCEPTED_TEMPORARILY",
+      "owner": "AP26 (Bewertung) / AP28 (Betrieb)",
+      "review": "2026-11-15",
+      "latestChecked": "3.0.3"
+    }
+  ]
+}
