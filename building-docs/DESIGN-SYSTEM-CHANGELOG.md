@@ -27,6 +27,19 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — AP34 PT34.3 (SC-003) · Inhalts- und Unternehmensseiten angeglichen (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** AP34 PT34.3. Die Inhalts- und Unternehmensseiten folgen demselben Editorial-Raster.
+- **Geändert:**
+  - Abschnittsköpfe linksbündig mit Einleitung rechts statt zentriert: Termine (Kommend, Rückblick), Kontakt (Standorte), Über uns (drei Wege, Werte, Team).
+  - Karten mit `rounded-card` (Kontakt-Standorte, Über-uns-Werte).
+  - `SubpageHero` mobil feinjustiert: unterer Abstand wie im Vorstand, damit überlappende Kennzahlen-Leisten die Bühnenzahlen nicht verdecken. Die übrigen Abstände sind enger, die Blog-Bühne bleibt bei 501 px (412 × 823, `eagerBelowFold` 0).
+  - Artikel-Detail, Downloads, 404 und Consumer-Seiten hatten durch Kopfzeile, Akzent und gemeinsame Bühne schon den Stand. Die Consumer-Seiten behalten ihre eigene Produktbildwelt.
+- **Budgets (PT25.5, nicht gelockert):** statisch 24/24, ci 852/852, Lab 408/408.
+- **A11y:** PT24.1–PT24.6 grün (PT24.6 mit dem 180-s-Limit der offiziellen Konfiguration).
+- **Betroffene Screenshots (5):** `pt27.6-visual` `service-detail`, `resource-center`, `contact`, `support`, `legal-privacy` (Bühnen-Feinjustierung mobil/desktop). `design-system` 35/35 unverändert.
+- **Reviewer:** Owner-Abnahme in PT34.4.
+
 ### 2026-10-16 — AP34 PT34.2d–e (SC-003) · Editorial-Bühnen für Diagnostik, Service-Seiten, IglooPro und die gemeinsame Unterseiten-Bühne (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** SC-003 / AP34 PT34.2. Die Bereichs- und Produktseiten folgen dem Editorial-Stil der

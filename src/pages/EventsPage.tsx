@@ -225,14 +225,16 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
       {/* ================ UPCOMING: Highlight + Kalender-Liste ================ */}
       <section data-events-upcoming className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
-            </span>
-            <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-              {t('events:upcoming.title', 'The season highlight — and the full calendar')}
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-gray-700">
+          <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
+              </span>
+              <h2 className="mt-4 t-h2">
+                {t('events:upcoming.title', 'The season highlight — and the full calendar')}
+              </h2>
+            </div>
+            <p className="text-lg leading-relaxed text-gray-600">
               {t('events:upcoming.subtitle', 'One flagship event featured, the rest one tap away.')}
             </p>
           </div>
@@ -390,14 +392,16 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
       {pastCards.length > 0 && (
         <section data-events-past className="bg-white">
           <div className="mx-auto max-w-container px-4 lg:px-0 pb-20 lg:pb-28">
-            <div className="mb-12 text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('events:past.eyebrow', "Where we've been")}
-              </span>
-              <h2 className="mt-4 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-                {t('events:past.title', "You've probably seen us before")}
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-gray-700">{t('events:past.subtitle')}</p>
+            <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                  {t('events:past.eyebrow', "Where we've been")}
+                </span>
+                <h2 className="mt-4 t-h2">
+                  {t('events:past.title', "You've probably seen us before")}
+                </h2>
+              </div>
+              <p className="text-lg leading-relaxed text-gray-600">{t('events:past.subtitle')}</p>
             </div>
 
             <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

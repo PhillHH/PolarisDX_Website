@@ -218,19 +218,17 @@ const ContactPage = () => {
       {/* Locations */}
       <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
-          <div className="mb-12 text-center">
+          <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('contact.locations.caption')}
             </p>
-            <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-              {t('contact.locations.title')}
-            </h2>
+            <h2 className="mt-3 t-h2">{t('contact.locations.title')}</h2>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
             {offices.map((office) => (
               <Reveal key={office.key} width="100%">
-                <div className="flex h-full flex-col rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
+                <div className="flex h-full flex-col rounded-card border border-paper-line bg-white p-7 transition hover:-translate-y-1">
                   <div className="flex items-center gap-4">
                     <span
                       className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"

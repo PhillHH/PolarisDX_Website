@@ -198,7 +198,7 @@ const AboutPage = () => {
       {/* Values — content cards */}
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
-          <div className="mx-auto max-w-2xl text-center">
+          <div>
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('about:values.caption', 'Wofür wir stehen')}
             </span>
@@ -209,7 +209,7 @@ const AboutPage = () => {
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {values.map((v, i) => (
               <Reveal key={v.key} width="100%" delay={i * REVEAL_STAGGER}>
-                <div className="h-full rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
+                <div className="h-full rounded-card border border-paper-line bg-white p-7 transition hover:-translate-y-1">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <v.icon className="h-5 w-5" aria-hidden="true" />
                   </span>

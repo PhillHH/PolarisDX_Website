@@ -50,8 +50,8 @@ const TeamSection = () => {
         <SectionHeader
           caption={t('team.caption', 'UNSER TEAM')}
           title={t('team.title', 'Lernen Sie unsere Experten kennen')}
-          align="center"
-          className="mb-16"
+          align="left"
+          className="mb-12"
         />
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

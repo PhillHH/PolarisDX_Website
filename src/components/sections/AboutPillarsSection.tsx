@@ -45,12 +45,14 @@ const AboutPillarsSection = () => {
       className="bg-white py-16 lg:py-24"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>{t('pillars.caption')}</Eyebrow>
-          <h2 id="about-pillars-title" className="mt-3 t-h2">
-            {t('pillars.title')}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl t-body">{t('pillars.intro')}</p>
+        <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+          <div>
+            <Eyebrow>{t('pillars.caption')}</Eyebrow>
+            <h2 id="about-pillars-title" className="mt-3 t-h2">
+              {t('pillars.title')}
+            </h2>
+          </div>
+          <p className="text-lg leading-relaxed text-gray-600">{t('pillars.intro')}</p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">

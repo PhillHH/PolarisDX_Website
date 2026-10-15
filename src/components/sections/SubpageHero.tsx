@@ -90,14 +90,14 @@ export function SubpageHero({
   return (
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div
-        className={`relative mx-auto max-w-container px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-0 lg:pb-20 lg:pt-32 ${
+        className={`relative mx-auto max-w-container px-4 pb-16 pt-24 sm:px-6 sm:pt-28 lg:px-0 lg:pb-20 lg:pt-32 ${
           hasVisual ? 'grid items-center gap-8 lg:grid-cols-2' : ''
         }`}
       >
         {/* LEFT — copy */}
         <div>
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <Breadcrumbs variant="dark" className="mb-6 sm:mb-8" items={breadcrumbs} />
+            <Breadcrumbs variant="dark" className="mb-5 sm:mb-8" items={breadcrumbs} />
           )}
 
           {eyebrow && (
@@ -107,18 +107,18 @@ export function SubpageHero({
             </p>
           )}
 
-          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+          <h1 className="mt-4 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
             {title}
           </h1>
 
           {subtitle && (
-            <p className="mt-4 max-w-[60ch] text-pretty text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
+            <p className="mt-3 max-w-[60ch] text-pretty text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
               {subtitle}
             </p>
           )}
 
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-wrap gap-3 sm:gap-5">
+            <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-5">
               {primaryCta && <HeroCtaButton cta={primaryCta} variant="primary" />}
               {secondaryCta && <HeroCtaButton cta={secondaryCta} variant="secondary" />}
             </div>
