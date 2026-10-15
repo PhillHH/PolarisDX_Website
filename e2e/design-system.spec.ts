@@ -151,11 +151,14 @@ test.describe('Reduced Motion', () => {
     await page.goto('/de/', { waitUntil: 'networkidle' })
     // Reveal-Inhalte sind auch ohne Animation vorhanden und sichtbar.
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-    // Die Karussellsteuerung bleibt bedienbar.
-    const pause = page.getByRole('button', { name: /pausieren|fortsetzen/i }).first()
-    await expect(pause).toBeVisible()
-    await pause.click()
-    await expect(pause).toBeVisible()
+    // AP12 hat Karussell und Autoplay von der Startseite entfernt (HOMEPAGE-CONTRACT, Hero);
+    // die fruehere Pause-Taste gibt es nicht mehr. Bedienbar bleiben muss der primaere
+    // Anfrageweg (DEC-RL-013) — auch ohne Animation fuehrt er zum Formular.
+    const cta = page.getByRole('link', { name: 'Angebot anfragen' }).first()
+    await expect(cta).toBeVisible()
+    await cta.click()
+    await page.waitForURL(/\/de\/contact/)
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   })
 })
 

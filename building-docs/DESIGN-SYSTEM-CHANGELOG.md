@@ -27,6 +27,33 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-15 — AP27-CLOSURE · PT276-F9: PT05.5-Baselines auf den Relaunch-Stand (kein Vertragsbruch)
+
+- **Ursache:** Die 22+6 Baselines aus `e2e/design-system.spec.ts` (PT05.5, Oberflaechen zuletzt neu in
+  AP06 PT06.2) stammen aus `6596a90` (2026-08-28). Danach haben spaetere APs die Oberflaechen gewollt
+  veraendert: AP24 PT24.4 Kontrast (`gray-500` #868C98 → #6b7280, dunklere Status-`ink`-Toene), AP25
+  PT25.4 metrisch angepasster `Inter Fallback` (andere Laufweite, dadurch anderer Umbruch bei 390 px),
+  AP13 Diagnostik-Hub, AP14 Service-Detail und AP17 Artikeluebersicht (Seiten neu gebaut). 19 von 28
+  Vergleichen scheiterten deshalb (PT276-F9), in CI (Laeufe 35078488402, 38723003426) und lokal identisch.
+- **Betroffene Screenshots (19):** Oberflaechen desktop `buttons`, `typography`, `typography-on-navy`,
+  `section-navy`; mobil `buttons`, `typography`, `typography-on-navy`, `form-controls`, `status-alerts`,
+  `cards`, `states`, `dialog`, `section-navy`; Seiten `hero-diagnostics`, `longform-service`,
+  `final-cta-articles` (je desktop und mobil). Unveraendert und weiter bestaetigt: die uebrigen 9.
+- **Produkt-/Design-Delta:** in diesem Schritt **keins**. Die Bilder halten fest, was AP13/14/17/24/25
+  bereits umgesetzt und dort dokumentiert haben. Oberflaechen: gleiche Struktur, 2–8 % abweichende Pixel
+  durch Schriftlaufweite und Kontrasttoene. Seiten: strukturell neu (z. B. Service-Detail desktop
+  1440×19222 → 1440×4129, Diagnostik-Hub desktop 1440×4670 → 1440×7546).
+- **Mitgeaendert:** Der Test „nimmt bei Bewegungsreduktion keine Funktion weg" suchte die Pause-Taste des
+  Startseiten-Karussells, das AP12 entfernt hat (HOMEPAGE-CONTRACT, Hero). Er prueft jetzt den primaeren
+  Anfrageweg (DEC-RL-013): „Angebot anfragen" ist sichtbar und fuehrt zu `/de/contact`. Keine Schwelle
+  veraendert (`maxDiffPixelRatio` bleibt 0,01), kein Test entfernt.
+- **Plattform:** aufgenommen im gepinnten Image `mcr.microsoft.com/playwright:v1.57.0-noble` mit
+  `--update-snapshots=changed` (nur die abweichenden Bilder), danach ohne Update 35/35 bestaetigt.
+- **Beim Review sichtbar (kein neuer Befund):** In den ganzseitigen Seitenbildern steht das fixierte
+  Cookie-Banner mitten im Bild; das war in den alten Baselines genauso.
+- **Reviewer:** Agent-Review aller 19 Alt/Neu-Paare (Claude Code, 2026-10-15); fachliche Abnahme durch
+  den Design-Owner **offen**.
+
 ### 2026-09-15 — AP27 PT27.6 · Seiten-/Zustands-Baselines (kein Vertragsbruch, kein Design-Delta)
 
 - **Ursache:** PT27.6 fuehrt `e2e/pt27.6-visual.spec.ts` ein — 21 **erstmalige** Baselines repraesentativer
