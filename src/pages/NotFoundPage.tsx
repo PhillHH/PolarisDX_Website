@@ -36,7 +36,7 @@ const NotFoundPage = () => {
         <div className="mx-auto max-w-2xl px-4 py-24 text-center">
           <Reveal width="100%">
             {/* 404 Number */}
-            <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent sm:text-[10rem]">
+            <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent-on-dark sm:text-[10rem]">
               404
             </span>
 

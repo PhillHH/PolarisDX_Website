@@ -18,6 +18,7 @@ import { cn } from '../../lib/utils'
  * Semibold). Die drei Bestandsvarianten `primary`/`secondary`/`outline` bleiben;
  * `primary` behaelt ihr Zwei-Schichten-Rendering (aeussere Flaeche als Rand,
  * innerer weisser Layer). `ghost` ist neu fuer textnahe Sekundaeraktionen.
+ * AP34 (SC-002): `light` ist die weisse Pille auf Navy- und Fotoflaechen.
  *
  * TOUCH TARGET: alle Groessen liegen bei >= 44px Hoehe (WCAG 2.5.8).
  * `sm` kommt ueber `min-h-[44px]` dorthin, ohne optisch zu wachsen;
@@ -40,6 +41,10 @@ const buttonVariants = cva(
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
         ghost:
           'bg-transparent text-brand-deep hover:bg-paper-deep focus-visible:ring-brand-primary border-0',
+        // AP34 / SC-002: weisse Pille fuer Navy- und Fotoflaechen (Kopfzeile, Hero,
+        // Final CTA). Navy auf Weiss 12,6:1; Fokusring weiss mit Navy-Versatz.
+        light:
+          'bg-white text-brand-deep hover:bg-accent-soft focus-visible:ring-white focus-visible:ring-offset-brand-deep border-0',
       },
       size: {
         default: 'min-h-[44px] px-8 py-4 text-base',

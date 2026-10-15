@@ -4,7 +4,7 @@ import { Activity, ArrowRight, Dna, Microscope } from 'lucide-react'
 import { services } from '../../data/services'
 import { getCanonicalRouteEntries } from '../../routing'
 import type { ArticleImageAsset } from '../../assets/articleImages'
-import { PILLAR_IMAGES } from '../../assets/home/homeImages'
+import { PILLAR_IMAGES, SERVICE_IMAGES } from '../../assets/home/homeImages'
 import IglooExplodeImage from '../../assets/home/igloo-explode-240w.webp'
 import { Card } from '../ui/Card'
 import Eyebrow from '../ui/Eyebrow'
@@ -42,7 +42,7 @@ const CORE_SERVICES = CORE_SERVICE_IDS.map((sourceId) => {
     sourceId,
     routeId,
     path: requireRegistryPath(routeId),
-    icon: service.icon,
+    photo: SERVICE_IMAGES[sourceId],
   }
 })
 
@@ -55,6 +55,7 @@ type Pillar = {
 }
 
 const PILLAR_PHOTO_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
+const SERVICE_PHOTO_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
 
 const BusinessPillarsSection = () => {
   const { t } = useTranslation('home')
@@ -160,27 +161,41 @@ const BusinessPillarsSection = () => {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {CORE_SERVICES.map(({ sourceId, routeId, path, icon }) => (
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {CORE_SERVICES.map(({ sourceId, routeId, path, photo }) => (
               <Card
                 key={sourceId}
                 to={path}
-                padding="sm"
+                padding="none"
                 data-core-service={sourceId}
                 data-route-id={routeId}
-                className="min-h-[190px] p-5"
+                className="relative isolate min-h-[260px] overflow-hidden border-0 bg-brand-deep text-white shadow-card sm:min-h-[300px]"
               >
-                <span className="icon-tile h-11 w-11 [&>svg]:h-5 [&>svg]:w-5" aria-hidden="true">
-                  {icon}
-                </span>
-                <h4 className="mt-4 text-lg font-semibold text-heading">
-                  {t(`segments.${sourceId}.title`)}
-                </h4>
-                <p className="mt-2 text-sm text-gray-600">{t(`segments.${sourceId}.bio`)}</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
-                  {t(`segments.${sourceId}.cta`)}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </span>
+                {/* AP34: Foto-Karte. Der Verlauf sichert den Kontrast der weissen
+                    Schrift unabhaengig vom Motiv (Navy 90 % unter dem Text). */}
+                <ResponsivePicture
+                  image={photo}
+                  alt=""
+                  lean
+                  sizes={SERVICE_PHOTO_SIZES}
+                  className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-deep via-brand-deep/70 to-brand-deep/0"
+                />
+                <div className="mt-auto flex items-end justify-between gap-4 p-6">
+                  <div>
+                    <h4 className="text-xl font-semibold tracking-tight text-white">
+                      {t(`segments.${sourceId}.title`)}
+                    </h4>
+                    <p className="mt-1 text-sm text-white/85">{t(`segments.${sourceId}.bio`)}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-on-dark group-hover:text-white">
+                      {t(`segments.${sourceId}.cta`)}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>

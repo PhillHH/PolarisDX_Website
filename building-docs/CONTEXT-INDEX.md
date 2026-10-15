@@ -107,7 +107,7 @@ Unterstützt das Werkzeug gezieltes Lesen nach Überschrift oder Zeilenbereich, 
 
 ---
 
-## 4. CONTRACT_READ — Matrix AP00–AP33
+## 4. CONTRACT_READ — Matrix AP00–AP34
 
 Zusätzlich zu `ALWAYS_READ`. Kurznamen ohne `.md`; alle Dateien liegen im Root von `building-docs/`.
 
@@ -147,8 +147,9 @@ Zusätzlich zu `ALWAYS_READ`. Kurznamen ohne `.md`; alle Dateien liegen im Root 
 | **AP31** | Go-live, Cutover, Rollback                                 | DEPLOYMENT-CONTRACT · RUNTIME-CONTRACT · ROUTING-CONTRACT · SEO-CONTRACT · CONSENT-CONTRACT · TRACKING-CONTRACT                  | NETWORK-ALLOWLIST · CRM-INTEGRATION · LEAD-DELIVERY-CONTRACT                                        | Runbook, Smoke-Test und Livechecks decken Betrieb, SEO und Consent ab.                              |
 | **AP32** | Post-Launch Monitoring und Stabilisierung                  | DEPLOYMENT-CONTRACT · TRACKING-CONTRACT · SEO-CONTRACT · RUNTIME-CONTRACT                                                        | CONSENT-CONTRACT · QUALITY-GATES · CRM-INTEGRATION                                                  | Monitoring misst Betrieb, Analytics und Indexierung gegen die zugesagten Verträge.                  |
 | **AP33** | Dokumentation, Wartbarkeit, Betriebsübergabe               | DEPLOYMENT-CONTRACT · RUNTIME-CONTRACT · QUALITY-GATES · I18N-CONTRACT                                                           | jeder Contract, der dokumentiert wird · CRM-INTEGRATION · BACKEND-API-CONTRACT                      | Übergabe beschreibt bestehende Verträge; sie darf keine neuen erfinden.                             |
+| **AP34** | Relaunch-Design „Editorial“ seitenweit (SC-002)            | DESIGN-SYSTEM-CONTRACT · HOMEPAGE-CONTRACT · QUALITY-GATES · PERFORMANCE-CONTRACT                                                | ACCESSIBILITY-CONTRACT · I18N-CONTRACT · ROUTING-CONTRACT · BEFUNDE-CONTRACT · CONSUMER-CONTRACT    | Reine Gestaltung: Tokens, Bühnen und Karten; Budgets, Kontraste und Claim-Register bleiben bindend. |
 
-**Abdeckung: 34/34 (AP00–AP33).**
+**Abdeckung: 35/35 (AP00–AP33 aus dem Master-Scope, AP34 aus SC-002).**
 
 ### 4.1 Regeln zur Matrix
 

@@ -1,23 +1,24 @@
 import { ArrowRight } from 'lucide-react'
+import { preload } from 'react-dom'
 import { useTranslation } from 'react-i18next'
-import type { ArticleImageAsset } from '../../assets/articleImages'
-import { HERO_TILE_IMAGES } from '../../assets/home/homeImages'
-import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
+import IglooProImage from '../../assets/home/Igloo-pro-frontal-320w.webp'
+import { HERO_STAGE } from '../../assets/home/homeImages'
 import { getHomepageSalesTarget } from '../../lib/homepageConversion'
 import { Button } from '../ui/Button'
-import { ResponsivePicture } from '../ui/ResponsivePicture'
 
 /**
- * Static, SSR-first Homepage Hero.
+ * Static, SSR-first Homepage Hero — „Editorial" (AP34 / SC-002).
  *
  * The complete positioning and both next steps remain visible without client
- * JavaScript. One small product cutout is the only eager Hero medium; its
- * intrinsic dimensions reserve the layout and avoid carousel-driven LCP churn.
+ * JavaScript. The stage is one art-directed practice photograph with the navy
+ * gradient and the PolarisDX dot ring baked into the file (desktop 2:1,
+ * mobile 4:9). It is decorative (`alt=""`), the only `fetchpriority="high"`
+ * image and the LCP element on every viewport; both crops stay below the
+ * `lcpImageBytes` budget because the gradient side compresses to almost nothing.
  *
- * Relaunch 2026-10-15 (SC-001): the product cutout sits inside a photo mosaic
- * (four practice/lab motifs, decorative `alt=""`, lazy AVIF/WebP at 240/480 px).
- * The product image keeps its 650×650 eager/high-priority contract and is the
- * only eager image on the page.
+ * The IglooPro product keeps its locale-aware alt text in a white card after
+ * both actions (DOM order caption → H1 → benefit → CTAs → visual). It is a
+ * 320-px cutout, lazy, because the card sits below the fold on phones.
  */
 
 /**
@@ -31,55 +32,69 @@ const headlineLines = (title: string): string[] => {
   return parts
 }
 
-type TileProps = {
-  image: ArticleImageAsset
-  label: string
-  className?: string
-}
-
-const Tile = ({ image, label, className = '' }: TileProps) => (
-  <div className={className ? `home-tile ${className}` : 'home-tile'}>
-    <ResponsivePicture
-      image={image}
-      alt=""
-      lean
-      sizes="(min-width:1024px) 180px,30vw"
-      className="h-full w-full object-cover"
-    />
-    <span className="home-tile-label">{label}</span>
-  </div>
-)
+const DESKTOP_MEDIA = '(min-width: 1024px)'
 
 const HeroSection = () => {
   const { t } = useTranslation('home')
   const title = t('hero.title')
   const lines = headlineLines(title)
+  const { desktop, mobile } = HERO_STAGE
+
+  // Telefone: das Buehnenfoto ist dort das LCP-Element und konkurriert unter
+  // Drosselung mit dem JS um Bandbreite. React 19 legt diesen Preload frueh in
+  // den <head> (vor die modulepreloads), damit die Anfrage zuerst startet. Ein
+  // <img> in <picture> leitet React nicht selbst ab. Desktop braucht ihn nicht
+  // (LCP dort ~0,2 s ungedrosselt) — das spart HTML-Bytes.
+  preload(mobile.preloadHref, {
+    as: 'image',
+    type: 'image/avif',
+    imageSrcSet: mobile.avif,
+    imageSizes: '100vw',
+    media: '(max-width: 1023px)',
+    fetchPriority: 'high',
+  })
 
   return (
     <section
       id="hero"
       aria-labelledby="home-hero-title"
       data-home-hero
-      className="relative overflow-hidden bg-paper"
+      className="relative isolate overflow-hidden bg-brand-deep text-white"
     >
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-brand-deep/10 blur-3xl" />
+      {/* Ohne `sizes`: bei w-Deskriptoren ist 100vw der Standard. Desktop nur AVIF
+          (alle aktuellen Browser); aeltere fallen auf die mobile WebP-Datei des
+          <img> zurueck. Beides haelt das htmlBytes-Budget der Startseite. */}
+      <picture data-home-hero-photo>
+        <source type="image/avif" media={DESKTOP_MEDIA} srcSet={desktop.avif} />
+        <source type="image/avif" srcSet={mobile.avif} />
+        <img
+          src={mobile.src}
+          srcSet={mobile.webp}
+          alt=""
+          width={mobile.width}
+          height={mobile.height}
+          loading="eager"
+          fetchPriority="high"
+          className="absolute inset-x-0 bottom-0 -z-10 h-auto w-full lg:inset-0 lg:h-full lg:object-cover lg:object-[center_35%]"
+        />
+      </picture>
 
-      <div className="relative mx-auto grid max-w-container gap-12 px-4 pb-10 pt-28 sm:px-6 sm:pt-32 lg:min-h-[720px] lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-center lg:gap-16 lg:px-0 lg:pb-16 lg:pt-36">
+      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:min-h-[760px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
         <div className="flex flex-col items-start">
-          <p className="inline-flex items-center gap-2 rounded-full border border-paper-line bg-white px-3.5 py-1.5 text-sm font-semibold text-heading">
-            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent" />
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25 backdrop-blur-sm">
+            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
             {t('hero.caption')}
           </p>
           <h1
             id="home-hero-title"
-            className="mt-7 max-w-3xl text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-heading"
+            className="mt-7 max-w-3xl text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white"
           >
             {lines.map((line, index) => (
               <span
                 key={index}
                 className={
                   index === lines.length - 1 && lines.length > 1
-                    ? 'block text-accent-strong'
+                    ? 'block text-accent-on-dark'
                     : 'block'
                 }
               >
@@ -87,14 +102,14 @@ const HeroSection = () => {
               </span>
             ))}
           </h1>
-          <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-gray-700 sm:text-xl">
+          <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/85 sm:text-xl">
             {t('hero.description')}
           </p>
 
           <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             <Button
               to={getHomepageSalesTarget('hero')}
-              variant="secondary"
+              variant="light"
               data-cta-intent="GENERAL_SALES"
               data-cta-source="homepage"
               data-cta-journey="general_sales"
@@ -113,7 +128,7 @@ const HeroSection = () => {
               to="/diagnostics"
               variant="ghost"
               data-home-hero-secondary
-              className="w-full justify-center sm:w-auto"
+              className="w-full justify-center !text-white hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
             >
               {t('hero.cta_secondary')}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -121,45 +136,32 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Mosaik: Produkt (2 Spalten, damit das 650-px-Bild nie "oversized" ist)
-            und vier Praxis-/Labor-Motive. Spalte 1 und 3 sitzen 16 px tiefer. */}
+        {/* Produktkarte: auf Telefonen nach einem Fotofenster, damit der Arzt im
+            Bild sichtbar bleibt; ab lg unten rechts auf der Buehne. Mobil sitzt
+            das Foto in natuerlicher Hoehe am unteren Rand (oben flaches Navy),
+            damit die Texte nie auf hellem Bildgrund stehen. */}
         <div
           data-home-hero-visual
-          className="relative order-last mx-auto grid w-full max-w-[560px] grid-cols-3 gap-3 self-center pb-4 sm:gap-4"
+          className="relative mt-64 w-full max-w-md justify-self-start sm:mt-72 lg:mt-0 lg:justify-self-end"
         >
-          <div className="relative col-span-2 flex aspect-[16/10] items-center justify-center overflow-hidden rounded-card bg-white shadow-card">
-            <div className="pointer-events-none absolute inset-0 bg-paper-deep/60" />
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[82%] w-[58%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
+          <div className="grid grid-cols-[112px_minmax(0,1fr)] items-center gap-5 rounded-card bg-white p-5 text-heading shadow-card sm:grid-cols-[132px_minmax(0,1fr)] sm:p-6">
             <img
               src={IglooProImage}
               alt={t('hero.visual_alt')}
-              width={650}
-              height={650}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="relative h-full max-h-full w-full object-contain p-4 sm:p-6"
+              width={320}
+              height={320}
+              loading="lazy"
+              className="h-auto w-full object-contain"
             />
-            <span className="absolute left-2 top-2 rounded-lg bg-accent-strong px-2 py-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.08em] text-white sm:text-[11px]">
-              {t('business_pillars.pillars.igloo.title')}
-            </span>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                {t('business_pillars.pillars.igloo.title')}
+              </p>
+              <p className="mt-2 text-base font-semibold leading-snug tracking-tight text-heading">
+                {t('business_pillars.pillars.igloo.text')}
+              </p>
+            </div>
           </div>
-          <Tile
-            image={HERO_TILE_IMAGES.dental}
-            label={t('segments.dental.title')}
-            className="!aspect-auto h-full translate-y-4"
-          />
-          <Tile
-            image={HERO_TILE_IMAGES.beauty}
-            label={t('segments.beauty.title')}
-            className="translate-y-4"
-          />
-          <Tile image={HERO_TILE_IMAGES.longevity} label={t('segments.longevity.title')} />
-          <Tile
-            image={HERO_TILE_IMAGES.epigenetics}
-            label={t('business_pillars.pillars.epigenetics.title')}
-            className="translate-y-4"
-          />
         </div>
       </div>
     </section>

@@ -523,7 +523,7 @@ function buildRoiPdf({ practice, area, inputs = {}, outputs = {}, locale }) {
       doc.on('error', reject)
 
       doc.fillColor('#083358').fontSize(22).text(c.title)
-      doc.moveDown(0.3).fillColor('#0d9488').fontSize(11).text(c.subtitle)
+      doc.moveDown(0.3).fillColor('#1b67b1').fontSize(11).text(c.subtitle)
       doc.moveDown(1).fillColor('#334155').fontSize(11)
       if (practice) doc.text(`${c.practice}: ${practice}`)
       if (area) doc.text(`${c.area}: ${area}`)

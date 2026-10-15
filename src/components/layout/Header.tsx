@@ -5,9 +5,9 @@ import { ChevronDown, Search } from 'lucide-react'
 import { Button } from '../ui/Button'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
-// Relaunch 2026-10-15 (SC-001): die Kopfzeile ist hell (Papierflaeche), das Logo dunkel.
+// AP34 / SC-002 (2026-10-15): die Kopfzeile ist wieder Navy, das Logo weiss.
 // 272 px = 2x der 136-px-Darstellung; die 400-px-Datei zaehlte im Perf-Budget als "oversized".
-import logo from '../../assets/polarisdx_logo-272w.webp'
+import logo from '../../assets/polaris_white-272w.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useKeyboardDismiss } from '../../hooks/useKeyboardDismiss'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
@@ -134,9 +134,9 @@ const navItems: NavItem[] = [
  * ueber dem Navy-Hero als auch als Navy-Flaeche auftritt.
  */
 const NAV_LINK =
-  'flex min-h-[44px] items-center gap-1 rounded-sm text-heading transition-all duration-300 ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ' +
-  'focus-visible:ring-offset-2 focus-visible:ring-offset-paper motion-reduce:transition-none'
+  'flex min-h-[44px] items-center gap-1 rounded-sm text-white transition-all duration-300 ' +
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
+  'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep motion-reduce:transition-none'
 
 /** Eintrag in einem geoeffneten Menue — hell, mit eigenem Fokusring. */
 const MENU_LINK =
@@ -146,13 +146,13 @@ const MENU_LINK =
 
 /** Mobiler Navigationslink: 44px Trefferflaeche plus sichtbarer Fokusring. */
 const MOBILE_LINK =
-  'flex min-h-[44px] items-center rounded-sm font-medium tracking-wide text-heading ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ' +
-  'focus-visible:ring-offset-2 focus-visible:ring-offset-paper'
+  'flex min-h-[44px] items-center rounded-sm font-medium tracking-wide text-white ' +
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
+  'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
 
 /** Die Sales-Machine-Unterstreichung: aktiv ausgefahren, sonst auf Hover. */
 const underline = (active: boolean) =>
-  `relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-current ` +
+  `relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-accent-line ` +
   `after:transition-transform after:duration-300 after:content-[''] ` +
   `hover:after:origin-bottom-left hover:after:scale-x-100 motion-reduce:after:transition-none ` +
   (active
@@ -288,15 +288,18 @@ const Header = () => {
 
         SICHTBARE AENDERUNG — gehoert in die AP27-Referenzbilder.
 
-        RELAUNCH 2026-10-15 (SC-001): Die Kopfzeile ist jetzt HELL — Papierflaeche
-        mit Navy-Schrift (12,2:1), kein Schleier mehr noetig. Fokusringe sind navy
-        mit Papier-Versatz; die dunkle Logo-Datei ersetzt die weisse.
+        RELAUNCH 2026-10-15 (SC-001): Die Kopfzeile war kurz HELL (Papierflaeche).
+
+        AP34 / SC-002 (2026-10-15): Die Kopfzeile ist wieder NAVY — jetzt deckend
+        statt Schleier, weil PolarisDX ueber Navy erkannt wird (Owner-Entscheidung).
+        Weiss auf `brand-deep` 12,6:1, Fokusringe weiss mit Navy-Versatz, aktive
+        Unterstreichung im Signet-Cyan. Die Aufklapp-Menues bleiben hell.
       */}
       <header
         className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'bg-paper/90 shadow-[0_4px_30px_rgba(8,51,88,0.08)] backdrop-blur-xl border-b border-paper-line'
-            : 'bg-paper/85 backdrop-blur-sm'
+            ? 'bg-brand-deep shadow-[0_4px_30px_rgba(0,0,0,0.25)] border-b border-white/10'
+            : 'bg-brand-deep border-b border-white/5'
         }`}
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
@@ -309,13 +312,16 @@ const Header = () => {
               Native Semantik zuerst: der Alternativtext benennt den Link. */}
           <Link
             to="/"
-            className="flex min-h-[44px] shrink-0 items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="flex min-h-[44px] shrink-0 items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
           >
             <img
               src={logo}
               alt={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
               width={136}
               height={40}
+              // AP34: `low` haelt React davon ab, fuer das 4,8-KB-Logo einen eigenen
+              // Preload in den <head> zu schreiben — der Platz gehoert dem LCP-Foto.
+              fetchPriority="low"
               className="h-10 w-auto sm:h-12 transition-all duration-300"
             />
           </Link>
@@ -323,7 +329,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-8 text-heading`}
+            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-8 text-white`}
           >
             {navItems.map((item) => {
               const active = isItemActive(item, location.pathname)
@@ -367,7 +373,7 @@ const Header = () => {
                           defaultValue: `${t(`nav.${item.label}`)} — Untermenü`,
                         })}
                         onClick={() => setOpenSubmenu(expanded ? null : item.label)}
-                        className="inline-flex h-11 w-6 items-center justify-center rounded text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                        className="inline-flex h-11 w-6 items-center justify-center rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
                       >
                         <ChevronDown
                           className={`h-4 w-4 transition-transform duration-300 motion-reduce:transition-none ${expanded ? 'rotate-180' : ''}`}
@@ -481,13 +487,13 @@ const Header = () => {
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-heading transition-all duration-300 hover:bg-paper-deep motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white transition-all duration-300 hover:bg-white/10 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
               aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-4 w-4" />
             </button>
 
-            <LanguageSwitcher className="text-heading" />
+            <LanguageSwitcher className="text-white" />
 
             {/* GENERAL_SALES — der eine allgemeine Anfrageweg (DEC-RL-013).
                 Vorher stand hier `nav.contact` ("Kontakt"): eine
@@ -499,7 +505,7 @@ const Header = () => {
               <Button
                 to="/contact"
                 data-cta-role="GENERAL_SALES"
-                variant="secondary"
+                variant="light"
                 size="sm"
                 className="shadow-card"
               >
@@ -513,18 +519,18 @@ const Header = () => {
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
               aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-5 w-5" />
             </button>
 
-            <LanguageSwitcher className="text-heading" isMobile />
+            <LanguageSwitcher className="text-white" isMobile />
 
             <button
               ref={mobileToggleRef}
               type="button"
-              className={`flex h-11 w-11 items-center justify-center rounded-full border border-paper-line bg-white text-heading transition-colors duration-300 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-colors duration-300 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
               onClick={() => {
                 if (!mobileMenu.isOpen) setOpenSubmenu(null)
                 mobileMenu.onToggle()
@@ -535,9 +541,9 @@ const Header = () => {
               {/* AP24 PT24.1: der `sr-only`-Span wiederholte nur das
                   `aria-label` und trug nichts zum Namen bei. */}
               <div className="space-y-1.5">
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-heading`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-heading`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-heading`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
+                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
               </div>
             </button>
           </div>
@@ -548,7 +554,7 @@ const Header = () => {
           <nav
             ref={mobileNavRef}
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`md:hidden overflow-y-auto max-h-[80vh] border-t border-paper-line bg-paper shadow-card transition-all duration-300`}
+            className={`md:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-xl transition-all duration-300`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
               {navItems.map((item) => {
@@ -558,7 +564,7 @@ const Header = () => {
                   <div
                     key={item.label}
                     data-submenu-scope={item.label}
-                    className="border-b border-paper-line pb-2 last:border-0 last:pb-0"
+                    className="border-b border-white/10 pb-2 last:border-0 last:pb-0"
                   >
                     <div className="flex items-center justify-between gap-2">
                       {/* Der Punkt selbst ist IMMER ein Link — auch wenn er
@@ -583,7 +589,7 @@ const Header = () => {
                       {hasSubmenu(item) && (
                         <button
                           type="button"
-                          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
                           onClick={() => setOpenSubmenu(expanded ? null : item.label)}
                           aria-expanded={expanded}
                           data-submenu-trigger={item.label}
@@ -605,14 +611,14 @@ const Header = () => {
                         Spalten und keine feste Breite — genau daraus entsteht
                         sonst horizontaler Ueberlauf auf schmalen Geraeten. */}
                     {hasSubmenu(item) && expanded && (
-                      <div className="mt-3 space-y-3 border-l-2 border-paper-line pl-4">
+                      <div className="mt-3 space-y-3 border-l-2 border-white/20 pl-4">
                         {item.groups?.map((group) => (
                           <div key={group.heading} className="space-y-1">
                             {/* AP24 PT24.4: `text-white/50` liegt auf der Navy
                                 des Menues bei 4,38:1 — knapp unter den 4,5:1
                                 fuer Fliesstext, und 11px ist kein grosser Text.
                                 `white/70` bringt 7,1:1. */}
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-700">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
                               {t(`nav.${group.heading}`)}
                             </p>
                             {group.items.map((child) => (
@@ -622,7 +628,7 @@ const Header = () => {
                                 aria-current={
                                   isExactPage(child.route, location.pathname) ? 'page' : undefined
                                 }
-                                className={`${MOBILE_LINK} text-base font-normal text-gray-700`}
+                                className={`${MOBILE_LINK} text-base font-normal text-white/75`}
                                 onClick={mobileMenu.onClose}
                               >
                                 {t(`nav.${child.label}`)}
@@ -638,7 +644,7 @@ const Header = () => {
                             aria-current={
                               isExactPage(child.route, location.pathname) ? 'page' : undefined
                             }
-                            className={`${MOBILE_LINK} text-base font-normal text-gray-700`}
+                            className={`${MOBILE_LINK} text-base font-normal text-white/75`}
                             onClick={mobileMenu.onClose}
                           >
                             {t(`nav.${child.label}`)}
@@ -649,7 +655,7 @@ const Header = () => {
                           <Link
                             to={item.route}
                             onClick={mobileMenu.onClose}
-                            className={`${MOBILE_LINK} text-base font-semibold text-accent-strong`}
+                            className={`${MOBILE_LINK} text-base font-semibold text-accent-on-dark`}
                           >
                             {t(`nav.${item.hubLabel}`)} <span aria-hidden="true">→</span>
                           </Link>
@@ -661,7 +667,7 @@ const Header = () => {
                                 des Menues bei 4,38:1 — knapp unter den 4,5:1
                                 fuer Fliesstext, und 11px ist kein grosser Text.
                                 `white/70` bringt 7,1:1. */}
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-700">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
                               {t('nav.group_crosslink')}
                             </p>
                             {item.crosslinks.map((cross) => (
@@ -669,7 +675,7 @@ const Header = () => {
                                 key={cross.label}
                                 to={cross.route}
                                 onClick={mobileMenu.onClose}
-                                className={`${MOBILE_LINK} text-base font-normal text-gray-700 underline decoration-from-font underline-offset-2`}
+                                className={`${MOBILE_LINK} text-base font-normal text-white/75 underline decoration-from-font underline-offset-2`}
                               >
                                 {t(`nav.${cross.label}`)}
                               </Link>
@@ -687,7 +693,7 @@ const Header = () => {
                   data-cta-role="GENERAL_SALES"
                   className="w-full justify-center shadow-card"
                   onClick={mobileMenu.onClose}
-                  variant="secondary"
+                  variant="light"
                 >
                   {t('nav.cta_quote')}
                 </Button>

@@ -73,8 +73,7 @@ const FinalCtaSection = ({
       id="los-gehts"
       className="scroll-mt-[124px] lg:scroll-mt-[148px] bg-paper px-4 pb-20 text-white lg:px-0 lg:pb-24"
     >
-      <div className="relative mx-auto max-w-container overflow-hidden rounded-band bg-brand-deep px-6 py-20 text-center sm:px-12 lg:py-24">
-        <div className="pointer-events-none absolute -bottom-40 -right-20 h-[420px] w-[420px] rounded-full bg-accent-on-dark/20 blur-3xl" />
+      <div className="brand-ring mx-auto max-w-container rounded-band bg-brand-deep px-6 py-20 text-center sm:px-12 lg:py-24">
         <p className="relative text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
           {t('final_cta.caption', 'Bereit loszulegen')}
         </p>
@@ -88,12 +87,7 @@ const FinalCtaSection = ({
           )}
         </p>
         <div className="relative mt-10 flex flex-wrap justify-center gap-4">
-          <Button
-            to={primaryTarget}
-            variant="secondary"
-            {...homepageAttribution}
-            className="!bg-accent-strong hover:!brightness-110 focus-visible:!ring-accent"
-          >
+          <Button to={primaryTarget} variant="light" {...homepageAttribution}>
             {t('final_cta.cta_primary', 'Angebot anfragen')}
           </Button>
           <Button to={roiTo} variant="outline">
@@ -102,15 +96,15 @@ const FinalCtaSection = ({
         </div>
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-            <Check size={13} className="text-accent-line" aria-hidden />
+            <Check size={13} className="text-accent-on-dark" aria-hidden />
             {t('final_cta.chips.free', 'Unverbindliche Anfrage')}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-            <Check size={13} className="text-accent-line" aria-hidden />
+            <Check size={13} className="text-accent-on-dark" aria-hidden />
             {t('final_cta.chips.reply', 'Persönliche Beratung')}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-            <Check size={13} className="text-accent-line" aria-hidden />
+            <Check size={13} className="text-accent-on-dark" aria-hidden />
             {t('final_cta.chips.delivery', 'In 10 Sprachen verfügbar')}
           </span>
         </div>

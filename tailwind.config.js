@@ -111,17 +111,22 @@ export default {
         // Der frühere Alias "gray-900" (#203864) wurde entfernt — es gibt
         // seitenweit nur noch #083358 (identisch mit brand.deep / brand.navy).
         heading: '#083358',
-        // Accent scale — same tones as the marketing brief presentation.
-        // Canonical: accent = teal-600 (#0d9488). Use `bg-accent`, `text-accent`
-        // for the DEFAULT; `bg-accent-strong`, `bg-accent-line`, `bg-accent-soft`,
-        // `bg-accent-border`, `bg-accent-on-dark` for the specific shades.
+        // Accent scale — Logo-Blauspektrum (AP34 / SC-002, 2026-10-15).
+        // Bis SC-002 war der Akzent Teal (#0d9488 ff.). Der Owner hat das
+        // Blauspektrum des PolarisDX-Signets als Markenakzent festgelegt; die
+        // Token-NAMEN bleiben, damit kein Call-Site-Umbau noetig ist.
+        // Gemessene Kontraste (WCAG 2.x):
+        //   DEFAULT  #1b67b1  Weiss 5,80 · paper 5,25 · paper.deep 4,86
+        //   strong   #15589a  Weiss 7,26 · paper 6,57 · soft 6,50
+        //   on-dark  #8fd8fb  auf Navy #083358 8,24
+        //   line     #02a6e3  nur Dekor (Weiss 2,78) · auf Navy 4,66
         accent: {
-          DEFAULT: '#0d9488', // teal-600
-          strong: '#0f766e', // teal-700 — eyebrow text, hover emphasis
-          line: '#14b8a6', // teal-500 — underline accents, decorative lines
-          soft: '#f0fdfa', // teal-50  — pill backgrounds, soft tints
-          border: '#99f6e4', // teal-200 — pill borders
-          'on-dark': '#2dd4bf', // teal-400 — DER Akzent auf Navy (AA 6,9:1)
+          DEFAULT: '#1b67b1', // Signet-Royalblau — Flaechen, Icons, Pfeil-Kreise
+          strong: '#15589a', // Eyebrow-Text, Links, Hover-Betonung
+          line: '#02a6e3', // Signet-Cyan — Punkte, Linien, Dekor
+          soft: '#e6f5fc', // Pillen- und Icon-Kachel-Flaechen
+          border: '#b9e4f7', // Pillen-Rahmen
+          'on-dark': '#8fd8fb', // DER Akzent auf Navy (8,24:1)
         },
         // Success / health semantic group — kept SEPARATE from accent because
         // emerald tones in S3-Leitlinie and Vitamin D3-Implantologie carry a

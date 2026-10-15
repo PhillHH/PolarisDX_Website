@@ -48,12 +48,25 @@ for (const locale of SUPPORTED_LANGUAGES) {
     await expect(secondary).toHaveAttribute('href', `/${locale}/diagnostics`)
     expect((await page.request.get(`/${locale}/diagnostics`)).status()).toBe(200)
 
+    // AP34 / SC-002: the localized product image is a lazy 320-px cutout in the
+    // visual card; the decorative Editorial photo carries the LCP priority.
     const image = hero.getByRole('img', { name: resources[locale].hero.visual_alt })
-    await expect(image).toHaveAttribute('width', '650')
-    await expect(image).toHaveAttribute('height', '650')
-    await expect(image).toHaveAttribute('fetchpriority', 'high')
+    await expect(image).toHaveAttribute('width', '320')
+    await expect(image).toHaveAttribute('height', '320')
+    await expect(image).toHaveAttribute('loading', 'lazy')
+    await image.scrollIntoViewIfNeeded()
+    await expect
+      .poll(() =>
+        image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0),
+      )
+      .toBe(true)
+
+    const photo = hero.locator('[data-home-hero-photo] img')
+    await expect(photo).toHaveAttribute('fetchpriority', 'high')
+    await expect(photo).toHaveAttribute('loading', 'eager')
+    await expect(photo).toHaveAttribute('alt', '')
     expect(
-      await image.evaluate(
+      await photo.evaluate(
         (element: HTMLImageElement) => element.complete && element.naturalWidth > 0,
       ),
     ).toBe(true)

@@ -27,6 +27,54 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-15 — AP34 PT34.1 (SC-002) · Editorial: Navy-Kopfzeile, Logo-Blau, Bühnenfoto (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Entscheidung SC-002 (`building-docs/SCOPE-CHANGELOG.md`): Variante C „Editorial"
+  aus `wireframes/relaunch-entwurf-3-varianten/`, blaue statt weiße Kopfzeile, eigene Markenfarben;
+  umgesetzt als PT34.1 des neuen Arbeitspakets AP34.
+- **Geändert (Token-Werte, keine Namen):** `accent` `#0d9488` → `#1b67b1` · `accent.strong` `#0f766e` →
+  `#15589a` · `accent.line` `#14b8a6` → `#02a6e3` · `accent.soft` `#f0fdfa` → `#e6f5fc` ·
+  `accent.border` `#99f6e4` → `#b9e4f7` · `accent.on-dark` `#2dd4bf` → `#8fd8fb` — das Blauspektrum des
+  Signets. `PALETTE_HEX` mitgepflegt (DS-CL-5); Teal-Rohwerte in `public/og-image.svg`,
+  `scripts/og-image-template.html` (OG-Bild neu gerendert) und im ROI-PDF-Untertitel ersetzt.
+  Kontraste siehe DESIGN-SYSTEM-CONTRACT §3.2 — jede Akzent-Textrolle ist kontraststärker als vorher.
+- **Geändert (Komponenten, gleiche Exporte):** `Button` — neue Variante `light` (weiße Pille für Navy-
+  und Fotoflächen, Fokusring weiß mit Navy-Versatz). `Header` — deckende Navy-Kopfzeile, weißes Logo
+  als 272-px-Datei (`polaris_white-272w.webp`, 4,8 KB), weiße Fokusringe, aktive Unterstreichung
+  `accent.line`, CTA `light`, mobiles Menü Navy; Aufklapp-Menüs bleiben hell. `TrustBar` — überlappt
+  die Bühne, mobil 2 × 2. `FinalCtaSection` — CTA `light`, Punktring `.brand-ring` statt Glow.
+- **Startseite:** Hero „Editorial" mit art-directed Bühnenfoto (`src/assets/home/hero-*`, Verlauf und
+  Punktring eingebacken, Desktop 2:1 / Mobil 4:9, AVIF, mobil zusätzlich WebP) als LCP-Bild; Produkt als 320-px-Bild in
+  einer Karte nach den CTAs; Fachbereich-Einstiege als Foto-Karten (Fotos aus dem SC-001-Mosaik); das
+  vierte Mosaikfoto (`lab-tubes-*`) und die Klassen `.home-tile*` entfallen.
+- **Tests mitgeändert, nicht geschwächt:** `HeroSection.test.tsx`, `e2e/home-hero.spec.ts` und
+  `e2e/home-faq-seo-integration.spec.ts` (PT11.6) prüfen Bühnenfoto (einziges eager-/Vorrang-Bild,
+  `alt=""`, Maße, Quellen-Typen) und Produktbild (lazy, 320×320, lokalisierter Alt-Text, geladen)
+  getrennt; `main img[loading="eager"]` bleibt genau 1, `img[fetchpriority="high"]` seitenweit genau 1.
+- **Perf-Budget (PT25.5, nicht gelockert):** Startseite Bild 53,8 KB mobil / 77,2 KB desktop (Budget
+  87,2 KB), LCP-Element jetzt das Bühnenfoto (14,8 KB mobil / 12,1 KB desktop, Budget 19,0 KB). Damit
+  die mobile LCP im Lab-Profil hält (vorher Text, jetzt Bild unter 1,6-Mbit/s-Drosselung: 1 010 ms >
+  920 ms), setzt der Hero per React-`preload()` einen frühen, nur mobilen Bild-Preload vor die
+  Modul-Preloads (danach 752–764 ms); das Kopfzeilen-Logo ist `fetchpriority="low"`, damit React keinen
+  konkurrierenden Bild-Preload schreibt. Fachbereich-Fotos als 4:3-Zuschnitte 400w/800w statt
+  quadratisch 480w (Desktop −4 KB). HTML 33,9 KB de / 33,4 KB en / 34,2 KB pl — knapp unter Budget
+  (Puffer ~60 Byte): Desktop-Bühne nur AVIF, Standard-`sizes` entfallen.
+- **A11y-Nachmessung:** Fokusringe `ring-accent` mit Navy-Versatz (Subpage-Hero, Kontakt-Hero) auf
+  `ring-accent-on-dark` (Royal auf Navy 2,23:1 → 8,24:1, PT24.3); 404-Ziffer auf `accent-on-dark`
+  (2,22:1 → 8,24:1, PT24.6 axe).
+- **Betroffene Screenshots (26):** `pt27.6-visual` 19 von 21 — alle außer `consumer-spray-desktop/-mobile`:
+  `article`, `contact`, `cookie-banner`, `diagnostics-hub`, `diagnostics-megamenu-open`, `epigenetics-hub`,
+  `epigenetics-panel`, `home-desktop`, `home-mobile`, `igloo-pro`, `legal-privacy`, `musterbefund`,
+  `navigation-open-mobile`, `not-found`, `resource-center`, `resource-gate-open`, `search-dialog-open`,
+  `service-detail`, `support` (Navy-Kopfzeile, Logo-Blau). `design-system` 7 von 28 — `tokens-color`
+  (desktop/mobil, neue Akzentwerte), `final-cta-articles` (desktop/mobil, Pille `light`, Punktring),
+  `longform-service` (desktop/mobil) und `hero-diagnostics` (desktop) wegen Kopfzeile und Akzent.
+- **Plattform:** aufgenommen im gepinnten Image `mcr.microsoft.com/playwright:v1.57.0-noble` mit
+  `--update-snapshots`, danach ohne Update bestätigt: PT27.6 21/21, Design-System 35/35. Gates: Vitest
+  1110/1110, Kern-E2E 163/163, A11y PT24.1–24.6 118/41/31/20/45/25, Perf PT25.5 Profil ci 852/852 und
+  Profil lab (Startseite) 168/168, alle Guards grün.
+- **Reviewer:** Owner-Abnahme der Umsetzung gegen Variante C steht aus (PT34.4).
+
 ### 2026-10-15 — Relaunch SC-001 · Papierfläche, Fotografie, Pillen (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Entscheidung SC-001 (`building-docs/SCOPE-CHANGELOG.md`): der Stand wirkte für

@@ -6,8 +6,8 @@
       <stop offset="100%" style="stop-color:#083358"/>
     </linearGradient>
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0d9488"/>
-      <stop offset="100%" style="stop-color:#2dd4bf"/>
+      <stop offset="0%" style="stop-color:#1b67b1"/>
+      <stop offset="100%" style="stop-color:#02a6e3"/>
     </linearGradient>
     <!-- Subtle pattern overlay -->
     <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">

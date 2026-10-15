@@ -295,7 +295,7 @@ const ContactPage = () => {
           <div className="mt-10 flex justify-center">
             <a
               href={FORM_ANCHOR}
-              className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+              className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
             >
               {t('contact.hero.cta_primary')}
             </a>

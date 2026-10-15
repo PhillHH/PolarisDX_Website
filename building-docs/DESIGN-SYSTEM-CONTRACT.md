@@ -80,21 +80,31 @@ einführen will, verletzt `DEC-RL-003`. Das ist kein Design-, sondern ein Scope-
 ersetzen `slate-50/100/200` außerhalb der Musterbefund-Seiten. Dekor, nie Bedienelement-Begrenzung
 (dafür bleibt `ui.field`). Gemessen auf `paper`: `heading` 12,2:1 · `gray-700` 9,1:1 ·
 `accent.strong` 4,95:1 · `ui.field` 4,59:1 — alle AA. Schaltflächen sind Pillen (`rounded-full`),
-Karten `rounded-card` (22 px), große Bänder `rounded-band` (34 px). Die Kopfzeile ist hell.
+Karten `rounded-card` (22 px), große Bänder `rounded-band` (34 px).
+
+**AP34 / SC-002 (2026-10-15) — „Editorial":** Die Kopfzeile ist **Navy** (`brand.deep`, deckend)
+mit weißem Logo; die helle Kopfzeile aus SC-001 entfällt. Weiß auf Navy 12,6:1, Fokusringe weiß mit
+Navy-Versatz, aktive Unterstreichung `accent.line`, Aufklapp-Menüs bleiben hell. Seitenbühnen tragen
+höchstens ein art-directed Foto mit eingebackenem Navy-Verlauf (LCP-Bild, budgetgeprüft). Auf Navy-
+und Fotoflächen ist die primäre Schaltfläche die weiße Pille (`Button variant="light"`). Navy-Bänder
+können den Punktring des Signets als Dekor tragen (`.brand-ring`).
 
 ### 3.2 Akzent — genau einer
 
-| Token            | Hex       | Rolle                                        | Kontrast                                                  |
-| ---------------- | --------- | -------------------------------------------- | --------------------------------------------------------- |
-| `accent.DEFAULT` | `#0d9488` | Primär-CTA-Fläche, Icon-Tiles, Akzentflächen | 3,74:1 auf Weiß → **Flächen/Große Typo, nicht Fließtext** |
-| `accent.strong`  | `#0f766e` | Akzent-**Text** auf hell, Hover-Emphasis     | 5,47:1 → AA-Text                                          |
-| `accent.line`    | `#14b8a6` | dekorative Linien, Unterstreichungen         | 2,49:1 → **nur Dekor**                                    |
-| `accent.soft`    | `#f0fdfa` | Pill-/Tint-Flächen                           | Fläche                                                    |
-| `accent.border`  | `#99f6e4` | Pill-Ränder                                  | Dekor                                                     |
-| `accent.on-dark` | `#2dd4bf` | **DER** Akzent auf Navy                      | 6,94:1 auf `#083358` → AA-Text                            |
+**AP34 / SC-002 (2026-10-15):** Der Akzent ist das **Blauspektrum des PolarisDX-Signets** und ersetzt
+Teal seitenweit. Die Token-Namen bleiben; nur die Werte wechseln.
 
-**Regel:** Akzent-**Text** auf Weiß ist `accent.strong`, nicht `accent.DEFAULT`.
-Akzent-**Text** auf Navy ist `accent.on-dark`.
+| Token            | Hex       | Rolle                                             | Kontrast                                          |
+| ---------------- | --------- | ------------------------------------------------- | ------------------------------------------------- |
+| `accent.DEFAULT` | `#1b67b1` | Signet-Royalblau: Flächen, Icons, Pfeil-Kreise    | 5,80:1 auf Weiß · 5,25:1 auf `paper` → AA-Text    |
+| `accent.strong`  | `#15589a` | Akzent-**Text** auf hell (Eyebrows, Links), Hover | 7,26:1 auf Weiß · 6,50:1 auf `accent.soft`        |
+| `accent.line`    | `#02a6e3` | Signet-Cyan: Punkte, Linien, Unterstreichungen    | 2,78:1 auf Weiß → **nur Dekor** · 4,66:1 auf Navy |
+| `accent.soft`    | `#e6f5fc` | Pill-/Icon-Kachel-Flächen                         | Fläche                                            |
+| `accent.border`  | `#b9e4f7` | Pill-Ränder                                       | Dekor                                             |
+| `accent.on-dark` | `#8fd8fb` | **DER** Akzent auf Navy                           | 8,24:1 auf `#083358` → AA-Text                    |
+
+**Regel:** Akzent-**Text** auf Weiß ist `accent.strong`. Akzent-**Text** auf Navy ist `accent.on-dark`.
+Bis SC-002 galten die Teal-Werte `#0d9488` / `#0f766e` / `#14b8a6` / `#f0fdfa` / `#99f6e4` / `#2dd4bf`.
 
 ### 3.3 Status- und Befundfarben — vom Marken-Akzent getrennt
 

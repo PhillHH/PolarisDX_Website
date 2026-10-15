@@ -55,14 +55,26 @@ describe('Homepage Hero contract', () => {
     ).toBeTruthy()
   })
 
-  it('uses one dimensioned eager image and no carousel controls', () => {
-    renderHero()
+  it('uses one decorative eager stage photo, one lazy product image and no carousel controls', () => {
+    const { container } = renderHero()
+
+    // AP34 / SC-002: the art-directed Editorial photo is the only eager,
+    // high-priority image; it is decorative and dimensioned.
+    const eager = container.querySelectorAll('img[loading="eager"]')
+    expect(eager).toHaveLength(1)
+    const photo = eager[0]
+    expect(photo).toHaveAttribute('alt', '')
+    expect(photo).toHaveAttribute('fetchpriority', 'high')
+    expect(photo).toHaveAttribute('width', '800')
+    expect(photo).toHaveAttribute('height', '1800')
+    expect(photo.closest('picture')).toHaveAttribute('data-home-hero-photo')
+    expect(container.querySelectorAll('[fetchpriority="high"]')).toHaveLength(1)
 
     const visual = screen.getByRole('img', { name: 'hero.visual_alt' })
-    expect(visual).toHaveAttribute('width', '650')
-    expect(visual).toHaveAttribute('height', '650')
-    expect(visual).toHaveAttribute('loading', 'eager')
-    expect(visual).toHaveAttribute('fetchpriority', 'high')
+    expect(visual).toHaveAttribute('width', '320')
+    expect(visual).toHaveAttribute('height', '320')
+    expect(visual).toHaveAttribute('loading', 'lazy')
+    expect(visual).not.toHaveAttribute('fetchpriority')
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
     expect(screen.queryByRole('region', { name: /carousel/i })).not.toBeInTheDocument()
   })

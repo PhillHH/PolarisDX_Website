@@ -21,7 +21,7 @@ aktueller PT-Prompt
 ```
 
 **Ein Primärtask liest nicht alle `building-docs`.** Welche Dokumente er lädt, steht in
-[`CONTEXT-INDEX.md`](CONTEXT-INDEX.md) — dort auch die vollständige Matrix AP00–AP33.
+[`CONTEXT-INDEX.md`](CONTEXT-INDEX.md) — dort auch die vollständige Matrix AP00–AP34 (AP34 über SC-002).
 
 **Gesperrte Baseline: `feat/home-leadmagnet@961f65d`.** Alle anderen Branches sind selektive Quellen.
 

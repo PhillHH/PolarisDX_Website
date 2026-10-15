@@ -1,7 +1,7 @@
 # work-packages — ein Vertrag pro Arbeitspaket
 
 - Eine Datei pro Arbeitspaket.
-- Name exakt `AP00.md` … `AP33.md`. Keine Varianten, keine Suffixe, keine Unterordner.
+- Name exakt `AP00.md` … `AP34.md` (AP34 seit SC-002). Keine Varianten, keine Suffixe, keine Unterordner.
 - `../scope/MASTER-SCOPE.md` bleibt die Scope-Autorität.
 - AP-Dateien detaillieren **nur** ihr jeweiliges Arbeitspaket und erweitern oder reduzieren den
   Master-Scope nicht.

@@ -186,16 +186,27 @@
   /* --- Relaunch SC-001: wiederkehrende Startseiten-Bausteine ---
      Einmal definiert statt viermal im HTML: das SSR-HTML der Startseite liegt
      am `htmlBytes`-Budget (PT25.5), jede Wiederholung einer Klassenkette zaehlt. */
-  .home-tile {
-    @apply relative aspect-square overflow-hidden rounded-card bg-paper-deep shadow-card;
+  /* AP34 / SC-002: Punktring des Signets als Dekor auf Navy-Baendern. Ein
+     Pseudo-Element mit der oeffentlichen Markendatei (3 KB, gecacht) statt
+     Inline-SVG — das haelt das htmlBytes-Budget der Startseite. Aufgehellt und
+     entsaettigt, damit der Ring als Struktur, nicht als Farbe wirkt. */
+  .brand-ring {
+    @apply relative isolate overflow-hidden;
   }
 
-  .home-tile-label {
-    @apply absolute bottom-2 left-2 max-w-[calc(100%-1rem)] rounded-lg bg-white px-2 py-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.08em] text-heading sm:text-[11px];
+  .brand-ring::before {
+    content: '';
+    @apply pointer-events-none absolute -z-10 aspect-square w-[min(820px,140%)] opacity-[0.16];
+    right: -32%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url('/polarisdx-mark.svg') no-repeat center / contain;
+    filter: brightness(1.9) saturate(0.4);
   }
 
+  /* Trust-Signal: mobil 2 × 2 (Icon ueber Text), ab lg eine Zeile mit vier Feldern. */
   .home-signal {
-    @apply flex items-center gap-3.5 border-b border-paper-line px-5 py-5 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0;
+    @apply flex flex-col items-start gap-2.5 border-paper-line px-4 py-4 [&:nth-child(-n+2)]:border-b [&:nth-child(odd)]:border-r sm:flex-row sm:items-center sm:gap-3.5 sm:px-5 sm:py-5 lg:border-b-0 lg:border-r lg:[&:nth-child(-n+2)]:border-b-0 lg:last:border-r-0;
   }
 
   .icon-tile {

@@ -8,6 +8,13 @@ kein `work-packages/APxx-STATE.md`).
 
 ## Current
 
+<!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
+
+- **Work package (Design, priorisiert): AP34 — Relaunch-Design „Editorial" seitenweit** · Status: **IN_PROGRESS** · Anlage: SC-002 (Owner, 2026-10-15) · Vertrag: `work-packages/AP34.md`
+- AP34: PT34.1: **PASS (2026-10-15)** — Navy-Kopfzeile, Logo-Blau-Akzent, Editorial-Startseite; Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.1); offener Altbefund außerhalb AP34: `e2e/befunde-navigation.spec.ts` PT16.3 „Inquiry“ (zwei `role=status`, identisch auf dem Vorstand) · PT34.2: **NOT STARTED** · PT34.3: **NOT STARTED** · PT34.4: **NOT STARTED** · AP34-CLOSURE: **NOT STARTED**
+- Next task: **PT34.2 — Bereichs-Hubs und Produkt** · danach PT34.3, PT34.4, AP34-CLOSURE, dann AP28
+- Hinweis: Die AP27-Zeilen unten stammen aus dem Stand vor den Commits „AP27-CLOSURE: …" und wurden in AP34 nicht neu bewertet.
+
 - Work package: **AP27 — Teststrategie, Regression und Quality Gates**
 - Status: **IN_PROGRESS** <!-- NOT_STARTED | IN_PROGRESS | BLOCKED | COMPLETE -->
 - Vorgaenger AP26: **COMPLETE — mit akzeptiertem Risiko (COMPLETE_WITH_ACCEPTED_RISK)**; AP26 Closure: **PASS_WITH_WAIVER (AP26-WAIVER-01, 2026-09-15)** — kein uneingeschraenktes PASS

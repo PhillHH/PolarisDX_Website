@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Farb-Guard: erzwingt EINE Navy (#083358) und EINEN Akzent (Teal #0d9488).
+ * Farb-Guard: erzwingt EINE Navy (#083358) und EINEN Akzent (Logo-Blau #1b67b1, SC-002).
  *
  * Geprüft werden alle Flächen, die Marke transportieren:
  *   src/**\/*.{ts,tsx,css} · tailwind.config.js · server.ts (SSR-Fehlerseite)
@@ -36,11 +36,11 @@ const PALETTE_HEX = new Set([
   '#0a3f63', // brand.navy-hover / navy-mid
   '#0d527f', // brand.primary / brand.blue / accentBlue — sekundaeres Markenblau
   '#2f6fa0', // brand.secondary / blue-bright
-  '#0d9488', // accent (teal-600) — DER Akzent
-  '#0f766e', // accent.strong
-  '#14b8a6', // accent.line
-  '#2dd4bf', // accent.on-dark — Teal auf Navy
-  '#99f6e4', // accent.border
+  '#1b67b1', // accent — Signet-Royalblau, DER Akzent (AP34 / SC-002)
+  '#15589a', // accent.strong
+  '#02a6e3', // accent.line — Signet-Cyan
+  '#8fd8fb', // accent.on-dark — Akzent auf Navy
+  '#b9e4f7', // accent.border
   // Befund-Ampel (aus den Quell-PDFs gemessen, nur Musterbefund-Seiten)
   '#c8553d', // befund.red
   '#fcf5f4', // befund.red.soft
@@ -51,7 +51,7 @@ const PALETTE_HEX = new Set([
   '#3e8e6b', // befund.green
   '#f1f9f5', // befund.green.soft
   '#377d5e', // befund.green.ink
-  '#f0fdfa', // accent.soft
+  '#e6f5fc', // accent.soft
   '#10b981', // success
   '#047857', // success.strong
   '#ecfdf5', // success.soft
@@ -221,5 +221,5 @@ if (violations.length) {
 }
 
 console.log(
-  '✓ Farb-Guard: eine Navy (#083358), ein Akzent (Teal), kein Raw-Hex, keine Fremd-rgb().',
+  '✓ Farb-Guard: eine Navy (#083358), ein Akzent (Logo-Blau), kein Raw-Hex, keine Fremd-rgb().',
 )

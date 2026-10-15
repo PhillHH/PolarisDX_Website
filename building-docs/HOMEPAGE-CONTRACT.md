@@ -36,22 +36,34 @@ hardening remain AP22-owned and are not claimed as complete.
 
 ### 2.2 Visual and LCP strategy
 
-- Asset: existing approved product cutout `src/assets/Igloo-pro-frontal.webp`.
-- The visual shows the actual IglooPro reader. **SC-001 (2026-10-15):** it sits inside a photo mosaic
-  of four practice/lab motifs (`src/assets/home/`, Unsplash licence, served locally as AVIF/WebP at
-  240/480 px, decorative `alt=""`, lazy). No generated asset is used; the product cutout stays the
-  only eager, high-priority image.
-- One image is rendered and one matching image is preloaded by `SEOHead`; the former mismatched
-  `hero_doctor.webp` preload and four-slide carousel were removed. React 19 derives the preload from
-  the eager, high-priority image during SSR; `HomePage` carries no duplicate manual preload list.
-- Intrinsic `650 × 650` dimensions reserve the square image area; `object-contain` preserves it.
-- Only this visible Hero image uses `loading=eager` and `fetchPriority=high`; no competing eager Hero
-  media, slider timers or animation dependencies remain.
-- The asset is a compressed WebP (repository evidence: approximately 19 kB).
+**AP34 / SC-002 (2026-10-15) — Editorial stage.** Supersedes the SC-001 photo mosaic.
+
+- Stage: one art-directed practice photograph (`src/assets/home/hero-*`, Unsplash licence, served
+  locally) with the navy gradient and the PolarisDX dot ring baked into the file. Desktop crop 2:1 from
+  1024 px (1440w / 2400w, AVIF only), mobile crop 4:9 below 1024 px (800w / 1200w, AVIF plus the
+  WebP `<img>` fallback) via `<picture data-home-hero-photo>` with `media` sources. Browsers without
+  AVIF fall back to the mobile WebP. The photo is decorative (`alt=""`). A mobile-only, early
+  `<link rel="preload" as="image" fetchpriority="high" media="(max-width: 1023px)">` (React
+  `preload()`) starts the request before the module preloads; the header logo is
+  `fetchpriority="low"` so React writes no competing image preload.
+- The stage photo is the LCP element on every viewport and the page's only `loading=eager` /
+  `fetchpriority=high` image. Its first candidates measure 12.4 KB (desktop AVIF) and 15.1 KB (mobile
+  AVIF), inside the unchanged `lcpImageBytes` budget of 19 438 B. Intrinsic `width`/`height` are set.
+- On phones the photo sits at its natural height at the bottom of the stage, so caption, headline,
+  benefit and both actions always stand on flat navy; on desktop it covers the stage
+  (`object-[center_35%]`) and the text side is the darkest part of the baked gradient.
+- The IglooPro product keeps its locale-aware alt text (`hero.visual_alt`) as a 320-px cutout
+  (`src/assets/home/Igloo-pro-frontal-320w.webp`, 7 KB) inside a white card after both actions. It is
+  `loading=lazy` because the card lies below the fold on phones; the card carries no link. Its copy
+  reuses the existing strings `business_pillars.pillars.igloo.title` / `.text` (claim `HCL-008`,
+  unchanged wording); no new claim enters the Hero.
+- No generated asset, no carousel, no slider timers, no animation dependency.
 
 ### 2.3 Mobile and accessibility hierarchy
 
-DOM and mobile order are: caption → H1 → core benefit → primary CTA → secondary CTA → visual.
+DOM and mobile order are: caption → H1 → core benefit → primary CTA → secondary CTA → visual
+(product card). The decorative stage `<picture>` precedes the content in the DOM but is absolutely
+positioned behind it and has no accessible name.
 Content therefore precedes media at every breakpoint. Both actions are semantic links, inherit the
 Button component's minimum 44 px target and focus-visible styling, and have distinct accessible
 names. The product image has locale-aware alt text. Decorative glows are non-interactive and hidden

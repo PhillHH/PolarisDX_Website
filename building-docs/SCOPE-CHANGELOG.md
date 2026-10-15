@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-002 — AP34 „Editorial": Navy-Kopfzeile, Logo-Blau als Akzent, Bühnenfoto
+
+- **Datum:** 2026-10-15
+- **Status:** ACCEPTED
+- **Betroffene IDs:** DEC-RL-002 (Art Direction, Bildsprache), SC-001, neues Arbeitspaket AP34 (vor AP28), HOMEPAGE-CONTRACT §2.2/§2.3, DESIGN-SYSTEM-CONTRACT §3.1/§3.2, AP06 (Kopfzeile), AP27 (Baselines)
+- **Vorheriger Zustand:** SC-001: helle Kopfzeile mit dunklem Logo, Teal-Akzent (`accent` #0d9488 ff.), Hero als Foto-Mosaik um das 650×650-Produktbild (Produktbild = LCP, eager, `fetchpriority=high`); Arbeitspakete AP00–AP33, als nächstes AP28.
+- **Neuer Zustand:** Navy-Kopfzeile (deckend) mit weißem Logo; `accent`-Skala auf das Blauspektrum des Signets (Royal #1b67b1, #15589a, Cyan #02a6e3, #e6f5fc, #b9e4f7, auf Navy #8fd8fb), Token-Namen unverändert; Startseiten-Hero als „Editorial"-Bühne: ein art-directed Praxisfoto mit eingebackenem Navy-Verlauf und Punktring ist LCP-Bild (eager, `fetchpriority=high`, `alt=""`), das Produkt steht als 320-px-Bild mit unverändertem Alt-Text in einer Karte nach den CTAs; Fachbereich-Einstiege als Foto-Karten; Trust-Leiste überlappt die Bühne; weiße Pille `Button variant="light"` auf Navy. Neues Arbeitspaket **AP34 — Relaunch-Design „Editorial" seitenweit** (PT34.1–PT34.4 + Closure) wird vor AP28 abgearbeitet.
+- **Begründung:** Der Owner wählte am 2026-10-15 aus vier Startseiten-Varianten (`wireframes/relaunch-entwurf-3-varianten/`) die Variante C „Editorial", verlangte eine blaue statt weiße Kopfzeile („weil wir mit Blau in Verbindung gebracht werden"), die eigenen Markenfarben und das Durchziehen des Stils über die ganze Seite in Arbeitspaketen; Design vor den übrigen APs.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner (Phillip), 2026-10-15, im Arbeitsauftrag.
+- **Auswirkung auf Scope:** Keine neuen Inhalte, Claims, Routen oder Journeys. Die Hero-Produktkarte nutzt die bestehenden Strings von `HCL-008`. AP34 ist ein reines Gestaltungs-AP; AP28–AP33 bleiben unverändert und folgen nach der AP34-Closure.
+- **Auswirkung auf Abhängigkeiten:** Inter bleibt. Befund-Ampel, Erfolgs-/Warnfarben und Consumer-Produktbilder sind nicht Teil des Akzentwechsels; Consumer-Seiten übernehmen den Akzent über dieselben Tokens. OG-Bild und ROI-PDF-Untertitel wechseln von Teal auf Logo-Blau.
+- **Auswirkung auf Gates:** Budgets unverändert (gemessen, nicht gelockert); die Tests zum Hero-Bild (`HeroSection.test.tsx`, `e2e/home-hero.spec.ts`, `e2e/home-faq-seo-integration.spec.ts` PT11.6) prüfen jetzt Bühnenfoto (eager, Vorrang, `alt=""`, Maße, AVIF/WebP-Quellen) und Produktbild (lazy, 320×320, lokalisierter Alt-Text) getrennt; visuelle Baselines werden im gepinnten Image neu aufgenommen und im DESIGN-SYSTEM-CHANGELOG begründet.
+- **Aktualisierte kanonische Dokumente:** `building-docs/work-packages/AP34.md` (neu), `building-docs/work-packages/README.md`, `building-docs/CONTEXT-INDEX.md`, `building-docs/state/AP-STATE.md`, `building-docs/HOMEPAGE-CONTRACT.md` (§2.2/§2.3), `building-docs/DESIGN-SYSTEM-CONTRACT.md` (§3.1/§3.2), `building-docs/DESIGN-SYSTEM-CHANGELOG.md`.
+
 ### SC-001 — Relaunch-Design-Iteration: Papierfläche, Fotografie, Pillen
 
 - **Datum:** 2026-10-15
