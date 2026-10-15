@@ -154,7 +154,14 @@ test.describe('Mobile — Tastatur und Interaktion', () => {
 
   test('Epigenetik hat auch mobil einen eigenen Eintrag', async ({ page }) => {
     await page.goto('/de/')
-    await page.getByRole('button', { name: /Navigation umschalten/i }).click()
+    // AP27-CLOSURE (PT27C-F7): Ein Klick vor der Hydration verpufft, und die Sichtbarkeit wurde
+    // einmalig direkt nach dem Klick gelesen. Ohne Retry (PT276-F6) wurde das in CI sichtbar.
+    // Deshalb erst warten, bis das Menue wirklich offen ist; die Zusicherung bleibt dieselbe.
+    const toggle = page.getByRole('button', { name: /Navigation umschalten/i })
+    await expect(async () => {
+      if ((await toggle.getAttribute('aria-expanded')) !== 'true') await toggle.click()
+      await expect(toggle).toHaveAttribute('aria-expanded', 'true', { timeout: 1000 })
+    }).toPass({ timeout: 15_000 })
 
     // Header und Mobilmenue rendern BEIDE einen Epigenetik-Link; der erste im
     // DOM gehoert der Desktop-Navigation und ist bei 390px ausgeblendet.
@@ -164,11 +171,15 @@ test.describe('Mobile — Tastatur und Interaktion', () => {
     const count = await links.count()
     expect(count).toBeGreaterThan(0)
 
-    let visible = 0
-    for (let i = 0; i < count; i++) {
-      if (await links.nth(i).isVisible()) visible++
-    }
-    expect(visible).toBeGreaterThan(0)
+    await expect
+      .poll(async () => {
+        let visible = 0
+        for (let i = 0; i < count; i++) {
+          if (await links.nth(i).isVisible()) visible++
+        }
+        return visible
+      })
+      .toBeGreaterThan(0)
 
     expect(await page.locator('header a[href="/de/diagnostics/epigenetics"]').count()).toBe(0)
   })
