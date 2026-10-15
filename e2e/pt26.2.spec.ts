@@ -113,6 +113,58 @@ async function visit(page: Page, routePath: string) {
 
 const origin = (url: string) => new URL(url).origin
 
+/** Zustand nach der Zustimmung, wenn kein Collect ankommt (nur Diagnose, kein Assert). */
+async function writeCollectDiagnosis(page: Page, seen: Capture) {
+  const state = await page
+    .evaluate(() => {
+      const w = window as unknown as {
+        dataLayer?: unknown[]
+        google_tag_manager?: Record<string, unknown>
+        google_tag_data?: { ics?: { entries?: unknown } }
+      }
+      const entries = (w.dataLayer ?? []).map((entry) => {
+        try {
+          return JSON.stringify(entry).slice(0, 400)
+        } catch {
+          return String(entry).slice(0, 400)
+        }
+      })
+      return {
+        dataLayer: entries,
+        scripts: [...document.scripts].map((script) => script.src).filter(Boolean),
+        googleTagManagerKeys: Object.keys(w.google_tag_manager ?? {}),
+        consentEntries: JSON.stringify(w.google_tag_data?.ics?.entries ?? null).slice(0, 2000),
+        cookies: document.cookie.split(';').map((cookie) => cookie.split('=')[0].trim()),
+      }
+    })
+    .catch((error: Error) => ({ evaluateError: error.message }))
+  const providers = Object.fromEntries(
+    Object.values(PROVIDER_FILES).map(({ file }) => {
+      const body = fs.existsSync(providerFile(file)) ? fs.readFileSync(providerFile(file)) : null
+      return [
+        file,
+        body
+          ? { bytes: body.length, sha256: createHash('sha256').update(body).digest('hex') }
+          : null,
+      ]
+    }),
+  )
+  fs.writeFileSync(
+    test.info().outputPath('pt262-collect-diagnose.json'),
+    JSON.stringify(
+      {
+        external: seen.external,
+        violations: seen.violations,
+        pageErrors: seen.pageErrors,
+        providers,
+        state,
+      },
+      null,
+      2,
+    ),
+  )
+}
+
 // =============================================================================
 
 test.describe('PT26.2 · Header', () => {
@@ -307,6 +359,12 @@ test.describe('PT26.2 · Consent-Netz unter der Policy', () => {
         timeout: 15_000,
       })
       .toBeGreaterThan(0)
+      .catch(async (error: unknown) => {
+        // PT276-F10: faellt nur in CI. Was der Browser bis dahin angefragt und geladen hat,
+        // landet im Artefakt `security-playwright-report`; die Zusicherung bleibt unveraendert.
+        await writeCollectDiagnosis(page, seen)
+        throw error
+      })
     await visit(page, '/de/contact')
     await page.waitForTimeout(1500)
 
