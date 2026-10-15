@@ -109,9 +109,10 @@ describe('PT23.4 · providerbezogene CSP', () => {
   it('behaelt die Origins, die der Container nachweislich braucht', () => {
     expect(direktiven).toContain('https://www.googletagmanager.com')
     expect(direktiven).toContain('https://region1.google-analytics.com')
-    // AP26 PT26.2 gemessen: das Google-Tag beider Properties sendet an `region1`;
-    // `www.google-analytics.com` wird nie angesprochen und steht deshalb nicht mehr in der Policy.
-    expect(direktiven).not.toContain('https://www.google-analytics.com')
+    // AP27-CLOSURE gemessen: ausserhalb der EU sendet das Google-Tag an `www`; der parallele
+    // Werbe-Abgleich an `www.google.com` bleibt gesperrt (Nutzerentscheidung 2026-10-15).
+    expect(direktiven).toContain('https://www.google-analytics.com')
+    expect(direktiven).not.toContain('https://www.google.com')
   })
 
   it('fuehrt weiterhin keine Chat-Domain (DEC-RL-007)', () => {

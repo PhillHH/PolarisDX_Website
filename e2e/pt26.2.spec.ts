@@ -375,14 +375,30 @@ test.describe('PT26.2 · Consent-Netz unter der Policy', () => {
     const allowed = new Set(CSP_THIRD_PARTY_SOURCES.map((source) => source.origin))
     const origins = [...new Set(seen.external.map(origin))].sort()
     expect(origins.filter((o) => !allowed.has(o))).toEqual([])
-    // Jede Allowlist-Origin wurde tatsaechlich gebraucht — kein Eintrag ohne Verwender.
-    expect(origins).toEqual([...allowed].sort())
-    // Gewollt blockiert (SECURITY-CONTRACT §8.4): der gesampelte Diagnose-Beacon des Google-Tags
-    // (`www.googletagmanager.com/a?…` als Bild). Er feuert nicht in jedem Lauf; ohne ihn bleibt die
-    // Erfassung vollstaendig. Jeder andere Verstoss ist ein Befund.
-    const diagnosticBeacon =
-      /^(img-src https:\/\/www\.googletagmanager\.com\/a\?|console: Loading the image 'https:\/\/www\.googletagmanager\.com\/a\?)/
-    const unexpected = seen.violations.filter((entry) => !diagnosticBeacon.test(entry))
+    // Google baut den Standort des Abrufers in das ausgelieferte Google-Tag ein: aus der EU sendet es
+    // an `region1`, sonst an `www` (der CI-Runner steht in den USA). Jede Auslieferung nutzt genau
+    // einen Erfassungs-Endpunkt; jede andere Allowlist-Origin wurde tatsaechlich gebraucht.
+    const regional = CSP_THIRD_PARTY_SOURCES.filter((source) => source.servedRegion)
+    const usedRegional = regional.filter((source) => origins.includes(source.origin))
+    expect(usedRegional, origins.join('\n')).toHaveLength(1)
+    expect(origins).toEqual(
+      CSP_THIRD_PARTY_SOURCES.filter(
+        (source) => !source.servedRegion || usedRegional.includes(source),
+      )
+        .map((source) => source.origin)
+        .sort(),
+    )
+    // Gewollt blockiert: der gesampelte Diagnose-Beacon des Google-Tags (`www.googletagmanager.com/a?…`
+    // als Bild, SECURITY-CONTRACT §8.4; feuert nicht in jedem Lauf) und ausserhalb der EU der parallele
+    // Werbe-Abgleich an `www.google.com/g/collect` (Nutzerentscheidung 2026-10-15). Ohne beide bleibt
+    // die Erfassung vollstaendig. Jeder andere Verstoss ist ein Befund.
+    const intentionallyBlocked = [
+      /^(img-src https:\/\/www\.googletagmanager\.com\/a\?|console: Loading the image 'https:\/\/www\.googletagmanager\.com\/a\?)/,
+      /^(connect-src https:\/\/www\.google\.com\/g\/collect\?|console: (Connecting to|Fetch API cannot load) '?https:\/\/www\.google\.com\/g\/collect\?)/,
+    ]
+    const unexpected = seen.violations.filter(
+      (entry) => !intentionallyBlocked.some((pattern) => pattern.test(entry)),
+    )
     expect(unexpected, unexpected.join('\n')).toEqual([])
     expect(seen.pageErrors, seen.pageErrors.join('\n')).toEqual([])
   })

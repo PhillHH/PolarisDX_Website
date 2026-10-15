@@ -30,6 +30,11 @@ export interface CspThirdPartySource {
   classification: 'CONSENT_ANALYTICS'
   /** Warum die Origin zur Laufzeit gebraucht wird — belegt, nicht vermutet. */
   reason: string
+  /**
+   * Nur fuer Erfassungs-Endpunkte: Google baut den Standort des Abrufers in das ausgelieferte
+   * Google-Tag ein und waehlt danach den Endpunkt. Jede Auslieferung nutzt genau einen davon.
+   */
+  servedRegion?: 'EU' | 'OUTSIDE_EU'
 }
 
 /**
@@ -51,7 +56,16 @@ export const CSP_THIRD_PARTY_SOURCES: readonly CspThirdPartySource[] = [
     directives: ['connect-src'],
     classification: 'CONSENT_ANALYTICS',
     reason:
-      'GA4-Erfassung /g/collect; das Google-Tag beider Properties (Produktion, Preview) ist auf "region1" konfiguriert',
+      'GA4-Erfassung /g/collect fuer Besucher in der EU: Google liefert das Google-Tag dort mit dem Endpunkt "region1" aus',
+    servedRegion: 'EU',
+  },
+  {
+    origin: 'https://www.google-analytics.com',
+    directives: ['connect-src'],
+    classification: 'CONSENT_ANALYTICS',
+    reason:
+      'GA4-Erfassung /g/collect fuer Besucher ausserhalb der EU (in CI gemessen, Runner in den USA); Nutzerentscheidung 2026-10-15',
+    servedRegion: 'OUTSIDE_EU',
   },
 ]
 
@@ -65,7 +79,7 @@ export const CSP_REMOVED_SOURCES = [
   'fonts.googleapis.com', // Schrift ist selbstgehostet (N-02)
   'fonts.gstatic.com', // dito
   'stats.g.doubleclick.net', // kein Werbe-Tag im Container (AP23 PT23.4)
-  'www.google-analytics.com', // GA4 sendet an region1; `www` nur ohne Regionskonfiguration
+  'www.google.com', // Werbe-Abgleich /g/collect ausserhalb der EU, bewusst gesperrt (Nutzerentscheidung 2026-10-15)
 ] as const
 
 export interface CspOptions {

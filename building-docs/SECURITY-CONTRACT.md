@@ -174,7 +174,7 @@ Einzige Quelle: `src/security/contentSecurityPolicy.ts` (`buildContentSecurityPo
 default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self';
 script-src 'self' https://www.googletagmanager.com;
 style-src 'self' 'sha256-<inline App-CSS>'; style-src-elem 'self' 'sha256-<inline App-CSS>'; style-src-attr 'unsafe-inline';
-connect-src 'self' https://region1.google-analytics.com; img-src 'self' data:; font-src 'self'; frame-src 'none'
+connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com; img-src 'self' data:; font-src 'self'; frame-src 'none'
 ```
 
 | Punkt                   | Stand                                                                                                                                                                                                                      |
@@ -191,12 +191,27 @@ connect-src 'self' https://region1.google-analytics.com; img-src 'self' data:; f
 
 ### 8.3 Third-Party-Allowlist (jede Origin mit Laufzeitgrund)
 
-| Origin                                 | Direktive     | Klasse            | Laufzeitgrund (gemessen PT26.2)                                                                                        |
-| -------------------------------------- | ------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `https://www.googletagmanager.com`     | `script-src`  | CONSENT_ANALYTICS | `gtm.js` aus dem Loader nach Zustimmung; der Container laedt `gtag/js` von derselben Origin                            |
-| `https://region1.google-analytics.com` | `connect-src` | CONSENT_ANALYTICS | GA4 `/g/collect`; Google-Tag beider Properties (Produktion, Preview) ist auf `region1` konfiguriert (`"33":"region1"`) |
+| Origin                                 | Direktive     | Klasse            | Laufzeitgrund (gemessen PT26.2)                                                                           |
+| -------------------------------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
+| `https://www.googletagmanager.com`     | `script-src`  | CONSENT_ANALYTICS | `gtm.js` aus dem Loader nach Zustimmung; der Container laedt `gtag/js` von derselben Origin               |
+| `https://region1.google-analytics.com` | `connect-src` | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe aus der EU (Google liefert das Google-Tag dort mit `"33":"region1"` aus)     |
+| `https://www.google-analytics.com`     | `connect-src` | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe ausserhalb der EU (seit AP27-CLOSURE, Nutzerentscheidung 2026-10-15, §8.3.1) |
 
 Messmethode: veroeffentlichter Container und Google-Tag einmal lesend abgerufen (oeffentliche Skripte, kein Collect), im Browser unter der durchgesetzten Policy lokal ausgeliefert; jede weitere externe Anfrage protokolliert und **abgebrochen**. Beobachtet: `gtm.js`, `gtag/js`, `region1…/g/collect` — sonst nichts, 0 Verstoesse.
+
+#### 8.3.1 Nachtrag AP27-CLOSURE (2026-10-15): Endpunkt haengt vom Standort ab
+
+- **Gemessen:** `"33":"region1"` ist **keine** Property-Einstellung. Google baut den Standort des Abrufers
+  serverseitig in das ausgelieferte `gtag/js` ein (lokal abgerufen: `"30":"DE"`, `"31":"DE-BY"`,
+  `"33":"region1"`). Der GitHub-Runner (USA) erhielt eine Variante, die an `www.google-analytics.com/g/collect`
+  und parallel an `www.google.com/g/collect` sendet; beides blockierte die Policy (CI-Lauf 38727493695,
+  Diagnose `pt262-collect-diagnose.json`). Folge im Betrieb: Besucher ausserhalb der EU wurden trotz
+  Zustimmung nicht erfasst (Befund PT276-F10).
+- **Entscheidung des Nutzers (2026-10-15):** „Weltweit, ohne Werbe-Adresse (Empfohlen)“ →
+  `https://www.google-analytics.com` in `connect-src`; `https://www.google.com` bleibt gesperrt (§8.4).
+- **Beweis:** `e2e/pt26.2.spec.ts` erwartet je Auslieferung genau einen Erfassungs-Endpunkt
+  (`servedRegion` in `CSP_THIRD_PARTY_SOURCES`) und wertet nur den Diagnose-Beacon und den gesperrten
+  Werbe-Abgleich als gewollt blockiert; jeder andere Verstoss bleibt ein Befund.
 
 ### 8.4 Entfernt
 
@@ -205,7 +220,7 @@ Messmethode: veroeffentlichter Container und Google-Tag einmal lesend abgerufen 
 | `https:` (6 Direktiven), `'unsafe-eval'`, `'unsafe-inline'` (`script-src`, Styles) | ohne Verwender bzw. durch Hash ersetzt                                                                                                                                                                                                                                                                                                         |
 | `ssl.google-analytics.com`                                                         | Universal Analytics; GA4 nutzt die Domain nicht                                                                                                                                                                                                                                                                                                |
 | `fonts.googleapis.com`, `fonts.gstatic.com`                                        | Schrift selbstgehostet (N-02)                                                                                                                                                                                                                                                                                                                  |
-| `www.google-analytics.com`                                                         | Google-Tag baut die Collect-Origin als `(Region \|\| "www").google-analytics.com`; beide Properties haben `region1`                                                                                                                                                                                                                            |
+| `www.google.com` (`/g/collect`)                                                    | Werbe-Abgleich des Google-Tags ausserhalb der EU; bewusst **nicht** freigegeben (Nutzerentscheidung 2026-10-15, §8.3.1). Bis AP27-CLOSURE stand hier `www.google-analytics.com`; das ist seit 2026-10-15 wieder erlaubt (§8.3)                                                                                                                 |
 | `www.googletagmanager.com` in `connect-src`/`frame-src`, `img-src https:`          | kein Funktionsgrund. Beobachtet (1 von 3 Laeufen): gesampelter Diagnose-Beacon `www.googletagmanager.com/a?…` als Bild → von `img-src` blockiert, Erfassung unberuehrt. Weitere Code-Pfade: CSP-Meldungen an Google, optionales Service-Worker-iframe. Blockade gewollt (N-07/N-13); erzeugt gelegentlich eine Konsolenmeldung nach Zustimmung |
 | Chat/HiHuman                                                                       | seit AP22 PT22.7 weg; Guard in `chat-removal.test.js` und `contentSecurityPolicy.test.ts`                                                                                                                                                                                                                                                      |
 

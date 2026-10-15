@@ -196,6 +196,7 @@ test('PT11.6 page-level accessibility and performance structure stay regression-
   const existingConsentFacadeHosts = new Set([
     'www.googletagmanager.com',
     'region1.google-analytics.com',
+    'www.google-analytics.com',
   ])
   expect(foreignResources.filter((host) => !existingConsentFacadeHosts.has(host))).toEqual([])
 })

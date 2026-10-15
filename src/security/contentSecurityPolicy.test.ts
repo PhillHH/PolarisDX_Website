@@ -96,8 +96,13 @@ describe('PT26.2 — Zielpolicy', () => {
     }
     expect([...allowed].sort()).toEqual([
       'https://region1.google-analytics.com',
+      'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
     ])
+    // Erfassung: genau ein Endpunkt je Region, nur fuer connect-src.
+    const collect = CSP_THIRD_PARTY_SOURCES.filter((source) => source.servedRegion)
+    expect(collect.map((source) => source.servedRegion).sort()).toEqual(['EU', 'OUTSIDE_EU'])
+    for (const source of collect) expect(source.directives).toEqual(['connect-src'])
   })
 
   it('der GTM-Eintrag hat einen Verwender: den consent-gegateten Loader', () => {
