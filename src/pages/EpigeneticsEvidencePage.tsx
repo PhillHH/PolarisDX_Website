@@ -66,7 +66,7 @@ const EpigeneticsEvidencePage = () => {
       ================================================================ */}
       <section
         id="studienlage"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] py-14 lg:py-16"
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal width="100%" className={STRETCH}>
@@ -127,9 +127,9 @@ const EpigeneticsEvidencePage = () => {
       ================================================================ */}
       <section
         id="grenzen"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-t border-paper-line"
       >
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
+        <div className="py-14 lg:py-16">
           <Reveal width="100%">
             <div className="rounded-3xl border border-accent-border bg-accent-soft p-7">
               <h2 className="text-sm font-semibold text-accent-strong">
@@ -150,7 +150,7 @@ const EpigeneticsEvidencePage = () => {
               Belegfuehrung, nicht ans Ende einer Verkaufsseite. Wortlaut
               unveraendert. */}
           <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-paper-line bg-paper p-7">
+            <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
               <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
               <p className="mt-6 max-w-[80ch] border-t border-paper-line pt-6 text-sm leading-relaxed text-gray-600">
                 {t('contact.note')}

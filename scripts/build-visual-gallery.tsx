@@ -249,7 +249,7 @@ const Gallery = () => (
       {/* Der Dialog rendert absichtlich nur im Browser (mounted-Gate). Fuer die
           Galerie wird sein Panel als statische Flaeche mit denselben Klassen
           gezeigt — die Interaktion selbst deckt der Playwright-Test ab. */}
-      <div className="relative h-[320px] overflow-hidden rounded-xl bg-brand-deep/60">
+      <div className="relative h-80 overflow-hidden rounded-xl bg-brand-deep/60">
         <div className="absolute left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2">
           <div className="flex flex-col rounded-2xl bg-white shadow-dialog">
             <div className="flex items-start justify-between gap-4 p-6 pb-0">

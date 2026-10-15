@@ -803,5 +803,41 @@
     "lead": "Estos son los paneles que ha guardado. La lista permanece solo en este navegador: no se transmite ni evalúa nada mientras no envíe algo aquí. Solo “Solicitar presupuesto” lleva los nombres al formulario de contacto — donde aparecen en el campo de texto libre y pueden cambiarse o eliminarse antes de enviarlo.",
     "clear": "Borrar la lista",
     "note": "Almacenado solo en el almacenamiento local (localStorage) de este navegador, y solo el nombre del panel. Sin cuenta, sin registro en servidor, nada transmitido a terceros. “Borrar la lista” elimina la entrada completamente."
+  },
+  "journey": {
+    "caption": "Su recorrido por el programa",
+    "title": "Cuatro pasos hacia la decisión",
+    "lead": "Cada paso tiene su lugar en esta sección. Vaya directamente a donde se encuentra — los análisis guardados acaban en su solicitud.",
+    "understand": {
+      "title": "Entender",
+      "text": "Qué miden la genética y la epigenética — y qué valor puede cambiar realmente.",
+      "cta": "Leer los fundamentos"
+    },
+    "choose": {
+      "title": "Elegir un análisis",
+      "text": "Seis análisis, una sola vía de muestra. El filtro muestra cuál encaja con su centro.",
+      "cta": "Ir a los análisis"
+    },
+    "view": {
+      "title": "Ver un informe de muestra",
+      "text": "Antes de solicitar, vea lo que tendrá en la mano — un informe completo por análisis.",
+      "cta": "Seis informes de muestra"
+    },
+    "ask": {
+      "title": "Solicitar",
+      "text": "Los análisis guardados ya figuran en el formulario. Condiciones B2B previa consulta.",
+      "cta": "Ir a la solicitud"
+    },
+    "evidenceLink": "Todos los puntos con fuentes",
+    "basicsLink": "En detalle en los fundamentos",
+    "docsLink": "Ver todos los documentos",
+    "askTitle": "¿Su pregunta no aparece?",
+    "askText": "Hágala directamente en la solicitud — respondemos personalmente.",
+    "askCta": "Hacer una pregunta",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "atPractice": "En su centro",
+    "atLab": "En el socio colaborador",
+    "backAtPractice": "De nuevo en su centro"
   }
 }

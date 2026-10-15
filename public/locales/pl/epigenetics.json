@@ -803,5 +803,41 @@
     "lead": "To są panele, które zapisałeś. Lista pozostaje tylko w tej przeglądarce: nic nie jest przesyłane ani analizowane, dopóki nic tu nie wyślesz. Tylko „Poproś o wycenę” przenosi nazwy do formularza kontaktowego — gdzie pojawiają się w polu tekstowym i można je zmienić lub usunąć przed wysłaniem.",
     "clear": "Wyczyść listę",
     "note": "Przechowywane tylko w pamięci tej przeglądarki (localStorage) i tylko nazwa panelu. Brak konta, brak zapisu na serwerze, nic nie jest przekazywane osobom trzecim. „Wyczyść listę” usuwa wpis całkowicie."
+  },
+  "journey": {
+    "caption": "Twoja ścieżka przez program",
+    "title": "Cztery kroki do decyzji",
+    "lead": "Każdy krok ma swoje miejsce w tym obszarze. Przejdź od razu tam, gdzie jesteś — zapisane analizy trafią na końcu do zapytania.",
+    "understand": {
+      "title": "Zrozumieć",
+      "text": "Co mierzą genetyka i epigenetyka — i która wartość w ogóle może się zmienić.",
+      "cta": "Przeczytaj podstawy"
+    },
+    "choose": {
+      "title": "Wybrać analizę",
+      "text": "Sześć analiz, jedna droga próbki. Filtr pokazuje, która pasuje do Twojej placówki.",
+      "cta": "Do analiz"
+    },
+    "view": {
+      "title": "Zobaczyć przykładowy wynik",
+      "text": "Przed zapytaniem zobacz, co ostatecznie trafi na biurko — pełny wynik dla każdej analizy.",
+      "cta": "Sześć przykładowych wyników"
+    },
+    "ask": {
+      "title": "Zapytać",
+      "text": "Zapisane analizy są już w formularzu. Warunki B2B do uzgodnienia.",
+      "cta": "Do zapytania"
+    },
+    "evidenceLink": "Wszystkie punkty ze źródłami",
+    "basicsLink": "Szczegółowo w podstawach",
+    "docsLink": "Zobacz wszystkie materiały",
+    "askTitle": "Nie ma tu Twojego pytania?",
+    "askText": "Zadaj je bezpośrednio w zapytaniu — odpowiemy osobiście.",
+    "askCta": "Zadaj pytanie",
+    "save": "Zapisz",
+    "saved": "Zapisano",
+    "atPractice": "W Twojej placówce",
+    "atLab": "U partnera współpracującego",
+    "backAtPractice": "Znów u Ciebie"
   }
 }

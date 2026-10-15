@@ -42,7 +42,9 @@ test.describe('PT07.3 internal findability', () => {
     await page.goto('/de/epigenetics')
 
     for (const path of ['grundlagen', 'studienlage', 'unterlagen']) {
-      await expect(page.locator(`main a[href="/de/epigenetics/${path}"]`)).toBeVisible()
+      // AP34 SC-003: Bereichsleiste, Wegweiser und „Naechster Schritt" verlinken
+      // dieselben Vertiefungen; geprueft wird, dass ein Link sichtbar ist.
+      await expect(page.locator(`main a[href="/de/epigenetics/${path}"]`).first()).toBeVisible()
     }
     for (const slug of reportSlugs) {
       await expect(

@@ -14,7 +14,9 @@ const MobileCallButton = () => {
     // hinter dem Banner (Banner z-[70] > z-50) und ist nicht erreichbar.
     <div
       className="fixed bottom-6 right-0 z-50 flex flex-col items-end transition-[bottom] duration-300 lg:hidden"
-      style={{ bottom: 'calc(1.5rem + var(--cookie-banner-height, 0px))' }}
+      style={{
+        bottom: 'calc(1.5rem + var(--cookie-banner-height, 0px) + var(--action-bar-height, 0px))',
+      }}
     >
       <div
         className={`flex items-center overflow-hidden rounded-l-full shadow-lg ring-1 ring-white/25 transition-all duration-300 ease-in-out ${

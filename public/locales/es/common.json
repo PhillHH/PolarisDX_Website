@@ -280,5 +280,17 @@
       "body": "El resto de la página sigue funcionando. Inténtelo de nuevo.",
       "retry": "Intentar de nuevo"
     }
+  },
+  "area": {
+    "overview": "Resumen",
+    "onThisPage": "En esta página",
+    "nextLabel": "Continuar en esta sección",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "stepOf": "Paso {{n}} de {{total}}",
+    "journeyLabel": "Su recorrido paso a paso",
+    "saved": "Guardados: {{count}}",
+    "moreAreas": "Más áreas",
+    "factsLabel": "De un vistazo"
   }
 }

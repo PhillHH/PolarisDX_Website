@@ -20,7 +20,7 @@ import type { Chapter } from '../components/ui/ChapterNav'
 import { asArray, BODY, LABEL, LEAD, STRETCH } from '../components/epigenetics/tokens'
 import SectionHeader from '../components/ui/SectionHeader'
 import Reveal from '../components/ui/Reveal'
-import { ScaleRamp } from '../components/befund/BefundCharts'
+import { ScaleRamp } from '../components/befund/ScaleRamp'
 import { Check } from 'lucide-react'
 
 interface TitledText {
@@ -73,11 +73,8 @@ const EpigeneticsBasicsPage = () => {
       {/* ================================================================
           DAS PRINZIP — zwei Ebenen
       ================================================================ */}
-      <section
-        id="prinzip"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
-      >
-        <div className="grid gap-5 lg:grid-cols-3">
+      <section id="prinzip" className="scroll-mt-[var(--chapterbar-offset,148px)] py-14 lg:py-16">
+        <div className="grid gap-5 md:grid-cols-2">
           {principleCards.map((card, index) => (
             <Reveal key={card.title} width="100%" delay={0.05 * index} className={STRETCH}>
               <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
@@ -93,7 +90,7 @@ const EpigeneticsBasicsPage = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
               {t('principle.practice.title')}
             </p>
-            <ul className="mt-4 grid gap-3 lg:grid-cols-3">
+            <ul className="mt-4 grid gap-3">
               {practiceItems.map((item) => (
                 <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
                   <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
@@ -110,9 +107,9 @@ const EpigeneticsBasicsPage = () => {
       ================================================================ */}
       <section
         id="werte-verstehen"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
+        className="scroll-mt-[var(--chapterbar-offset,148px)] border-t border-paper-line"
       >
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
+        <div className="py-14 lg:py-16">
           <Reveal width="100%">
             <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
             <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
@@ -121,7 +118,7 @@ const EpigeneticsBasicsPage = () => {
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {concepts.map((item, index) => (
               <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                <div className="h-full rounded-3xl border border-paper-line bg-paper p-7">
+                <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
                   <div className="flex items-start gap-4">
                     <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
                       {item.num}
@@ -143,7 +140,7 @@ const EpigeneticsBasicsPage = () => {
               Ergebnisformen zum ersten Mal auftauchen, und hier, wo sie
               hergeleitet werden. Dieselbe Quelle, kein zweiter Wortlaut. */}
           <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-paper-line bg-paper p-7">
+            <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
               <p className={LABEL}>{t('basics.scaleTitle')}</p>
               <dl className="mt-4 grid gap-5 lg:grid-cols-3">
                 {scales.map((scale, scaleIndex) => (

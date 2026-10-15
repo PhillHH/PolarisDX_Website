@@ -281,5 +281,17 @@
       "body": "Zbytek stránky funguje dál. Zkuste to prosím znovu.",
       "retry": "Zkusit znovu"
     }
+  },
+  "area": {
+    "overview": "Přehled",
+    "onThisPage": "Na této stránce",
+    "nextLabel": "Dále v této oblasti",
+    "back": "Zpět",
+    "next": "Dále",
+    "stepOf": "Krok {{n}} z {{total}}",
+    "journeyLabel": "Vaše cesta krok za krokem",
+    "saved": "Uloženo: {{count}}",
+    "moreAreas": "Další oblasti",
+    "factsLabel": "Ve zkratce"
   }
 }

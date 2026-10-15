@@ -803,5 +803,41 @@
     "lead": "Dit zijn de panelen die u hebt opgeslagen. De lijst blijft alleen in deze browser: er wordt niets verzonden of geëvalueerd zolang u hier niets indient. Alleen \"Offerte aanvragen\" draagt de namen over naar het contactformulier — waar ze in het vrije tekstveld verschijnen en kunnen worden aangepast of verwijderd voordat u het verzendt.",
     "clear": "Wis de lijst",
     "note": "Alleen opgeslagen in de opslag van deze browser (localStorage), en alleen de naam van het panel. Geen account, geen serverregistratie, niets wordt doorgegeven aan derden. “Lijst wissen” verwijdert de vermelding volledig."
+  },
+  "journey": {
+    "caption": "Uw route door het programma",
+    "title": "In vier stappen naar een besluit",
+    "lead": "Elke stap heeft zijn plek in dit onderdeel. Ga direct naar waar u nu bent — bewaarde analyses komen in uw aanvraag terecht.",
+    "understand": {
+      "title": "Begrijpen",
+      "text": "Wat genetica en epigenetica meten — en welke waarde überhaupt kan veranderen.",
+      "cta": "Basis lezen"
+    },
+    "choose": {
+      "title": "Analyse kiezen",
+      "text": "Zes analyses, één monsterroute. Het filter toont welke bij uw praktijk past.",
+      "cta": "Naar de analyses"
+    },
+    "view": {
+      "title": "Voorbeeldrapport bekijken",
+      "text": "Zie vóór de aanvraag wat u uiteindelijk in handen krijgt — per analyse een volledig rapport.",
+      "cta": "Zes voorbeeldrapporten"
+    },
+    "ask": {
+      "title": "Aanvragen",
+      "text": "Bewaarde analyses staan al in het formulier. B2B-voorwaarden in overleg.",
+      "cta": "Naar de aanvraag"
+    },
+    "evidenceLink": "Alle punten met bronnen",
+    "basicsLink": "Uitgebreid in de basis",
+    "docsLink": "Alle documenten bekijken",
+    "askTitle": "Staat uw vraag er niet bij?",
+    "askText": "Stel hem direct in de aanvraag — wij antwoorden persoonlijk.",
+    "askCta": "Vraag stellen",
+    "save": "Bewaren",
+    "saved": "Bewaard",
+    "atPractice": "In uw praktijk",
+    "atLab": "Bij de samenwerkingspartner",
+    "backAtPractice": "Weer bij u"
   }
 }

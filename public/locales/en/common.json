@@ -279,5 +279,17 @@
       "body": "The rest of the page still works. Please try again.",
       "retry": "Try again"
     }
+  },
+  "area": {
+    "overview": "Overview",
+    "onThisPage": "On this page",
+    "nextLabel": "Continue in this section",
+    "back": "Back",
+    "next": "Next",
+    "stepOf": "Step {{n}} of {{total}}",
+    "journeyLabel": "Your path step by step",
+    "saved": "Saved: {{count}}",
+    "moreAreas": "More areas",
+    "factsLabel": "At a glance"
   }
 }

@@ -122,6 +122,27 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-003 — AP34 Informationsführung: Bereichsleiste, Strecken, „Nächster Schritt"
+
+- **Datum:** 2026-10-15
+- **Status:** ACCEPTED
+- **Betroffene IDs:** SC-002 („keine neuen Sektionen"), AP34 PT34.2/PT34.3, EPIGENETICS-CONTRACT (Hub-Reihenfolge, Hub-Abschnitte), DIAGNOSTICS-HUB-CONTRACT, IGLOOPRO-CONTRACT, BEFUNDE-CONTRACT (nur Seitenrahmen), CONSENT-TRACKING-CONTRACT (`CTA_LOCATIONS`), I18N-CONTRACT (neue Mikrotexte in 10 Sprachen)
+- **Vorheriger Zustand:** SC-002: AP34 ist ein reines Gestaltungs-AP ohne neue Sektionen. Der Epigenetik-Hub führt zwölf Abschnitte in der Reihenfolge Vergleich → Prinzip → Werte verstehen → Analysen → Ablauf → Beratung → Studienlage → Fragen → Unterlagen → Weiterlesen → Anfrage mit einer Kapitel-Chipleiste (`ChapterNav`); „Werte verstehen", Studienlage und Unterlagen stehen vollständig im Hub und noch einmal als eigene Vertiefungsseite.
+- **Neuer Zustand:** Die Unterseiten erhalten ein einheitliches Führungssystem (`wireframes/relaunch-entwurf-4-unterseiten/`):
+  - Bereichsleiste je Bereich (sticky, echte Seitenziele, Merkliste und Anfrage). Sie ersetzt auf Epigenetik-Seiten die Kapitel-Chipleiste.
+  - „Auf dieser Seite" als Inhaltsverzeichnis mit Lesefortschritt auf Lese- und Befundseiten.
+  - „Nächster Schritt" (zurück · weiter · Anfrage) am Ende jeder Bereichsseite.
+  - Mobile Aktionsleiste auf Epigenetik-, IglooPro- und Service-Seiten.
+  - Im Epigenetik-Hub ein Wegweiser in vier Schritten (Verstehen → Analyse wählen → Musterbefund ansehen → Anfragen). Die neue Reihenfolge ist Analysen (mit Filter) → Vergleich (aufklappbar) → Prinzip → Ablauf → Beratung → Studienlage-Kurzfassung → Fragen → Unterlagen-Kurzfassung → Anfrage.
+  - „Werte verstehen" steht vollständig auf `/epigenetics/grundlagen`. Im Hub bleibt ein kurzer Verweis mit der bestehenden ID.
+  - Im Diagnostik-Hub ersetzt eine Parameter-Abkürzung aus den vorhandenen Tags die doppelte Liste der sechs Bereiche.
+- **Begründung:** Owner-Auftrag vom 2026-10-15: Informationsstrecken klarer machen, schneller zurechtfinden, hin- und hernavigieren, sinnvolle Calls-to-Action „für einen Menschen, nicht für eine Maschine"; Schwerpunkt Epigenetik. Messung am Ist-Stand: Hub 16.035 px Desktop, 11 Kapitel-Chips, drei vollständig doppelte Abschnitte, Vergleichstabelle vor der Erklärung der Panels; Musterbefund 10.471 px.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner (Phillip), 2026-10-15, nach Vorlage von Entwurf 4 („ja, starte mal").
+- **Auswirkung auf Scope:** Keine neue Route, kein neuer Claim, keine neue Journey-Konversion. Neu sind nur Navigations- und Orientierungs-Mikrotexte, die in allen 10 Sprachen gepflegt werden. Alle bestehenden Hub-Anker bleiben auflösbar (`#analysen #musterbefunde #vergleich #prinzip #werte-verstehen #ablauf #studienlage #fragen #downloads #inquiry`). Pflichthinweise (`contact.note`, `compare.gendg`, `samples.note`) bleiben sichtbar im Hub.
+- **Auswirkung auf Abhängigkeiten:** Die Merkliste bleibt reiner Browserzustand ohne Tracking. Neue CTA-Orte werden in `CTA_LOCATIONS` aufgenommen. Es gibt keinen neuen Anbieter, und der Basic Consent Mode v2 bleibt. Die zweite Telefonnummer (`+49 152 2858 0999`, Epigenetik-Hub und alle 60 Musterbefunde) bleibt bis zur Owner-Entscheidung unverändert.
+- **Auswirkung auf Gates:** Die Hub-Reihenfolge in `e2e/epigenetics-hub-ia.spec.ts` wird auf die neue Reihenfolge umgestellt (gleiche Anker, geänderte Abfolge). Budgets bleiben unverändert und werden gemessen, nicht gelockert. Die visuellen Baselines der betroffenen Seiten werden im gepinnten Image neu aufgenommen.
+- **Aktualisierte kanonische Dokumente:** `building-docs/work-packages/AP34.md`, `building-docs/EPIGENETICS-CONTRACT.md`, `building-docs/state/AP-STATE.md`, weitere Verträge im jeweiligen Teilschritt.
+
 ### SC-002 — AP34 „Editorial": Navy-Kopfzeile, Logo-Blau als Akzent, Bühnenfoto
 
 - **Datum:** 2026-10-15

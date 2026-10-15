@@ -26,6 +26,7 @@
  * mehr gerendert. Dieselbe Tiefe steht in den Musterbefund-Seiten und den PDFs.
  */
 
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
@@ -68,9 +69,18 @@ const STRETCH = 'h-full [&>div]:h-full'
 const EpigeneticsPanels = ({
   activePanel,
   focus,
+  groups = [],
+  title,
+  filter,
 }: {
   activePanel: EpigeneticsPanel | null
   focus: EpigeneticsFocus | null
+  /** compare.groups — positionell zu compare.rows (AP34 PT34.2b). */
+  groups?: string[][]
+  /** Ueberschrift des Abschnitts; ohne Angabe analyses.title. */
+  title?: string
+  /** Filterzeile zwischen Einleitung und Karten (AP34 PT34.2b). */
+  filter?: ReactNode
 }) => {
   const { t } = useTranslation('epigenetics')
 
@@ -86,19 +96,28 @@ const EpigeneticsPanels = ({
   const panels = samples.map((sample, index) => {
     const analysis =
       analyses.find((a) => a.name === sample.panel) ?? analyses[index] ?? ({} as AnalysisItem)
-    const row = rows.find((r) => r[0] === sample.panel) ?? rows[index] ?? []
-    return { sample, analysis, row }
+    const rowIndex = rows.findIndex((r) => r[0] === sample.panel)
+    const row = rows[rowIndex] ?? rows[index] ?? []
+    // Passt das Panel zur gewaehlten Zielgruppe? Alle sechs bleiben sichtbar
+    // (Vertrag PT15.3); die passenden werden hervorgehoben.
+    const match = focus !== null && (groups[rowIndex >= 0 ? rowIndex : index] ?? []).includes(focus)
+    return { sample, analysis, row, match }
   })
 
   return (
-    <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
+    <div className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-24">
       <Reveal width="100%">
-        <SectionHeader caption={t('analyses.caption')} title={t('analyses.title')} align="left" />
+        <SectionHeader
+          caption={t('analyses.caption')}
+          title={title ?? t('analyses.title')}
+          align="left"
+        />
         <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('analyses.lead')}</p>
       </Reveal>
+      {filter}
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {panels.map(({ sample, analysis, row }, index) => (
+        {panels.map(({ sample, analysis, row, match }, index) => (
           <Reveal
             key={sample.slug}
             width="100%"
@@ -108,10 +127,13 @@ const EpigeneticsPanels = ({
             <article
               data-panel-slug={sample.slug}
               data-panel-active={activePanel === sample.slug ? 'true' : 'false'}
-              className={`flex h-full flex-col overflow-hidden rounded-3xl bg-white transition-shadow ${
+              data-panel-match={match ? 'true' : undefined}
+              className={`flex h-full flex-col overflow-hidden rounded-card bg-white transition-shadow ${
                 activePanel === sample.slug
                   ? 'border-2 border-brand-primary shadow-lg ring-2 ring-brand-primary/20'
-                  : 'border-2 border-paper-line'
+                  : match
+                    ? 'border-2 border-accent shadow-card'
+                    : 'border border-paper-line'
               }`}
             >
               {BEFUND_IMAGES[sample.slug] ? (
@@ -128,7 +150,7 @@ const EpigeneticsPanels = ({
                 />
               ) : null}
 
-              <div className="flex flex-1 flex-col p-7">
+              <div className="flex flex-1 flex-col p-6 lg:p-7">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">
                     {analysis.num}
@@ -207,7 +229,7 @@ const EpigeneticsPanels = ({
       {/* Beispieldaten-Hinweis und ZIP wie bisher — die Bilder zeigen echte
           Befundlayouts mit frei erfundenen Werten, das muss dabeistehen. */}
       <Reveal width="100%">
-        <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-paper-line bg-paper p-7 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-5 rounded-card border border-paper-line bg-paper p-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-sm leading-relaxed text-gray-600">{t('samples.note')}</p>
           {/* AP19 PT19.4: Gate statt Dateilink — siehe Unterlagen-Seite. */}
           <ResourceGateTrigger

@@ -14,7 +14,7 @@ import type { ReactNode } from 'react'
 
 // Die Farbtabelle liegt in tone.ts — siehe dort, warum sie diese Datei
 // verlassen hat. Wer sie braucht, importiert von dort, nicht von hier.
-import { toneClasses, type Tone } from './tone'
+import { toneClasses } from './tone'
 
 /** Einordnungs-Plakette, wie im PDF neben jedem Wert. */
 export const ToneBadge = ({ tone, children }: { tone?: string; children: ReactNode }) => {
@@ -47,90 +47,11 @@ interface ScaleBarProps {
   zoneLabels?: string[]
 }
 
-const PERCENT_DOMAIN = { min: 70, max: 130 }
-const TRAFFIC_DOMAIN = { min: 0, max: 9 }
-/** Abweichung in Jahren: die Achse laeuft invertiert, +20 steht links. */
-const DEVIATION_DOMAIN = { min: -20, max: 20 }
-
-/**
- * Zonen als Anteil der Achse — dieselbe Einteilung wie im PDF.
- * Nur fuer die beiden Skalen, deren Grenzen im Dokument ausgewiesen sind.
- * Bei Jahres- und Abweichungsskalen bleibt die Spur neutral: dort nennt kein
- * Quelldokument Schwellen, und erfundene Grenzen waeren eine Aussage.
- */
-const zonesFor = (kind: string) => {
-  if (kind === 'traffic') {
-    return [
-      { tone: 'red' as Tone, from: 0, to: 3 },
-      { tone: 'amber' as Tone, from: 3, to: 6 },
-      { tone: 'green' as Tone, from: 6, to: 9 },
-    ]
-  }
-  if (kind === 'percent') {
-    return [
-      { tone: 'red' as Tone, from: 70, to: 90 },
-      { tone: 'amber' as Tone, from: 90, to: 100 },
-      { tone: 'green' as Tone, from: 100, to: 130 },
-    ]
-  }
-  return []
-}
-
-const domainFor = (kind: string, value: number) => {
-  if (kind === 'traffic') return TRAFFIC_DOMAIN
-  if (kind === 'percent') return PERCENT_DOMAIN
-  if (kind === 'deviation') return DEVIATION_DOMAIN
-  // Unbekannte Skala: eine Spanne um den Wert, damit die Marke nicht am Rand klebt.
-  const pad = Math.max(5, Math.abs(value) * 0.25)
-  return { min: value - pad, max: value + pad }
-}
-
-/**
- * Die Rampe ohne Wert — nur die Zonen einer Ergebnisform.
- *
- * Die Vergleichstabelle nennt drei Ergebnisformen nebeneinander und erklaert
- * sie in der Legende bisher nur in Worten. Damit blieb die wichtigste Spalte
- * der Auswahl abstrakt. Die Rampe zeigt jede Form in derselben Farbfolge und
- * derselben Leserichtung, in der sie spaeter im Befund wieder auftaucht.
- *
- * Wo das Quelldokument keine Schwellen ausweist — die Jahresskala —, bleibt
- * sie grau. Eine eingefaerbte Rampe waere dort eine Aussage ueber Grenzen,
- * die es nicht gibt.
- *
- * Rein schmueckend: die Legende danebendran sagt dasselbe in Worten, deshalb
- * aria-hidden statt einer zweiten Vorlesung fuer den Screenreader.
- */
-export const ScaleRamp = ({ kind }: { kind: string }) => {
-  const zones = zonesFor(kind)
-  const dom = domainFor(kind, 0)
-  const span = dom.max - dom.min || 1
-  const W = 100
-  const H = 8
-
-  return (
-    <svg
-      viewBox={`0 0 ${W} ${H}`}
-      preserveAspectRatio="none"
-      aria-hidden="true"
-      className="h-2 w-full rounded-full"
-    >
-      {zones.length > 0 ? (
-        zones.map((z) => (
-          <rect
-            key={z.tone}
-            x={((z.from - dom.min) / span) * W}
-            y={0}
-            width={((z.to - z.from) / span) * W}
-            height={H}
-            className={toneClasses(z.tone).zone}
-          />
-        ))
-      ) : (
-        <rect x={0} y={0} width={W} height={H} className="fill-slate-100" />
-      )}
-    </svg>
-  )
-}
+// Achsen und Zonen liegen in scaleDomain.ts, die wertlose Rampe in
+// ScaleRamp.tsx: Hub und Grundlagen brauchen nur die Rampe und laden damit
+// nicht dieses ganze Modul mit (AP34 PT34.2c, routeJsGzip-Budget §29).
+import { PERCENT_DOMAIN, TRAFFIC_DOMAIN, domainFor, zonesFor } from './scaleDomain'
+export { ScaleRamp } from './ScaleRamp'
 
 export const ScaleBar = ({
   kind = 'percent',

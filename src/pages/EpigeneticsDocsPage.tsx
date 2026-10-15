@@ -65,10 +65,7 @@ const EpigeneticsDocsPage = () => {
       chapters={chapters}
       source="unterlagen"
     >
-      <section
-        id="downloads"
-        className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20"
-      >
+      <section id="downloads" className="scroll-mt-[var(--chapterbar-offset,148px)] py-14 lg:py-16">
         {/* Die beiden Pakete zuerst: wer alles will, ist damit in einem Klick
             fertig und muss nicht neun Karten durchgehen. */}
         <Reveal width="100%">

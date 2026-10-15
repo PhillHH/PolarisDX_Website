@@ -803,5 +803,41 @@
     "lead": "Dette er de paneler, du har gemt. Listen forbliver kun i denne browser: intet overføres eller evalueres, så længe du ikke indsender noget her. Kun \"Anmod om tilbud\" fører navnene ind i kontaktformularen — hvor de vises i fritekstfeltet og kan ændres eller slettes, inden du sender den.",
     "clear": "Ryd listen",
     "note": "Gemmes kun i denne browsers lager (localStorage), og kun panelets navn. Ingen konto, ingen serverregistrering, intet videregives til tredjepart. “Ryd listen” fjerner posten helt."
+  },
+  "journey": {
+    "caption": "Din vej gennem programmet",
+    "title": "Fire trin til en beslutning",
+    "lead": "Hvert trin har sin plads i området. Gå direkte derhen, hvor du er nu — gemte analyser ender i din forespørgsel.",
+    "understand": {
+      "title": "Forstå",
+      "text": "Hvad genetik og epigenetik måler — og hvilken værdi overhovedet kan ændre sig.",
+      "cta": "Læs det grundlæggende"
+    },
+    "choose": {
+      "title": "Vælg analyse",
+      "text": "Seks analyser, én prøvevej. Filteret viser, hvilken der passer til din klinik.",
+      "cta": "Til analyserne"
+    },
+    "view": {
+      "title": "Se en eksempelrapport",
+      "text": "Se før forespørgslen, hvad du får i hånden — en komplet rapport pr. analyse.",
+      "cta": "Seks eksempelrapporter"
+    },
+    "ask": {
+      "title": "Forespørg",
+      "text": "Gemte analyser står allerede i formularen. B2B-vilkår efter aftale.",
+      "cta": "Til forespørgslen"
+    },
+    "evidenceLink": "Alle punkter med kilder",
+    "basicsLink": "Uddybet i det grundlæggende",
+    "docsLink": "Se alle materialer",
+    "askTitle": "Er dit spørgsmål ikke med?",
+    "askText": "Stil det direkte i forespørgslen — vi svarer personligt.",
+    "askCta": "Stil et spørgsmål",
+    "save": "Gem",
+    "saved": "Gemt",
+    "atPractice": "I din klinik",
+    "atLab": "Hos samarbejdspartneren",
+    "backAtPractice": "Tilbage hos dig"
   }
 }

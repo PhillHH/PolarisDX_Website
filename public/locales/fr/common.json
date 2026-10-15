@@ -280,5 +280,17 @@
       "body": "Le reste de la page fonctionne toujours. Veuillez réessayer.",
       "retry": "Réessayer"
     }
+  },
+  "area": {
+    "overview": "Vue d’ensemble",
+    "onThisPage": "Sur cette page",
+    "nextLabel": "Poursuivre dans cette rubrique",
+    "back": "Retour",
+    "next": "Suivant",
+    "stepOf": "Étape {{n}} sur {{total}}",
+    "journeyLabel": "Votre parcours étape par étape",
+    "saved": "Sélection : {{count}}",
+    "moreAreas": "Autres domaines",
+    "factsLabel": "En bref"
   }
 }

@@ -803,5 +803,41 @@
     "lead": "These are the panels you have saved. The list stays in this browser only: nothing is transmitted or evaluated as long as you do not submit anything here. Only “Request a quotation” carries the names into the contact form — where they appear in the free-text field and can be changed or deleted before you send it.",
     "clear": "Clear the list",
     "note": "Stored in this browser's storage (localStorage) only, and only the name of the panel. No account, no server record, nothing passed on to third parties. “Clear the list” removes the entry completely."
+  },
+  "journey": {
+    "caption": "Your path through the programme",
+    "title": "Four steps to a decision",
+    "lead": "Each step has its place in this section. Jump straight to where you are — saved analyses end up in your enquiry.",
+    "understand": {
+      "title": "Understand",
+      "text": "What genetics and epigenetics measure — and which value can change at all.",
+      "cta": "Read the basics"
+    },
+    "choose": {
+      "title": "Choose an analysis",
+      "text": "Six analyses, one sample route. The filter shows which one suits your practice.",
+      "cta": "Go to the analyses"
+    },
+    "view": {
+      "title": "View a sample report",
+      "text": "See what lands on the desk before you enquire — one complete report per analysis.",
+      "cta": "Six sample reports"
+    },
+    "ask": {
+      "title": "Enquire",
+      "text": "Saved analyses are already in the form. B2B terms on request.",
+      "cta": "Go to the enquiry"
+    },
+    "evidenceLink": "All points with sources",
+    "basicsLink": "In detail in the basics",
+    "docsLink": "View all documents",
+    "askTitle": "Your question is not listed?",
+    "askText": "Ask it directly in the enquiry — we reply personally.",
+    "askCta": "Ask a question",
+    "save": "Save",
+    "saved": "Saved",
+    "atPractice": "In your practice",
+    "atLab": "At the cooperation partner",
+    "backAtPractice": "Back with you"
   }
 }

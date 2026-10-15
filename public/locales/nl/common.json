@@ -280,5 +280,17 @@
       "body": "De rest van de pagina werkt gewoon door. Probeer het opnieuw.",
       "retry": "Opnieuw proberen"
     }
+  },
+  "area": {
+    "overview": "Overzicht",
+    "onThisPage": "Op deze pagina",
+    "nextLabel": "Verder in dit onderdeel",
+    "back": "Terug",
+    "next": "Verder",
+    "stepOf": "Stap {{n}} van {{total}}",
+    "journeyLabel": "Uw route stap voor stap",
+    "saved": "Bewaard: {{count}}",
+    "moreAreas": "Meer gebieden",
+    "factsLabel": "In het kort"
   }
 }

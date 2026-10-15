@@ -280,5 +280,17 @@
       "body": "Resten af siden fungerer fortsat. Prøv venligst igen.",
       "retry": "Prøv igen"
     }
+  },
+  "area": {
+    "overview": "Overblik",
+    "onThisPage": "På denne side",
+    "nextLabel": "Videre i området",
+    "back": "Tilbage",
+    "next": "Videre",
+    "stepOf": "Trin {{n}} af {{total}}",
+    "journeyLabel": "Din vej trin for trin",
+    "saved": "Gemt: {{count}}",
+    "moreAreas": "Flere områder",
+    "factsLabel": "Kort fortalt"
   }
 }

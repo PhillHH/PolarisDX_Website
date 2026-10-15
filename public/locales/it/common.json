@@ -280,5 +280,17 @@
       "body": "Il resto della pagina continua a funzionare. Riprova.",
       "retry": "Riprova"
     }
+  },
+  "area": {
+    "overview": "Panoramica",
+    "onThisPage": "In questa pagina",
+    "nextLabel": "Prosegui in questa sezione",
+    "back": "Indietro",
+    "next": "Avanti",
+    "stepOf": "Passo {{n}} di {{total}}",
+    "journeyLabel": "Il suo percorso passo dopo passo",
+    "saved": "Salvati: {{count}}",
+    "moreAreas": "Altre aree",
+    "factsLabel": "In sintesi"
   }
 }

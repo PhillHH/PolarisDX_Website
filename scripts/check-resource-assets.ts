@@ -121,10 +121,10 @@ const sourceRequirements: Array<[string, string[]]> = [
     'src/pages/EpigeneticsDocsPage.tsx',
     ['ResourceLanguageBadge', 'resourceLanguageFromPath', 'hrefLang="de"'],
   ],
-  [
-    'src/pages/EpigeneticsPage.tsx',
-    ['ResourceLanguageBadge', 'resourceLanguageFromPath', 'hrefLang="de"'],
-  ],
+  // AP34 SC-003: der Hub fuehrt nur noch drei Blaetter, deren Sprache aus dem
+  // Pfad kommt; die beiden nur deutschen Blaetter (Parameteruebersicht,
+  // „Werte verstehen") stehen allein auf der Unterlagen-Seite (oben geprueft).
+  ['src/pages/EpigeneticsPage.tsx', ['ResourceLanguageBadge', 'resourceLanguageFromPath']],
   // PT19.4: der einzige Asset-Link dieser Komponente war das Musterbefund-
   // Paket; es laeuft jetzt ueber das Gate. Geprueft wird deshalb, dass hier
   // kein Dateilink zurueckkehrt.

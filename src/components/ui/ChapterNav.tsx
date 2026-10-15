@@ -371,10 +371,12 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                   href={`#${c.id}`}
                   data-chapter={c.id}
                   aria-current={active === c.id ? 'true' : undefined}
-                  className={`inline-flex h-9 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors ${
+                  // AP34 PT34.2c (SC-003): Unterstrich statt Chip — NN/g:
+                  // Chip-Optik wirkt wie ein Filter, nicht wie Navigation.
+                  className={`inline-flex h-11 items-center whitespace-nowrap border-b-2 px-3 pt-0.5 text-sm transition-colors ${
                     active === c.id
-                      ? 'bg-brand-deep font-semibold text-white'
-                      : 'text-gray-600 hover:bg-paper-deep hover:text-brand-deep'
+                      ? 'border-accent font-semibold text-heading'
+                      : 'border-transparent text-gray-600 hover:text-heading'
                   }`}
                 >
                   {c.label}

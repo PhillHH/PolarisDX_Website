@@ -1,0 +1,90 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=1600">
+<title>Strecken — Entwurf 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+<style>
+body{background:#fff}
+.page{width:1600px;padding:64px 72px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.top h1{font-size:48px;letter-spacing:-.04em}
+.lane{border:1px solid var(--line);border-radius:24px;padding:28px;margin-bottom:22px;background:var(--paper)}
+.lane .lh{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.lane .lh h2{font-size:24px}
+.flow{display:grid;gap:0;align-items:stretch}
+.node{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;position:relative}
+.node .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.node h4{font-size:16px;margin:4px 0 4px}
+.node p{font-size:12.5px;color:var(--muted)}
+.node.hub{background:var(--navy);border-color:var(--navy)}
+.node.hub h4{color:#fff}.node.hub p{color:rgba(255,255,255,.7)}.node.hub .k{color:var(--on-dark)}
+.node.goal{background:var(--royal);border-color:var(--royal)}
+.node.goal h4{color:#fff}.node.goal p{color:rgba(255,255,255,.8)}.node.goal .k{color:#cfeaff}
+.arrow{display:grid;place-items:center;color:var(--royal)}
+.arrow svg{width:26px;height:26px}
+.ev{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:11px;background:var(--soft);color:var(--royal-s);border-radius:6px;padding:2px 6px;margin:6px 4px 0 0}
+.node.hub .ev,.node.goal .ev{background:rgba(255,255,255,.14);color:#fff}
+.stack{display:grid;gap:10px}
+.legend{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px}
+.legend div{border:1px solid var(--line);border-radius:16px;padding:18px}
+.legend .ic2{width:38px;height:38px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;margin-bottom:10px}
+.legend h4{font-size:15px}
+.legend p{font-size:13px;color:var(--muted);margin-top:4px}
+.back{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.back span{border:1px dashed var(--line-2);border-radius:999px;padding:5px 10px;background:#fff}
+</style></head><body>
+<div class="page">
+  <div class="top"><div><span class="eyebrow">Entwurf 4 · Informationsarchitektur</span><h1 style="margin-top:12px">Strecken und Navigation</h1></div>
+    <p class="lead" style="max-width:560px">Gleiche Routen wie heute. Neu ist, wie Menschen sich darin bewegen: fünf feste Orientierungshilfen auf jeder Unterseite und eine erkennbare Abfolge je Bereich.</p></div>
+  <div class="legend">
+    <div><span class="ic2"><svg class="i" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h12"/></svg></span><h4>1 · Hauptnavigation</h4><p>Navy-Kopfzeile wie Startseite. Wo bin ich im Ganzen?</p></div>
+    <div><span class="ic2"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/></svg></span><h4>2 · Bereichsleiste</h4><p>Sticky unter der Bühne. Seitwärts im Bereich, mit Merkliste und Anfrage.</p></div>
+    <div><span class="ic2"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><h4>3 · Auf dieser Seite</h4><p>Inhaltsverzeichnis links, mit Lesefortschritt. Mobil zuklappbar oben.</p></div>
+    <div><span class="ic2"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><h4>4 · Nächster Schritt</h4><p>Am Seitenende: zurück, weiter, Anfrage. Nie eine Sackgasse.</p></div>
+    <div><span class="ic2"><svg class="i" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span><h4>5 · Merkliste</h4><p>Panels vormerken, Anfrage ist vorbefüllt. Nur im Browser, ohne Tracking.</p></div>
+  </div>
+
+  <div class="lane">
+    <div class="lh"><span class="badge">Fokus</span><h2>Epigenetik — vier Schritte zur Entscheidung</h2></div>
+    <div class="flow" style="grid-template-columns:1fr 40px 1.1fr 40px 1.2fr 40px 1.2fr 40px 1fr">
+      <div class="stack"><div class="node"><div class="k">Einstieg</div><h4>Startseite · Suche · Google</h4><p>Säulen-Karte „Epigenetik", Header</p><span class="ev">cta_click</span></div><div class="node"><div class="k">Einstieg</div><h4>Diagnostik-Hub</h4><p>Band „Eine zweite Ebene"</p></div></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node hub"><div class="k">Hub · /epigenetics</div><h4>Überblick</h4><p>Wegweiser 1–4 · Finder · Ablauf · Beratung · Studienlage-Teaser · FAQ · Unterlagen-Teaser · Anfrage</p><span class="ev">panel_select</span><span class="ev">chapter_toggle</span><span class="ev">scroll_depth</span></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="stack"><div class="node"><div class="k">Schritt 1 · Verstehen</div><h4>/epigenetics/grundlagen</h4><p>Zwei Ebenen, vier Messgrößen, drei Skalen</p></div><div class="node"><div class="k">Schritt 2 · Wählen</div><h4>Finder im Hub</h4><p>Filter nach Einrichtung, Vergleich aufklappbar</p><span class="ev">panel_select</span></div></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="stack"><div class="node"><div class="k">Schritt 3 · Ansehen</div><h4>6 Musterbefunde</h4><p>/epigenetics/musterbefund/:slug · Befund-Wechsler vor/zurück</p><span class="ev">chapter_toggle</span></div><div class="node"><div class="k">Absichern</div><h4>Studienlage · Unterlagen</h4><p>Grenzen, Quellen, 18 PDFs</p><span class="ev">download_delivered</span></div></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node goal"><div class="k">Schritt 4 · Anfragen</div><h4>Anfrage, vorbefüllt</h4><p>Merkliste → Panel-Interesse. Konversion erst nach Speicherung.</p><span class="ev">epigenetics_inquiry_submit</span></div>
+    </div>
+    <div class="back"><b style="color:var(--ink)">Zurück und seitwärts:</b><span>Bereichsleiste auf jeder Seite</span><span>Breadcrumb eine Ebene hoch</span><span>Befund ← → Befund</span><span>„Nächster Schritt" am Seitenende</span><span>Mobile Leiste: „2 vorgemerkt · Anfragen"</span></div>
+  </div>
+
+  <div class="lane">
+    <div class="lh"><h2>Diagnostik — Einstieg nach Fachrichtung oder Fragestellung</h2></div>
+    <div class="flow" style="grid-template-columns:1fr 40px 1.2fr 40px 1.4fr 40px 1fr">
+      <div class="node"><div class="k">Einstieg</div><h4>Startseite · Header-Menü</h4><p>„Diagnostik entdecken", Fachbereich-Karten</p><span class="ev">cta_click</span></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node hub"><div class="k">Hub · /diagnostics</div><h4>Wo möchten Sie anfangen?</h4><p>3 Fachrichtungen · 6 Fragestellungen · Parameter-Abkürzung · IglooPro- und Epigenetik-Band</p><span class="ev">cta_click</span></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="stack"><div class="node"><div class="k">Vertiefung · 9 Bereiche</div><h4>/diagnostics/:slug</h4><p>Parameter-Leiste · Inhaltsverzeichnis · Ablauf · Fachartikel · FAQ · Bereich ← →</p><span class="ev">chapter_toggle</span></div><div class="node"><div class="k">Querverweis</div><h4>IglooPro · S3-Leitlinie · Artikel</h4></div></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node goal"><div class="k">Ziel</div><h4>Angebot anfragen</h4><p>/contact, Bereich vorausgewählt</p><span class="ev">contact_submit</span></div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lh"><h2>IglooPro — Produkt prüfen, Passung klären</h2></div>
+    <div class="flow" style="grid-template-columns:1fr 40px 1.3fr 40px 1.3fr 40px 1fr">
+      <div class="node"><div class="k">Einstieg</div><h4>Startseite · Diagnostik · Hero-Karte</h4><span class="ev">cta_click</span></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node hub"><div class="k">/igloo-pro</div><h4>Produktleiste</h4><p>Überblick · Aufbau · Technische Daten · Kompatibilität · Wirtschaftlichkeit · Passung</p></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="stack"><div class="node"><div class="k">Prüfen</div><h4>ROI-Rechner · Datenblatt</h4><span class="ev">roi_report_request</span><span class="ev">download_delivered</span></div></div>
+      <div class="arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="node goal"><div class="k">Ziel</div><h4>Angebot anfragen</h4><span class="ev">contact_submit</span></div>
+    </div>
+  </div>
+  <p class="xs muted" style="margin-top:10px">Ereignisnamen aus der bestehenden Taxonomie (src/lib/tracking.ts). Basic Consent Mode v2: ohne Einwilligung lädt GTM nicht, Ereignisse werden verworfen. Neue CTA-Orte (z. B. area-nav, next-step, mobile-bar, panel-card) müssen in CTA_LOCATIONS ergänzt werden.</p>
+</div>
+<script src="common.js"></script>
+</body></html>

@@ -803,5 +803,41 @@
     "lead": "Diese Panels haben Sie vorgemerkt. Die Liste liegt ausschließlich in diesem Browser: nichts davon wird übertragen oder ausgewertet, solange Sie hier nichts absenden. Erst mit „Angebot anfragen“ wandern die Namen in das Kontaktformular — dort stehen sie im Freitext und lassen sich vor dem Absenden ändern oder löschen.",
     "clear": "Liste leeren",
     "note": "Gespeichert wird nur im Speicher dieses Browsers (localStorage), und zwar nur der Name des Panels. Kein Konto, keine Serverablage, keine Weitergabe an Dritte. Mit „Liste leeren“ ist der Eintrag vollständig entfernt."
+  },
+  "journey": {
+    "caption": "Ihr Weg durch das Programm",
+    "title": "In vier Schritten zur Entscheidung",
+    "lead": "Jeder Schritt hat seinen Platz im Bereich. Springen Sie direkt dorthin, wo Sie gerade stehen — vorgemerkte Analysen landen am Ende in Ihrer Anfrage.",
+    "understand": {
+      "title": "Verstehen",
+      "text": "Was Genetik und Epigenetik messen — und welche Zahl sich überhaupt ändern kann.",
+      "cta": "Grundlagen lesen"
+    },
+    "choose": {
+      "title": "Analyse wählen",
+      "text": "Sechs Analysen, ein Probenweg. Der Filter zeigt, welche zu Ihrer Einrichtung passt.",
+      "cta": "Zu den Analysen"
+    },
+    "view": {
+      "title": "Musterbefund ansehen",
+      "text": "Vor der Anfrage sehen, was am Ende auf dem Tisch liegt — je Analyse ein vollständiger Befund.",
+      "cta": "Sechs Musterbefunde"
+    },
+    "ask": {
+      "title": "Anfragen",
+      "text": "Vorgemerkte Analysen stehen schon im Formular. B2B-Konditionen nach Absprache.",
+      "cta": "Zur Anfrage"
+    },
+    "evidenceLink": "Alle Punkte mit Quellen",
+    "basicsLink": "Ausführlich in den Grundlagen",
+    "docsLink": "Alle Unterlagen ansehen",
+    "askTitle": "Ihre Frage ist nicht dabei?",
+    "askText": "Stellen Sie sie direkt in der Anfrage — wir antworten persönlich.",
+    "askCta": "Frage stellen",
+    "save": "Vormerken",
+    "saved": "Vorgemerkt",
+    "atPractice": "In Ihrer Einrichtung",
+    "atLab": "Beim Kooperationspartner",
+    "backAtPractice": "Wieder bei Ihnen"
   }
 }

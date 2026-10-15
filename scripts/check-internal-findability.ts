@@ -73,8 +73,14 @@ for (const [routeId, route] of [
     `${routeId} registry-backed deepening route missing`,
   )
 }
+// AP34 SC-003: der Hub verlinkt die drei Vertiefungen ueber die Bereichsleiste
+// (epigeneticsAreaItems), deren Pfade aus derselben Registry-Bindung kommen.
+const epigeneticsArea = read('src/components/area/epigeneticsArea.ts')
 assert(
-  epigeneticsPage.includes('VERTIEFUNGEN.map'),
+  epigeneticsPage.includes('epigeneticsAreaItems(') &&
+    ['grundlagen', 'studienlage', 'unterlagen'].every((key) =>
+      epigeneticsArea.includes(`getVertiefung('${key}').to`),
+    ),
   'epigenetics hub does not link deepening routes',
 )
 for (const anchor of ['vergleich', 'musterbefunde']) {

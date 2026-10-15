@@ -18,17 +18,22 @@
  */
 
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../seo'
-import { Breadcrumbs } from '../ui/Breadcrumbs'
-import ChapterNav, { type Chapter } from '../ui/ChapterNav'
+import type { Chapter } from '../ui/ChapterNav'
 import PageTransition from '../ui/PageTransition'
-import Reveal from '../ui/Reveal'
-import { getVertiefung, LABEL, metaDescription, VERTIEFUNGEN, type VertiefungKey } from './tokens'
+import { getVertiefung, metaDescription, type VertiefungKey } from './tokens'
 import { useScrollDepth } from '../../lib/useScrollDepth'
+import { useMerkliste } from '../../lib/merkliste'
 import { epigeneticsInquiryHref } from '../../lib/epigeneticsContext'
+import AreaStage from '../area/AreaStage'
+import AreaNav from '../area/AreaNav'
+import NextSteps, { type StepLink } from '../area/NextSteps'
+import MobileActionBar from '../area/MobileActionBar'
+import { PageToc, PageTocMobile } from '../area/PageToc'
+import { epigeneticsAreaItems, epigeneticsJourney } from '../area/epigeneticsArea'
 
 interface EpiSubpageProps {
   /** Bestehender Locale-Schluessel fuer den Seitentitel, z.B. 'basics.title'. */
@@ -75,19 +80,56 @@ const EpiSubpage = ({
   children,
 }: EpiSubpageProps) => {
   const { t, i18n } = useTranslation('epigenetics')
-  // Der Weiterlesen-Titel ist Bedienoberflaeche und liegt im Namensraum
-  // `common`; sowohl er als auch der Epigenetics-Webcontent sind x10.
   const { t: tCommon } = useTranslation('common')
   useScrollDepth('epigenetics')
+  const { slugs: gemerkt } = useMerkliste()
   const vertiefung = getVertiefung(source)
   const path = vertiefung.to
 
   const seoTitle = t(title)
-  // Der Einleitungssatz ist der beste vorhandene Beschreibungstext; auf der
-  // Seite steht er unveraendert. Fuer die Suchmaschine kuerzt bzw. ergaenzt
-  // ihn metaDescription aus bereits freigegebenen Saetzen — siehe tokens.ts.
   const rawDescription = t(lead)
   const seoDescription = metaDescription(rawDescription, leadExtra ? t(leadExtra) : undefined)
+
+  // Genau EIN Anfragelink je Seite traegt `campaign=<seite>` (Vertrag PT15.2:
+  // sichtbar auf 390–1440 px, eindeutig in <main>). Er steht in der Buehne.
+  // Bereichsleiste und Seitenende fuehren in denselben Abschnitt, mit einer
+  // eigenen, lesbaren Kampagnenmarke — so bleibt messbar, welcher Platz traegt.
+  const inquiryHref = epigeneticsInquiryHref(null, null, source)
+  const inquiryFrom = (platz: string) => epigeneticsInquiryHref(null, null, `${source}-${platz}`)
+
+  // „Naechster Schritt" folgt der Strecke: Grundlagen → Analysen (Schritt 2),
+  // Studienlage → Unterlagen → Musterbefunde (Schritt 3).
+  const journey = epigeneticsJourney(t)
+  const stepKicker = (n: number) => tCommon('area.stepOf', { n, total: journey.length })
+  // Nachbarn in der Strecke. Nur die aktuelle Seite wird aufgeloest.
+  const back = (to: string, title: string): StepLink => ({
+    to,
+    kicker: tCommon('area.back'),
+    title,
+  })
+  const step = (n: number): StepLink => ({
+    to: journey[n - 1].to,
+    kicker: stepKicker(n),
+    title: journey[n - 1].title,
+    text: journey[n - 1].text,
+  })
+  const neighbours =
+    source === 'grundlagen'
+      ? { previous: back('/epigenetics', tCommon('area.overview')), next: step(2) }
+      : source === 'studienlage'
+        ? {
+            previous: back(getVertiefung('grundlagen').to, tCommon('footer.epi_basics')),
+            next: {
+              to: getVertiefung('unterlagen').to,
+              kicker: tCommon('area.next'),
+              title: tCommon('footer.epi_docs'),
+              text: t('downloads.sub'),
+            },
+          }
+        : {
+            previous: back(getVertiefung('studienlage').to, tCommon('footer.epi_evidence')),
+            next: step(3),
+          }
 
   return (
     <PageTransition>
@@ -112,110 +154,102 @@ const EpiSubpage = ({
         data-epigenetics-subpage={source}
         data-route-id={vertiefung.routeId}
       >
-        {/* Kopf der Vertiefungsseiten. Deutlich flacher als der Hero der
-            Programmseite: hier ist nichts auszuwaehlen, hier wird gelesen.
-            Dieselbe Flaeche haelt die Strecke optisch zusammen.
-
-            AP01 PT01.2 — Abweichung von der Quelle, bewusst: main faerbt
-            Flaeche und Text hier ueber das Legacy-Navy, das diese Linie
-            abgeschafft hat (Farb-Guard scripts/check-color-tokens.mjs,
-            Regel 3; BRANCH-RECONCILIATION-MAP N4). Die Programmseite
-            /epigenetics traegt auf dieser Linie `bg-brand-deep text-white` —
-            die Vertiefungsseiten folgen ihr, statt eine zweite Art Direction
-            aus main mitzubringen (DEC-RL-002). */}
-        <section className="bg-brand-deep text-white">
-          <div className="mx-auto max-w-container px-4 pb-14 pt-28 lg:px-0 lg:pb-16 lg:pt-32">
-            <Reveal width="100%" yOffset={20}>
-              <Breadcrumbs
-                variant="dark"
-                className="mb-4"
-                items={[
-                  { label: t('breadcrumb.home'), href: '/' },
-                  { label: t('breadcrumb.current'), href: '/epigenetics' },
-                  { label: seoTitle },
-                ]}
-              />
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-                {t(caption)}
-              </p>
-              <h1 className="max-w-[26ch] text-3xl font-medium tracking-tight sm:text-4xl lg:text-[44px] lg:leading-[1.15]">
-                {seoTitle}
-              </h1>
-              <p className="mt-5 max-w-[68ch] text-lg leading-relaxed text-white/85 lg:text-xl lg:leading-relaxed">
-                {rawDescription}
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Dieselbe Kapitelleiste wie auf der Programmseite und den
-            Musterbefunden. Sie loest zwei Dinge auf einmal:
-
-            - Der Rueckweg steht jetzt DURCHGEHEND im Bild, nicht erst nach
-              1.000 Woertern am Seitenende. Die eigenstaendige Zurueck-Pille
-              dort ist deshalb entfallen und nicht verdoppelt worden.
-            - Die Leiste schreibt beim Scrollen `--chapterbar-offset` ans
-              Wurzelelement (ChapterNav.tsx:184). Erst dadurch stimmen die
-              Sprungziele: ScrollToHash in App.tsx liest dieselbe Variable.
-              Ohne Leiste war sie auf diesen Seiten nie gesetzt.
-
-            Auf dem Aktionsplatz steht der Anfrageweg. Die drei Seiten endeten
-            zuvor ausschliesslich in einem Weg zurueck: wer sich auf der
-            Studienlage ueberzeugt hatte — also am weitesten gelesen hatte —
-            musste zurueck auf die Programmseite und dort bis zum Abschluss
-            scrollen. Mit genau einem Eintrag in `actions` bleibt es eine
-            einzige Schaltflaeche in Akzentfarbe, durchgehend im Bild. */}
-        <ChapterNav
-          chapters={chapters}
-          chaptersLabel={t('befund.navChapters')}
-          back={{ to: '/epigenetics', label: t('befund.navBack') }}
-          actions={[
-            {
-              to: epigeneticsInquiryHref(null, null, source),
-              label: t('hero.ctaQuote'),
-              // AP01 PT01.2: Die Quelle meldet hier zusaetzlich ein
-              // `epigenetics_request`-Ereignis ueber main's `trackEvent`.
-              // Das ist NICHT uebernommen — die Baseline fuehrt eine
-              // einwilligungsgebundene, providerneutrale Schnittstelle mit
-              // einer geschlossenen Ereignis-Union (src/lib/tracking.ts), und
-              // ein neues Ereignis darin ist eine Messplan-Entscheidung von
-              // AP23/AP15, nicht ein Kompatibilitaets-Hunk von AP01.
-              // Der `source`-Wert bleibt erhalten: er steuert weiter unten
-              // den Weiterlesen-Block.
-            },
+        {/* AP34 PT34.2c (SC-003): Lese-Buehne ohne Bild (LCP-Bildbudget der
+            Vertiefungen ist 0 Byte), Bereichsleiste statt Kapitel-Chips,
+            Inhaltsverzeichnis in der linken Spalte, am Ende „Naechster
+            Schritt". Die Grundlagen sind Schritt 1 der Strecke und zeigen
+            die Schrittanzeige. */}
+        <AreaStage
+          breadcrumbs={[
+            { label: t('breadcrumb.home'), href: '/' },
+            { label: t('breadcrumb.current'), href: '/epigenetics' },
+            { label: seoTitle },
           ]}
+          // Die Grundlagen sind Schritt 1 der Strecke; der Kicker sagt es, der
+          // Weg zu Schritt 2 steht in „Naechster Schritt" am Seitenende.
+          eyebrow={source === 'grundlagen' ? `${stepKicker(1)} · ${t(caption)}` : t(caption)}
+          title={seoTitle}
+          lead={<p>{rawDescription}</p>}
+          actions={
+            <Link
+              to={inquiryHref}
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full px-6 font-semibold ring-1 ring-inset ring-white/25 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              {t('hero.ctaQuote')}
+            </Link>
+          }
         />
 
-        {children}
-
-        {/* Weiterlesen: die beiden jeweils ANDEREN Vertiefungsseiten.
-            Ohne diesen Block war jede der drei Seiten von den beiden anderen
-            nur ueber den Umweg Programmseite erreichbar — gemessen fuehrten
-            alle internen Verweise in <main> ausschliesslich dorthin zurueck.
-            Die Liste kommt aus VERTIEFUNGEN und laesst die aktuelle Seite
-            ueber ihren `source`-Schluessel weg; eine Seite kann sich damit
-            nicht selbst verlinken. */}
-        <section className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
-          <h2 className={LABEL}>{tCommon('read_more')}</h2>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {VERTIEFUNGEN.filter((v) => v.key !== source).map((v) => (
-              <Link
-                key={v.key}
-                to={v.to}
-                className="group flex flex-col rounded-3xl border border-paper-line bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:shadow-card"
-              >
-                <span className={LABEL}>{t(v.captionKey)}</span>
-                <span className="mt-2 inline-flex items-start gap-1.5 text-lg font-semibold tracking-tight text-heading">
-                  {t(v.titleKey)}
-                  <ArrowRight
-                    className="mt-1.5 h-4 w-4 shrink-0 text-brand-primary transition-transform group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
+        <AreaNav
+          label={tCommon('nav.epigenetics')}
+          items={epigeneticsAreaItems(tCommon)}
+          currentKey={source}
+          actions={
+            <>
+              {gemerkt.length > 0 ? (
+                <span className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-heading">
+                  {tCommon('area.saved', { count: gemerkt.length })}
                 </span>
+              ) : null}
+              <Link
+                to={inquiryFrom('leiste')}
+                data-cta-section="area-nav"
+                data-cta-source="epigenetics"
+                className="inline-flex h-10 items-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-white hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              >
+                {t('hero.ctaQuote')}
               </Link>
-            ))}
+            </>
+          }
+        />
+
+        <div className="mx-auto max-w-container px-4 pt-10 sm:px-6 lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 lg:px-0">
+          <aside className="lg:pt-16">
+            <PageToc chapters={chapters} label={tCommon('area.onThisPage')} />
+          </aside>
+          <div className="min-w-0">
+            <PageTocMobile chapters={chapters} label={tCommon('area.onThisPage')} />
+            {children}
           </div>
-        </section>
+        </div>
+
+        <NextSteps
+          label={tCommon('area.nextLabel')}
+          previous={neighbours.previous}
+          next={neighbours.next}
+          cta={{
+            title: t('contact.title'),
+            text: t('contact.sub'),
+            action: (
+              <Link
+                to={inquiryFrom('ende')}
+                className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-white px-5 text-sm font-semibold text-brand-deep hover:bg-accent-soft"
+              >
+                {t('hero.ctaQuote')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ),
+          }}
+        />
+
+        <MobileActionBar
+          label={
+            gemerkt.length > 0
+              ? tCommon('area.saved', { count: gemerkt.length })
+              : source === 'grundlagen'
+                ? stepKicker(1)
+                : seoTitle
+          }
+          action={
+            <Link
+              to={inquiryFrom('mobil')}
+              className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-brand-deep"
+            >
+              {t('hero.ctaQuote')}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          }
+        />
       </div>
     </PageTransition>
   )

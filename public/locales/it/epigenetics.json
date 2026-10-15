@@ -803,5 +803,41 @@
     "lead": "Questi sono i pannelli che hai salvato. La lista rimane solo in questo browser: nulla viene trasmesso o valutato finché non invii qualcosa qui. Solo “Richiedi un preventivo” trasferisce i nomi nel modulo di contatto — dove appaiono nel campo di testo libero e possono essere modificati o cancellati prima dell’invio.",
     "clear": "Svuota la lista",
     "note": "Memorizzato solo nella memoria di questo browser (localStorage), e solo il nome del pannello. Nessun account, nessun record sul server, nulla trasmesso a terzi. “Svuota la lista” rimuove completamente la voce."
+  },
+  "journey": {
+    "caption": "Il suo percorso nel programma",
+    "title": "Quattro passi verso la decisione",
+    "lead": "Ogni passo ha il suo posto in questa sezione. Vada direttamente dove si trova ora — le analisi salvate finiscono nella sua richiesta.",
+    "understand": {
+      "title": "Capire",
+      "text": "Che cosa misurano genetica ed epigenetica — e quale valore può davvero cambiare.",
+      "cta": "Leggere le basi"
+    },
+    "choose": {
+      "title": "Scegliere l’analisi",
+      "text": "Sei analisi, un unico percorso del campione. Il filtro mostra quale si adatta alla sua struttura.",
+      "cta": "Alle analisi"
+    },
+    "view": {
+      "title": "Vedere un referto di esempio",
+      "text": "Prima della richiesta, veda che cosa avrà in mano — un referto completo per ogni analisi.",
+      "cta": "Sei referti di esempio"
+    },
+    "ask": {
+      "title": "Richiedere",
+      "text": "Le analisi salvate sono già nel modulo. Condizioni B2B su accordo.",
+      "cta": "Alla richiesta"
+    },
+    "evidenceLink": "Tutti i punti con le fonti",
+    "basicsLink": "In dettaglio nelle basi",
+    "docsLink": "Vedere tutti i documenti",
+    "askTitle": "La sua domanda non c’è?",
+    "askText": "La ponga direttamente nella richiesta — rispondiamo personalmente.",
+    "askCta": "Fare una domanda",
+    "save": "Salva",
+    "saved": "Salvata",
+    "atPractice": "Nella sua struttura",
+    "atLab": "Presso il partner",
+    "backAtPractice": "Di nuovo da lei"
   }
 }

@@ -803,5 +803,41 @@
     "lead": "Voici les panels que vous avez enregistrés. La liste reste uniquement dans ce navigateur : rien n’est transmis ni évalué tant que vous ne soumettez rien ici. Seule la fonction « Demander un devis » transmet les noms dans le formulaire de contact — où ils apparaissent dans le champ de texte libre et peuvent être modifiés ou supprimés avant envoi.",
     "clear": "Effacer la liste",
     "note": "Stocké uniquement dans le stockage local de ce navigateur (localStorage), et uniquement le nom du panel. Pas de compte, pas d’enregistrement serveur, rien transmis à des tiers. « Effacer la liste » supprime complètement l’entrée."
+  },
+  "journey": {
+    "caption": "Votre parcours dans le programme",
+    "title": "Quatre étapes vers une décision",
+    "lead": "Chaque étape a sa place dans cette rubrique. Allez directement là où vous en êtes — les analyses retenues se retrouvent dans votre demande.",
+    "understand": {
+      "title": "Comprendre",
+      "text": "Ce que mesurent la génétique et l’épigénétique — et quelle valeur peut réellement évoluer.",
+      "cta": "Lire les bases"
+    },
+    "choose": {
+      "title": "Choisir une analyse",
+      "text": "Six analyses, un seul circuit d’échantillon. Le filtre indique celle qui convient à votre structure.",
+      "cta": "Vers les analyses"
+    },
+    "view": {
+      "title": "Voir un rapport type",
+      "text": "Voyez avant la demande ce que vous aurez en main — un rapport complet par analyse.",
+      "cta": "Six rapports types"
+    },
+    "ask": {
+      "title": "Demander",
+      "text": "Les analyses retenues figurent déjà dans le formulaire. Conditions B2B sur demande.",
+      "cta": "Vers la demande"
+    },
+    "evidenceLink": "Tous les points avec sources",
+    "basicsLink": "En détail dans les bases",
+    "docsLink": "Voir tous les documents",
+    "askTitle": "Votre question n’y figure pas ?",
+    "askText": "Posez-la directement dans la demande — nous répondons personnellement.",
+    "askCta": "Poser une question",
+    "save": "Retenir",
+    "saved": "Retenu",
+    "atPractice": "Dans votre structure",
+    "atLab": "Chez le partenaire",
+    "backAtPractice": "De retour chez vous"
   }
 }

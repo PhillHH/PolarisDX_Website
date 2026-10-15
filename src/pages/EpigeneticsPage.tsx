@@ -18,29 +18,46 @@
  * Fachpublikum, keine Uebersichtsseite.
  */
 
+import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, Check, ChevronDown, Download, FileText, Minus } from 'lucide-react'
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Download,
+  Droplet,
+  FileText,
+  FlaskConical,
+  Layers,
+  Minus,
+  Tag,
+} from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import SectionHeader from '../components/ui/SectionHeader'
 import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
-import ChapterNav, { type Chapter, type NavAction } from '../components/ui/ChapterNav'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
+import { Button } from '../components/ui/Button'
 import { resourceLanguageFromPath } from '../lib/resourceLanguage'
-import ConsultSteps, { CONSULT_ID } from '../components/befund/ConsultSteps'
-import { ScaleRamp } from '../components/befund/BefundCharts'
+import ConsultSteps from '../components/befund/ConsultSteps'
+import { ScaleRamp } from '../components/befund/ScaleRamp'
 import { useScrollDepth } from '../lib/useScrollDepth'
 // Die Schnittstelle beschrieb `quote_request` als "der Weg Angebot anfragen
 // wurde begonnen" und wurde nirgends ausgeloest. Ohne dieses Ereignis laesst
 // sich nicht sagen, ob der umgebaute Anfrageweg traegt.
 import { track } from '../lib/tracking'
 import { useMerkliste } from '../lib/merkliste'
-import { VERTIEFUNGEN } from '../components/epigenetics/tokens'
 import EpigeneticsInquiryForm from '../components/epigenetics/EpigeneticsInquiryForm'
+import AreaStage from '../components/area/AreaStage'
+import StageFacts from '../components/area/StageFacts'
+import AreaNav from '../components/area/AreaNav'
+import JourneySteps from '../components/area/JourneySteps'
+import NextSteps from '../components/area/NextSteps'
+import MobileActionBar from '../components/area/MobileActionBar'
+import { epigeneticsAreaItems, epigeneticsJourney } from '../components/area/epigeneticsArea'
 import {
   EPIGENETICS_FOCUS_KEYS,
   epigeneticsHubHref,
@@ -106,20 +123,31 @@ function asArray<T>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : []
 }
 
-/** Dekoratives Sparkle-Motiv des Programms — Inline-SVG, erbt currentColor. */
-const Sparkle = ({ className = '' }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" aria-hidden="true" className={className}>
-    <path
-      d="M50 2 C50 33 33 50 2 50 C33 50 50 67 50 98 C50 67 67 50 98 50 C67 50 50 33 50 2 Z"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-    />
-  </svg>
-)
+// Ablauf: positionell gruppiert nach Ort. Schritte 1–3 (Beratung, Probenahme,
+// Versand) und 6 (Besprechung) liegen in der Einrichtung, 4–5 (Analyse,
+// Befund) beim Kooperationspartner — so steht es in workflow.lead.
+const WORKFLOW_GROUPS = [
+  { key: 'atPractice', from: 0, to: 3, lab: false },
+  { key: 'atLab', from: 3, to: 5, lab: true },
+  { key: 'backAtPractice', from: 5, to: 6, lab: false },
+] as const
+
+// Die drei Blaetter, die im Hub stehen: Programm, Konditionen, Grenzen. Alle
+// neun (plus Parameteruebersicht und "Werte verstehen") fuehrt die
+// Unterlagen-Seite.
+const HUB_SHEETS = ['00', '07', '08']
+
+const chip = (on: boolean) =>
+  `inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold ${
+    on
+      ? 'border-brand-deep bg-brand-deep text-white'
+      : 'border-slate-300 bg-white text-heading hover:border-accent'
+  }`
 
 const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation(['epigenetics', 'common', 'downloads'])
+  // Array-Form: der i18n-Guard bindet `t` sonst an `common` (scripts/check-i18n.ts).
+  const { t: tCommon } = useTranslation(['common'])
   useScrollDepth('epigenetics')
   // Die vorgemerkten Panels reisen im Ereignis mit: eine Anfrage nach drei
   // vorgemerkten Panels ist etwas anderes als eine aus dem Vorbeigehen.
@@ -148,46 +176,25 @@ const EpigeneticsPage = () => {
   const compareCaveats = asArray<TitledText>(t('compare.caveats', { returnObjects: true }))
   const concepts = asArray<Concept>(t('basics.concepts', { returnObjects: true }))
   const scales = asArray<Fact>(t('basics.scales', { returnObjects: true }))
+  const chips = asArray<{ label: string; value: string }>(t('hero.chips', { returnObjects: true }))
 
   const faqSchemaItems: FAQItem[] = faq.map((item) => ({ question: item.q, answer: item.a }))
   const zipHref = `${ASSET_BASE}${t('downloads.zipFile')}`
+  const hubSheets = sheets.filter((sheet) => HUB_SHEETS.includes(sheet.num))
+  const portfolio = sheets.find((sheet) => sheet.num === '00')
+  const groupCount = (key: string) => compareGroups.filter((groups) => groups.includes(key)).length
 
-  // Kapitel der Seite. Die Kurzform aus dem jeweiligen Kicker ist als Chip
-  // besser lesbar als die Ueberschrift — ausser bei den Analysen, wo der
-  // Kicker nur "Portfolio" heisst.
-  // Reihenfolge wie die Abschnitte: erst die Auswahl, dann die Grundlagen,
-  // dann die Panels. Vorher standen die Einzelkarten vor der Vergleichstabelle
-  // und das Vokabular rund 8.000px hinter seiner ersten Verwendung.
-  const chapters: Chapter[] = [
-    { id: 'vergleich', label: t('compare.caption') },
-    { id: 'prinzip', label: t('principle.caption') },
-    { id: 'werte-verstehen', label: t('basics.caption') },
-    { id: 'analysen', label: t('analyses.title') },
-    { id: 'ablauf', label: t('workflow.caption') },
-    { id: CONSULT_ID, label: t('consult.caption') },
-    { id: 'studienlage', label: t('evidence.caption') },
-    { id: 'fragen', label: t('faq.caption') },
-    { id: 'downloads', label: t('downloads.caption') },
-    // NICHT #contact — diese id gehoert dem globalen Abschlussblock nach
-    // </main>. Das Kapitel meint den eigenen Block.
-    { id: 'inquiry', label: t('contact.caption') },
-  ]
+  // Der Vergleich ist aufgeklappt, sobald jemand gezielt dorthin kommt: mit
+  // einem Filter in der URL oder ueber den (extern verlinkten) Anker.
+  const vergleichRef = useRef<HTMLDetailsElement>(null)
+  useEffect(() => {
+    if (window.location.hash === '#vergleich' && vergleichRef.current) {
+      vergleichRef.current.open = true
+    }
+  }, [])
 
-  /**
-   * Die Aufforderung in der Kapitelleiste wechselt mit der Lesetiefe, statt
-   * ueber die ganze Seite hinweg denselben Satz zu wiederholen. Sie teilt die
-   * Lesestrecke in drei gleich grosse Abschnitte.
-   *
-   * Wer oben steht, hat die sechs Panels noch nicht nebeneinander gesehen; in
-   * der Mitte ist die naechste Frage, wie ein fertiger Befund aussieht; unten
-   * steht die Anfrage. Alle drei Beschriftungen sind bestehende Schluessel —
-   * es kommt kein Text hinzu, der in zehn Sprachen nachzuziehen waere.
-   */
-  const navAktionen: NavAction[] = [
-    { href: '#vergleich', label: t('compare.title') },
-    { href: '#musterbefunde', label: t('downloads.samplesCta') },
-    { to: epigeneticsInquiryHref(context.panel, panelGroup), label: t('hero.ctaQuote') },
-  ]
+  const factIcons = [Droplet, FlaskConical, Layers, Tag]
+  const inquiryHref = epigeneticsInquiryHref(context.panel, panelGroup)
 
   return (
     <PageTransition>
@@ -222,280 +229,292 @@ const EpigeneticsPage = () => {
         data-route-id="epigenetics"
       >
         {/* ================================================================
-            HERO
+            BUEHNE (AP34 PT34.2b, SC-003)
+            Genau eine Aufgabe: zu den sechs Analysen. Der Anfrageweg steht
+            daneben, als zweite, leisere Schaltflaeche — er ist der einzige
+            `source=epigenetics`-Link der Seite (e2e PT15.1); alle uebrigen
+            Anfrage-Verweise springen per #inquiry in denselben Abschnitt.
         ================================================================ */}
-        <section className="relative overflow-hidden bg-brand-deep text-white">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-brand-secondary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 left-1/4 h-[320px] w-[320px] rounded-full bg-accent/20 blur-3xl" />
-          <Sparkle className="pointer-events-none absolute right-8 top-24 hidden h-40 w-40 text-white/15 lg:block" />
-          <Sparkle className="pointer-events-none absolute right-52 top-56 hidden h-16 w-16 text-accent-on-dark/30 lg:block" />
+        <AreaStage
+          overlap
+          breadcrumbs={[
+            { label: t('breadcrumb.home'), href: '/' },
+            { label: t('breadcrumb.current') },
+          ]}
+          eyebrow={t('hero.eyebrow')}
+          title={t('hero.title')}
+          lead={<p>{t('hero.claim')}</p>}
+          actions={
+            <>
+              <Button
+                href="#analysen"
+                variant="light"
+                className="w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
+              >
+                {t('hero.ctaDocs')}
+                <span
+                  aria-hidden="true"
+                  className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Button>
+              <Button
+                to={inquiryHref}
+                variant="ghost"
+                onClick={() => track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })}
+                className="w-full justify-center !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
+              >
+                {t('hero.ctaQuote')}
+              </Button>
+            </>
+          }
+        />
 
-          <div className="relative mx-auto max-w-page px-4 pb-16 pt-28 lg:px-10 lg:pb-20 lg:pt-32">
-            <Reveal width="100%">
-              <div className="max-w-container">
-                <Breadcrumbs
-                  variant="dark"
-                  className="mb-4"
-                  items={[
-                    { label: t('breadcrumb.home'), href: '/' },
-                    { label: t('breadcrumb.current') },
-                  ]}
-                />
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-                  {t('hero.eyebrow')}
-                </p>
-                <h1 className="max-w-3xl text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl lg:leading-[1.15]">
-                  {t('hero.title')}
-                </h1>
-                <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-white/85 lg:text-xl lg:leading-relaxed">
-                  {t('hero.claim')}
-                </p>
+        {/* Die vier Eckdaten des Programms aus hero.chips — dieselben Angaben,
+            die bisher als Chips im Kopf standen. */}
+        <StageFacts
+          label={tCommon('area.factsLabel')}
+          items={chips.slice(0, 4).map((chip, index) => ({
+            icon: factIcons[index] ?? Layers,
+            label: chip.label,
+            value: chip.value,
+          }))}
+        />
 
-                {/* Der Kernsatz aus dem Beratungsabschnitt. Er ist das
-                    Argument fuer wiederkehrende Termine und steht deshalb im
-                    ersten Bildschirm. Bewusst OHNE Monatszahl: die Untergrenze
-                    "fruehestens nach vier bis sechs Monaten" ist nur fuer die
-                    beiden Methylierungspanels belegt, der Hero gilt aber fuer
-                    alle sechs. Der vollstaendige Abschnitt steht als eigenes
-                    Kapitel hinter dem Ablauf. */}
-                <p className="mt-5 max-w-[60ch] text-base leading-7 text-white/80 lg:text-[17px] lg:leading-8">
-                  {t('hero.consultLine')}
-                </p>
-
-                {/* Vertrauenszeile im ersten Bildschirm. Zwei Elemente statt
-                    drei: der dritte Platz waere eine Praktiker-Stimme zum
-                    Programm — es liegt keine echte vor (die Rezensionen in
-                    src/data/testimonials.ts betreffen die Point-of-Care-
-                    Diagnostik und tragen keinen Text), und erfundene kommen
-                    nicht auf die Seite. Die Zahlen der Studienzeile kommen aus
-                    derselben Quelle wie der Abschnitt Studienlage und koennen
-                    deshalb nicht auseinanderlaufen. */}
-                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                  <li className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-base text-white/85 backdrop-blur-sm">
-                    {t('contact.lab')}
-                  </li>
-                  <li className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-base text-white/85 backdrop-blur-sm">
-                    <a
-                      href="#studienlage"
-                      className="inline-flex items-start gap-1.5 transition-colors hover:text-white"
-                    >
-                      {t('hero.trustEvidence', {
-                        established: established.length,
-                        preliminary: preliminary.length,
-                      })}
-                      <ArrowRight className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
-                    </a>
-                  </li>
-                </ul>
-
-                {/* Die einzige Aufgabe des Heros: die Auswahl. Der
-                    Einstiegsfilter stand bisher erst an der Vergleichstabelle,
-                    rund einen Bildschirm zu spaet. Die Chips sind Links auf die
-                    Tabelle — sie setzen die Auswahl und springen dorthin, wo sie
-                    wirkt. Vorher standen hier drei gleichrangige Knoepfe, einer
-                    davon ein Download. */}
-                <div className="mt-10 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
-                  <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight lg:text-3xl">
-                    {t('hero.chooseTitle')}
-                  </h2>
-                  <p className="mt-2 text-sm text-white/70">{t('compare.filter.label')}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <Link
-                      to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
-                      aria-current={panelGroup === null ? 'true' : undefined}
-                      className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                        panelGroup === null
-                          ? 'border-white bg-white text-brand-deep'
-                          : 'border-white/40 text-white hover:border-white hover:bg-white/10'
-                      }`}
-                    >
-                      {t('compare.filter.all')}
-                    </Link>
-                    {EPIGENETICS_FOCUS_KEYS.map((key) => (
-                      <Link
-                        key={key}
-                        to={epigeneticsHubHref({ panel: context.panel, focus: key }, 'vergleich')}
-                        aria-current={panelGroup === key ? 'true' : undefined}
-                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                          panelGroup === key
-                            ? 'border-white bg-white text-brand-deep'
-                            : 'border-white/40 text-white hover:border-white hover:bg-white/10'
-                        }`}
-                      >
-                        {t(`compare.filter.options.${key}`)}
-                      </Link>
-                    ))}
-                  </div>
-                  {/* Der Anfrageweg bleibt im ersten Bildschirm erreichbar,
-                      aber als Textlink: er steht dem Filter nicht mehr als
-                      gleichrangiger Knopf gegenueber. */}
-                  <Link
-                    to={epigeneticsInquiryHref(context.panel, panelGroup)}
-                    onClick={() =>
-                      track({ name: 'quote_request', panels: gemerkt, quelle: 'landing' })
-                    }
-                    className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-on-dark transition-colors hover:text-white"
+        <div className="mt-8 lg:mt-10">
+          <AreaNav
+            label={tCommon('nav.epigenetics')}
+            items={epigeneticsAreaItems(tCommon)}
+            currentKey="overview"
+            actions={
+              <>
+                {gemerkt.length > 0 ? (
+                  <a
+                    href="#merkliste"
+                    className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-heading hover:border-accent"
                   >
-                    {t('hero.ctaQuote')}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
+                    {tCommon('area.saved', { count: gemerkt.length })}
+                  </a>
+                ) : null}
+                <a
+                  href="#inquiry"
+                  data-cta-role="EPIGENETICS_INQUIRY"
+                  data-cta-source="epigenetics"
+                  data-cta-section="area-nav"
+                  className="inline-flex h-10 items-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-white hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  {t('hero.ctaQuote')}
+                </a>
+              </>
+            }
+          />
+        </div>
+
+        {/* ================================================================
+            WEGWEISER — vier Schritte zur Entscheidung
+        ================================================================ */}
+        <section className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-20">
+          <Reveal width="100%">
+            <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+              <SectionHeader
+                caption={t('journey.caption')}
+                title={t('journey.title')}
+                align="left"
+              />
+              <p className={LEAD}>{t('journey.lead')}</p>
+            </div>
+          </Reveal>
+          <div className="mt-10">
+            <JourneySteps
+              label={tCommon('area.journeyLabel')}
+              steps={epigeneticsJourney(t)}
+              currentKey="choose"
+            />
           </div>
         </section>
 
-        <ChapterNav
-          chapters={chapters}
-          chaptersLabel={t('befund.navChapters')}
-          actions={navAktionen}
-        />
-
         {/* ================================================================
-            DIE SECHS PANELS IM VERGLEICH
+            DIE SECHS ANALYSEN — mit Filter (Schritt 2)
+            #analysen liegt auf dem Abschnitt, #musterbefunde als Sprungmarke
+            davor — beide sind extern verlinkt und stehen in den PDFs.
         ================================================================ */}
         <section
-          id="vergleich"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-b border-paper-line bg-paper"
+          id="analysen"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-20">
-            <Reveal width="100%">
-              <SectionHeader
-                caption={t('compare.caption')}
-                title={t('compare.title')}
-                align="left"
-              />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('compare.lead')}</p>
-              {/* Die Tabelle nennt die molekulare Ebene beim Namen — microRNA,
-                  Telomerlaenge, Methylierung. Erklaert werden die Begriffe im
-                  Vokabelabschnitt rund 3.000px weiter unten. Vorher gab es
-                  keinen einzigen Verweis dorthin. */}
-              <a
-                href="#werte-verstehen"
-                className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
-              >
-                {t('basics.title')}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+          <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
+          <EpigeneticsPanels
+            activePanel={context.panel}
+            focus={panelGroup}
+            groups={compareGroups}
+            title={t('hero.chooseTitle')}
+            filter={
+              <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
+                <p className="shrink-0 text-base font-semibold text-heading">
+                  {t('compare.filter.label')}
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  <li>
+                    <Link
+                      to={epigeneticsHubHref({ panel: context.panel }, 'analysen')}
+                      aria-current={panelGroup === null ? 'true' : undefined}
+                      className={chip(panelGroup === null)}
+                    >
+                      {t('compare.filter.all')}
+                      <span className="text-xs font-medium opacity-70">{compareRows.length}</span>
+                    </Link>
+                  </li>
+                  {EPIGENETICS_FOCUS_KEYS.map((key) => (
+                    <li key={key}>
+                      <Link
+                        to={epigeneticsHubHref({ panel: context.panel, focus: key }, 'analysen')}
+                        aria-current={panelGroup === key ? 'true' : undefined}
+                        className={chip(panelGroup === key)}
+                      >
+                        {t(`compare.filter.options.${key}`)}
+                        <span className="text-xs font-medium opacity-70">{groupCount(key)}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            }
+          />
+        </section>
 
-              {/* Der Filter selbst steht jetzt im Hero. Hier bleibt nur die
-                  Anzeige, welche Auswahl die Tabelle gerade zeigt, und der Weg
-                  zurueck auf alle sechs — ein zweites Chip-Raster an derselben
-                  Seite waere ein zweiter Bedienort fuer denselben Zustand. */}
-              {panelGroup ? (
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <p className="text-base text-gray-600">
-                    {t('compare.filter.label')}{' '}
-                    <span className="font-semibold text-brand-deep">
-                      {t(`compare.filter.options.${panelGroup}`)}
-                    </span>
-                  </p>
-                  <Link
-                    to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
-                    className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    {t('compare.filter.all')}
-                  </Link>
-                </div>
-              ) : null}
-            </Reveal>
-
-            {/* Die Tabelle ist auf schmalen Viewports breiter als der Bildschirm.
-                overflow-x-auto plus min-w haelt sie scrollbar statt sie zu
-                quetschen; die Randlinie zeigt, dass rechts noch etwas kommt. */}
-            <Reveal width="100%">
-              <div
-                role="region"
-                aria-label={t('compare.title')}
-                // A horizontally scrollable data table must itself receive
-                // keyboard focus; the generic lint rule cannot infer that.
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                tabIndex={0}
-                className="mt-10 overflow-x-auto rounded-3xl border border-paper-line bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-              >
-                <table className="w-full min-w-[54rem] border-collapse text-left">
-                  {/* AP24 PT24.1: Die Tabelle stand namenlos im Dokument. Der
-                      Name des Scrollbereichs benennt den Bereich, nicht die
-                      Tabelle selbst — dieselbe sr-only-Caption wie in
-                      BefundBlocks, keine neue Uebersetzung. */}
-                  <caption className="sr-only">{t('compare.title')}</caption>
-                  <thead>
-                    <tr className="bg-brand-deep text-white">
-                      {compareCols.map((col) => (
-                        <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
-                          {col}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {visibleRows.map((row, rowIndex) => (
-                      <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-paper' : 'bg-white'}>
-                        {row.map((cell, cellIndex) => (
-                          <td
-                            key={`${row[0]}-${cellIndex}`}
-                            className={
-                              cellIndex === 0
-                                ? 'px-5 py-4 text-base font-semibold text-heading'
-                                : 'px-5 py-4 text-base text-gray-700'
-                            }
-                          >
-                            {cell}
-                          </td>
+        {/* ================================================================
+            VERGLEICH — aufklappbar (progressive disclosure, SC-003)
+            Die Karten oben tragen dieselben Achsen; die Tabelle ist die
+            Nebeneinander-Ansicht fuer alle, die gezielt vergleichen. Die
+            methodischen Grenzen und der GenDG-Hinweis stehen AUSSERHALB des
+            Aufklappers und bleiben immer sichtbar.
+        ================================================================ */}
+        <section id="vergleich" className="scroll-mt-[var(--chapterbar-offset,148px)] bg-white">
+          <div className="mx-auto max-w-container px-4 pb-16 sm:px-6 lg:px-0 lg:pb-24">
+            <details
+              ref={vergleichRef}
+              open={panelGroup !== null || undefined}
+              className="group rounded-card border border-paper-line bg-paper"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 lg:p-7 [&::-webkit-details-marker]:hidden">
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+                    {t('compare.caption')}
+                  </span>
+                  <span className="mt-1 block text-xl font-semibold tracking-tight text-heading">
+                    {t('compare.title')}
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-deep text-white"
+                >
+                  <ChevronDown className="h-5 w-5 motion-safe:transition-transform group-open:rotate-180" />
+                </span>
+              </summary>
+              <div className="border-t border-paper-line p-4 sm:p-6 lg:p-7">
+                <p className={`max-w-[68ch] ${LEAD}`}>{t('compare.lead')}</p>
+                {panelGroup ? (
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <p className="text-base text-gray-600">
+                      {t('compare.filter.label')}{' '}
+                      <span className="font-semibold text-brand-deep">
+                        {t(`compare.filter.options.${panelGroup}`)}
+                      </span>
+                    </p>
+                    <Link
+                      to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
+                      className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-brand-deep transition-colors hover:border-brand-primary"
+                    >
+                      {t('compare.filter.all')}
+                    </Link>
+                  </div>
+                ) : null}
+                {/* Die Tabelle ist auf schmalen Viewports breiter als der
+                    Bildschirm: overflow-x-auto plus min-w haelt sie scrollbar. */}
+                <div
+                  role="region"
+                  aria-label={t('compare.title')}
+                  // A horizontally scrollable data table must itself receive
+                  // keyboard focus; the generic lint rule cannot infer that.
+                  // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                  tabIndex={0}
+                  className="mt-6 overflow-x-auto rounded-2xl border border-paper-line bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                >
+                  <table className="w-full min-w-[54rem] border-collapse text-left">
+                    <caption className="sr-only">{t('compare.title')}</caption>
+                    <thead>
+                      <tr className="bg-brand-deep text-white">
+                        {compareCols.map((col) => (
+                          <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
+                            {col}
+                          </th>
                         ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {visibleRows.length === 0 ? (
-                <p className="mt-4 text-base text-gray-600">{t('compare.filter.empty')}</p>
-              ) : null}
-              {/* Die Tabelle ist breiter als schmale Viewports. Ohne Hinweis
-                  bleibt die Spalte mit der Ergebnisform unentdeckt. */}
-              <p className="mt-3 text-sm text-gray-600 lg:hidden">{t('compare.scrollHint')}</p>
-            </Reveal>
+                    </thead>
+                    <tbody>
+                      {visibleRows.map((row, rowIndex) => (
+                        <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-paper' : 'bg-white'}>
+                          {row.map((cell, cellIndex) => (
+                            <td
+                              key={`${row[0]}-${cellIndex}`}
+                              className={
+                                cellIndex === 0
+                                  ? 'px-5 py-4 text-base font-semibold text-heading'
+                                  : 'px-5 py-4 text-base text-gray-700'
+                              }
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                {visibleRows.length === 0 ? (
+                  <p className="mt-4 text-base text-gray-600">{t('compare.filter.empty')}</p>
+                ) : null}
+                <p className="mt-3 text-sm text-gray-600 lg:hidden">{t('compare.scrollHint')}</p>
 
-            {/* Die Ergebnisformen der letzten Spalte werden hier erklaert und
-                nicht erst rund 4.900px weiter unten unter "Werte verstehen".
-                Eine Legende, die man erst suchen muss, ist keine Legende. */}
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
-                <p className={LABEL}>{t('basics.scaleTitle')}</p>
-                <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                  {scales.map((scale, scaleIndex) => (
-                    <div key={`vergleich-${scale.k}`}>
-                      <dt className="text-base font-semibold text-heading">{scale.k}</dt>
-                      <dd className="mt-2">
-                        <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
-                        <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
-                      </dd>
+                <div className="mt-6 rounded-2xl border border-paper-line bg-white p-6">
+                  <p className={LABEL}>{t('basics.scaleTitle')}</p>
+                  <dl className="mt-4 grid gap-5 lg:grid-cols-3">
+                    {scales.map((scale, scaleIndex) => (
+                      <div key={`vergleich-${scale.k}`}>
+                        <dt className="text-base font-semibold text-heading">{scale.k}</dt>
+                        <dd className="mt-2">
+                          <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
+                          <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div className="mt-6 grid gap-5 lg:grid-cols-3">
+                  {compareShared.map((item) => (
+                    <div
+                      key={item.title}
+                      className="h-full rounded-2xl border border-paper-line bg-white p-6"
+                    >
+                      <p className="text-lg font-semibold text-heading">{item.title}</p>
+                      <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
                     </div>
                   ))}
-                </dl>
+                </div>
               </div>
-            </Reveal>
+            </details>
 
-            <div className="mt-6 grid gap-5 lg:grid-cols-3">
-              {compareShared.map((item, index) => (
-                <Reveal key={item.title} width="100%" delay={0.05 * index} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-paper-line bg-white p-6">
-                    <p className="text-lg font-semibold text-heading">{item.title}</p>
-                    <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* Die methodischen Grenzen stehen bewusst neben der Tabelle und
-                nicht im Kleingedruckten — vor Fachpublikum ist das ein
-                Vertrauensargument. */}
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
+            {/* Methodische Grenzen und GenDG: immer sichtbar, nie im
+                Kleingedruckten — vor Fachpublikum ein Vertrauensargument. */}
+            <div className="mt-6 grid gap-5 lg:grid-cols-2">
+              <div className="rounded-card border border-accent-border bg-accent-soft p-7">
                 <p className="text-sm font-semibold text-accent-strong">
                   {t('compare.caveatTitle')}
                 </p>
-                <div className="mt-4 grid gap-5 lg:grid-cols-2">
+                <div className="mt-4 grid gap-5 md:grid-cols-2">
                   {compareCaveats.map((item) => (
                     <div key={item.title}>
                       <p className="text-base font-semibold text-heading">{item.title}</p>
@@ -504,37 +523,31 @@ const EpigeneticsPage = () => {
                   ))}
                 </div>
               </div>
-            </Reveal>
-
-            {/* Der GenDG-Hinweis bleibt an der Tabelle stehen, wo die beiden
-                genetischen Panels sichtbar sind. Die Parameteruebersicht als
-                PDF stand hier als eigener Knopf — sie liegt jetzt im
-                Unterlagen-Abschnitt bei allen anderen Blaettern. */}
-            <Reveal width="100%">
-              <div className="mt-6 rounded-3xl border border-paper-line bg-white p-7">
+              <div className="rounded-card border border-paper-line bg-paper p-7">
                 <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
         {/* ================================================================
-            DAS PRINZIP
+            DAS PRINZIP — kurz, mit dem Kernsatz als Zitat
         ================================================================ */}
         <section
           id="prinzip"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-24"
         >
           <Reveal width="100%">
-            <SectionHeader
-              caption={t('principle.caption')}
-              title={t('principle.title')}
-              align="left"
-            />
-            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('principle.lead')}</p>
+            <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+              <SectionHeader
+                caption={t('principle.caption')}
+                title={t('principle.title')}
+                align="left"
+              />
+              <p className={LEAD}>{t('principle.lead')}</p>
+            </div>
           </Reveal>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {principleCards.map((card, index) => (
               <Reveal
                 key={card.title}
@@ -542,7 +555,7 @@ const EpigeneticsPage = () => {
                 delay={index * REVEAL_STAGGER}
                 className={STRETCH}
               >
-                <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
+                <div className="h-full rounded-card border border-paper-line bg-white p-7">
                   <h3 className="text-xl font-semibold tracking-tight text-heading">
                     {card.title}
                   </h3>
@@ -551,194 +564,208 @@ const EpigeneticsPage = () => {
               </Reveal>
             ))}
           </div>
-
-          <Reveal width="100%">
-            <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-              <p className="text-xs font-medium text-gray-600">{t('principle.practice.title')}</p>
-              <ul className="mt-4 grid gap-3 lg:grid-cols-3">
-                {practiceItems.map((item) => (
-                  <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
-                    <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-
-          {/* Hier stand der erste von mehreren ueber die Seite verteilten
-              Dokument-Hinweisen (Portfolio-Uebersicht als PDF). Alle
-              Unterlagen liegen jetzt in einem Abschnitt; die Portfolio-
-              Uebersicht ist dort das hervorgehobene erste Blatt. */}
+          <div className="mt-5 rounded-card border border-paper-line bg-white p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-600">
+              {t('principle.practice.title')}
+            </p>
+            <ul className="mt-4 grid gap-3 lg:grid-cols-3">
+              {practiceItems.map((item) => (
+                <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
+                  <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Der Kernsatz aus dem Beratungsabschnitt — bewusst OHNE Monatszahl:
+              die Untergrenze ist nur fuer die Methylierungspanels belegt. */}
+          <figure className="mt-5 flex flex-col gap-5 rounded-card border border-accent-border bg-accent-soft p-7 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <blockquote className="text-lg font-semibold leading-relaxed tracking-tight text-heading lg:text-xl">
+              {t('hero.consultLine')}
+            </blockquote>
+            <Link
+              to="/epigenetics/grundlagen"
+              className="inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
+            >
+              {t('journey.basicsLink')}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </figure>
         </section>
 
         {/* ================================================================
-            WERTE VERSTEHEN — die vier Ebenen und die drei Zahlenformate
+            WERTE VERSTEHEN — Kurzfassung; vollstaendig auf /grundlagen.
+            Die id bleibt: #werte-verstehen ist extern verlinkt.
         ================================================================ */}
         <section
           id="werte-verstehen"
           className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
+          <div className="mx-auto grid max-w-container gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-0 lg:py-16">
+            <div>
               <SectionHeader caption={t('basics.caption')} title={t('basics.title')} align="left" />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('basics.lead')}</p>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {concepts.map((item, index) => (
-                <Reveal key={item.num} width="100%" delay={0.05 * (index % 2)} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-paper-line bg-paper p-7">
-                    <div className="flex items-start gap-4">
-                      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
-                        {item.num}
-                      </span>
-                      <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-heading">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className={`mt-4 text-gray-700 ${BODY}`}>{item.text}</p>
-                    <p className="mt-4 border-t border-paper-line pt-4 text-base font-medium text-accent-strong">
-                      {item.key}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+              <p className={`mt-4 ${LEAD}`}>{t('basics.lead')}</p>
+              <Link
+                to="/epigenetics/grundlagen#werte-verstehen"
+                className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
+              >
+                {t('journey.basicsLink')}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
-
-            {/* Die Skalenlegende steht jetzt direkt unter der
-                Vergleichstabelle, wo die Ergebnisformen auftauchen. Der
-                Download der ausfuehrlichen Fassung stand hier als einzelner
-                Knopf — er liegt jetzt im Unterlagen-Abschnitt. */}
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {concepts.map((item) => (
+                <li
+                  key={item.num}
+                  className="flex items-start gap-4 rounded-2xl border border-paper-line bg-paper p-5"
+                >
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-semibold text-accent-strong ring-1 ring-inset ring-accent-border">
+                    {item.num}
+                  </span>
+                  <span>
+                    <span className="block text-base font-semibold text-heading">{item.title}</span>
+                    <span className="mt-1 block text-[15px] leading-relaxed text-gray-600">
+                      {item.key}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
         {/* ================================================================
-            DIE SECHS ANALYSEN
-        ================================================================ */}
-        {/* ================================================================
-            DIE SECHS PANELS — eine Darstellung statt zwei
-
-            Vorher standen dieselben sechs Panels hier als Textkarten und rund
-            4.700px weiter unten nochmal als Bildkarten, mit je anderen Angaben.
-            Beide Anker bleiben erhalten: #analysen liegt auf dem Abschnitt,
-            #musterbefunde als Sprungmarke davor — beide sind extern verlinkt
-            und stehen in den PDFs.
-        ================================================================ */}
-        <section
-          id="analysen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
-        >
-          <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
-          <EpigeneticsPanels activePanel={context.panel} focus={panelGroup} />
-        </section>
-
-        {/* ================================================================
-            MUSTERBEFUNDE — was am Ende in der Hand liegt
-        ================================================================ */}
-
-        {/* Hier stand das Dokumenten-Band — ein zweiter, gleich prominenter
-            Weg zu denselben Unterlagen, mit eigenem ZIP-Knopf und eigenem
-            Verweis auf #downloads. Es ist entfallen: die Unterlagen haben
-            genau einen Ort auf der Seite. */}
-
-        {/* ================================================================
-            ABLAUF IN DER PRAXIS
+            ABLAUF — nach Ort gruppiert
         ================================================================ */}
         <section
           id="ablauf"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-24"
         >
           <Reveal width="100%">
-            <SectionHeader
-              caption={t('workflow.caption')}
-              title={t('workflow.title')}
-              align="left"
-            />
-            <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('workflow.lead')}</p>
+            <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
+              <SectionHeader
+                caption={t('workflow.caption')}
+                title={t('workflow.title')}
+                align="left"
+              />
+              <p className={LEAD}>{t('workflow.lead')}</p>
+            </div>
           </Reveal>
-          <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {steps.map((step, index) => (
-              <li key={index} className="h-full">
-                <Reveal width="100%" delay={(index % 3) * REVEAL_STAGGER} className={STRETCH}>
-                  <div className="h-full rounded-3xl border border-paper-line bg-white p-7">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-base font-semibold text-accent-strong">
-                      {index + 1}
-                    </span>
-                    <p className={`mt-4 text-gray-700 ${BODY}`}>{step}</p>
-                  </div>
-                </Reveal>
-              </li>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[3fr_2fr_1fr] lg:gap-4">
+            {WORKFLOW_GROUPS.map((group) => (
+              <div key={group.key}>
+                <p
+                  className={`border-t-2 pt-3 text-xs font-semibold uppercase tracking-[0.16em] ${
+                    group.lab
+                      ? 'border-accent text-accent-strong'
+                      : 'border-accent text-accent-strong'
+                  }`}
+                >
+                  {t(`journey.${group.key}`)}
+                </p>
+                <ol
+                  start={group.from + 1}
+                  className={`mt-4 grid gap-3 ${
+                    group.to - group.from === 3
+                      ? 'lg:grid-cols-3'
+                      : group.to - group.from === 2
+                        ? 'lg:grid-cols-2'
+                        : ''
+                  }`}
+                >
+                  {steps.slice(group.from, group.to).map((step, index) => (
+                    <li
+                      key={group.from + index}
+                      className={`flex gap-4 rounded-2xl border p-5 lg:block ${
+                        group.lab
+                          ? 'border-accent-border bg-accent-soft'
+                          : 'border-paper-line bg-white'
+                      }`}
+                    >
+                      <span className="text-2xl font-semibold tracking-tight text-accent-strong">
+                        {String(group.from + index + 1).padStart(2, '0')}
+                      </span>
+                      <p className="text-[15px] leading-relaxed text-gray-700 lg:mt-2">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             ))}
-          </ol>
+          </div>
         </section>
 
-        {/* ================================================================
-            SO WIRD DARAUS EINE BERATUNG
-
-            Der Abschnitt stand bisher vollstaendig im Hero. Der Hero traegt
-            jetzt nur noch seinen Kernsatz und die Auswahl; die drei Schritte
-            stehen hier, hinter dem Ablauf und vor der Studienlage — dieselbe
-            Fassung ohne Panelbezug und damit ohne Monatszahl.
-        ================================================================ */}
+        {/* SO WIRD DARAUS EINE BERATUNG — allgemeine Fassung ohne Monatszahl. */}
         <ConsultSteps />
 
         {/* ================================================================
-            STUDIENLAGE — GESICHERT VS. VORLAEUFIG
+            STUDIENLAGE — Kurzfassung; Texte und Quellen auf /studienlage
         ================================================================ */}
         <section
           id="studienlage"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-24"
         >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
+          <Reveal width="100%">
+            <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
               <SectionHeader
                 caption={t('evidence.caption')}
                 title={t('evidence.title')}
                 align="left"
               />
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('evidence.lead')}</p>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              <Reveal width="100%" className={STRETCH}>
-                <div className="h-full rounded-3xl border border-accent-border bg-accent-soft p-7 lg:p-7">
-                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-600">
-                    <Check className="h-4 w-4" />
-                    {t('evidence.establishedTitle')}
-                  </h3>
-                  <ul className="mt-6 space-y-6">
-                    {established.map((item) => (
-                      <li key={item.title}>
-                        <p className="text-lg font-semibold text-heading">{item.title}</p>
-                        <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-
-              <Reveal width="100%" delay={REVEAL_STAGGER} className={STRETCH}>
-                <div className="h-full rounded-3xl border border-paper-line bg-paper p-7 lg:p-7">
-                  <h3 className="flex items-center gap-2 text-xs font-medium text-gray-600">
-                    <Minus className="h-4 w-4" />
-                    {t('evidence.preliminaryTitle')}
-                  </h3>
-                  <ul className="mt-6 space-y-6">
-                    {preliminary.map((item) => (
-                      <li key={item.title}>
-                        <p className="text-lg font-semibold text-heading">{item.title}</p>
-                        <p className={`mt-1.5 text-gray-600 ${BODY}`}>{item.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
+              <p className={LEAD}>{t('evidence.lead')}</p>
             </div>
-
-            {/* Die vollstaendige Studienlage als PDF stand hier als eigener
-                Knopf. Sie ist Blatt 08 im Unterlagen-Abschnitt und dort
-                hervorgehoben. */}
+          </Reveal>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {[
+              { title: t('evidence.establishedTitle'), items: established, Icon: Check, ok: true },
+              { title: t('evidence.preliminaryTitle'), items: preliminary, Icon: Minus, ok: false },
+            ].map(({ title, items, Icon, ok }) => (
+              <div
+                key={title}
+                className={`rounded-card border p-7 ${
+                  ok ? 'border-accent-border bg-white' : 'border-paper-line bg-white'
+                }`}
+              >
+                <h3 className="flex items-center gap-3 text-lg font-semibold text-heading">
+                  <span
+                    className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                      ok ? 'bg-accent-soft text-accent-strong' : 'bg-paper-deep text-gray-700'
+                    }`}
+                  >
+                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                    {items.length}
+                  </span>
+                  {title}
+                </h3>
+                <ul className="mt-4 divide-y divide-paper-line border-t border-paper-line">
+                  {items.map((item) => (
+                    <li key={item.title} className="py-3.5 text-base font-semibold text-heading">
+                      {item.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Button
+              to="/epigenetics/studienlage"
+              variant="secondary"
+              className="!py-2.5 !pl-7 !pr-2.5"
+            >
+              {t('journey.evidenceLink')}
+              <span
+                aria-hidden="true"
+                className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent-line text-white"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Button>
+            <p className="text-sm text-gray-600">
+              {t('hero.trustEvidence', {
+                established: established.length,
+                preliminary: preliminary.length,
+              })}
+            </p>
           </div>
         </section>
 
@@ -747,257 +774,224 @@ const EpigeneticsPage = () => {
         ================================================================ */}
         <section
           id="fragen"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
         >
-          <Reveal width="100%">
-            <div className="mx-auto max-w-[68ch]">
+          <div className="mx-auto grid max-w-container gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
+            <Reveal width="100%">
               <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
-              {/* Kernsatz wie in jedem anderen Abschnitt: wer nur die
-                  Kernsaetze liest, hat die Seite verstanden. Hier fiel der
-                  Leser bisher von der Ueberschrift direkt in acht zugeklappte
-                  Fragen. */}
-              <p className={`mt-4 max-w-[68ch] ${LEAD}`}>{t('faq.lead')}</p>
+              <p className={`mt-4 ${LEAD}`}>{t('faq.lead')}</p>
+              <div className="brand-ring relative mt-8 hidden rounded-card bg-brand-deep p-7 text-white lg:block">
+                <p className="text-lg font-semibold tracking-tight">{t('journey.askTitle')}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/80">
+                  {t('journey.askText')}
+                </p>
+                <Button href="#inquiry" variant="light" size="sm" className="mt-5">
+                  {t('journey.askCta')}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </div>
+            </Reveal>
+            <div className="divide-y divide-paper-line border-y border-paper-line">
+              {faq.map((item) => (
+                <details key={item.q} className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-lg font-semibold text-heading [&::-webkit-details-marker]:hidden">
+                    <span>{item.q}</span>
+                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-300 text-accent-strong">
+                      <ChevronDown
+                        className="h-4 w-4 motion-safe:transition-transform group-open:rotate-180"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </summary>
+                  <div className={`max-w-[68ch] pb-6 text-gray-600 ${BODY}`}>{item.a}</div>
+                </details>
+              ))}
             </div>
-          </Reveal>
-          <div className="mx-auto mt-10 max-w-[68ch] divide-y divide-paper-line overflow-hidden rounded-3xl border border-paper-line bg-white">
-            {faq.map((item) => (
-              <details key={item.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-6 text-left text-lg font-medium text-heading transition-colors hover:bg-paper lg:px-8">
-                  <span>{item.q}</span>
-                  <ChevronDown className="h-5 w-5 shrink-0 text-brand-primary transition-transform duration-200 group-open:rotate-180" />
-                </summary>
-                <div className={`px-6 pb-7 text-gray-600 lg:px-8 ${BODY}`}>{item.a}</div>
-              </details>
-            ))}
           </div>
         </section>
 
         {/* ================================================================
-            ALLE UNTERLAGEN
+            UNTERLAGEN — Kurzfassung; alle Blaetter auf /unterlagen
         ================================================================ */}
         <section
           id="downloads"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] border-y border-paper-line bg-white"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-20"
         >
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
-              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <SectionHeader
-                    caption={t('downloads.caption')}
-                    title={t('downloads.title')}
-                    align="left"
-                  />
-                  <p className={`mt-3 max-w-[68ch] ${LEAD}`}>{t('downloads.sub')}</p>
-                </div>
-                <a
-                  href={zipHref}
-                  download
-                  hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-primary px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('downloads.zipLabel')}
-                  <ResourceLanguageBadge
-                    language={resourceLanguageFromPath(t('downloads.zipFile'))}
-                    format="zip"
-                    className="text-white/80"
-                  />
-                </a>
-              </div>
-            </Reveal>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {sheets.map((sheet, index) => (
-                <Reveal
-                  key={sheet.num}
-                  width="100%"
-                  delay={(index % 3) * REVEAL_STAGGER}
-                  className={STRETCH}
-                >
-                  <article
-                    className={`group flex h-full flex-col justify-between rounded-2xl border bg-white p-6 transition-all hover:-translate-y-0.5 ${
-                      sheet.featured
-                        ? 'border-accent-border ring-1 ring-accent-border'
-                        : 'border-paper-line'
-                    }`}
-                  >
-                    <div>
-                      <div className="mb-3 flex items-center justify-between">
-                        <span
-                          className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${
-                            sheet.featured
-                              ? 'bg-accent-soft text-accent-strong'
-                              : 'bg-paper-deep text-brand-primary'
-                          }`}
-                        >
-                          {sheet.num}
-                        </span>
-                        <FileText className="h-5 w-5 text-slate-300 transition-colors group-hover:text-brand-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold tracking-tight text-heading">
-                        {sheet.title}
-                      </h3>
-                      <p className="mt-2 text-base leading-7 text-gray-600">{sheet.desc}</p>
-                    </div>
-
-                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-paper-line pt-4">
-                      <span className="text-sm text-gray-600">
-                        {sheet.meta} ·{' '}
-                        <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
-                      </span>
-                      <a
-                        href={`${ASSET_BASE}${sheet.file}`}
-                        download
-                        hrefLang={resourceLanguageFromPath(sheet.file)}
-                        className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover"
-                      >
-                        <Download className="h-4 w-4" />
-                        {t('downloads.btn')}
-                      </a>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <SectionHeader
+                caption={t('downloads.caption')}
+                title={t('downloads.title')}
+                align="left"
+              />
+              <p className={`mt-3 max-w-[60ch] ${LEAD}`}>{t('downloads.sub')}</p>
             </div>
-
-            {/* Die beiden Blaetter, die nicht in der Neuner-Reihe stehen:
-                Parameteruebersicht und "Werte verstehen". Sie hingen bisher
-                als einzelne Knoepfe an der Vergleichstabelle und am
-                Grundlagenkapitel — die einzigen zwei PDFs, die sonst nirgends
-                aufgefuehrt sind. Ohne diese Zeile waeren sie nach dem
-                Zusammenfuehren nicht mehr erreichbar. */}
-            <Reveal width="100%">
-              <div className="mt-4 flex flex-wrap gap-3 rounded-2xl border border-paper-line bg-paper p-6">
-                <a
-                  href={`${ASSET_BASE}${t('compare.file')}`}
-                  download
-                  hrefLang="de"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('compare.cta')}
-                  <ResourceLanguageBadge language="de" className="font-normal text-gray-600" />
-                </a>
-                <a
-                  href={`${ASSET_BASE}${t('basics.file')}`}
-                  download
-                  hrefLang="de"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('basics.cta')}
-                  <ResourceLanguageBadge language="de" className="font-normal text-gray-600" />
-                </a>
-              </div>
-            </Reveal>
-
-            <Reveal width="100%">
-              <div className="mt-8 flex flex-col gap-5 rounded-3xl border border-paper-line bg-paper p-7 sm:flex-row sm:items-center sm:justify-between">
-                <div className="max-w-[62ch]">
-                  <p className="text-lg font-semibold text-heading">
-                    {t('downloads.samplesTitle')}
-                  </p>
-                  <p className={`mt-1.5 text-gray-700 ${BODY}`}>{t('downloads.samplesText')}</p>
-                </div>
-                <a
-                  href="#musterbefunde"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                >
-                  <FileText className="h-4 w-4" />
-                  {t('downloads.samplesCta')}
-                </a>
-              </div>
-            </Reveal>
+            <a
+              href={zipHref}
+              download
+              hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-deep px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-deep/90"
+            >
+              <Download className="h-4 w-4" />
+              {t('downloads.zipLabel')}
+              <ResourceLanguageBadge
+                language={resourceLanguageFromPath(t('downloads.zipFile'))}
+                format="zip"
+                className="text-white/80"
+              />
+            </a>
           </div>
-        </section>
-
-        <section className="border-y border-paper-line bg-white">
-          <div className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
-            <h2 className={LABEL}>{t('common:read_more', 'Weiterlesen')}</h2>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              {VERTIEFUNGEN.map((vertiefung) => (
-                <Link
-                  key={vertiefung.key}
-                  to={vertiefung.to}
-                  className="group flex flex-col rounded-3xl border border-paper-line bg-paper p-6 transition-all hover:-translate-y-0.5 hover:border-brand-primary hover:bg-white hover:shadow-card"
+          <ul className="mt-8 grid gap-3 md:grid-cols-3">
+            {hubSheets.map((sheet) => (
+              <li key={sheet.num}>
+                <a
+                  href={`${ASSET_BASE}${sheet.file}`}
+                  download
+                  hrefLang={resourceLanguageFromPath(sheet.file)}
+                  className="group flex h-full items-center gap-4 rounded-2xl border border-paper-line bg-white p-5 transition-colors hover:border-accent"
                 >
-                  <span className={LABEL}>{t(vertiefung.captionKey)}</span>
-                  <span className="mt-2 inline-flex items-start gap-1.5 text-lg font-semibold tracking-tight text-heading">
-                    {t(vertiefung.titleKey)}
-                    <ArrowRight
-                      className="mt-1.5 h-4 w-4 shrink-0 text-brand-primary transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
+                  <span className="inline-flex h-12 w-10 shrink-0 items-center justify-center rounded-lg border border-paper-line bg-paper text-accent-strong">
+                    <FileText className="h-5 w-5" aria-hidden="true" />
                   </span>
-                </Link>
-              ))}
-            </div>
-          </div>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-base font-semibold text-heading">
+                      {sheet.title}
+                    </span>
+                    <span className="block text-sm text-gray-600">
+                      {sheet.meta} ·{' '}
+                      <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
+                    </span>
+                  </span>
+                  <Download
+                    className="h-5 w-5 shrink-0 text-accent-strong"
+                    aria-label={t('downloads.btn')}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/epigenetics/unterlagen"
+            className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
+          >
+            {t('journey.docsLink')}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </section>
 
         {/* ================================================================
-            KONDITIONEN ANFRAGEN + RECHTLICHER HINWEIS
+            KONDITIONEN ANFRAGEN + RECHTLICHER HINWEIS (Schritt 4)
         ================================================================ */}
         <section
           id="inquiry"
-          className="scroll-mt-[var(--chapterbar-offset,148px)] mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24"
+          className="scroll-mt-[var(--chapterbar-offset,148px)] border-t border-paper-line bg-white"
         >
-          <Reveal width="100%">
-            <SectionHeader
-              caption={t('contact.caption')}
-              title={t('contact.title')}
-              align="center"
-            />
-            <p className={`mx-auto mt-4 max-w-[62ch] ${LEAD}`}>{t('contact.sub')}</p>
-
-            {/* Der Abschnitt heisst "Angebot anfragen" und hatte als
-                Primaerknopf die Mailadresse; ins Formular fuehrte nur ein
-                Textlink weiter unten, zwischen zwei themenfremden Links. Jetzt
-                traegt der Anfrageweg den Knopf und die beiden direkten
-                Kontaktwege stehen daneben. */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="mailto:contact@polarisdx.net"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-              >
-                contact@polarisdx.net
-              </a>
-              <a
-                href="tel:+4915228580999"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3.5 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-              >
-                +49 152 2858 0999
-              </a>
+          <div className="mx-auto grid max-w-container gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
+            <div>
+              <SectionHeader
+                caption={t('contact.caption')}
+                title={t('contact.title')}
+                align="left"
+              />
+              <p className={`mt-4 ${LEAD}`}>{t('contact.sub')}</p>
+              {/* Die beiden direkten Kontaktwege. Die Telefonnummer ist die der
+                  Epigenetik-Unterlagen und aller Musterbefunde; ob sie mit der
+                  Nummer der Kontaktseite zusammengefuehrt wird, entscheidet
+                  der Owner (SC-003). */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="mailto:contact@polarisdx.net"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  contact@polarisdx.net
+                </a>
+                <a
+                  href="tel:+4915228580999"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
+                >
+                  +49 152 2858 0999
+                </a>
+              </div>
+              <p className="mt-8 t-small">{t('contact.note')}</p>
+              <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-base">
+                <Link
+                  to="/diagnostics/longevity"
+                  className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
+                >
+                  {t('links.longevity')} →
+                </Link>
+                <Link
+                  to="/downloads"
+                  className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
+                >
+                  {t('links.downloads')} →
+                </Link>
+              </div>
             </div>
-
-            <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-paper-line bg-white p-6 shadow-card sm:p-8">
+            <div className="rounded-card border border-paper-line bg-white p-6 shadow-card sm:p-8">
               <EpigeneticsInquiryForm />
             </div>
-
-            {/* Rechtlicher Hinweis — abgestimmt, bitte unveraendert lassen. */}
-            {/* CE- und Laborhinweis standen hier bei 3,2:1 bzw. 2,4:1 - unter
-                der Lesbarkeitsschwelle. Ein Pflichthinweis, den man nicht lesen
-                kann, ist keiner. */}
-            <p className="mx-auto mt-10 max-w-[68ch] t-small">{t('contact.note')}</p>
-            <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base">
-              <Link
-                to="/diagnostics/longevity"
-                className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-              >
-                {t('links.longevity')} →
-              </Link>
-              <Link
-                to="/downloads"
-                className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-              >
-                {t('links.downloads')} →
-              </Link>
-            </div>
-          </Reveal>
+          </div>
         </section>
+
+        <NextSteps
+          label={tCommon('area.nextLabel')}
+          previous={{
+            to: '/',
+            kicker: tCommon('area.back'),
+            title: t('breadcrumb.home'),
+          }}
+          next={{
+            to: '/epigenetics/grundlagen',
+            kicker: tCommon('area.stepOf', { n: 1, total: 4 }),
+            title: t('journey.understand.title'),
+            text: t('journey.understand.text'),
+          }}
+          cta={
+            portfolio
+              ? {
+                  title: portfolio.title,
+                  text: t('principle.pdfHint'),
+                  action: (
+                    <a
+                      href={`${ASSET_BASE}${portfolio.file}`}
+                      download
+                      hrefLang={resourceLanguageFromPath(portfolio.file)}
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-brand-deep transition hover:bg-accent-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+                    >
+                      <Download className="h-4 w-4" aria-hidden="true" />
+                      {t('downloads.btn')}
+                      <ResourceLanguageBadge
+                        language={resourceLanguageFromPath(portfolio.file)}
+                        className="font-normal text-gray-600"
+                      />
+                    </a>
+                  ),
+                }
+              : undefined
+          }
+        />
+
+        <MobileActionBar
+          label={
+            gemerkt.length > 0
+              ? tCommon('area.saved', { count: gemerkt.length })
+              : (chips[2]?.value ?? t('hero.ctaDocs'))
+          }
+          action={
+            <a
+              href="#inquiry"
+              data-cta-role="EPIGENETICS_INQUIRY"
+              data-cta-source="epigenetics"
+              data-cta-section="mobile-bar"
+              className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-brand-deep"
+            >
+              {t('hero.ctaQuote')}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          }
+        />
       </div>
     </PageTransition>
   )

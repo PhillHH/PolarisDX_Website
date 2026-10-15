@@ -803,5 +803,41 @@
     "lead": "Toto jsou panely, které jste si uložili. Seznam zůstává pouze v tomto prohlížeči: nic se nepřenáší ani nevyhodnocuje, dokud zde nic neodešlete. Pouze „Požádat o nabídku“ přenáší názvy do kontaktního formuláře — kde se zobrazí v poli pro volný text a lze je před odesláním upravit nebo smazat.",
     "clear": "Vymazat seznam",
     "note": "Uloženo pouze v úložišti tohoto prohlížeče (localStorage) a pouze název panelu. Žádný účet, žádný záznam na serveru, nic není předáváno třetím stranám. „Vymazat seznam“ odstraní položku úplně."
+  },
+  "journey": {
+    "caption": "Vaše cesta programem",
+    "title": "Čtyři kroky k rozhodnutí",
+    "lead": "Každý krok má v této oblasti své místo. Přejděte rovnou tam, kde právě jste — uložené analýzy skončí ve vaší poptávce.",
+    "understand": {
+      "title": "Porozumět",
+      "text": "Co měří genetika a epigenetika — a která hodnota se vůbec může změnit.",
+      "cta": "Přečíst základy"
+    },
+    "choose": {
+      "title": "Vybrat analýzu",
+      "text": "Šest analýz, jedna cesta vzorku. Filtr ukáže, která se hodí pro vaše zařízení.",
+      "cta": "K analýzám"
+    },
+    "view": {
+      "title": "Prohlédnout vzorovou zprávu",
+      "text": "Ještě před poptávkou uvidíte, co nakonec dostanete do ruky — úplnou zprávu ke každé analýze.",
+      "cta": "Šest vzorových zpráv"
+    },
+    "ask": {
+      "title": "Poptat",
+      "text": "Uložené analýzy jsou už ve formuláři. Podmínky B2B po dohodě.",
+      "cta": "K poptávce"
+    },
+    "evidenceLink": "Všechny body se zdroji",
+    "basicsLink": "Podrobně v základech",
+    "docsLink": "Zobrazit všechny podklady",
+    "askTitle": "Vaše otázka tu chybí?",
+    "askText": "Položte ji přímo v poptávce — odpovíme osobně.",
+    "askCta": "Položit otázku",
+    "save": "Uložit",
+    "saved": "Uloženo",
+    "atPractice": "Ve vašem zařízení",
+    "atLab": "U spolupracujícího partnera",
+    "backAtPractice": "Opět u vás"
   }
 }

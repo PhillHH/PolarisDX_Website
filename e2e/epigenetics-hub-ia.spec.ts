@@ -114,7 +114,9 @@ test('PT15.1 hub preserves the orientation journey and canonical crosslinks', as
 
   await expect(page.locator('main h1')).toHaveCount(1)
   const orderedStages = await page.locator('main').evaluate((main) => {
-    const ids = ['vergleich', 'analysen', 'ablauf', 'fragen', 'downloads', 'inquiry']
+    // AP34 SC-003: die Analysen (mit Filter) stehen vor dem aufklappbaren
+    // Vergleich — dieselben Anker, geaenderte Abfolge.
+    const ids = ['analysen', 'vergleich', 'ablauf', 'fragen', 'downloads', 'inquiry']
     return ids.map((id) => {
       const element = main.querySelector(`#${id}`)
       return element ? { id, top: element.getBoundingClientRect().top + window.scrollY } : null
@@ -127,7 +129,9 @@ test('PT15.1 hub preserves the orientation journey and canonical crosslinks', as
 
   await expect(page.locator('#analysen a[href^="/de/epigenetics/musterbefund/"]')).toHaveCount(6)
   for (const path of ['grundlagen', 'studienlage', 'unterlagen']) {
-    await expect(page.locator(`main a[href="/de/epigenetics/${path}"]`)).toBeVisible()
+    // AP34 SC-003: Bereichsleiste, Wegweiser und „Naechster Schritt" verlinken
+    // dieselben Vertiefungen; geprueft wird, dass ein Link sichtbar ist.
+    await expect(page.locator(`main a[href="/de/epigenetics/${path}"]`).first()).toBeVisible()
   }
   await expect(
     page.locator('main a[href="/de/epigenetics?source=epigenetics#inquiry"]'),

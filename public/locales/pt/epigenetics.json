@@ -803,5 +803,41 @@
     "lead": "Estes são os painéis que guardou. A lista permanece apenas neste navegador: nada é transmitido ou avaliado enquanto não submeter algo aqui. Só “Solicitar orçamento” leva os nomes para o formulário de contacto — onde aparecem no campo de texto livre e podem ser alterados ou eliminados antes de enviar.",
     "clear": "Limpar a lista",
     "note": "Armazenado apenas no armazenamento deste navegador (localStorage), e apenas o nome do painel. Sem conta, sem registo no servidor, nada é transmitido a terceiros. \"Limpar a lista\" remove a entrada completamente."
+  },
+  "journey": {
+    "caption": "O seu percurso pelo programa",
+    "title": "Quatro passos até à decisão",
+    "lead": "Cada passo tem o seu lugar nesta secção. Vá diretamente para onde está — as análises guardadas acabam no seu pedido.",
+    "understand": {
+      "title": "Compreender",
+      "text": "O que medem a genética e a epigenética — e que valor pode realmente mudar.",
+      "cta": "Ler os fundamentos"
+    },
+    "choose": {
+      "title": "Escolher a análise",
+      "text": "Seis análises, um único circuito de amostra. O filtro mostra qual se adequa à sua instituição.",
+      "cta": "Ir para as análises"
+    },
+    "view": {
+      "title": "Ver um relatório de exemplo",
+      "text": "Antes do pedido, veja o que terá em mãos — um relatório completo por análise.",
+      "cta": "Seis relatórios de exemplo"
+    },
+    "ask": {
+      "title": "Pedir",
+      "text": "As análises guardadas já constam do formulário. Condições B2B mediante acordo.",
+      "cta": "Ir para o pedido"
+    },
+    "evidenceLink": "Todos os pontos com fontes",
+    "basicsLink": "Em detalhe nos fundamentos",
+    "docsLink": "Ver todos os documentos",
+    "askTitle": "A sua pergunta não está aqui?",
+    "askText": "Faça-a diretamente no pedido — respondemos pessoalmente.",
+    "askCta": "Fazer uma pergunta",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "atPractice": "Na sua instituição",
+    "atLab": "No parceiro de cooperação",
+    "backAtPractice": "De volta à sua instituição"
   }
 }

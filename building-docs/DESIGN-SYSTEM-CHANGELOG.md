@@ -27,6 +27,37 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-15 — AP34 PT34.2a–c (SC-003) · Führungssystem und Epigenetik-Strecke (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** SC-003 (`building-docs/SCOPE-CHANGELOG.md`). Der Owner hat Entwurf 4
+  (`wireframes/relaunch-entwurf-4-unterseiten/`) freigegeben: klarere Informationsstrecken, Hin- und
+  Hernavigation, sinnvolle Calls-to-Action, Schwerpunkt Epigenetik.
+- **Neue Bausteine (`src/components/area/`):**
+  - `AreaStage`: Navy-Bühne ohne Bild.
+  - `StageFacts`: Kennzahlen-Leiste, überlappt die Bühne, im Stil der Trust-Leiste der Startseite.
+  - `AreaNav`: Bereichsleiste, sticky, mit Unterstrich-Tabs, Merkliste und Anfrage. Sie schreibt `--chapterbar-offset`.
+  - `JourneySteps`: Wegweiser in vier Schritten.
+  - `PageToc` / `PageTocMobile`: „Auf dieser Seite". Der Scroll-Spy `tocSpy.ts` lädt nach.
+  - `NextSteps`: zurück, weiter, Abschluss.
+  - `MobileActionBar`: unter lg, nach der Bühne, nicht über Footer oder Cookie-Banner. Sie hebt `MobileCallButton` über `--action-bar-height`.
+- **Geändert:**
+  - Epigenetik-Hub: neue Reihenfolge Analysen mit Filter → Vergleich (aufklappbar) → Prinzip → „Werte verstehen" (Kurzfassung) → Ablauf (nach Ort gruppiert) → Beratung → Studienlage (Kurzfassung) → Fragen → Unterlagen (Kurzfassung) → Anfrage → „Nächster Schritt".
+  - Grundlagen, Studienlage und Unterlagen: Lese-Layout mit linker Inhaltsspalte.
+  - `ChapterNav` (nur noch Musterbefund): Unterstrich statt Chip.
+  - Musterbefund-Ende: Karten statt Pillen. Daten-Attribute und Texte bleiben unverändert.
+- **Bewusst nicht umgesetzt:**
+  - Kein Bühnenfoto und kein Punktring in der Bühne. Das LCP-Bild-Budget ist auf diesen Routen 0 Byte. Der `.brand-ring`-SVG-Hintergrund wurde gemessen als LCP-Bild gewertet (2,1 KB).
+  - Die Handy-Leiste wird nicht per `React.lazy` geladen. Ein nachgeladener Chunk zieht das Haupt-Stylesheet als `<link>` nach (stylesheetLinks-Budget 0).
+- **Budgets (PT25.5, nicht gelockert):**
+  - Statische Prüfungen 24/24.
+  - Laufzeit ci 852/852.
+  - Lab für die Epigenetik-Routen 216/216.
+  - Gemessene Route-JS-Werte: Hub 27,9 KB (Budget 29,5), Vertiefung 9,4 KB (Budget 11,0). Möglich wurde das, weil `ScaleRamp` aus `BefundCharts.tsx` in eine eigene Datei (`ScaleRamp.tsx`, `scaleDomain.ts`) gezogen wurde. Hub und Grundlagen laden das ganze Diagramm-Modul nicht mehr.
+  - Initial-CSS 17,4 KB gzip. Bausteinklassen kommen aus dem Bestand; Sonderverläufe und freie Rasterbreiten sind entfernt.
+- **Galerie-Vorlage:** `scripts/build-visual-gallery.tsx` nutzte `h-[320px]`. Die Klasse wurde nur durch den alten Hub erzeugt, weil die Vorlage außerhalb der Tailwind-Quellen liegt. Jetzt nutzt sie `h-80`: gleiche 320 px, Klasse aus dem Bestand.
+- **Betroffene Screenshots (2):** `pt27.6-visual` `epigenetics-hub-desktop`, `epigenetics-panel-desktop` (neuer Hub-Aufbau). `design-system` 35/35 unverändert.
+- **Reviewer:** Owner-Abnahme in PT34.4.
+
 ### 2026-10-15 — AP34 PT34.1 (SC-002) · Editorial: Navy-Kopfzeile, Logo-Blau, Bühnenfoto (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Entscheidung SC-002 (`building-docs/SCOPE-CHANGELOG.md`): Variante C „Editorial"

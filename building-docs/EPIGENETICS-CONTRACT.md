@@ -91,6 +91,15 @@ The current hub keeps one coherent orientation route:
 PT15.1 does not deepen panel claims, build AP16 report pages, create an AP19 resource platform or
 implement an AP22 inquiry backend.
 
+**SC-003 / AP34 PT34.2 (2026-10-15).** The same orientation route is presented as a four-step journey:
+understand → choose an analysis → view a sample report → enquire.
+
+- The hub order is `#analysen` (with the audience filter and six panel cards) → `#vergleich` (comparison table in a disclosure that opens for `?focus=` or `#vergleich`) → `#prinzip` → `#werte-verstehen` (summary, full text on `/epigenetics/grundlagen`) → `#ablauf` → consultation → `#studienlage` (titles only, full text on `/epigenetics/studienlage`) → `#fragen` → `#downloads` (three sheets, all on `/epigenetics/unterlagen`) → `#inquiry`.
+- All anchors remain resolvable.
+- `contact.note`, `compare.gendg` and `samples.note` stay visible on the hub. Methodological caveats and GenDG stay outside the disclosure.
+- Exactly one hub link carries `source=epigenetics`. Further enquiry entry points jump to `#inquiry`.
+- Deepening pages keep exactly one visible `campaign=<page>` enquiry link (stage). The area bar, page end and mobile bar use the campaign marks `<page>-leiste`, `<page>-ende` and `<page>-mobil`.
+
 ## 5. Diagnostics crosslinks and Search
 
 - Diagnostics uses Registry target `epigenetics` as an explicitly separated context link, never as

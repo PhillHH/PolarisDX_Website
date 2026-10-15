@@ -281,5 +281,17 @@
       "body": "Pozostała część strony działa nadal. Spróbuj ponownie.",
       "retry": "Spróbuj ponownie"
     }
+  },
+  "area": {
+    "overview": "Przegląd",
+    "onThisPage": "Na tej stronie",
+    "nextLabel": "Dalej w tym obszarze",
+    "back": "Wstecz",
+    "next": "Dalej",
+    "stepOf": "Krok {{n}} z {{total}}",
+    "journeyLabel": "Twoja ścieżka krok po kroku",
+    "saved": "Zapisane: {{count}}",
+    "moreAreas": "Więcej obszarów",
+    "factsLabel": "W skrócie"
   }
 }
