@@ -12,6 +12,7 @@
 import { readFile, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
+import { contentTimeMs } from './content-time.mjs'
 
 import {
   CONSUMER_IMAGE_DIR,
@@ -34,6 +35,7 @@ for (const base of CONSUMER_IMAGE_SOURCES) {
   if (!originalStat) continue
 
   const originalMeta = await sharp(await readFile(original)).metadata()
+  const originalTime = await contentTimeMs(original)
 
   for (const width of CONSUMER_IMAGE_WIDTHS) {
     const file = join(CONSUMER_IMAGE_DIR, variantName(base, width))
@@ -59,7 +61,7 @@ for (const base of CONSUMER_IMAGE_SOURCES) {
     )
     // Die Variante muss neuer sein als ihre Quelle — sonst ist sie veraltet.
     check(
-      info.mtimeMs >= originalStat.mtimeMs,
+      (await contentTimeMs(file)) >= originalTime,
       `${variantName(base, width)} ist aelter als ${base}.jpeg — neu generieren`,
     )
   }

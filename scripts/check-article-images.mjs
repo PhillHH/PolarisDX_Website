@@ -9,6 +9,7 @@
 import { readFile, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
+import { contentTimeMs } from './content-time.mjs'
 import {
   ARTICLE_IMAGE_DIR,
   ARTICLE_IMAGE_SOURCES,
@@ -30,6 +31,7 @@ for (const entry of ARTICLE_IMAGE_SOURCES) {
   check(sourceStat, `${source} fehlt`)
   if (!sourceStat) continue
   const sourceMeta = await sharp(await readFile(sourcePath)).metadata()
+  const sourceTime = await contentTimeMs(sourcePath)
   // Referenz „vorher": das bisher ausgelieferte Einzelbild (WebP bzw. das JPEG selbst).
   const shipped = source.endsWith('.jpg') ? source : `${base}.webp`
   const shippedPath = join(ARTICLE_IMAGE_DIR, shipped)
@@ -74,7 +76,10 @@ for (const entry of ARTICLE_IMAGE_SOURCES) {
           info.size <= shippedStat.size,
           `${name} (${info.size} B) ist groesser als ${shipped} (${shippedStat.size} B)`,
         )
-      check(info.mtimeMs >= sourceStat.mtimeMs, `${name} ist aelter als ${source} — neu generieren`)
+      check(
+        (await contentTimeMs(join(ARTICLE_IMAGE_DIR, name))) >= sourceTime,
+        `${name} ist aelter als ${source} — neu generieren`,
+      )
       check(
         moduleSource.includes(`'./${name}'`),
         `${name} wird in articleImages.ts nicht importiert`,
