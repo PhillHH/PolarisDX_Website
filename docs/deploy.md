@@ -8,11 +8,11 @@ Dieses Runbook ist der **einzige** produktive Zielpfad (DEP-02). Archivierte Alt
 
 ## 1. Umgebungen
 
-| Umgebung   | Compose                                             | Projekt             | Web (Host)       | API (Host)       | Secrets               | Zustellung                      |
-| ---------- | --------------------------------------------------- | ------------------- | ---------------- | ---------------- | --------------------- | ------------------------------- |
-| production | `docker-compose.yml`                                | `01polaris`         | `127.0.0.1:2026` | `127.0.0.1:5000` | `server/.env`         | live                            |
-| preview    | `docker-compose.yml` + `docker-compose.preview.yml` | `polarisdx-preview` | `127.0.0.1:9100` | `127.0.0.1:5100` | `server/.env.preview` | Trockenlauf (`APP_ENV=preview`) |
-| lokal      | `npm run dev` / Playwright-Configs                  | —                   | frei             | frei             | keine                 | Trockenlauf                     |
+| Umgebung   | Compose                                             | Projekt             | Web (Host)       | API (Host)       | Secrets               | Zustellung                                                           |
+| ---------- | --------------------------------------------------- | ------------------- | ---------------- | ---------------- | --------------------- | -------------------------------------------------------------------- |
+| production | `docker-compose.yml`                                | `01polaris`         | `127.0.0.1:2026` | `127.0.0.1:5000` | `server/.env`         | live (seit 2026-10-16 Release `8fc751ad1ab5` aus diesem Arbeitsbaum) |
+| preview    | `docker-compose.yml` + `docker-compose.preview.yml` | `polarisdx-preview` | `127.0.0.1:9100` | `127.0.0.1:5100` | `server/.env.preview` | Trockenlauf (`APP_ENV=preview`)                                      |
+| lokal      | `npm run dev` / Playwright-Configs                  | —                   | frei             | frei             | keine                 | Trockenlauf                                                          |
 
 - Ports, Projektname und Ablageort sind über `WEB_HOST_PORT`, `API_HOST_PORT`, `PROD_PROJECT`,
   `PREVIEW_PROJECT`, `DEPLOY_STATE_DIR` überschreibbar (D-T25). Zwei Umgebungen teilen sich nie
@@ -99,10 +99,12 @@ Early-Access wird stillgelegt** (O2, Option A); im Relaunch ist `/early` eine 40
 
 #### Cutover-Checkliste Early-Access (vor dem ersten `up`, Operator)
 
-**Stand 2026-10-16, 20:30: vorbereitet, Ausführung Operator** (Owner-Go erteilt, Protokoll
-`building-docs/release/AP31-GO-LIVE.md`). Zielstand des vhost: `deploy/nginx/polarisdx.net.conf`;
-Skript für Schritt 1–3 inklusive Sicherung: `sudo bash deploy/nginx/cutover-polarisdx.net.sh`
-(bindet zugleich HSTS ein, OA-1). Reihenfolge einhalten:
+**Ausgeführt am 2026-10-16, 20:54–21:01 CEST** (Protokoll `building-docs/release/AP31-GO-LIVE.md` §7).
+Zielstand des vhost: `deploy/nginx/polarisdx.net.conf`; Skript für Schritt 1–3 inklusive Sicherung:
+`sudo bash deploy/nginx/cutover-polarisdx.net.sh` (bindet zugleich HSTS ein, OA-1). **Host-Besonderheit:**
+`sites-enabled/polarisdx.net` ist eine reguläre Datei, keine Verknüpfung — `sites-available/` ist nur eine
+Kopie; Sicherungen gehören nicht nach `sites-enabled/` (werden sonst mitgeladen). Die Liste bleibt als
+Referenz stehen:
 
 1. Den Produktions-vhost (`sites-enabled/polarisdx.net`) vorher kopieren, damit der Rückbau
    umkehrbar ist.

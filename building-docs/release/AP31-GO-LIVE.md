@@ -1,6 +1,6 @@
 # AP31 — Go-live des Relaunch (Runbook und Protokoll)
 
-**Stand:** 2026-10-16, 20:30 CEST · **Status:** `GO ERTEILT — CUTOVER VORBEREITET, AUSFÜHRUNG OPERATOR` ·
+**Stand:** 2026-10-16, 21:05 CEST · **Status:** `LIVE — Release 8fc751ad1ab5 angenommen 20:58 CEST, nginx-Cutover 21:01 CEST` ·
 **Release:** `8fc751ad1ab5` (Commit `8fc751a`, auf `preview.polarisdx.net` seit 18:08 CEST) ·
 **Branch:** `console/24-25-2026-09-16T09-52-24` · **Vertrag:** `DEPLOYMENT-CONTRACT.md` §12.3/§12.4
 
@@ -115,7 +115,29 @@ Release der Nacht, 1181 grün / 180 rot / 22 nicht gelaufen) rot waren. Ergebnis
 
 Teständerungen nur mit Verweis auf den jeweiligen Vertrag, nie als Lockerung (TESTING-CONTRACT).
 
-## 7. Protokoll der Ausführung
+## 7. Protokoll der Ausführung (2026-10-16, Zeiten CEST)
 
-_(wird nach Schritt 1–3 nachgetragen: Zeitpunkte, Ausgaben von `adopt`/`up`, Livecheck-Ergebnisse,
-Entscheidung annehmen/zurückrollen)_
+Der Owner hat die Ausführung an den Agenten übergeben (kein Zugriff auf den eigenen Rechner); das
+Auto-Mode-Gate ließ `adopt`, `up` und die sudo-Schritte einzeln zu, nicht aber das Cutover-Skript als
+Ganzes. Daraus ergibt sich eine Abweichung von der Reihenfolge in §3: `up` lief **vor** dem
+nginx-Rückbau (Fenster 20:58–21:01; Wirkung: `/early` lieferte drei Minuten die alte statische
+Seite, deren Formular gegen `/api/early-access` auf die 404 des neuen Backends lief).
+
+| Zeit        | Schritt                                                                                                                                                                                                                                                                                                                                                | Ergebnis   |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| 20:54:47    | `./deploy.sh adopt main-2026-10` — Alt-Images `6ed6c9849f8c` (Web), `720318ac7722` (Backend) getaggt, Historie `.deploy/production/releases`                                                                                                                                                                                                           | ✓          |
+| 20:55       | erster Lauf des Cutover-Skripts ersetzte `sites-available/polarisdx.net` — auf diesem Host nur eine Kopie, nginx lädt die **reguläre Datei** `sites-enabled/polarisdx.net`; Reload ohne Wirkung, Site unverändert. Skript auf das eingebundene Ziel korrigiert, Sicherung außerhalb von `sites-enabled`                                                | Befund     |
+| 20:57:58    | `./deploy.sh up 8fc751ad1ab5`: Sicherung übersprungen (Altstand ohne `ops/backup.js`, Warnung), Volume `01polaris_lead-data` angelegt, Backend `healthy`, Web `healthy`, Identität beider Dienste `8fc751ad1ab5`, geschützte Dateien 1, Smoke grün                                                                                                     | ✓ 20:58:14 |
+| 20:58       | Livecheck (nur GET): 5 Kernrouten × 10 Sprachen = 50 × 200; `/` 301 → `/de/`; Unbekanntes 404; `sitemap.xml` 200 mit 390 URLs, 0 fremde Hosts; `robots.txt` 200; `/api/health` 200; Canonical und `og:url` auf `https://polarisdx.net/…`, 11 hreflang-Alternates je Seite, kein Verweis auf die Preview; Release-Label beider Container `8fc751ad1ab5` | ✓          |
+| 20:58       | Header `/de/`: CSP durchgesetzt (`default-src 'self'`, Script nur self + GTM), `X-Frame-Options`, `nosniff`, `Referrer-Policy`, `Permissions-Policy` (5 Features), HTML `no-store`, kein `X-Powered-By`; HSTS zu diesem Zeitpunkt noch fehlend (nginx-Schritt)                                                                                         | ✓          |
+| 20:59       | Consent-Livecheck (Chromium): vor Zustimmung 0 Drittanfragen, auch nach „Nur notwendige“; nach „Alle akzeptieren“ lädt `gtm.js?id=GTM-PL26PFFH` (Preview-Container, §5) und GA4 `G-Z1SBW4CJFP` mit `npa=1`                                                                                                                                             | ✓          |
+| 20:59       | Backend-Log: `Server running on port 5000`, Dispatcher alle 30 s für 7 Journeys, kein `[DRY_RUN]`-Banner → Live-Zustellung; `/var/lib/polaris-early` (3 Dateien, 7. Sep) und `/var/lib/polaris-events` unverändert; Preview-Container weiter `healthy`                                                                                                 | ✓          |
+| 20:59–21:00 | nginx in Einzelschritten: Sicherung `/etc/nginx/backup-relaunch-20261016-polarisdx.net` (12 024 B, Stand 6. Sep), Snippet `/etc/nginx/snippets/polarisdx-hsts.conf`, neuer vhost nach `sites-enabled/` und `sites-available/`, `nginx -t` erfolgreich                                                                                                  | ✓          |
+| 21:01:40    | `systemctl reload nginx`: `Strict-Transport-Security: max-age=31536000` auf 200, 301, 404 und `robots.txt`; `/early`, `/de/early`, `/en/early`, `/early-assets/…` 404; `POST /api/early-access` 404; `/de/` 200, `/api/health` 200                                                                                                                     | ✓          |
+| 21:03       | Screenshots Startseite Desktop/Mobil (gescrollt, damit die Reveal-Sektionen gerendert sind) an den Owner; alle Sektionen im SSR-HTML vorhanden (`homepage-proof`, `roi-rechner`, `homepage-knowledge-title`, `faq`, `los-gehts`)                                                                                                                       | ✓          |
+
+**Entscheidung: Release `8fc751ad1ab5` angenommen.** Kein Rollback, keine Nacharbeit am Release.
+
+**Offen nach dem Go-live** (siehe §3 „Nach dem Cutover“): SendGrid-Rotation (OA-11), Publikation
+`127.0.0.1:5000` streichen, Alt-Images entfernen, `main` nachziehen, Produktions-GTM (CTC-04),
+E2E-Drift (§6). Operator-Passwort nach dem Einsatz wechseln (Hygiene, außerhalb dieses Repos).

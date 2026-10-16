@@ -33,11 +33,13 @@ kein `work-packages/APxx-STATE.md`).
   - **Offen:** neue PDF-Fassungen (alte Adresse/Nummer), GSC-Abgleich Crawl F3 nach Go-live, echte
     Geräte, frische Gate-Kette für `f7b5db3` (Visual, A11y, E2E).
 - **AP34: CLOSED — ACCEPTED (2026-10-16)**, AP34-CLOSURE in `work-packages/AP34.md`.
-- **Owner-Go Produktion (2026-10-16, Abend)** für Release `8fc751ad1ab5`: Runbook, Vorbereitung und
-  Grenzen in `release/AP31-GO-LIVE.md`; Cutover-Kommandos (nginx mit sudo, `adopt`, `up`) führt der
-  Operator aus, Protokoll dort §7. `deploy.sh up` überspringt beim Altstand die Vor-Deploy-Sicherung
-  mit Warnung; `deploy/nginx/polarisdx.net.conf` = Ziel-vhost (Early-Access raus, HSTS rein).
-  SendGrid-Rotation (OA-11) nach dem Cutover; GTM in Produktion vorerst Preview-Container (CTC-04).
+- **LIVE (2026-10-16, 20:58 CEST): Release `8fc751ad1ab5` läuft auf https://polarisdx.net** (Projekt
+  `01polaris`, Historie `.deploy/production/releases`: `main-2026-10` adopt → `8fc751ad1ab5` deploy).
+  nginx-Cutover 21:01: Early-Access-Pfade 404, HSTS `max-age=31536000` live (DD-14/OA-1 erledigt),
+  Sicherung `/etc/nginx/backup-relaunch-20261016-polarisdx.net`. Livechecks grün (50 Kernrouten,
+  SEO-Head, Header, Consent). Protokoll, Abweichungen und Folgearbeiten: `release/AP31-GO-LIVE.md` §7
+  (SendGrid-Rotation OA-11, Port 5000 streichen, Alt-Images, `main` nachziehen, CTC-04, E2E-Drift).
+  **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
 - ~~**AP30 Go/No-Go: weiter No-Go** bis SendGrid-Rotation (OA-11/OA-12) und HSTS; Early-Access-Rückbau
   und `./deploy.sh adopt` im Cutover.~~ → Owner-Go, siehe oben.
 
@@ -67,14 +69,14 @@ kein `work-packages/APxx-STATE.md`).
   zwei Funde behoben (Preview-API 504, Lead-Magnet-Datei fehlte im Image). Go/No-Go: **No-Go** bis
   Early-Access-Entscheidung, SendGrid-Rotation, HSTS. Preview läuft als Container-Release
   (`./deploy.sh --env preview`).
-- **AP31/AP32:** Runbook/Smoke/Rollback über `deploy.sh` vorbereitet; Ausführung = Owner-Go.
+- **AP31: DONE (2026-10-16)** — Go-live über `deploy.sh`, Protokoll `release/AP31-GO-LIVE.md`; **AP32** läuft (Stabilisierung, Folgearbeiten).
 - **Weiter offene Owner-Entscheidungen:** ~~Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/
   IglooPro (Route-JS-Budget) · Telefonnummer~~ (entschieden 2026-10-16) · Produktions-Go.
 
 - **Work package (Design, priorisiert): AP34 — Relaunch-Design „Editorial" seitenweit** · Status: **CLOSED — ACCEPTED (2026-10-16)** · Anlage: SC-002 (Owner, 2026-10-15) · Vertrag: `work-packages/AP34.md`
 - AP34: PT34.1: **PASS (2026-10-15)** — Navy-Kopfzeile, Logo-Blau-Akzent, Editorial-Startseite; Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.1); offener Altbefund außerhalb AP34: `e2e/befunde-navigation.spec.ts` PT16.3 „Inquiry“ (zwei `role=status`, identisch auf dem Vorstand) · PT34.2: **PASS (2026-10-16)** — PT34.2a–c **PASS (2026-10-15, SC-003)**: Führungssystem und Epigenetik-Strecke (Hub, Grundlagen, Studienlage, Unterlagen, Musterbefund-Rahmen); Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.2a–c); bekannte Altbefunde unverändert (PT16.3/PT15.6 doppeltes `role=status`, PT08.4 Sprachwechsel unter Last, PT24.6 Kernrouten-Timeouts unter Last — jeweils identisch auf dem Vorstand); Owner-Frage zweite Telefonnummer +49 152 2858 0999 (Hub, 60 Musterbefunde) entschieden 2026-10-16: eine Nummer +49 151 75011699 (SC-004) · PT34.3: **PASS (Gestaltung, 2026-10-16)** — Inhalts-/Unternehmensseiten angeglichen, siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.3) · PT34.4: **PASS (2026-10-16)** · AP34-CLOSURE: **ACCEPTED (Owner, 2026-10-16)**
 - PT34.2d–e: **PASS (Gestaltung, 2026-10-16)** — Editorial-Bühnen für Diagnostik, Service-Seiten (über `SubpageHero`, damit auch Kontakt, Support, Über uns, Blog, Downloads, Rechtstexte), IglooPro; Bereichsleiste/„Nächster Schritt" dort ~~OFFEN — Owner-Entscheidung~~ **umgesetzt 2026-10-16 als Shell-Bausteine** (`f7b5db3`, SC-004; Route-JS-Puffer danach 127–193 B, Initial-JS 162 794 / 164 778 B); vorbestehende E2E-Altbefunde (Breadcrumb-Label „Breadcrumb" vs. „Brotkrümelnavigation" in Service-Specs, Kontakt-/Support-Formular, Termine mit festem Datum, Artikel-Template) identisch auf dem Vorstand
-- Next task: **AP31 Cutover ausführen** (Operator: `deploy/nginx/cutover-polarisdx.net.sh`, `./deploy.sh adopt main-2026-10`, `./deploy.sh up 8fc751ad1ab5`), danach Livechecks und Protokoll `release/AP31-GO-LIVE.md` §7; frühere Zeile: „AP30 RC-Messung für `f7b5db3` und AP31-Vorbereitung" (erledigt) · AP34 abgeschlossen; frühere Zeile: „PT34.4 — Konsistenz, Doku, Owner-Abnahme … danach AP34-CLOSURE, dann AP28" (erledigt)
+- Next task: **AP32 Stabilisierung** (SendGrid-Rotation OA-11 + `up` wiederholen, Port-5000-Publikation streichen, Alt-Images entfernen, `main`-Entscheidung, E2E-Drift aus AP31 §6 angleichen, GSC-Abgleich Crawl F3); frühere Zeile: „AP31 Cutover ausführen“ (erledigt 2026-10-16 20:54–21:01); frühere Zeile: „AP30 RC-Messung für `f7b5db3` und AP31-Vorbereitung" (erledigt) · AP34 abgeschlossen; frühere Zeile: „PT34.4 — Konsistenz, Doku, Owner-Abnahme … danach AP34-CLOSURE, dann AP28" (erledigt)
 - Hinweis: Die AP27-Zeilen unten stammen aus dem Stand vor den Commits „AP27-CLOSURE: …" und wurden in AP34 nicht neu bewertet.
 
 - Work package: **AP27 — Teststrategie, Regression und Quality Gates**

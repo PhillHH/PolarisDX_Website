@@ -1,6 +1,6 @@
 # AP30 — Release Candidate 1 (Entwurf, ownerfreier Teil)
 
-**Stand:** 2026-10-16 · **Status:** `RC1_PREPARED — OWNER-GO 2026-10-16 (Abend), Cutover siehe AP31-GO-LIVE.md` · **Branch:**
+**Stand:** 2026-10-16 · **Status:** `RELEASED — 8fc751ad1ab5 live seit 2026-10-16 20:58 CEST (AP31-GO-LIVE.md §7)` · **Branch:**
 `console/24-25-2026-09-16T09-52-24`
 
 Diese Unterlage bündelt, was ohne Owner prüfbar war. Sie ist **keine** Freigabe. Ein RC wird erst
