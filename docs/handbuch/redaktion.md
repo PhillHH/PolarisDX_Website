@@ -184,9 +184,10 @@ Regeln (durchgesetzt von `scripts/check-meta-descriptions.mjs` und `SEOHead`):
 
 **Inhaltliche Regeln zuerst:**
 
-- Nur echte Fotos und echte Produktrenders mit geklärter Lizenz (Startseite: Unsplash-Lizenz,
-  vermerkt in `src/assets/home/homeImages.ts`). **Keine KI-generierten oder nachgebauten
-  Produktbilder, keine erfundenen Wortmarken, keine Messwerte im Bild.** Belege, warum: der
+- Nur Fotos mit geklärter Herkunft und echte Produktrenders. Praxis-Szenen sind seit 2026-10-16
+  KI-generiert (Google Gemini, Pool `assets-src/photos/`, Regeln in `PROMPTS.md`, Nachweis im
+  Impressum §8). **Keine KI-generierten oder nachgebauten Produktbilder, keine erfundenen
+  Wortmarken, keine Messwerte, kein Text im Bild.** Belege, warum: der
   verformte IglooPro-Nachbau und die erfundene „DX“-Wortmarke wurden aus den Artikeln entfernt
   (`ARTICLES-CONTRACT.md`, 2026-10-16); die alte Share-Karte trug den erfundenen Wert „45.2 ng/mL“
   (`DESIGN-SYSTEM-CHANGELOG.md`).

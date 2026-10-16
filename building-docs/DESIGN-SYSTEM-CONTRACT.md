@@ -88,8 +88,13 @@ Navy-Versatz, aktive Unterstreichung `accent.line`, Aufklapp-Menüs bleiben hell
 höchstens ein art-directed Foto mit eingebackenem Navy-Verlauf (LCP-Bild, budgetgeprüft). **Alle
 Fotos der Website** (Startseite, Bereiche, Artikel) stammen aus einem Pool (`assets-src/photos/`)
 und durchlaufen dieselbe Behandlung („Polaris-Look", `scripts/build-photo-look.mjs`): Sättigung
-0,78, Navy-Soft-Light, einheitliche Zuschnitte. Keine KI-Collagen, keine gemalten Geräte, keine
-erfundenen Messwerte; Herkunft im Impressum §8 „Bildnachweis". Auf Navy-
+0,92, Navy-Soft-Light (Alpha 0,12; bis Runde 1 0,78/0,26), einheitliche Zuschnitte. Seit 2026-10-16 sind die Pool-Motive KI-generierte
+Szenen (Google Gemini, Prompt-Satz in `assets-src/photos/PROMPTS.md`). Erlaubt sind Szenen:
+keine Collagen, kein frei gemaltes Gerät, kein Display mit Inhalt, kein Text, keine erfundenen
+Messwerte, keine realen Personen. Der IglooPro erscheint entweder als echter Render oder (Owner-Go
+2026-10-16, „hin und wieder präsentieren“) als Bild-zu-Bild-Platzierung mit dem Original-Render als
+Referenz, in echter Größe (~9 cm Würfel) und mit dunklem Display — Form und Details werden vor dem
+Einbau gegen den Render geprüft. Herkunft im Impressum §8 „Bildnachweis". Auf Navy-
 und Fotoflächen ist die primäre Schaltfläche die weiße Pille (`Button variant="light"`). Navy-Bänder
 können den Punktring des Signets als Dekor tragen (`.brand-ring`).
 

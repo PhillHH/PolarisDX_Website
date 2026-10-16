@@ -2,10 +2,11 @@
  * „Polaris-Look" — eine Farbbehandlung fuer alle Fotos der Website (2026-10-16, Owner-Wunsch:
  * Bilder wirken uneinheitlich; die KI-Collagen der Artikel sollen weg).
  *
- * Alle Motive kommen aus demselben Pool (`assets-src/photos/`, Unsplash) und bekommen dieselbe
+ * Alle Motive kommen aus demselben Pool (`assets-src/photos/`, KI-generiert, siehe PROMPTS.md) und bekommen dieselbe
  * Behandlung, damit Startseite, Bereiche und Artikel wie EINE Bildwelt wirken:
- *   1. Saettigung 0,78 — Stockfarben zuruecknehmen,
- *   2. Navy `#083358` als Soft-Light-Lage (Alpha 0,26) — kuehle Schatten in Markenrichtung,
+ *   1. Saettigung 0,92 — leicht zuruecknehmen (bis Runde 1 0,78; seit den warmen KI-Motiven der
+ *      Runde 2 am 2026-10-16 bewusst milder, damit Eiche, Haut und Pflanzen lebendig bleiben),
+ *   2. Navy `#083358` als Soft-Light-Lage (Alpha 0,12; vorher 0,26) — Schatten in Markenrichtung,
  *   3. leichter Kontrast (`linear 1.04, −5`),
  *   4. einheitliche Zuschnitte: Karten 4:3 / 3:2, Artikel 16:9, Buehne wie AP34 (Verlauf und
  *      Punktring eingebacken, Textseite flaches Navy).
@@ -43,9 +44,9 @@ const svgRect = (w, h, defs) =>
 
 /** Der Look: wird auf das fertig zugeschnittene, skalierte Foto angewendet. */
 async function look(pipeline, width, height) {
-  const base = await pipeline.modulate({ saturation: 0.78 }).linear(1.04, -5).toBuffer()
+  const base = await pipeline.modulate({ saturation: 0.92 }).linear(1.04, -5).toBuffer()
   const tint = await sharp({
-    create: { width, height, channels: 4, background: { ...hex(NAVY), alpha: 0.26 } },
+    create: { width, height, channels: 4, background: { ...hex(NAVY), alpha: 0.12 } },
   })
     .png()
     .toBuffer()
@@ -60,7 +61,12 @@ const hex = (h) => ({
 async function encode(image, outBase, { avif, webp, effort = 6 }) {
   const out = {}
   if (avif !== undefined) {
-    const buf = await image.clone().avif({ quality: avif, effort: 9 }).toBuffer()
+    // 4:2:0-Chroma: bei Fotos kaum sichtbar, spart 15–25 % — noetig seit den detailreichen
+    // KI-Motiven der Runde 2 (Budgets: Startseite imageBytes, Artikel lcpImageBytes).
+    const buf = await image
+      .clone()
+      .avif({ quality: avif, effort: 9, chromaSubsampling: '4:2:0' })
+      .toBuffer()
     fs.writeFileSync(`${outBase}.avif`, buf)
     out.avif = buf.length
   }
@@ -100,10 +106,10 @@ async function article(source, base, position = 'attention') {
   const [full, fw, fh] = crop(W)
   const original = await look(full, fw, fh)
   await encode(original, path.join(ASSETS, base), { webp: 78 })
-  await encode(original, path.join(ASSETS, `${base}-${W}w`), { avif: 40 })
+  await encode(original, path.join(ASSETS, `${base}-${W}w`), { avif: 34 })
   for (const [w, q] of [
-    [400, 52],
-    [800, 46],
+    [400, 42],
+    [800, 36],
   ]) {
     const [img, cw, ch] = crop(w)
     await encode(await look(img, cw, ch), path.join(ASSETS, `${base}-${w}w`), { avif: q, webp: 78 })
@@ -113,10 +119,16 @@ async function article(source, base, position = 'attention') {
 /** Buehne der Startseite (AP34 / SC-002) — Verlauf und Punktring eingebacken. */
 async function stage() {
   const src = path.join(SRC, 'practice-dental-2600.jpg')
+  // Zuschnitte relativ zur Quellgroesse (Quelle 16:9, Motiv im rechten Drittel, links ruhige
+  // Flaeche fuer den Text) — die Pixelwerte der ersten Fassung galten nur fuer die 2600-px-Datei.
+  const { width: SW, height: SH } = await sharp(src).metadata()
   const desktop = async (w, q) => {
     const h = w / 2
+    const ch = Math.min(SH, Math.round(SW / 2))
     const photo = await look(
-      sharp(src).extract({ left: 0, top: 180, width: 2600, height: 1300 }).resize(w, h),
+      sharp(src)
+        .extract({ left: 0, top: Math.round((SH - ch) / 2), width: SW, height: ch })
+        .resize(w, h),
       w,
       h,
     )
@@ -146,7 +158,15 @@ async function stage() {
   }
   const mobile = async (w, q, wq) => {
     const h = Math.round(w * 2.25)
-    const region = { left: 1250, top: 120, width: 1100, height: 1420 }
+    // Hochkant-Ausschnitt um die Person (Mitte bei ~73 % der Breite), Verhaeltnis ~0,775.
+    const rw = Math.round(SW * 0.42)
+    const rh = Math.min(SH, Math.round(rw / 0.775))
+    const region = {
+      left: Math.round(SW * 0.73 - rw / 2),
+      top: Math.round((SH - rh) / 2),
+      width: rw,
+      height: rh,
+    }
     const ph = Math.round((w * region.height) / region.width)
     const photo = await look(sharp(src).extract(region).resize(w, ph), w, ph)
     const top = h - ph
@@ -170,10 +190,10 @@ async function stage() {
     ])
     await encode(raw, path.join(HOME, `hero-mobile-${w}w`), { avif: q, webp: wq })
   }
-  await desktop(1440, 52)
-  await desktop(2400, 50)
-  await mobile(800, 52, 62)
-  await mobile(1200, 48, 58)
+  await desktop(1440, 46)
+  await desktop(2400, 44)
+  await mobile(800, 46, 62)
+  await mobile(1200, 44, 58)
 }
 
 /** Motivzuordnung der Artikel (src/data/articles.ts). */
@@ -186,11 +206,11 @@ export const ARTICLE_PHOTOS = [
 ]
 
 async function main() {
-  await card('practice-dental.jpg', 'service-dental', 4 / 3, [400, 800], [42, 46])
-  await card('practice-beauty.jpg', 'service-beauty', 4 / 3, [400, 800], [42, 46])
-  await card('practice-longevity.jpg', 'service-longevity', 4 / 3, [400, 800], [42, 46])
-  await card('practice-consult.jpg', 'practice-consult', 3 / 2, [400, 640], [52, 54])
-  await card('lab-analyst.jpg', 'lab-analyst', 3 / 2, [400, 640], [52, 54])
+  await card('practice-dental.jpg', 'service-dental', 4 / 3, [400, 800], [34, 38])
+  await card('practice-beauty.jpg', 'service-beauty', 4 / 3, [400, 800], [34, 38])
+  await card('practice-longevity.jpg', 'service-longevity', 4 / 3, [400, 800], [34, 38])
+  await card('practice-consult.jpg', 'practice-consult', 3 / 2, [400, 640], [40, 44])
+  await card('lab-analyst.jpg', 'lab-analyst', 3 / 2, [400, 640], [40, 44])
   await stage()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }

@@ -2,10 +2,10 @@
  * Relaunch 2026-10-15 (SC-001) — Bildwelt der Startseite.
  *
  * Fotografie statt Icon-Kacheln: drei Praxis-Motive als Fachbereich-Einstiege,
- * zwei Motive auf den Saeulen-Karten und die Editorial-Buehne (AP34 / SC-002). Quelle: Unsplash (Unsplash-Lizenz, frei
- * fuer kommerzielle Nutzung, keine Namensnennung noetig); Zuschnitte und
- * Varianten entstehen aus den Originalen im Workspace-Scratchpad, nicht per
- * Hotlink — `img-src 'self'` bleibt unberuehrt.
+ * zwei Motive auf den Saeulen-Karten und die Editorial-Buehne (AP34 / SC-002). Quelle seit
+ * 2026-10-16: KI-generierte Praxisszenen (Google Gemini, `assets-src/photos/`, Prompts in
+ * PROMPTS.md; Bildnachweis Impressum §8). Zuschnitte und Varianten erzeugt
+ * `scripts/build-photo-look.mjs`, nicht per Hotlink — `img-src 'self'` bleibt unberuehrt.
  *
  * Breiten sind aus der Darstellung abgeleitet (CSS-Breite × DPR 1–2), damit
  * das Perf-Budget (`oversizedImages`, `imageBytes` der Startseite) haelt:

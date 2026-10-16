@@ -27,6 +27,39 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — Bildwelt 2: KI-generierte Praxisszenen (Gemini), warmer Polaris-Look, IglooPro „hin und wieder" (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Feedback in drei Schritten am selben Tag: „geilere, konsistente Bilder in
+  unserer CI" → „Igloo statt Labor, wir haben nicht viel mit dem Labor zu tun" → „nicht Stock,
+  lebendig und fröhlich, Praxen nicht so klinisch" → „vielleicht auch das Igloo hin und wieder
+  präsentieren". Die 14 Unsplash-Quellen sind entfernt; alle elf Pool-Motive (`assets-src/photos/`)
+  sind jetzt KI-generiert (Google Gemini `gemini-3-pro-image-preview`, zwei Varianten je Slot,
+  Auswahl per Kontaktbogen), Prompt-Satz und Regeln in `assets-src/photos/PROMPTS.md` (Stilsatz 2:
+  helle Eiche, Pflanzen, echte Lächeln, Navy-Akzente, kein Text, kein Labor, keine realen Personen).
+- **IglooPro:** zwei Motive zeigen das Gerät als Bild-zu-Bild-Platzierung mit dem Original-Render
+  als Referenz, in echter Größe (~9 cm Würfel, 270–400 g laut Datenblättern) und mit dunklem
+  Display: Säule Diagnostik (`practice-consult`, Gerät auf der Handfläche) und Artikel
+  5-Minuten-Diagnose (`lab-tubes`, Gerät auf dem Tresen). Fotoregel im DS-Vertrag entsprechend
+  ergänzt; frei gemalte Geräte bleiben verboten.
+- **Pipeline:** `scripts/build-photo-look.mjs` — Sättigung 0,78 → 0,92, Navy-Soft-Light α 0,26 →
+  0,12 (die warmen Motive sollen warm bleiben); Bühnen-Zuschnitte relativ zur Quellgröße (die
+  4K-Quelle hat 5504 px, die festen Pixelwerte der ersten Fassung galten nur für 2600 px); AVIF mit
+  Chroma 4:2:0 und niedrigeren Qualitäten (Karten 34/38 bzw. 40/44, Artikel 42/36/34, Bühne
+  46/44), weil die detailreichen Szenen sonst `imageBytes` (Startseite 105 statt 87 KB) und
+  `lcpImageBytes` (Artikel 25,8 statt 21,4 KB) rissen. Budgets unverändert, 852/852 grün.
+- **Impressum §8** (10 Sprachen), Zeile 2 jetzt: Praxis- und Alltagsszenen, teils mit dem
+  IglooPro auf Basis der Original-Produktabbildung, KI-generiert (PolarisDX, Google Gemini), keine
+  realen Personen. Die Unsplash-Bestätigung durch den Owner entfällt damit.
+- **Oberfläche:** keine neuen Tokens, Typo-Rollen oder Komponenten-Exporte.
+- **Betroffene Screenshots (aktualisiert im Playwright-Docker-Image v1.57.0):** PT27.6
+  `home-desktop`, `home-mobile`, `article-desktop`, `cookie-banner-desktop`,
+  `diagnostics-megamenu-open-desktop`, `navigation-open-mobile`, `search-dialog-open-desktop`
+  (alle zeigen die neue Startseiten-Bühne bzw. das neue Artikelbild); Design-System-Spec
+  `final-cta-articles-desktop`, `final-cta-articles-mobile` (Artikelkarten). Gegengeprüft 21/21 und
+  35/35, URL-Smoke 56/56, Vitest, `check:*` grün.
+- **Reviewer:** Owner (Kontaktbögen beider Runden gesichtet, Auswahl bestätigt durch „Igloo hin
+  und wieder"; Sichtprüfung auf der Preview steht aus).
+
 ### 2026-10-16 — Bildwelt: „Polaris-Look", KI-Collagen der Artikel ersetzt, Bildnachweis (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Wunsch 2026-10-16 („Bilder wirken uneinheitlich, teils KI-generiert; bitte in

@@ -648,11 +648,16 @@ Closure-Prinzip eingehalten: alles neu gemessen, kein PT-PASS blind uebernommen.
 
 Neue Sektion `imprint.section8` in `public/locales/*/legal.json` (10 Sprachen) und
 `ImprintPage.tsx`. Inhalt je Bildgruppe: IglooPro-Produktabbildungen (Polaris Diagnostics Europe
-GmbH / DX365 GmbH), Praxis- und Laborfotos (Unsplash, Unsplash-Lizenz, Zuschnitt und
-Farbbearbeitung durch PolarisDX — Quellen in `assets-src/photos/README.md`), Porträts (von den
-abgebildeten Personen bereitgestellt), Grafiken/Musterbefund-Vorschauen/Share-Bilder (PolarisDX).
-**Offen vor Go-live:** Legal-Freigabe des Wortlauts; Owner bestätigt die Unsplash-Herkunft der
-14 Quellfotos (IDs nicht dokumentiert) und die Freigaben der Porträts. KI-generierte Bilder gibt es
-seit diesem Stand nicht mehr auf der Website; falls künftig welche eingesetzt werden, wird §8 um
-„KI-generiert (PolarisDX)" ergänzt — eine Kennzeichnungspflicht besteht dafür nicht, die Angabe ist
-freiwillig und ehrlich.
+GmbH / DX365 GmbH), Praxis- und Alltagsszenen (seit dem Nachtrag unten KI-generiert), Porträts
+(von den abgebildeten Personen bereitgestellt), Grafiken/Musterbefund-Vorschauen/Share-Bilder
+(PolarisDX). **Offen vor Go-live:** Legal-Freigabe des Wortlauts und die Freigaben der Porträts.
+
+**Nachtrag 2026-10-16 (später am Tag) — KI-Bilder statt Unsplash.** Auf Wunsch des Owners sind
+alle elf Praxis-/Alltagsmotive (Bühne, Fachbereich- und Säulenkarten, fünf Artikel) durch
+KI-generierte Szenen ersetzt (Google Gemini, Prompts und Regeln in `assets-src/photos/PROMPTS.md`:
+keine realen Personen, keine Marken, keine Geräte, kein Text). Die Unsplash-Frage entfällt damit.
+§8 Zeile 2 lautet jetzt in allen zehn Sprachen sinngemäß: „Praxis- und Alltagsszenen …:
+KI-generiert (PolarisDX, Google Gemini); keine realen Personen, Zuschnitt und Farbbearbeitung durch
+PolarisDX." Eine Kennzeichnungspflicht besteht nicht; die Angabe ist freiwillig. Die Nutzungsrechte
+an Gemini-Ausgaben liegen laut Gemini-API-Bedingungen beim Nutzer (Owner prüft bei Bedarf mit
+Legal). Der IglooPro bleibt ausschließlich echter Render.

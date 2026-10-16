@@ -38,8 +38,8 @@ hardening remain AP22-owned and are not claimed as complete.
 
 **AP34 / SC-002 (2026-10-15) — Editorial stage.** Supersedes the SC-001 photo mosaic.
 
-- Stage: one art-directed practice photograph (`src/assets/home/hero-*`, Unsplash licence, served
-  locally) with the navy gradient and the PolarisDX dot ring baked into the file. Desktop crop 2:1 from
+- Stage: one art-directed practice photograph (`src/assets/home/hero-*`, AI-generated scene since
+  2026-10-16, see `assets-src/photos/README.md`, served locally) with the navy gradient and the PolarisDX dot ring baked into the file. Desktop crop 2:1 from
   1024 px (1440w / 2400w, AVIF only), mobile crop 4:9 below 1024 px (800w / 1200w, AVIF plus the
   WebP `<img>` fallback) via `<picture data-home-hero-photo>` with `media` sources. Browsers without
   AVIF fall back to the mobile WebP. The photo is decorative (`alt=""`). A mobile-only, early

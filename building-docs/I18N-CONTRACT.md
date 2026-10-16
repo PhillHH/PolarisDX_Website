@@ -377,8 +377,8 @@ Disclosure-Integration, 32-Dateien-Inventar) plus G4 über `npm run check:i18n`.
 
 ## G4 generated evidence
 
-- Generated at: 2026-08-26T17:44:33.130Z
-- Git HEAD: `6b0ed1363f08fa241a7b21d226c3a7dd4a6493bb`
+- Generated at: 2026-10-16T14:20:23.511Z
+- Git HEAD: `b8f864480f33da7477f0b64b28f42e4d3c51dca6`
 - Guard command: `npm run check:i18n`
 - Supported languages: de, en, pl, fr, it, es, pt, da, nl, cs (10/10)
 - Default locale: `de`

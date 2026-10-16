@@ -64,12 +64,20 @@ The known internal-ID legacy source `/de/articles/green_practice` remains a serv
   drei Artikel bebildert und drei bildlos. `above_the_fold.*` (erfundener Messwert) ist gelöscht.
 - **2026-10-16 (Owner: „Bilder einheitlich, KI-Collagen raus"):** die KI-Collagen `homeclinic.png`
   und `makemoney.png` sind gelöscht. Alle sechs Artikel tragen jetzt ein 16:9-Foto aus demselben
-  Pool wie Startseite und Bereiche (`assets-src/photos/`, Unsplash), einheitlich bearbeitet durch
-  `scripts/build-photo-look.mjs` („Polaris-Look": Sättigung 0,78, Navy-Soft-Light, 1200w-WebP als
+  Pool wie Startseite und Bereiche (`assets-src/photos/`), einheitlich bearbeitet durch
+  `scripts/build-photo-look.mjs` („Polaris-Look": Sättigung 0,92 (zuvor 0,78), Navy-Soft-Light, 1200w-WebP als
   Original, AVIF 400/800/1200). Motive: grüne Praxis → heller Praxisraum, unsichtbarer Patient →
-  Laptop und Stethoskop, 5-Minuten-Diagnose → Probenröhrchen, Performance-Formel → moderne Praxis,
-  Präzision → Analytik-Labor; der Ecosystem-Artikel behält den echten IglooPro-Render. Bildnachweis
-  im Impressum §8. Alt bleibt leer (dekorativ in benannten Links).
+  Laptop und Stethoskop, 5-Minuten-Diagnose → IglooPro auf dem Praxistresen (Platzierung mit Original-Render, Owner-Go), Performance-Formel →
+  moderner Empfang, Präzision → MFA am Praxis-Tresen; der Ecosystem-Artikel behält den echten
+  IglooPro-Render. Bildnachweis im Impressum §8. Alt bleibt leer (dekorativ in benannten Links).
+- **2026-10-16 (später, Owner: „geilere, konsistente Bilder; Igloo statt Labor"):** der Pool ist
+  jetzt KI-generiert (Google Gemini, Regeln und Prompts in `assets-src/photos/PROMPTS.md`: nur
+  Szenen, kein Gerät, kein Display, kein Text, kein Labor). Die drei Labor-Motive der ersten Fassung
+  wurden durch Point-of-Care-Praxisszenen ersetzt; Runde 2 am selben Tag (Owner: „lebendig, nicht
+  Stock, nicht klinisch") macht alle Motive warm und menschlich (Eiche, Pflanzen, echte Lächeln,
+  Stilsatz 2 in PROMPTS.md), Farbbehandlung dafür milder (0,92/0,12). Impressum §8 nennt
+  „KI-generiert (PolarisDX, Google Gemini)". Produktbilder: echter Render oder Render-basierte Platzierung (DS-Vertrag,
+  Fotoregel).
 - Pagination/filter decision: `NOT_REQUIRED_CURRENT_CONTENT_VOLUME` for six launch records.
 - The primary hero CTA is an in-page jump to the real article list.
 
