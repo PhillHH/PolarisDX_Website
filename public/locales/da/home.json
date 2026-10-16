@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostik",
         "text": "Point-of-care-diagnostik og specialiserede anvendelser til klinikker og medicinske institutioner.",
-        "cta": "Udforsk diagnostik"
+        "cta": "Udforsk diagnostik",
+        "board_label": "Parametre fra fagområderne"
       },
       "igloo": {
         "title": "IglooPro",

@@ -14,6 +14,12 @@ kein `work-packages/APxx-STATE.md`).
 
 - **Owner „Alle ja" (2026-10-16):** alle Empfehlungen aus `migration/MAIN-DELTA-2026-10.md` §5 und
   `release/AP30-RC1.md` §5 angenommen (`SCOPE-CHANGELOG.md` SC-004, `DECISIONS.md` §3.1 OD-01..10).
+- **SC-005 (2026-10-16, Abend):** Owner-Brief „Agentur-Niveau, lockerer Mix, nicht zu viele Fotos" —
+  Startseiten-Komposition neu (Säulen mit Parameter-Tafel/Render/Musterbefund, Fachbereich-Leseliste
+  neben einem Detailfoto, Ablauf als Zeitleiste, Wissen als Artikel plus Leseliste; Bildwelt 3,
+  Stilsatz 3), Sektionsreihenfolge, Claims, CTAs und Budgets unverändert (`SCOPE-CHANGELOG.md` SC-005,
+  `DECISIONS.md` OD-11, `DESIGN-SYSTEM-CHANGELOG.md`); Gates und Preview-Release siehe
+  `release/AP30-RC1.md` Nachtrag SC-005.
   Code `f7b5db3`, Preview-Release `f7b5db3e2433`, **Produktion unverändert**.
   - O1 Shop: Kopfzeilen-Eintrag + schmales Startseiten-Band, `HCL-015`, `DEC-RL-015` geändert,
     CTC-14 geschlossen (`shop.polarisdx.net` in `OUTBOUND_DOMAINS`).

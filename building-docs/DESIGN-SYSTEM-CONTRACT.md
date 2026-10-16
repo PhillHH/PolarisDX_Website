@@ -98,6 +98,16 @@ Einbau gegen den Render geprüft. Herkunft im Impressum §8 „Bildnachweis". Au
 und Fotoflächen ist die primäre Schaltfläche die weiße Pille (`Button variant="light"`). Navy-Bänder
 können den Punktring des Signets als Dekor tragen (`.brand-ring`).
 
+**SC-005 (2026-10-16) — Fotografie ist Akzent, nicht Tapete:** Die Startseite zeigt höchstens zwei
+generierte Fotos (die Bühne und ein Detailfoto im Fachbereich-Modul); Säulen und Module wechseln
+zwischen Foto, Produkt-Render, echtem Dokument (Musterbefund), Parameter-Tafel und Typografie; drei
+gleich große Fotos in einer Reihe sind nicht mehr zulässig. Für neue Motive ersetzt Stilsatz 3
+(Reportage in einer zeitgemäßen, neu gebauten Praxis: Weiß/Hellgrau mit wenig heller Eiche,
+vorhandenes Licht, niemand blickt in die Kamera, nichts gestellt, Spur Filmkörnung, nicht glossy,
+nicht Stock; `assets-src/photos/PROMPTS.md`) den Stilsatz 2; die fünf Artikelfotos aus Runde 2
+bleiben unverändert. Die übrigen Fotoregeln (ein Pool, Polaris-Look, keine realen Personen, IglooPro
+nur als Render oder Render-basierte Platzierung, Bildnachweis §8) gelten unverändert.
+
 **SC-004 (2026-10-16) — Kopfzeilen-Eintrag „Shop":** Der achte Eintrag ist ein externer Link auf
 `shop.polarisdx.net` (`<a>`, kein Untermenü, gleicher `NAV_LINK`-Stil). Das Label „Neu"
 (`nav.badge_new`, `accent.on-dark`) steht nur im mobilen Menü; auf dem Desktop passten acht Einträge

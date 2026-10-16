@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostica",
         "text": "Diagnostica point-of-care e applicazioni specialistiche per studi e strutture mediche.",
-        "cta": "Scopri la diagnostica"
+        "cta": "Scopri la diagnostica",
+        "board_label": "Parametri dalle aree specialistiche"
       },
       "igloo": {
         "title": "IglooPro",

@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostyka",
         "text": "Diagnostyka point-of-care i zastosowania specjalistyczne dla gabinetów i placówek medycznych.",
-        "cta": "Poznaj diagnostykę"
+        "cta": "Poznaj diagnostykę",
+        "board_label": "Parametry z obszarów specjalistycznych"
       },
       "igloo": {
         "title": "IglooPro",

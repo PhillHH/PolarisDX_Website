@@ -27,6 +27,67 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — SC-005 · Startseite als Agentur-Komposition: lockerer Mix statt Fotoreihen (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Auftrag 2026-10-16 (`SCOPE-CHANGELOG.md` SC-005): „Geh mal als Agentur, der
+  man 30.000 Euro dafür bezahlt und die perfekte Seite bringt. Nicht zu viele Fotos, aber auch nicht
+  zu wenig. Viele Elemente, die Informationen müssen immer klar ersichtlich sein. Lockerer Mix und
+  hochwertige, echte, natürliche Fotos." Bildwelt 2 stellte unterhalb der Bühne acht gleichartige
+  Foto-Kacheln in drei Dreierreihen (zwei Säulen, drei Fachbereiche, drei Artikel); Information
+  stand hinter Stimmung zurück, und die Startseite lag genau am `htmlBytes`-Limit.
+- **Komposition** (nur Darstellung; Sektionsfolge, Claims, CTAs, Routen, `data-*`-Attribute und
+  Copy-Schlüssel unverändert, `src/pages/HomePage.tsx` unverändert):
+  - **Geschäftssäulen** (`BusinessPillarsSection.tsx`): drei verschiedene Bildarten statt drei
+    gleichartiger Fotos — Diagnostik eine Parameter-Tafel (`<ul>` aus Chips
+    `rounded-full border-paper-line bg-white`, Punkt `accent.line`; Inhalt zur Laufzeit aus den
+    vorhandenen `segments.{dental,beauty,longevity}.bio`, am „·" getrennt, dedupliziert; einziger neuer
+    Schlüssel `business_pillars.pillars.diagnostics.board_label`, 10 Sprachen), IglooPro das
+    Explosions-Render (`igloo-explode-240w.webp`, unverändert), Epigenetik der echte Musterbefund
+    (`report-preview-{400,800}w.webp` aus `befund-biologische-altersuhr@2x.webp`, als Dokumentkante
+    `rounded-t-lg border-paper-line shadow-card`). Das Säulen-Icon steht in der H3; das weiße Badge
+    auf der Bildfläche entfällt (spart HTML-Bytes).
+  - **Fachbereich-Einstiege:** nummerierte Leseliste (`<ol>`, `divide-y divide-paper-line`,
+    Nummern 01–03 in `accent.strong`, Titel + Biomarker-Zeile + `icon-tile`-Pfeil, jede Zeile ein
+    Link mit unverändertem `data-core-service`/`data-route-id`) neben EINEM Detailfoto 4:5
+    (`detail-capillary-{480,960}w`, `rounded-card` auf `paper.deep`, `alt=""`). Mobil Text → Liste
+    → Foto; ab `lg` steht das Foto links über Kopf und Liste (`lg:order-first lg:row-span-2`).
+  - **Ablauf** (`StepsSection.tsx`): Zeitleiste statt drei weißer Karten — Navy-Nummernkacheln
+    (`icon-tile h-12 w-12 bg-brand-deep`) 01–03, ab `md` durch eine Haarlinie `paper.line`
+    verbunden; dieselbe `<ol>`, derselbe Text; Sicherheitshinweis als Absatz mit linker Linie
+    (`border-l-[3px] border-accent`).
+  - **Wissen** (`BlogSection.tsx`): ein hervorgehobener Artikel mit 16:9-Foto (`rounded-card`,
+    `shadow-card`, Label `blog.featured`) plus Leseliste (02, 03) in derselben Zeilenform; drei
+    `<article>`; `aria-labelledby="homepage-knowledge-title"`, `blog.eeat_text` als Vorspann; „Alle
+    Fachartikel" behält `data-home-secondary-conversion="knowledge"`.
+- **Bildwelt 3 (Stilsatz 3, `assets-src/photos/PROMPTS.md`):** die Startseite zeigt genau zwei
+  generierte Fotos (Bühne + Detail) sowie das echte Porträt der Praxisreferenz und ein Artikelfoto.
+  Neuer Stil: Reportage in einer zeitgemäßen, neu gebauten deutschen Zahnarztpraxis
+  (minimalistisch, Weiß/Hellgrau mit wenig heller Eiche, vorhandenes Licht, niemand blickt in die
+  Kamera, nichts gestellt, Spur Filmkörnung, nicht glossy, nicht Stock); Gemini
+  `gemini-3-pro-image-preview`, drei Varianten je Slot, Bühne per Bild-zu-Bild auf 4K. Pool jetzt
+  sieben Quellen (Bühne `practice-dental-2600.jpg`, Detail `detail-capillary.jpg`, fünf Artikelfotos
+  aus Runde 2 unverändert); `practice-dental/-beauty/-longevity/-consult.jpg` und `lab-analyst.jpg`
+  samt Stufen gelöscht, `SERVICE_IMAGES`/`PILLAR_IMAGES` entfallen, neu `DETAIL_IMAGE`
+  (`homeImages.ts`). Pipeline `build-photo-look.mjs`: die fünf `card()`-Aufrufe ersetzt durch
+  `card('detail-capillary.jpg', 'detail-capillary', 4/5, [480, 960], [40, 44])` plus den
+  Musterbefund-Schritt (400/800w WebP, 400w hält `oversizedImages` bei 384 px Kartenbreite); Bühne
+  und Artikel mechanisch unverändert. Fotoregel im DS-Vertrag ergänzt: Fotografie ist Akzent, nicht
+  Tapete; drei gleich große Fotos in einer Reihe sind nicht mehr zulässig.
+- **Budgets (PT25.5, nicht gelockert):** home `htmlBytes` 33,8 KB (Grenze 33,9; vorher genau am
+  Limit), Desktop-`imageBytes` 65,1 KB (vorher 81,3; Grenze 87,2), mobil 33,7 KB, Initial-JS
+  159,4 KB gzip (Grenze 160,9), LCP-Bild 10,5 KB Desktop / 9,4 KB mobil. Gemessen 2026-10-16 mit
+  `node scripts/perf/check-budgets.mjs --profile ci --routes home,home-en,home-pl --runs 1`;
+  vollständiger Lauf folgt. `src/components/sections/*.test.tsx` 35/35 unverändert grün (Säulen 6
+  Links; Ablauf 3 geordnete Schritte, erstes `span` = Nummer; Wissen 3 `article`).
+- **Oberfläche:** keine neuen Tokens, Typo-Rollen oder Komponenten-Exporte; `SURFACE`-Blöcke
+  unverändert.
+- **Betroffene Screenshots (aktualisiert im Playwright-Docker-Image v1.57.0, gegengeprüft 21/21 und
+  35/35):** PT27.6 `home-desktop`, `home-mobile`, `cookie-banner-desktop`,
+  `diagnostics-megamenu-open-desktop`, `navigation-open-mobile`, `search-dialog-open-desktop` (neue
+  Bühne und neue Komposition); Design-System-Spec unverändert (die Artikelkarten des Final-CTA-Specs
+  liegen außerhalb der Startseite).
+- **Reviewer:** Owner (Auftrag 2026-10-16); Sichtprüfung auf der Preview steht aus.
+
 ### 2026-10-16 — Bildwelt 2: KI-generierte Praxisszenen (Gemini), warmer Polaris-Look, IglooPro „hin und wieder" (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Feedback in drei Schritten am selben Tag: „geilere, konsistente Bilder in

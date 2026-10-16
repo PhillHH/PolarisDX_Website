@@ -45,10 +45,17 @@ hardening remain AP22-owned and are not claimed as complete.
   AVIF fall back to the mobile WebP. The photo is decorative (`alt=""`). A mobile-only, early
   `<link rel="preload" as="image" fetchpriority="high" media="(max-width: 1023px)">` (React
   `preload()`) starts the request before the module preloads; the header logo is
-  `fetchpriority="low"` so React writes no competing image preload.
+  `fetchpriority="low"` so React writes no competing image preload. Since SC-005 (2026-10-16,
+  „Bildwelt 3") the Homepage carries exactly two generated photographs: this stage (dentist beside
+  a reclined patient, people in the right third, calm wall on the left) and the one detail
+  photograph in the service module (§4.2). Everything else is a product render (Hero product card,
+  IglooPro pillar), the real sample report (Epigenetics pillar), the parameter board (Diagnostics
+  pillar), the real portrait of the practice reference (Proof) and one article photo (Knowledge).
 - The stage photo is the LCP element on every viewport and the page's only `loading=eager` /
-  `fetchpriority=high` image. Its first candidates measure 12.4 KB (desktop AVIF) and 15.1 KB (mobile
-  AVIF), inside the unchanged `lcpImageBytes` budget of 19 438 B. Intrinsic `width`/`height` are set.
+  `fetchpriority=high` image. Its first candidates measure 10.5 KB (desktop AVIF, 10 753 B) and
+  9.4 KB (mobile AVIF, 9 575 B) with the Bildwelt 3 motif of 2026-10-16 (12.4 KB / 15.1 KB with the
+  Bildwelt 2 motif), inside the unchanged `lcpImageBytes` budget of 19 438 B. Intrinsic
+  `width`/`height` are set.
 - On phones the photo sits at its natural height at the bottom of the stage, so caption, headline,
   benefit and both actions always stand on flat navy; on desktop it covers the stage
   (`object-[center_35%]`) and the text side is the darkest part of the baked gradient.
@@ -116,12 +123,14 @@ revenue, delivery-time or new scientific claims.
 
 Below the pillars, exactly three existing service-source records are prioritized: `dental`, `beauty`
 and `longevity`. Their IDs come from `src/data/services.tsx`; their canonical targets come from the
-Registry dynamic source expansion. Only the existing localized title, biomarker line and CTA are
-shown. The complete nine-service portfolio remains owned by the Diagnostics hub and AP12/AP13.
+Registry dynamic source expansion. Only the existing localized title and biomarker line are shown;
+since SC-005 each record is one row of a numbered reading list (§4.2). The complete nine-service
+portfolio remains owned by the Diagnostics hub and AP12/AP13.
 
-The layout is a one-column stack below `md` and a three-column grid from `md`; all six cards are
-keyboard-focusable links with the established visible focus ring and motion-reduced hover behavior.
-The section adds no images, script, timers, tracking or third-party dependency.
+The pillars are a one-column stack below `md` and a three-column grid from `md`; the service module
+is described in §4.2. All six targets are keyboard-focusable links with the established visible
+focus ring and motion-reduced hover behavior. The section adds no script, timers, tracking or
+third-party dependency; since SC-005 it carries three lazy, below-the-fold images (§4.2).
 
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16)
 
@@ -147,6 +156,49 @@ business pillars. It points to the external Shopify shop, which has been live on
   („Angebot anfragen", `DEC-RL-013`). No budget was loosened.
 - `/shop` on this website stays `INTENTIONAL_404`; the shop is not part of the Route Registry.
 
+### 4.2 SC-005 (2026-10-16) — Visual composition
+
+Owner brief of 2026-10-16 (`SCOPE-CHANGELOG.md` SC-005): agency-grade page, not too many photos but
+not too few, many elements, information always clearly visible, a relaxed mix, high-quality natural
+photographs. Section order, claims, CTAs, routes, `data-*` attributes and copy keys are unchanged;
+only the visual composition of the PT11.3 surface changed. One copy key was added: the accessible
+name of the parameter board (`business_pillars.pillars.diagnostics.board_label`, de „Parameter aus
+den Fachbereichen", 10 locales).
+
+- **Three pillars, three different kinds of visual** instead of three look-alike photographs:
+  - Diagnostics: a parameter board („Parameter-Tafel") — one `<ul>` of chips, labelled by
+    `board_label`, built at runtime from the existing localized biomarker lines
+    `segments.dental.bio`, `segments.beauty.bio` and `segments.longevity.bio`, split at „·",
+    trimmed and de-duplicated. Source rule: the board may show only what those three strings
+    already say in the current locale; it adds no parameter, claim or copy of its own.
+  - IglooPro: the exploded product render `src/assets/home/igloo-explode-240w.webp` (unchanged
+    file, 240 × 280, 10.6 KB).
+  - Epigenetics: the real sample-report cover `src/assets/home/report-preview-{400,800}w.webp`
+    (7.8 KB / 17.1 KB, intrinsic 400 × 267, `srcset` + `sizes`), generated by
+    `scripts/build-photo-look.mjs` from `src/assets/epigenetics/befund-biologische-altersuhr@2x.webp`;
+    the 400w candidate keeps `oversizedImages` at 0 for the 384-px card width.
+  - The pillar icon sits in the H3; the white icon badge on the media area is gone (fewer HTML
+    bytes).
+- **Selected service entry points as a numbered reading list:** one `<ol>` with rows 01–03; each
+  row is one `<Link>` with the unchanged `data-core-service` / `data-route-id` and Registry target,
+  showing the localized title, the biomarker line and an arrow. Beside it stands ONE detail
+  photograph in a `<figure>`: `src/assets/home/detail-capillary-{480,960}w.{avif,webp}`, 4:5,
+  lean AVIF `srcset` (5.6 KB / 12.6 KB) with the WebP `<img>` fallback, decorative `alt=""`
+  (gloved hand holding a patient's fingertip with a drop of capillary blood).
+- **Mobile and DOM order:** intro text → reading list → photo. From `lg` the photograph stands on
+  the left and spans header and list (`lg:order-first lg:row-span-2`); the DOM order is unchanged,
+  so content precedes media at every breakpoint.
+- **Cost:** the three images are `loading="lazy"` and lie below the fold on every viewport; none
+  competes with the stage LCP. The HTML cost went DOWN: `htmlBytes` 33.8 KB against the unchanged
+  33.9 KB limit (before exactly at the limit); desktop `imageBytes` 65.1 KB (before 81.3 KB, limit
+  87.2 KB), mobile 33.7 KB; Initial JS 159.4 KB gzip (limit 160.9 KB); measured 2026-10-16 with
+  `node scripts/perf/check-budgets.mjs --profile ci --routes home,home-en,home-pl --runs 1`; the
+  full `ci` run afterwards held all 852 checks. Removed: `service-{dental,beauty,longevity}-{400,800}w.*`, `practice-consult-*`,
+  `lab-analyst-*` and their sources, plus `SERVICE_IMAGES` / `PILLAR_IMAGES` in
+  `src/assets/home/homeImages.ts` (new `DETAIL_IMAGE`; `HERO_STAGE` unchanged).
+- **Evidence:** `src/components/sections/BusinessPillarsSection.test.tsx` unchanged and green (six
+  links); the section still adds no script, timers, tracking or third-party dependency.
+
 ## 5. PT11.4 Point-of-Care process and benefits
 
 Immediately after the business/service entry points, the Why-POC section describes three operational
@@ -171,9 +223,12 @@ The following process is one ordered list in both DOM and visual order:
    professional.
 
 Visible numbers make the sequence independent of icons or colour. Desktop presents the same order in
-three columns; mobile retains it as a stack. Both sections are static and non-interactive, add no
-image, CTA, script, tracking or third-party dependency, and therefore do not pre-empt PT11.5 or create
-an additional below-fold media candidate.
+three columns; mobile retains it as a stack. Since SC-005 (2026-10-16) the process is drawn as a
+timeline instead of three white cards: navy numbered tiles 01–03, joined by a decorative
+(`aria-hidden`) hairline from `md`, with title and text below each tile; it is still the same single
+`<ol>` with the same copy, and the safety note stays as a plain left-rule paragraph. Both sections
+are static and non-interactive, add no image, CTA, script, tracking or third-party dependency, and
+therefore do not pre-empt PT11.5 or create an additional below-fold media candidate.
 
 ## 6. PT11.5 conversion and secondary conversion
 
@@ -192,7 +247,13 @@ profit commitment. The optional report form remains a real `/api/roi-report` flo
 validation, honeypot, explicit consent, locale-aware privacy link, runtime PDF and mail handling; it
 now carries `source=homepage`, `journey=roi_report`, `section=roi`. No fake file, mail, CRM persistence
 or success state was introduced. The real Article source supplies three Homepage knowledge teasers;
-their detail paths and the Article hub path are resolved against the central Route Registry.
+their detail paths and the Article hub path are resolved against the central Route Registry. Since
+SC-005 (2026-10-16) the knowledge module shows the first teaser as a featured article with its real
+16:9 article photo (lean AVIF `srcset`, `loading="lazy"`, decorative `alt=""`, below the fold) and
+the other two as a numbered reading list (02, 03); all three are `<article>` elements and keep the
+same `article-detail:*` targets. The section is labelled by
+`aria-labelledby="homepage-knowledge-title"`, shows the existing `blog.eeat_text` as its lead, and
+the „Alle Fachartikel" link keeps `data-home-secondary-conversion="knowledge"`. No new copy key.
 
 Final CTA response-under-24-hours and delivery-in-3–5-days promises were removed across all ten
 resources. The closing surface now offers a non-binding enquiry, personal consultation, the factual

@@ -13,8 +13,8 @@
  * Kein Motiv wird erfunden, kein Geraet gemalt, kein Messwert eingesetzt (main 6908b61).
  *
  * Ausgaben (Dateinamen wie bisher, Code unveraendert):
- *   src/assets/home/service-{dental,beauty,longevity}-{400,800}w.{avif,webp}   4:3
- *   src/assets/home/{practice-consult,lab-analyst}-{400,640}w.{avif,webp}       3:2
+ *   src/assets/home/detail-capillary-{480,960}w.{avif,webp}                    4:5 (Fachbereich-Modul)
+ *   src/assets/home/report-preview-{400,800}w.webp                               Musterbefund (Saeule Epigenetik)
  *   src/assets/home/hero-desktop-{1440,2400}w.avif, hero-mobile-{800,1200}w.{avif,webp}
  *   src/assets/article-<motiv>.webp (1200w, Original fuer OG/Fallback) + -{400,800}w.{avif,webp}
  *   + -1200w.avif  (Artikel, 16:9; Registrierung in scripts/build-article-images.mjs)
@@ -206,11 +206,26 @@ export const ARTICLE_PHOTOS = [
 ]
 
 async function main() {
-  await card('practice-dental.jpg', 'service-dental', 4 / 3, [400, 800], [34, 38])
-  await card('practice-beauty.jpg', 'service-beauty', 4 / 3, [400, 800], [34, 38])
-  await card('practice-longevity.jpg', 'service-longevity', 4 / 3, [400, 800], [34, 38])
-  await card('practice-consult.jpg', 'practice-consult', 3 / 2, [400, 640], [40, 44])
-  await card('lab-analyst.jpg', 'lab-analyst', 3 / 2, [400, 640], [40, 44])
+  // SC-005 (2026-10-16): die Startseite traegt noch EIN Detailfoto (Fachbereich-Modul, 4:5);
+  // die fuenf Karten-Motive der Saeulen und Fachbereiche sind durch Parameter-Tafel,
+  // Produkt-Render und Musterbefund ersetzt (HOMEPAGE-CONTRACT §4).
+  await card('detail-capillary.jpg', 'detail-capillary', 4 / 5, [480, 960], [40, 44])
+  // Musterbefund-Vorschau der Epigenetik-Saeule: echtes Dokument aus src/assets/epigenetics,
+  // auf Kartenbreite skaliert (384 px CSS → 400w/800w), sonst meldet das Budget „oversized".
+  for (const [w, q] of [
+    [400, 80],
+    [800, 76],
+  ]) {
+    const buf = await sharp(path.join(ASSETS, 'epigenetics/befund-biologische-altersuhr@2x.webp'))
+      .resize(w)
+      .webp({ quality: q, effort: 6 })
+      .toBuffer()
+    fs.writeFileSync(path.join(HOME, `report-preview-${w}w.webp`), buf)
+    console.log(
+      path.relative(ROOT, path.join(HOME, `report-preview-${w}w`)),
+      JSON.stringify({ webp: buf.length }),
+    )
+  }
   await stage()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }

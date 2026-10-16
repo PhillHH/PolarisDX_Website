@@ -43,6 +43,24 @@ Vitest 1121, `check:*`. **Owner-Punkt „Unsplash-Herkunft bestätigen" entfäll
 Sichtprüfung der Bildwelt auf der Preview und Legal-Blick auf Impressum §8 Zeile 2 (KI-Hinweis).
 Gemini-Schlüssel nach Abschluss rotieren (liegt nur in `~/.config/polaris/gemini.env`).
 
+### Nachtrag 2026-10-16 (Abend) — SC-005 Startseite
+
+Die Startseite ist als Agentur-Komposition neu gesetzt (`SCOPE-CHANGELOG.md` SC-005,
+`HOMEPAGE-CONTRACT.md` §4.2, DESIGN-SYSTEM-CHANGELOG „SC-005"): Sektionsfolge, Claims, CTAs, Routen
+und `data-*`-Attribute unverändert; Geschäftssäulen mit drei Bildarten (Parameter-Tafel aus den
+vorhandenen Biomarker-Zeilen, Explosions-Render, echter Musterbefund), Fachbereich-Einstiege als
+nummerierte Leseliste neben einem Detailfoto, Ablauf als Zeitleiste, Wissen als hervorgehobener
+Artikel plus Leseliste. Bildwelt 3 (Stilsatz 3: Reportage in zeitgemäßer Praxis): genau zwei
+generierte Fotos auf der Startseite (Bühne + Detail), fünf Runde-2-Quellen gelöscht. Im
+Code-Commit grün: `src/components/sections/*.test.tsx` 35/35; Budgets der Startseite nicht
+gelockert (`htmlBytes` 33,8 KB von 33,9 — vorher genau am Limit; Desktop-`imageBytes` 65,1 KB von
+87,2, vorher 81,3; Initial-JS 159,4 KB von 160,9; LCP-Bild 10,5/9,4 KB;
+`check-budgets --profile ci --routes home,home-en,home-pl --runs 1`). **Für diesen Stand neu zu
+fahren:** vollständiger Budget-Lauf (ci 852), Visual (pt27.6 21 und DS 35; Baselines werden im
+Playwright-Image v1.57.0 neu aufgenommen, sechs PT27.6-Screenshots, Liste im DESIGN-SYSTEM-CHANGELOG), Accessibility PT24.x, SEO-Regression
+(80) und URL-Smoke (56), Browser-Matrix (84), Vitest voll. Preview-Release: **folgt**. Offen bleibt
+die Sichtprüfung der Startseite und der Bildwelt 3 auf der Preview durch den Owner.
+
 ## 2. PT30.1 Functional QA
 
 | Bereich                     | Ergebnis                                                                                                                                                       |

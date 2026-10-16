@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostik",
         "text": "Point-of-Care-Diagnostik und fachbezogene Anwendungen für Praxen und medizinische Einrichtungen.",
-        "cta": "Diagnostik entdecken"
+        "cta": "Diagnostik entdecken",
+        "board_label": "Parameter aus den Fachbereichen"
       },
       "igloo": {
         "title": "IglooPro",

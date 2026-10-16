@@ -1,7 +1,8 @@
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import SectionHeader from '../ui/SectionHeader'
-import BlogCard from '../ui/BlogCard'
+import Eyebrow from '../ui/Eyebrow'
+import { ResponsivePicture } from '../ui/ResponsivePicture'
 import { blogPosts } from '../../data/blogPosts'
 import { getArticleImageAsset } from '../../assets/articleImages'
 import { getCanonicalRouteEntries } from '../../routing'
@@ -16,38 +17,108 @@ function requireArticleTarget(routeId: string): string {
 
 const articlesTarget = requireArticleTarget('articles')
 
+/**
+ * Knowledge teasers from the real Article source (PT11.5).
+ *
+ * SC-005 (2026-10-16): one featured article carries the photograph, the two
+ * following articles are a numbered reading list. Three photos of the same
+ * size in a row were the loudest repetition on the page; one strong picture
+ * and a list read faster and cost less HTML than three cards.
+ */
 const BlogSection = () => {
-  const { t } = useTranslation('home')
+  const { t } = useTranslation(['home', 'articles'])
+  const [featured, ...more] = blogPosts.slice(0, 3)
+  if (!featured) return null
+  const featuredImage = getArticleImageAsset(featured.image)
+  const readMore = t('articles:ui.readMore')
 
   return (
-    <section id="blog" className="space-y-14">
-      <SectionHeader
-        caption={t('blog.caption', 'Blog & News')}
-        title={t('blog.title', 'Our Articles About Health')}
-      />
-
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        {blogPosts.slice(0, 3).map((post) => {
-          // SSR-safe: Verwende zentrale Bild-Imports statt dynamischer URLs
-          const image = getArticleImageAsset(post.image)
-
-          return (
-            <BlogCard
-              key={post.id}
-              id={post.id}
-              to={requireArticleTarget(`article-detail:${post.id}`)}
-              image={image}
-            />
-          )
-        })}
+    <section id="blog" aria-labelledby="homepage-knowledge-title">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
+        <div>
+          <Eyebrow>{t('blog.caption', 'Blog & News')}</Eyebrow>
+          <h2
+            id="homepage-knowledge-title"
+            className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading"
+          >
+            {t('blog.title')}
+          </h2>
+        </div>
+        <p className="max-w-xl text-base leading-7 text-gray-700">{t('blog.eeat_text')}</p>
       </div>
 
-      <div className="flex justify-center pt-4">
+      <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-stretch lg:gap-12">
+        <article className="flex">
+          <Link
+            to={requireArticleTarget(`article-detail:${featured.id}`)}
+            data-home-knowledge="featured"
+            className="group flex w-full flex-col overflow-hidden rounded-card border border-paper-line bg-white shadow-card transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+          >
+            <div className="aspect-[16/9] w-full overflow-hidden bg-paper-deep">
+              {featuredImage && (
+                <ResponsivePicture
+                  image={featuredImage}
+                  alt=""
+                  lean
+                  sizes="(min-width: 1024px) 640px, calc(100vw - 2rem)"
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
+            <div className="flex flex-1 flex-col p-7 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-strong">
+                {t('blog.featured')}
+              </p>
+              <h3 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-heading">
+                {t(`articles:${featured.id}.title`)}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-gray-700">
+                {t(`articles:${featured.id}.excerpt`)}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
+                {readMore}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </div>
+          </Link>
+        </article>
+
+        <ol className="divide-y divide-paper-line border-y border-paper-line lg:self-center">
+          {more.map((post, index) => (
+            <li key={post.id}>
+              <article>
+                <Link
+                  to={requireArticleTarget(`article-detail:${post.id}`)}
+                  className="group flex gap-5 py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                >
+                  <span className="pt-1 text-sm font-semibold tabular-nums text-accent-strong">
+                    0{index + 2}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-lg font-semibold leading-snug tracking-tight text-heading group-hover:text-brand-deep">
+                      {t(`articles:${post.id}.title`)}
+                    </span>
+                    <span className="mt-2 line-clamp-2 block text-sm leading-relaxed text-gray-600">
+                      {t(`articles:${post.id}.excerpt`)}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="mt-12 flex justify-center">
         <Link
           to={articlesTarget}
           data-home-secondary-conversion="knowledge"
           data-route-id="articles"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:text-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-deep"
         >
           {t('blog.all_articles', 'Alle Fachartikel anzeigen')} →
         </Link>

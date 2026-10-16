@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostika",
         "text": "Point-of-care diagnostika a specializované aplikace pro ordinace a zdravotnická zařízení.",
-        "cta": "Objevte diagnostiku"
+        "cta": "Objevte diagnostiku",
+        "board_label": "Parametry z odborných oblastí"
       },
       "igloo": {
         "title": "IglooPro",

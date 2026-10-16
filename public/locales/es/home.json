@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnóstico",
         "text": "Diagnóstico point-of-care y aplicaciones especializadas para consultas y centros médicos.",
-        "cta": "Descubrir el diagnóstico"
+        "cta": "Descubrir el diagnóstico",
+        "board_label": "Parámetros de las áreas"
       },
       "igloo": {
         "title": "IglooPro",

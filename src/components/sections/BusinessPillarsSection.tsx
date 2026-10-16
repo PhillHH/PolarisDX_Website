@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Activity, ArrowRight, Dna, Microscope } from 'lucide-react'
 import { services } from '../../data/services'
 import { getCanonicalRouteEntries } from '../../routing'
-import type { ArticleImageAsset } from '../../assets/articleImages'
-import { PILLAR_IMAGES, SERVICE_IMAGES } from '../../assets/home/homeImages'
+import { DETAIL_IMAGE } from '../../assets/home/homeImages'
 import IglooExplodeImage from '../../assets/home/igloo-explode-240w.webp'
+import ReportPreview400 from '../../assets/home/report-preview-400w.webp'
+import ReportPreview800 from '../../assets/home/report-preview-800w.webp'
 import { Card } from '../ui/Card'
 import Eyebrow from '../ui/Eyebrow'
 import { ResponsivePicture } from '../ui/ResponsivePicture'
@@ -38,43 +40,88 @@ const CORE_SERVICES = CORE_SERVICE_IDS.map((sourceId) => {
   if (!service) throw new Error(`Homepage core service is missing from services.tsx: ${sourceId}`)
 
   const routeId = `service-detail:${sourceId}`
-  return {
-    sourceId,
-    routeId,
-    path: requireRegistryPath(routeId),
-    photo: SERVICE_IMAGES[sourceId],
-  }
+  return { sourceId, routeId, path: requireRegistryPath(routeId) }
 })
 
-type Pillar = {
-  id: PillarId
-  icon: ReactNode
-  target: (typeof PILLAR_TARGETS)[PillarId]
-  /** Relaunch (SC-001): Foto der Karte — fehlt beim Produkt, dort steht der Reader selbst. */
-  photo?: ArticleImageAsset
+const PILLAR_IDS: readonly PillarId[] = ['diagnostics', 'igloo', 'epigenetics']
+const PILLAR_ICONS: Record<PillarId, ReactNode> = {
+  diagnostics: <Microscope aria-hidden="true" />,
+  igloo: <Activity aria-hidden="true" />,
+  epigenetics: <Dna aria-hidden="true" />,
 }
 
-const PILLAR_PHOTO_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
-const SERVICE_PHOTO_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
+const DETAIL_SIZES = '(min-width:1024px) 520px,calc(100vw - 2rem)'
+const CARD_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
 
+/**
+ * Three business pillars and three selected service entry points (PT11.3).
+ *
+ * SC-005 (2026-10-16, owner: „Agentur-Niveau, lockerer Mix"): each pillar card
+ * carries a DIFFERENT kind of visual instead of three look-alike photos —
+ * Diagnostics a parameter board built from the existing, localized biomarker
+ * lines of the three selected services, IglooPro the exploded product render,
+ * Epigenetics a real sample report. The service entry points are a numbered
+ * reading list beside ONE detail photograph (4:5). Targets, data attributes,
+ * headings and copy keys are unchanged; the route logic is the Registry's.
+ */
 const BusinessPillarsSection = () => {
   const { t } = useTranslation('home')
 
-  const pillars: Pillar[] = [
-    {
-      id: 'diagnostics',
-      icon: <Microscope aria-hidden="true" />,
-      target: PILLAR_TARGETS.diagnostics,
-      photo: PILLAR_IMAGES.diagnostics,
-    },
-    { id: 'igloo', icon: <Activity aria-hidden="true" />, target: PILLAR_TARGETS.igloo },
-    {
-      id: 'epigenetics',
-      icon: <Dna aria-hidden="true" />,
-      target: PILLAR_TARGETS.epigenetics,
-      photo: PILLAR_IMAGES.epigenetics,
-    },
-  ]
+  // Parameter-Tafel: die Biomarker-Zeilen der drei Fachbereiche („Vitamin D · CRP · HbA1c"),
+  // in jeder Sprache aus derselben Quelle — keine neue Behauptung, kein neuer Text.
+  const parameters = Array.from(
+    new Set(
+      CORE_SERVICE_IDS.flatMap((id) =>
+        t(`segments.${id}.bio`)
+          .split('·')
+          .map((token) => token.trim())
+          .filter(Boolean),
+      ),
+    ),
+  )
+
+  const visuals: Record<PillarId, ReactNode> = {
+    diagnostics: (
+      <ul
+        aria-label={t('business_pillars.pillars.diagnostics.board_label')}
+        className="flex h-full flex-wrap content-center gap-2 p-7"
+      >
+        {parameters.map((label) => (
+          <li
+            key={label}
+            className="inline-flex items-center gap-2 rounded-full border border-paper-line bg-white px-3.5 py-1.5 text-sm font-semibold text-heading"
+          >
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-line" />
+            {label}
+          </li>
+        ))}
+      </ul>
+    ),
+    igloo: (
+      <img
+        src={IglooExplodeImage}
+        alt=""
+        width={240}
+        height={280}
+        loading="lazy"
+        className="h-full w-full object-contain p-6"
+      />
+    ),
+    epigenetics: (
+      <div className="h-full px-8 pt-8">
+        <img
+          src={ReportPreview400}
+          srcSet={`${ReportPreview400} 400w, ${ReportPreview800} 800w`}
+          sizes={CARD_SIZES}
+          alt=""
+          width={400}
+          height={267}
+          loading="lazy"
+          className="h-full w-full rounded-t-lg border border-b-0 border-paper-line object-cover object-top shadow-card"
+        />
+      </div>
+    ),
+  }
 
   return (
     <section
@@ -99,41 +146,23 @@ const BusinessPillarsSection = () => {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {pillars.map(({ id, icon, target, photo }) => (
+          {PILLAR_IDS.map((id) => (
             <Card
               key={id}
-              to={target.path}
+              to={PILLAR_TARGETS[id].path}
               padding="none"
               data-business-pillar={id}
-              data-route-id={target.routeId}
+              data-route-id={PILLAR_TARGETS[id].routeId}
               className="overflow-hidden shadow-card"
             >
               <div className="relative aspect-[3/2] w-full overflow-hidden bg-paper-deep">
-                {photo ? (
-                  <ResponsivePicture
-                    image={photo}
-                    alt=""
-                    lean
-                    sizes={PILLAR_PHOTO_SIZES}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                  />
-                ) : (
-                  <img
-                    src={IglooExplodeImage}
-                    alt=""
-                    width={240}
-                    height={280}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-6"
-                  />
-                )}
-                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-heading">
-                  <span className="text-accent-strong [&>svg]:h-3.5 [&>svg]:w-3.5">{icon}</span>
-                  {t(`business_pillars.pillars.${id}.title`)}
-                </span>
+                {visuals[id]}
               </div>
               <div className="flex flex-1 flex-col p-6 sm:p-7">
-                <h3 className="text-2xl font-semibold tracking-tight text-heading">
+                <h3 className="flex items-center gap-3 text-2xl font-semibold tracking-tight text-heading">
+                  <span className="icon-tile h-9 w-9 [&>svg]:h-4 [&>svg]:w-4">
+                    {PILLAR_ICONS[id]}
+                  </span>
                   {t(`business_pillars.pillars.${id}.title`)}
                 </h3>
                 <p className="mt-3 text-base leading-7 text-gray-700">
@@ -148,57 +177,59 @@ const BusinessPillarsSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-paper-line pt-12" data-home-core-services>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end">
-            <div>
-              <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-heading sm:text-3xl">
-                {t('business_pillars.core.title')}
-              </h3>
-            </div>
-            <p className="max-w-2xl text-base leading-7 text-gray-700">
+        {/* Fachbereiche: Text zuerst, dann die Liste, das Foto zuletzt (mobil) —
+            ab lg steht das Foto links neben Kopf und Liste. */}
+        <div
+          className="mt-16 grid gap-8 border-t border-paper-line pt-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-14 lg:gap-y-8"
+          data-home-core-services
+        >
+          <div>
+            <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-heading sm:text-3xl">
+              {t('business_pillars.core.title')}
+            </h3>
+            <p className="mt-4 max-w-xl text-base leading-7 text-gray-700">
               {t('business_pillars.core.intro')}
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {CORE_SERVICES.map(({ sourceId, routeId, path, photo }) => (
-              <Card
-                key={sourceId}
-                to={path}
-                padding="none"
-                data-core-service={sourceId}
-                data-route-id={routeId}
-                className="relative isolate min-h-[260px] overflow-hidden border-0 bg-brand-deep text-white shadow-card sm:min-h-[300px]"
-              >
-                {/* AP34: Foto-Karte. Der Verlauf sichert den Kontrast der weissen
-                    Schrift unabhaengig vom Motiv (Navy 90 % unter dem Text). */}
-                <ResponsivePicture
-                  image={photo}
-                  alt=""
-                  lean
-                  sizes={SERVICE_PHOTO_SIZES}
-                  className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-deep via-brand-deep/70 to-brand-deep/0"
-                />
-                <div className="mt-auto flex items-end justify-between gap-4 p-6">
-                  <div>
-                    <h4 className="text-xl font-semibold tracking-tight text-white">
+          <ol className="divide-y divide-paper-line border-y border-paper-line">
+            {CORE_SERVICES.map(({ sourceId, routeId, path }, index) => (
+              <li key={sourceId}>
+                <Link
+                  to={path}
+                  data-core-service={sourceId}
+                  data-route-id={routeId}
+                  className="group flex items-center gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 sm:gap-7"
+                >
+                  <span className="text-sm font-semibold tabular-nums text-accent-strong">
+                    0{index + 1}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <h4 className="text-xl font-semibold tracking-tight text-heading group-hover:text-brand-deep">
                       {t(`segments.${sourceId}.title`)}
                     </h4>
-                    <p className="mt-1 text-sm text-white/85">{t(`segments.${sourceId}.bio`)}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-on-dark group-hover:text-white">
-                      {t(`segments.${sourceId}.cta`)}
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    <span className="mt-1 block text-sm text-gray-600">
+                      {t(`segments.${sourceId}.bio`)}
                     </span>
-                  </div>
-                </div>
-              </Card>
+                  </span>
+                  <span className="icon-tile transition-transform group-hover:translate-x-1 motion-reduce:transition-none">
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ol>
+
+          <figure className="overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2">
+            <ResponsivePicture
+              image={DETAIL_IMAGE}
+              alt=""
+              lean
+              sizes={DETAIL_SIZES}
+              className="aspect-[4/5] h-full w-full object-cover"
+            />
+          </figure>
         </div>
       </div>
     </section>

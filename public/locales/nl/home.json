@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostiek",
         "text": "Point-of-care-diagnostiek en gespecialiseerde toepassingen voor praktijken en medische instellingen.",
-        "cta": "Ontdek diagnostiek"
+        "cta": "Ontdek diagnostiek",
+        "board_label": "Parameters uit de vakgebieden"
       },
       "igloo": {
         "title": "IglooPro",

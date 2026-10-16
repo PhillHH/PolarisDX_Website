@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostic",
         "text": "Diagnostic au point de service et applications spécialisées pour les cabinets et établissements médicaux.",
-        "cta": "Découvrir le diagnostic"
+        "cta": "Découvrir le diagnostic",
+        "board_label": "Paramètres issus des domaines"
       },
       "igloo": {
         "title": "IglooPro",

@@ -86,7 +86,8 @@
       "diagnostics": {
         "title": "Diagnostics",
         "text": "Point-of-care diagnostics and specialty applications for practices and medical facilities.",
-        "cta": "Explore diagnostics"
+        "cta": "Explore diagnostics",
+        "board_label": "Parameters from the specialist areas"
       },
       "igloo": {
         "title": "IglooPro",
