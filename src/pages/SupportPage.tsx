@@ -165,9 +165,7 @@ const SupportPage = () => {
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('support.channels.caption')}
-              </p>
+              <p className="t-eyebrow">{t('support.channels.caption')}</p>
               <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
                 {t('support.channels.title')}
               </h2>
@@ -225,9 +223,7 @@ const SupportPage = () => {
                 id="support-form"
                 className="scroll-mt-28 rounded-2xl border border-paper-line bg-white p-7 sm:p-7 lg:p-7"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                  {t('support.form_panel.caption')}
-                </p>
+                <p className="t-eyebrow">{t('support.form_panel.caption')}</p>
                 <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading">
                   {t('support.form_panel.title')}
                 </h2>
@@ -331,9 +327,7 @@ const SupportPage = () => {
           <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
             <Reveal width="100%">
               <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                  {t('support.faq.caption')}
-                </p>
+                <p className="t-eyebrow">{t('support.faq.caption')}</p>
                 <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
                   {t('support.faq.title')}
                 </h2>

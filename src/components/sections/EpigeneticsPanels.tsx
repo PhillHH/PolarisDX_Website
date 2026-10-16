@@ -130,7 +130,7 @@ const EpigeneticsPanels = ({
               data-panel-match={match ? 'true' : undefined}
               className={`flex h-full flex-col overflow-hidden rounded-card bg-white transition-shadow ${
                 activePanel === sample.slug
-                  ? 'border-2 border-brand-primary shadow-lg ring-2 ring-brand-primary/20'
+                  ? 'border-2 border-brand-primary shadow-card ring-2 ring-brand-primary/20'
                   : match
                     ? 'border-2 border-accent shadow-card'
                     : 'border border-paper-line'

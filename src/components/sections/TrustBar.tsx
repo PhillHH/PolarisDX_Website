@@ -39,9 +39,7 @@ const TrustBar = () => {
               <span className="icon-tile">
                 <Icon size={18} aria-hidden="true" />
               </span>
-              <span className="text-sm font-semibold leading-snug text-heading sm:text-[15px]">
-                {label}
-              </span>
+              <span className="text-sm font-semibold leading-snug sm:text-base">{label}</span>
             </li>
           ))}
         </ul>

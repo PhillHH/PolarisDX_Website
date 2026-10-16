@@ -21,13 +21,17 @@ const DiagnosticsHero = () => {
   // AP34 PT34.2d (SC-003): Editorial-Buehne wie auf der Startseite — Navy-Flaeche,
   // weisse Pille, Produktkarte rechts. Das IglooPro-Bild bleibt das einzige
   // Vorrang-Bild (Desktop-LCP, 650×650); mobil steht es nach den Aktionen.
+  // SC-006 (Editorial Motion): `aurora` legt den driftenden Lichtschein auf die
+  // Section, `enter` staffelt die Textspalte (der Pfad bleibt ohne Eintritt); die
+  // Produktkarte traegt keinen Eintritt (LCP-Bild). Der Pfeilkreis antwortet auf
+  // `group`-Hover wie auf der Startseite.
   return (
     <section
       aria-labelledby="diagnostics-hero-title"
       data-diagnostics-hero
-      className="relative overflow-hidden bg-brand-deep text-white"
+      className="aurora bg-brand-deep text-white"
     >
-      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-16 pt-28 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-0 lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid max-w-container gap-10 px-4 pb-16 pt-28 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-0 lg:pb-20 lg:pt-32">
         <div className="min-w-0">
           <Breadcrumbs
             variant="dark"
@@ -39,21 +43,18 @@ const DiagnosticsHero = () => {
             ]}
           />
 
-          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25">
+          <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold ring-1 ring-inset ring-white/25">
             <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
             {t('services:overview.hero.entry.eyebrow')}
           </p>
-          <h1
-            id="diagnostics-hero-title"
-            className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white"
-          >
+          <h1 id="diagnostics-hero-title" className="enter mt-6 max-w-3xl t-stage-h1">
             {t('services:overview.hero.entry.title')}
           </h1>
-          <p className="mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85">
+          <p className="enter mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85">
             {t('services:overview.hero.entry.description')}
           </p>
 
-          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+          <div className="enter mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             <Button
               to={diagnosticsGeneralSalesTarget}
               variant="light"
@@ -61,12 +62,12 @@ const DiagnosticsHero = () => {
               data-cta-source="diagnostics"
               data-cta-journey="general_sales"
               data-cta-section="hero"
-              className="w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
+              className="group w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
             >
               {t('services:overview.hero.entry.primary_cta')}
               <span
                 aria-hidden="true"
-                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white"
+                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white transition group-hover:translate-x-1"
               >
                 <ArrowRight className="h-4 w-4" />
               </span>
@@ -84,7 +85,7 @@ const DiagnosticsHero = () => {
           <aside
             aria-label={t('services:overview.hero.entry.trust_label')}
             data-diagnostics-hero-trust
-            className="mt-10 border-t border-white/15 pt-6"
+            className="enter mt-10 border-t border-white/15 pt-6"
           >
             <p className="text-sm font-semibold text-white">
               {t('services:overview.hero.entry.trust_label')}
@@ -115,12 +116,10 @@ const DiagnosticsHero = () => {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="relative mx-auto aspect-square h-auto w-full max-w-[340px] object-contain"
+            className="mx-auto aspect-square h-auto w-full max-w-[340px] object-contain"
           />
-          <figcaption className="relative mt-3 rounded-2xl bg-paper p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('services:overview.hero.entry.visual.eyebrow')}
-            </p>
+          <figcaption className="mt-3 rounded-2xl bg-paper p-5">
+            <p className="t-eyebrow">{t('services:overview.hero.entry.visual.eyebrow')}</p>
             <p className="mt-2 text-lg font-semibold text-heading">
               {t('services:overview.hero.entry.visual.title')}
             </p>

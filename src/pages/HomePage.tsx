@@ -5,6 +5,7 @@ import {
   organizationSchema,
   createWebsiteSchema,
   createFAQSchema,
+  serializeStructuredData,
   type FAQItem,
 } from '../components/seo'
 import HeroSection from '../components/sections/HeroSection'
@@ -18,7 +19,6 @@ import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
 import FAQSection from '../components/sections/FAQSection'
 import BlogSection from '../components/sections/BlogSection'
-import Reveal from '../components/ui/Reveal'
 
 const HomePage = () => {
   const { t, i18n } = useTranslation('home')
@@ -32,15 +32,22 @@ const HomePage = () => {
     return null
   }, [i18n.language, t])
 
-  // Combine all structured data schemas
-  const structuredData = useMemo(() => {
-    const schemas: object[] = [organizationSchema, createWebsiteSchema(i18n.language)]
-    if (faqSchema) {
-      schemas.push(faqSchema)
-    }
-    return schemas
-  }, [faqSchema, i18n.language])
+  // Organisation und Website stehen im <head> (SEOHead). Das FAQ-Schema steht seit SC-006
+  // (2026-10-16) im Body direkt hinter der FAQ: JSON-LD darf ueberall im Dokument liegen,
+  // und so liegen Fragen und Antworten im gzip-Fenster ihrer sichtbaren Zwillinge — die
+  // ~150 KB entfernte Kopie im <head> kostete gemessen 508 B der 34,7 KB htmlBytes (pl).
+  // Sichtbare FAQ und Schema kommen weiter aus demselben `faq.items`-Array (HOMEPAGE-CONTRACT §7).
+  const structuredData = useMemo(
+    () => [organizationSchema, createWebsiteSchema(i18n.language)],
+    [i18n.language],
+  )
+  const faqJsonLd = useMemo(
+    () => (faqSchema ? serializeStructuredData(faqSchema) : null),
+    [faqSchema],
+  )
 
+  // Scroll-Eintritte (`rv`) setzen die Sektionen selbst an ihren Bloecken; die frueheren
+  // <Reveal>-Huellen (zwei Div-Ebenen plus Inline-Style je Sektion) entfallen (SC-006).
   return (
     <>
       <SEOHead
@@ -57,21 +64,18 @@ const HomePage = () => {
       <WhyPocSection />
       <StepsSection />
       <div className="pt-20 lg:pt-24">
-        <Reveal width="100%">
-          <TestimonialsSection />
-        </Reveal>
+        <TestimonialsSection />
       </div>
       <RoiCalculatorSection />
       <div className="mx-auto w-full max-w-container px-4 py-24 lg:px-0 lg:py-32">
-        <Reveal width="100%">
-          <BlogSection />
-        </Reveal>
+        <BlogSection />
       </div>
       <div className="mx-auto flex max-w-container flex-col px-4 pb-24 pt-4 lg:px-0 lg:pb-32">
-        <Reveal width="100%">
-          <FAQSection />
-        </Reveal>
+        <FAQSection />
       </div>
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
+      )}
       <FinalCtaSection homepageSalesSection="final_cta" />
     </>
   )

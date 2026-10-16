@@ -13,13 +13,17 @@ function attribute(html: string, tagPattern: RegExp, name: string): string | und
   return tag?.match(new RegExp(`${name}="([^"]*)"`, 'i'))?.[1]
 }
 
+// SC-006 (2026-10-16): JSON-LD darf im <head> UND im Body stehen (HOMEPAGE-CONTRACT §7 — das
+// FAQ-Schema der Startseite steht neben der sichtbaren FAQ). Gesammelt werden deshalb ALLE Bloecke;
+// die Erwartungen an Typen, Sprache und Inhalt bleiben unveraendert streng.
 function jsonLdSchemas(html: string): Array<Record<string, unknown>> {
-  const value = html.match(
-    /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i,
-  )?.[1]
-  if (!value) return []
-  const parsed = JSON.parse(value) as Record<string, unknown> | Array<Record<string, unknown>>
-  return Array.isArray(parsed) ? parsed : [parsed]
+  const blocks = [
+    ...html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi),
+  ].map((match) => match[1])
+  return blocks.flatMap((value) => {
+    const parsed = JSON.parse(value) as Record<string, unknown> | Array<Record<string, unknown>>
+    return Array.isArray(parsed) ? parsed : [parsed]
+  })
 }
 
 test('PT09.5 robots keeps public assets and Consumer crawlable while excluding APIs', async ({

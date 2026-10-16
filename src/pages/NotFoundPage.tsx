@@ -4,7 +4,6 @@ import { Home, Microscope, Activity, Mail } from 'lucide-react'
 import { SEOHead } from '../components/seo'
 import { Button } from '../components/ui/Button'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
 
 const NotFoundPage = () => {
   const { t } = useTranslation('common')
@@ -34,16 +33,14 @@ const NotFoundPage = () => {
 
       <div className="flex min-h-[80vh] items-center justify-center bg-brand-deep text-white">
         <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-          <Reveal width="100%">
+          <div className="rv">
             {/* 404 Number */}
             <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent-on-dark sm:text-[10rem]">
               404
             </span>
 
             {/* Eyebrow */}
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-              {t('notFound.badge', 'Seite nicht gefunden')}
-            </p>
+            <p className="mt-6 t-eyebrow-dark">{t('notFound.badge', 'Seite nicht gefunden')}</p>
 
             {/* Title */}
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -65,14 +62,12 @@ const NotFoundPage = () => {
                 {t('notFound.backHome', 'Zurück zur Startseite')}
               </Button>
             </div>
-          </Reveal>
+          </div>
 
           {/* Popular Pages */}
-          <Reveal width="100%">
+          <div className="rv">
             <div className="mt-16 border-t border-white/15 pt-10">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-                {t('notFound.popularPages', 'Beliebte Seiten')}
-              </p>
+              <p className="mb-6 t-eyebrow-dark">{t('notFound.popularPages', 'Beliebte Seiten')}</p>
               <div className="flex flex-wrap justify-center gap-3">
                 {popularPages.map((page) => (
                   <Link
@@ -86,7 +81,7 @@ const NotFoundPage = () => {
                 ))}
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </PageTransition>

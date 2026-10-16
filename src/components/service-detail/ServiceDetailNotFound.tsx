@@ -13,9 +13,7 @@ export function ServiceDetailNotFound() {
         notFound
       />
       <div className="mx-auto flex max-w-container flex-col items-center gap-5 px-4 py-24 text-center">
-        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-          {t('common:notFound.badge')}
-        </span>
+        <span className="t-eyebrow">{t('common:notFound.badge')}</span>
         <h1 className="text-2xl font-medium tracking-tight text-heading lg:text-3xl">
           {t('common:notFound.title')}
         </h1>

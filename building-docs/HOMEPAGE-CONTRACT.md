@@ -65,6 +65,14 @@ hardening remain AP22-owned and are not claimed as complete.
   reuses the existing strings `business_pillars.pillars.igloo.title` / `.text` (claim `HCL-008`,
   unchanged wording); no new claim enters the Hero.
 - No generated asset, no carousel, no slider timers, no animation dependency.
+- **SC-006 (2026-10-16, „Editorial Motion“):** the stage carries the shared accent glow (`aurora`, two
+  drifting CSS radial gradients from `accent`/`accent.line`, no image); caption, H1, lead and CTA row slide
+  in staggered (`enter`, 0.7 s, +0.1 s per sibling, transform only — no opacity start at 0, so H1 and lead
+  stay LCP candidates); the product card floats slowly (`float-slow`); the primary CTA's arrow circle slides
+  on hover. On phones the caption pill is single-line (`text-xs`), the product card is compact (80-px
+  render, `p-4`) and the stage ends at `pb-20`, so the card edge sits below the patient's chin; the stage is
+  54 px shorter at 390 px. All motion sits inside `prefers-reduced-motion: no-preference`; the stage photo
+  remains the LCP element. No carousel, no timers.
 
 ### 2.3 Mobile and accessibility hierarchy
 
@@ -102,7 +110,9 @@ because the repository does not carry equally strong release evidence for this n
 | Bastian Wessing / MVZ Zahnkultur | Existing productive testimonial data, localized copy and real portrait          | Use one claim-reduced training/support excerpt                | Proof section     |
 | Four other testimonial records   | Existing data/copy/assets, but no equally strong PT11.2 release evidence        | Preserve source records; do not surface                       | NOT USED          |
 
-TrustBar and Proof are static/SSR-safe. The reference uses `figure`, `blockquote` and `figcaption`; its
+TrustBar and Proof are static/SSR-safe (SC-006: the Proof figure enters on scroll via `rv`, with a larger quote
+glyph, the portrait on `paper.deep` and a 1:2 split; the TrustBar stays unanimated as the hinge of the stage).
+The reference uses `figure`, `blockquote` and `figcaption`; its
 portrait is decorative beside the fully named caption (`alt=""`), dimensioned, lazy-loaded and not an
 LCP competitor. There is no autoplay, carousel role, rating UI, logo, CTA or keyboard interaction in
 either section.
@@ -127,10 +137,14 @@ Registry dynamic source expansion. Only the existing localized title and biomark
 since SC-005 each record is one row of a numbered reading list (§4.2). The complete nine-service
 portfolio remains owned by the Diagnostics hub and AP12/AP13.
 
-The pillars are a one-column stack below `md` and a three-column grid from `md`; the service module
-is described in §4.2. All six targets are keyboard-focusable links with the established visible
-focus ring and motion-reduced hover behavior. The section adds no script, timers, tracking or
-third-party dependency; since SC-005 it carries three lazy, below-the-fold images (§4.2).
+Since SC-006 (2026-10-16) the pillars are ONE horizontal snap rail below `md` (`rail-x`: cards 84 % wide,
+`scroll-snap`, the next card peeks in, neighbours slightly faded; only the rail scrolls, never the page)
+and a three-column grid from `md`; the service module is described in §4.2. All six targets are
+keyboard-focusable links with the established visible focus ring and motion-reduced hover behavior; the
+cards answer the pointer with a light spot (`spot`, one passive `pointermove` listener on the grid from
+`useSpotlight`, writing `--mx/--my` through the CSSOM), lift, accent border and a media zoom. The section
+adds no timers, tracking or third-party dependency; since SC-005 it carries three lazy, below-the-fold
+images (§4.2).
 
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16)
 
@@ -150,7 +164,8 @@ business pillars. It points to the external Shopify shop, which has been live on
   every other locale → `https://shop.polarisdx.net/en`. Plain `<a>` (other domain, full page load,
   same tab); clicks are counted by `useOutboundTracking` via `OUTBOUND_DOMAINS`
   (`shop.polarisdx.net`). No new event name.
-- Deliberately slim: no image, no body copy, no second button. The Homepage HTML budget had about
+- Deliberately slim: no image, no body copy, no second button. SC-006: the band enters on scroll, a static
+  cyan dot precedes the eyebrow and the CTA arrow slides on hover (no new copy, same single action). The Homepage HTML budget had about
   200 B gzip headroom; the full `main` version (image, text, second CTA „Testkits ansehen") would
   have cost about 440 B. The band must not compete with the primary sales action
   („Angebot anfragen", `DEC-RL-013`). No budget was loosened.
@@ -197,7 +212,11 @@ den Fachbereichen", 10 locales).
   `lab-analyst-*` and their sources, plus `SERVICE_IMAGES` / `PILLAR_IMAGES` in
   `src/assets/home/homeImages.ts` (new `DETAIL_IMAGE`; `HERO_STAGE` unchanged).
 - **Evidence:** `src/components/sections/BusinessPillarsSection.test.tsx` unchanged and green (six
-  links); the section still adds no script, timers, tracking or third-party dependency.
+  links); the section adds no timers, tracking or third-party dependency.
+- **SC-006 (2026-10-16):** header, parameter board, reading list and detail photograph enter on scroll
+  (`rv`); the exploded render floats slowly, the report cover grows from the card fold on hover, the media
+  surfaces sit on `paper` instead of `paper.deep`; reading-list rows fill their arrow tile on hover. Mobile
+  height of the section at 390 px: 3 007 → 2 074 px.
 
 ## 5. PT11.4 Point-of-Care process and benefits
 
@@ -224,11 +243,16 @@ The following process is one ordered list in both DOM and visual order:
 
 Visible numbers make the sequence independent of icons or colour. Desktop presents the same order in
 three columns; mobile retains it as a stack. Since SC-005 (2026-10-16) the process is drawn as a
-timeline instead of three white cards: navy numbered tiles 01–03, joined by a decorative
-(`aria-hidden`) hairline from `md`, with title and text below each tile; it is still the same single
-`<ol>` with the same copy, and the safety note stays as a plain left-rule paragraph. Both sections
-are static and non-interactive, add no image, CTA, script, tracking or third-party dependency, and
-therefore do not pre-empt PT11.5 or create an additional below-fold media candidate.
+timeline instead of three white cards; since SC-006 (2026-10-16) that timeline has two directions: below
+`lg` a vertical rail (56-px navy numbered tile on the left, title and text on the right, a continuous
+`accent.line` connector between the tiles), from `lg` three columns whose decorative (`aria-hidden`)
+hairline draws itself on scroll (`rv-rail`). It is still the same single `<ol>` with the same copy, the
+number stays the first `span` of each item, each item enters on scroll (`rv`), and the safety note stays
+as a plain left-rule paragraph. Why POC (SC-006): the three signals stand on their own hairlines (icon
+tile beside the title on phones), the practice card carries an accent border, the patient card the accent
+glow (`aurora`). Both sections are static and non-interactive, add no image, CTA, script, tracking or
+third-party dependency, and therefore do not pre-empt PT11.5 or create an additional below-fold media
+candidate.
 
 ## 6. PT11.5 conversion and secondary conversion
 
@@ -253,7 +277,12 @@ SC-005 (2026-10-16) the knowledge module shows the first teaser as a featured ar
 the other two as a numbered reading list (02, 03); all three are `<article>` elements and keep the
 same `article-detail:*` targets. The section is labelled by
 `aria-labelledby="homepage-knowledge-title"`, shows the existing `blog.eeat_text` as its lead, and
-the „Alle Fachartikel" link keeps `data-home-secondary-conversion="knowledge"`. No new copy key.
+the „Alle Fachartikel" link keeps `data-home-secondary-conversion="knowledge"`. No new copy key. Since SC-006
+the featured photo zooms on hover, header, card and list enter on scroll, and the „Alle Fachartikel" link
+closes the reading list in the right column (as `t-link-cta`) instead of floating centred below the grid;
+link order and attributes are unchanged. The ROI result card carries the accent glow and its headline
+figure re-enters on every input (`enter` on an inner span keyed by the value); the input grid is two
+columns on phones as well (section about 300 px shorter at 390 px).
 
 Final CTA response-under-24-hours and delivery-in-3–5-days promises were removed across all ten
 resources. The closing surface now offers a non-binding enquiry, personal consultation, the factual
@@ -280,9 +309,20 @@ component prop, so uses of the shared Final CTA on other routes are not falsely 
 The visible Homepage FAQ contains four questions per locale. They follow the visible positioning,
 three-pillar navigation and Point-of-Care process instead of creating search-only material. The
 answers deliberately avoid revenue, delivery-time, approval, treatment or outcome amplification and
-state that test information does not replace qualified interpretation. `HomePage` passes the exact
+state that test information does not replace qualified interpretation. Since SC-006 (2026-10-16) the FAQ
+header is left-aligned in the page grid (Eyebrow + `t-display`) instead of centred, each question carries a
+decorative running number 01–04 OUTSIDE the `<button>` (`aria-hidden`, absolutely positioned over the
+row's left padding, so the button's text content is exactly the question), the chevron sits in an
+`icon-tile` that turns navy when open, the answer region opens softly (`faq-panel`) and the „Noch Fragen?“
+paragraph with the two exit links follows the accordion as its footer. `HomePage` passes the exact
 same `faq.items` array to `FAQSection` and the AP09 `createFAQSchema` builder; hidden schema-only
-questions are therefore structurally impossible in this page composition. Each accordion button has
+questions are therefore structurally impossible in this page composition. Since SC-006 (2026-10-16)
+the FAQ JSON-LD is rendered by `HomePage` as its own `<script type="application/ld+json">` directly
+after the FAQ section inside `<main>` (serialized through the canonical `serializeStructuredData`),
+while Organization and WebSite stay in `<head>` via SEOHead. JSON-LD is valid anywhere in the
+document; placing it next to its visible twin keeps questions and answers inside the gzip window
+and saved a measured 508 B of the 34.7 KB `htmlBytes` budget on `/pl/`. `e2e/home-faq-seo-integration.spec.ts`
+reads every JSON-LD block regardless of position. Each accordion button has
 a stable SSR-safe control/region relationship, a visible focus state and a truly hidden closed panel.
 
 Homepage metadata is complete in all ten `home.json` resources:

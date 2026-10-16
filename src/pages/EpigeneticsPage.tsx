@@ -400,9 +400,7 @@ const EpigeneticsPage = () => {
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 lg:p-7 [&::-webkit-details-marker]:hidden">
                 <span>
-                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                    {t('compare.caption')}
-                  </span>
+                  <span className="block t-eyebrow">{t('compare.caption')}</span>
                   <span className="mt-1 block text-xl font-semibold tracking-tight text-heading">
                     {t('compare.title')}
                   </span>

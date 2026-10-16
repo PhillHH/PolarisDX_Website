@@ -3,7 +3,7 @@ import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
 import { Newspaper, Leaf, Radio, TrendingUp, Activity, FileText, ArrowRight } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import SectionHeader from '../components/ui/SectionHeader'
+import Eyebrow from '../components/ui/Eyebrow'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import SubpageHero from '../components/sections/SubpageHero'
@@ -102,11 +102,12 @@ const ArticlesIndexPage = () => {
       <div className="bg-paper">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <Reveal width="100%">
-            <SectionHeader
-              caption={t('articles:index.caption', 'Latest Posts')}
-              title={t('articles:index.heading', 'Explore Our Articles')}
-              align="left"
-            />
+            {/* SC-006: Kopf wie auf der Startseite (Eyebrow + t-display) statt SectionHeader — der
+                Baustein haengt sonst als eigener Chunk an dieser Route (routeJsGzip). */}
+            <Eyebrow>{t('articles:index.caption', 'Latest Posts')}</Eyebrow>
+            <h2 className="mt-3 t-display">
+              {t('articles:index.heading', 'Explore Our Articles')}
+            </h2>
 
             {/* Topics covered — visual legend */}
             <div className="mt-6 flex flex-wrap items-center gap-2">

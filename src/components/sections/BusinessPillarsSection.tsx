@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Activity, ArrowRight, Dna, Microscope } from 'lucide-react'
 import { services } from '../../data/services'
 import { getCanonicalRouteEntries } from '../../routing'
+import { useSpotlight } from '../../lib/spotlight'
 import { DETAIL_IMAGE } from '../../assets/home/homeImages'
 import IglooExplodeImage from '../../assets/home/igloo-explode-240w.webp'
 import ReportPreview400 from '../../assets/home/report-preview-400w.webp'
@@ -63,9 +64,17 @@ const CARD_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw -
  * Epigenetics a real sample report. The service entry points are a numbered
  * reading list beside ONE detail photograph (4:5). Targets, data attributes,
  * headings and copy keys are unchanged; the route logic is the Registry's.
+ *
+ * SC-006 „Editorial Motion": the cards answer the pointer (spot light, lift,
+ * accent border, the report rising, the render floating) and enter on scroll
+ * (`rv`); below `md` the three cards become ONE snap rail (`rail-x`) instead of
+ * a 1 400 px stack. Everything is CSS; the only script is the shared
+ * `useSpotlight` listener on the grid. Nothing changes without hover, without
+ * JavaScript or with reduced motion.
  */
 const BusinessPillarsSection = () => {
   const { t } = useTranslation('home')
+  const spot = useSpotlight<HTMLDivElement>()
 
   // Parameter-Tafel: die Biomarker-Zeilen der drei Fachbereiche („Vitamin D · CRP · HbA1c"),
   // in jeder Sprache aus derselben Quelle — keine neue Behauptung, kein neuer Text.
@@ -81,6 +90,7 @@ const BusinessPillarsSection = () => {
   )
 
   const visuals: Record<PillarId, ReactNode> = {
+    // Die Tafel ist nicht interaktiv: kein Hover, sie tritt als Ganzes ein.
     diagnostics: (
       <ul
         aria-label={t('business_pillars.pillars.diagnostics.board_label')}
@@ -89,7 +99,7 @@ const BusinessPillarsSection = () => {
         {parameters.map((label) => (
           <li
             key={label}
-            className="inline-flex items-center gap-2 rounded-full border border-paper-line bg-white px-3.5 py-1.5 text-sm font-semibold text-heading"
+            className="inline-flex items-center gap-2 rounded-full border border-paper-line bg-white px-3.5 py-1.5 text-sm font-semibold"
           >
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-line" />
             {label}
@@ -104,9 +114,10 @@ const BusinessPillarsSection = () => {
         width={240}
         height={280}
         loading="lazy"
-        className="h-full w-full object-contain p-6"
+        className="float-slow h-full w-full object-contain p-6"
       />
     ),
+    // Der Befund steckt im Kartenfalz; beim Zeigen waechst er vom unteren Rand aus nach oben.
     epigenetics: (
       <div className="h-full px-8 pt-8">
         <img
@@ -117,7 +128,7 @@ const BusinessPillarsSection = () => {
           width={400}
           height={267}
           loading="lazy"
-          className="h-full w-full rounded-t-lg border border-b-0 border-paper-line object-cover object-top shadow-card"
+          className="h-full w-full origin-bottom rounded-t-lg border border-b-0 border-paper-line object-cover shadow-card transition-transform duration-700 group-hover:scale-105"
         />
       </div>
     ),
@@ -130,13 +141,10 @@ const BusinessPillarsSection = () => {
       className="bg-paper py-20 lg:py-24"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
+        <div className="rv grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
           <div>
             <Eyebrow>{t('business_pillars.eyebrow')}</Eyebrow>
-            <h2
-              id="homepage-pillars-title"
-              className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading"
-            >
+            <h2 id="homepage-pillars-title" className="mt-3 t-display">
               {t('business_pillars.title')}
             </h2>
           </div>
@@ -145,7 +153,10 @@ const BusinessPillarsSection = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {/* Unter md eine Schnapp-Reihe (.rail-x ueberschreibt grid/gap aus index.css,
+            das nach den Utilities steht), ab md das Dreiergitter. Ein Zeiger-Listener
+            am Gitter versorgt alle drei Karten mit dem Lichtpunkt. */}
+        <div ref={spot} className="rail-x mt-12 grid gap-6 md:grid-cols-3">
           {PILLAR_IDS.map((id) => (
             <Card
               key={id}
@@ -153,13 +164,12 @@ const BusinessPillarsSection = () => {
               padding="none"
               data-business-pillar={id}
               data-route-id={PILLAR_TARGETS[id].routeId}
-              className="overflow-hidden shadow-card"
+              data-spot=""
+              className="spot rv h-auto overflow-hidden shadow-card hover:border-accent-border"
             >
-              <div className="relative aspect-[3/2] w-full overflow-hidden bg-paper-deep">
-                {visuals[id]}
-              </div>
+              <div className="aspect-[3/2] overflow-hidden bg-paper">{visuals[id]}</div>
               <div className="flex flex-1 flex-col p-6 sm:p-7">
-                <h3 className="flex items-center gap-3 text-2xl font-semibold tracking-tight text-heading">
+                <h3 className="flex items-center gap-3 text-2xl font-semibold tracking-tight">
                   <span className="icon-tile h-9 w-9 [&>svg]:h-4 [&>svg]:w-4">
                     {PILLAR_ICONS[id]}
                   </span>
@@ -185,7 +195,7 @@ const BusinessPillarsSection = () => {
         >
           <div>
             <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-heading sm:text-3xl">
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
               {t('business_pillars.core.title')}
             </h3>
             <p className="mt-4 max-w-xl text-base leading-7 text-gray-700">
@@ -193,7 +203,7 @@ const BusinessPillarsSection = () => {
             </p>
           </div>
 
-          <ol className="divide-y divide-paper-line border-y border-paper-line">
+          <ol className="rv divide-y divide-paper-line border-y border-paper-line">
             {CORE_SERVICES.map(({ sourceId, routeId, path }, index) => (
               <li key={sourceId}>
                 <Link
@@ -206,14 +216,14 @@ const BusinessPillarsSection = () => {
                     0{index + 1}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <h4 className="text-xl font-semibold tracking-tight text-heading group-hover:text-brand-deep">
+                    <h4 className="text-xl font-semibold tracking-tight group-hover:text-brand-deep">
                       {t(`segments.${sourceId}.title`)}
                     </h4>
                     <span className="mt-1 block text-sm text-gray-600">
                       {t(`segments.${sourceId}.bio`)}
                     </span>
                   </span>
-                  <span className="icon-tile transition-transform group-hover:translate-x-1 motion-reduce:transition-none">
+                  <span className="icon-tile transition-colors group-hover:bg-accent group-hover:text-white">
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </Link>
@@ -221,7 +231,7 @@ const BusinessPillarsSection = () => {
             ))}
           </ol>
 
-          <figure className="overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2">
+          <figure className="rv overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2">
             <ResponsivePicture
               image={DETAIL_IMAGE}
               alt=""

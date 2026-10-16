@@ -177,13 +177,11 @@ function OrderModalDialog({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-paper shadow-2xl animate-modal-card-in focus:outline-none motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl"
+        className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl bg-paper shadow-dialog animate-modal-card-in focus:outline-none motion-reduce:animate-none motion-reduce:opacity-100 sm:max-h-[90vh] sm:rounded-2xl"
       >
         {/* Header */}
         <div className="relative flex-none border-b border-paper-line bg-white px-6 py-5 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-            {titleCopy.eyebrow}
-          </p>
+          <p className="t-eyebrow">{titleCopy.eyebrow}</p>
           <h2 id={titleId} className="mt-1 pr-10 text-xl font-semibold text-heading sm:text-2xl">
             {titleCopy.title}
           </h2>

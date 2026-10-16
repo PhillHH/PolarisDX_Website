@@ -160,24 +160,24 @@ const RoiCalculatorSection = () => {
 
   return (
     <section id="roi-rechner" className="bg-white">
-      <div className="mx-auto max-w-container px-4 py-24 lg:py-24 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
         {/* Kopf */}
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-            {t('roi.caption')}
-          </p>
-          <h2 className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading">
-            {t('roi.title')}
-          </h2>
+        <div className="rv max-w-2xl">
+          <p className="t-eyebrow">{t('roi.caption')}</p>
+          <h2 className="mt-3 t-display">{t('roi.title')}</h2>
           <p className="mt-4 text-base leading-relaxed text-gray-600">{t('roi.intro')}</p>
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           {/* LINKS: Eingabe-Karte */}
-          <div className="rounded-card border border-paper-line bg-paper p-7">
-            <div className="grid gap-6 sm:grid-cols-2">
+          <div className="rv rounded-card border border-paper-line bg-paper p-6">
+            {/* SC-006: auch mobil zweispaltig — die Karte wird halb so lang; Labels duerfen
+                zweizeilig werden, `items-end` haelt die Felder einer Zeile auf einer Linie.
+                Die Zellen tragen keine Klasse: das Feld ist `block` (im ohnehin wiederholten
+                Klassenstring), das spart je Zelle ein Klassenattribut im SSR-HTML. */}
+            <div className="grid grid-cols-2 items-end gap-4 sm:gap-6">
               {inputs.map((field) => (
-                <div key={field.id} className="flex flex-col">
+                <div key={field.id}>
                   <label htmlFor={field.id} className="text-sm font-medium text-heading">
                     {field.label}
                   </label>
@@ -188,7 +188,7 @@ const RoiCalculatorSection = () => {
                     inputMode="decimal"
                     value={field.value}
                     onChange={(e) => field.onChange(e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-1.5 block w-full rounded-lg border border-ui-field bg-white px-3 py-3 text-heading focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
                 </div>
               ))}
@@ -197,11 +197,14 @@ const RoiCalculatorSection = () => {
           </div>
 
           {/* RECHTS: Ergebnis-Karte */}
-          <div className="rounded-card bg-brand-deep p-7 text-white shadow-card">
-            {/* Grosse Kennzahl */}
+          <div className="aurora rv rounded-card bg-brand-deep p-6 text-white shadow-card">
             <p className="text-sm text-white/70">{t('roi.out.month')}</p>
+            {/* Grosse Kennzahl: der innere Span bekommt `key` = Wert und tritt bei jeder Eingabe neu
+                ein (`enter`); als erstes Kind ohne nth-child-Verzoegerung, die Zahl blinkt nicht. */}
             <p className="mt-1 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-              {eur(dbPerMonth)}
+              <span key={eur(dbPerMonth)} className="enter inline-block">
+                {eur(dbPerMonth)}
+              </span>
             </p>
 
             {isNegative ? (
@@ -257,25 +260,23 @@ const RoiCalculatorSection = () => {
           </div>
         </div>
 
-        {/* CTAs unter der Ergebniskarte (heller Grund) */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button
-            to={getHomepageSalesTarget('roi')}
-            variant="secondary"
-            size="sm"
-            data-cta-intent="GENERAL_SALES"
-            data-cta-source="homepage"
-            data-cta-journey="general_sales"
-            data-cta-section="roi"
-            className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
-          >
-            {t('roi.cta_consult')}
-          </Button>
-        </div>
+        {/* CTA unter der Ergebniskarte (heller Grund) */}
+        <Button
+          to={getHomepageSalesTarget('roi')}
+          variant="secondary"
+          size="sm"
+          data-cta-intent="GENERAL_SALES"
+          data-cta-source="homepage"
+          data-cta-journey="general_sales"
+          data-cta-section="roi"
+          className="mt-8 !bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
+        >
+          {t('roi.cta_consult')}
+        </Button>
 
         {/* CAPTURE-FORM (Toggle) */}
         {showForm && (
-          <div className="mt-8 rounded-card border border-paper-line bg-paper p-7">
+          <div className="mt-8 rounded-card border border-paper-line bg-paper p-6">
             {status === 'success' ? (
               <div className="rounded-lg bg-accent/10 px-4 py-3 text-sm text-heading ring-1 ring-accent-line">
                 {t('roi.form.success')}

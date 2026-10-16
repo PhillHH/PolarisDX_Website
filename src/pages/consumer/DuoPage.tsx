@@ -205,16 +205,12 @@ function DuoPageInner() {
       <Section id="routine" tone="tint" eyebrow={t('duo.copy_040')} title={t('duo.copy_041')}>
         <div className="grid gap-6 md:grid-cols-2">
           <Card hover accent="teal" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('duo.copy_042')}
-            </p>
+            <p className="t-eyebrow">{t('duo.copy_042')}</p>
             <h3 className="mt-2 text-2xl font-semibold text-heading">{t('duo.copy_043')}</h3>
             <p className="mt-3 leading-relaxed text-gray-600">{t('duo.copy_044')}</p>
           </Card>
           <Card hover accent="navy" className="h-full">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('duo.copy_045')}
-            </p>
+            <p className="t-eyebrow">{t('duo.copy_045')}</p>
             <h3 className="mt-2 text-2xl font-semibold text-heading">{t('duo.copy_046')}</h3>
             <p className="mt-3 leading-relaxed text-gray-600">{t('duo.copy_047')}</p>
           </Card>

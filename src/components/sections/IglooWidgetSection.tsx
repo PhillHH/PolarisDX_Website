@@ -64,9 +64,7 @@ const IglooWidgetSection = () => {
       <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
         {/* Kopf */}
         <div className="mx-auto max-w-2xl text-center mb-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-            {t('igloo_widget.eyebrow', 'Ihre Fachrichtung')}
-          </p>
+          <p className="t-eyebrow">{t('igloo_widget.eyebrow', 'Ihre Fachrichtung')}</p>
           <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[42px]">
             {t('igloo_widget.title', 'Welche Praxis führen Sie?')}
           </h2>

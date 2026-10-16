@@ -440,9 +440,7 @@ export function Hero({
           <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
             {/* Text · left */}
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {eyebrow}
-              </p>
+              <p className="mb-4 t-eyebrow">{eyebrow}</p>
               <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-heading sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
                 {title}
               </h1>

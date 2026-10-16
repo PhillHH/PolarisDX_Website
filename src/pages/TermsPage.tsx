@@ -58,9 +58,7 @@ const TermsPage = () => {
             aria-label={t('agb.tocLabel', 'Inhaltsübersicht')}
             className="rounded-xl border border-paper-line bg-paper p-7 sm:p-7"
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('agb.tocLabel', 'Inhaltsübersicht')}
-            </p>
+            <p className="mb-4 t-eyebrow">{t('agb.tocLabel', 'Inhaltsübersicht')}</p>
             <ol className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
               {sections.map((section) => (
                 <li key={section.id}>

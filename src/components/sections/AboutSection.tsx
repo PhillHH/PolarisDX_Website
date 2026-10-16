@@ -70,9 +70,7 @@ const AboutSection = () => {
       {/* Rechte Spalte: Textinhalt. */}
       <div className="flex flex-1 flex-col justify-center">
         {/* GENAU EIN Eyebrow. */}
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-          {t('about.caption', 'IHR PERFORMANCE-GARANT')}
-        </p>
+        <p className="t-eyebrow">{t('about.caption', 'IHR PERFORMANCE-GARANT')}</p>
 
         <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[42px]">
           {t('about.title', 'Das IglooPro Performance-Setup: Validierte POC-Diagnostik ab Tag 1.')}

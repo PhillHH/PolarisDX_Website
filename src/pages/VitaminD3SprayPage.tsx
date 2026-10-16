@@ -217,9 +217,7 @@ const VitaminD3SprayPage = () => {
                     {t('vitd3spray:usp.text')}
                   </p>
                   <div className="border-t border-paper-line pt-4">
-                    <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                      {t('vitd3spray:usp.dosing_label')}
-                    </p>
+                    <p className="mb-1 t-eyebrow">{t('vitd3spray:usp.dosing_label')}</p>
                     <p className="text-[15px] text-gray-800">{t('vitd3spray:usp.dosing_text')}</p>
                     <p className="mt-1 text-sm text-gray-500">{t('vitd3spray:usp.dosing_note')}</p>
                   </div>
@@ -582,7 +580,7 @@ const VitaminD3SprayPage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-card border-t border-gray-200 bg-white p-4 lg:hidden">
         <a
           href="#bestellformular"
           className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:brightness-110"

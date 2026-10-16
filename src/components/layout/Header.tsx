@@ -299,14 +299,21 @@ const Header = () => {
         Weiss auf `brand-deep` 12,6:1, Fokusringe weiss mit Navy-Versatz, aktive
         Unterstreichung im Signet-Cyan. Die Aufklapp-Menues bleiben hell.
       */}
+      {/* SC-006 (2026-10-16): gescrollt wird die Kopfzeile kompakter (weniger Hoehe,
+          kleineres Logo) und leicht durchscheinend; der Schatten ist der Navy-getoente
+          `shadow-dialog`-Token statt eines neutralen Schwarz (DESIGN-SYSTEM-CONTRACT §7.3). */}
       <header
-        className={`fixed inset-x-0 top-0 z-30 transition-all duration-500 ease-in-out ${
+        className={`fixed inset-x-0 top-0 z-30 border-b transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'bg-brand-deep shadow-[0_4px_30px_rgba(0,0,0,0.25)] border-b border-white/10'
-            : 'bg-brand-deep border-b border-white/5'
+            ? 'border-white/10 bg-brand-deep/90 shadow-dialog backdrop-blur-sm'
+            : 'border-white/5 bg-brand-deep'
         }`}
       >
-        <div className="mx-auto flex max-w-container items-center justify-between px-4 py-3 sm:px-6 lg:px-0 lg:py-4">
+        <div
+          className={`mx-auto flex max-w-container items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-0 ${
+            isScrolled ? 'py-2 lg:py-2.5' : 'py-3 lg:py-4'
+          }`}
+        >
           {/* min-h-[44px]: Trefferflaeche des Logo-Links auf WCAG-2.5.5-Mindestmass.
               Das Bild bleibt h-10/h-12, nur die Klickflaeche waechst. */}
           {/* AP24 PT24.1: der Link trug seinen Namen dreimal — `aria-label`,
@@ -326,7 +333,7 @@ const Header = () => {
               // AP34: `low` haelt React davon ab, fuer das 4,8-KB-Logo einen eigenen
               // Preload in den <head> zu schreiben — der Platz gehoert dem LCP-Foto.
               fetchPriority="low"
-              className="h-10 w-auto sm:h-12 transition-all duration-300"
+              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12'}`}
             />
           </Link>
 
@@ -572,7 +579,7 @@ const Header = () => {
           <nav
             ref={mobileNavRef}
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`md:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-xl transition-all duration-300`}
+            className={`md:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-dialog transition-all duration-300`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
               {navItems.map((item) => {

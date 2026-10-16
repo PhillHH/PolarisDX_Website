@@ -22,24 +22,22 @@ const ShopTeaserSection = () => {
 
   return (
     <section aria-labelledby="shop-teaser-title" className="bg-paper px-4 pb-20 lg:px-0 lg:pb-24">
-      <div className="mx-auto flex max-w-container flex-col gap-6 rounded-card border border-accent-border bg-white px-6 py-7 shadow-card lg:flex-row lg:items-center lg:justify-between lg:px-10">
+      <div className="rv mx-auto flex max-w-container flex-col gap-6 rounded-card border border-accent-border bg-white px-6 py-7 shadow-card lg:flex-row lg:items-center lg:justify-between lg:px-10">
         <div>
-          <Eyebrow>
+          <Eyebrow className="flex items-center gap-2">
+            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
             {t('shop_teaser.badge')} · {t('shop_teaser.eyebrow')}
           </Eyebrow>
-          <h2
-            id="shop-teaser-title"
-            className="mt-3 text-2xl font-semibold tracking-tight text-heading"
-          >
+          <h2 id="shop-teaser-title" className="mt-3 text-2xl font-semibold tracking-tight">
             {t('shop_teaser.title')}
           </h2>
           <p className="mt-3 text-sm text-gray-600">{t('shop_teaser.note')}</p>
         </div>
         <a
           href={shopUrl(i18n.language)}
-          className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-brand-deep px-6 py-3 font-semibold text-white hover:bg-brand-deep/90"
+          className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-brand-deep px-6 py-3 font-semibold text-white hover:bg-brand-deep/90"
         >
-          {t('shop_teaser.cta')} →
+          {t('shop_teaser.cta')} <span className="transition group-hover:translate-x-1">→</span>
         </a>
       </div>
     </section>

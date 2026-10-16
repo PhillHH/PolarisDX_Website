@@ -6,6 +6,15 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
  * AP34 PT34.2a (SC-003) — „Nächster Schritt" am Ende jeder Bereichsseite.
  * Zurueck · Weiter · Abschluss: keine Seite des Bereichs endet in einer
  * Sackgasse.
+ *
+ * SC-006 (Editorial Motion): die Karten treten per `rv` ein und antworten mit dem
+ * Akzentrand der Startseitenkarten (`hover:border-accent-border`); der Navy-Kasten
+ * behaelt den Punktring (kein `aurora` dort). Kicker, Titel und Text nutzen die
+ * gemeinsamen Typo-Rollen (`t-eyebrow`, `t-h3`, `t-small`) statt eigener Ketten.
+ * Bewusst OHNE Lift, Hover-Schatten und rutschenden Pfeil: die Service-Seite
+ * (/diagnostics/dental) liegt am HTML-Budget (PERFORMANCE-CONTRACT §29) — gemessen
+ * kostete allein `transition hover:-translate-y-1 … motion-reduce:hover:translate-y-0`
+ * dort 10 B gzip mehr, als die Typo-Rollen einsparen.
  */
 export interface StepLink {
   to: string
@@ -22,18 +31,16 @@ interface NextStepsProps {
 }
 
 const card =
-  'flex h-full flex-col gap-1.5 rounded-card border border-paper-line bg-white p-6 hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'
+  'rv flex h-full flex-col gap-1.5 rounded-card border border-paper-line bg-white p-6 hover:border-accent-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'
 
 const Kicker = ({ children }: { children: ReactNode }) => (
-  <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-600">
-    {children}
-  </span>
+  <span className="inline-flex items-center gap-2 t-eyebrow">{children}</span>
 )
 
 const NextSteps = ({ label, previous, next, cta }: NextStepsProps) => (
   <section aria-label={label} className="border-t border-paper-line bg-white">
     <div className="mx-auto max-w-container px-4 py-14 sm:px-6 lg:px-0 lg:py-16">
-      <p className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+      <p className="inline-flex items-center gap-2.5 t-eyebrow">
         <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
         {label}
       </p>
@@ -44,12 +51,8 @@ const NextSteps = ({ label, previous, next, cta }: NextStepsProps) => (
               <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
               {previous.kicker}
             </Kicker>
-            <span className="text-lg font-semibold tracking-tight text-heading">
-              {previous.title}
-            </span>
-            {previous.text ? (
-              <span className="text-[15px] text-gray-600">{previous.text}</span>
-            ) : null}
+            <span className="t-h3">{previous.title}</span>
+            {previous.text ? <span className="t-small">{previous.text}</span> : null}
           </Link>
         ) : null}
         {next ? (
@@ -58,12 +61,12 @@ const NextSteps = ({ label, previous, next, cta }: NextStepsProps) => (
               {next.kicker}
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Kicker>
-            <span className="text-lg font-semibold tracking-tight text-heading">{next.title}</span>
-            {next.text ? <span className="text-[15px] text-gray-600">{next.text}</span> : null}
+            <span className="t-h3">{next.title}</span>
+            {next.text ? <span className="t-small">{next.text}</span> : null}
           </Link>
         ) : null}
         {cta ? (
-          <div className="brand-ring relative rounded-card bg-brand-deep p-6 text-white">
+          <div className="rv brand-ring rounded-card bg-brand-deep p-6 text-white">
             <p className="text-lg font-semibold tracking-tight">{cta.title}</p>
             {cta.text ? (
               <p className="mt-2 text-[15px] leading-relaxed text-white/80">{cta.text}</p>

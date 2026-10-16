@@ -239,7 +239,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
   return (
     <div
       ref={barRef}
-      className={`sticky ${TOP} z-20 border-b border-paper-line bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80`}
+      className={`sticky ${TOP} z-20 border-b border-paper-line bg-white/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/80`}
     >
       {/* Auf schmalen Viewports bekommen die Kapitel eine eigene Zeile — zu
           dritt in einer Reihe bleibt fuer sie ein Spalt von Zentimetern. */}
@@ -266,7 +266,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
                 aria-hidden="true"
               />
             </summary>
-            <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-paper-line bg-white py-2 shadow-lg">
+            <div className="absolute left-0 top-full z-30 mt-2 w-64 overflow-hidden rounded-2xl border border-paper-line bg-white py-2 shadow-card">
               <p className="px-4 pb-1 pt-1 text-xs font-medium text-gray-600">{switcher.label}</p>
               {/* Die Seite, auf der man steht, gehoert nicht in eine Liste
                   mit der Ueberschrift "die anderen Musterbefunde". */}
@@ -318,7 +318,7 @@ const ChapterNav = ({ chapters, chaptersLabel, back, switcher, actions }: Chapte
             {/* Absolut ueber dem Inhalt statt in der Leiste: sonst waechst die
                 Leiste beim Aufklappen auf halbe Bildschirmhoehe und schoebe
                 den Text weg, den der Leser gerade liest. */}
-            <ul className="absolute inset-x-0 top-full z-30 max-h-[60vh] list-none overflow-y-auto border-b border-paper-line bg-white p-2 shadow-lg">
+            <ul className="absolute inset-x-0 top-full z-30 max-h-[60vh] list-none overflow-y-auto border-b border-paper-line bg-white p-2 shadow-card">
               {chapters.map((c) => (
                 <li key={c.id}>
                   <a

@@ -101,9 +101,7 @@ export const Merkliste = ({ className = '' }: { className?: string }) => {
       id={MERK_ID}
       className={`scroll-mt-[var(--chapterbar-offset,148px)] rounded-3xl border border-accent-border bg-accent-soft p-7 ${className}`}
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-        {t('merk.caption')}
-      </p>
+      <p className="t-eyebrow">{t('merk.caption')}</p>
       <h2 className="mt-2 text-2xl font-semibold tracking-tight text-heading">{t('merk.title')}</h2>
       <p className="mt-3 max-w-[72ch] text-base leading-7 text-gray-700">{t('merk.lead')}</p>
 

@@ -79,9 +79,7 @@ const ConsultSteps = ({ slug, variant = 'section' }: ConsultStepsProps) => {
    */
   const body = (
     <>
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-        {t('consult.caption')}
-      </p>
+      <p className="t-eyebrow-dark">{t('consult.caption')}</p>
       <h2 className="mt-2 max-w-[34ch] text-2xl font-semibold tracking-tight text-white lg:text-3xl">
         {t('consult.title')}
       </h2>

@@ -102,6 +102,13 @@
     @apply min-w-0 max-w-full hyphens-auto break-words text-hero-sm font-medium leading-[47px] tracking-tight text-heading lg:text-[44px] lg:leading-[52px];
   }
 
+  /* Display-Titel der Startseiten- und Bereichssektionen (SC-006, 2026-10-16): EINE Quelle
+     statt derselben Klassenkette an sechs Stellen — das CSS liegt inline im HTML, jede
+     Wiederholung zaehlt gegen htmlBytes (PERFORMANCE-CONTRACT §29). */
+  .t-display {
+    @apply text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading;
+  }
+
   /* Strukturell h2, visuell Unterueberschrift. */
   .t-h2-sub {
     @apply text-xl font-semibold tracking-tight text-heading sm:text-2xl;
@@ -122,6 +129,23 @@
 
   .t-h6 {
     @apply text-xs font-semibold uppercase tracking-wide text-heading;
+  }
+
+  /* Buehnen (SC-006): H1 der Navy-Buehnen (Diagnostik, IglooPro, Bereichs- und Unterseiten-Buehne) —
+     eine Rolle statt derselben Kette in vier Komponenten. Die Kicker-Pille bleibt bewusst eine
+     Utility-Kette: als Rolle kostete sie (Ring-Utilities per @apply) mehr CSS als sie HTML sparte. */
+  .t-stage-h1 {
+    @apply text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white;
+  }
+
+  /* Sektions-Label (Eyebrow): ein Stil, zwei Toene — `Eyebrow.tsx` und die Inline-Stellen
+     nutzen dieselbe Rolle (SC-006; vorher 43 Kopien derselben Klassenkette im HTML). */
+  .t-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong;
+  }
+
+  .t-eyebrow-dark {
+    @apply text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark;
   }
 
   /* --- Fliesstext auf hellem Grund ---
@@ -191,7 +215,7 @@
      Inline-SVG — das haelt das htmlBytes-Budget der Startseite. Aufgehellt und
      entsaettigt, damit der Ring als Struktur, nicht als Farbe wirkt. */
   .brand-ring {
-    @apply relative isolate overflow-hidden;
+    @apply relative isolate overflow-clip;
   }
 
   .brand-ring::before {
@@ -211,19 +235,6 @@
 
   .icon-tile {
     @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-strong;
-  }
-
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass;
-  }
-
-  .glass-panel-dark {
-    @apply bg-brand-deep/80 backdrop-blur-xl border border-white/10 shadow-glass;
-  }
-
-  .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E");
-    background-repeat: repeat;
   }
 }
 
@@ -646,20 +657,114 @@
 }
 
 /* ---------------------------------------------------------------------------
- * Sales-Machine Motion-Layer — Hero-Visuals (Puls-Ring 3s, Float-Chips 6s),
- * Karten-Hover-Lift, gestaffelte Reveals. Läuft NUR wenn der Nutzer keine
- * Bewegungsreduktion wünscht (prefers-reduced-motion: no-preference).
+ * Editorial Motion (SC-006, 2026-10-16) — die gemeinsamen Bewegungs- und
+ * Flaechenbausteine der Sales-Machine. Das CSS steckt inline im HTML jeder Seite
+ * (htmlBytes) UND zaehlt als initialCss, deshalb: wenige geteilte Keyframes, keine
+ * Dopplungen. Alles Bewegte liegt hinter prefers-reduced-motion: no-preference,
+ * Scroll-Timelines zusaetzlich hinter @supports — ohne Unterstuetzung ist jeder
+ * Inhalt sofort und vollstaendig sichtbar; nichts bleibt ausgeblendet.
+ *   .aurora       Akzent-Lichtschein auf Navy-Flaechen (Buehnen, Navy-Karten); eigenes Element,
+ *                 nie zusammen mit .brand-ring (beide nutzen ::before)
+ *   .spot         Lichtpunkt unter dem Zeiger auf Karten (--mx/--my setzt src/lib/spotlight.ts)
+ *   .rv           Eintritt beim Hineinscrollen (Position, keine Deckkraft); .rv-rail zeichnet eine Linie
+ *                 (.rv-rail-y vertikal)
+ *   .rail-x       mobil eine Schnapp-Reihe statt Stapel (Karten 84 %, die naechste lugt hervor)
+ *   .enter        gestaffelter Eintritt (Buehnentexte, Kennzahlen); .faq-panel klappt weich auf
+ *   .float-slow / .hero-pulse-ring  ruhige Dauerbewegung fuer Dekor (nie auf Elementen, die
+ *                 Tests oder Nutzer anfassen: Playwright wartet auf einen stabilen Rahmen)
  * ------------------------------------------------------------------------- */
+.aurora,
+.spot {
+  position: relative;
+}
+.aurora {
+  isolation: isolate;
+  /* clip statt hidden: hidden macht die Flaeche zum Scroll-Container, und `view()` eines
+     `.rv`-Kindes misst dann gegen die Flaeche statt gegen den Viewport (gilt auch fuer .brand-ring). */
+  overflow: clip;
+}
+.aurora::before,
+.spot::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+.aurora::before {
+  z-index: -1;
+  width: 46rem;
+  aspect-ratio: 1;
+  left: -14rem;
+  top: -18rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, theme(colors.accent.DEFAULT / 45%), transparent);
+}
+.spot::after {
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(
+    20rem circle at var(--mx, 50%) var(--my, 50%),
+    theme(colors.accent.DEFAULT / 14%),
+    transparent 60%
+  );
+}
+.spot:hover::after {
+  opacity: 1;
+}
+.rv-rail {
+  transform-origin: 0 0;
+}
+.rv-rail-y {
+  --d: 1 0;
+}
+@media (max-width: 767px) {
+  .rail-x {
+    display: flex;
+    gap: 1rem;
+    margin-inline: -1rem;
+    padding: 0.25rem 1rem 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    scrollbar-width: none;
+  }
+  .rail-x::-webkit-scrollbar {
+    display: none;
+  }
+  .rail-x > * {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes rvIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  @keyframes enterIn {
+    from {
+      transform: translateY(24px);
+    }
+  }
+  @keyframes rvDraw {
+    from {
+      scale: var(--d, 0 1);
+    }
+  }
+  @keyframes auroraDrift {
+    to {
+      transform: translate(8%, -6%) scale(1.12);
+    }
+  }
   @keyframes heroPulseRing {
     0% {
       transform: scale(0.9);
       opacity: 0.55;
     }
-    70% {
-      transform: scale(1.4);
-      opacity: 0;
-    }
+    70%,
     100% {
       transform: scale(1.4);
       opacity: 0;
@@ -674,15 +779,47 @@
       transform: translateY(-8px);
     }
   }
+  /* `enter` bewegt nur die Position: eine Deckkraft von 0 beim ersten Paint schliesst H1/Lead als
+     LCP-Kandidaten aus (gemessen: Text-LCP-Routen +600 ms, /pl/ Desktop faellt auf ein lazy Bild). */
+  .enter {
+    animation: enterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .faq-panel:not([hidden]) {
+    animation: rvIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .enter:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .enter:nth-child(n + 3) {
+    animation-delay: 0.2s;
+  }
+  .aurora::before {
+    animation: auroraDrift 16s ease-in-out infinite alternate;
+  }
   .hero-pulse-ring {
     animation: heroPulseRing 3s ease-out infinite;
   }
-  .hero-float {
-    animation: heroFloat 6s ease-in-out infinite;
+  .float-slow {
+    animation: heroFloat 7s ease-in-out infinite;
   }
-  .hero-float-2 {
-    animation: heroFloat 6s ease-in-out infinite;
-    animation-delay: -3s;
+  .float-slow:nth-child(even) {
+    animation-delay: -3.5s;
+  }
+  @supports (animation-timeline: view()) {
+    /* Nur Position (kein Deckkraft-Start bei 0): axe mischt eine Zwischen-Deckkraft in die
+       Textfarbe und meldet Kontrastfehler fuer alles, was beim Laden halb im Bild steht; grosse
+       Textbloecke blieben sonst bis weit ins Scrollen hinein blass. Feste Laenge statt Prozent,
+       damit ein hoher Block genauso schnell ankommt wie eine Karte. */
+    .rv {
+      animation: enterIn linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 240px;
+    }
+    .rv-rail {
+      animation: rvDraw linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 50%;
+    }
   }
 }
 

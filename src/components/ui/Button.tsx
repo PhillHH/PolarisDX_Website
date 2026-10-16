@@ -34,9 +34,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        // SC-006 (2026-10-16): die gefuellten Pillen heben sich beim Zeigen um 2 px — dieselbe
+        // Geste wie der Karten-Lift; bei Bewegungsreduktion bleibt die Pille stehen.
         primary:
-          'bg-brand-deep text-brand-deep border-0 hover:opacity-95 focus-visible:ring-brand-primary',
-        secondary: 'bg-brand-deep text-white hover:bg-brand-deep/90 focus-visible:ring-brand-deep',
+          'bg-brand-deep text-brand-deep border-0 hover:-translate-y-0.5 hover:opacity-95 focus-visible:ring-brand-primary motion-reduce:hover:translate-y-0',
+        secondary:
+          'bg-brand-deep text-white hover:-translate-y-0.5 hover:bg-brand-deep/90 focus-visible:ring-brand-deep motion-reduce:hover:translate-y-0',
         outline:
           'border border-white/80 bg-transparent text-white hover:bg-white/10 focus-visible:ring-white',
         ghost:
@@ -44,7 +47,7 @@ const buttonVariants = cva(
         // AP34 / SC-002: weisse Pille fuer Navy- und Fotoflaechen (Kopfzeile, Hero,
         // Final CTA). Navy auf Weiss 12,6:1; Fokusring weiss mit Navy-Versatz.
         light:
-          'bg-white text-brand-deep hover:bg-accent-soft focus-visible:ring-white focus-visible:ring-offset-brand-deep border-0',
+          'bg-white text-brand-deep hover:-translate-y-0.5 hover:bg-accent-soft focus-visible:ring-white focus-visible:ring-offset-brand-deep border-0 motion-reduce:hover:translate-y-0',
       },
       size: {
         default: 'min-h-[44px] px-8 py-4 text-base',

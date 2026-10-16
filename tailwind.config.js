@@ -21,7 +21,7 @@ const EASING = {
 }
 
 /* Ruheschatten von Modal/Drawer/Dialog — EINE Quelle fuer den `dialog`-Token
- * und den Endzustand des `modal-card-in`-Keyframes. */
+ * (`shadow-dialog` an der Dialogkarte). */
 const SHADOW_DIALOG = '0 20px 60px rgba(8,51,88,0.35)'
 
 const DURATION = {
@@ -271,10 +271,11 @@ export default {
           '0%': { opacity: '1', transform: 'scale(1) rotate(0)' },
           '100%': { opacity: '0', transform: 'scale(0.8) rotate(10deg)' },
         },
-        // Order-modal entrance — soft "materialise" with a brief teal halo.
-        // Backdrop fades in + blur builds up; the card translates + scales
-        // into place with a gentle decelerate curve, and a teal glow ring
-        // peaks at ~40% before settling into the resting shadow.
+        // Dialog-/Modal-Eintritt: Backdrop blendet mit Weichzeichner ein, die Karte
+        // faehrt mit Deckkraft, Versatz und Skalierung sanft an ihren Platz.
+        // SC-006 (2026-10-16): der fruehere Teal-Halo (drei Box-Shadow-Stufen aus der
+        // Zeit vor dem Logo-Blau, SC-002) entfiel — Markenfremd und ~330 B CSS; der
+        // Ruheschatten ist `shadow-dialog` an der Karte selbst.
         'modal-backdrop-in': {
           '0%': { opacity: '0', 'backdrop-filter': 'blur(0px)' },
           '100%': { opacity: '1', 'backdrop-filter': 'blur(6px)' },
@@ -284,22 +285,8 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
         'modal-card-in': {
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(24px) scale(0.94)',
-            'box-shadow':
-              '0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), 0 0 0 rgba(8,51,88,0)',
-          },
-          '45%': {
-            opacity: '1',
-            'box-shadow':
-              '0 0 0 6px rgba(45,212,191,0.18), 0 0 60px 4px rgba(13,148,136,0.35), 0 20px 50px rgba(8,51,88,0.30)',
-          },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0) scale(1)',
-            'box-shadow': `0 0 0 0 rgba(45,212,191,0), 0 0 0 0 rgba(13,148,136,0), ${SHADOW_DIALOG}`,
-          },
+          '0%': { opacity: '0', transform: 'translateY(24px) scale(0.94)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
       },
       animation: {

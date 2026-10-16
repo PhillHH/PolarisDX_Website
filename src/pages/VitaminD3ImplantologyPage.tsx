@@ -205,9 +205,7 @@ const VitaminD3ImplantologyPage = () => {
 
                   {/* Evidence Box */}
                   <div className="my-8 rounded-lg border-l-4 border-accent bg-accent/5 p-7">
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                      {t('vitamin_d3_implantology.copy_050')}
-                    </p>
+                    <p className="mb-3 t-eyebrow">{t('vitamin_d3_implantology.copy_050')}</p>
                     <ul className="space-y-2 text-[15px] leading-relaxed text-gray-700">
                       <li>
                         <strong>{t('vitamin_d3_implantology.copy_017')}</strong>
@@ -228,9 +226,9 @@ const VitaminD3ImplantologyPage = () => {
                         {t('vitamin_d3_implantology.copy_059')}
                       </li>
                     </ul>
-                    <p className="mt-4 text-xs text-gray-500">
-                      {t('vitamin_d3_implantology.copy_060')}
-                    </p>
+                    {/* SC-006: `t-caption` (ui-field) statt gray-500 — auf der Akzent-Flaeche (accent/5 ueber paper)
+                        lag gray-500 bei 4,07:1; der Block war vorher hinter `Reveal` fuer axe unsichtbar. */}
+                    <p className="mt-4 t-caption">{t('vitamin_d3_implantology.copy_060')}</p>
                   </div>
 
                   <div className="space-y-6 text-[17px] leading-[1.75] text-gray-700">
@@ -365,9 +363,7 @@ const VitaminD3ImplantologyPage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                        {t('s3_leitlinie.copy_127')}
-                      </p>
+                      <p className="mb-2 t-eyebrow">{t('s3_leitlinie.copy_127')}</p>
                       <p className="mb-3 text-base font-medium text-heading">
                         {t('vitamin_d3_implantology.copy_089')}
                       </p>
@@ -636,7 +632,7 @@ const VitaminD3ImplantologyPage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-card border-t border-gray-200 bg-white p-4 lg:hidden">
         <a
           href="#bestellformular"
           className="flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:brightness-110"

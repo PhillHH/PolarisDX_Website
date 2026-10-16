@@ -59,7 +59,7 @@ const HeroSection = () => {
       id="hero"
       aria-labelledby="home-hero-title"
       data-home-hero
-      className="relative isolate overflow-hidden bg-brand-deep text-white"
+      className="aurora bg-brand-deep text-white"
     >
       {/* Ohne `sizes`: bei w-Deskriptoren ist 100vw der Standard. Desktop nur AVIF
           (alle aktuellen Browser); aeltere fallen auf die mobile WebP-Datei des
@@ -79,15 +79,16 @@ const HeroSection = () => {
         />
       </picture>
 
-      <div className="relative mx-auto grid max-w-container gap-10 px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:min-h-[760px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
-        <div className="flex flex-col items-start">
-          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25 backdrop-blur-sm">
+      <div className="mx-auto grid max-w-container gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:min-h-[760px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
+        {/* min-w-0: ein langes H1-Wort (da „Laboratorieværdier.") darf die Spalte nicht aufblasen. */}
+        <div className="flex min-w-0 flex-col items-start">
+          <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 sm:text-sm">
             <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
             {t('hero.caption')}
           </p>
           <h1
             id="home-hero-title"
-            className="mt-7 max-w-3xl text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white"
+            className="enter mt-7 max-w-3xl text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em]"
           >
             {lines.map((line, index) => (
               <span
@@ -102,11 +103,11 @@ const HeroSection = () => {
               </span>
             ))}
           </h1>
-          <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/85 sm:text-xl">
+          <p className="enter mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/85 sm:text-xl">
             {t('hero.description')}
           </p>
 
-          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+          <div className="enter mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             <Button
               to={getHomepageSalesTarget('hero')}
               variant="light"
@@ -114,12 +115,12 @@ const HeroSection = () => {
               data-cta-source="homepage"
               data-cta-journey="general_sales"
               data-cta-section="hero"
-              className="w-full justify-center !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
+              className="group w-full !py-2.5 !pl-7 !pr-2.5 sm:w-auto"
             >
               {t('hero.cta')}
               <span
                 aria-hidden="true"
-                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white"
+                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white transition group-hover:translate-x-1"
               >
                 <ArrowRight className="h-4 w-4" />
               </span>
@@ -128,10 +129,13 @@ const HeroSection = () => {
               to="/diagnostics"
               variant="ghost"
               data-home-hero-secondary
-              className="w-full justify-center !text-white hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
+              className="group w-full text-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-brand-deep sm:w-auto"
             >
               {t('hero.cta_secondary')}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <ArrowRight
+                className="h-4 w-4 transition group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Button>
           </div>
         </div>
@@ -142,22 +146,20 @@ const HeroSection = () => {
             damit die Texte nie auf hellem Bildgrund stehen. */}
         <div
           data-home-hero-visual
-          className="relative mt-64 w-full max-w-md justify-self-start sm:mt-72 lg:mt-0 lg:justify-self-end"
+          className="mt-64 w-full max-w-md sm:mt-72 lg:mt-0 lg:justify-self-end"
         >
-          <div className="grid grid-cols-[112px_minmax(0,1fr)] items-center gap-5 rounded-card bg-white p-5 text-heading shadow-card sm:grid-cols-[132px_minmax(0,1fr)] sm:p-6">
+          <div className="flex items-center gap-5 rounded-card bg-white p-4 text-heading shadow-card sm:p-6">
             <img
               src={IglooProImage}
               alt={t('hero.visual_alt')}
               width={320}
               height={320}
               loading="lazy"
-              className="h-auto w-full object-contain"
+              className="h-auto w-20 shrink-0 object-contain sm:w-32"
             />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('business_pillars.pillars.igloo.title')}
-              </p>
-              <p className="mt-2 text-base font-semibold leading-snug tracking-tight text-heading">
+            <div className="min-w-0">
+              <p className="t-eyebrow">{t('business_pillars.pillars.igloo.title')}</p>
+              <p className="mt-2 text-sm font-semibold leading-snug tracking-tight sm:text-base">
                 {t('business_pillars.pillars.igloo.text')}
               </p>
             </div>

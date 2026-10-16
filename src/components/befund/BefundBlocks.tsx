@@ -77,11 +77,7 @@ const Head = ({ caption, title, lead }: { caption?: string; title?: string; lead
   const { collapsed } = useContext(BlockChrome)
   return (
     <>
-      {caption ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-          {caption}
-        </p>
-      ) : null}
+      {caption ? <p className="t-eyebrow">{caption}</p> : null}
       {title && !collapsed ? (
         <h2 className="mt-2 text-2xl font-semibold tracking-tight text-heading lg:text-3xl">
           {title}
@@ -314,9 +310,7 @@ const Cover = ({ b, slug }: { b: Block; slug?: string }) => {
     <section className="relative overflow-hidden bg-brand-deep text-white">
       <div className="mx-auto max-w-container px-4 py-10 lg:px-0 lg:py-24">
         {zielgruppen ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-            {zielgruppen}
-          </p>
+          <p className="t-eyebrow-dark">{zielgruppen}</p>
         ) : str(b.badge) ? (
           <span className="inline-flex rounded-full bg-accent-on-dark px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-deep">
             {str(b.badge)}
@@ -871,9 +865,7 @@ export const BefundNotice = ({
          * gehoeren dort hinein. Die Kapitelleiste bleibt unberuehrt — sie
          * fuehrt durch die Wertekapitel, nicht durch die Rechtstexte.
          */}
-        <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-          {caption}
-        </h2>
+        <h2 className="t-eyebrow">{caption}</h2>
         <div
           className={`mt-4 rounded-3xl border border-slate-200 p-7 ${
             tint ? 'bg-white' : 'bg-slate-50'

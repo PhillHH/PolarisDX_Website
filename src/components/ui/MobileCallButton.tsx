@@ -19,7 +19,7 @@ const MobileCallButton = () => {
       }}
     >
       <div
-        className={`flex items-center overflow-hidden rounded-l-full shadow-lg ring-1 ring-white/25 transition-all duration-300 ease-in-out ${
+        className={`flex items-center overflow-hidden rounded-l-full shadow-card ring-1 ring-white/25 transition-all duration-300 ease-in-out ${
           isExpanded
             ? 'translate-x-0 bg-white pl-3 pr-2 py-2'
             : '-translate-x-2 bg-brand-primary pr-1 pl-3 py-3'

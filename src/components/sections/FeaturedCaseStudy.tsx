@@ -15,14 +15,14 @@ const FeaturedCaseStudy = () => {
       <div className="relative mx-auto max-w-container px-4">
         <Reveal>
           <div className="relative z-20 flex justify-center mb-8 md:mb-10">
-            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong border border-white/60 backdrop-blur">
+            <span className="inline-block rounded-full bg-white/90 px-4 py-1.5 t-eyebrow border border-white/60 backdrop-blur-sm">
               Case Study
             </span>
           </div>
 
           <div className="relative z-10 grid gap-0 md:grid-cols-2 items-stretch md:min-h-[420px]">
             {/* Bild-Karte (stärker nach oben/links verschoben) */}
-            <div className="relative h-full min-h-[360px] md:min-h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white md:-mr-20 md:-mb-24 md:translate-y-[-72px] md:translate-x-[-48px]">
+            <div className="relative h-full min-h-[360px] md:min-h-[460px] rounded-3xl overflow-hidden shadow-dialog border border-gray-100 bg-white md:-mr-20 md:-mb-24 md:translate-y-[-72px] md:translate-x-[-48px]">
               <img
                 src={KristianGrimmAvatar}
                 alt="Dr. Kristian Grimm — Zahnarzt und IglooPro Anwender bei 32reasons"
@@ -32,7 +32,7 @@ const FeaturedCaseStudy = () => {
                 crossOrigin="anonymous"
               />
               <div className="absolute inset-0 bg-brand-deep" />
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3">
+              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3">
                 <div className="bg-accent-soft p-2 rounded-lg text-accent-strong shrink-0">
                   <Trophy className="w-5 h-5" />
                 </div>
@@ -41,10 +41,8 @@ const FeaturedCaseStudy = () => {
             </div>
 
             {/* Content-Karte (stärker nach unten/rechts verschoben) */}
-            <div className="rounded-3xl bg-white/85 backdrop-blur-xl border border-white/50 p-7 lg:p-12 flex flex-col justify-center h-full min-h-[360px] md:min-h-[460px] md:-ml-20 md:-mt-24 md:translate-y-[72px] md:translate-x-[48px]">
-              <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('reasons32.subtitle')}
-              </span>
+            <div className="rounded-3xl bg-white/85 backdrop-blur-sm border border-white/50 p-7 lg:p-12 flex flex-col justify-center h-full min-h-[360px] md:min-h-[460px] md:-ml-20 md:-mt-24 md:translate-y-[72px] md:translate-x-[48px]">
+              <span className="inline-block mb-4 t-eyebrow">{t('reasons32.subtitle')}</span>
 
               <h2 className="text-2xl lg:text-4xl font-semibold text-heading mb-6 leading-tight">
                 {t('reasons32.title')}

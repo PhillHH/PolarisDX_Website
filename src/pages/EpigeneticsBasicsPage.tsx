@@ -87,9 +87,7 @@ const EpigeneticsBasicsPage = () => {
 
         <Reveal width="100%" delay={0.1}>
           <div className="mt-6 rounded-3xl border border-accent-border bg-accent-soft p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('principle.practice.title')}
-            </p>
+            <p className="t-eyebrow">{t('principle.practice.title')}</p>
             <ul className="mt-4 grid gap-3">
               {practiceItems.map((item) => (
                 <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>

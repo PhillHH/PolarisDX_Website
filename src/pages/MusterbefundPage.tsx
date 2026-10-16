@@ -623,7 +623,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
             </div>
 
             <nav className="mt-10" aria-label={t('befund.othersTitle')}>
-              <p className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
+              <p className="inline-flex items-center gap-2.5 t-eyebrow">
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
                 {t('befund.othersTitle')}
               </p>

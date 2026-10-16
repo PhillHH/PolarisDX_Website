@@ -55,9 +55,9 @@ Light ist der **einzige** Relaunch-Theme-Modus. Verbindlich und in PT05.1 empiri
 | kein Theme-Switcher / `data-theme` / ThemeProvider | **0 Treffer**                                                              |
 | keine parallele Dark-Token-Familie                 | **keine**                                                                  |
 
-**Dunkle Flächen sind kein Dark Theme.** Navy-Hero, Navy-Final-CTA, Navy-Header und
-`glass-panel-dark` sind reguläre Light-Theme-Komponenten mit dunkler Fläche. Für sie gilt
-die Akzentrolle `accent.on-dark`, nicht eine zweite Palette.
+**Dunkle Flächen sind kein Dark Theme.** Navy-Hero, Navy-Final-CTA, Navy-Header und die
+Navy-Karten (Nutzen, ROI-Ergebnis) sind reguläre Light-Theme-Komponenten mit dunkler Fläche. Für
+sie gilt die Akzentrolle `accent.on-dark`, nicht eine zweite Palette.
 
 **DS-Regel:** Wer eine `dark:`-Klasse, einen Theme-Switch oder ein zweites Token-Set
 einführen will, verletzt `DEC-RL-003`. Das ist kein Design-, sondern ein Scope-Verstoß.
@@ -302,7 +302,7 @@ ist als Textfarbe nicht AA-tauglich; `Textarea.tsx` wurde in PT05.2 entsprechend
 korrigiert.
 
 **Eyebrow wird hier nicht dupliziert** — `Eyebrow.tsx` exportiert `EYEBROW_LIGHT`/
-`EYEBROW_DARK` und bleibt die einzige Quelle. Max. **eine** Eyebrow je Sektion.
+`EYEBROW_DARK` und bleibt die einzige Quelle. Max. **eine** Sektions-Eyebrow je Sektion. Seit SC-006 tragen versale Karten-Labels (Nutzen-Karten, Artikel-Kicker, Produktkarte) dieselbe Rolle `t-eyebrow`/`t-eyebrow-dark` statt eigener Klassenketten — sie sind Labels in Karten, keine zweite Sektions-Eyebrow; Meta-Angaben bleiben ohne Versalien.
 
 ### 4.4 Links
 
@@ -501,6 +501,10 @@ Screenreader-Nutzern dieselbe Karte zweimal vorlegt.
 und trägt keine Information, die nicht auch im Text steht. Auf Navy ist die Primär-CTA die weiße
 Pille, Akzent-Text `accent.on-dark`.
 
+Seit SC-006 (2026-10-16) tragen alle Bühnen denselben Lichtschein (`.aurora`, auch die bildfreie
+`AreaStage`: ein CSS-Verlauf ist kein LCP-Bild), den gestaffelten Texteintritt (`.enter`, nur Position —
+H1 und Lead bleiben LCP-Kandidaten; Breadcrumbs statisch) und die Rolle `t-stage-h1`;
+Pfeilkreis-CTAs rücken beim Zeigen (`group-hover:translate-x-1`).
 Keine alternative Hero-Art-Direction; kein zweites Bühnenvokabular. Das Karussell der Startseite
 ist seit AP34 entfallen; die Pause/Play-Pflicht (WCAG 2.2.2) gilt weiter für jedes künftige
 bewegte Element.
@@ -674,7 +678,7 @@ Dopplung ist bewusst und dokumentiert, nicht versehentlich.
 | Token                   | Wert                             | Rolle                                                 |
 | ----------------------- | -------------------------------- | ----------------------------------------------------- |
 | `shadow-card`           | `0 24px 60px rgba(8,51,88,.12)`  | Karten-Hover-Lift                                     |
-| `shadow-glass`          | `0 8px 32px 0 rgba(8,51,88,.15)` | `glass-panel` / `glass-panel-dark`                    |
+| `shadow-glass`          | `0 8px 32px 0 rgba(8,51,88,.15)` | ungenutzt seit SC-006 (Glas-Karte entfernt)           |
 | `shadow-dialog`         | `0 20px 60px rgba(8,51,88,.35)`  | **Modal/Drawer/Dialog-Ruheschatten** (PT05.1 benannt) |
 | `shadow-glow-secondary` | `0 0 15px rgba(47,111,160,.5)`   | ungenutzt (0 Call-Sites)                              |
 
@@ -682,8 +686,14 @@ Alle Schatten sind **Navy-getönt** (`rgba(8,51,88,…)`) — kein neutrales Sch
 Teil der Sales-Machine-Sprache. `shadow-dialog` ist die einzige Quelle für den Modal-Ruheschatten
 und wird vom `modal-card-in`-Keyframe referenziert, damit Token und Animation nicht auseinanderlaufen.
 
-**Glass/Glow** bleiben auf den bestehenden Sales-Machine-Einsatz begrenzt
-(`glass-panel`, `glass-panel-dark`, `bg-noise`). Kein neuer Glass-/Glow-Layer als Stilmittel.
+**Glass/Glow:** Seit SC-006 (2026-10-16) gibt es keine Glas-Flächen mehr — `glass-panel`,
+`glass-panel-dark` und `bg-noise` sind entfernt (die letzte Glas-Karte `ServiceCard` trägt das
+eine Kartenrezept). Kein neuer Glass-/Glow-Layer als Stilmittel. **Schatten nur über die beiden
+Tokens `shadow-card` und `shadow-dialog`** — die neutralen Tailwind-Schatten (`shadow`, `shadow-sm`,
+`shadow-lg`, `shadow-xl`, `shadow-2xl`, `shadow-inner`) und freie `shadow-[…]`-Werte kommen seit
+SC-006 im Repo nicht mehr vor; Weichzeichner einheitlich `backdrop-blur-sm`. Der Akzent-Lichtschein
+`.aurora` (zwei weiche Radialverläufe aus `accent`/`accent.line` auf Navy, §9.8) ist Licht auf der
+Markenfläche, keine Glas-Schicht.
 
 ---
 
@@ -758,8 +768,9 @@ Die Namen stehen in **§8**; hier gelten die Regeln ihrer Verwendung:
 - **kurz** — nichts ueber 520 ms (Modal-Karte), der Regelfall liegt bei 180–300 ms;
 - **vorhersehbar** — dieselbe Rolle bekommt ueberall dieselbe Dauer;
 - **nicht blockierend** — keine Animation haelt eine Eingabe oder Navigation auf;
-- **keine kuenstliche Orchestrierung** — der einzige Stagger ist `REVEAL_STAGGER` (60 ms)
-  zwischen Geschwistern einer Gruppe;
+- **keine kuenstliche Orchestrierung** — Stagger nur zwischen Geschwistern EINER Gruppe:
+  `REVEAL_STAGGER` (60 ms, `Reveal.tsx`) und seit SC-006 `.enter` (100 ms je Geschwister, hoechstens
+  vier Stufen, nur fuer Buehnentexte und Kennzahlen);
 - **keine Information nur durch Bewegung** — was eine Animation aussagt, steht auch im Text.
 
 ### 9.3 Keine Interaktionsblockade
@@ -854,6 +865,33 @@ Baseline-Screenshot-/Visual-Regression-Mechanik.
 `--tap-target-min`) ausserhalb eines Kommentars, der genau diese Nicht-Uebernahme begruendet.
 0 `dark:`-Klassen. Keine Farbe, kein Branding, keine alternative Typografie, keine alternative
 Hero-/Card-Art-Direction.
+
+### 9.8 Editorial Motion — die gemeinsamen Bausteine (SC-006, 2026-10-16)
+
+Owner-Auftrag „cooler, interaktiver, moderner, eyecatchy — ohne die CI zu brechen, konsistent“.
+Umgesetzt als **ein** Satz geteilter Klassen in `src/index.css` (Abschnitt „Editorial Motion“),
+nicht als Sektions-Sonderfälle; jede Seite nutzt dieselben Bausteine:
+
+| Klasse                            | Rolle                                                                                                                                                 | Regel                                                                                                                                                                                                                |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.aurora`                         | Akzent-Lichtschein auf Navy (ein driftender Radialverlauf, `theme(colors.accent … / 45 %)`)                                                           | nur auf Navy-Flächen; nie zusammen mit `.brand-ring` auf demselben Element (beide `::before`)                                                                                                                        |
+| `.spot` + `data-spot`             | Lichtpunkt unter dem Zeiger; Position schreibt `useSpotlight()` (`src/lib/spotlight.ts`) per CSSOM                                                    | nur auf verlinkten Karten (Hover nur auf Interaktivem)                                                                                                                                                               |
+| `.rv` / `.rv-rail` (`.rv-rail-y`) | Eintritt (24 px Versatz, keine Deckkraft) bzw. Linienzug beim Hineinscrollen — CSS-Scroll-Timeline (`animation-timeline: view()`), hinter `@supports` | nie auf dem `<section>` selbst, nie im Hero (LCP); ohne Unterstützung sofort sichtbar. Deckkraft bleibt bewusst 1: axe wertet Zwischen-Deckkraft als Kontrastfehler, Chrome zählt Text mit Deckkraft 0 nicht als LCP |
+| `.enter`                          | sofortiger gestaffelter Eintritt (0,7 s, Geschwister 2/3/≥4 je +0,1 s)                                                                                | Bühnentexte, Kennzahlen bei Wertwechsel (`key`)                                                                                                                                                                      |
+| `.rail-x`                         | unter 768 px Schnapp-Reihe (Karten 84 %, Scroll-Snap, die nächste Karte lugt hervor) statt Stapel                                                     | Kartengitter; der Container scrollt, die Seite nie                                                                                                                                                                   |
+| `.faq-panel`                      | weiches Aufklappen beim Entfernen von `hidden`                                                                                                        | Akkordeon-Regionen                                                                                                                                                                                                   |
+| `.float-slow`, `.hero-pulse-ring` | ruhige Dauerbewegung für Dekor                                                                                                                        | sparsam, nie auf Text und nie auf Elementen, die bedient oder getestet werden (Playwright wartet auf einen stabilen Rahmen)                                                                                          |
+
+**Reduced Motion (§8.3/§9.1 gelten unverändert):** alle Bewegungen liegen in einem
+`@media (prefers-reduced-motion: no-preference)`-Block; Scroll-Timelines zusätzlich hinter
+`@supports (animation-timeline: view())`. Kein Inhalt hängt an einer Bewegung; ohne JavaScript,
+ohne Hover und bei Bewegungsreduktion ist alles sichtbar und bedienbar.
+
+**Kosten:** Das CSS liegt inline im HTML jeder Seite (PERFORMANCE-CONTRACT §28.6) und zählt
+gegen `htmlBytes` **und** `initialCss`. Die Bausteine wurden gegenfinanziert, nicht aufgebucht:
+Glas-Karte, `bg-noise`, Teal-Halo des `modal-card-in`, sechs neutrale Schatten- und drei
+Weichzeichner-Varianten entfielen (−2,3 KB CSS roh); Klassenrezepte `t-display` (6 Stellen) und
+`t-eyebrow` (43 Stellen) ersetzen Klassenketten im HTML. Budgets unverändert.
 
 ## 10. Token-Guard — die Durchsetzung
 

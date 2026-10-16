@@ -121,9 +121,7 @@ const AboutPage = () => {
         <div className="mx-auto grid max-w-container items-center gap-8 px-4 lg:grid-cols-2 lg:px-0">
           <Reveal width="100%">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('about:mission.caption', 'Unsere Mission')}
-              </span>
+              <span className="t-eyebrow">{t('about:mission.caption', 'Unsere Mission')}</span>
               <h2 className="mt-4 t-h2">
                 {t(
                   'about:mission.title',
@@ -199,9 +197,7 @@ const AboutPage = () => {
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('about:values.caption', 'Wofür wir stehen')}
-            </span>
+            <span className="t-eyebrow">{t('about:values.caption', 'Wofür wir stehen')}</span>
             <h2 className="mt-4 t-h2">
               {t('about:values.title', 'Werte, die unsere Arbeit prägen')}
             </h2>
@@ -231,9 +227,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-container px-4 lg:px-0">
           <Reveal width="100%">
             <div className="rounded-2xl border border-accent/20 bg-accent/5 p-7 text-center lg:p-7">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('about:dx365_partner.caption', 'Unser Partner')}
-              </span>
+              <span className="t-eyebrow">{t('about:dx365_partner.caption', 'Unser Partner')}</span>
               <h2 className="mt-4 text-2xl font-medium tracking-tight text-heading lg:text-3xl">
                 {t('about:dx365_partner.title', 'Europäischer Distributionspartner von DX365')}
               </h2>

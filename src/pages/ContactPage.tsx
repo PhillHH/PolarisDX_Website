@@ -109,9 +109,7 @@ const ContactPage = () => {
             <Reveal width="100%">
               <div className="space-y-8 lg:sticky lg:top-28">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                    {t('contact.form_aside.caption')}
-                  </p>
+                  <p className="t-eyebrow">{t('contact.form_aside.caption')}</p>
                   <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading">
                     {t('contact.form_aside.title')}
                   </h2>
@@ -181,9 +179,7 @@ const ContactPage = () => {
       <section className="bg-white">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="mb-12 max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('contact.process.caption')}
-            </p>
+            <p className="t-eyebrow">{t('contact.process.caption')}</p>
             <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
               {t('contact.process.title')}
             </h2>
@@ -219,9 +215,7 @@ const ContactPage = () => {
       <section className="bg-paper">
         <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
           <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-              {t('contact.locations.caption')}
-            </p>
+            <p className="t-eyebrow">{t('contact.locations.caption')}</p>
             <h2 className="mt-3 t-h2">{t('contact.locations.title')}</h2>
           </div>
 
@@ -281,9 +275,7 @@ const ContactPage = () => {
           stammen aus bereits vorhandenen Keys (in allen zehn Sprachen belegt). */}
       <section className="bg-brand-deep text-white">
         <div className="mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-            {t('contact.form_aside.caption')}
-          </p>
+          <p className="t-eyebrow-dark">{t('contact.form_aside.caption')}</p>
           <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-white lg:text-[38px]">
             {t('contact.form_aside.title')}
           </h2>

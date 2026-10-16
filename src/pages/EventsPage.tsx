@@ -227,9 +227,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
         <div className="mx-auto max-w-container px-4 lg:px-0 py-24">
           <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                {t('events:upcoming.eyebrow', 'Upcoming · 2026')}
-              </span>
+              <span className="t-eyebrow">{t('events:upcoming.eyebrow', 'Upcoming · 2026')}</span>
               <h2 className="mt-4 t-h2">
                 {t('events:upcoming.title', 'The season highlight — and the full calendar')}
               </h2>
@@ -394,9 +392,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
           <div className="mx-auto max-w-container px-4 lg:px-0 pb-20 lg:pb-28">
             <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                  {t('events:past.eyebrow', "Where we've been")}
-                </span>
+                <span className="t-eyebrow">{t('events:past.eyebrow', "Where we've been")}</span>
                 <h2 className="mt-4 t-h2">
                   {t('events:past.title', "You've probably seen us before")}
                 </h2>

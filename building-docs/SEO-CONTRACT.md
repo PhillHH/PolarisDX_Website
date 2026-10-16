@@ -102,6 +102,10 @@ je eigene Title/Description; ein unbekannter Slug fällt auf S-04 zurück. _(AP1
 ohne sichtbare FAQ, kein medizinischer Typ ohne fachliche Deckung, keine Verstärkung nicht freigegebener
 Aussagen. _(AP09 PT09.4.4–.5, AP11 PT11.6.2)_
 
+**S-12a · JSON-LD darf im `<head>` oder im Body stehen** (SC-006, 2026-10-16): das FAQ-Schema der Startseite
+steht als eigener Block direkt hinter der sichtbaren FAQ (HOMEPAGE-CONTRACT §7, Budgetgrund); Prüfungen sammeln
+deshalb alle `application/ld+json`-Blöcke einer Seite (`e2e/seo-head.spec.ts`, `e2e/home-faq-seo-integration.spec.ts`).
+
 **S-13 · `CV < 2 %` bleibt über alle Kanäle konsistent** — Code, zehn Locales, Product-Schema und
 sichtbare PDFs. Keine Rückmigration auf `<5 %`. _(`DEC-RL-008`, AP14 PT14.4)_
 

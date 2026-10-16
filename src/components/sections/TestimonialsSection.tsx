@@ -13,6 +13,10 @@ const FEATURED_TESTIMONIAL_ID = 'bastian_wessing'
  * but does not carry equally strong release evidence for a new Trust surface.
  * The selected quote is reduced to its existing training/support statement and
  * therefore makes no treatment-outcome or comparative performance claim.
+ *
+ * SC-006 (2026-10-16): the figure enters on scroll, the quotation mark leads
+ * larger, the quote is balanced, the portrait sits on a paper-deep surface in
+ * a 1:2 split (`sm:grid-cols-3`) — no bespoke grid templates any more.
  */
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
@@ -31,12 +35,9 @@ const TestimonialsSection = () => {
       className="bg-paper pb-16 lg:pb-20"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
-        <div className="max-w-3xl">
+        <div className="rv max-w-3xl">
           <Eyebrow>{t('testimonials.caption')}</Eyebrow>
-          <h2
-            id="homepage-proof-title"
-            className="mt-3 text-balance text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading"
-          >
+          <h2 id="homepage-proof-title" className="mt-3 t-display">
             {t('testimonials.title')}
           </h2>
         </div>
@@ -44,7 +45,7 @@ const TestimonialsSection = () => {
         <figure
           data-testimonial-id={testimonial.id}
           data-claim-id="HCL-006"
-          className="mt-10 grid overflow-hidden rounded-band border border-paper-line bg-white text-heading shadow-card sm:grid-cols-[260px_minmax(0,1fr)] lg:grid-cols-[340px_minmax(0,1fr)]"
+          className="rv mt-10 grid overflow-hidden rounded-band border border-paper-line bg-white shadow-card sm:grid-cols-3"
         >
           {testimonial.avatar && (
             <img
@@ -54,12 +55,12 @@ const TestimonialsSection = () => {
               height={300}
               loading="lazy"
               decoding="async"
-              className="h-64 w-full object-cover sm:h-full"
+              className="h-64 w-full bg-paper-deep object-cover sm:h-full"
             />
           )}
-          <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-            <Quote className="h-7 w-7 text-accent" aria-hidden="true" />
-            <blockquote className="mt-4 text-xl font-medium leading-snug tracking-tight text-heading sm:text-2xl">
+          <div className="flex flex-col justify-center p-7 sm:col-span-2 sm:p-10 lg:p-12">
+            <Quote className="h-10 w-10 text-accent" aria-hidden="true" />
+            <blockquote className="mt-4 text-balance text-xl font-medium leading-snug tracking-tight text-heading sm:text-2xl">
               <p>„{t(`testimonials.${testimonial.id}.proof_text`)}“</p>
             </blockquote>
             <figcaption className="mt-7 border-t border-paper-line pt-5">

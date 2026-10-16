@@ -3,13 +3,15 @@ import { useTranslation } from 'react-i18next'
 import type { DiagnosticsHubService } from '../../data/diagnosticsHub'
 import { Card } from '../ui/Card'
 
+// SC-006 (Editorial Motion): dieselbe Hover-Antwort wie die Startseitenkarten —
+// Lift (Card mit `to`), Akzentrand, Kartenschatten, der Pfeil rutscht; Eintritt per `rv`.
 const priorityStyles = {
   PRIMARY: {
-    card: 'border-t-accent hover:border-accent/60 hover:shadow-card',
+    card: 'border-t-accent hover:border-accent-border hover:shadow-card',
     badge: 'bg-accent-soft text-accent-strong',
   },
   STANDARD: {
-    card: 'border-t-slate-300 hover:border-accent/50 hover:shadow-card',
+    card: 'border-t-slate-300 hover:border-accent-border hover:shadow-card',
     badge: 'bg-paper-deep text-gray-700',
   },
 } as const
@@ -36,7 +38,7 @@ export const DiagnosticsServiceCard = ({
       data-route-id={route.id}
       data-hub-priority={service.hubPriority}
       data-card-category={service.hubCategory}
-      className={`min-h-[280px] border-t-4 p-7 ${styles.card}`}
+      className={`rv min-h-[280px] border-t-4 p-7 ${styles.card}`}
     >
       <span
         className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-strong [&>svg]:h-6 [&>svg]:w-6"
@@ -53,7 +55,10 @@ export const DiagnosticsServiceCard = ({
       </p>
       <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
         {cta}
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-1"
+          aria-hidden="true"
+        />
       </span>
     </Card>
   )

@@ -131,9 +131,7 @@ const BefundOverview = ({ blocks, labels }: { blocks: Block[]; labels: Labels })
   return (
     <section className="border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-container px-4 py-14 lg:px-0 lg:py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-          {labels.caption}
-        </p>
+        <p className="t-eyebrow">{labels.caption}</p>
         <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading lg:text-3xl">
           {labels.title}
         </h2>

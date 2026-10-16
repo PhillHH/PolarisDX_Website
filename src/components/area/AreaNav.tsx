@@ -65,7 +65,7 @@ const AreaNav = ({ label, items, currentKey, actions }: AreaNavProps) => {
     <div
       ref={barRef}
       data-area-nav
-      className="sticky top-[68px] z-20 border-b border-paper-line bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 lg:top-[88px]"
+      className="sticky top-[68px] z-20 border-b border-paper-line bg-white/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/80 lg:top-[88px]"
     >
       <div className="mx-auto flex max-w-container items-center gap-4 lg:px-0">
         <nav aria-label={label} className="flex min-w-0 flex-1 items-center gap-4">

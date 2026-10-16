@@ -107,8 +107,6 @@ const S3LeitliniePage = () => {
       <div className="bg-paper">
         {/* Hero / Above the Fold */}
         <section className="relative overflow-hidden bg-brand-deep text-white">
-          <div className="absolute inset-0 z-0 bg-noise opacity-10 mix-blend-overlay pointer-events-none" />
-
           <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-[900px] mx-auto">
@@ -210,9 +208,7 @@ const S3LeitliniePage = () => {
 
                   {/* Evidence Box: 3 Kernempfehlungen */}
                   <div className="my-8 rounded-lg border-l-4 border-brand-primary bg-brand-primary/5 p-7">
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                      {t('s3_leitlinie.copy_066')}
-                    </p>
+                    <p className="mb-3 t-eyebrow">{t('s3_leitlinie.copy_066')}</p>
                     <ol className="space-y-3 text-[15px] leading-relaxed text-gray-700 list-decimal list-inside">
                       <li>
                         <strong>{t('s3_leitlinie.copy_067')}</strong> {t('s3_leitlinie.copy_068')}
@@ -396,9 +392,7 @@ const S3LeitliniePage = () => {
 
                   {/* DEQAS Metrics Box */}
                   <div className="my-6 rounded-lg border-l-4 border-success bg-success-soft/70 p-7">
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                      {t('s3_leitlinie.copy_118')}
-                    </p>
+                    <p className="mb-3 t-eyebrow">{t('s3_leitlinie.copy_118')}</p>
                     <div className="grid gap-4 sm:grid-cols-3">
                       <div className="text-center">
                         <p className="text-2xl font-semibold text-heading">#2</p>
@@ -445,9 +439,7 @@ const S3LeitliniePage = () => {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:w-3/5">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-                        {t('s3_leitlinie.copy_127')}
-                      </p>
+                      <p className="mb-2 t-eyebrow">{t('s3_leitlinie.copy_127')}</p>
                       <p className="mb-3 text-base font-medium text-heading">
                         {t('s3_leitlinie.copy_128')}
                       </p>
@@ -731,9 +723,7 @@ const S3LeitliniePage = () => {
                 <div className="rounded-xl bg-brand-deep p-5 text-white">
                   {/* AP24 PT24.6: `accent-strong` liegt auf Navy bei 2,36:1.
                       `accent-on-dark` ist genau fuer diese Flaeche da: 6,94:1. */}
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark">
-                    {t('s3_leitlinie.copy_177')}
-                  </p>
+                  <p className="mb-2 t-eyebrow-dark">{t('s3_leitlinie.copy_177')}</p>
                   <p className="mb-4 text-sm">{t('s3_leitlinie.copy_178')}</p>
                   <Link
                     to="/contact"
@@ -827,7 +817,7 @@ const S3LeitliniePage = () => {
       </div>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-lg border-t border-gray-200 bg-white p-4 lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 shadow-card border-t border-gray-200 bg-white p-4 lg:hidden">
         <Link
           to="/contact"
           className="flex w-full items-center justify-center gap-2 rounded-md bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white"

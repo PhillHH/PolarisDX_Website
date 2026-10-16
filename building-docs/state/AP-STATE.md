@@ -40,6 +40,13 @@ kein `work-packages/APxx-STATE.md`).
   SEO-Head, Header, Consent). Protokoll, Abweichungen und Folgearbeiten: `release/AP31-GO-LIVE.md` §7
   (SendGrid-Rotation OA-11, Port 5000 streichen, Alt-Images, `main` nachziehen, CTC-04, E2E-Drift).
   **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
+- **SC-006 „Editorial Motion“ (2026-10-16/17, Owner-Auftrag nach dem Go-live: „cooler, interaktiver, moderner,
+  eyecatchy ohne die CI zu brechen, konsistent“, nur Preview):** gemeinsame Bewegungs- und Flächensprache
+  (DESIGN-SYSTEM-CONTRACT §9.8) auf Startseite und allen Bühnen, Altlasten (Glas, neutrale Schatten, Teal-Halo)
+  entfernt, `Reveal` reines CSS, FAQ-Schema in den Body, Startseite mobil 15 025 → 13 532 px. Umsetzung in fünf
+  parallelen Agenten mit Skeptiker-Review (`scratchpad/design/agent-reports.json`), Doku: `SCOPE-CHANGELOG.md`
+  SC-006, `DECISIONS.md` OD-12, `DESIGN-SYSTEM-CHANGELOG.md`. Gates: Typecheck, ESLint, Prettier, Guards (`test:guards`) grün; Vitest 1 121/1 121; E2E Startseite/Navigation/SEO/Bühnen 131/131 (Produktionsbuild); Axe-Gate PT24.6 25/25 grün (alle öffentlichen Routen serious/critical 0, 17 dynamische Zustände, Kernrouten de/en/pl/fr, 390 px); Perf-Budget `check-budgets --profile ci` 852/852 gehalten — Initial-CSS 17 667 B gzip (Limit 17 858, Ausgang 17 672), Initial-JS 163 121 B gzip (Limit 164 778), `htmlBytes` Startseite de 34 228 / 34 712 B (vorher 34 658 — 484 B Luft statt 54), pl 34 542 / 35 013 B (vorher 23 B Luft), Service-Seite 30 926 / 31 025 B (99 B Luft wie vorher), LCP mobil Startseite 720 ms (vorher 816), Service-Seite 616 ms; alle Routen-JS-Budgets gehalten (Reveal als CSS). Gemessen und korrigiert auf dem Weg: Routen-Chunks wuchsen, als `Reveal` und `SectionHeader` aus dem Entry fielen (→ Reveal reines CSS, Artikelindex ohne SectionHeader); `enter` mit Deckkraft 0 kostete Text-LCP-Routen ~600 ms (→ nur Position); eine Pillen-Rolle kostete mehr CSS als sie HTML sparte (→ verworfen); `/de/articles` Aufmacherbild unter dem Falz (→ Unterseiten-Bühne mobil wieder kompakt); Axe meldete Zwischen-Deckkraft des Scroll-Eintritts als Kontrastfehler (→ `rv` ohne Deckkraft) und einen Altlast-Kontrast auf der Vitamin-D3-Seite, den der JS-Reveal vorher verdeckt hatte (→ `t-caption`). Visuelle Baselines PT27.6 15/21 neu, Design-System-Spec 4/35 neu, je zweiter Lauf grün.. Preview-Release:
+  <<SC006-RELEASE>>. **Produktion unverändert** bis zur Owner-Sichtprüfung der Preview.
 - ~~**AP30 Go/No-Go: weiter No-Go** bis SendGrid-Rotation (OA-11/OA-12) und HSTS; Early-Access-Rückbau
   und `./deploy.sh adopt` im Cutover.~~ → Owner-Go, siehe oben.
 

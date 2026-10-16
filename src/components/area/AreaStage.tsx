@@ -18,6 +18,11 @@ import { Breadcrumbs } from '../ui/Breadcrumbs'
  *
  * Reihenfolge im DOM wie auf der Startseite: Pfad → Kicker → H1 → Lead →
  * Aktionen → Zusatz (`children`, z. B. Schrittanzeige). Text vor Visual.
+ *
+ * SC-006 (Editorial Motion): `aurora` legt den langsam driftenden Akzent-
+ * Lichtschein auf die Flaeche — ein CSS-Verlauf, kein LCP-Kandidat (anders als
+ * Foto oder Punktring). `enter` staffelt Kicker, H1, Lead und Aktionen; der Pfad
+ * ist das erste Kind und bleibt ohne Eintritt.
  */
 export interface AreaStageProps {
   breadcrumbs: { label: string; href?: string }[]
@@ -45,31 +50,28 @@ const AreaStage = ({
   overlap = false,
   titleId = 'area-stage-title',
 }: AreaStageProps) => (
-  <section aria-labelledby={titleId} className="relative overflow-hidden bg-brand-deep text-white">
+  <section aria-labelledby={titleId} className="aurora bg-brand-deep text-white">
     <div
-      className={`relative mx-auto grid max-w-container gap-10 px-4 pt-28 sm:px-6 lg:px-0 lg:pt-32 ${
+      className={`mx-auto grid max-w-container gap-10 px-4 pt-28 sm:px-6 lg:px-0 lg:pt-32 ${
         overlap ? 'pb-24 lg:pb-28' : 'pb-14 lg:pb-20'
       } ${aside ? 'lg:grid-cols-2 lg:items-center' : ''}`}
     >
       <div className="min-w-0">
         <Breadcrumbs variant="dark" className="mb-8" items={breadcrumbs} />
-        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/25">
+        <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold ring-1 ring-inset ring-white/25">
           <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
           {eyebrow}
         </p>
-        <h1
-          id={titleId}
-          className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white"
-        >
+        <h1 id={titleId} className="enter mt-6 max-w-3xl t-stage-h1">
           {title}
         </h1>
         {lead ? (
-          <div className="mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85 lg:text-xl lg:leading-relaxed">
+          <div className="enter mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85 lg:text-xl lg:leading-relaxed">
             {lead}
           </div>
         ) : null}
         {actions ? (
-          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+          <div className="enter mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
             {actions}
           </div>
         ) : null}

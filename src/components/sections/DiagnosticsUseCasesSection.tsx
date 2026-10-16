@@ -38,7 +38,7 @@ const DiagnosticsUseCasesSection = () => {
                 className="flex min-h-[250px] flex-col rounded-card border border-paper-line bg-paper p-6"
               >
                 <span
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-accent shadow-sm [&>svg]:h-5 [&>svg]:w-5"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white text-accent shadow-card [&>svg]:h-5 [&>svg]:w-5"
                   aria-hidden="true"
                 >
                   {entry.service.icon}

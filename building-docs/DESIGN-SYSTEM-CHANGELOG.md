@@ -27,6 +27,57 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — SC-006 · „Editorial Motion“: lebendige Flächen, Zeiger-Spot, Scroll-Eintritte, mobile Schnapp-Reihen; Altlasten entfernt (Design-Delta + Typo-Rollen, kein Vertragsbruch)
+
+- **Ursache:** Owner-Auftrag 2026-10-16 nach dem Go-live (`SCOPE-CHANGELOG.md` SC-006): „Verbessere das
+  Design maximal mobil und Desktop … cooler, etwas interaktiver und noch moderner, eyecatchy ohne die CI zu
+  brechen … und konsistent“, Ausrollen nur auf die Preview. Sichtprüfung des Live-Stands: kaum Bewegung,
+  Flächen ohne Tiefe, Startseite mobil ≈ 15 000 px, FAQ zentriert als einzige Sektion, Reste älterer Stände
+  (Glas-Karte, neutrale Schatten, Teal-Halo im Dialog).
+- **Neue Typo-Rollen (SURFACE:typography):** `t-display` (Sektionstitel: `text-balance
+text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-heading`, ersetzt
+  dieselbe Kette an sechs Stellen), `t-eyebrow` und `t-eyebrow-dark` (ersetzen die Eyebrow-Kette an 43 + 9
+  Inline-Stellen; `EYEBROW_LIGHT`/`EYEBROW_DARK` liefern jetzt diese Rollen). Rein additiv, visuell identisch;
+  Grund ist das `htmlBytes`-Budget (CSS liegt inline im HTML, jede Wiederholung zählt). Dazu `t-stage-h1`
+  (H1 der vier Navy-Bühnen `DiagnosticsHero`, `IglooProHero`, `AreaStage`, `SubpageHero`) — die Service-Seite
+  lag nach der Integration 18 B über ihrem `htmlBytes`-Limit. Eine Pillen-Rolle wurde gemessen und verworfen:
+  Ring-Utilities per `@apply` kosteten mehr CSS (auf jeder Seite inline) als die Kette im HTML spart.
+- **`Reveal` ist reines CSS:** die JS-Einblendung (IntersectionObserver, Inline-Transition) wich der Klasse
+  `rv`; API (`width`, `delay`, `duration`, `yOffset`, `REVEAL_STAGGER`) bleibt, die Zeitwerte sind
+  wirkungslos. Grund: ohne die Startseiten-Hüllen wanderte `Reveal` aus dem Entry in die Routen-Chunks
+  (+0,3–0,8 KB gzip je Route, sieben `routeJsGzip`-Budgets rot); als CSS kostet er nichts und bewegt sich
+  wie der Rest der Seite. `enter` bewegt nur die Position (kein Deckkraft-Start bei 0): sonst zählt Chrome
+  H1/Lead nicht als LCP-Kandidaten (gemessen +600 ms auf Text-LCP-Routen).
+- **Gemeinsame Bewegungs- und Flächenbausteine** (`src/index.css`, Abschnitt „Editorial Motion“;
+  DESIGN-SYSTEM-CONTRACT §9.8): `.aurora` (Akzent-Lichtschein auf Navy aus `theme(colors.accent … / 45 %)` und
+  `accent.line / 28 %`, driftet 16 s), `.spot` + `data-spot` (Lichtpunkt unter dem Zeiger, Position per
+  `useSpotlight()` aus `src/lib/spotlight.ts` als `--mx/--my` über das CSSOM — kein Inline-Style-Attribut),
+  `.rv`/`.rv-rail`/`.rv-rail-y` (Eintritt — 24 px Versatz ohne Deckkraft — bzw. Linienzug mit
+  `animation-timeline: view()`, hinter `@supports`; Deckkraft bleibt 1, weil axe Zwischen-Deckkraft als
+  Kontrastfehler wertet und große Textblöcke sonst lange blass blieben), `.enter` (gestaffelter Sofort-Eintritt, 0,7 s, Geschwister +0,1 s), `.rail-x` (unter 768 px
+  Schnapp-Reihe mit `scroll-snap`, Karten 84 %, aktive Karte per `view(inline)` groß), `.faq-panel`,
+  `.float-slow` (ersetzt `hero-float`/`hero-float-2`; nie auf Elementen, die Tests oder Nutzer anfassen —
+  Playwright wartet auf einen stabilen Rahmen, der Hero-Produktkarte wurde das Schweben wieder genommen).
+  Gemessen und wieder gestrichen: ein zweiter Lichtfleck je `aurora`, die Skalierung der aktiven Karte in der
+  Schnapp-Reihe (verschob die Schnapp-Position) und ein Lesefortschritt unter der Kopfzeile — zusammen ~120 B
+  gzip CSS auf jeder Seite, die die Service-Seite nicht hatte. Alles in `@media (prefers-reduced-motion: no-preference)`; das Sicherheitsnetz (§9.1) bleibt.
+- **Shell:** Kopfzeile gescrollt kompakter (Innenabstand, Logo 32/36 px), leicht durchscheinend
+  (`bg-brand-deep/90 backdrop-blur-sm`), Schatten `shadow-dialog` statt `shadow-[0_4px_30px_rgba(0,0,0,0.25)]`.
+  `Button` primary/secondary/light heben sich beim Zeigen 2 px (`motion-reduce:hover:translate-y-0`).
+- **Startseite (Sektionen):** Startseite: Hero mit Lichtschein auf der Bühne, gestaffeltem Eintritt von Pille/H1/Lead/CTA (`enter`), schwebender Produktkarte (`float-slow`) und Pfeilkreis, der beim Zeigen nach rechts rückt; mobil kompakte Produktkarte (80-px-Render) und einzeilige Caption-Pille, Bühne 54 px kürzer. Trust-Leiste unverändert als Scharnier. Säulen: Lichtpunkt unter dem Zeiger (`spot`), Lift, Akzentrand, Bildzoom, schwebendes Explosions-Render, Musterbefund wächst beim Hover; unter 768 px eine Schnapp-Reihe (`rail-x`, Sektion mobil 3 007 → 2 074 px); Fachbereich-Zeilen mit gefüllter Pfeilkachel. Shop-Band mit Live-Punkt und rutschendem Pfeil. Warum POC: drei Signale auf eigenen Haarlinien, mobil Icon-Kachel neben dem Titel; Praxis-Karte mit Akzentrand, Patienten-Karte mit Lichtschein. Ablauf: unter `lg` senkrechte Zeitleiste (Kachel links, Text rechts, Cyan-Linie), ab `lg` drei Spalten mit Haarlinie, die sich beim Scrollen zeichnet (`rv-rail`). Referenz: größeres Anführungszeichen, Portrait auf Papierfläche, Aufteilung 1:2. ROI: Eingaben auch mobil zweispaltig (Sektion −300 px), Ergebniskarte mit Lichtschein, Kennzahl tritt bei jeder Eingabe neu ein. Wissen: Bildzoom, Handlungslink schließt die Leseliste ab. FAQ: Kopf linksbündig im Seitenraster, dekorative Nummern 01–04 außerhalb des Buttons (`aria-hidden`), Chevron in `icon-tile` (offen Navy), Antwort klappt weich auf (`faq-panel`), Fußzeile „Noch Fragen?“ nach dem Akkordeon. Startseite mobil 15 025 → 13 532 px.
+- **Unterseiten (Konsistenz):** Diagnostik-, IglooPro-, Bereichs- (`AreaStage`, ohne Bild) und Unterseiten-Bühne (`SubpageHero`) tragen `aurora` und den gestaffelten Texteintritt, Pfeilkreis-CTAs rücken beim Zeigen; `SubpageHero` folgt der Rhythmik der Bereichsbühnen (Pfad, H1, Lead, Aktionen), Pillen mit Lift; Final-CTA tritt als ein Block ein; Diagnostik-Karten, `BlogCard` (ohne Aufrufer) und „Nächster Schritt“-Karten mit Lift, Akzentrand, Bildzoom und rutschendem Pfeil; `ServiceCard` im Kartenrezept statt Glas. Kopfzeile seitenweit kompakt beim Scrollen mit Lesefortschritt.
+- **Entfernt / vereinheitlicht (Gegenfinanzierung, −2,3 KB CSS roh):** `.glass-panel`/`.glass-panel-dark`
+  (letzte Nutzung `ServiceCard` → Kartenrezept `rounded-card border-paper-line bg-white shadow-card`),
+  `.bg-noise` (eine dekorative Schicht auf der S3-Leitlinien-Bühne; das Papierkorn liegt weiter auf `body`),
+  Teal-Halo des `modal-card-in` (drei Box-Shadow-Stufen aus der Teal-Zeit; Ruheschatten ist `shadow-dialog`
+  an der Karte), neutrale Schatten `shadow`/`shadow-sm`/`shadow-lg` → `shadow-card`, `shadow-xl`/`shadow-2xl`
+  → `shadow-dialog`, `shadow-inner` entfällt; `backdrop-blur`/`-md`/`-xl` → `backdrop-blur-sm`. Die
+  `<Reveal>`-Hüllen der Startseite (drei Doppel-Divs mit Inline-Style) entfallen; `Reveal` bleibt für die
+  übrigen Seiten. FAQ-Schema der Startseite steht im Body hinter der FAQ (HOMEPAGE-CONTRACT §7, −508 B gzip).
+- **Gates:** Typecheck, ESLint, Prettier, Guards (`test:guards`) grün; Vitest 1 121/1 121; E2E Startseite/Navigation/SEO/Bühnen 131/131 (Produktionsbuild); Axe-Gate PT24.6 25/25 grün (alle öffentlichen Routen serious/critical 0, 17 dynamische Zustände, Kernrouten de/en/pl/fr, 390 px); Perf-Budget `check-budgets --profile ci` 852/852 gehalten — Initial-CSS 17 667 B gzip (Limit 17 858, Ausgang 17 672), Initial-JS 163 121 B gzip (Limit 164 778), `htmlBytes` Startseite de 34 228 / 34 712 B (vorher 34 658 — 484 B Luft statt 54), pl 34 542 / 35 013 B (vorher 23 B Luft), Service-Seite 30 926 / 31 025 B (99 B Luft wie vorher), LCP mobil Startseite 720 ms (vorher 816), Service-Seite 616 ms; alle Routen-JS-Budgets gehalten (Reveal als CSS). Gemessen und korrigiert auf dem Weg: Routen-Chunks wuchsen, als `Reveal` und `SectionHeader` aus dem Entry fielen (→ Reveal reines CSS, Artikelindex ohne SectionHeader); `enter` mit Deckkraft 0 kostete Text-LCP-Routen ~600 ms (→ nur Position); eine Pillen-Rolle kostete mehr CSS als sie HTML sparte (→ verworfen); `/de/articles` Aufmacherbild unter dem Falz (→ Unterseiten-Bühne mobil wieder kompakt); Axe meldete Zwischen-Deckkraft des Scroll-Eintritts als Kontrastfehler (→ `rv` ohne Deckkraft) und einen Altlast-Kontrast auf der Vitamin-D3-Seite, den der JS-Reveal vorher verdeckt hatte (→ `t-caption`). Visuelle Baselines PT27.6 15/21 neu, Design-System-Spec 4/35 neu, je zweiter Lauf grün.
+- **Baselines:** PT27.6 (15 von 21 Bildern neu, im Image `mcr.microsoft.com/playwright:v1.57.0-noble`, zweiter Lauf ohne Update 21/21 grün): `contact-desktop`, `cookie-banner-desktop`, `diagnostics-hub-desktop`, `diagnostics-megamenu-open-desktop`, `epigenetics-hub-desktop`, `epigenetics-panel-desktop`, `home-desktop`, `home-mobile`, `igloo-pro-desktop`, `legal-privacy-desktop`, `navigation-open-mobile`, `resource-center-desktop`, `resource-gate-open-desktop`, `service-detail-desktop`, `support-desktop`. Design-System-Spec (4 von 35 neu, zweiter Lauf 35/35 grün): `final-cta-articles-desktop`, `final-cta-articles-mobile`, `longform-service-desktop`, `longform-service-mobile`. Ursache überall: SC-006-Flächen (Lichtschein auf Navy, kompakte Kopfzeile bei Scroll, FAQ-Nummern, Unterseiten-Bühne, Kartenrezept statt Glas); unveränderte Bilder blieben byteidentisch.
+- **Reviewer:** Owner-Sichtprüfung auf der Preview offen; technischer Reviewer: Claude (Agenten-Review je Sektion).
+
 ### 2026-10-16 — SC-005 · Startseite als Agentur-Komposition: lockerer Mix statt Fotoreihen (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Auftrag 2026-10-16 (`SCOPE-CHANGELOG.md` SC-005): „Geh mal als Agentur, der
@@ -508,9 +559,10 @@ Diese Blöcke werden vom Gate gelesen. **Nicht von Hand kürzen** — sie sind d
 
 <!-- SURFACE:typography -->
 
-`t-body` · `t-body-on-dark` · `t-caption` · `t-error` · `t-h1` · `t-h2` · `t-h2-section` ·
-`t-h2-sub` · `t-h3` · `t-h4` · `t-h5` · `t-h6` · `t-helper` · `t-label` · `t-lead` ·
-`t-lead-on-dark` · `t-link` · `t-link-cta` · `t-small`
+`t-body` · `t-body-on-dark` · `t-caption` · `t-display` · `t-error` · `t-eyebrow` ·
+`t-eyebrow-dark` · `t-h1` · `t-h2` · `t-h2-section` · `t-h2-sub` · `t-h3` · `t-h4` · `t-h5` ·
+`t-h6` · `t-helper` · `t-label` · `t-lead` · `t-lead-on-dark` · `t-link` · `t-link-cta` ·
+`t-small` · `t-stage-h1`
 
 <!-- /SURFACE:typography -->
 

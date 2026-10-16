@@ -6,14 +6,15 @@
  * frueheren Varianten nicht (text-accent auf Weiss 3,6:1, text-accent-line
  * 2,5:1, text-gray-400 2,4:1).
  *
- * Karten-Labels und Meta-Angaben nutzen bewusst NICHT diesen Stil, sondern
- * eine ruhige Form ohne Versalien und Sperrung. Nur so bleibt die Eyebrow ein
- * Hierarchie-Signal — max. eine je Sektion.
+ * Die SEKTIONS-Eyebrow bleibt ein Hierarchie-Signal — hoechstens eine je Sektion.
+ * Versale Karten-Labels (Nutzen-Karten, Artikel-Kicker, Produktkarte) tragen seit
+ * SC-006 dieselbe Rolle `t-eyebrow`/`t-eyebrow-dark` statt eigener Klassenketten;
+ * Meta-Angaben (Datum, Rolle, Bildunterschrift) bleiben ruhig ohne Versalien.
  */
 import type { ReactNode } from 'react'
 
-export const EYEBROW_LIGHT = 'text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong'
-export const EYEBROW_DARK = 'text-xs font-semibold uppercase tracking-[0.16em] text-accent-on-dark'
+export const EYEBROW_LIGHT = 't-eyebrow'
+export const EYEBROW_DARK = 't-eyebrow-dark'
 
 type EyebrowProps = {
   children: ReactNode

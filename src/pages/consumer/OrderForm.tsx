@@ -113,9 +113,7 @@ function Field({
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="mt-7 mb-4 first:mt-0">
-      <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong">
-        {children}
-      </span>
+      <span className="inline-block t-eyebrow">{children}</span>
       <span aria-hidden className="ml-3 inline-block h-px w-8 align-middle bg-accent-border" />
     </div>
   )
