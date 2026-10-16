@@ -55,7 +55,7 @@ The known internal-ID legacy source `/de/articles/green_practice` remains a serv
 - Real title and teaser copy come from the active locale. Author and a machine-readable `time`
   element are rendered because those values exist; absent reviewer/modified metadata creates no
   empty slot.
-- Four repository-backed images render with fixed intrinsic dimensions, `loading="lazy"` and
+- Repository-backed images (three since 2026-10-16) render with fixed intrinsic dimensions, `loading="lazy"` and
   `decoding="async"`. They are decorative within already named links and therefore use empty alt.
   The image-free records use a decorative category icon rather than a fake image.
 - **2026-10-16 (AP29 PT29.4, aus `main` 6908b61):** `green_practice` ist bildlos (das frühere Bild
