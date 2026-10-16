@@ -28,11 +28,20 @@ Crawl-Fixes F4/F6/F7, Mega-Menü-Fix und neuen Baselines) neu gemessen:
 
 | Feld       | Wert                                                                                                                                                                       |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Commit     | `f7b5db3` (Preview-Release `f7b5db3e2433`); vorher `b8b7c32`, der diese Unterlage einführte                                                                                |
+| Commit     | `e5dbb3b` (Preview-Release `e5dbb3bf4345`, Bildwelt 2); davor `b8f8644`, `62a4e0e`, `08ee1c9`, `f7b5db3`; `b8b7c32` führte diese Unterlage ein                             |
 | Artefakte  | `polarisdx-frontend:<sha12>`, `polarisdx-backend:<sha12>` aus `./deploy.sh build` (OCI-Label `revision`)                                                                   |
 | Läuft auf  | `preview.polarisdx.net` als Compose-Projekt `polarisdx-preview` (Release-Historie `.deploy/preview/releases`)                                                              |
 | Produktion | **unverändert** (`main`, Projekt `01polaris`) — Wechsel nur mit Owner-Go über AP31                                                                                         |
 | Changelog  | Commits seit `780ca0f`: AP34 PT34.1–34.4, AP28, AP29 PT29.1–29.4, AP33, AP30-Funde, Owner-Entscheidungen SC-004 (`f7b5db3`); Design-Deltas in `DESIGN-SYSTEM-CHANGELOG.md` |
+
+### Nachtrag 2026-10-16 (später) — Bildwelt 2 auf der Preview
+
+Release `e5dbb3bf4345` ersetzt alle Praxisfotos durch KI-generierte Szenen (Google Gemini, warm,
+lebendig, zwei Motive mit dem IglooPro in echter Größe; Details im DESIGN-SYSTEM-CHANGELOG
+„Bildwelt 2"). Gates unverändert grün: Budgets 852/852, Visual 21/21 und 35/35, URL-Smoke 56/56,
+Vitest 1121, `check:*`. **Owner-Punkt „Unsplash-Herkunft bestätigen" entfällt**; neu offen:
+Sichtprüfung der Bildwelt auf der Preview und Legal-Blick auf Impressum §8 Zeile 2 (KI-Hinweis).
+Gemini-Schlüssel nach Abschluss rotieren (liegt nur in `~/.config/polaris/gemini.env`).
 
 ## 2. PT30.1 Functional QA
 
