@@ -100,6 +100,26 @@ understand → choose an analysis → view a sample report → enquire.
 - Exactly one hub link carries `source=epigenetics`. Further enquiry entry points jump to `#inquiry`.
 - Deepening pages keep exactly one visible `campaign=<page>` enquiry link (stage). The area bar, page end and mobile bar use the campaign marks `<page>-leiste`, `<page>-ende` and `<page>-mobil`.
 
+**SC-004 (owner decision O3, 2026-10-16) — ndu Clinic as the route for individuals.** The contact
+chapter (`#inquiry`) names one user practice directly after the two direct contact actions and
+before `contact.note`:
+
+- Card „Test machen lassen / ndu Clinic · London" (`contact.partnerCaption`, `partnerTitle`,
+  `partnerText`, `partnerMeta`, `partnerCta`, `partnerNewTab`; 10 locales, de/en from
+  `main@41e158b`, the other eight newly translated). Address line: 22 Harley Street, London W1G 9PL ·
+  Dr. Goran D. Stojanovic.
+- Outline button „Zur ndu Clinic" → `https://www.nduclinic.com/`, `target="_blank"`,
+  `rel="noopener noreferrer"`, arrow icon plus `sr-only` new-tab notice, 44-px target. The quote
+  request stays the strongest action of the chapter.
+- Tracking: no `epigenetics_partner` event (the `main` variant); `nduclinic.com` is in
+  `OUTBOUND_DOMAINS`, so clicks count as `outbound_click` after consent.
+- The ndu Clinic is a **user practice** where individuals can have the six analyses done, **not a
+  laboratory partner**. `contact.sub` („ausschließlich an Fachanwenderinnen und Fachanwender") stays
+  unchanged: PolarisDX supplies professionals; individuals are referred to the practice. The owner
+  confirmed this coexistence on 2026-10-16.
+- Direct phone number in the chapter: `+49 151 75011699` (one number site-wide, SC-004); the former
+  `+49 152 2858 0999` is removed from the hub and from all 60 sample-report JSONs.
+
 ## 5. Diagnostics crosslinks and Search
 
 - Diagnostics uses Registry target `epigenetics` as an explicitly separated context link, never as
@@ -271,6 +291,7 @@ another SSOT.
 | Diagnosis / treatment | Consultation and monitoring are separated from clinical diagnosis; no diagnosis, treatment, cure, prevention or outcome guarantee pattern is active                                       | 10/10 + 60/60   | PASS   |
 | CE / IVDR             | The copy assigns no CE/IVDR status to the laboratory service; it expressly distinguishes the service from CE-marked IVD products                                                          | 10/10 + 60/60   | PASS   |
 | Laboratory partner    | No external laboratory partner is named; `Kooperationspartner` remains neutral. Polaris Diagnostics Europe GmbH is identified only for distribution/support in report legal copy          | 10/10           | PASS   |
+| User practice         | SC-004: exactly one named user practice, ndu Clinic London (22 Harley Street, Dr. Goran D. Stojanovic), as the route for individuals; it is not presented as the laboratory               | 10/10           | PASS   |
 | Price                 | No currency amount or public price is present; only truthful B2B terms on request remain                                                                                                  | 10/10           | PASS   |
 | Turnaround            | No report-delivery/turnaround duration is present. Follow-up measurement intervals are not represented as service turnaround                                                              | 10/10           | PASS   |
 | Schema                | Hub uses visible `BreadcrumbList`/`FAQPage`, deep pages `BreadcrumbList`, sample reports `Article`/`BreadcrumbList`; no Product, Offer, MedicalTest, MedicalCondition or commercial field | 10/10 SSR       | PASS   |

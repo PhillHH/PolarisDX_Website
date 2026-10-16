@@ -32,23 +32,23 @@ Praktische Folgerungen:
 
 ## DECISION LOCKS — DEC-RL-001 bis DEC-RL-015
 
-| ID             | Verbindliche Entscheidung                                                                                                                                         |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DEC-RL-001** | Alle 10 Sprachen (`de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`) werden vollständig unterstützt; kein dauerhafter EN-Fallback für relevante Inhalte. |
-| **DEC-RL-002** | **Sales-Machine** aus `feat/home-leadmagnet` ist die Art Direction. `redesign/preview` liefert nur art-direction-neutrale Technik/QA-Patterns.                    |
-| **DEC-RL-003** | Main-Site bleibt **Light**; keine Dark-Theme-Arbeit.                                                                                                              |
-| **DEC-RL-004** | GTM/GA4 bleiben, aber ausschließlich nach wirksamem Consent; kein Tracking und kein Event-Puffern vor Consent.                                                    |
-| **DEC-RL-005** | Epigenetik ist eine **eigenständige Geschäftssäule** mit eigener IA, Navigation, Homepage-Rolle und Lead Journey.                                                 |
-| **DEC-RL-006** | Consumer-Landingpages bleiben öffentlich **indexierbar** und werden als vollwertige SEO-Seiten betrieben.                                                         |
-| **DEC-RL-007** | **Kein Chat** im Relaunch; HiHuman, Chat-Loader, `/api/chat`-Mock und zugehörige produktive Reste werden entfernt.                                                |
-| **DEC-RL-008** | IglooPro-Claim **`CV < 2 %`** bleibt bestehen; Produkt-/Content-Entscheidung, keine unabhängige wissenschaftliche Validierung durch das Repo.                     |
-| **DEC-RL-009** | Leads werden **persistent verarbeitet und an ein CRM übergeben**; Mail-only ist nicht das Zielmodell.                                                             |
-| **DEC-RL-010** | Formale Content-Governance ist **Backlog**, nicht Launch-Scope.                                                                                                   |
-| **DEC-RL-011** | Epigenetik erhält eine **eigene Inquiry-/Lead-Strecke** mit eigener Backend-/CRM-Zuordnung.                                                                       |
-| **DEC-RL-012** | Das site-weite Band mit „garantierte Performance" wird **nicht** in den Relaunch übernommen und nicht ersetzt.                                                    |
-| **DEC-RL-013** | Standard-CTA des allgemeinen Anfragewegs: **„Angebot anfragen"**, lokalisiert in allen 10 Sprachen.                                                               |
-| **DEC-RL-014** | Zusätzlich zur direkten Anfrage gibt es mindestens einen **gated Lead-Magnet-/Secondary-Conversion-Pfad**.                                                        |
-| **DEC-RL-015** | Deal/Voucher/Case Studies/Shop sind bewusst vertagt und gehören in den Backlog.                                                                                   |
+| ID             | Verbindliche Entscheidung                                                                                                                                                                                                                                                         |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DEC-RL-001** | Alle 10 Sprachen (`de`, `en`, `pl`, `fr`, `it`, `es`, `pt`, `da`, `nl`, `cs`) werden vollständig unterstützt; kein dauerhafter EN-Fallback für relevante Inhalte.                                                                                                                 |
+| **DEC-RL-002** | **Sales-Machine** aus `feat/home-leadmagnet` ist die Art Direction. `redesign/preview` liefert nur art-direction-neutrale Technik/QA-Patterns.                                                                                                                                    |
+| **DEC-RL-003** | Main-Site bleibt **Light**; keine Dark-Theme-Arbeit.                                                                                                                                                                                                                              |
+| **DEC-RL-004** | GTM/GA4 bleiben, aber ausschließlich nach wirksamem Consent; kein Tracking und kein Event-Puffern vor Consent.                                                                                                                                                                    |
+| **DEC-RL-005** | Epigenetik ist eine **eigenständige Geschäftssäule** mit eigener IA, Navigation, Homepage-Rolle und Lead Journey.                                                                                                                                                                 |
+| **DEC-RL-006** | Consumer-Landingpages bleiben öffentlich **indexierbar** und werden als vollwertige SEO-Seiten betrieben.                                                                                                                                                                         |
+| **DEC-RL-007** | **Kein Chat** im Relaunch; HiHuman, Chat-Loader, `/api/chat`-Mock und zugehörige produktive Reste werden entfernt.                                                                                                                                                                |
+| **DEC-RL-008** | IglooPro-Claim **`CV < 2 %`** bleibt bestehen; Produkt-/Content-Entscheidung, keine unabhängige wissenschaftliche Validierung durch das Repo.                                                                                                                                     |
+| **DEC-RL-009** | Leads werden **persistent verarbeitet und an ein CRM übergeben**; Mail-only ist nicht das Zielmodell.                                                                                                                                                                             |
+| **DEC-RL-010** | Formale Content-Governance ist **Backlog**, nicht Launch-Scope.                                                                                                                                                                                                                   |
+| **DEC-RL-011** | Epigenetik erhält eine **eigene Inquiry-/Lead-Strecke** mit eigener Backend-/CRM-Zuordnung.                                                                                                                                                                                       |
+| **DEC-RL-012** | Das site-weite Band mit „garantierte Performance" wird **nicht** in den Relaunch übernommen und nicht ersetzt.                                                                                                                                                                    |
+| **DEC-RL-013** | Standard-CTA des allgemeinen Anfragewegs: **„Angebot anfragen"**, lokalisiert in allen 10 Sprachen.                                                                                                                                                                               |
+| **DEC-RL-014** | Zusätzlich zur direkten Anfrage gibt es mindestens einen **gated Lead-Magnet-/Secondary-Conversion-Pfad**.                                                                                                                                                                        |
+| **DEC-RL-015** | Deal/Voucher/Case Studies sind bewusst vertagt und gehören in den Backlog. Shop: kein Shop **auf** der Website (`/shop` bleibt `INTENTIONAL_404`); der externe Shopify-Shop `shop.polarisdx.net` wird verlinkt (Kopfzeile, Startseiten-Band) — geändert durch SC-004, 2026-10-16. |
 
 ---
 
@@ -81,7 +81,7 @@ Praktische Folgerungen:
 
 - formale Content-Owner-/Review-/Freshness-/medizinische Freigabe-Governance;
 - CMS-Pipeline-Governance;
-- Deal/Voucher/Case Studies/Shop;
+- Deal/Voucher/Case Studies/Shop (Shop: nur ein eigener Shop auf der Website; der Verweis auf `shop.polarisdx.net` ist seit SC-004 Launch-Scope);
 - tote/unschädliche Legacy-Artefakte, sofern sie Launch, Security, Build oder Imports nicht beeinflussen.
 
 Diese Punkte sind **nicht** Teil des Relaunch-Scope. Ein Agent, der auf sie stößt, dokumentiert sie und arbeitet weiter — er baut sie nicht.

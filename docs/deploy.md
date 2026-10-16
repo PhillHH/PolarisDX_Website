@@ -20,7 +20,8 @@ Dieses Runbook ist der **einzige** produktive Zielpfad (DEP-02). Archivierte Alt
 - Der Host-nginx ist die öffentliche Grenze (TLS, HSTS, `X-Robots-Tag` der Preview). Die Container
   hören nur auf `127.0.0.1`.
 - Der API-Port der Produktion ist veröffentlicht, weil der Host-nginx `/api/early-access` direkt an
-  `127.0.0.1:5000` gibt (Early-Access-Seiten liegen außerhalb dieses Repos). Ohne diesen Eintrag
+  `127.0.0.1:5000` gibt (Early-Access-Seiten liegen außerhalb dieses Repos). Early-Access ist seit
+  2026-10-16 stillgelegt (Owner, SC-004); sobald der nginx-Eintrag beim Cutover entfernt ist (§3),
   entfällt der Port (M-09).
 - `server/.env*` ist nicht versioniert. `server/.env.preview` enthält **keinen** produktiven
   SendGrid-Schlüssel; ein Schlüssel dort bliebe trotzdem wirkungslos, weil `APP_ENV=preview` den
@@ -92,9 +93,32 @@ damit ein Rollback dorthin möglich ist:
 
 **Achtung, Livegang-Blocker:** Das Produktions-Backend auf `main` bindet zusätzlich
 `/var/lib/polaris-early` und `/var/lib/polaris-events` ein (Early-Access- und Event-Anmeldungen) und
-beantwortet `POST /api/early-access`. Der Relaunch-Stand kennt beides noch nicht. Siehe
-`building-docs/migration/MAIN-DELTA-2026-10.md`. Vor dem Cutover muss das übernommen oder bewusst
-abgelöst sein (AP29/AP31).
+beantwortet `POST /api/early-access`. Der Relaunch-Stand kennt beides nicht. Siehe
+`building-docs/migration/MAIN-DELTA-2026-10.md`. **Entschieden am 2026-10-16 (Owner, SC-004):
+Early-Access wird stillgelegt** (O2, Option A); im Relaunch ist `/early` eine 404.
+
+#### Cutover-Checkliste Early-Access (vor dem ersten `up`, Operator)
+
+Noch **nicht** ausgeführt. Reihenfolge einhalten:
+
+1. Den Produktions-vhost (`sites-enabled/polarisdx.net`) vorher kopieren, damit der Rückbau
+   umkehrbar ist.
+2. Im 443-Block von `polarisdx.net` entfernen:
+   - die `/early`- und `/<lang>/early`-Locations (11 Stück,
+     `alias /home/phillip/01polaris/public/early/index.html`),
+   - `location /early-assets/` (`alias /home/phillip/01polaris/public/early-assets/`),
+   - die `/api/early-access`-Location(en) mit `proxy_pass` auf `127.0.0.1:5000`, einschließlich der
+     Sperre für `/api/early-access/stats`.
+3. `nginx -t`, dann nginx neu laden.
+4. Nach dem Relaunch-`up` prüfen: `curl -sI https://polarisdx.net/early` liefert 404, und
+   `/api/early-access` wird nicht mehr direkt an `127.0.0.1:5000` gegeben.
+5. Erst danach die Publikation `127.0.0.1:5000` aus `docker-compose.yml` streichen (eigener Commit,
+   DD-15/M-09).
+6. **Daten nicht löschen:** `/var/lib/polaris-early/signups.jsonl` (personenbezogen) und
+   `/var/lib/polaris-events` bleiben auf dem Host. Das Relaunch-Compose bindet sie nicht ein.
+   Aufbewahrung/Löschung entscheidet der Owner mit dem Datenschutzbeauftragten (Vorschlag: Löschung
+   nach dokumentiertem Export; Frist **offen**).
+7. Danach `./deploy.sh adopt <name>` und das erste `./deploy.sh up <release>`.
 
 ## 4. Sicherung und Wiederherstellung (PT28.5)
 
@@ -119,9 +143,9 @@ abgelöst sein (AP29/AP31).
   (Rechte `700`). Für die Produktion empfohlen: täglich per cron, z. B.
   `15 3 * * * cd /home/phillip/01polaris && ./deploy.sh backup >> .deploy/backup.log 2>&1`.
   Eine Kopie außerhalb des Servers ist eine Betreiberentscheidung (Owner).
-- **RPO/RTO** (DEP-19, Vorschlag zur Owner-Bestätigung): RPO 24 h bei täglicher Sicherung (jede
-  Anfrage geht zusätzlich als Mail ans Team und ist darüber rekonstruierbar), RTO 30 min
-  (Restore + Health-Gate).
+- **RPO/RTO** (DEP-19, **vom Owner am 2026-10-16 bestätigt**, SC-004): RPO 24 h bei täglicher
+  Sicherung (jede Anfrage geht zusätzlich als Mail ans Team und ist darüber rekonstruierbar), RTO
+  30 min (Restore + Health-Gate). Voraussetzung ist der tägliche cron-Eintrag oben.
 
 ## 5. Betriebssignale (PT28.6)
 

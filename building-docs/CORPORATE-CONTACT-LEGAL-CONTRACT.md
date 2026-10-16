@@ -80,6 +80,18 @@
   `structuredData.organizationSchema`, Kontaktseite,
   `contact.json` locales, `legal.json` Imprint). Team: 4 reale Personen mit Fotos/
   E-Mail/LinkedIn (`about.json` `team`, `TeamSection`).
+- **Telefon (SC-004, Owner 2026-10-16):** site-weit genau **eine** Nummer, `+49 151 75011699`
+  (`tel:+4915175011699`), wie `main@475fefd`. Die frühere Epigenetik-Nummer `+49 152 2858 0999`
+  ist aus dem Epigenetik-Hub, den 60 Musterbefund-JSONs (`src/content/befunde/*.json`) und
+  `email/s3-leitlinie.html` entfernt.
+- **Musterbefunde, Rubrik „Vertrieb" (SC-004, O4):** Polaris Diagnostics Europe GmbH,
+  Willy-Brandt-Straße 49, 20457 Hamburg; die Kontakt-Rubrik nennt `+49 151 75011699` — in allen
+  60 JSONs (6 Befunde × 10 Sprachen).
+- **Offen — Dokumentstand der PDFs:** `public/downloads/epigenetics/{de,en}/*.pdf` und
+  `storage/protected/epigenetics/PolarisDX_Musterbefunde_DE.zip` tragen noch Große Bleichen 1–3 /
+  20354 Hamburg und `+49 152 2858 0999`. Sie wurden extern erzeugt (ReportLab / HeadlessChrome),
+  eine Quelle liegt nicht im Repository. Neue PDF-Fassungen liefert der Owner; bis dahin ist das
+  ein bewusst vermerkter Dokumentstand (danach Checksums, PT29.4 Punkt 6).
 - **Trust-Signale:** `TrustBar` = Claim-Register-gebunden (`HCL-002` CV < 2 %, `HCL-003`
   IVDR/CE, `HCL-004` Ergebnis in Minuten, `HCL-005` herstelleruebergreifend). Stats
   (2 Standorte / 15+ Laender / 100+ Reader / < 24 h) stammen aus den bereits
@@ -130,6 +142,9 @@
   (Imprint 7 Sektionen, Privacy 6 Sektionen nach Section-6-Ausbau, AGB mit TOC + Datum),
   je ~25–31k Zeichen, keine Placeholder. BLOCKED_CONTENT_APPROVAL entfaellt. Keine
   erfundene Legal-Copy — Section 6 ist faktenbasierte Architektur-Dokumentation.
+- **Impressum-Überschrift (SC-004, Owner 2026-10-16):** `imprint.section1.title` lautet
+  „Angaben gemäß § 5 DDG" (vorher „§ 5 TMG"; das TMG ist seit 2024 durch das DDG abgelöst, die
+  Meta-Beschreibung nannte bereits DDG), in allen 10 `legal.json`.
 
 ## 7. Shared Lead Primitive findings (PT20.2/PT20.3-Basis)
 

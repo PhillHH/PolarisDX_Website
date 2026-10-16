@@ -27,6 +27,35 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — SC-004 · Owner-Entscheidungen: Shop-Eintrag, Shop-Band, ndu-Clinic-Karte, Bereichsleiste Diagnostik (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Entscheidungen vom 2026-10-16 (`SCOPE-CHANGELOG.md` SC-004;
+  `migration/MAIN-DELTA-2026-10.md` §5 O1/O3, `release/AP30-RC1.md` §5). Code-Commit `f7b5db3`.
+- **Geändert:**
+  - **Kopfzeile:** achter Eintrag „Shop" als externer Link (`shop.polarisdx.net`, `src/lib/shop.ts`)
+    im bestehenden `NAV_LINK`-Stil. Label „Neu" (`accent.on-dark`) nur im mobilen Menü. xl-Abstände
+    enger (Navigation `xl:gap-8` → `xl:gap-5`, Werkzeuge `xl:gap-4`), damit acht Einträge ab 1280 px
+    in de/en/it/nl/pt/pl/cs/da einzeilig bleiben. fr/es brechen um wie vorher (P2).
+  - **Startseite:** neues schmales Band `ShopTeaserSection` nach den Geschäftssäulen. Weiße Karte
+    `rounded-card` mit `accent-border` und `shadow-card` auf `paper`, Eyebrow, H2, Hinweiszeile,
+    eine Navy-Pille „Zum Shop". Kein Bild, kein zweiter Knopf: Startseiten-HTML-Puffer ~200 B gzip,
+    die volle `main`-Fassung ~440 B.
+  - **Epigenetik-Hub, Kontaktkapitel:** Karte „ndu Clinic · London" (`accent-soft`-Fläche,
+    `rounded-card`) mit Umrissknopf (`border-brand-primary`, weiß), `ArrowUpRight` und
+    `sr-only`-Hinweis auf den neuen Tab. Die Telefon-Pille zeigt `+49 151 75011699`.
+  - **Bereichsleiste und „Nächster Schritt"** auf Diagnostik-Hub, neun Service-Seiten und IglooPro
+    (Bausteine aus PT34.2a, unverändert gestaltet). `AreaNav`/`NextSteps` sind jetzt
+    Shell-Bausteine im Entry-Chunk (`AreaShellProvider`, `useAreaShell()`); Vertrag §6.5.
+- **Oberfläche:** keine neuen Tokens, Typo-Rollen oder Komponenten-Exporte; `SURFACE`-Blöcke
+  unverändert (`check:ds-changelog` grün).
+- **Budgets (PT25.5, nicht gelockert):** ci 852/852; Initial-JS 162 794 B von 164 778 B; Route-JS-
+  Puffer Diagnostik-Hub 193 B, Service-Detail 186 B, IglooPro 127 B.
+- **Betroffene Screenshots:** in `f7b5db3` keine Baseline geändert. Kopfzeile (alle Seiten),
+  Startseite, Epigenetik-Hub, Diagnostik, Service-Detail und IglooPro sehen anders aus; ob
+  `pt27.6-visual` und `design-system` neue Baselines brauchen, ist **nicht gemessen (offen)**.
+- **Reviewer:** Owner (Entscheidung 2026-10-16); Sichtprüfung auf der Preview (Release
+  `f7b5db3e2433`) steht aus.
+
 ### 2026-10-16 — AP34 PT34.4 · Konsistenz-Durchgang, echte Share-Karte, Artikelbilder (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** AP34 PT34.4 (Raster über alle Seitentypen, Vorher/Nachher-Bogen

@@ -149,17 +149,18 @@ The central Registry classifies it together with structural `/services*` sources
 
 #### `GONE_OR_404_INTENTIONAL` — known candidates without a truthful successor
 
-| Source path without locale                            | Reason                                                                   | HTTP / redirect   |
-| ----------------------------------------------------- | ------------------------------------------------------------------------ | ----------------- |
-| `/articles/first_checkup`                             | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
-| `/articles/managing_diabetes`                         | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
-| `/articles/home_care`                                 | stale prerender ID; absent from current article data; no named successor | direct 404 / none |
-| `/services/<unknown-slug>`                            | pattern alone is not resource evidence                                   | direct 404 / none |
-| `/consumer`                                           | `CONSUMER_HUB = NOT_REQUIRED`; the 3 product pages remain current        | direct 404 / none |
-| `/shop`                                               | Decision Lock backlog, no current product route                          | direct 404 / none |
-| `/casestudys/32reasons` and `/case-studies/32reasons` | disabled/backlog Case Study spellings; no current page                   | direct 404 / none |
-| `/deal`, `/voucher`                                   | Decision Lock backlog, no current page                                   | direct 404 / none |
-| every other unknown static/dynamic path               | no repository-backed successor                                           | direct 404 / none |
+| Source path without locale                            | Reason                                                                                                                                                                                | HTTP / redirect   |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `/articles/first_checkup`                             | stale prerender ID; absent from current article data; no named successor                                                                                                              | direct 404 / none |
+| `/articles/managing_diabetes`                         | stale prerender ID; absent from current article data; no named successor                                                                                                              | direct 404 / none |
+| `/articles/home_care`                                 | stale prerender ID; absent from current article data; no named successor                                                                                                              | direct 404 / none |
+| `/services/<unknown-slug>`                            | pattern alone is not resource evidence                                                                                                                                                | direct 404 / none |
+| `/consumer`                                           | `CONSUMER_HUB = NOT_REQUIRED`; the 3 product pages remain current                                                                                                                     | direct 404 / none |
+| `/shop`                                               | Decision Lock backlog, no current product route; since SC-004 the shop is the external domain `shop.polarisdx.net` (header item, Homepage band), not a website route                  | direct 404 / none |
+| `/casestudys/32reasons` and `/case-studies/32reasons` | disabled/backlog Case Study spellings; no current page                                                                                                                                | direct 404 / none |
+| `/deal`, `/voucher`                                   | Decision Lock backlog, no current page                                                                                                                                                | direct 404 / none |
+| `/early`                                              | Early-Access landing page from `main@ad5073e` (09/2026 campaign), retired by the owner on 2026-10-16 (SC-004, MAIN-DELTA O2 option A); no successor, Homepage soft redirect forbidden | direct 404 / none |
+| every other unknown static/dynamic path               | no repository-backed successor                                                                                                                                                        | direct 404 / none |
 
 These decisions explicitly prohibit Homepage redirects and preserve the source locale on the 404
 request URL. They do not create `410 Gone`; the current runtime's truthful absent-resource semantic is 404.
@@ -944,3 +945,13 @@ Master-Scope. Decision Locks werden hier nie geändert.
   `301 → /de/<datei> → 404` (Crawl-Befund F1).
 - Nachweis: `e2e/url-smoke.spec.ts` „AP29 legacy files", `src/routing/routeResolution.test.ts`;
   `npm run test:seo:regression` 80/80. Grundlage: `building-docs/migration/AP29-PRELAUNCH-CRAWL.md`.
+- **`INTENTIONAL_404` `/early` (SC-004, Owner 2026-10-16):** Early-Access ist stillgelegt (MAIN-DELTA
+  O2, Option A). `/early` steht in `INTENTIONAL_404_PATHS` (`src/routing/legacyRedirects.ts`, Test
+  `legacyRedirects.test.ts`); keine Weiterleitung auf die Startseite (Vertrag oben). Die
+  Produktion liefert `/early`, `/<lang>/early` und `/early-assets/` heute über Host-nginx-Aliase
+  aus dem `main`-Checkout und proxied `/api/early-access` an `127.0.0.1:5000` — diese Locations
+  entfernt der Operator beim Cutover (`docs/deploy.md`, DEPLOYMENT-CONTRACT §12.3). Erst danach
+  antwortet die Produktion für `/early` mit der Relaunch-404.
+- **Shop:** `/shop` bleibt `INTENTIONAL_404`. Der Kopfzeilen-Eintrag „Shop" und das Startseiten-Band
+  verlinken die fremde Domain `shop.polarisdx.net` (`src/lib/shop.ts`); sie ist kein Teil der Route
+  Registry.

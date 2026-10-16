@@ -156,7 +156,10 @@ _(`LEAD-DATA-CONTRACT.md` LD-01, `REST-01`)_
 **DEP-18 · Eine Aufbewahrungsregel für Sicherungen existiert.** _(AP28 PT28.5.3)_
 
 **DEP-19 · RPO und RTO werden pragmatisch unter AP28 PT28.5.4 festgelegt.** **Dieser Vertrag erfindet
-keine Zahlen.**
+keine Zahlen.** **Festgelegt (Owner, 2026-10-16, SC-004): RPO 24 h, RTO 30 min.** Grundlage: tägliche
+Sicherung über `./deploy.sh backup` (Datenbank + Anhänge + Restore-Test, `docs/deploy.md` §4); jede
+Anfrage geht zusätzlich als Mail ans Team. RTO = Restore + Health-Gate + Smoke. Der tägliche
+cron-Eintrag auf dem Produktionshost ist ein Operator-Schritt (offen; hier nicht belegt).
 
 **DEP-20 · Der Zustand der Sicherung ist beobachtbar** — ein stiller Backup-Fehlschlag ist unzulässig.
 
@@ -552,21 +555,21 @@ Umgesetzt im Repository, lokal in einem isolierten Compose-Projekt (`polarisdx-a
 eigenes Subnetz, danach vollständig entfernt) nachgewiesen. **Produktion unverändert** — der
 Wechsel der Produktion auf diesen Pfad ist ein Owner-Go (AP31).
 
-| Schuld                    | Stand                  | Umsetzung                                                                                                                                                                  | Nachweis                                                                                                                 |
-| ------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| DD-1                      | **aufgelöst**          | Volume `lead-data` für Datenbank und Anhänge                                                                                                                               | `server/ap22-closure.test.js`, Probelauf                                                                                 |
-| DD-3 / DD-5 / DD-9        | **aufgelöst**          | `image: polarisdx-*:${RELEASE}`, OCI-Label `revision` = Git-SHA; `deploy.sh up` mit Health-Gate, Identitätsprüfung, Smoke und automatischem Rollback; `deploy.sh rollback` | D-T2/D-T3/D-T8: falsches Artefakt → abgelehnt, Rollback grün; Backend startet nicht → `unhealthy`, Exit 1, Rollback grün |
-| DD-4                      | **aufgelöst**          | `deploy.sh build` baut einmal aus sauberem Commit; `up` baut nie (`--no-build`); Preview und Produktion starten dasselbe Image                                             | Grenze: §6 „Ein Image, zwei Umgebungen" in `docs/deploy.md`                                                              |
-| DD-6                      | **aufgelöst**          | `GET /api/health` (Datenbank lesbar, ohne Nebenwirkung), `HEALTHCHECK` im Backend-Image und in Compose                                                                     | `server/health.endpoint.test.js` (D-T21)                                                                                 |
-| DD-8                      | **aufgelöst**          | `server/ops/backup.js` (VACUUM INTO + Anhänge + Manifest), `deploy.sh backup/restore-test/restore`, Aufbewahrung 14                                                        | `server/ops/backup.test.js`; Probelauf: 3 Leads → Restore der Sicherung mit 2 → 2 Leads, Health + Smoke grün (D-T5/D-T6) |
-| DD-10                     | **aufgelöst**          | `nginx.conf`, `Dockerfile.dev`, `server/docker-compose.yml`, `vercel.json` → `_project-knowledge/deploy/archiv-ap28/`                                                      | D-T15                                                                                                                    |
-| DD-11                     | **im Repo aufgelöst**  | `docker-compose.preview.yml`: eigenes Projekt, Ports 9100/5100, `APP_ENV=preview`, eigenes `server/.env.preview`                                                           | Probelauf: `[DRY_RUN] active … forced=true`; Umstellung der laufenden Preview siehe AP-STATE                             |
-| DD-15                     | **begründet behalten** | API-Host-Port bleibt, weil der Host-nginx `/api/early-access` an `127.0.0.1:5000` gibt                                                                                     | M-09                                                                                                                     |
-| DD-16                     | **aufgelöst**          | `depends_on: backend: condition: service_healthy`                                                                                                                          | Probelauf: kaputtes Backend → Web startet nicht                                                                          |
-| DD-18                     | **aufgelöst**          | `server.ts` hört auf `LISTEN_HOST` (Standard Loopback), Image setzt `0.0.0.0`                                                                                              | D-T23/D-T24: Smoke über den Host-Port                                                                                    |
-| DD-19                     | **aufgelöst**          | Ports aus `WEB_HOST_PORT`/`API_HOST_PORT`, Projektname von `deploy.sh` ausdrücklich gesetzt                                                                                | D-T25                                                                                                                    |
-| DD-12                     | **teilweise**          | Health, Neustarts, Lead-Alarme im Log, Log-Rotation (json-file 5 × 10 MB)                                                                                                  | externer Alarmweg = Betreiberwahl (DEP-56)                                                                               |
-| DD-2, DD-13, DD-14, DD-17 | offen                  | Worker im Prozess (AP22), Image-Scan in CI (AP26), HSTS live (Operator), CI-Deploy-Schritt                                                                                 | —                                                                                                                        |
+| Schuld                    | Stand                  | Umsetzung                                                                                                                                                                                      | Nachweis                                                                                                                 |
+| ------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| DD-1                      | **aufgelöst**          | Volume `lead-data` für Datenbank und Anhänge                                                                                                                                                   | `server/ap22-closure.test.js`, Probelauf                                                                                 |
+| DD-3 / DD-5 / DD-9        | **aufgelöst**          | `image: polarisdx-*:${RELEASE}`, OCI-Label `revision` = Git-SHA; `deploy.sh up` mit Health-Gate, Identitätsprüfung, Smoke und automatischem Rollback; `deploy.sh rollback`                     | D-T2/D-T3/D-T8: falsches Artefakt → abgelehnt, Rollback grün; Backend startet nicht → `unhealthy`, Exit 1, Rollback grün |
+| DD-4                      | **aufgelöst**          | `deploy.sh build` baut einmal aus sauberem Commit; `up` baut nie (`--no-build`); Preview und Produktion starten dasselbe Image                                                                 | Grenze: §6 „Ein Image, zwei Umgebungen" in `docs/deploy.md`                                                              |
+| DD-6                      | **aufgelöst**          | `GET /api/health` (Datenbank lesbar, ohne Nebenwirkung), `HEALTHCHECK` im Backend-Image und in Compose                                                                                         | `server/health.endpoint.test.js` (D-T21)                                                                                 |
+| DD-8                      | **aufgelöst**          | `server/ops/backup.js` (VACUUM INTO + Anhänge + Manifest), `deploy.sh backup/restore-test/restore`, Aufbewahrung 14                                                                            | `server/ops/backup.test.js`; Probelauf: 3 Leads → Restore der Sicherung mit 2 → 2 Leads, Health + Smoke grün (D-T5/D-T6) |
+| DD-10                     | **aufgelöst**          | `nginx.conf`, `Dockerfile.dev`, `server/docker-compose.yml`, `vercel.json` → `_project-knowledge/deploy/archiv-ap28/`                                                                          | D-T15                                                                                                                    |
+| DD-11                     | **im Repo aufgelöst**  | `docker-compose.preview.yml`: eigenes Projekt, Ports 9100/5100, `APP_ENV=preview`, eigenes `server/.env.preview`                                                                               | Probelauf: `[DRY_RUN] active … forced=true`; Umstellung der laufenden Preview siehe AP-STATE                             |
+| DD-15                     | **begründet behalten** | API-Host-Port bleibt, solange der Host-nginx `/api/early-access` an `127.0.0.1:5000` gibt. Early-Access ist stillgelegt (SC-004); nach dem nginx-Rückbau beim Cutover entfällt die Publikation | M-09                                                                                                                     |
+| DD-16                     | **aufgelöst**          | `depends_on: backend: condition: service_healthy`                                                                                                                                              | Probelauf: kaputtes Backend → Web startet nicht                                                                          |
+| DD-18                     | **aufgelöst**          | `server.ts` hört auf `LISTEN_HOST` (Standard Loopback), Image setzt `0.0.0.0`                                                                                                                  | D-T23/D-T24: Smoke über den Host-Port                                                                                    |
+| DD-19                     | **aufgelöst**          | Ports aus `WEB_HOST_PORT`/`API_HOST_PORT`, Projektname von `deploy.sh` ausdrücklich gesetzt                                                                                                    | D-T25                                                                                                                    |
+| DD-12                     | **teilweise**          | Health, Neustarts, Lead-Alarme im Log, Log-Rotation (json-file 5 × 10 MB)                                                                                                                      | externer Alarmweg = Betreiberwahl (DEP-56)                                                                               |
+| DD-2, DD-13, DD-14, DD-17 | offen                  | Worker im Prozess (AP22), Image-Scan in CI (AP26), HSTS live (Operator), CI-Deploy-Schritt                                                                                                     | —                                                                                                                        |
 
 **Neu gemessen — geschützte Dateien:** `storage/protected/` (gegateter Lead-Magnet, AP19) liegt
 außerhalb des Backend-Build-Kontexts `server/`. Im ersten Container-Lauf der Preview scheiterte der
@@ -584,6 +587,19 @@ bestehendes Netz.
 bindet `/var/lib/polaris-early` und `/var/lib/polaris-events` ein und beantwortet
 `POST /api/early-access`. Der Relaunch kennt beides nicht (`building-docs/migration/MAIN-DELTA-2026-10.md`,
 Owner-Entscheidung O2).
+
+**Entschieden (Owner, 2026-10-16, SC-004): stilllegen (O2 Option A).** Der Relaunch portiert
+Early-Access nicht; `/early` ist `INTENTIONAL_404`. Cutover-Schritte (Operator, **noch nicht
+ausgeführt**), siehe §12.3 und `docs/deploy.md` §3:
+
+1. Im Produktions-vhost (`sites-enabled/polarisdx.net`) die `/early`- und `/<lang>/early`-Locations
+   (`alias /home/phillip/01polaris/public/early/index.html`), `/early-assets/` und
+   `/api/early-access*` (Proxy auf `127.0.0.1:5000`) entfernen; `nginx -t`, Reload.
+2. Danach die Publikation `127.0.0.1:5000` (DD-15/M-09) streichen — nicht vorher.
+3. `/var/lib/polaris-early/signups.jsonl` (personenbezogen) und `/var/lib/polaris-events` **nicht**
+   löschen; das Relaunch-Compose bindet sie nicht ein, sie bleiben auf dem Host. Aufbewahrung und
+   Löschung sind eine eigene Datenschutz-Entscheidung (Vorschlag: Löschung nach dokumentiertem
+   Export, Frist durch Owner/DSB — **offen**).
 
 Runbook: `docs/deploy.md`.
 
@@ -739,7 +755,7 @@ Dieser Vertrag führt bereits eine kanonische `DEP-`-Systematik mit **abweichend
 - ❌ **Zwei widersprüchliche Konfigurationen gleichermaßen produktiv-autoritativ stehen lassen**
 - ❌ **Marketing-Analytics als Quelle für Betriebsalarme verwenden**
 - ❌ Einen neuen Infrastruktur-Anbieter außerhalb von `REST-01` wählen
-- ❌ RPO/RTO-Zahlen ohne AP28-Beschluss festschreiben
+- ❌ RPO/RTO-Zahlen ohne AP28-Beschluss festschreiben (festgelegt per SC-004: RPO 24 h / RTO 30 min; Änderung nur mit Owner-Beschluss)
 
 **Aus AP02 PT02.5 zusätzlich:**
 
@@ -826,15 +842,17 @@ AP32  Stabilisierung — Monitoring, Incidents, Folgearbeiten
 
 ### 12.3 AP31 — Go-live
 
-| Schritt                      | Inhalt                                                                                                                                                      |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Runbook                      | Verantwortliche, Zeitpunkt, Sicherung des aktuellen Stands, Schritte, Rollback-Trigger, Kommunikationsweg (PT31.1)                                          |
-| Deploy                       | **genau das eingefrorene Artefakt**                                                                                                                         |
-| Health-Gate                  | §5.3 vollständig                                                                                                                                            |
-| Produktions-Smoke            | repräsentative Locales plus automatisierte 10-Sprachen-Route-Matrix, Kernseiten, Sitemap/robots, API-Formulartest **ohne** produktive Nebenwirkung (PT31.2) |
-| SEO-Livecheck                | Canonical, hreflang, 301s, 404s, Sitemap/robots erreichbar, keine Preview-Canonicals (PT31.3)                                                               |
-| Consent-/Analytics-Livecheck | Denied bleibt request-frei; nach Zustimmung Pageview/Event; keine PII (PT31.4)                                                                              |
-| Entscheidung                 | annehmen **oder** zurückrollen                                                                                                                              |
+| Schritt                      | Inhalt                                                                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Runbook                      | Verantwortliche, Zeitpunkt, Sicherung des aktuellen Stands, Schritte, Rollback-Trigger, Kommunikationsweg (PT31.1)                                            |
+| Deploy                       | **genau das eingefrorene Artefakt**                                                                                                                           |
+| Health-Gate                  | §5.3 vollständig                                                                                                                                              |
+| Produktions-Smoke            | repräsentative Locales plus automatisierte 10-Sprachen-Route-Matrix, Kernseiten, Sitemap/robots, API-Formulartest **ohne** produktive Nebenwirkung (PT31.2)   |
+| SEO-Livecheck                | Canonical, hreflang, 301s, 404s, Sitemap/robots erreichbar, keine Preview-Canonicals (PT31.3)                                                                 |
+| Consent-/Analytics-Livecheck | Denied bleibt request-frei; nach Zustimmung Pageview/Event; keine PII (PT31.4)                                                                                |
+| Early-Access-Rückbau         | vor dem ersten `up`: nginx-Locations `/early*`, `/early-assets/`, `/api/early-access*` entfernen; Daten unter `/var/lib/polaris-early` bleiben (§6.2, SC-004) |
+| Erstes `up`                  | vorher `./deploy.sh adopt <name>`, damit die heutige Produktion Rollback-Ziel ist                                                                             |
+| Entscheidung                 | annehmen **oder** zurückrollen                                                                                                                                |
 
 ### 12.4 Rollback
 

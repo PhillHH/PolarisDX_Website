@@ -89,6 +89,13 @@ höchstens ein art-directed Foto mit eingebackenem Navy-Verlauf (LCP-Bild, budge
 und Fotoflächen ist die primäre Schaltfläche die weiße Pille (`Button variant="light"`). Navy-Bänder
 können den Punktring des Signets als Dekor tragen (`.brand-ring`).
 
+**SC-004 (2026-10-16) — Kopfzeilen-Eintrag „Shop":** Der achte Eintrag ist ein externer Link auf
+`shop.polarisdx.net` (`<a>`, kein Untermenü, gleicher `NAV_LINK`-Stil). Das Label „Neu"
+(`nav.badge_new`, `accent.on-dark`) steht nur im mobilen Menü; auf dem Desktop passten acht Einträge
+mit Label bei 1280 px nicht in eine Zeile. Die xl-Abstände sind dafür enger (Navigation `xl:gap-5`,
+Werkzeuge `xl:gap-4`): ab 1280 px bleiben die acht Einträge in de/en/it/nl/pt/pl/cs/da einzeilig;
+fr und es brechen um (schon vor SC-004, P2).
+
 ### 3.2 Akzent — genau einer
 
 **AP34 / SC-002 (2026-10-15):** Der Akzent ist das **Blauspektrum des PolarisDX-Signets** und ersetzt
@@ -503,17 +510,32 @@ der einzuhalten und nicht neu zu erfinden ist**:
 
 **AP34 / SC-003 — Führungssystem** (`src/components/area/`):
 
-| Baustein          | Rolle                                                                                                                                  | Einsatz                             |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `AreaNav`         | Bereichsleiste, sticky `top-[68px] lg:top-[88px]`, setzt `--chapterbar-offset` wie `ChapterNav`; ersetzt die frühere Chip-Sprungleiste | Epigenetik-Hub und -Vertiefungen    |
-| `JourneySteps`    | vier Schritte bis zur Anfrage, nur Karten                                                                                              | Epigenetik-Hub                      |
-| `PageToc`         | linkes Inhaltsverzeichnis mit Lesefortschritt; `tocSpy.ts` lädt lazy und schaltet nur vorhandene Klassen                               | Grundlagen, Studienlage, Unterlagen |
-| `NextSteps`       | Seitenende „Nächster Schritt" (zurück, weiter, Anfrage)                                                                                | Epigenetik-Hub und -Vertiefungen    |
-| `MobileActionBar` | Aktionsleiste unten (< lg), verbirgt sich am Footer und bei offenem Cookie-Banner, setzt `--action-bar-height`; **nicht lazy**         | Epigenetik-Hub und -Vertiefungen    |
+| Baustein          | Rolle                                                                                                                                  | Einsatz                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `AreaNav`         | Bereichsleiste, sticky `top-[68px] lg:top-[88px]`, setzt `--chapterbar-offset` wie `ChapterNav`; ersetzt die frühere Chip-Sprungleiste | Epigenetik-Hub und -Vertiefungen; Diagnostik-Hub, neun Service-Seiten, IglooPro (SC-004) |
+| `JourneySteps`    | vier Schritte bis zur Anfrage, nur Karten                                                                                              | Epigenetik-Hub                                                                           |
+| `PageToc`         | linkes Inhaltsverzeichnis mit Lesefortschritt; `tocSpy.ts` lädt lazy und schaltet nur vorhandene Klassen                               | Grundlagen, Studienlage, Unterlagen                                                      |
+| `NextSteps`       | Seitenende „Nächster Schritt" (zurück, weiter, Anfrage)                                                                                | Epigenetik-Hub und -Vertiefungen; Diagnostik-Hub, neun Service-Seiten, IglooPro (SC-004) |
+| `MobileActionBar` | Aktionsleiste unten (< lg), verbirgt sich am Footer und bei offenem Cookie-Banner, setzt `--action-bar-height`; **nicht lazy**         | Epigenetik-Hub und -Vertiefungen                                                         |
 
-Die Musterbefund-Seiten behalten `ChapterNav` (als Unterstreichungs-Tabs). Auf Diagnostik,
-Service und IglooPro fehlen `AreaNav`/`NextSteps` noch — offene Owner-Entscheidung (Route-JS-
-Budget), siehe `work-packages/AP34.md`.
+Die Musterbefund-Seiten behalten `ChapterNav` (als Unterstreichungs-Tabs).
+
+**Diagnostik-Bereich (Owner-Entscheidung 2026-10-16, SC-004):** Diagnostik-Hub, alle neun
+Service-Seiten und IglooPro tragen `AreaNav` und `NextSteps`.
+
+- Leiste (`diagnosticsAreaItems`, `src/components/area/diagnosticsArea.ts`): Überblick
+  (`/diagnostics`), Dental, Beauty, Longevity, IglooPro — Beschriftungen sind die Header-Schlüssel.
+  Auf den übrigen sechs Service-Seiten ist kein Eintrag aktiv.
+- „Nächster Schritt" (`serviceNeighbours`): zurück/weiter durch die neun Service-Seiten in der
+  Reihenfolge von `src/data/services.tsx`; am Anfang zurück → Überblick, am Ende weiter → IglooPro.
+  Hub: nur weiter → Dental. IglooPro: zurück → Diagnostik, weiter → Epigenetik.
+- **Shell-Bausteine:** `AreaNav`, `NextSteps` und `diagnosticsArea` liegen im Entry-Chunk. `Layout`
+  stellt sie über `AreaShellProvider` bereit (`src/components/area/areaShell.ts`); Seiten holen sie
+  mit `useAreaShell()` statt sie direkt zu importieren. Grund: als Seitenimport landeten sie in
+  einem geteilten Chunk, den das Budget-Gate (PT25.5) jeder Route als Route-JS anrechnet (~2 KB
+  gzip bei 250–450 B Puffer). Gemessen: Initial-JS 162 794 B von 164 778 B; Route-JS-Puffer
+  Diagnostik-Hub 193 B, Service-Detail 186 B, IglooPro 127 B. Kein Budget gelockert,
+  `check-budgets` ci 852/852. Neue Bereichsseiten nutzen denselben Weg.
 
 Wer die Kapitelnavigation einsetzt, gibt Zielsektionen ueber `Section anchorId` an —
 sonst verdeckt die Sticky-Leiste beim Sprung die Ueberschrift. AP24 bleibt A11y-Owner.

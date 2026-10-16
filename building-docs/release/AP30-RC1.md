@@ -7,15 +7,21 @@ Diese Unterlage bündelt, was ohne Owner prüfbar war. Sie ist **keine** Freigab
 eingefroren, wenn alle zwölf Launch-Gates (`QUALITY-GATES.md` §12) grün oder ausdrücklich manuell
 nachgewiesen sind und die Owner-Punkte in §5 entschieden sind (`RELEASE-ACCEPTANCE.md`).
 
+**Fortschreibung 2026-10-16:** Der Owner hat alle Empfehlungen aus §5 (P1) und aus
+`migration/MAIN-DELTA-2026-10.md` §5 angenommen („Alle ja", `SCOPE-CHANGELOG.md` SC-004). Der
+Code-Teil steckt in `f7b5db3`; die Preview läuft mit diesem Release. Die Ergebnisse in §2–§4 stammen
+vom Vorgänger-Kandidaten (`b8b7c32`) und wurden für `f7b5db3` nicht vollständig neu gemessen (siehe
+§5).
+
 ## 1. Kandidat
 
-| Feld       | Wert                                                                                                                              |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Commit     | der Commit, der diese Unterlage einführt (Preview-Release = dessen `sha12`)                                                       |
-| Artefakte  | `polarisdx-frontend:<sha12>`, `polarisdx-backend:<sha12>` aus `./deploy.sh build` (OCI-Label `revision`)                          |
-| Läuft auf  | `preview.polarisdx.net` als Compose-Projekt `polarisdx-preview` (Release-Historie `.deploy/preview/releases`)                     |
-| Produktion | **unverändert** (`main`, Projekt `01polaris`) — Wechsel nur mit Owner-Go über AP31                                                |
-| Changelog  | Commits seit `780ca0f`: AP34 PT34.1–34.4, AP28, AP29 PT29.1–29.4, AP33, AP30-Funde; Design-Deltas in `DESIGN-SYSTEM-CHANGELOG.md` |
+| Feld       | Wert                                                                                                                                                                       |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Commit     | `f7b5db3` (Preview-Release `f7b5db3e2433`); vorher `b8b7c32`, der diese Unterlage einführte                                                                                |
+| Artefakte  | `polarisdx-frontend:<sha12>`, `polarisdx-backend:<sha12>` aus `./deploy.sh build` (OCI-Label `revision`)                                                                   |
+| Läuft auf  | `preview.polarisdx.net` als Compose-Projekt `polarisdx-preview` (Release-Historie `.deploy/preview/releases`)                                                              |
+| Produktion | **unverändert** (`main`, Projekt `01polaris`) — Wechsel nur mit Owner-Go über AP31                                                                                         |
+| Changelog  | Commits seit `780ca0f`: AP34 PT34.1–34.4, AP28, AP29 PT29.1–29.4, AP33, AP30-Funde, Owner-Entscheidungen SC-004 (`f7b5db3`); Design-Deltas in `DESIGN-SYSTEM-CHANGELOG.md` |
 
 ## 2. PT30.1 Functional QA
 
@@ -67,22 +73,49 @@ Echte Geräte (iOS Safari, Android Chrome) und Safari/Edge-Desktop sind **manuel
 
 ## 5. Restpunkte und Go/No-Go
 
-**P0 — vor Go-live zwingend (Owner/Operator):**
+Stand 2026-10-16 nach den Owner-Entscheidungen (SC-004). Erledigtes ist durchgestrichen und bleibt
+zur Nachvollziehbarkeit stehen.
 
-1. Early-Access/Event-Daten: Produktions-Backend nutzt `/var/lib/polaris-early`, `/var/lib/polaris-events`
-   und `POST /api/early-access`; der Relaunch nicht (MAIN-DELTA O2). Entscheiden: stilllegen oder portieren.
-2. SendGrid-Schlüssel rotieren (OA-11), sauberes Produktions-Backend-Image (OA-12).
-3. HSTS am produktiven vhost aktivieren (DD-14).
+**P0 — vor Go-live zwingend (Operator):**
+
+1. SendGrid-Schlüssel rotieren (OA-11), sauberes Produktions-Backend-Image (OA-12)
+   (`SECURITY-CONTRACT.md` §12, AP26-WAIVER-01).
+2. HSTS am produktiven vhost aktivieren (DD-14, OA-1).
+3. Early-Access beim Cutover zurückbauen: nginx-Locations `/early*`, `/early-assets/` und
+   `/api/early-access*` entfernen, danach Port 5000 streichen; `/var/lib/polaris-early` und
+   `/var/lib/polaris-events` **nicht** löschen (Checkliste `docs/deploy.md` §3,
+   `DEPLOYMENT-CONTRACT.md` §6.2/§12.3).
 4. Erster Produktionswechsel: `./deploy.sh adopt <name>` vor dem ersten `up` (Rollback-Ziel).
 
-**P1 — Owner-Entscheidungen:**
+~~Early-Access/Event-Daten: stilllegen oder portieren (MAIN-DELTA O2).~~ → **entschieden:
+stilllegen** (Option A); im Relaunch ist `/early` `INTENTIONAL_404`. Offen bleibt nur der
+Cutover-Schritt (P0 3).
 
-- Shop-Menüpunkt (O1), ndu-Clinic-Karte (O3), Adresse/Telefon in den 60 Musterbefunden (O4),
-  Share-Karten-Text (O5), Telefonnummer, Bereichsleiste auf Diagnostik/Service/IglooPro.
-- Titel/Description-Deltas gegen Search-Console-Daten prüfen (Crawl F3).
-- Impressum-Überschrift nennt „§ 5 TMG" (seit 2024 DDG; Meta-Beschreibung sagt bereits DDG) —
-  Rechtstext, Legal-Freigabe.
-- AP34-Abnahme (Bogen `wireframes/ap34-abnahme/`).
+**P1 — Owner-Entscheidungen: alle getroffen (2026-10-16).**
+
+- ~~Shop-Menüpunkt (O1)~~ → behalten: Kopfzeilen-Eintrag + schmales Startseiten-Band, `HCL-015`,
+  CTC-14 geschlossen.
+- ~~ndu-Clinic-Karte (O3)~~ → umgesetzt, 10 Sprachen.
+- ~~Adresse/Telefon in den 60 Musterbefunden (O4), Telefonnummer~~ → eine Nummer
+  `+49 151 75011699`, Musterbefund-Adresse Willy-Brandt-Straße 49.
+- ~~Share-Karten-Text (O5)~~ → erledigt mit `a7ff705`.
+- ~~Bereichsleiste auf Diagnostik/Service/IglooPro~~ → umgesetzt als Shell-Bausteine, kein Budget
+  gelockert (ci 852/852).
+- ~~Impressum-Überschrift „§ 5 TMG"~~ → „Angaben gemäß § 5 DDG", 10 Sprachen.
+- ~~AP34-Abnahme~~ → erteilt (`work-packages/AP34.md` AP34-CLOSURE).
+- ~~RPO/RTO bestätigen~~ → RPO 24 h, RTO 30 min (`DEPLOYMENT-CONTRACT.md` DEP-19).
+
+**Weiter offen, manuell (Owner/Operator):**
+
+- Echte Geräte (iOS Safari, Android Chrome) und Safari/Edge-Desktop.
+- Neue PDF-Fassungen der Epigenetik-Unterlagen und des Musterbefund-ZIPs (alte Adresse und alte
+  Telefonnummer; extern erzeugt, keine Quelle im Repo).
+- Titel/Description-Deltas gegen Search-Console-Daten (Crawl F3): angenommen, braucht GSC-Zugang →
+  nach dem Go-live.
+- Aufbewahrung/Löschung der Early-Access-Signups (Owner/DSB, Frist offen).
+- Für `f7b5db3` nicht neu gemessen: Browser-Matrix, Visual-Baselines (Kopfzeile, Startseite,
+  Epigenetik, Diagnostik, Service, IglooPro sehen anders aus), A11y PT24.x und E2E-Journeys. Im
+  Code-Commit grün: Vitest 1118, alle `check:*`-Guards, tsc, Lint, Budgets ci 852/852.
 
 **P2 — bekannt, nicht launchkritisch:**
 
@@ -92,6 +125,8 @@ Echte Geräte (iOS Safari, Android Chrome) und Safari/Edge-Desktop sind **manuel
 - Lead-Alarm meldet in der Preview `LEADS_FAILED_TERMINAL` als kritisch, obwohl der Grund der
   gewollte Trockenlauf ist.
 - Doku-Drift (AGENT-/ROUTING-/I18N-/TRACKING-Contract, `src/**/README.de.md`), gesammelt aus AP33.
+- Kopfzeile: in fr/es brechen die acht Einträge bei 1280 px um (schon vor SC-004).
 
-**Go/No-Go-Vorschlag:** **No-Go**, bis P0 1–3 erledigt sind. Technisch ist der Kandidat sonst
-releasefähig; das Deploy-Verfahren ist geübt.
+**Go/No-Go-Vorschlag:** **No-Go**, bis SendGrid-Rotation (P0 1) und HSTS (P0 2) erledigt sind;
+der Early-Access-Rückbau (P0 3) und `adopt` (P0 4) gehören in den Cutover selbst. Technisch ist der
+Kandidat sonst releasefähig; das Deploy-Verfahren ist geübt.

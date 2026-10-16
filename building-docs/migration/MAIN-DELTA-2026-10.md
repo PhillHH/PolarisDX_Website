@@ -341,7 +341,8 @@ auf dem Relaunch **nicht existierenden** Dateien.
      unabhängig von der Early-Access-Entscheidung).
    - `src/assets/hero_doctor.webp`, `email/assets/hero_doctor.png` löschen; Muster in
      `scripts/optimize-images.mjs:32` entfernen.
-9. **Nur falls Owner bei M4 „Shop behalten" entscheidet (P1)**
+9. **Nur falls Owner bei M4 „Shop behalten" entscheidet (P1)** — _entschieden und umgesetzt
+   (2026-10-16, `f7b5db3`); abweichend schmales Band ohne Bild und ohne „Testkits ansehen"_
    - `IMPORT` `src/lib/shop.ts` (Kommentar zu FUTURE20 streichen).
    - `src/components/layout/Header.tsx`: externer Nav-Eintrag `nav.shop` + Badge `nav.badge_new`
      (Schlüssel existieren 10/10) im Relaunch-Header-Muster neu schreiben (Navy-Kopfzeile AP34,
@@ -352,19 +353,28 @@ auf dem Relaunch **nicht existierenden** Dateien.
      Fachkreis-Bestellportal"; `DECISIONS.md` `DEC-RL-015` ändern; `RELAUNCH-BACKLOG.md`;
      `OUTBOUND_DOMAINS` + `shop.polarisdx.net` (schließt CTC-14); `/shop` bleibt `INTENTIONAL_404`.
 10. **Nur falls Owner bei M5 „Early-Access weiterbetreiben" entscheidet (P0 zum Cutover)** — Option B
-    aus §3 M5.
+    aus §3 M5. _Entfällt: Owner hat am 2026-10-16 Option A gewählt._
 
 ---
 
 ## 5. Owner-Entscheidungen
 
-| ID  | Thema                                   | Frage                                                                                                                                     | Empfehlung                                                                                                | Frist                |
-| --- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------- |
-| O1  | Shop (M4)                               | Shop-Menüpunkt + Startseiten-Ankündigung im Relaunch behalten? Dann `DEC-RL-015` aufheben, HCL-Einträge freigeben.                        | Behalten (live, owner-freigegeben, Verkauf läuft über Shopify) — sonst sichtbarer Rückbau am Go-live-Tag  | vor PT29.4-Freeze    |
-| O2  | Early-Access `/early` (M5/M6)           | Stilllegen (Option A) oder in den Relaunch portieren (Option B)? Aufbewahrung/Löschung der Signups?                                       | A: seit 2026-09-15 kein Zugriff im `early.log`; Kampagne beendet                                          | vor Cutover (P0)     |
-| O3  | ndu Clinic (M8)                         | Bestätigen, dass die Karte für Einzelpersonen neben „ausschließlich an Fachanwender" stehen darf; Übersetzungen 8 Sprachen.               | Umsetzen wie auf `main`, Vertrag nachziehen                                                               | vor PT29.4           |
-| O4  | Adresse in Musterbefunden + PDFs (M15+) | Sollen die 60 Musterbefund-JSONs („Vertrieb") und die zugehörigen PDF-Downloads die neue Adresse tragen? (`main` hat sie nicht geändert.) | Ja, gemeinsam mit neuen PDF-Ständen (PT29.4 Punkt 6 Checksums); sonst bewusst als Dokumentstand vermerken | P2, vor Asset-Freeze |
-| O5  | Share-Karten-Text (M9 9a)               | Text der neuen Standardkarte nur aus Claim Register oder `main`-Wortlaut („Laborpräzise Diagnostik in 3–15 Minuten")?                     | Claim-Register-Wortlaut                                                                                   | mit Schritt 2        |
+**Entschieden am 2026-10-16:** Der Owner hat alle Empfehlungen dieser Tabelle angenommen („Alle ja",
+`SCOPE-CHANGELOG.md` SC-004). Code-Umsetzung `f7b5db3` (Preview-Release `f7b5db3e2433`), Produktion
+unverändert.
+
+| ID  | Thema                                   | Frage                                                                                                                                     | Empfehlung                                                                                                | Frist                | Entscheidung 2026-10-16                                                                                                                                                                                                                                                                                                       |
+| --- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| O1  | Shop (M4)                               | Shop-Menüpunkt + Startseiten-Ankündigung im Relaunch behalten? Dann `DEC-RL-015` aufheben, HCL-Einträge freigeben.                        | Behalten (live, owner-freigegeben, Verkauf läuft über Shopify) — sonst sichtbarer Rückbau am Go-live-Tag  | vor PT29.4-Freeze    | **Behalten — umgesetzt.** Kopfzeilen-Eintrag „Shop" (externer Link, „Neu" nur mobil), schmales Band `ShopTeaserSection` nach den Säulen (ohne Bild und zweiten Knopf, HTML-Budget), `HCL-015`, `DEC-RL-015` geändert, `shop.polarisdx.net` in `OUTBOUND_DOMAINS` (CTC-14 geschlossen)                                         |
+| O2  | Early-Access `/early` (M5/M6)           | Stilllegen (Option A) oder in den Relaunch portieren (Option B)? Aufbewahrung/Löschung der Signups?                                       | A: seit 2026-09-15 kein Zugriff im `early.log`; Kampagne beendet                                          | vor Cutover (P0)     | **A — stilllegen.** `/early` ist `INTENTIONAL_404` (nicht 301 auf die Startseite, Routing-Vertrag). nginx-Rückbau beim Cutover **offen** (Operator, `docs/deploy.md` §3). Signups und Event-Daten bleiben auf dem Host; Aufbewahrung/Löschung **offen** (Owner/DSB, Vorschlag: nach Export löschen)                           |
+| O3  | ndu Clinic (M8)                         | Bestätigen, dass die Karte für Einzelpersonen neben „ausschließlich an Fachanwender" stehen darf; Übersetzungen 8 Sprachen.               | Umsetzen wie auf `main`, Vertrag nachziehen                                                               | vor PT29.4           | **Bestätigt — umgesetzt.** Karte im Kontaktkapitel, Umrissknopf, neuer Tab, 10 Sprachen (8 neu übersetzt), `nduclinic.com` in `OUTBOUND_DOMAINS`; EPIGENETICS-CONTRACT nennt die Anwenderpraxis                                                                                                                               |
+| O4  | Adresse in Musterbefunden + PDFs (M15+) | Sollen die 60 Musterbefund-JSONs („Vertrieb") und die zugehörigen PDF-Downloads die neue Adresse tragen? (`main` hat sie nicht geändert.) | Ja, gemeinsam mit neuen PDF-Ständen (PT29.4 Punkt 6 Checksums); sonst bewusst als Dokumentstand vermerken | P2, vor Asset-Freeze | **Ja.** 60 JSONs: Willy-Brandt-Straße 49, 20457 Hamburg, eine Telefonnummer `+49 151 75011699`. **Offen:** PDFs `public/downloads/epigenetics/{de,en}/*.pdf` und `storage/protected/epigenetics/PolarisDX_Musterbefunde_DE.zip` tragen noch den alten Stand (extern erzeugt, keine Quelle im Repo) → neue Fassungen vom Owner |
+| O5  | Share-Karten-Text (M9 9a)               | Text der neuen Standardkarte nur aus Claim Register oder `main`-Wortlaut („Laborpräzise Diagnostik in 3–15 Minuten")?                     | Claim-Register-Wortlaut                                                                                   | mit Schritt 2        | **Claim-Register-Wortlaut — erledigt** (`a7ff705`, `scripts/make-og-card.mjs`)                                                                                                                                                                                                                                                |
+
+Weitere am selben Tag angenommene Punkte aus `release/AP30-RC1.md` §5: eine Telefonnummer
+site-weit, Impressum „§ 5 DDG", Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/IglooPro,
+RPO 24 h / RTO 30 min, AP34-Abnahme. Titel/Description-Deltas gegen Search Console (Crawl F3) sind
+angenommen, brauchen aber GSC-Zugang → Operator/Owner nach dem Go-live.
 
 ---
 

@@ -510,6 +510,12 @@ Rückfallpfad deckt jeden Fehlerfall ab.
   Termin, ein geteiltes Dokument oder eine Kennung tragen, die eine Person
   beschreibt. Ein Listener am Dokument statt eines Handlers je Link, weil die
   externen Links verstreut und teils aus übersetztem HTML erzeugt sind.
+  Allowlist `OUTBOUND_DOMAINS` (`src/lib/tracking.ts`, Stand SC-004,
+  2026-10-16): `instagram.com`, `linkedin.com`, `dx365.world`, `ec.europa.eu`,
+  `nduclinic.com` (ndu-Clinic-Karte im Epigenetik-Kontaktkapitel, O3),
+  `shop.polarisdx.net` (Kopfzeilen-Eintrag „Shop" und Startseiten-Band, O1).
+  Für beide neuen Ziele gibt es **kein** eigenes Ereignis (auch nicht das
+  `epigenetics_partner` von `main`).
 - **CTA:** Aufzählung von Orten, kein übersetzter Text (seit PT23.2).
 - **Panel:** nur allowlistete Slugs.
 
@@ -797,10 +803,17 @@ Was das konkret heißt — und was ausdrücklich **nicht**:
 - Ein Test hält fest, dass die vier Shopify-Ereignisnamen im Vokabular der
   Website **nicht** vorkommen.
 
-**Offen (`CTC-14`):** ein `outbound_click` auf den Shop ist erlaubt, aber es
+~~**Offen (`CTC-14`):** ein `outbound_click` auf den Shop ist erlaubt, aber es
 gibt im Repository **keine Shopify-Domain** — weder im Quelltext noch in den
 Übersetzungen. Sie wird deshalb **nicht erfunden**; sobald sie feststeht, kommt
-sie in `OUTBOUND_DOMAINS` und der Klick wird gemessen.
+sie in `OUTBOUND_DOMAINS` und der Klick wird gemessen.~~
+
+**`CTC-14` geschlossen (SC-004, 2026-10-16):** Die Domain ist durch `main@e66a562`
+belegt und vom Owner bestätigt: `shop.polarisdx.net` steht in `OUTBOUND_DOMAINS`
+(`src/lib/shop.ts`, Test `src/lib/shop.test.ts`). Klicks auf Kopfzeilen-Eintrag
+und Startseiten-Band zählen als `outbound_click` mit der Domain — nach
+Einwilligung, ohne Pfad. Die Website spiegelt weiterhin **keine**
+Shopify-Ecommerce-Ereignisse; Messung im Shop selbst ist Sache des Shops.
 
 ### 16.3 Was weiterhin nicht verifiziert ist
 
@@ -839,19 +852,19 @@ Die Akzeptanzkriterien aus der Aufgabenstellung, Punkt für Punkt:
 
 ### 16.5 Offen nach PT23.4
 
-| ID       | Sachverhalt                                                                                                                                           | Owner             |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `CTC-15` | **Vier Konversionen im Preview nicht manuell ausgelöst** (`support_submit`, `roi_report_request`, `epigenetics_inquiry_submit`, `lead_magnet_submit`) | Operator          |
-| `CTC-14` | Shopify-Domain unbekannt ⇒ kein `outbound_click` auf den Shop                                                                                         | Content/Marketing |
-| `CTC-10` | Enhanced Measurement der **Produktions**-Property unverifiziert                                                                                       | Operator          |
-| `CTC-04` | Produktions-Deployment ohne `VITE_GTM_CONTAINER_ID`                                                                                                   | Operator          |
-| `CTC-05` | Produktions-GA4-Property/Stream unverifiziert                                                                                                         | Operator          |
-| `CTC-13` | Live-Seite im Advanced Consent Mode (Altstand vor Relaunch)                                                                                           | Go-live / AP31    |
-| `CTC-12` | **geschlossen für Preview** — fünf Conversion-Tags existieren; Produktion folgt mit `CTC-04`                                                          | —                 |
-| `CTC-06` | CSP-Finalisierung                                                                                                                                     | AP26 PT26.2       |
-| `CTC-11` | `panel_select` ohne Aufrufer                                                                                                                          | PT23.5 / Content  |
-| `CTC-09` | Audience-Karten ohne stabile Kennung                                                                                                                  | Content           |
-| `CTC-07` | serverseitige Analytics-Consent-Evidence                                                                                                              | AP23-CLOSURE      |
+| ID       | Sachverhalt                                                                                                                                           | Owner            |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `CTC-15` | **Vier Konversionen im Preview nicht manuell ausgelöst** (`support_submit`, `roi_report_request`, `epigenetics_inquiry_submit`, `lead_magnet_submit`) | Operator         |
+| `CTC-14` | **geschlossen (SC-004, 2026-10-16)** — `shop.polarisdx.net` in `OUTBOUND_DOMAINS`                                                                     | —                |
+| `CTC-10` | Enhanced Measurement der **Produktions**-Property unverifiziert                                                                                       | Operator         |
+| `CTC-04` | Produktions-Deployment ohne `VITE_GTM_CONTAINER_ID`                                                                                                   | Operator         |
+| `CTC-05` | Produktions-GA4-Property/Stream unverifiziert                                                                                                         | Operator         |
+| `CTC-13` | Live-Seite im Advanced Consent Mode (Altstand vor Relaunch)                                                                                           | Go-live / AP31   |
+| `CTC-12` | **geschlossen für Preview** — fünf Conversion-Tags existieren; Produktion folgt mit `CTC-04`                                                          | —                |
+| `CTC-06` | CSP-Finalisierung                                                                                                                                     | AP26 PT26.2      |
+| `CTC-11` | `panel_select` ohne Aufrufer                                                                                                                          | PT23.5 / Content |
+| `CTC-09` | Audience-Karten ohne stabile Kennung                                                                                                                  | Content          |
+| `CTC-07` | serverseitige Analytics-Consent-Evidence                                                                                                              | AP23-CLOSURE     |
 
 ### 16.6 Restliche Operator-Aktion
 

@@ -10,23 +10,45 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-10-16 (nach Owner-Entscheidungen, SC-004):**
+
+- **Owner „Alle ja" (2026-10-16):** alle Empfehlungen aus `migration/MAIN-DELTA-2026-10.md` §5 und
+  `release/AP30-RC1.md` §5 angenommen (`SCOPE-CHANGELOG.md` SC-004, `DECISIONS.md` §3.1 OD-01..10).
+  Code `f7b5db3`, Preview-Release `f7b5db3e2433`, **Produktion unverändert**.
+  - O1 Shop: Kopfzeilen-Eintrag + schmales Startseiten-Band, `HCL-015`, `DEC-RL-015` geändert,
+    CTC-14 geschlossen (`shop.polarisdx.net` in `OUTBOUND_DOMAINS`).
+  - O2 Early-Access stillgelegt: `/early` `INTENTIONAL_404`; nginx-Rückbau beim Cutover **offen**
+    (Operator, `docs/deploy.md` §3); Signups `/var/lib/polaris-early` bleiben, Löschfrist **offen**
+    (Owner/DSB). SEC-17/OA-9 stillgelegt mit Cutover-Schritt.
+  - O3 ndu-Clinic-Karte (10 Sprachen), O4 eine Telefonnummer `+49 151 75011699` + Musterbefund-Adresse,
+    O5 Share-Karte (erledigt `a7ff705`), Impressum „§ 5 DDG".
+  - Bereichsleiste/„Nächster Schritt" auf Diagnostik, neun Service-Seiten, IglooPro (Shell-Bausteine,
+    kein Budget gelockert, ci 852/852). RPO 24 h / RTO 30 min bestätigt.
+  - **Offen:** neue PDF-Fassungen (alte Adresse/Nummer), GSC-Abgleich Crawl F3 nach Go-live, echte
+    Geräte, frische Gate-Kette für `f7b5db3` (Visual, A11y, E2E).
+- **AP34: CLOSED — ACCEPTED (2026-10-16)**, AP34-CLOSURE in `work-packages/AP34.md`.
+- **AP30 Go/No-Go: weiter No-Go** bis SendGrid-Rotation (OA-11/OA-12) und HSTS; Early-Access-Rückbau
+  und `./deploy.sh adopt` im Cutover.
+
 **Stand 2026-10-16 (Nachtlauf, ohne Owner):**
 
 - **AP34 PT34.4: technischer Teil PASS — Owner-Abnahme OFFEN.** Konsistenz-Raster über alle
   Seitentypen (Teal 0, Slate nur Befunde + dokumentierte Outline-Pille/Platzhalter, undefiniertes
   `text-accent-light` behoben, 404-CTA `light`), DESIGN-SYSTEM-CONTRACT konsolidiert, Vorher/Nachher-
   Bogen `wireframes/ap34-abnahme/` (18 Seitentypen, vorher = polarisdx.net). AP34-CLOSURE nach Abnahme.
+  _→ Abnahme erteilt 2026-10-16 (SC-004), AP34 CLOSED._
 - **AP28: Repo-Umsetzung PASS (lokal nachgewiesen), Produktion unverändert.** `deploy.sh`
   (versionierte Images, Health-Gate, Identität, Smoke, Auto-Rollback, Backup/Restore-Test/Restore),
   `GET /api/health`, `docker-compose.preview.yml`, Legacy-Archiv, Runbook `docs/deploy.md`;
-  Schuldenstand DEPLOYMENT-CONTRACT §6.2. Offen: DD-2/13/14/17, externer Alarmweg, RPO/RTO-Bestätigung.
+  Schuldenstand DEPLOYMENT-CONTRACT §6.2. Offen: DD-2/13/14/17, externer Alarmweg. _RPO/RTO bestätigt
+  2026-10-16 (24 h / 30 min)._
 - **AP29 PT29.1–29.3: vorbereitet**, Report `building-docs/migration/AP29-PRELAUNCH-CRAWL.md`
   (0 P0; F1/F2 behoben: Datei-404 direkt, Flyer- und ZIP-301; F3 Titel-Deltas owner-gebunden, GSC).
   **PT29.4 Content-Deltas aus `main`:** `building-docs/migration/MAIN-DELTA-2026-10.md`; umgesetzt:
   Hamburger Adresse (10 Locales, JSON-LD, Kontakt, Mails), echte Share-Karte, Artikelbilder,
   Bewertungszahlen-Schlüssel entfernt, Future-Forum-301, OG-Bilder. Offen (Owner): O1 Shop-Menü,
   **O2 Early-Access/Event-Daten (Cutover-Blocker)**, O3 ndu-Clinic-Karte, O4 Adresse/Telefon in
-  den 60 Musterbefunden, O5 Share-Text.
+  den 60 Musterbefunden, O5 Share-Text. _→ alle entschieden 2026-10-16 (SC-004), siehe oben._
 - **AP33: PASS (Doku)** — `docs/handbuch/` (Entwicklung, Redaktion, Wartung, Übergabe); Walkthroughs
   selbst = Owner-Termin.
 - **AP30: RC1 vorbereitet, NICHT freigegeben** — `building-docs/release/AP30-RC1.md`: Funktions-QA,
@@ -35,13 +57,13 @@ kein `work-packages/APxx-STATE.md`).
   Early-Access-Entscheidung, SendGrid-Rotation, HSTS. Preview läuft als Container-Release
   (`./deploy.sh --env preview`).
 - **AP31/AP32:** Runbook/Smoke/Rollback über `deploy.sh` vorbereitet; Ausführung = Owner-Go.
-- **Weiter offene Owner-Entscheidungen:** Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/
-  IglooPro (Route-JS-Budget) · Telefonnummer · Produktions-Go.
+- **Weiter offene Owner-Entscheidungen:** ~~Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/
+  IglooPro (Route-JS-Budget) · Telefonnummer~~ (entschieden 2026-10-16) · Produktions-Go.
 
-- **Work package (Design, priorisiert): AP34 — Relaunch-Design „Editorial" seitenweit** · Status: **IN_PROGRESS** · Anlage: SC-002 (Owner, 2026-10-15) · Vertrag: `work-packages/AP34.md`
-- AP34: PT34.1: **PASS (2026-10-15)** — Navy-Kopfzeile, Logo-Blau-Akzent, Editorial-Startseite; Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.1); offener Altbefund außerhalb AP34: `e2e/befunde-navigation.spec.ts` PT16.3 „Inquiry“ (zwei `role=status`, identisch auf dem Vorstand) · PT34.2: **IN_PROGRESS** — PT34.2a–c **PASS (2026-10-15, SC-003)**: Führungssystem und Epigenetik-Strecke (Hub, Grundlagen, Studienlage, Unterlagen, Musterbefund-Rahmen); Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.2a–c); bekannte Altbefunde unverändert (PT16.3/PT15.6 doppeltes `role=status`, PT08.4 Sprachwechsel unter Last, PT24.6 Kernrouten-Timeouts unter Last — jeweils identisch auf dem Vorstand); Owner-Frage offen: zweite Telefonnummer +49 152 2858 0999 (Hub, 60 Musterbefunde) · PT34.3: **PASS (Gestaltung, 2026-10-16)** — Inhalts-/Unternehmensseiten angeglichen, siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.3) · PT34.4: **NOT STARTED** · AP34-CLOSURE: **NOT STARTED**
-- PT34.2d–e: **PASS (Gestaltung, 2026-10-16)** — Editorial-Bühnen für Diagnostik, Service-Seiten (über `SubpageHero`, damit auch Kontakt, Support, Über uns, Blog, Downloads, Rechtstexte), IglooPro; Bereichsleiste/„Nächster Schritt" dort **OFFEN — Owner-Entscheidung** (Route-JS-Puffer 250–450 B, Bedarf ~2 KB); vorbestehende E2E-Altbefunde (Breadcrumb-Label „Breadcrumb" vs. „Brotkrümelnavigation" in Service-Specs, Kontakt-/Support-Formular, Termine mit festem Datum, Artikel-Template) identisch auf dem Vorstand
-- Next task: **PT34.4 — Konsistenz, Doku, Owner-Abnahme** (offen: Owner-Entscheidung Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/IglooPro; zweite Telefonnummer) · danach AP34-CLOSURE, AP28, PT34.4, AP34-CLOSURE, dann AP28
+- **Work package (Design, priorisiert): AP34 — Relaunch-Design „Editorial" seitenweit** · Status: **CLOSED — ACCEPTED (2026-10-16)** · Anlage: SC-002 (Owner, 2026-10-15) · Vertrag: `work-packages/AP34.md`
+- AP34: PT34.1: **PASS (2026-10-15)** — Navy-Kopfzeile, Logo-Blau-Akzent, Editorial-Startseite; Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.1); offener Altbefund außerhalb AP34: `e2e/befunde-navigation.spec.ts` PT16.3 „Inquiry“ (zwei `role=status`, identisch auf dem Vorstand) · PT34.2: **PASS (2026-10-16)** — PT34.2a–c **PASS (2026-10-15, SC-003)**: Führungssystem und Epigenetik-Strecke (Hub, Grundlagen, Studienlage, Unterlagen, Musterbefund-Rahmen); Gates siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.2a–c); bekannte Altbefunde unverändert (PT16.3/PT15.6 doppeltes `role=status`, PT08.4 Sprachwechsel unter Last, PT24.6 Kernrouten-Timeouts unter Last — jeweils identisch auf dem Vorstand); Owner-Frage zweite Telefonnummer +49 152 2858 0999 (Hub, 60 Musterbefunde) entschieden 2026-10-16: eine Nummer +49 151 75011699 (SC-004) · PT34.3: **PASS (Gestaltung, 2026-10-16)** — Inhalts-/Unternehmensseiten angeglichen, siehe DESIGN-SYSTEM-CHANGELOG (AP34 PT34.3) · PT34.4: **PASS (2026-10-16)** · AP34-CLOSURE: **ACCEPTED (Owner, 2026-10-16)**
+- PT34.2d–e: **PASS (Gestaltung, 2026-10-16)** — Editorial-Bühnen für Diagnostik, Service-Seiten (über `SubpageHero`, damit auch Kontakt, Support, Über uns, Blog, Downloads, Rechtstexte), IglooPro; Bereichsleiste/„Nächster Schritt" dort ~~OFFEN — Owner-Entscheidung~~ **umgesetzt 2026-10-16 als Shell-Bausteine** (`f7b5db3`, SC-004; Route-JS-Puffer danach 127–193 B, Initial-JS 162 794 / 164 778 B); vorbestehende E2E-Altbefunde (Breadcrumb-Label „Breadcrumb" vs. „Brotkrümelnavigation" in Service-Specs, Kontakt-/Support-Formular, Termine mit festem Datum, Artikel-Template) identisch auf dem Vorstand
+- Next task: **AP30 RC-Messung für `f7b5db3` und AP31-Vorbereitung** (Operator: SendGrid-Rotation, HSTS, Early-Access-Rückbau, `adopt`) · AP34 abgeschlossen; frühere Zeile: „PT34.4 — Konsistenz, Doku, Owner-Abnahme … danach AP34-CLOSURE, dann AP28" (erledigt)
 - Hinweis: Die AP27-Zeilen unten stammen aus dem Stand vor den Commits „AP27-CLOSURE: …" und wurden in AP34 nicht neu bewertet.
 
 - Work package: **AP27 — Teststrategie, Regression und Quality Gates**
