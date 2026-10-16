@@ -27,6 +27,14 @@ kein `work-packages/APxx-STATE.md`).
   Bewertungszahlen-Schlüssel entfernt, Future-Forum-301, OG-Bilder. Offen (Owner): O1 Shop-Menü,
   **O2 Early-Access/Event-Daten (Cutover-Blocker)**, O3 ndu-Clinic-Karte, O4 Adresse/Telefon in
   den 60 Musterbefunden, O5 Share-Text.
+- **AP33: PASS (Doku)** — `docs/handbuch/` (Entwicklung, Redaktion, Wartung, Übergabe); Walkthroughs
+  selbst = Owner-Termin.
+- **AP30: RC1 vorbereitet, NICHT freigegeben** — `building-docs/release/AP30-RC1.md`: Funktions-QA,
+  Browser-Matrix 84/84 (6 Profile), A11y, Visual, Budgets, Security, Consent, HTTP/Integration grün;
+  zwei Funde behoben (Preview-API 504, Lead-Magnet-Datei fehlte im Image). Go/No-Go: **No-Go** bis
+  Early-Access-Entscheidung, SendGrid-Rotation, HSTS. Preview läuft als Container-Release
+  (`./deploy.sh --env preview`).
+- **AP31/AP32:** Runbook/Smoke/Rollback über `deploy.sh` vorbereitet; Ausführung = Owner-Go.
 - **Weiter offene Owner-Entscheidungen:** Bereichsleiste/„Nächster Schritt" auf Diagnostik/Service/
   IglooPro (Route-JS-Budget) · Telefonnummer · Produktions-Go.
 
