@@ -81,6 +81,12 @@ als 200 mit Homepage-Canonical, 30 `noindex`-Legal-URLs in der Sitemap, Fake-`la
 **P0: keine.** Kein Preview-/localhost-Host in Canonical, `og:url`, hreflang, Sitemap oder HTML; keine
 versehentlichen `noindex`; keine Redirect-Ketten/-Loops bei Seiten-URLs; keine Massenredirects auf Home.
 
+**Umsetzungsstand 2026-10-16 (nach SC-004):** F4, F6, F7 umgesetzt (server.ts,
+`legacyRedirects.ts`; E2E „Crawl-Befunde F4/F6/F7", SEO-Regression 82/82). F8 nur der PL-IglooPro-Titel
+(„Czytnik Point-of-Care IglooPro"); die überlangen Descriptions bleiben ein Content-Pass. F5 bewusst
+nicht umgeleitet (Router erzeugt `/<lang>`), F9 offen (die `og-consumer-*.jpg` aus `main` sind
+englisch, im alten Teal und mit eingedrucktem Preis — nicht als Ersatz geeignet), F10 bewusst so.
+
 ## 4. Redirect-Map (Entwurf, gemessen auf Preview)
 
 Alle Pfade gelten je Locale-Family (`/<locale>` bleibt erhalten, unpräfixiert → `de`), Query bleibt
@@ -98,13 +104,13 @@ erhalten (geprüft: `/agb?utm_source=x` → `/de/terms?utm_source=x`). Vollstän
 | jede kanonische Seite ohne Locale (43)                                                                                                                 | `/de/<pfad>`                                      | 301 → 200                     | 301 → 200, 1 Hop              | REDIRECT_301 ✔ (`/` → `/de/` = Home, begründet)                |
 | `/contact` (Prod-interner Link)                                                                                                                        | `/de/contact`                                     | 301 → 200                     | 301 → 200, 1 Hop              | ✔, intern nicht mehr verlinkt                                  |
 | `/articles/{first_checkup,managing_diabetes,home_care}`, `/consumer`, `/shop`, `/casestudys/32reasons`, `/case-studies/32reasons`, `/deal`, `/voucher` | —                                                 | 200 Soft-404                  | 404 direkt, 99/99             | GONE_OR_404_INTENTIONAL ✔                                      |
-| `/blog/vitamin-d3-implantologie`                                                                                                                       | `/vitamin-d3-implantologie` (Vorschlag)           | 200 Soft-404, intern verlinkt | 404 direkt                    | **offen** (F7)                                                 |
+| `/blog/vitamin-d3-implantologie`                                                                                                                       | `/vitamin-d3-implantologie` (Vorschlag)           | 200 Soft-404, intern verlinkt | 404 direkt                    | **umgesetzt** 301 (F7)                                         |
 | `/downloads/epigenetics/PolarisDX_Musterbefunde_DE.zip`                                                                                                | `/de/epigenetics/unterlagen` (Vorschlag) oder 404 | 200 (Datei)                   | 404                           | **offen** (F2)                                                 |
 | `/assets/igloo-pro-flyer-BPQZrocN.pdf`                                                                                                                 | `/downloads/igloo-pro-flyer.pdf` (Vorschlag)      | 200 (Datei)                   | 301 → 404 (Kette)             | **offen** (F1)                                                 |
 | alte gehashte `/assets/*`, `/og-consumer-*.jpg`                                                                                                        | 404 direkt (oder stabile Datei)                   | 200                           | 301 → 404 (Kette)             | **offen** (F1)                                                 |
-| `/xx/<pfad>/` (Trailing Slash)                                                                                                                         | `/xx/<pfad>`                                      | 200, Self-Canonical mit Slash | 200, Self-Canonical mit Slash | **offen** (F4)                                                 |
+| `/xx/<pfad>/` (Trailing Slash)                                                                                                                         | `/xx/<pfad>`                                      | 200, Self-Canonical mit Slash | 200, Self-Canonical mit Slash | **umgesetzt** 301 (F4)                                         |
 | `/xx` (ohne Slash)                                                                                                                                     | `/xx/`                                            | 200, Canonical `/xx/`         | 200, Canonical `/xx/`         | akzeptabel, Empfehlung 301 (F5)                                |
-| `/index.html`                                                                                                                                          | `/de/`                                            | 200 Roh-Template              | 200 Roh-Template              | **offen** (F6)                                                 |
+| `/index.html`                                                                                                                                          | `/de/`                                            | 200 Roh-Template              | 200 Roh-Template              | **umgesetzt** 301 → `/de/` (F6)                                |
 | Heuristik (`/impressum`, `/datenschutz`, `/kontakt`, `/ueber-uns`, `/blog`, `/news`, `/products`, `/igloo`, `/epigenetik`, `/vitamin-d3`, `/home` …)   | —                                                 | 301 → 200 Soft-404            | 404 direkt                    | ohne Repo-Evidenz; erst bei GSC-/Backlink-Treffern entscheiden |
 
 Registry-Redirects: **330/330** Varianten korrekt (genau ein 301, Ziel = Registry-Ziel, Ziel 200,

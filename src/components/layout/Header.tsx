@@ -347,7 +347,10 @@ const Header = () => {
                   // und `relative` ist eine Gestaltungsklasse, die jederzeit
                   // an einem anderen Vorfahren auftauchen kann.
                   data-submenu-scope={item.label}
-                  className="relative"
+                  // Spalten-Menues (Diagnostik) verankern sich an der Kopfzeile,
+                  // nicht am Menuepunkt: 720 px unter dem ersten Punkt zentriert
+                  // ragten bei 1280 px links ~80 px aus dem Bild.
+                  className={item.groups ? undefined : 'relative'}
                   onMouseEnter={() => item.children && setOpenSubmenu(item.label)}
                   onMouseLeave={() => item.children && setOpenSubmenu(null)}
                 >
@@ -389,8 +392,10 @@ const Header = () => {
 
                   {hasSubmenu(item) && expanded && (
                     <div
-                      className={`absolute left-1/2 top-full -translate-x-1/2 pt-6 ${
-                        item.groups ? 'w-[720px]' : 'min-w-[220px]'
+                      className={`absolute left-1/2 top-full -translate-x-1/2 ${
+                        item.groups
+                          ? 'w-[720px] max-w-[calc(100vw-2rem)] pt-1'
+                          : 'min-w-[220px] pt-6'
                       }`}
                     >
                       <div className="overflow-hidden rounded-card border border-paper-line bg-white shadow-card">
@@ -488,9 +493,9 @@ const Header = () => {
             {/* Online-Shop (O1, main@e66a562): fremde Domain, daher <a> statt
                 <Link> und ausserhalb von navItems (keine Route, kein Untermenue).
                 Das Label „Neu" steht nur im mobilen Menue: mit ihm passen acht
-                Eintraege bei 1280 px nicht mehr in eine Zeile. Die xl-Abstaende (5/4)
-                sind so gemessen, dass alle zehn Sprachen ab 1280 px einzeilig bleiben
-                (knappste: es 681 von 687 px). */}
+                Eintraege bei 1280 px nicht mehr in eine Zeile. Mit den xl-Abstaenden
+                (5/4) bleiben de/en/it/nl/pt/pl/cs/da ab 1280 px einzeilig; fr und es
+                brechen weiter um (schon vor dem Shop-Eintrag, P2). */}
             <a href={shopUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
               <span className={underline(false)}>{t('nav.shop')}</span>
             </a>

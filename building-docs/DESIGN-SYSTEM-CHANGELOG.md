@@ -50,11 +50,23 @@ Das ist **AP27** und wird nicht vorweggenommen.
   unverändert (`check:ds-changelog` grün).
 - **Budgets (PT25.5, nicht gelockert):** ci 852/852; Initial-JS 162 794 B von 164 778 B; Route-JS-
   Puffer Diagnostik-Hub 193 B, Service-Detail 186 B, IglooPro 127 B.
-- **Betroffene Screenshots:** in `f7b5db3` keine Baseline geändert. Kopfzeile (alle Seiten),
-  Startseite, Epigenetik-Hub, Diagnostik, Service-Detail und IglooPro sehen anders aus; ob
-  `pt27.6-visual` und `design-system` neue Baselines brauchen, ist **nicht gemessen (offen)**.
-- **Reviewer:** Owner (Entscheidung 2026-10-16); Sichtprüfung auf der Preview (Release
-  `f7b5db3e2433`) steht aus.
+- **Mega-Menü Diagnostik (Fehlerbehebung, gefunden beim Baseline-Abgleich):** das 720 px breite
+  Spalten-Menü war unter dem ersten Menüpunkt zentriert und ragte bei 1280 px links ~80 px aus dem
+  Bild — die alte Baseline `diagnostics-megamenu-open-desktop` hatte den abgeschnittenen Zustand
+  eingefroren. Spalten-Menüs verankern sich jetzt an der Kopfzeile (zentriert,
+  `max-w-[calc(100vw-2rem)]`); gemessen vollständig im Bild bei 768/1024/1280/1536 px.
+- **Betroffene Screenshots (aktualisiert im Playwright-Docker-Image v1.57.0, danach gegengeprüft):**
+  - `pt27.6-visual` 17 von 21: alle Desktop-Seiten und -Zustände (Kopfzeile mit „Shop", y 30–50),
+    `service-detail-desktop` (Bereichsleiste im Bild), `diagnostics-megamenu-open-desktop`
+    (Menü-Fix oben), `navigation-open-mobile` („Shop · Neu" im mobilen Menü). Check 21/21.
+  - `design-system` 4 von 35: `hero-diagnostics-{desktop,mobile}`, `longform-service-{desktop,mobile}`
+    (Bereichsleiste + „Weiter im Bereich", Seite länger). In `longform-service-mobile` liegt der
+    Hero-Inhalt im Full-Page-Bild ~5–15 px höher; im Browser ist die Geometrie unverändert (h1-Oberkante
+    208 px bei 844 und 8000 px Viewport-Höhe, Gegenprobe ohne `AreaNav` = alte Baseline pixelgleich).
+    Das ist ein Artefakt des Full-Page-Screenshots mit dem neuen Sticky-Element, kein Layout-Delta.
+    Check 35/35.
+- **Reviewer:** Owner (Entscheidung 2026-10-16); Sichtprüfung der neuen Baselines durch den Agenten
+  (Diff-Bereiche einzeln geprüft).
 
 ### 2026-10-16 — AP34 PT34.4 · Konsistenz-Durchgang, echte Share-Karte, Artikelbilder (Design-Delta, kein Vertragsbruch)
 

@@ -158,9 +158,10 @@ describe('PT27.1 · Segmentmodell', () => {
 describe('PT27.1 · Redirect-Mapping', () => {
   const redirects = getRedirectRegistryEntries()
 
-  it('bleibt stabil: 31 permanente Quellen, Services-Migration vollstaendig', () => {
-    // 31 = 30 (PT27.1) + Future-Forum-Seite, auf main 2026-10-07 entfernt (AP29 PT29.4).
-    expect(redirects).toHaveLength(31)
+  it('bleibt stabil: 32 permanente Quellen, Services-Migration vollstaendig', () => {
+    // 32 = 30 (PT27.1) + Future-Forum-Seite, auf main 2026-10-07 entfernt (AP29 PT29.4)
+    // + /blog/vitamin-d3-implantologie (AP29 Crawl-Befund F7).
+    expect(redirects).toHaveLength(32)
     expect(getRegistryRedirectTarget('/events/future-forum-berlin-2026')).toBe('/events')
     expect(getRegistryRedirectTarget('/services')).toBe('/diagnostics')
     for (const service of services) {

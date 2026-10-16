@@ -333,6 +333,12 @@ async function createServer() {
   // ---------------------------------------------------------------------------
   // DEVELOPMENT: Vite Middleware
   // ---------------------------------------------------------------------------
+  // AP29 Crawl-Befund F6: `express.static` lieferte /index.html als rohes SPA-Template
+  // (200, index/follow, Default-Titel). Die Datei ist kein Seitenziel.
+  app.get('/index.html', (_req: Request, res: Response) => {
+    res.redirect(301, `/${DEFAULT_LANGUAGE}/`)
+  })
+
   if (!isProduction) {
     const { createServer: createViteServer } = await import('vite')
 
@@ -475,6 +481,17 @@ async function createServer() {
 
     // URL hat bereits ein gültiges Sprach-Prefix → kein Redirect nötig
     if (langPrefix !== null) {
+      // AP29 Crawl-Befund F4: /xx/<pfad>/ war eine zweite indexierbare URL mit
+      // selbstreferenzierendem Canonical. Bekannte Seiten mit Schraegstrich am Ende
+      // gehen in einem Hop auf die kanonische Form; /xx/ (Startseite) bleibt.
+      if (
+        pathWithoutLang !== '/' &&
+        pathWithoutLang.endsWith('/') &&
+        isKnownCanonicalPath(normalizedPathWithoutLang)
+      ) {
+        res.redirect(301, `/${langPrefix}${normalizedPathWithoutLang}${query}`)
+        return
+      }
       return next()
     }
 

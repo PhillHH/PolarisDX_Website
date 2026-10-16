@@ -266,4 +266,22 @@ test.describe('AP29 legacy files', () => {
       expect((await request.head(`/og-consumer-${name}.jpg`)).status()).toBe(200)
     }
   })
+
+  test('Crawl-Befunde F4/F6/F7: ein Hop auf die kanonische Form', async ({ request }) => {
+    const cases: Array<[string, string]> = [
+      ['/de/about/', '/de/about'],
+      ['/en/diagnostics/dental/?x=1', '/en/diagnostics/dental?x=1'],
+      ['/index.html', '/de/'],
+      ['/de/blog/vitamin-d3-implantologie', '/de/vitamin-d3-implantologie'],
+    ]
+    for (const [source, target] of cases) {
+      const response = await request.get(source, noFollow)
+      expect(response.status(), source).toBe(301)
+      expect(response.headers().location, source).toBe(target)
+      expect((await request.get(target, noFollow)).status(), target).toBe(200)
+    }
+    // Startseite behaelt den Schraegstrich; unbekannte Pfade mit Schraegstrich bleiben 404.
+    expect((await request.get('/de/', noFollow)).status()).toBe(200)
+    expect((await request.get('/de/gibt-es-nicht/', noFollow)).status()).toBe(404)
+  })
 })

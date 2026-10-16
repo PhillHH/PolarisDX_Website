@@ -127,6 +127,7 @@ remnant; the Express SSR path is authoritative for the current deployment.
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------- | ---- |
 | `/agb`                                                                                                                                                         | `/terms`                                                                  | primary Terms alias                   | 1    |
 | `/s3-leitlinie`                                                                                                                                                | `/s3_leitlinie`                                                           | primary spelling alias                | 1    |
+| `/blog/vitamin-d3-implantologie`                                                                                                                               | `/vitamin-d3-implantologie`                                               | old link on `main` (AP29 F7)          | 1    |
 | `/services`                                                                                                                                                    | `/diagnostics`                                                            | structural predecessor                | 1    |
 | `/services/{dental,beauty,longevity,poc-systemloesungen,praeventions-checks,infektion-entzuendung,stoffwechsel-herz,hormon-tests,kompatibilitaet-integration}` | matching `/diagnostics/<real-id>`                                         | 9 real `services.tsx` IDs             | 1    |
 | `/articles/green_practice`                                                                                                                                     | `/articles/die-gruene-praxis`                                             | `articles.ts` ID→slug                 | 1    |
@@ -937,14 +938,22 @@ Master-Scope. Decision Locks werden hier nie geändert.
 
 - **Redirect `RETIRED_PAGE`:** `/events/future-forum-berlin-2026` → `/<lang>/events` (301, ein Hop,
   Locale bleibt). Die Seite wurde auf `main` am 2026-10-07 entfernt (3031841) und dort genauso
-  weitergeleitet; der Relaunch übernimmt die Entscheidung. Registry: **31** Redirect-Quellen.
+  weitergeleitet; der Relaunch übernimmt die Entscheidung.
+- **Redirect `PRIMARY_ALIAS` (Crawl-Befund F7):** `/blog/vitamin-d3-implantologie` →
+  `/<lang>/vitamin-d3-implantologie` (auf `main` von `/xx/diagnostics/dental` verlinkt, dort Soft-404).
+  Registry: **32** Redirect-Quellen.
+- **Schraegstrich am Ende (Crawl-Befund F4, server.ts):** eine bekannte Seite `/<lang>/<pfad>/` geht in
+  einem Hop per 301 auf `/<lang>/<pfad>` (Query bleibt); `/<lang>/` (Startseite) bleibt, unbekannte
+  Pfade mit Schraegstrich bleiben 404. `/<lang>` ohne Schraegstrich bleibt 200 mit Canonical
+  `/<lang>/` (F5, bewusst nicht umgeleitet: Logo-Links des Routers erzeugen `/<lang>`).
+- **`/index.html` (Crawl-Befund F6):** 301 → `/de/` statt rohem SPA-Template.
 - **Alt-Dateien (server.ts, ohne Locale):** `/assets/igloo-pro-flyer-<hash>.pdf` → `/downloads/igloo-pro-flyer.pdf`;
   `/downloads/epigenetics/PolarisDX_Musterbefunde_<XX>.zip` → `/<xx|de>/epigenetics/unterlagen`
   (seit AP19 PT19.4 Lead-Magnet). Beide 301, ein Hop.
 - **Fehlende Dateien** (`isStaticAsset`) antworten ohne Locale-Präfix direkt **404** statt
   `301 → /de/<datei> → 404` (Crawl-Befund F1).
 - Nachweis: `e2e/url-smoke.spec.ts` „AP29 legacy files", `src/routing/routeResolution.test.ts`;
-  `npm run test:seo:regression` 80/80. Grundlage: `building-docs/migration/AP29-PRELAUNCH-CRAWL.md`.
+  `npm run test:seo:regression` 82/82 (inkl. „Crawl-Befunde F4/F6/F7"). Grundlage: `building-docs/migration/AP29-PRELAUNCH-CRAWL.md`.
 - **`INTENTIONAL_404` `/early` (SC-004, Owner 2026-10-16):** Early-Access ist stillgelegt (MAIN-DELTA
   O2, Option A). `/early` steht in `INTENTIONAL_404_PATHS` (`src/routing/legacyRedirects.ts`, Test
   `legacyRedirects.test.ts`); keine Weiterleitung auf die Startseite (Vertrag oben). Die

@@ -26,6 +26,13 @@ const primaryAliases: LegacyRedirectMigration[] = [
     targetPath: '/s3_leitlinie',
     evidence: 'PRIMARY_ALIAS',
   },
+  // AP29 Crawl-Befund F7: auf main von /xx/diagnostics/dental verlinkt (dort Soft-404);
+  // die Absicht ist eindeutig die Vitamin-D3-Implantologie-Seite.
+  {
+    sourcePath: '/blog/vitamin-d3-implantologie',
+    targetPath: '/vitamin-d3-implantologie',
+    evidence: 'PRIMARY_ALIAS',
+  },
 ]
 
 /**
