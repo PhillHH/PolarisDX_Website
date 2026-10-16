@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Le misurazioni forniscono informazioni aggiuntive. La valutazione professionale e gli eventuali passi successivi restano responsabilità del professionista competente."
+  },
+  "shop_teaser": {
+    "badge": "Novità",
+    "eyebrow": "Shop online per professionisti sanitari",
+    "title": "Ordina il lettore IglooPro e i kit di test direttamente online",
+    "cta": "Vai allo shop",
+    "note": "Portale ordini per professionisti · Tutti i prezzi sono netti, IVA di legge esclusa. Shop disponibile in tedesco e inglese."
   }
 }

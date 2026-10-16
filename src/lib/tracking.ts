@@ -257,6 +257,8 @@ export const OUTBOUND_DOMAINS = [
   'linkedin.com',
   'dx365.world',
   'ec.europa.eu',
+  'nduclinic.com',
+  'shop.polarisdx.net',
 ] as const
 export type OutboundDomain = (typeof OUTBOUND_DOMAINS)[number]
 

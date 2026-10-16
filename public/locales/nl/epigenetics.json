@@ -328,7 +328,13 @@
     "sub": "De analyses worden uitsluitend geleverd aan professionele gebruikers. B2B-voorwaarden op aanvraag, geschaald naar volume.",
     "overview": "Overzicht als PDF",
     "note": "De analyses zijn laboratoriumdiensten van onze samenwerkingspartner en zijn geen CE-gemarkeerde in-vitro diagnostica. Ze dienen consultatie en monitoring en vervangen geen klinische diagnostiek. Genetische analyses vallen onder nationale genetische testwetgeving. In Duitsland mogen predictieve genetische testen alleen worden uitgevoerd onder verantwoordelijkheid van daartoe bevoegde artsen; genetische counseling moet vóór en na de test worden aangeboden.",
-    "lab": "Laboratoriumanalyse door onze samenwerkingspartner · ISO 9001:2015"
+    "lab": "Laboratoriumanalyse door onze samenwerkingspartner · ISO 9001:2015",
+    "partnerCaption": "Laat u testen",
+    "partnerTitle": "ndu Clinic · London",
+    "partnerText": "Wilt u een van de zes analyses zelf laten uitvoeren? Onze partnerpraktijk ndu Clinic biedt de tests aan in Londen — van monsterafname tot de bespreking van de uitslag.",
+    "partnerMeta": "22 Harley Street, London W1G 9PL · Dr. Goran D. Stojanovic",
+    "partnerCta": "Naar ndu Clinic",
+    "partnerNewTab": "(opent in een nieuw tabblad)"
   },
   "inquiry": {
     "fields": {

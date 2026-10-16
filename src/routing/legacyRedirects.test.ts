@@ -54,6 +54,7 @@ describe('PT10.2 legacy URL migration map', () => {
       '/case-studies/32reasons',
       '/deal',
       '/voucher',
+      '/early',
     ])
     expect(INTENTIONAL_404_PATHS).not.toContain('/')
   })

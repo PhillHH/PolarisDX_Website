@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
+import { useAreaShell } from '../components/area/areaShell'
 import DiagnosticsHero from '../components/sections/DiagnosticsHero'
 import DiagnosticsLandscapeSection from '../components/sections/DiagnosticsLandscapeSection'
 import DiagnosticsSpecialtySection from '../components/sections/DiagnosticsSpecialtySection'
@@ -12,6 +13,7 @@ import IglooProImage from '../assets/Igloo-pro-frontal.webp'
 
 const ServicesOverviewPage = () => {
   const { t, i18n } = useTranslation(['common', 'home', 'services'])
+  const { AreaNav, NextSteps, diagnosticsAreaItems } = useAreaShell()
 
   return (
     <PageTransition>
@@ -38,11 +40,20 @@ const ServicesOverviewPage = () => {
       />
       <div>
         <DiagnosticsHero />
+        <AreaNav label={t('nav.service')} items={diagnosticsAreaItems(t)} currentKey="overview" />
         <DiagnosticsLandscapeSection />
         <DiagnosticsSpecialtySection />
         <DiagnosticsFocusSection />
         <DiagnosticsUseCasesSection />
         <DiagnosticsRelatedArticlesSection />
+        <NextSteps
+          label={t('area.nextLabel')}
+          next={{
+            to: '/diagnostics/dental',
+            kicker: t('area.next'),
+            title: t('nav.dental'),
+          }}
+        />
         <FinalCtaSection roiHref="/#roi-rechner" />
       </div>
     </PageTransition>

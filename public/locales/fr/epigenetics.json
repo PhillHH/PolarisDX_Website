@@ -328,7 +328,13 @@
     "sub": "Les analyses sont fournies uniquement aux utilisateurs professionnels. Conditions B2B sur demande, modulées selon le volume.",
     "overview": "Aperçu au format PDF",
     "note": "Les analyses sont des prestations de laboratoire fournies par notre partenaire de coopération et ne sont pas des dispositifs médicaux de diagnostic in vitro marqués CE. Elles servent à la consultation et au suivi et ne remplacent pas le diagnostic clinique. Les analyses génétiques sont soumises à la législation nationale sur les tests génétiques. En Allemagne, les tests génétiques prédictifs ne peuvent être réalisés que sous la responsabilité de médecins qualifiés ; un conseil génétique doit être proposé avant et après le test.",
-    "lab": "Analyse de laboratoire par notre partenaire de coopération · ISO 9001:2015"
+    "lab": "Analyse de laboratoire par notre partenaire de coopération · ISO 9001:2015",
+    "partnerCaption": "Se faire tester",
+    "partnerTitle": "ndu Clinic · London",
+    "partnerText": "Vous souhaitez réaliser vous-même l’une des six analyses ? Notre cabinet partenaire ndu Clinic propose les tests à Londres — du prélèvement à la discussion du résultat.",
+    "partnerMeta": "22 Harley Street, London W1G 9PL · Dr. Goran D. Stojanovic",
+    "partnerCta": "Vers ndu Clinic",
+    "partnerNewTab": "(s’ouvre dans un nouvel onglet)"
   },
   "inquiry": {
     "fields": {

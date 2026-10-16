@@ -10,6 +10,7 @@ import {
 import HeroSection from '../components/sections/HeroSection'
 import TrustBar from '../components/sections/TrustBar'
 import BusinessPillarsSection from '../components/sections/BusinessPillarsSection'
+import ShopTeaserSection from '../components/sections/ShopTeaserSection'
 import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import StepsSection from '../components/sections/StepsSection'
@@ -52,6 +53,7 @@ const HomePage = () => {
       <HeroSection />
       <TrustBar />
       <BusinessPillarsSection />
+      <ShopTeaserSection />
       <WhyPocSection />
       <StepsSection />
       <div className="pt-20 lg:pt-24">

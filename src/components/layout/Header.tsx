@@ -11,6 +11,7 @@ import logo from '../../assets/polaris_white-272w.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useKeyboardDismiss } from '../../hooks/useKeyboardDismiss'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
+import { shopUrl } from '../../lib/shop'
 
 interface NavChild {
   label: string
@@ -138,6 +139,9 @@ const NAV_LINK =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
   'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep motion-reduce:transition-none'
 
+/** Kleines Label am Shop-Eintrag; Akzent auf Navy nur als `accent-on-dark`. */
+const SHOP_BADGE = 'text-xs font-semibold text-accent-on-dark'
+
 /** Eintrag in einem geoeffneten Menue — hell, mit eigenem Fokusring. */
 const MENU_LINK =
   'flex min-h-[44px] items-center rounded-lg px-2 py-2 text-sm font-medium text-heading ' +
@@ -190,7 +194,7 @@ function hasSubmenu(item: NavItem): boolean {
 }
 
 const Header = () => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
   const scrollY = useScrollPosition()
   const isScrolled = scrollY > 24
 
@@ -329,7 +333,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-8 text-white`}
+            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-5 text-white`}
           >
             {navItems.map((item) => {
               const active = isItemActive(item, location.pathname)
@@ -481,9 +485,18 @@ const Header = () => {
                 </div>
               )
             })}
+            {/* Online-Shop (O1, main@e66a562): fremde Domain, daher <a> statt
+                <Link> und ausserhalb von navItems (keine Route, kein Untermenue).
+                Das Label „Neu" steht nur im mobilen Menue: mit ihm passen acht
+                Eintraege bei 1280 px nicht mehr in eine Zeile. Die xl-Abstaende (5/4)
+                sind so gemessen, dass alle zehn Sprachen ab 1280 px einzeilig bleiben
+                (knappste: es 681 von 687 px). */}
+            <a href={shopUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
+              <span className={underline(false)}>{t('nav.shop')}</span>
+            </a>
           </nav>
 
-          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-4">
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
@@ -687,6 +700,14 @@ const Header = () => {
                   </div>
                 )
               })}
+              <a
+                href={shopUrl(i18n.language)}
+                onClick={mobileMenu.onClose}
+                className={`${MOBILE_LINK} gap-2 text-lg`}
+              >
+                {t('nav.shop')}
+                <span className={SHOP_BADGE}>{t('nav.badge_new')}</span>
+              </a>
               <div className="pt-4">
                 <Button
                   to="/contact"

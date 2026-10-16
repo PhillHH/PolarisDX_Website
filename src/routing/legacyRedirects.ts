@@ -101,4 +101,7 @@ export const INTENTIONAL_404_PATHS = [
   '/case-studies/32reasons',
   '/deal',
   '/voucher',
+  // Early-Access-Landingpage von main@ad5073e (Podcast-Kampagne 09/2026), seit
+  // 2026-09-15 ohne Zugriff, vom Owner am 2026-10-16 stillgelegt (MAIN-DELTA O2 A).
+  '/early',
 ] as const

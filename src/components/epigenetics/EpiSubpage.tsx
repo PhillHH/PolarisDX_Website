@@ -29,8 +29,8 @@ import { useScrollDepth } from '../../lib/useScrollDepth'
 import { useMerkliste } from '../../lib/merkliste'
 import { epigeneticsInquiryHref } from '../../lib/epigeneticsContext'
 import AreaStage from '../area/AreaStage'
-import AreaNav from '../area/AreaNav'
-import NextSteps, { type StepLink } from '../area/NextSteps'
+import { useAreaShell } from '../area/areaShell'
+import type { StepLink } from '../area/NextSteps'
 import MobileActionBar from '../area/MobileActionBar'
 import { PageToc, PageTocMobile } from '../area/PageToc'
 import { epigeneticsAreaItems, epigeneticsJourney } from '../area/epigeneticsArea'
@@ -81,6 +81,7 @@ const EpiSubpage = ({
 }: EpiSubpageProps) => {
   const { t, i18n } = useTranslation('epigenetics')
   const { t: tCommon } = useTranslation('common')
+  const { AreaNav, NextSteps } = useAreaShell()
   useScrollDepth('epigenetics')
   const { slugs: gemerkt } = useMerkliste()
   const vertiefung = getVertiefung(source)

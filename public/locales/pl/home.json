@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Pomiary dostarczają dodatkowych informacji. Profesjonalna ocena i wynikające z niej kolejne kroki pozostają w gestii odpowiedzialnej osoby."
+  },
+  "shop_teaser": {
+    "badge": "Nowość",
+    "eyebrow": "Sklep internetowy dla specjalistów",
+    "title": "Zamów czytnik IglooPro i zestawy testowe bezpośrednio online",
+    "cta": "Przejdź do sklepu",
+    "note": "Portal zamówień dla specjalistów · Wszystkie ceny netto plus ustawowy VAT. Sklep dostępny w języku niemieckim i angielskim."
   }
 }

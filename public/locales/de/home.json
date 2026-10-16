@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson."
+  },
+  "shop_teaser": {
+    "badge": "Neu",
+    "eyebrow": "Online-Shop für Fachkreise",
+    "title": "IglooPro-Reader und Testkits jetzt direkt online bestellen",
+    "cta": "Zum Shop",
+    "note": "Fachkreis-Bestellportal · Alle Preise netto zzgl. gesetzl. MwSt."
   }
 }

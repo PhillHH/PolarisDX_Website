@@ -328,7 +328,13 @@
     "sub": "Analyserne leveres kun til professionelle brugere. B2B-betingelser efter forespørgsel, differentieret efter volumen.",
     "overview": "Oversigt som PDF",
     "note": "Analyserne er laboratorietjenester leveret af vores samarbejdspartner og er ikke CE-mærkede in vitro-diagnostiske enheder. De tjener til rådgivning og monitorering og erstatter ikke klinisk diagnostik. Genetiske analyser er underlagt national genetisk testlovgivning. I Tyskland må prædiktiv genetisk testning kun udføres under ansvar af behørigt kvalificerede læger; genetisk rådgivning skal tilbydes før og efter testen.",
-    "lab": "Laboratorieanalyse af vores samarbejdspartner · ISO 9001:2015"
+    "lab": "Laboratorieanalyse af vores samarbejdspartner · ISO 9001:2015",
+    "partnerCaption": "Bliv testet",
+    "partnerTitle": "ndu Clinic · London",
+    "partnerText": "Vil du selv have foretaget en af de seks analyser? Vores partnerklinik ndu Clinic tilbyder testene i London — fra prøvetagning til gennemgang af resultatet.",
+    "partnerMeta": "22 Harley Street, London W1G 9PL · Dr. Goran D. Stojanovic",
+    "partnerCta": "Til ndu Clinic",
+    "partnerNewTab": "(åbner i en ny fane)"
   },
   "inquiry": {
     "fields": {

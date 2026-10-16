@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Měření poskytují doplňující informace. Odborné posouzení a další kroky z něj vyplývající zůstávají odpovědností příslušného odborníka."
+  },
+  "shop_teaser": {
+    "badge": "Novinka",
+    "eyebrow": "E-shop pro odborníky",
+    "title": "Objednejte čtečku IglooPro a testovací sady přímo online",
+    "cta": "Přejít do e-shopu",
+    "note": "Objednávkový portál pro odborníky · Všechny ceny jsou bez zákonné DPH. E-shop je k dispozici v němčině a angličtině."
   }
 }

@@ -9,9 +9,12 @@ import IglooWorkflowSection from '../components/sections/IglooWorkflowSection'
 import IglooCompatibilitySection from '../components/sections/IglooCompatibilitySection'
 import IglooSpecsSection from '../components/sections/IglooSpecsSection'
 import IglooProductFinalCta from '../components/sections/IglooProductFinalCta'
+import { useAreaShell } from '../components/area/areaShell'
 
 const IglooProPage: React.FC = () => {
   const { t, i18n } = useTranslation(['products', 'services', 'common'])
+  const { t: tCommon } = useTranslation('common')
+  const { AreaNav, NextSteps, diagnosticsAreaItems } = useAreaShell()
 
   return (
     <div>
@@ -39,11 +42,29 @@ const IglooProPage: React.FC = () => {
       />
 
       <IglooProHero />
+      <AreaNav
+        label={tCommon('nav.service')}
+        items={diagnosticsAreaItems(tCommon)}
+        currentKey="igloo-pro"
+      />
       <IglooProductProof />
       <IglooFeaturesSection />
       <IglooWorkflowSection />
       <IglooCompatibilitySection />
       <IglooSpecsSection />
+      <NextSteps
+        label={tCommon('area.nextLabel')}
+        previous={{
+          to: '/diagnostics',
+          kicker: tCommon('area.back'),
+          title: tCommon('nav.service'),
+        }}
+        next={{
+          to: '/epigenetics',
+          kicker: tCommon('area.next'),
+          title: tCommon('nav.epigenetics'),
+        }}
+      />
       <IglooProductFinalCta />
     </div>
   )

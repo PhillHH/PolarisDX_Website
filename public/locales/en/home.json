@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Measurements provide additional information. Professional assessment and any resulting next steps remain the responsibility of the responsible professional."
+  },
+  "shop_teaser": {
+    "badge": "New",
+    "eyebrow": "Online shop for healthcare professionals",
+    "title": "Order the IglooPro reader and test kits directly online",
+    "cta": "Visit the shop",
+    "note": "Professional ordering portal · All prices net, plus statutory VAT."
   }
 }

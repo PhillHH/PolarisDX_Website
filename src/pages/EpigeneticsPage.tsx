@@ -23,6 +23,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   ChevronDown,
   Download,
@@ -53,9 +54,8 @@ import { useMerkliste } from '../lib/merkliste'
 import EpigeneticsInquiryForm from '../components/epigenetics/EpigeneticsInquiryForm'
 import AreaStage from '../components/area/AreaStage'
 import StageFacts from '../components/area/StageFacts'
-import AreaNav from '../components/area/AreaNav'
+import { useAreaShell } from '../components/area/areaShell'
 import JourneySteps from '../components/area/JourneySteps'
-import NextSteps from '../components/area/NextSteps'
 import MobileActionBar from '../components/area/MobileActionBar'
 import { epigeneticsAreaItems, epigeneticsJourney } from '../components/area/epigeneticsArea'
 import {
@@ -148,6 +148,7 @@ const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation(['epigenetics', 'common', 'downloads'])
   // Array-Form: der i18n-Guard bindet `t` sonst an `common` (scripts/check-i18n.ts).
   const { t: tCommon } = useTranslation(['common'])
+  const { AreaNav, NextSteps } = useAreaShell()
   useScrollDepth('epigenetics')
   // Die vorgemerkten Panels reisen im Ereignis mit: eine Anfrage nach drei
   // vorgemerkten Panels ist etwas anderes als eine aus dem Vorbeigehen.
@@ -894,10 +895,8 @@ const EpigeneticsPage = () => {
                 align="left"
               />
               <p className={`mt-4 ${LEAD}`}>{t('contact.sub')}</p>
-              {/* Die beiden direkten Kontaktwege. Die Telefonnummer ist die der
-                  Epigenetik-Unterlagen und aller Musterbefunde; ob sie mit der
-                  Nummer der Kontaktseite zusammengefuehrt wird, entscheidet
-                  der Owner (SC-003). */}
+              {/* Die beiden direkten Kontaktwege; eine Nummer fuer die ganze
+                  Website (Owner-Entscheidung 2026-10-16, wie main@475fefd). */}
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="mailto:contact@polarisdx.net"
@@ -906,10 +905,32 @@ const EpigeneticsPage = () => {
                   contact@polarisdx.net
                 </a>
                 <a
-                  href="tel:+4915228580999"
+                  href="tel:+4915175011699"
                   className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
                 >
-                  +49 152 2858 0999
+                  +49 151 75011699
+                </a>
+              </div>
+              {/* Bezugsweg fuer Einzelpersonen (main@41e158b, Owner-Entscheidung
+                  2026-10-16). Umrissknopf statt primaer: die Angebotsanfrage
+                  bleibt die lauteste Aufforderung des Kapitels. Klicks zaehlt
+                  useOutboundTracking ueber OUTBOUND_DOMAINS. */}
+              <div className="mt-8 rounded-card border border-accent-border bg-accent-soft p-6 sm:p-7">
+                <p className={LABEL}>{t('contact.partnerCaption')}</p>
+                <h3 className="mt-2 text-xl font-semibold tracking-tight text-text-heading">
+                  {t('contact.partnerTitle')}
+                </h3>
+                <p className={`mt-3 text-gray-700 ${BODY}`}>{t('contact.partnerText')}</p>
+                <p className="mt-3 text-sm text-gray-600">{t('contact.partnerMeta')}</p>
+                <a
+                  href="https://www.nduclinic.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-brand-primary bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-deep hover:text-brand-primary"
+                >
+                  {t('contact.partnerCta')}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="sr-only">{t('contact.partnerNewTab')}</span>
                 </a>
               </div>
               <p className="mt-8 t-small">{t('contact.note')}</p>

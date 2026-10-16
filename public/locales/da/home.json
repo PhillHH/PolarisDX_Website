@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "Målinger giver yderligere information. Den faglige vurdering og de næste skridt, der følger heraf, er fortsat den ansvarlige fagpersons opgave."
+  },
+  "shop_teaser": {
+    "badge": "Ny",
+    "eyebrow": "Onlineshop for fagfolk",
+    "title": "Bestil IglooPro-læseren og testkits direkte online",
+    "cta": "Gå til shoppen",
+    "note": "Bestillingsportal for fagfolk · Alle priser er netto ekskl. lovpligtig moms. Shoppen findes på tysk og engelsk."
   }
 }

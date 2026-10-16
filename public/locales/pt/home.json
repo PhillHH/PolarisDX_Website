@@ -403,5 +403,12 @@
       }
     },
     "safety_note": "As medições fornecem informação adicional. A avaliação profissional e os passos dela decorrentes continuam a ser responsabilidade do profissional competente."
+  },
+  "shop_teaser": {
+    "badge": "Novo",
+    "eyebrow": "Loja online para profissionais de saúde",
+    "title": "Encomende o leitor IglooPro e os kits de teste diretamente online",
+    "cta": "Ir para a loja",
+    "note": "Portal de encomendas para profissionais · Todos os preços são líquidos, acrescidos do IVA legal. Loja disponível em alemão e inglês."
   }
 }

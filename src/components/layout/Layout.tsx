@@ -3,6 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
 import SkipLink, { MAIN_CONTENT_ID } from './SkipLink'
+import AreaShellProvider from '../area/AreaShellProvider'
 
 interface LayoutProps {
   children: ReactNode
@@ -28,7 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
         tabIndex={-1}
         className="flex flex-grow flex-col focus:outline-none"
       >
-        {children}
+        <AreaShellProvider>{children}</AreaShellProvider>
       </main>
       <Footer />
     </div>
