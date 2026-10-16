@@ -63,7 +63,7 @@ i18nReady.then(() => {
       <HelmetProvider>
         <BrowserRouter basename={`/${lang}`}>
           <RootErrorBoundary>
-            <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+            <Suspense fallback={<div className="min-h-screen bg-paper" />}>
               <App />
             </Suspense>
           </RootErrorBoundary>

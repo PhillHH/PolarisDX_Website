@@ -10,7 +10,7 @@ const priorityStyles = {
   },
   STANDARD: {
     card: 'border-t-slate-300 hover:border-accent/50 hover:shadow-card',
-    badge: 'bg-paper-deep text-slate-700',
+    badge: 'bg-paper-deep text-gray-700',
   },
 } as const
 

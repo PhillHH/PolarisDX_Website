@@ -27,6 +27,37 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — AP34 PT34.4 · Konsistenz-Durchgang, echte Share-Karte, Artikelbilder (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** AP34 PT34.4 (Raster über alle Seitentypen, Vorher/Nachher-Bogen
+  `wireframes/ap34-abnahme/`) und AP29 PT29.4 (Inhaltsstand von `main` seit dem Abzweig,
+  `building-docs/migration/MAIN-DELTA-2026-10.md`).
+- **Geändert:**
+  - Startseite „Warum POC", Patientenkarte: `text-accent-light` existierte nicht als Token, Icon und
+    Label erbten Weiß. Jetzt `accent.on-dark` (8,24:1 auf Navy), Fließtext `white/85` statt `slate-100`.
+  - 404: Primär-CTA ist die weiße Pille `light` wie auf allen Navy-Bühnen (vorher blaue Akzent-Pille),
+    Überschrift `font-semibold` wie die übrigen Bühnen.
+  - Slate-Reste außerhalb der Befunde: Suspense-Fallback `bg-paper`, Diagnostik-Badge `gray-700`.
+    Die Outline-Pille (`border-slate-300`) ist als Dekor-Rahmen im Vertrag §3.4 festgehalten.
+  - **Share-Karte `public/og-image.jpg` neu** aus echtem Logo (`polaris_white.webp`) und echtem
+    Produktrender (`Igloo-pro-frontal.png`), Texte aus `home.json` (Claim-Register HCL-001..005).
+    Die alte Karte (auch in PT34.1 noch neu eingefärbt) war eine nachgebaute Wortmarke mit
+    gezeichnetem Gerät und erfundenem Messwert „45.2 ng/mL". `og-image.svg` und
+    `convert-og-image.mjs` gelöscht, Generator jetzt `scripts/make-og-card.mjs`.
+  - Artikel: `ecosystem_of_rapid_tests` mit echtem Render statt `Testbild1`; `green_practice`
+    bildlos; `above_the_fold`/`hero_doctor` gelöscht. Vite inlinet die sehr kleinen Render-Stufen
+    nicht (`assetsInlineLimit`), sonst +11 KB gzip Initial-JS (gemessen).
+  - `og-vitd3-spray.jpg` und `og-consumer-*.jpg` aus `main` (echtes Logo statt getippter Wortmarke).
+  - DESIGN-SYSTEM-CONTRACT konsolidiert: Stand, §3.4 Outline-Pille, §6.1 `soft` = `paper`, §6.3
+    Bühnen nach SC-002/SC-003, §6.5 Führungssystem, §6.9 Katalog ohne Teal/Slider, §10 ohne
+    `og-image.svg`.
+- **Budgets (PT25.5, nicht gelockert):** ci 852/852.
+- **Betroffene Screenshots (5):** `pt27.6-visual` `not-found` (Pille `light`), `article`
+  (`die-gruene-praxis` jetzt bildlos); `design-system` `final-cta-articles` mobil/desktop (erste
+  Artikelkarte zeigt die Kategorie-Kachel statt des Fake-Bildes) und `hero-diagnostics` mobil
+  (verwandte Artikel, dieselbe Karte, Seite 192 px kürzer).
+- **Reviewer:** Owner-Abnahme PT34.4 (Bogen `wireframes/ap34-abnahme/`).
+
 ### 2026-10-16 — AP34 PT34.3 (SC-003) · Inhalts- und Unternehmensseiten angeglichen (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** AP34 PT34.3. Die Inhalts- und Unternehmensseiten folgen demselben Editorial-Raster.

@@ -46,7 +46,7 @@ const NotFoundPage = () => {
             </p>
 
             {/* Title */}
-            <h1 className="mt-4 text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
               {t('notFound.title', 'Oops! Diese Seite existiert nicht')}
             </h1>
 
@@ -60,11 +60,7 @@ const NotFoundPage = () => {
 
             {/* Primary CTA */}
             <div className="mt-10">
-              <Button
-                to="/"
-                variant="secondary"
-                className="!bg-accent-strong !text-white hover:!brightness-110 focus-visible:!ring-accent"
-              >
+              <Button to="/" variant="light">
                 <Home className="h-5 w-5" />
                 {t('notFound.backHome', 'Zurück zur Startseite')}
               </Button>

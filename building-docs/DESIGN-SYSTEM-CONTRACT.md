@@ -4,7 +4,7 @@
 Angelegt in **AP05 / PT05.1** (`work-packages/AP05.md` §5), weil kein kanonisches
 Design-System-Artefakt existierte.
 
-**Status:** aktiv · **Stand:** 2026-08-25 (PT05.5)
+**Status:** aktiv · **Stand:** 2026-10-16 (AP34 PT34.4, konsolidiert nach SC-001/SC-002/SC-003)
 **Owner-AP:** AP05 · **A11y-Owner:** AP24 (umfassend)
 
 ---
@@ -129,7 +129,7 @@ damit Web- und PDF-Fassung dieselbe Bildsprache haben. Dreiteilige Rollentrennun
 
 **Regel (WCAG 1.4.1):** Bedeutung darf **nie allein über Farbe** transportiert werden.
 Befund- und Statusaussagen tragen zusätzlich Text, Label oder Icon. Die Ampel darf ihre
-fachliche Befund-Semantik nicht verlieren und nicht in Marken-Teal umgedeutet werden.
+fachliche Befund-Semantik nicht verlieren und nicht in den Marken-Akzent umgedeutet werden.
 
 ### 3.4 Neutralfarben und Interaktionskontrast
 
@@ -147,6 +147,15 @@ Die entscheidende Trennung im System — **Dekor ≠ Bedienelement**:
 **Regel:** Jede Begrenzung eines **Bedienelements** (WCAG 1.4.11, 3:1) sowie
 **Placeholder- und Hilfstext** (WCAG 1.4.3, 4,5:1) laufen über `ui.field`.
 `ui.border` und `ui.text-muted` sind Dekor und dürfen diese Rollen nicht übernehmen.
+
+**AP34 PT34.4 — Outline-Pille:** Die sekundäre Schaltfläche auf hellen Flächen ist
+`rounded-full border border-slate-300 bg-white … text-brand-deep hover:border-brand-primary`
+(16 Aufrufstellen). Ihr Rahmen ist **Dekor**: die Schaltfläche wird über ihre beschriftete
+Fläche und den Fokusring erkannt, nicht über die Linie (WCAG 1.4.11 verlangt für Schaltflächen
+mit Textbeschriftung keine 3:1-Begrenzung). Eingabefelder, Auswahllisten und Checkboxen bleiben
+bei `ui.field`. `slate-300` ist außerhalb der Befund-Seiten **nur** für diese Pille und für
+gestrichelte Platzhalterrahmen (`ImagePlaceholder`, Team-Platzhalter) zulässig; alle übrigen
+Slate-Reste sind in PT34.4 auf `paper`/`gray` umgestellt.
 
 Stand PT05.1 haben `ui.border`, `ui.border-hover` und `ui.text-muted` **0 Call-Sites** in
 `src/`: die letzten Verwendungen an echten Bedienelementen sind in PT05.1 auf `ui.field`
@@ -434,8 +443,8 @@ volle Breite; `Container` traegt den **Inhalt** und ist immer eingerueckt. Ein H
 gehoert nie an den Container — sonst endet die Flaeche bei 1200px und die Sektion
 zerfaellt auf breiten Schirmen.
 
-**Flaechen:** `white` (Standard) · `soft` = `bg-slate-50` (Absetzung zwischen zwei weissen
-Sektionen) · `navy` = `bg-brand-deep text-white` (Hero, Final-CTA, Beweisstrecken).
+**Flaechen:** `white` (Standard) · `soft` = `bg-paper` (seit SC-001; Absetzung zwischen zwei
+weissen Sektionen) · `navy` = `bg-brand-deep text-white` (Hero, Final-CTA, Beweisstrecken).
 `navy` ist eine dunkle Flaeche im **Light Theme**, kein Dark Mode (§2); dort gilt
 `accent.on-dark`.
 
@@ -452,19 +461,23 @@ Karten kommen aus dem `Card`-Primitive (§5). Mit `to`/`href` ist die **ganze Ka
 ein Link** — nicht die Ueberschrift plus ein zweiter „Weiterlesen"-Link daneben, was
 Screenreader-Nutzern dieselbe Karte zweimal vorlegt.
 
-### 6.3 Hero / Split
+### 6.3 Hero / Split — Bühnen (Stand AP34 / SC-002, SC-003)
 
-| Muster                  | Quelle                            | Aufbau                                                                                                                 |
-| ----------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Navy-Hero (Produkt/Hub) | `DiagnosticsHero`, `IglooProHero` | `Section surface="navy"`, `grid lg:grid-cols-2`, links Breadcrumb + H1 + Lead + Proof-Chips, rechts dekoratives Visual |
-| Startseiten-Hero        | `HeroSection`                     | Navy-Flaeche, Slider mit Dots + Pause/Play, KPI-Leiste                                                                 |
-| Subpage-Hero            | `SubpageHero`                     | schlanke Variante fuer Unterseiten                                                                                     |
-| Rechts-Hero             | `.legal-hero`                     | mit Silbentrennung fuer lange Komposita                                                                                |
+| Muster                   | Quelle                            | Aufbau                                                                                                                                                                     |
+| ------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Startseiten-Bühne        | `HeroSection`                     | statisch, kein Slider; art-directed Praxisfoto mit eingebackenem Navy-Verlauf und Punktring als **einziges** `fetchpriority="high"`-Bild (LCP), Produktkarte lazy darunter |
+| Navy-Bühne (Hub/Produkt) | `DiagnosticsHero`, `IglooProHero` | Navy-Fläche, Eyebrow-Pille, H1, Lead, weiße Pille (`Button variant="light"`) + Ghost-Link; das Produktbild bleibt das einzige Prioritätsbild                               |
+| Bereichsbühne            | `AreaStage` + `StageFacts`        | Epigenetik-Hub und Vertiefungen: Navy **ohne Bild und ohne `.brand-ring`** (Routen mit `lcpImageBytes` 0 — selbst der SVG-Ring zählt sonst als LCP-Bild), Faktenleiste     |
+| Unterseiten-Bühne        | `SubpageHero`                     | Service, Kontakt, Support, Über uns, Blog, Termine, Downloads, Rechtstexte, VitD3: Navy, Breadcrumb, Eyebrow, H1, Untertitel, optional zwei CTAs; mobil kompakt            |
+| Rechts-Hero              | `.legal-hero`                     | mit Silbentrennung für lange Komposita                                                                                                                                     |
 
-**Mobiles Stacking:** immer Text zuerst, Visual danach. Das Hero-Visual ist **dekorativ**
-und traegt keine Information, die nicht auch im Text steht.
+**Mobiles Stacking:** immer Text zuerst, Visual danach. Das Bühnen-Visual ist **dekorativ**
+und trägt keine Information, die nicht auch im Text steht. Auf Navy ist die Primär-CTA die weiße
+Pille, Akzent-Text `accent.on-dark`.
 
-Keine alternative Hero-Art-Direction; kein zweites Hero-Vokabular.
+Keine alternative Hero-Art-Direction; kein zweites Bühnenvokabular. Das Karussell der Startseite
+ist seit AP34 entfallen; die Pause/Play-Pflicht (WCAG 2.2.2) gilt weiter für jedes künftige
+bewegte Element.
 
 ### 6.4 Content + Sidebar
 
@@ -487,6 +500,20 @@ der einzuhalten und nicht neu zu erfinden ist**:
 | Fortschritt     | `--nav-progress` als Breite des Fortschrittsbalkens                                                  |
 | Anker-Offset    | `scroll-mt-28` an der Zielsektion (`Section anchorId=…` setzt es automatisch)                        |
 | Aufraeumen      | die Offset-Variable wird beim Unmount **entfernt**                                                   |
+
+**AP34 / SC-003 — Führungssystem** (`src/components/area/`):
+
+| Baustein          | Rolle                                                                                                                                  | Einsatz                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `AreaNav`         | Bereichsleiste, sticky `top-[68px] lg:top-[88px]`, setzt `--chapterbar-offset` wie `ChapterNav`; ersetzt die frühere Chip-Sprungleiste | Epigenetik-Hub und -Vertiefungen    |
+| `JourneySteps`    | vier Schritte bis zur Anfrage, nur Karten                                                                                              | Epigenetik-Hub                      |
+| `PageToc`         | linkes Inhaltsverzeichnis mit Lesefortschritt; `tocSpy.ts` lädt lazy und schaltet nur vorhandene Klassen                               | Grundlagen, Studienlage, Unterlagen |
+| `NextSteps`       | Seitenende „Nächster Schritt" (zurück, weiter, Anfrage)                                                                                | Epigenetik-Hub und -Vertiefungen    |
+| `MobileActionBar` | Aktionsleiste unten (< lg), verbirgt sich am Footer und bei offenem Cookie-Banner, setzt `--action-bar-height`; **nicht lazy**         | Epigenetik-Hub und -Vertiefungen    |
+
+Die Musterbefund-Seiten behalten `ChapterNav` (als Unterstreichungs-Tabs). Auf Diagnostik,
+Service und IglooPro fehlen `AreaNav`/`NextSteps` noch — offene Owner-Entscheidung (Route-JS-
+Budget), siehe `work-packages/AP34.md`.
 
 Wer die Kapitelnavigation einsetzt, gibt Zielsektionen ueber `Section anchorId` an —
 sonst verdeckt die Sticky-Leiste beim Sprung die Ueberschrift. AP24 bleibt A11y-Owner.
@@ -540,25 +567,25 @@ Produktentscheidung.
 
 Bevorzugte Bausteine fuer AP11–AP21. „Typ" ist der Content-Typ aus `CONTENT-MATRIX.md`.
 
-| Muster                 | Zweck                            | Komponente                                       | Geeignet fuer                     | Responsive                 | A11y-Notiz                                         |
-| ---------------------- | -------------------------------- | ------------------------------------------------ | --------------------------------- | -------------------------- | -------------------------------------------------- |
-| Navy-Hero              | Einstieg, Kernversprechen        | `DiagnosticsHero`, `IglooProHero`, `SubpageHero` | Hub, Produkt, Service, Unterseite | 2 Spalten → gestapelt      | genau **eine** H1; Visual dekorativ                |
-| Trust-Bar              | Sofortvertrauen unter dem Hero   | `TrustBar`                                       | Startseite, Produkt               | Wrap                       | Logos brauchen `alt` oder `aria-hidden`            |
-| Fokus-Karten           | Themen-/Servicewahl              | `DiagnosticsFocusSection` + `Card`               | Hub, Uebersicht                   | 3 → 2 → 1                  | ganze Karte = ein Link                             |
-| Spezialgebiete         | alternierende Navy-/Teal-Kacheln | `DiagnosticsSpecialtySection`                    | Hub                               | 2 → 1                      | Kontrast je Flaeche pruefen                        |
-| Feature-Raster         | Produkteigenschaften             | `IglooFeaturesSection`                           | Produkt                           | 3 → 2 → 1                  | Icons `aria-hidden`                                |
-| Parameter/Specs        | Messwerte, technische Daten      | `IglooParametersSection`, `IglooSpecsSection`    | Produkt                           | Tabelle scrollt in sich    | Tabellen mit `th`/`scope`                          |
-| Prozess in 3 Schritten | Ablauf erklaeren                 | `StepsSection`                                   | Start, Produkt, Service           | 3 → 1                      | Reihenfolge steht im Text, nicht nur in der Nummer |
-| ROI-Rechner            | Sekundaere Conversion            | `RoiCalculatorSection`                           | Start, Produkt                    | 2 → 1                      | Eingaben ueber `FormField`                         |
-| Testimonials           | Sozialer Beweis                  | `TestimonialsSection`                            | Start                             | Slider                     | Pause/Play Pflicht (WCAG 2.2.2)                    |
-| Mid-Page-Teal-Band     | Zwischen-CTA                     | Inline (`bg-accent`)                             | lange Seiten                      | volle Breite               | Text auf Teal ist weiss, nie `accent`              |
-| Epigenetik-Teaser      | Saeule sichtbar machen           | `EpigeneticsTeaserSection`, `EpigeneticsPanels`  | Start, Hub                        | 3 → 1                      | eigene Saeule (`DEC-RL-005`)                       |
-| Artikel-/Blog-Teaser   | Wissen anteasern                 | `BlogSection` + `Card`                           | Start, Wissen                     | 3 → 2 → 1                  | Datum/Lesezeit als Text                            |
-| FAQ                    | Einwaende ausraeumen             | `FAQSection`                                     | Service, Produkt                  | einspaltig                 | Aufklappen per Tastatur                            |
-| Content + Sidebar      | Longform mit Kontext             | `PageSidebar`                                    | Service, Artikel                  | Sidebar rutscht nach unten | Sidebar ist ergaenzend                             |
-| Kapitelnavigation      | Orientierung in Longform         | `ChapterNav`                                     | Leitlinie, Longform               | horizontal scrollend       | Offset-Vertrag §6.5                                |
-| Formularpanel          | Conversion                       | `ContactForm`, `SupportForm` + `FormField`       | Kontakt, Support                  | einspaltig                 | Fehler als `role="alert"`                          |
-| Final CTA              | Abschluss                        | `FinalCtaSection`, `IglooProductFinalCta`        | alle                              | zentriert                  | CTA-Wortlaut nach `DEC-RL-013`                     |
+| Muster                 | Zweck                              | Komponente                                                    | Geeignet fuer                     | Responsive                 | A11y-Notiz                                         |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------- | --------------------------------- | -------------------------- | -------------------------------------------------- |
+| Navy-Bühne             | Einstieg, Kernversprechen          | `DiagnosticsHero`, `IglooProHero`, `SubpageHero`, `AreaStage` | Hub, Produkt, Service, Unterseite | 2 Spalten → gestapelt      | genau **eine** H1; Visual dekorativ (§6.3)         |
+| Trust-Bar              | Sofortvertrauen unter dem Hero     | `TrustBar`                                                    | Startseite, Produkt               | Wrap                       | Logos brauchen `alt` oder `aria-hidden`            |
+| Fokus-Karten           | Themen-/Servicewahl                | `DiagnosticsFocusSection` + `Card`                            | Hub, Uebersicht                   | 3 → 2 → 1                  | ganze Karte = ein Link                             |
+| Spezialgebiete         | alternierende Navy-/Akzent-Kacheln | `DiagnosticsSpecialtySection`                                 | Hub                               | 2 → 1                      | Kontrast je Flaeche pruefen                        |
+| Feature-Raster         | Produkteigenschaften               | `IglooFeaturesSection`                                        | Produkt                           | 3 → 2 → 1                  | Icons `aria-hidden`                                |
+| Parameter/Specs        | Messwerte, technische Daten        | `IglooParametersSection`, `IglooSpecsSection`                 | Produkt                           | Tabelle scrollt in sich    | Tabellen mit `th`/`scope`                          |
+| Prozess in 3 Schritten | Ablauf erklaeren                   | `StepsSection`                                                | Start, Produkt, Service           | 3 → 1                      | Reihenfolge steht im Text, nicht nur in der Nummer |
+| ROI-Rechner            | Sekundaere Conversion              | `RoiCalculatorSection`                                        | Start, Produkt                    | 2 → 1                      | Eingaben ueber `FormField`                         |
+| Testimonials           | Sozialer Beweis                    | `TestimonialsSection`                                         | Start                             | statisch (seit PT11.2)     | kein Autoplay, keine Bewertungs-UI                 |
+| Navy-CTA-Band          | Zwischen-/Abschluss-CTA            | Inline (`bg-brand-deep`, `rounded-band`)                      | lange Seiten                      | volle Breite               | weiße Pille; Akzent-Text `accent.on-dark`          |
+| Epigenetik-Teaser      | Saeule sichtbar machen             | `EpigeneticsTeaserSection`, `EpigeneticsPanels`               | Start, Hub                        | 3 → 1                      | eigene Saeule (`DEC-RL-005`)                       |
+| Artikel-/Blog-Teaser   | Wissen anteasern                   | `BlogSection` + `Card`                                        | Start, Wissen                     | 3 → 2 → 1                  | Datum/Lesezeit als Text                            |
+| FAQ                    | Einwaende ausraeumen               | `FAQSection`                                                  | Service, Produkt                  | einspaltig                 | Aufklappen per Tastatur                            |
+| Content + Sidebar      | Longform mit Kontext               | `PageSidebar`                                                 | Service, Artikel                  | Sidebar rutscht nach unten | Sidebar ist ergaenzend                             |
+| Kapitelnavigation      | Orientierung in Longform           | `ChapterNav`                                                  | Leitlinie, Longform               | horizontal scrollend       | Offset-Vertrag §6.5                                |
+| Formularpanel          | Conversion                         | `ContactForm`, `SupportForm` + `FormField`                    | Kontakt, Support                  | einspaltig                 | Fehler als `role="alert"`                          |
+| Final CTA              | Abschluss                          | `FinalCtaSection`, `IglooProductFinalCta`                     | alle                              | zentriert                  | CTA-Wortlaut nach `DEC-RL-013`                     |
 
 **Do:** vorhandenes Muster waehlen · `Section`/`Container`/`CardGrid` fuer das Geruest ·
 `Card` fuer Karten · Typo-Rollen aus §4.
@@ -801,7 +828,7 @@ Durchgesetzte Regeln:
 
 Geprüfte Flächen gehen bewusst über `src/**` hinaus und decken jede Fläche ab, die Marke
 transportiert: `tailwind.config.js`, `server.ts` (SSR-Fehlerseite),
-`server/server.js` (Kontakt-/ROI-Mails + PDF), `public/og-image.svg`,
+`server/server.js` (Kontakt-/ROI-Mails + PDF),
 `public/polarisdx-mark.svg`, `scripts/og-image-template.html`.
 
 Begründete Ausnahmen: `FlagIcon.tsx` (Länderflaggen sind vorgegebene Fremdfarben),
@@ -832,7 +859,7 @@ Color-Lint-Implementierung wird nicht angelegt.
 | `DS-C5`  | Guard aus pre-commit **oder** CI entfernen                                          |
 | `DS-C6`  | Palette erweitern ohne `PALETTE_HEX` im selben Commit                               |
 | `DS-C7`  | `gray-900` / `#203864` zurückholen                                                  |
-| `DS-C8`  | Befund-Ampel in Marken-Teal umdeuten oder ihre Semantik verfälschen                 |
+| `DS-C8`  | Befund-Ampel in den Marken-Akzent umdeuten oder ihre Semantik verfälschen           |
 | `DS-C9`  | Bedeutung allein über Farbe transportieren                                          |
 | `DS-C10` | `ui.border` / `ui.text-muted` als Bedienelement-Begrenzung oder Hilfstext verwenden |
 | `DS-C11` | Reduced-Motion-Sicherheitsnetz in `src/index.css` schwächen oder umgehen            |

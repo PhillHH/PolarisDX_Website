@@ -82,14 +82,14 @@ const WhyPocSection = () => {
             data-benefit-audience="patient"
             className="rounded-card bg-brand-deep p-7 text-white sm:p-8"
           >
-            <UserRoundCheck aria-hidden="true" className="h-7 w-7 text-accent-light" />
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-light">
+            <UserRoundCheck aria-hidden="true" className="h-7 w-7 text-accent-on-dark" />
+            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-on-dark">
               {t('why.benefits.patient.label', 'Nutzen für Patientinnen und Patienten')}
             </p>
             <h3 className="mt-2 text-xl font-semibold text-white">
               {t('why.benefits.patient.title', 'Ergebnisse verständlich besprechen')}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-100">
+            <p className="mt-3 text-sm leading-relaxed text-white/85">
               {t(
                 'why.benefits.patient.text',
                 'Verfügbare Werte können im Versorgungskontext erklärt werden. Der Test ergänzt die professionelle Beurteilung; er ersetzt weder Diagnose noch Behandlung.',
