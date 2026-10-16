@@ -228,3 +228,42 @@ test.describe('G9 — permanent one-hop redirect status', () => {
     }
   })
 })
+
+// AP29 PT29.2 — Alt-Dateien der produktiven Linie (Crawl-Befunde F1/F2): ein Hop auf den
+// Nachfolger, fehlende Dateien direkt 404 statt 301 → /de/<datei> → 404.
+test.describe('AP29 legacy files', () => {
+  const noFollow = { maxRedirects: 0 } as const
+
+  test('old hashed product flyer redirects once to the stable flyer', async ({ request }) => {
+    const response = await request.get('/assets/igloo-pro-flyer-BPQZrocN.pdf', noFollow)
+    expect(response.status()).toBe(301)
+    expect(response.headers().location).toBe('/downloads/igloo-pro-flyer.pdf')
+    expect((await request.head('/downloads/igloo-pro-flyer.pdf')).status()).toBe(200)
+  })
+
+  test('formerly public sample-report ZIP leads to the gated documents page', async ({
+    request,
+  }) => {
+    for (const [file, target] of [
+      ['PolarisDX_Musterbefunde_DE.zip', '/de/epigenetics/unterlagen'],
+      ['PolarisDX_Musterbefunde_EN.zip', '/en/epigenetics/unterlagen'],
+      ['PolarisDX_Musterbefunde_XX.zip', '/de/epigenetics/unterlagen'],
+    ]) {
+      const response = await request.get(`/downloads/epigenetics/${file}`, noFollow)
+      expect(response.status(), file).toBe(301)
+      expect(response.headers().location, file).toBe(target)
+    }
+  })
+
+  test('missing static files answer 404 directly', async ({ request }) => {
+    for (const path of ['/assets/igloo_front-OLDHASH.webp', '/assets/gone.js', '/gone.png']) {
+      const response = await request.get(path, noFollow)
+      expect(response.status(), path).toBe(404)
+      expect(response.headers().location, path).toBeUndefined()
+    }
+    // Die alten Consumer-Share-Bilder bleiben als Dateien erreichbar.
+    for (const name of ['duo', 'spray', 'mask']) {
+      expect((await request.head(`/og-consumer-${name}.jpg`)).status()).toBe(200)
+    }
+  })
+})

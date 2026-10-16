@@ -44,7 +44,7 @@ const ContactPage = () => {
       key: 'hamburg',
       city: 'Hamburg',
       role: t('contact.locations.hamburg_role'),
-      lines: ['Polaris Diagnostics Europe GmbH', 'Große Bleichen 1 – 3', '20354 Hamburg'],
+      lines: ['Polaris Diagnostics Europe GmbH', 'Willy-Brandt-Straße 49', '20457 Hamburg'],
       phone: '+49 151 75011699',
     },
   ]

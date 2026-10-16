@@ -187,8 +187,6 @@
   "testimonials": {
     "caption": "REFERENCE Z ORDINACE",
     "title": "Zkušenost z každodenní praxe s IglooPro",
-    "ratingLabel": "Celkové hodnocení\nna základě hodnocení z ordinací",
-    "positiveLabel": "Pozitivní hodnocení",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologický zubní lékař a implantolog / Chelsea Dental Clinic",
@@ -226,14 +224,6 @@
       "practice": ""
     },
     "goTo": "Zobrazit hodnocení {{n}}",
-    "stats": {
-      "ratingValue": "4.9",
-      "ratingLabel": "Celkem",
-      "positiveValue": "100 %",
-      "positiveLabel": "pozitivní",
-      "reviewsValue": "250+",
-      "reviewsLabel": "Recenze"
-    },
     "cta": "Přesvědčte se sami",
     "photo_placeholder": "Fotografie zákazníka",
     "aria": {

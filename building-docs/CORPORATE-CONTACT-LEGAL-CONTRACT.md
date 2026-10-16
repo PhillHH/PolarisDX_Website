@@ -76,7 +76,8 @@
   degradiert; eigener Registry-Family `/epigenetics` (INDEX_FOLLOW, Sitemap 0.8).
 - **Unternehmen/Standorte (real, aus geprueften Quellen):** Polaris Diagnostics Ltd,
   262A Fulham Road, London SW10 9EL; Polaris Diagnostics Europe GmbH,
-  Große Bleichen 1–3, 20354 Hamburg (`structuredData.organizationSchema`,
+  Willy-Brandt-Straße 49, 20457 Hamburg (seit 2026-10, aus `main` 40a7c72/faa24b1 übernommen;
+  `structuredData.organizationSchema`, Kontaktseite,
   `contact.json` locales, `legal.json` Imprint). Team: 4 reale Personen mit Fotos/
   E-Mail/LinkedIn (`about.json` `team`, `TeamSection`).
 - **Trust-Signale:** `TrustBar` = Claim-Register-gebunden (`HCL-002` CV < 2 %, `HCL-003`

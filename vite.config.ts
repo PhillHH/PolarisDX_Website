@@ -65,8 +65,12 @@ export default defineConfig(({ isSsrBuild }) => ({
     // eine 240-px-AVIF-Stufe unter Vites 4-KB-Inline-Grenze faellt. Als Base64 im Initial-JS
     // zaehlten sie gemessen +4,3 KB gzip gegen `initialJsGzip` (PT25.5) — als Datei laedt sie
     // nur, wer die Kachel sieht. Alle anderen Assets behalten das Standardverhalten.
+    // 2026-10-16: dasselbe gilt fuer den Artikel-Render `article-hero-igloopro` (flache
+    // Navy-Flaeche, alle Stufen 1–4 KB) — inline kostete er gemessen +11 KB gzip im Initial-JS.
     assetsInlineLimit: (filePath: string) =>
-      filePath.includes('/src/assets/home/') ? false : undefined,
+      filePath.includes('/src/assets/home/') || filePath.includes('/src/assets/article-hero-')
+        ? false
+        : undefined,
 
     // ==========================================================================
     // CODE-SPLITTING: Nur für Client-Build, NICHT für SSR

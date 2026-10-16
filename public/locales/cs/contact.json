@@ -102,9 +102,7 @@
       "panel_context_many": "Vaše poptávka se týká panelů {{panels}}."
     },
     "trust": {
-      "direct": "Preferujete přímý kontakt?",
-      "rating": "4,9",
-      "reviews": "250+ hodnocení ordinací"
+      "direct": "Preferujete přímý kontakt?"
     },
     "channels": {
       "caption": "Kontaktní kanály",

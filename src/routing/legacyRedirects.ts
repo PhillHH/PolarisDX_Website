@@ -4,7 +4,7 @@ import { services } from '../data/services'
 export interface LegacyRedirectMigration {
   sourcePath: string
   targetPath: string
-  evidence: 'PRIMARY_ALIAS' | 'ARTICLE_ID' | 'SERVICE_TRANSLATION_KEY'
+  evidence: 'PRIMARY_ALIAS' | 'RETIRED_PAGE' | 'ARTICLE_ID' | 'SERVICE_TRANSLATION_KEY'
 }
 
 /**
@@ -25,6 +25,20 @@ const primaryAliases: LegacyRedirectMigration[] = [
     sourcePath: '/s3-leitlinie',
     targetPath: '/s3_leitlinie',
     evidence: 'PRIMARY_ALIAS',
+  },
+]
+
+/**
+ * Seiten, die auf der produktiven Linie (`main`) entfernt wurden und dort per 301
+ * auf ihren Bereich zeigen. Der Relaunch uebernimmt genau diese Entscheidung, damit
+ * geteilte und indexierte Links nach dem Cutover nicht auf 404 fallen
+ * (main 3031841, 2026-10-07; AP29 PT29.4, building-docs/migration/MAIN-DELTA-2026-10.md).
+ */
+const retiredPages: LegacyRedirectMigration[] = [
+  {
+    sourcePath: '/events/future-forum-berlin-2026',
+    targetPath: '/events',
+    evidence: 'RETIRED_PAGE',
   },
 ]
 
@@ -53,6 +67,7 @@ const serviceSlugMigrations: LegacyRedirectMigration[] = services.flatMap((servi
 
 export const LEGACY_REDIRECT_MIGRATIONS: readonly LegacyRedirectMigration[] = [
   ...primaryAliases,
+  ...retiredPages,
   ...articleIdMigrations,
   ...serviceSlugMigrations,
 ]

@@ -23,10 +23,14 @@ export const ARTICLE_IMAGE_DIR = 'src/assets'
 
 /** Quelle = unkomprimiertes Original; `widths` aus der gemessenen Darstellung (CSS-Breite × DPR 1–3). */
 export const ARTICLE_IMAGE_SOURCES = [
-  { base: 'green', source: 'green.png', widths: [400, 800, 1200] },
   { base: 'homeclinic', source: 'homeclinic.png', widths: [400, 800, 1024] },
   { base: 'makemoney', source: 'makemoney.png', widths: [400, 800, 1024] },
-  { base: 'Testbild1', source: 'Testbild1.png', widths: [400, 800, 1024] },
+  // Echter IglooPro-Render, quer 8:3 (main 6908b61). Quelle = ausgeliefertes WebP.
+  {
+    base: 'article-hero-igloopro',
+    source: 'article-hero-igloopro.webp',
+    widths: [400, 800, 1600],
+  },
   // Produktbild: 212 px CSS-Breite (max-h-80), DPR 1–3 → 212–636 px; nativ 618 px. Kein WebP-Original.
   { base: 'VITAMIND_D3_SPRAY', source: 'VITAMIND_D3_SPRAY.jpg', widths: [320, 618] },
 ]

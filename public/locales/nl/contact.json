@@ -100,9 +100,7 @@
       "error_retryable": "Het is net niet gelukt. Je gegevens zijn er nog — probeer het zo opnieuw."
     },
     "trust": {
-      "direct": "Liever direct contact?",
-      "rating": "4,9",
-      "reviews": "250+ praktijkbeoordelingen"
+      "direct": "Liever direct contact?"
     },
     "channels": {
       "caption": "Contactkanalen",

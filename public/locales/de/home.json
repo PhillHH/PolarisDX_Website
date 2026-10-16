@@ -187,8 +187,6 @@
   "testimonials": {
     "caption": "PRAXISREFERENZ",
     "title": "Erfahrung aus dem Praxisalltag mit IglooPro",
-    "ratingLabel": "Gesamtbewertung\nbasierend auf Praxis-Bewertungen",
-    "positiveLabel": "Positive Bewertung",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
@@ -226,14 +224,6 @@
       "practice": ""
     },
     "goTo": "Bewertung {{n}} anzeigen",
-    "stats": {
-      "ratingValue": "4.9",
-      "ratingLabel": "Gesamt",
-      "positiveValue": "100 %",
-      "positiveLabel": "positiv",
-      "reviewsValue": "250+",
-      "reviewsLabel": "Rezensionen"
-    },
     "cta": "Jetzt selbst überzeugen",
     "photo_placeholder": "Kundenbild",
     "aria": {

@@ -17,7 +17,9 @@ export const articleInventory: Article[] = [
     author: 'PolarisDX Team',
     datePublished: '2025-11-28',
     readTime: '6 min read',
-    sections: [{ image: 'green.png', paragraphs: [] }],
+    // Bildlos seit 2026-10-16 (main 6908b61): das fruehere Titelbild zeigte einen
+    // verformten IglooPro-Nachbau statt des echten Geraets.
+    sections: [],
     relatedServiceIds: ['dental', 'longevity'],
   },
   {
@@ -52,7 +54,9 @@ export const articleInventory: Article[] = [
     readTime: '8 min read',
     sections: [
       {
-        image: 'Testbild1.png',
+        // Echter Produktrender (main 6908b61). Das fruehere Bild trug eine erfundene
+        // „DX"-Wortmarke und ein fremdes Wasserzeichen.
+        image: 'article-hero-igloopro.webp',
         paragraphs: [],
       },
     ],

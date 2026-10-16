@@ -100,9 +100,7 @@
       "error_retryable": "Non ha funzionato proprio ora. I tuoi dati sono ancora qui — riprova tra un momento."
     },
     "trust": {
-      "direct": "Preferisci un contatto diretto?",
-      "rating": "4,9",
-      "reviews": "250+ recensioni di studi"
+      "direct": "Preferisci un contatto diretto?"
     },
     "channels": {
       "caption": "Canali di contatto",

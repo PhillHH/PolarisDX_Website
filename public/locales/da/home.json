@@ -187,8 +187,6 @@
   "testimonials": {
     "caption": "KLINIKREFERENCE",
     "title": "En erfaring fra hverdagen med IglooPro",
-    "ratingLabel": "Samlet vurdering\nbaseret på vurderinger fra klinikker",
-    "positiveLabel": "Positiv vurdering",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
@@ -226,14 +224,6 @@
       "practice": ""
     },
     "goTo": "Vis anmeldelse {{n}}",
-    "stats": {
-      "ratingValue": "4.9",
-      "ratingLabel": "Samlet",
-      "positiveValue": "100 %",
-      "positiveLabel": "positiv",
-      "reviewsValue": "250+",
-      "reviewsLabel": "Anmeldelser"
-    },
     "cta": "Bliv selv overbevist",
     "photo_placeholder": "Kundebillede",
     "aria": {

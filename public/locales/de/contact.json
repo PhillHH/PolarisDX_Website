@@ -100,9 +100,7 @@
       "error_retryable": "Das hat gerade nicht geklappt. Ihre Angaben sind noch da — bitte versuchen Sie es gleich erneut."
     },
     "trust": {
-      "direct": "Lieber direkter Kontakt?",
-      "rating": "4,9",
-      "reviews": "250+ Praxis-Bewertungen"
+      "direct": "Lieber direkter Kontakt?"
     },
     "channels": {
       "caption": "Kontakt-Kanäle",

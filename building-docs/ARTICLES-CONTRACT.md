@@ -22,14 +22,14 @@ Long-lived editorial governance remains backlog item DEC-RL-010.
 All six records below are `PUBLISHED_LAUNCH`. Their public projection is consumed by the existing
 Registry, Search, Sitemap and UI; internal IDs are never public route identities.
 
-| Internal ID                | Canonical slug                                                  | Locales | Published  | Author         | Image            | Route/Search/Sitemap       |
-| -------------------------- | --------------------------------------------------------------- | ------: | ---------- | -------------- | ---------------- | -------------------------- |
-| `green_practice`           | `die-gruene-praxis`                                             |   10/10 | 2025-11-28 | PolarisDX Team | `green.png`      | eligible/eligible/eligible |
-| `invisible_patient`        | `der-unsichtbare-patient`                                       |   10/10 | 2025-11-30 | PolarisDX Team | `homeclinic.png` | eligible/eligible/eligible |
-| `five_minute_diagnosis`    | `die-5-minuten-diagnose`                                        |   10/10 | 2025-12-02 | PolarisDX Team | `makemoney.png`  | eligible/eligible/eligible |
-| `ecosystem_of_rapid_tests` | `the-ecosystem-of-rapid-tests-why-compatibility-creates-safety` |   10/10 | 2025-11-25 | PolarisDX Team | `Testbild1.png`  | eligible/eligible/eligible |
-| `rapid_setup_formula`      | `die-performance-formel-effizienz-in-der-poc-diagnostik`        |   10/10 | 2025-11-25 | PolarisDX Team | none             | eligible/eligible/eligible |
-| `precision_point_of_care`  | `precision-in-point-of-care-the-key-to-patient-safety`          |   10/10 | 2025-11-25 | PolarisDX Team | none             | eligible/eligible/eligible |
+| Internal ID                | Canonical slug                                                  | Locales | Published  | Author         | Image                        | Route/Search/Sitemap       |
+| -------------------------- | --------------------------------------------------------------- | ------: | ---------- | -------------- | ---------------------------- | -------------------------- |
+| `green_practice`           | `die-gruene-praxis`                                             |   10/10 | 2025-11-28 | PolarisDX Team | — (bildlos)                  | eligible/eligible/eligible |
+| `invisible_patient`        | `der-unsichtbare-patient`                                       |   10/10 | 2025-11-30 | PolarisDX Team | `homeclinic.png`             | eligible/eligible/eligible |
+| `five_minute_diagnosis`    | `die-5-minuten-diagnose`                                        |   10/10 | 2025-12-02 | PolarisDX Team | `makemoney.png`              | eligible/eligible/eligible |
+| `ecosystem_of_rapid_tests` | `the-ecosystem-of-rapid-tests-why-compatibility-creates-safety` |   10/10 | 2025-11-25 | PolarisDX Team | `article-hero-igloopro.webp` | eligible/eligible/eligible |
+| `rapid_setup_formula`      | `die-performance-formel-effizienz-in-der-poc-diagnostik`        |   10/10 | 2025-11-25 | PolarisDX Team | none                         | eligible/eligible/eligible |
+| `precision_point_of_care`  | `precision-in-point-of-care-the-key-to-patient-safety`          |   10/10 | 2025-11-25 | PolarisDX Team | none                         | eligible/eligible/eligible |
 
 Titles, teasers and section bodies are present for every one of the 60 article-locale documents.
 Serialized localized documents are distinct across all ten locales per article; the PT17.1 guard
@@ -57,7 +57,11 @@ The known internal-ID legacy source `/de/articles/green_practice` remains a serv
   empty slot.
 - Four repository-backed images render with fixed intrinsic dimensions, `loading="lazy"` and
   `decoding="async"`. They are decorative within already named links and therefore use empty alt.
-  The two image-free records use a decorative category icon rather than a fake image.
+  The image-free records use a decorative category icon rather than a fake image.
+- **2026-10-16 (AP29 PT29.4, aus `main` 6908b61):** `green_practice` ist bildlos (das frühere Bild
+  zeigte einen verformten IglooPro-Nachbau); `ecosystem_of_rapid_tests` trägt den echten Produktrender
+  `article-hero-igloopro.webp` statt `Testbild1` (erfundene „DX"-Wortmarke, Wasserzeichen). Damit sind
+  drei Artikel bebildert und drei bildlos. `above_the_fold.*` (erfundener Messwert) ist gelöscht.
 - Pagination/filter decision: `NOT_REQUIRED_CURRENT_CONTENT_VOLUME` for six launch records.
 - The primary hero CTA is an in-page jump to the real article list.
 

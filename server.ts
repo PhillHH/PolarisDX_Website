@@ -18,6 +18,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 import {
   DEFAULT_LANGUAGE,
   getLanguageFromPathname,
+  SUPPORTED_LANGUAGES,
   SSR_I18N_STATE_ID,
   type SsrI18nState,
   type SupportedLanguage,
@@ -233,6 +234,41 @@ function isStaticAsset(pathname: string): boolean {
   )
 }
 
+/**
+ * AP29 PT29.2 — Dateien, die auf der produktiven Linie oeffentlich verlinkt waren und im
+ * Relaunch unter anderem Namen oder hinter dem Lead-Gate liegen. Ein Hop, ohne Locale-Umweg
+ * (Crawl-Befunde F1/F2, building-docs/migration/AP29-PRELAUNCH-CRAWL.md):
+ *
+ * - Der Produktflyer hatte als Vite-Asset einen Hash im Namen (`/assets/igloo-pro-flyer-<hash>.pdf`)
+ *   und ist extern verlinkt; die stabile Datei ist `/downloads/igloo-pro-flyer.pdf`.
+ * - Das Musterbefund-Paket war als ZIP frei abrufbar; seit AP19 PT19.4 ist es der Lead-Magnet
+ *   auf der Unterlagen-Seite. Die alte Datei-URL fuehrt dorthin statt ins Leere.
+ */
+const LEGACY_FILE_REDIRECTS: ReadonlyArray<{
+  pattern: RegExp
+  target: (match: RegExpMatchArray) => string
+}> = [
+  {
+    pattern: /^\/assets\/igloo-pro-flyer-[A-Za-z0-9_-]+\.pdf$/,
+    target: () => '/downloads/igloo-pro-flyer.pdf',
+  },
+  {
+    pattern: /^\/downloads\/epigenetics\/PolarisDX_Musterbefunde_([A-Z]{2})\.zip$/,
+    target: (match) => {
+      const lang = match[1].toLowerCase()
+      return `/${SUPPORTED_LANGUAGES.includes(lang as SupportedLanguage) ? lang : DEFAULT_LANGUAGE}/epigenetics/unterlagen`
+    },
+  },
+]
+
+function getLegacyFileRedirect(pathname: string): string | null {
+  for (const { pattern, target } of LEGACY_FILE_REDIRECTS) {
+    const match = pathname.match(pattern)
+    if (match) return target(match)
+  }
+  return null
+}
+
 // =============================================================================
 // ROUTE KNOWLEDGE
 // =============================================================================
@@ -399,6 +435,13 @@ async function createServer() {
 
     const pathname = req.path
 
+    // AP29 PT29.2: verlinkte Alt-Dateien in einem Hop auf ihren Nachfolger.
+    const fileTarget = getLegacyFileRedirect(pathname)
+    if (fileTarget) {
+      res.redirect(301, fileTarget)
+      return
+    }
+
     // Statische Assets nie redirecten
     if (isStaticAsset(pathname)) {
       return next()
@@ -464,6 +507,12 @@ async function createServer() {
     // Sicherheitsnetz: Ohne gültiges Prefix hätte die Redirect-Middleware
     // bereits redirected. Hier als Fallback.
     if (!lang) {
+      // AP29 PT29.2 (Crawl-Befund F1): eine fehlende Datei ist 404 — nicht 301 auf
+      // /de/<datei> und dann 404. Betrifft nach dem Go-live jede alte gehashte Asset-URL.
+      if (isStaticAsset(pathname)) {
+        res.status(404).type('text/plain').send('Not found')
+        return
+      }
       const query = originalUrl.includes('?') ? originalUrl.substring(originalUrl.indexOf('?')) : ''
       res.redirect(301, `/${DEFAULT_LANGUAGE}${pathname}${query}`)
       return

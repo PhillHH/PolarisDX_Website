@@ -154,9 +154,8 @@ const files = [
   // Flaechen ohne Tailwind-Klassen, die trotzdem Marke transportieren:
   join(ROOT, 'server.ts'), // SSR-Fehlerseite
   join(ROOT, 'server/server.js'), // Kontakt-/ROI-Mails + PDF-Report
-  join(ROOT, 'public/og-image.svg'), // Share-Karte (Quelle)
   join(ROOT, 'public/polarisdx-mark.svg'), // Logo (allowlisted)
-  join(ROOT, 'scripts/og-image-template.html'), // erzeugt public/og-image.jpg
+  join(ROOT, 'scripts/og-image-template.html'), // erzeugt public/og-image.jpg (make-og-card.mjs)
 ].filter((f) => existsSync(f))
 
 for (const file of files) {

@@ -19,7 +19,7 @@ const VIEWPORTS = [
 /** Beruehrte Seiten (Artikelbilder, Produktbild) plus die Startseite mit BlogCard. */
 const TOUCHED = [
   '/de/articles',
-  '/de/articles/die-gruene-praxis',
+  '/de/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
   '/de/vitamin-d3-spray',
   '/de/',
   '/de/diagnostics',
@@ -175,7 +175,10 @@ test.describe.serial('PT25.3', () => {
     browser,
   }) => {
     const cases = [
-      { path: '/de/articles/die-gruene-praxis', viewports: ['390', '768', '1440'] },
+      {
+        path: '/de/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
+        viewports: ['390', '768', '1440'],
+      },
       { path: '/de/articles', viewports: ['768', '1440'] },
     ]
     for (const c of cases) {
@@ -188,7 +191,9 @@ test.describe.serial('PT25.3', () => {
         )
         const label = `${c.path} @${vp.name}`
         expect(lcp.lcpTag, `${label}: LCP ist kein Bild`).toBe('img')
-        expect(lcp.lcpSrc, `${label}: LCP nicht AVIF`).toMatch(/green-\d+w-[\w-]+\.avif$/)
+        expect(lcp.lcpSrc, `${label}: LCP nicht AVIF`).toMatch(
+          /article-hero-igloopro-\d+w-[\w-]+\.avif$/,
+        )
         const attrs = await page.evaluate((src) => {
           const img = [...document.images].find((i) => i.currentSrc === src)!
           return {
@@ -198,12 +203,14 @@ test.describe.serial('PT25.3', () => {
         }, lcp.lcpSrc)
         expect(attrs.loading, `${label}: LCP-Bild lazy`).toBe('eager')
         expect(attrs.fetchpriority, `${label}: LCP-Bild ohne Vorrang`).toBe('high')
-        const green = imageRequests.filter((r) => /\/green[-.]/.test(r.url))
+        const green = imageRequests.filter((r) => /\/article-hero-igloopro[-.]/.test(r.url))
         expect(
           green.map((r) => r.url.replace(/^https?:\/\/[^/]+/, '')),
           `${label}: LCP-Bild mehrfach/in mehreren Formaten geladen`,
         ).toHaveLength(1)
-        const firstOther = imageRequests.find((r) => !/polaris_white|\/green[-.]/.test(r.url))
+        const firstOther = imageRequests.find(
+          (r) => !/polaris_white|\/article-hero-igloopro[-.]/.test(r.url),
+        )
         if (firstOther)
           expect(
             green[0].t,
@@ -231,9 +238,11 @@ test.describe.serial('PT25.3', () => {
   }) => {
     const LCP_AT_LARGER_VIEWPORT: Record<string, RegExp> = {
       '/de/diagnostics': /Igloo-pro-frontal/,
+      // Seit 2026-10-16 ist der erste Artikel bildlos (main 6908b61); LCP-Kandidat ist die
+      // erste Karte MIT Bild.
       // Erste Artikelkarte: LCP bei 768 und 1440 px, bei 390 px 29 px unter dem Falz; mobil
       // gedrosselt FCP/LCP 1.044 → 1.088 ms (Rauschbereich, LCP dort Text), Bildbytes 194 → 151 KB.
-      '/de/articles': /\/green-\d+w-/,
+      '/de/articles': /\/(homeclinic|makemoney|article-hero-igloopro)-\d+w-/,
     }
     for (const vp of VIEWPORTS) {
       for (const path of TOUCHED) {
@@ -321,7 +330,7 @@ test.describe.serial('PT25.3', () => {
     for (const vp of [VIEWPORTS[0], VIEWPORTS[2]]) {
       for (const path of [
         '/de/articles',
-        '/de/articles/die-gruene-praxis',
+        '/de/articles/the-ecosystem-of-rapid-tests-why-compatibility-creates-safety',
         '/de/vitamin-d3-spray',
       ] as const) {
         const grabs: Buffer[][] = []

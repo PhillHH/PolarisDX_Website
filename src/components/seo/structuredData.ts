@@ -132,9 +132,9 @@ export const organizationSchema = {
   email: 'contact@polarisdx.net',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Große Bleichen 1–3',
+    streetAddress: 'Willy-Brandt-Straße 49',
     addressLocality: 'Hamburg',
-    postalCode: '20354',
+    postalCode: '20457',
     addressCountry: 'DE',
   },
   sameAs: ['https://www.linkedin.com/company/polarisdx'],

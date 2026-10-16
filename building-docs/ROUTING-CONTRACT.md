@@ -305,7 +305,7 @@ SSR build and is the combined HTTP gate:
   `X-Powered-By`; the representative 301 retains the shared security headers. No AP26 cache/security
   redesign was performed.
 
-**Measured package gate:** G1 PASS (25 families, 43 canonical paths, 30 redirects); G2/G9 Playwright
+**Measured package gate:** G1 PASS (25 families, 43 canonical paths, 30 redirects — seit AP29 PT29.4 31, s. u.); G2/G9 Playwright
 **50/50 PASS**; Typecheck PASS; complete Unit/Component **296/296 PASS**; production client/SSR Build
 PASS; G3/Search/internal-findability PASS; AP08 locale plus AP09 SEO/Sitemap/Search/Findability
 Playwright **54/54 PASS**. All PT10.4 files pass targeted ESLint and Prettier. The unrelated full-tree
@@ -929,3 +929,18 @@ PT02.2 legt **Architektur** fest und implementiert sie **nicht**. Die Umsetzung 
 
 **Änderungen an diesem Vertrag** verantwortet AP10; jede Anpassung braucht einen Beleg aus dem
 Master-Scope. Decision Locks werden hier nie geändert.
+
+---
+
+## AP29 PT29.2/PT29.4 — Nachträge vor dem Go-live (2026-10-16)
+
+- **Redirect `RETIRED_PAGE`:** `/events/future-forum-berlin-2026` → `/<lang>/events` (301, ein Hop,
+  Locale bleibt). Die Seite wurde auf `main` am 2026-10-07 entfernt (3031841) und dort genauso
+  weitergeleitet; der Relaunch übernimmt die Entscheidung. Registry: **31** Redirect-Quellen.
+- **Alt-Dateien (server.ts, ohne Locale):** `/assets/igloo-pro-flyer-<hash>.pdf` → `/downloads/igloo-pro-flyer.pdf`;
+  `/downloads/epigenetics/PolarisDX_Musterbefunde_<XX>.zip` → `/<xx|de>/epigenetics/unterlagen`
+  (seit AP19 PT19.4 Lead-Magnet). Beide 301, ein Hop.
+- **Fehlende Dateien** (`isStaticAsset`) antworten ohne Locale-Präfix direkt **404** statt
+  `301 → /de/<datei> → 404` (Crawl-Befund F1).
+- Nachweis: `e2e/url-smoke.spec.ts` „AP29 legacy files", `src/routing/routeResolution.test.ts`;
+  `npm run test:seo:regression` 80/80. Grundlage: `building-docs/migration/AP29-PRELAUNCH-CRAWL.md`.

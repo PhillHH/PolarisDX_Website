@@ -230,9 +230,6 @@
     },
     "withdraw": "Withdraw consent"
   },
-  "testimonials": {
-    "positiveLabel": "Positive Review"
-  },
   "notFound": {
     "seo": {
       "title": "Page Not Found (404)",

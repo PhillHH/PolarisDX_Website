@@ -113,11 +113,12 @@ describe('PT17.1 article inventory and published index contract', () => {
   it('resolves every declared card image and leaves image-free articles explicit', () => {
     const withImage = articles.filter((article) => article.sections[0]?.image)
     const withoutImage = articles.filter((article) => !article.sections[0]?.image)
-    expect(withImage).toHaveLength(4)
+    expect(withImage).toHaveLength(3)
     expect(
       withImage.every((article) => Boolean(getArticleImageUrl(article.sections[0]?.image))),
     ).toBe(true)
     expect(withoutImage.map(({ id }) => id)).toEqual([
+      'green_practice',
       'rapid_setup_formula',
       'precision_point_of_care',
     ])

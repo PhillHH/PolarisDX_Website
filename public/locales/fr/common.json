@@ -231,9 +231,6 @@
     "reject_all": "Uniquement nécessaires",
     "withdraw": "Retirer le consentement"
   },
-  "testimonials": {
-    "positiveLabel": "Avis positif"
-  },
   "notFound": {
     "seo": {
       "title": "Page introuvable (404)",

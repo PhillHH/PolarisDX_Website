@@ -100,9 +100,7 @@
       "error_retryable": "Cela n’a pas fonctionné pour le moment. Vos informations sont toujours là — veuillez réessayer dans un instant."
     },
     "trust": {
-      "direct": "Vous préférez un contact direct ?",
-      "rating": "4,9",
-      "reviews": "250+ avis de cabinets"
+      "direct": "Vous préférez un contact direct ?"
     },
     "channels": {
       "caption": "Canaux de contact",

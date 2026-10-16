@@ -100,9 +100,7 @@
       "error_retryable": "Det virkede ikke lige nu. Dine oplysninger er stadig her — prøv igen om et øjeblik."
     },
     "trust": {
-      "direct": "Foretrækker du direkte kontakt?",
-      "rating": "4,9",
-      "reviews": "250+ klinikanmeldelser"
+      "direct": "Foretrækker du direkte kontakt?"
     },
     "channels": {
       "caption": "Kontaktkanaler",

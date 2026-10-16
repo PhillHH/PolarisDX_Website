@@ -100,9 +100,7 @@
       "error_retryable": "Não funcionou agora. Os seus dados continuam aqui — tente novamente dentro de momentos."
     },
     "trust": {
-      "direct": "Prefere contacto direto?",
-      "rating": "4,9",
-      "reviews": "250+ avaliações de consultórios"
+      "direct": "Prefere contacto direto?"
     },
     "channels": {
       "caption": "Canais de contacto",

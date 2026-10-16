@@ -29,9 +29,8 @@ const SIZE_RULES = [
     maxWidth: 300,
   },
   // Hero-Bilder - max 800px breit
-  { pattern: /hero_doctor/i, maxWidth: 800 },
   // Blog-Bilder - max 1200px breit
-  { pattern: /green|homeclinic|makemoney|Testbild|above_the_fold/i, maxWidth: 1200 },
+  { pattern: /homeclinic|makemoney/i, maxWidth: 1200 },
   // Avatar - max 400px breit
   { pattern: /avatar/i, maxWidth: 400 },
   // Hintergrundbilder

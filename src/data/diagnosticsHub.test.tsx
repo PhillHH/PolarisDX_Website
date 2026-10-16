@@ -336,7 +336,13 @@ describe('PT12.5 Diagnostics Hub SEO and internal-link integration', () => {
     expect([...links].map((link) => link.getAttribute('href'))).toEqual(
       diagnosticsRelatedArticles.map(({ route }) => route.path),
     )
-    expect(container.querySelectorAll('img[loading="lazy"]')).toHaveLength(3)
+    // Jede Karte mit Titelbild laedt es lazy; bildlose Artikel (seit 2026-10-16
+    // „Die gruene Praxis", main 6908b61) zeigen eine Textkarte ohne <img>.
+    const withImage = diagnosticsRelatedArticles.filter(({ article }) =>
+      Boolean(article.sections[0]?.image),
+    )
+    expect(container.querySelectorAll('img')).toHaveLength(withImage.length)
+    expect(container.querySelectorAll('img[loading="lazy"]')).toHaveLength(withImage.length)
     expect(container.querySelectorAll('h2')).toHaveLength(1)
     expect(container.querySelectorAll('h3')).toHaveLength(3)
     expect(container.querySelector('[data-diagnostics-knowledge-link]')).toHaveAttribute(

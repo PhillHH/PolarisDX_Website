@@ -102,9 +102,7 @@
       "panel_context_many": "Twoje zapytanie dotyczy paneli {{panels}}."
     },
     "trust": {
-      "direct": "Wolisz kontakt bezpośredni?",
-      "rating": "4,9",
-      "reviews": "250+ opinii gabinetów"
+      "direct": "Wolisz kontakt bezpośredni?"
     },
     "channels": {
       "caption": "Kanały kontaktu",
