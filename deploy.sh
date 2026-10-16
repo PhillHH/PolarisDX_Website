@@ -210,8 +210,15 @@ cmd_up() {
   [[ -n "$release" ]] || { fail "Release fehlt: ./deploy.sh up <release>"; return 2; }
   require_images "$release"
   if [[ "$ENVIRONMENT" == "production" && -n "$(container_of backend)" ]]; then
-    log "Sicherung vor dem Deploy (DEP-15) …"
-    cmd_backup
+    # Erster Wechsel vom Altstand (main, vor AP28): dessen Image kennt weder ops/backup.js noch
+    # eine Lead-Datenbank (Daten liegen in Host-Bind-Mounts, docs/deploy.md §3). Dort gibt es
+    # nichts zu sichern — ein Abbruch waere falsch. Jedes Release ab AP28 wird gesichert.
+    if docker exec "$(container_of backend)" test -f ops/backup.js 2>/dev/null; then
+      log "Sicherung vor dem Deploy (DEP-15) …"
+      cmd_backup
+    else
+      warn "Laufendes Backend ohne Sicherungswerkzeug (Altstand vor AP28): Sicherung uebersprungen; Altdaten bleiben in den Host-Verzeichnissen (docs/deploy.md §3)."
+    fi
   fi
   local previous
   previous="$(current_release)"

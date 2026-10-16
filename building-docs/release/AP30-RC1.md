@@ -1,6 +1,6 @@
 # AP30 — Release Candidate 1 (Entwurf, ownerfreier Teil)
 
-**Stand:** 2026-10-16 · **Status:** `RC1_PREPARED — NICHT FREIGEGEBEN` · **Branch:**
+**Stand:** 2026-10-16 · **Status:** `RC1_PREPARED — OWNER-GO 2026-10-16 (Abend), Cutover siehe AP31-GO-LIVE.md` · **Branch:**
 `console/24-25-2026-09-16T09-52-24`
 
 Diese Unterlage bündelt, was ohne Owner prüfbar war. Sie ist **keine** Freigabe. Ein RC wird erst
@@ -169,3 +169,8 @@ Cutover-Schritt (P0 3).
 **Go/No-Go-Vorschlag:** **No-Go**, bis SendGrid-Rotation (P0 1) und HSTS (P0 2) erledigt sind;
 der Early-Access-Rückbau (P0 3) und `adopt` (P0 4) gehören in den Cutover selbst. Technisch ist der
 Kandidat sonst releasefähig; das Deploy-Verfahren ist geübt.
+
+**Owner-Go erteilt (2026-10-16, Abend): „Bringe die neue Website online" · „Auf produktiv".**
+Der Owner weicht damit vom No-Go-Vorschlag ab; SendGrid-Rotation (P0 1) wird nach dem Cutover
+nachgeholt (das neue Backend-Image trägt keinen Schlüssel mehr), HSTS (P0 2) läuft im nginx-Schritt
+des Cutover mit. Runbook, Vorbereitung, Rollback-Grenzen und Protokoll: `release/AP31-GO-LIVE.md`.

@@ -99,7 +99,10 @@ Early-Access wird stillgelegt** (O2, Option A); im Relaunch ist `/early` eine 40
 
 #### Cutover-Checkliste Early-Access (vor dem ersten `up`, Operator)
 
-Noch **nicht** ausgeführt. Reihenfolge einhalten:
+**Stand 2026-10-16, 20:30: vorbereitet, Ausführung Operator** (Owner-Go erteilt, Protokoll
+`building-docs/release/AP31-GO-LIVE.md`). Zielstand des vhost: `deploy/nginx/polarisdx.net.conf`;
+Skript für Schritt 1–3 inklusive Sicherung: `sudo bash deploy/nginx/cutover-polarisdx.net.sh`
+(bindet zugleich HSTS ein, OA-1). Reihenfolge einhalten:
 
 1. Den Produktions-vhost (`sites-enabled/polarisdx.net`) vorher kopieren, damit der Rückbau
    umkehrbar ist.
@@ -119,6 +122,18 @@ Noch **nicht** ausgeführt. Reihenfolge einhalten:
    Aufbewahrung/Löschung entscheidet der Owner mit dem Datenschutzbeauftragten (Vorschlag: Löschung
    nach dokumentiertem Export; Frist **offen**).
 7. Danach `./deploy.sh adopt <name>` und das erste `./deploy.sh up <release>`.
+
+**Besonderheiten des ersten `up` vom Altstand** (gemessen 2026-10-16):
+
+- Das Alt-Backend hat kein `ops/backup.js` und keine Lead-Datenbank; `deploy.sh up` überspringt
+  die Vor-Deploy-Sicherung dann mit Warnung statt abzubrechen (Altdaten liegen in den
+  Host-Verzeichnissen, Punkt 6). Ab dem ersten AP28-Release wird wieder gesichert.
+- Ein Rollback auf das übernommene Altbild (`main-2026-10`) besteht das Health-Gate **nicht**
+  (kein `GET /api/health`, Compose-Healthcheck → `unhealthy`, Web startet nicht). Rückweg ist dann
+  die alte Compose-Datei: `docker compose -p 01polaris -f /home/phillip/01polaris/docker-compose.yml up -d`
+  plus vhost-Sicherung zurück (`AP31-GO-LIVE.md` §4).
+- Beim `up` wird das Backend zuerst ersetzt (Health ≈ 30 s), dann das Web: Seitenausfall nur
+  Sekunden, Formulare ≈ 45 s.
 
 ## 4. Sicherung und Wiederherstellung (PT28.5)
 
