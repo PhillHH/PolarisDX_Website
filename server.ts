@@ -681,7 +681,13 @@ async function createServer() {
   // ---------------------------------------------------------------------------
   // START SERVER
   // ---------------------------------------------------------------------------
-  app.listen(PORT, '127.0.0.1', () => {
+  // AP28 PT28.2 (DD-18): Bind-Host konfigurierbar. Standard bleibt Loopback —
+  // der Host-Prozess der Preview und lokale Starts sind damit nie direkt von
+  // aussen erreichbar. Das Container-Image setzt LISTEN_HOST=0.0.0.0, weil der
+  // Dienst sonst hinter dem Compose-Portmapping unerreichbar ist (502 trotz
+  // "healthy").
+  const LISTEN_HOST = process.env.LISTEN_HOST || '127.0.0.1'
+  app.listen(PORT, LISTEN_HOST, () => {
     if (isProduction) {
       const serverEntryPath = path.resolve(SERVER_DIST_DIR, 'entry-server.js')
       import(/* @vite-ignore */ serverEntryPath)

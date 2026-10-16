@@ -88,6 +88,16 @@ COPY public ./public
 ENV NODE_ENV=production
 ENV TSX_TSCONFIG_PATH=tsconfig.app.json
 ENV PORT=3000
+# AP28 PT28.2 (DD-18): im Container auf allen Interfaces hoeren, sonst ist der
+# Dienst hinter dem Portmapping unerreichbar. server.ts bleibt ausserhalb von
+# Containern standardmaessig auf Loopback.
+ENV LISTEN_HOST=0.0.0.0
+
+# AP28 PT28.4 (DEP-04, D-T2): Release-Identitaet bis zum Git-SHA.
+ARG GIT_SHA=local
+LABEL org.opencontainers.image.revision=${GIT_SHA} \
+      org.opencontainers.image.title=polarisdx-frontend
+ENV RELEASE_SHA=${GIT_SHA}
 
 # 6. Port freigeben
 EXPOSE 3000

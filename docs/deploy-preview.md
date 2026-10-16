@@ -1,5 +1,12 @@
 # Preview-Deploy / Restart (preview.polarisdx.net)
 
+> **Abgelöst durch AP28 (2026-10-16):** Die Preview läuft als Compose-Projekt `polarisdx-preview`
+> (Web `127.0.0.1:9100`, API `127.0.0.1:5100`, `APP_ENV=preview`) und wird mit
+> `./deploy.sh --env preview up <release>` ausgerollt — Runbook `docs/deploy.md`. Der hier
+> beschriebene Host-Prozess ist nur noch der Rückfallweg, falls der Container-Stack nicht startet.
+> Sein früheres Backend-Ziel `127.0.0.1:5001` existierte nicht mehr; Formulare der Preview
+> antworteten deshalb mit 504.
+
 > **Ermittelter Ist-Zustand (read-only Analyse, Branch `feat/home-leadmagnet`).** Dieser Server ist die
 > **Preview**, nicht Prod. Prod-`./deploy.sh` (Docker) hier **nicht** verwenden.
 

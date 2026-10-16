@@ -1,8 +1,21 @@
+# =============================================================================
+# PolarisDX — Compose-Zielstack (AP28, DEPLOYMENT-CONTRACT §5.1)
+# =============================================================================
+# Produktion und Preview laufen aus DIESER Datei; die Preview ergaenzt sie um
+# `docker-compose.preview.yml` (APP_ENV=preview, eigene Ports, eigenes Projekt).
+# Bedienung ausschliesslich ueber `./deploy.sh` (Runbook: docs/deploy.md):
+#   - Images tragen den Git-SHA als Tag (RELEASE), nie `latest` (DEP-04/DEP-05).
+#   - Host-Ports kommen aus der Umgebung, Standard = heutige Produktion
+#     (DD-19, D-T25). Keine zweite Umgebung startet ohne eigene Ports.
+#   - Ein Deploy gilt erst nach dem Health-Gate als angenommen (DEP-08).
+# =============================================================================
+
 services:
   # ==========================================================================
   # Frontend Service (Node.js SSR Server)
   # ==========================================================================
   frontend:
+    image: polarisdx-frontend:${RELEASE:-local}
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,17 +28,37 @@ services:
         # uebergeben.
         VITE_APP_ENV: preview
         VITE_GTM_CONTAINER_ID_PREVIEW: GTM-PL26PFFH
+        # Release-Identitaet bis zum Git-SHA (DEP-04, D-T2): landet als
+        # OCI-Label im Image; `deploy.sh` vergleicht es nach dem Start.
+        GIT_SHA: ${RELEASE:-local}
 
     ports:
-      - '127.0.0.1:2026:3000' # Externer Reverse Proxy -> Container Port
+      # Externer Host-nginx -> Container. Port aus der Umgebung (DD-19); der
+      # Standard ist der produktive vhost `polarisdx.net` -> 127.0.0.1:2026.
+      - '127.0.0.1:${WEB_HOST_PORT:-2026}:3000'
 
     environment:
       - NODE_ENV=production
       - PORT=3000
       - BACKEND_URL=http://backend:5000 # Docker-Netzwerk DNS
+      # Im Container muss der SSR-Dienst auf allen Interfaces hoeren, sonst ist
+      # er hinter dem Portmapping unerreichbar (DD-18). Ausserhalb des
+      # Containers bleibt der Standard Loopback.
+      - LISTEN_HOST=0.0.0.0
 
+    # Startreihenfolge ist kein Bereitschaftsnachweis (DEP-49, DD-16): das Web
+    # startet erst, wenn das Backend seine Datenbank lesen kann.
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+
+    # Healthcheck steht im Dockerfile (SSR rendert /de/). Hier nur die
+    # Log-Rotation (DEP-51): stdout bleibt die Quelle, die Platte laeuft nicht voll.
+    logging: &default-logging
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '5'
 
     networks:
       - app-network
@@ -36,17 +69,28 @@ services:
   # Backend Service (Node.js API / Mailer)
   # ==========================================================================
   backend:
+    image: polarisdx-backend:${RELEASE:-local}
     build:
       context: ./server
       dockerfile: Dockerfile
+      args:
+        GIT_SHA: ${RELEASE:-local}
 
     ports:
-      - '127.0.0.1:5000:5000'
+      # Begruendete Host-Veroeffentlichung (M-09, DD-15): der produktive
+      # Host-nginx leitet `/api/early-access` direkt an 127.0.0.1:5000 weiter
+      # (Early-Access-Seiten liegen ausserhalb dieses Repos). Das Web erreicht
+      # das Backend dagegen nur ueber das interne Netz. Faellt der
+      # nginx-Eintrag weg, entfaellt dieser Port.
+      - '127.0.0.1:${API_HOST_PORT:-5000}:5000'
 
     env_file:
       - ./server/.env
 
     environment:
+      # Umgebung ausdruecklich deklariert (DEP-29, LDC-24). Die Preview-Datei
+      # setzt `preview` — damit erzwingt das Backend den Trockenlauf.
+      - APP_ENV=${APP_ENV:-production}
       - LEAD_DB_PATH=/var/lib/polarisdx/leads.sqlite3
 
       # AP22-CLOSURE:
@@ -66,6 +110,23 @@ services:
 
     volumes:
       - lead-data:/var/lib/polarisdx
+
+    # Anwendungsnah (DEP-46): Anfrageverarbeitung plus lesbare Lead-Datenbank,
+    # ohne Nebenwirkung (DEP-48). Wird unhealthy, wenn das Volume fehlt.
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:5000/api/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+    logging: *default-logging
 
     networks:
       - app-network

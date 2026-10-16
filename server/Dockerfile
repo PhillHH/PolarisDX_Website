@@ -42,4 +42,15 @@ USER node
 
 EXPOSE 5000
 
+# AP28 PT28.4 (DEP-04, D-T2): Release-Identitaet bis zum Git-SHA.
+ARG GIT_SHA=local
+LABEL org.opencontainers.image.revision=${GIT_SHA} \
+      org.opencontainers.image.title=polarisdx-backend
+ENV RELEASE_SHA=${GIT_SHA}
+
+# AP28 PT28.2 (DD-6, DEP-46/48): anwendungsnah, ohne Nebenwirkung — Anfrage-
+# verarbeitung plus lesbare Lead-Datenbank (`GET /api/health`).
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD ["node", "-e", "fetch('http://127.0.0.1:5000/api/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+
 CMD ["node", "server.js"]

@@ -546,6 +546,42 @@ zutreffende Betriebsbeschreibung.
 
 ---
 
+### 6.2 Stand AP28 (2026-10-16) — umgesetzt und nachgewiesen
+
+Umgesetzt im Repository, lokal in einem isolierten Compose-Projekt (`polarisdx-ap28`, eigene Ports,
+eigenes Subnetz, danach vollständig entfernt) nachgewiesen. **Produktion unverändert** — der
+Wechsel der Produktion auf diesen Pfad ist ein Owner-Go (AP31).
+
+| Schuld                    | Stand                  | Umsetzung                                                                                                                                                                  | Nachweis                                                                                                                 |
+| ------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| DD-1                      | **aufgelöst**          | Volume `lead-data` für Datenbank und Anhänge                                                                                                                               | `server/ap22-closure.test.js`, Probelauf                                                                                 |
+| DD-3 / DD-5 / DD-9        | **aufgelöst**          | `image: polarisdx-*:${RELEASE}`, OCI-Label `revision` = Git-SHA; `deploy.sh up` mit Health-Gate, Identitätsprüfung, Smoke und automatischem Rollback; `deploy.sh rollback` | D-T2/D-T3/D-T8: falsches Artefakt → abgelehnt, Rollback grün; Backend startet nicht → `unhealthy`, Exit 1, Rollback grün |
+| DD-4                      | **aufgelöst**          | `deploy.sh build` baut einmal aus sauberem Commit; `up` baut nie (`--no-build`); Preview und Produktion starten dasselbe Image                                             | Grenze: §6 „Ein Image, zwei Umgebungen" in `docs/deploy.md`                                                              |
+| DD-6                      | **aufgelöst**          | `GET /api/health` (Datenbank lesbar, ohne Nebenwirkung), `HEALTHCHECK` im Backend-Image und in Compose                                                                     | `server/health.endpoint.test.js` (D-T21)                                                                                 |
+| DD-8                      | **aufgelöst**          | `server/ops/backup.js` (VACUUM INTO + Anhänge + Manifest), `deploy.sh backup/restore-test/restore`, Aufbewahrung 14                                                        | `server/ops/backup.test.js`; Probelauf: 3 Leads → Restore der Sicherung mit 2 → 2 Leads, Health + Smoke grün (D-T5/D-T6) |
+| DD-10                     | **aufgelöst**          | `nginx.conf`, `Dockerfile.dev`, `server/docker-compose.yml`, `vercel.json` → `_project-knowledge/deploy/archiv-ap28/`                                                      | D-T15                                                                                                                    |
+| DD-11                     | **im Repo aufgelöst**  | `docker-compose.preview.yml`: eigenes Projekt, Ports 9100/5100, `APP_ENV=preview`, eigenes `server/.env.preview`                                                           | Probelauf: `[DRY_RUN] active … forced=true`; Umstellung der laufenden Preview siehe AP-STATE                             |
+| DD-15                     | **begründet behalten** | API-Host-Port bleibt, weil der Host-nginx `/api/early-access` an `127.0.0.1:5000` gibt                                                                                     | M-09                                                                                                                     |
+| DD-16                     | **aufgelöst**          | `depends_on: backend: condition: service_healthy`                                                                                                                          | Probelauf: kaputtes Backend → Web startet nicht                                                                          |
+| DD-18                     | **aufgelöst**          | `server.ts` hört auf `LISTEN_HOST` (Standard Loopback), Image setzt `0.0.0.0`                                                                                              | D-T23/D-T24: Smoke über den Host-Port                                                                                    |
+| DD-19                     | **aufgelöst**          | Ports aus `WEB_HOST_PORT`/`API_HOST_PORT`, Projektname von `deploy.sh` ausdrücklich gesetzt                                                                                | D-T25                                                                                                                    |
+| DD-12                     | **teilweise**          | Health, Neustarts, Lead-Alarme im Log, Log-Rotation (json-file 5 × 10 MB)                                                                                                  | externer Alarmweg = Betreiberwahl (DEP-56)                                                                               |
+| DD-2, DD-13, DD-14, DD-17 | offen                  | Worker im Prozess (AP22), Image-Scan in CI (AP26), HSTS live (Operator), CI-Deploy-Schritt                                                                                 | —                                                                                                                        |
+
+**Neu gemessen:** Der Docker-Host hat keine freien Standard-Adresspools mehr („all predefined
+address pools have been fully subnetted"). Ein neues Compose-Projekt braucht ein ausdrückliches
+Subnetz; die Preview-Datei setzt `${PREVIEW_SUBNET:-10.213.142.0/28}`. Die Produktion nutzt ihr
+bestehendes Netz.
+
+**Neu gemessen — Cutover-Befund (P0 für AP31):** Das laufende Produktions-Backend (aus `main`)
+bindet `/var/lib/polaris-early` und `/var/lib/polaris-events` ein und beantwortet
+`POST /api/early-access`. Der Relaunch kennt beides nicht (`building-docs/migration/MAIN-DELTA-2026-10.md`,
+Owner-Entscheidung O2).
+
+Runbook: `docs/deploy.md`.
+
+---
+
 ## 7. Modification Rules
 
 **M-01 — Es gibt genau einen produktiven Zielpfad.** Wer eine Konfiguration hinzufügt, entfernt oder

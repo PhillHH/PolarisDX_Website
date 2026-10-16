@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.env
+# AP28: umgebungsspezifische Secrets-Dateien (server/.env.preview, …); nur das Beispiel ist versioniert
+.env.*
+!.env.example
+# AP28: Release-Historie und lokale Sicherungen von deploy.sh
+.deploy/
 *.local
 
 # Shared Lead Foundation runtime data (mounted as a persistent volume in production)

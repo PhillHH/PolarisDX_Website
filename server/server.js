@@ -726,6 +726,26 @@ const SAFE_ERROR_CODES = {
   'entity.parse.failed': 'INVALID_JSON',
   'entity.too.large': 'PAYLOAD_TOO_LARGE',
 }
+// AP28 PT28.2 — Gesundheitspruefung fuer Compose-Healthcheck und Deploy-Gate
+// (DEPLOYMENT-CONTRACT DEP-46/DEP-48, D-T21). Prueft die Anfrageverarbeitung
+// und die kritische Abhaengigkeit Lead-Datenbank (Lesezugriff, Migrationsstand),
+// ohne Nebenwirkung: kein Lead, keine Mail, kein Schreibzugriff. Die Antwort
+// nennt keine Pfade, Secrets oder Zaehlerstaende. 503, wenn die Datenbank nicht
+// lesbar ist — ohne Persistenz wird kein Lead angenommen (LD-01).
+app.get('/api/health', (_req, res) => {
+  let db
+  try {
+    db = openLeadDatabase({ readonly: true })
+    const row = db.prepare('SELECT COUNT(*) AS count FROM schema_migrations').get()
+    return res.json({ status: 'ok', database: 'ok', migrations: row.count })
+  } catch (error) {
+    console.error('[api] health check failed', { type: error?.code || error?.name })
+    return res.status(503).json({ status: 'unavailable', database: 'unavailable' })
+  } finally {
+    db?.close()
+  }
+})
+
 app.use((_req, res) => res.status(404).json({ accepted: false, code: 'NOT_FOUND' }))
 // Vier Parameter: nur daran erkennt Express eine Fehler-Middleware.
 app.use((error, _req, res, next) => {
@@ -741,6 +761,11 @@ const PORT = process.env.PORT || 5000
 // Listen on 0.0.0.0 to ensure Docker accessibility.
 // Guard so importing this module for tests does not start a live server.
 if (require.main === module) {
+  // AP28 PT28.2: Persistenz beim Start pruefen und Migrationen anwenden. Ist das
+  // Volume nicht beschreibbar, bricht der Start ab (Restart Policy und
+  // Healthcheck machen das sichtbar), statt Leads anzunehmen, die nicht
+  // gespeichert werden koennen. Danach liest `/api/health` nur noch.
+  openLeadDatabase().close()
   app.listen(PORT, process.env.LISTEN_HOST || '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`)
   })
