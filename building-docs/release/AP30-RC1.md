@@ -55,10 +55,7 @@ generierte Fotos auf der Startseite (Bühne + Detail), fünf Runde-2-Quellen gel
 Code-Commit grün: `src/components/sections/*.test.tsx` 35/35; Budgets der Startseite nicht
 gelockert (`htmlBytes` 33,8 KB von 33,9 — vorher genau am Limit; Desktop-`imageBytes` 65,1 KB von
 87,2, vorher 81,3; Initial-JS 159,4 KB von 160,9; LCP-Bild 10,5/9,4 KB;
-`check-budgets --profile ci --routes home,home-en,home-pl --runs 1`). **Für diesen Stand neu zu
-fahren:** vollständiger Budget-Lauf (ci 852), Visual (pt27.6 21 und DS 35; Baselines werden im
-Playwright-Image v1.57.0 neu aufgenommen, sechs PT27.6-Screenshots, Liste im DESIGN-SYSTEM-CHANGELOG), Accessibility PT24.x, SEO-Regression
-(80) und URL-Smoke (56), Browser-Matrix (84), Vitest voll. Preview-Release: **folgt**. Offen bleibt
+`check-budgets --profile ci --routes home,home-en,home-pl --runs 1`). **Für diesen Stand gefahren (alle grün, 2026-10-16 Abend):** vollständiger Budget-Lauf ci 852/852, Visual PT27.6 21/21 (sechs Baselines neu: `home-desktop`, `home-mobile`, `cookie-banner-desktop`, `diagnostics-megamenu-open-desktop`, `navigation-open-mobile`, `search-dialog-open-desktop`) und DS 35/35 im Playwright-Image v1.57.0, Accessibility PT24.1–24.6 (118/41/31/20/45/25), SEO-Regression 82/82, URL-Smoke 56/56, Core 15/15, Consent 11/11, HTTP 12/12, Vitest 1121, `tsc`, Lint, alle `check:*`; Browser-Matrix 44/45 + 39/39 — der eine Fehlschlag (WebKit-Desktop, Epigenetik-Formularstatus im Trockenlauf) lief isoliert 4/4 grün und ist ein Lastflake, nicht die Startseite. Preview-Release `8fc751ad1ab5` (Commit `8fc751a`). Offen bleibt
 die Sichtprüfung der Startseite und der Bildwelt 3 auf der Preview durch den Owner.
 
 ## 2. PT30.1 Functional QA
