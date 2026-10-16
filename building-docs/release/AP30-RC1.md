@@ -130,6 +130,10 @@ Cutover-Schritt (P0 3).
 
 **P2 — bekannt, nicht launchkritisch:**
 
+- `e2e/pt25.3.spec.ts` ist an die September-Snapshots `node_modules/.cache/pt25.{2,3}` gebunden;
+  gegen den aktuellen Build (`PT253_AFTER_DIR=node_modules/.cache/perf-budget`) scheitert nur Test 1
+  an der AP34-Startseiten-Bühne (`<picture>` ohne WebP-`<source>`, bewusst: nur AVIF + WebP-`<img>`).
+  Bild-, LCP- und Byte-Tests laufen grün. Kein Launchkriterium.
 - E2E-Altbefunde: Breadcrumb-Label „Breadcrumb" vs. „Brotkrümelnavigation" in den Service-Specs
   (84), doppeltes `role="status"` (Support/Befund/Epigenetik), Sprachwechsel-Klick unter Last,
   Termine mit festem Datum. Specs der Closure-/PT2x-Configs laufen nur mit ihrer eigenen Config.

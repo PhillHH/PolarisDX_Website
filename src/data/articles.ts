@@ -19,7 +19,7 @@ export const articleInventory: Article[] = [
     readTime: '6 min read',
     // Bildlos seit 2026-10-16 (main 6908b61): das fruehere Titelbild zeigte einen
     // verformten IglooPro-Nachbau statt des echten Geraets.
-    sections: [],
+    sections: [{ image: 'article-green-practice.webp', paragraphs: [] }],
     relatedServiceIds: ['dental', 'longevity'],
   },
   {
@@ -30,7 +30,7 @@ export const articleInventory: Article[] = [
     author: 'PolarisDX Team',
     datePublished: '2025-11-30',
     readTime: '8 min read',
-    sections: [{ image: 'homeclinic.png', paragraphs: [] }],
+    sections: [{ image: 'article-invisible-patient.webp', paragraphs: [] }],
     relatedServiceIds: ['poc-systemloesungen', 'praeventions-checks'],
   },
   {
@@ -41,7 +41,7 @@ export const articleInventory: Article[] = [
     author: 'PolarisDX Team',
     datePublished: '2025-12-02',
     readTime: '7 min read',
-    sections: [{ image: 'makemoney.png', paragraphs: [] }],
+    sections: [{ image: 'article-five-minute.webp', paragraphs: [] }],
     relatedServiceIds: ['poc-systemloesungen', 'dental'],
   },
   {
@@ -70,7 +70,7 @@ export const articleInventory: Article[] = [
     author: 'PolarisDX Team',
     datePublished: '2025-11-25',
     readTime: '7 min read',
-    sections: [],
+    sections: [{ image: 'article-rapid-setup.webp', paragraphs: [] }],
     relatedServiceIds: ['poc-systemloesungen'],
   },
   {
@@ -81,7 +81,7 @@ export const articleInventory: Article[] = [
     author: 'PolarisDX Team',
     datePublished: '2025-11-25',
     readTime: '9 min read',
-    sections: [],
+    sections: [{ image: 'article-precision.webp', paragraphs: [] }],
     relatedServiceIds: ['praeventions-checks', 'infektion-entzuendung'],
   },
 ]

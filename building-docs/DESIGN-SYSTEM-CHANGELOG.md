@@ -27,6 +27,34 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-16 — Bildwelt: „Polaris-Look", KI-Collagen der Artikel ersetzt, Bildnachweis (Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Wunsch 2026-10-16 („Bilder wirken uneinheitlich, teils KI-generiert; bitte in
+  unserer CI; Bildverzeichnis"). DEC-RL-002 bleibt: keine zweite Bildsprache, sondern EINE
+  Behandlung für alle Fotos.
+- **Pipeline:** `scripts/build-photo-look.mjs` (`npm run build:photo-look`) erzeugt aus
+  `assets-src/photos/` (14 Quellen, Unsplash) alle Foto-Stufen der Website: Sättigung 0,78, Navy
+  `#083358` als Soft-Light-Lage (α 0,26), Kontrast 1,04/−5; Karten 4:3 und 3:2, Artikel 16:9,
+  Startseiten-Bühne wie AP34 (Verlauf + Punktring eingebacken). Dateinamen unverändert, Code der
+  Startseite unverändert.
+- **Artikel:** `homeclinic.png` und `makemoney.png` (KI-Collagen) gelöscht. Alle sechs Artikel tragen
+  jetzt ein Foto (fünf neue `article-*.webp`, 1200w Original + AVIF 400/800/1200; der
+  Ecosystem-Artikel behält den echten IglooPro-Render). `BlogCard` nutzt `lean` (nur AVIF-srcset),
+  sonst lag die Startseite ~100 B über `htmlBytes`.
+- **Impressum §8 „Bildnachweis"** (10 Sprachen): Produktrender PolarisDX/DX365, Praxis- und
+  Laborfotos Unsplash (Unsplash-Lizenz, bearbeitet), Porträts von den Personen bereitgestellt,
+  Grafiken PolarisDX. **Legal-Freigabe und Owner-Bestätigung der Unsplash-Herkunft offen** (die
+  Unsplash-IDs sind nicht dokumentiert). Es gibt nach dieser Änderung keine KI-generierten Bilder
+  mehr; kommen welche hinzu, bekommt §8 eine Zeile „KI-generiert (PolarisDX)".
+- **Budgets (PT25.5, nicht gelockert):** home `htmlBytes` 33,9 KB (Grenze 33,9), Bild 62/80 KB,
+  LCP-Bild 14,0 KB; articles-index Bild 60/63 KB; article-detail LCP-Bild 17,6 KB (Grenze 21,9).
+- **Oberfläche:** keine neuen Tokens, Typo-Rollen oder Komponenten-Exporte.
+- **Betroffene Screenshots (aktualisiert im Playwright-Docker-Image v1.57.0, gegengeprüft 21/21 und
+  35/35):** `final-cta-articles-desktop`, `final-cta-articles-mobile`, `hero-diagnostics-mobile`, `article-desktop` — Artikelseite, Artikel-Index und Diagnostik-Hub
+  (verwandte Artikel) zeigen die neuen Fotos; die Fotos der Startseite änderten die Pixel unterhalb
+  der Toleranz nicht.
+- **Reviewer:** Owner (Sichtprüfung auf der Preview steht aus).
+
 ### 2026-10-16 — SC-004 · Owner-Entscheidungen: Shop-Eintrag, Shop-Band, ndu-Clinic-Karte, Bereichsleiste Diagnostik (Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Entscheidungen vom 2026-10-16 (`SCOPE-CHANGELOG.md` SC-004;

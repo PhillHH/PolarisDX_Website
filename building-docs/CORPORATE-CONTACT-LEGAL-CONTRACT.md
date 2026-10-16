@@ -643,3 +643,16 @@ Closure-Prinzip eingehalten: alles neu gemessen, kein PT-PASS blind uebernommen.
   C20-01..50: PASS · Definition of Done 54/54 erfuellt.
 - AP22 Cross-Journey Lead Platform = LATER OWNER / NOT CLAIMED COMPLETE.
 - AP21 = NOT STARTED (nicht gestartet).
+
+## Nachtrag 2026-10-16 — Impressum §8 „Bildnachweis"
+
+Neue Sektion `imprint.section8` in `public/locales/*/legal.json` (10 Sprachen) und
+`ImprintPage.tsx`. Inhalt je Bildgruppe: IglooPro-Produktabbildungen (Polaris Diagnostics Europe
+GmbH / DX365 GmbH), Praxis- und Laborfotos (Unsplash, Unsplash-Lizenz, Zuschnitt und
+Farbbearbeitung durch PolarisDX — Quellen in `assets-src/photos/README.md`), Porträts (von den
+abgebildeten Personen bereitgestellt), Grafiken/Musterbefund-Vorschauen/Share-Bilder (PolarisDX).
+**Offen vor Go-live:** Legal-Freigabe des Wortlauts; Owner bestätigt die Unsplash-Herkunft der
+14 Quellfotos (IDs nicht dokumentiert) und die Freigaben der Porträts. KI-generierte Bilder gibt es
+seit diesem Stand nicht mehr auf der Website; falls künftig welche eingesetzt werden, wird §8 um
+„KI-generiert (PolarisDX)" ergänzt — eine Kennzeichnungspflicht besteht dafür nicht, die Angabe ist
+freiwillig und ehrlich.

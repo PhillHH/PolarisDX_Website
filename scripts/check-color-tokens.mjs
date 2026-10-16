@@ -156,6 +156,7 @@ const files = [
   join(ROOT, 'server/server.js'), // Kontakt-/ROI-Mails + PDF-Report
   join(ROOT, 'public/polarisdx-mark.svg'), // Logo (allowlisted)
   join(ROOT, 'scripts/og-image-template.html'), // erzeugt public/og-image.jpg (make-og-card.mjs)
+  join(ROOT, 'scripts/build-photo-look.mjs'), // Navy als Soft-Light-Lage und Buehnen-Verlauf
 ].filter((f) => existsSync(f))
 
 for (const file of files) {

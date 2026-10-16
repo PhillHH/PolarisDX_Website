@@ -23,8 +23,15 @@ export const ARTICLE_IMAGE_DIR = 'src/assets'
 
 /** Quelle = unkomprimiertes Original; `widths` aus der gemessenen Darstellung (CSS-Breite × DPR 1–3). */
 export const ARTICLE_IMAGE_SOURCES = [
-  { base: 'homeclinic', source: 'homeclinic.png', widths: [400, 800, 1024] },
-  { base: 'makemoney', source: 'makemoney.png', widths: [400, 800, 1024] },
+  // Fuenf Artikelfotos im Polaris-Look (scripts/build-photo-look.mjs erzeugt Quelle UND Stufen;
+  // hier registriert, damit check-article-images Drift, Groesse und Importe prueft).
+  ...[
+    'article-green-practice',
+    'article-invisible-patient',
+    'article-five-minute',
+    'article-rapid-setup',
+    'article-precision',
+  ].map((base) => ({ base, source: `${base}.webp`, widths: [400, 800, 1200], external: true })),
   // Echter IglooPro-Render, quer 8:3 (main 6908b61). Quelle = ausgeliefertes WebP.
   {
     base: 'article-hero-igloopro',
@@ -48,6 +55,8 @@ async function main() {
   let total = 0
   for (const entry of ARTICLE_IMAGE_SOURCES) {
     const { base, source, widths } = entry
+    // Stufen aus build-photo-look.mjs; hier nur zaehlen, nicht neu kodieren.
+    if (entry.external) continue
     const input = await readFile(join(ARTICLE_IMAGE_DIR, source))
     const original = (await stat(join(ARTICLE_IMAGE_DIR, source))).size
     const parts = []

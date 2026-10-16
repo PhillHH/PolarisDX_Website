@@ -242,7 +242,8 @@ test.describe.serial('PT25.3', () => {
       // erste Karte MIT Bild.
       // Erste Artikelkarte: LCP bei 768 und 1440 px, bei 390 px 29 px unter dem Falz; mobil
       // gedrosselt FCP/LCP 1.044 → 1.088 ms (Rauschbereich, LCP dort Text), Bildbytes 194 → 151 KB.
-      '/de/articles': /\/(homeclinic|makemoney|article-hero-igloopro)-\d+w-/,
+      '/de/articles':
+        /\/article-(green-practice|invisible-patient|five-minute|rapid-setup|precision|hero-igloopro)-\d+w-/,
     }
     for (const vp of VIEWPORTS) {
       for (const path of TOUCHED) {

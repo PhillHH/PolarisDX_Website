@@ -85,7 +85,11 @@ Karten `rounded-card` (22 px), große Bänder `rounded-band` (34 px).
 **AP34 / SC-002 (2026-10-15) — „Editorial":** Die Kopfzeile ist **Navy** (`brand.deep`, deckend)
 mit weißem Logo; die helle Kopfzeile aus SC-001 entfällt. Weiß auf Navy 12,6:1, Fokusringe weiß mit
 Navy-Versatz, aktive Unterstreichung `accent.line`, Aufklapp-Menüs bleiben hell. Seitenbühnen tragen
-höchstens ein art-directed Foto mit eingebackenem Navy-Verlauf (LCP-Bild, budgetgeprüft). Auf Navy-
+höchstens ein art-directed Foto mit eingebackenem Navy-Verlauf (LCP-Bild, budgetgeprüft). **Alle
+Fotos der Website** (Startseite, Bereiche, Artikel) stammen aus einem Pool (`assets-src/photos/`)
+und durchlaufen dieselbe Behandlung („Polaris-Look", `scripts/build-photo-look.mjs`): Sättigung
+0,78, Navy-Soft-Light, einheitliche Zuschnitte. Keine KI-Collagen, keine gemalten Geräte, keine
+erfundenen Messwerte; Herkunft im Impressum §8 „Bildnachweis". Auf Navy-
 und Fotoflächen ist die primäre Schaltfläche die weiße Pille (`Button variant="light"`). Navy-Bänder
 können den Punktring des Signets als Dekor tragen (`.brand-ring`).
 

@@ -25,6 +25,11 @@ const ImprintPage = () => {
     () => toSafeArray(t('imprint.section4.content', { returnObjects: true })),
     [t],
   )
+  // Bildnachweis (2026-10-16): Quellen je Bildgruppe, Legal-Freigabe vor Go-live.
+  const section8Content = useMemo(
+    () => toSafeArray(t('imprint.section8.content', { returnObjects: true })),
+    [t],
+  )
   const section5Content = useMemo(
     () => toSafeArray(t('imprint.section5.content', { returnObjects: true })),
     [t],
@@ -153,6 +158,13 @@ const ImprintPage = () => {
         <section>
           <h2 className={headingClass}>{t('imprint.section7.title')}</h2>
           <p>{t('imprint.section7.content')}</p>
+        </section>
+
+        <section>
+          <h2 className={headingClass}>{t('imprint.section8.title')}</h2>
+          {section8Content.map((line, idx) => (
+            <p key={idx}>{line}</p>
+          ))}
         </section>
       </LegalLayout>
     </PageTransition>

@@ -22,14 +22,14 @@ Long-lived editorial governance remains backlog item DEC-RL-010.
 All six records below are `PUBLISHED_LAUNCH`. Their public projection is consumed by the existing
 Registry, Search, Sitemap and UI; internal IDs are never public route identities.
 
-| Internal ID                | Canonical slug                                                  | Locales | Published  | Author         | Image                        | Route/Search/Sitemap       |
-| -------------------------- | --------------------------------------------------------------- | ------: | ---------- | -------------- | ---------------------------- | -------------------------- |
-| `green_practice`           | `die-gruene-praxis`                                             |   10/10 | 2025-11-28 | PolarisDX Team | — (bildlos)                  | eligible/eligible/eligible |
-| `invisible_patient`        | `der-unsichtbare-patient`                                       |   10/10 | 2025-11-30 | PolarisDX Team | `homeclinic.png`             | eligible/eligible/eligible |
-| `five_minute_diagnosis`    | `die-5-minuten-diagnose`                                        |   10/10 | 2025-12-02 | PolarisDX Team | `makemoney.png`              | eligible/eligible/eligible |
-| `ecosystem_of_rapid_tests` | `the-ecosystem-of-rapid-tests-why-compatibility-creates-safety` |   10/10 | 2025-11-25 | PolarisDX Team | `article-hero-igloopro.webp` | eligible/eligible/eligible |
-| `rapid_setup_formula`      | `die-performance-formel-effizienz-in-der-poc-diagnostik`        |   10/10 | 2025-11-25 | PolarisDX Team | none                         | eligible/eligible/eligible |
-| `precision_point_of_care`  | `precision-in-point-of-care-the-key-to-patient-safety`          |   10/10 | 2025-11-25 | PolarisDX Team | none                         | eligible/eligible/eligible |
+| Internal ID                | Canonical slug                                                  | Locales | Published  | Author         | Image                            | Route/Search/Sitemap       |
+| -------------------------- | --------------------------------------------------------------- | ------: | ---------- | -------------- | -------------------------------- | -------------------------- |
+| `green_practice`           | `die-gruene-praxis`                                             |   10/10 | 2025-11-28 | PolarisDX Team | `article-green-practice.webp`    | eligible/eligible/eligible |
+| `invisible_patient`        | `der-unsichtbare-patient`                                       |   10/10 | 2025-11-30 | PolarisDX Team | `article-invisible-patient.webp` | eligible/eligible/eligible |
+| `five_minute_diagnosis`    | `die-5-minuten-diagnose`                                        |   10/10 | 2025-12-02 | PolarisDX Team | `article-five-minute.webp`       | eligible/eligible/eligible |
+| `ecosystem_of_rapid_tests` | `the-ecosystem-of-rapid-tests-why-compatibility-creates-safety` |   10/10 | 2025-11-25 | PolarisDX Team | `article-hero-igloopro.webp`     | eligible/eligible/eligible |
+| `rapid_setup_formula`      | `die-performance-formel-effizienz-in-der-poc-diagnostik`        |   10/10 | 2025-11-25 | PolarisDX Team | `article-rapid-setup.webp`       | eligible/eligible/eligible |
+| `precision_point_of_care`  | `precision-in-point-of-care-the-key-to-patient-safety`          |   10/10 | 2025-11-25 | PolarisDX Team | `article-precision.webp`         | eligible/eligible/eligible |
 
 Titles, teasers and section bodies are present for every one of the 60 article-locale documents.
 Serialized localized documents are distinct across all ten locales per article; the PT17.1 guard
@@ -55,13 +55,21 @@ The known internal-ID legacy source `/de/articles/green_practice` remains a serv
 - Real title and teaser copy come from the active locale. Author and a machine-readable `time`
   element are rendered because those values exist; absent reviewer/modified metadata creates no
   empty slot.
-- Repository-backed images (three since 2026-10-16) render with fixed intrinsic dimensions, `loading="lazy"` and
+- Repository-backed images (six since 2026-10-16, see note below) render with fixed intrinsic dimensions, `loading="lazy"` and
   `decoding="async"`. They are decorative within already named links and therefore use empty alt.
   The image-free records use a decorative category icon rather than a fake image.
 - **2026-10-16 (AP29 PT29.4, aus `main` 6908b61):** `green_practice` ist bildlos (das frühere Bild
   zeigte einen verformten IglooPro-Nachbau); `ecosystem_of_rapid_tests` trägt den echten Produktrender
   `article-hero-igloopro.webp` statt `Testbild1` (erfundene „DX"-Wortmarke, Wasserzeichen). Damit sind
   drei Artikel bebildert und drei bildlos. `above_the_fold.*` (erfundener Messwert) ist gelöscht.
+- **2026-10-16 (Owner: „Bilder einheitlich, KI-Collagen raus"):** die KI-Collagen `homeclinic.png`
+  und `makemoney.png` sind gelöscht. Alle sechs Artikel tragen jetzt ein 16:9-Foto aus demselben
+  Pool wie Startseite und Bereiche (`assets-src/photos/`, Unsplash), einheitlich bearbeitet durch
+  `scripts/build-photo-look.mjs` („Polaris-Look": Sättigung 0,78, Navy-Soft-Light, 1200w-WebP als
+  Original, AVIF 400/800/1200). Motive: grüne Praxis → heller Praxisraum, unsichtbarer Patient →
+  Laptop und Stethoskop, 5-Minuten-Diagnose → Probenröhrchen, Performance-Formel → moderne Praxis,
+  Präzision → Analytik-Labor; der Ecosystem-Artikel behält den echten IglooPro-Render. Bildnachweis
+  im Impressum §8. Alt bleibt leer (dekorativ in benannten Links).
 - Pagination/filter decision: `NOT_REQUIRED_CURRENT_CONTENT_VOLUME` for six launch records.
 - The primary hero CTA is an in-page jump to the real article list.
 
@@ -81,7 +89,7 @@ The known internal-ID legacy source `/de/articles/green_practice` remains a serv
 - Card links have localized accessible names, valid focus behavior from the existing Card contract
   and no nested interactive controls. Small metadata/chip colors use the AA-safe strong tokens.
 - Client production chunk `ArticlesIndexPage`: approximately 5.4 kB (2.3 kB gzip).
-- Four real card images are lazy; no PDF or non-essential provider is prefetched by the index.
+- Six real card images are lazy except the first (measured LCP); no PDF or non-essential provider is prefetched by the index.
 - The index data module and active-locale `articles` namespace carry index/SEO metadata, not article
   bodies. PT17.2 moved the unchanged bodies into six slug-specific x10 route chunks, so the index
   and unrelated article routes no longer load them eagerly.
@@ -116,10 +124,10 @@ layout forks and no new lead/API path.
 
 - The renderer produces one H1, section H2s and key-point H3s, semantic paragraphs/lists, and
   captioned column-header tables. The six current content families use the same renderer.
-- Four real repository WebP assets use their measured intrinsic dimensions, responsive `sizes`,
-  lazy loading and async decoding. Current source data has no approved captions or informative alt
-  copy, so the images are truthfully treated as decorative with empty alt; the other two articles
-  render no fake image. Caption/alt fields render only when real source metadata is supplied.
+- Six real repository assets (five 16:9 photos, one product render) use their measured intrinsic
+  dimensions, responsive `sizes`, lazy loading and async decoding. Current source data has no
+  approved captions or informative alt copy, so the images are truthfully treated as decorative with
+  empty alt. Caption/alt fields render only when real source metadata is supplied.
 - Current structured records contain zero normalized sources. Therefore no source block, DOI,
   journal, author or link is invented. The template supports a sources list only for explicit
   records and its heading is present in all ten UI locales.

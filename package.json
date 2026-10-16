@@ -73,6 +73,7 @@
     "check:consumer-images": "node scripts/check-consumer-images.mjs",
     "build:consumer-images": "node scripts/build-consumer-images.mjs",
     "check:article-images": "node scripts/check-article-images.mjs",
+    "build:photo-look": "node scripts/build-photo-look.mjs",
     "build:article-images": "node scripts/build-article-images.mjs",
     "lead:ops": "node scripts/lead-ops.mjs",
     "security:audit": "node scripts/check-npm-audit.mjs --self-test && node scripts/check-npm-audit.mjs",
