@@ -34,7 +34,11 @@ test('PT17.1 renders exactly six published canonical cards across x10', async ({
     await expect(page.locator('main h1')).toHaveCount(1)
     const cards = page.locator('[data-article-card]')
     await expect(cards).toHaveCount(articles.length)
-    await expect(page.locator('[data-article-card] img')).toHaveCount(4)
+    // Bebilderte Artikel aus den Daten, nicht hart gezaehlt: seit 2026-10-16 ist
+    // „Die gruene Praxis" bildlos (main 6908b61, ARTICLES-CONTRACT).
+    await expect(page.locator('[data-article-card] img')).toHaveCount(
+      articles.filter((article) => article.sections[0]?.image).length,
+    )
     expect(await page.locator('a[href*="vitamin-d3-implantologie"]').count()).toBe(0)
 
     for (const article of articles) {

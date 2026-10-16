@@ -27,6 +27,10 @@ WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# AP28: geschuetzte Lead-Magnet-Dateien (Build-Kontext `protected` = storage/protected,
+# siehe docker-compose.yml). Ausgeliefert nur ueber die Entitlement-Pruefung.
+COPY --from=protected . /app/protected-assets
+ENV POLARIS_PROTECTED_ASSET_DIR=/app/protected-assets
 
 # Sicherheitsupdates des Basis-Images (gemessen: HIGH mit verfuegbarem Debian-Fix).
 # Paketmanager werden zur Laufzeit nicht gebraucht und bringen eigene Schwachstellen mit.

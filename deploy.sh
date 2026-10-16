@@ -171,6 +171,17 @@ cmd_smoke() {
   expect_status 404 /de/ap28-smoke-gibt-es-nicht || failed=1
   # API-Bereitschaft durch den SSR-Proxy — liest nur (DEP-48).
   expect_status 200 /api/health || failed=1
+  # Geschuetzte Lead-Magnet-Dateien sind im Backend-Image und aufloesbar (gemessen 2026-10-16:
+  # ohne sie scheitert der gegatete Download im Container mit UNCLASSIFIED_ERROR).
+  if ! docker exec "$(container_of backend)" node -e "
+    const r = require('./protected-assets').createAssetResolver()
+    let n = 0
+    for (const [id, a] of r.assets) if (a.deliveryClass === 'GATED')
+      for (const v of a.variants) { r.resolve(id, v.language); n++ }
+    console.log('geschuetzte Dateien aufloesbar: ' + n)" ; then
+    fail "geschuetzte Lead-Magnet-Dateien fehlen im Backend-Image"
+    failed=1
+  fi
   # Echtes Markup statt Fehlerbild.
   if ! curl -s --max-time 15 "$BASE_URL/de/" | grep -q '<h1'; then
     fail "/de/ liefert kein gerendertes Markup"

@@ -215,5 +215,8 @@ test('PT17.2 keeps detail navigation lightweight and pre-consent clean', async (
       article.slug,
     ).toBe(false)
   }
-  await expect(page.locator('article[data-article-template] img[loading="lazy"]')).toHaveCount(1)
+  // Titelbild nur, wenn der Artikel eines hat (seit 2026-10-16 ist der erste bildlos).
+  await expect(page.locator('article[data-article-template] img[loading="lazy"]')).toHaveCount(
+    articles[0].sections[0]?.image ? 1 : 0,
+  )
 })

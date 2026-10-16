@@ -73,6 +73,11 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
+      # Geschuetzte Lead-Magnet-Dateien liegen ausserhalb von server/ (storage/protected).
+      # Sie gehoeren ins Image, damit das Release vollstaendig und unveraenderlich ist —
+      # ohne sie scheitert der gegatete Download im Container (gemessen 2026-10-16).
+      additional_contexts:
+        protected: ./storage/protected
       args:
         GIT_SHA: ${RELEASE:-local}
 

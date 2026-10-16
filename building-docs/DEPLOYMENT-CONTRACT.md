@@ -568,6 +568,13 @@ Wechsel der Produktion auf diesen Pfad ist ein Owner-Go (AP31).
 | DD-12                     | **teilweise**          | Health, Neustarts, Lead-Alarme im Log, Log-Rotation (json-file 5 × 10 MB)                                                                                                  | externer Alarmweg = Betreiberwahl (DEP-56)                                                                               |
 | DD-2, DD-13, DD-14, DD-17 | offen                  | Worker im Prozess (AP22), Image-Scan in CI (AP26), HSTS live (Operator), CI-Deploy-Schritt                                                                                 | —                                                                                                                        |
 
+**Neu gemessen — geschützte Dateien:** `storage/protected/` (gegateter Lead-Magnet, AP19) liegt
+außerhalb des Backend-Build-Kontexts `server/`. Im ersten Container-Lauf der Preview scheiterte der
+Download deshalb mit `UNCLASSIFIED_ERROR`. Jetzt: Compose-Build-Kontext `protected`,
+`COPY --from=protected` nach `/app/protected-assets`, `POLARIS_PROTECTED_ASSET_DIR`; der Smoke von
+`deploy.sh` löst jede GATED-Variante im laufenden Backend auf. Das Backend-Image wird deshalb nur
+über Compose gebaut (`docker build server/` allein kennt den Kontext nicht).
+
 **Neu gemessen:** Der Docker-Host hat keine freien Standard-Adresspools mehr („all predefined
 address pools have been fully subnetted"). Ein neues Compose-Projekt braucht ein ausdrückliches
 Subnetz; die Preview-Datei setzt `${PREVIEW_SUBNET:-10.213.142.0/28}`. Die Produktion nutzt ihr
