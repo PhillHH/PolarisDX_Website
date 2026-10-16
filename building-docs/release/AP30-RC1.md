@@ -13,16 +13,16 @@ Code-Teil steckt in `f7b5db3`; die Preview läuft mit diesem Release. Die Ergebn
 vom Vorgänger-Kandidaten (`b8b7c32`); für den Stand nach SC-004 (`f7b5db3` + Folgecommit mit
 Crawl-Fixes F4/F6/F7, Mega-Menü-Fix und neuen Baselines) neu gemessen:
 
-| Prüfung                                    | Ergebnis                                                          |
-| ------------------------------------------ | ----------------------------------------------------------------- |
-| Vitest                                     | 1121 passed                                                       |
-| Guards `check:*`, tsc, lint                | grün (1 alte Lint-Warnung)                                        |
-| Budgets PT25.5 ci                          | 852/852, nicht gelockert                                          |
-| Kernjourneys PT27.3 / Consent / HTTP       | 15/15 · 11/11 · 12/12                                             |
-| SEO-Regression                             | 82/82 (inkl. F4/F6/F7)                                            |
-| A11y PT24.1–24.6                           | 118 · 41 · 31 · 20 · 45 · 25                                      |
-| Visual pt27.6 / Design-System              | 21/21 · 35/35 nach dokumentierten Baseline-Updates (DS-Changelog) |
-| Browser-Matrix (Firefox/WebKit/iPad/mobil) | **nicht neu gelaufen** (Stand `b8b7c32`: 84/84)                   |
+| Prüfung                                    | Ergebnis                                                                                                                                                         |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vitest                                     | 1121 passed                                                                                                                                                      |
+| Guards `check:*`, tsc, lint                | grün (1 alte Lint-Warnung)                                                                                                                                       |
+| Budgets PT25.5 ci                          | 852/852, nicht gelockert                                                                                                                                         |
+| Kernjourneys PT27.3 / Consent / HTTP       | 15/15 · 11/11 · 12/12                                                                                                                                            |
+| SEO-Regression                             | 82/82 (inkl. F4/F6/F7)                                                                                                                                           |
+| A11y PT24.1–24.6                           | 118 · 41 · 31 · 20 · 45 · 25                                                                                                                                     |
+| Visual pt27.6 / Design-System              | 21/21 · 35/35 nach dokumentierten Baseline-Updates (DS-Changelog)                                                                                                |
+| Browser-Matrix (Firefox/WebKit/iPad/mobil) | 84/84 in zwei Läufen (45 + 39); iPad und WebKit-Desktop jetzt mit gespeicherter Cookie-Entscheidung (Banner verdeckte das Absenden, `e2e/ap30-matrix.config.ts`) |
 
 ## 1. Kandidat
 

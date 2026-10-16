@@ -7,7 +7,13 @@ import base from './pt27.3.config'
  * Geraeteprofilen iPhone (WebKit), Android (Chromium), iPad (WebKit) und kleiner Mobilbreite.
  * Echte Geraete und Safari-Desktop ersetzt das nicht — die bleiben manuell (Owner).
  *
- *   npx playwright test --config e2e/ap30-matrix.config.ts
+ *   npx playwright test --config e2e/ap30-matrix.config.ts --project firefox-desktop \
+ *     --project webkit-desktop --project ipad-mini
+ *   npx playwright test --config e2e/ap30-matrix.config.ts --project iphone-15 \
+ *     --project android-pixel-7 --project small-mobile-320
+ *
+ * In zwei Laeufen: alle sechs Profile am Stueck schicken ~40 Formularanfragen von einer Adresse,
+ * die letzten laufen in die Ratenbegrenzung des Backends (gemessen 2026-10-16).
  */
 // Der Basis-Config fehlt nichts ausser dem festen Chromium-Kanal; jedes Projekt bringt seine
 // eigene Engine mit.
@@ -40,8 +46,14 @@ export default defineConfig({
   use,
   projects: [
     { name: 'firefox-desktop', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit-desktop', use: { ...devices['Desktop Safari'] } },
-    { name: 'ipad-mini', use: { ...devices['iPad Mini'] } },
+    // WebKit scrollt den Absenden-Knopf des Epigenetik-Formulars (1280×720) unter den fixierten
+    // Banner und klickt nach mehreren abgefangenen Versuchen ins Leere (Trace 2026-10-16: kein
+    // POST). Gespeicherte Entscheidung wie bei iPad und Mobil; Banner-Verhalten pruefen PT27.4/PT24.
+    { name: 'webkit-desktop', use: { ...devices['Desktop Safari'], storageState: NECESSARY_ONLY } },
+    // iPad (768 px) zeigt das Epigenetik-Kontaktkapitel einspaltig; seit der ndu-Clinic-Karte
+    // (SC-004) landet die Einwilligungs-Checkbox beim Scrollen unter dem fixierten Banner.
+    // Gleiche Begruendung wie bei den schmalen Profilen unten; die Desktop-Kopfzeile bleibt.
+    { name: 'ipad-mini', use: { ...devices['iPad Mini'], storageState: NECESSARY_ONLY } },
     // Schmale Profile: wie ein wiederkehrender Besucher mit getroffener Cookie-Entscheidung
     // („Nur notwendige"). Ohne sie liegt der fixierte Banner ueber dem Absenden-Knopf am
     // Seitenende — ein echter Nutzer beantwortet ihn zuerst; das Verhalten des Banners selbst
