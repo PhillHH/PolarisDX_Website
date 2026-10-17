@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Novinka",
-    "eyebrow": "E-shop pro odborníky",
-    "title": "Objednejte čtečku IglooPro a testovací sady přímo online",
-    "cta": "Přejít do e-shopu",
-    "note": "Objednávkový portál pro odborníky · Všechny ceny jsou bez zákonné DPH. E-shop je k dispozici v němčině a angličtině."
+    "eyebrow": "E-shopy",
+    "title": "Objednejte čtečku IglooPro, testovací sady a epigenetické panely přímo online",
+    "cta": "Přejít do e-shopu pro ordinace",
+    "cta_panels": "Přejít do e-shopu Panels",
+    "note": "E-shop pro ordinace: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině."
   }
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { SHOP_ORIGIN, shopUrl } from './shop'
+import { PANELS_ORIGIN, SHOP_ORIGIN, panelsUrl, shopUrl } from './shop'
 import { OUTBOUND_DOMAINS } from './tracking'
 
 describe('shopUrl', () => {
@@ -15,5 +15,23 @@ describe('shopUrl', () => {
 
   it('zaehlt Shop-Klicks ueber die Outbound-Allowlist', () => {
     expect(OUTBOUND_DOMAINS).toContain(new URL(SHOP_ORIGIN).hostname)
+  })
+})
+
+describe('panelsUrl (SC-007)', () => {
+  it('ist ein eigener Shop und folgt derselben Sprachregel', () => {
+    expect(PANELS_ORIGIN).not.toBe(SHOP_ORIGIN)
+    expect(panelsUrl('de')).toBe(PANELS_ORIGIN)
+    expect(panelsUrl('de-DE', '/products/metabolic-health')).toBe(
+      `${PANELS_ORIGIN}/products/metabolic-health`,
+    )
+    for (const lang of ['en', 'fr', 'it', 'es', 'pt', 'nl', 'pl', 'cs', 'da']) {
+      expect(panelsUrl(lang)).toBe(`${PANELS_ORIGIN}/en`)
+    }
+    expect(panelsUrl(undefined)).toBe(PANELS_ORIGIN)
+  })
+
+  it('zaehlt Panel-Shop-Klicks ueber die Outbound-Allowlist', () => {
+    expect(OUTBOUND_DOMAINS).toContain(new URL(PANELS_ORIGIN).hostname)
   })
 })

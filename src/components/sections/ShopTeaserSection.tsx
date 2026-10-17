@@ -1,21 +1,32 @@
 /**
- * ShopTeaserSection — Hinweis auf den Online-Shop (shop.polarisdx.net).
+ * ShopTeaserSection — Hinweis auf die beiden Online-Shops.
  *
  * Owner-Entscheidung O1 (2026-10-16): Shop-Menuepunkt und Startseiten-Hinweis
  * aus `main@e66a562` bleiben im Relaunch (hebt DEC-RL-015 auf). Texte wie auf
  * `main`, Claim HCL-015 (HOMEPAGE-CONTRACT).
  *
- * Bewusst ein schmales Band ohne Bild, Fliesstext und zweiten Knopf: das
- * Startseiten-HTML hat rund 200 Byte gzip Puffer (Budget wird nicht
- * gelockert), die volle main-Fassung kostet etwa 440. Der Hinweis soll nicht
- * mit der Hauptaufforderung (Angebot anfordern) konkurrieren.
+ * SC-007 (Owner 2026-10-17): „Der Panelshop muss unbedingt von der Hauptseite
+ * und auch von der Startseite aus erreichbar sein." Das Band fuehrt deshalb
+ * zwei Ziele: den Praxis-Shop fuer Fachkreise (shop.polarisdx.net, Claim
+ * HCL-015) und den Panel-Shop fuer Epigenetik-Panels (panels.polarisdx.net,
+ * Claim HCL-016). Der Netto-Preis-Hinweis gilt nur dem Praxis-Shop; die
+ * `note` benennt beide Shops getrennt.
  *
- * Volle Seitenladung statt <Link>: das Ziel ist eine andere Domain; Klicks
+ * Bewusst ein schmales Band ohne Bild und Fliesstext: das Startseiten-HTML
+ * hat wenige hundert Byte gzip Puffer (Budget wird nicht gelockert). Der
+ * Hinweis soll nicht mit der Hauptaufforderung (Angebot anfordern)
+ * konkurrieren — darum keine Primaer-Pille aus `Button`, sondern zwei ruhige
+ * Pillen (Navy gefuellt, Navy umrandet) mit dem SC-006-Lift.
+ *
+ * Volle Seitenladung statt <Link>: die Ziele sind andere Domains; Klicks
  * zaehlt useOutboundTracking ueber OUTBOUND_DOMAINS.
  */
 import { useTranslation } from 'react-i18next'
-import { shopUrl } from '../../lib/shop'
+import { panelsUrl, shopUrl } from '../../lib/shop'
 import Eyebrow from '../ui/Eyebrow'
+
+const PILL =
+  'group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2'
 
 const ShopTeaserSection = () => {
   const { t, i18n } = useTranslation('home')
@@ -33,12 +44,23 @@ const ShopTeaserSection = () => {
           </h2>
           <p className="mt-3 text-sm text-gray-600">{t('shop_teaser.note')}</p>
         </div>
-        <a
-          href={shopUrl(i18n.language)}
-          className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-brand-deep px-6 py-3 font-semibold text-white hover:bg-brand-deep/90"
-        >
-          {t('shop_teaser.cta')} <span className="transition group-hover:translate-x-1">→</span>
-        </a>
+        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+          <a
+            href={shopUrl(i18n.language)}
+            data-shop="practice"
+            className={`${PILL} bg-brand-deep text-white hover:bg-brand-deep/90`}
+          >
+            {t('shop_teaser.cta')} <span className="transition group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href={panelsUrl(i18n.language)}
+            data-shop="panels"
+            className={`${PILL} border border-paper-line text-brand-deep hover:border-brand-deep`}
+          >
+            {t('shop_teaser.cta_panels')}{' '}
+            <span className="transition group-hover:translate-x-1">→</span>
+          </a>
+        </div>
       </div>
     </section>
   )

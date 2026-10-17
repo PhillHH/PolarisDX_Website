@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Nouveau",
-    "eyebrow": "Boutique en ligne pour les professionnels de santé",
-    "title": "Commandez le lecteur IglooPro et les kits de test directement en ligne",
-    "cta": "Vers la boutique",
-    "note": "Portail de commande professionnel · Tous les prix sont nets, hors TVA légale. Boutique disponible en allemand et en anglais."
+    "eyebrow": "Boutiques en ligne",
+    "title": "Commandez le lecteur IglooPro, les kits de test et les panels épigénétiques directement en ligne",
+    "cta": "Vers la boutique pro",
+    "cta_panels": "Vers la boutique Panels",
+    "note": "Boutique pro : portail de commande professionnel, prix nets hors TVA légale · Boutique Panels : panels épigénétiques à commander en ligne. Boutiques disponibles en allemand et en anglais."
   }
 }

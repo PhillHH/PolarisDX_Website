@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Nuevo",
-    "eyebrow": "Tienda online para profesionales sanitarios",
-    "title": "Pida el lector IglooPro y los kits de prueba directamente en línea",
-    "cta": "Ir a la tienda",
-    "note": "Portal de pedidos para profesionales · Todos los precios son netos, IVA legal no incluido. Tienda disponible en alemán e inglés."
+    "eyebrow": "Tiendas online",
+    "title": "Pida el lector IglooPro, los kits de prueba y los paneles epigenéticos directamente en línea",
+    "cta": "Ir a la tienda profesional",
+    "cta_panels": "Ir a la tienda Panels",
+    "note": "Tienda profesional: portal de pedidos para profesionales, precios netos sin IVA legal · Tienda Panels: paneles epigenéticos para pedir en línea. Tiendas disponibles en alemán e inglés."
   }
 }

@@ -27,6 +27,39 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-17 — SC-007 · Panel-Shop in Kopfzeile und Startseiten-Band (reines Design-Delta, kein Vertragsbruch)
+
+- **Ursache:** Owner-Auftrag 2026-10-17 (`SCOPE-CHANGELOG.md` SC-007): „Der Panelshop, muss unbedingt von
+  der Hauptseite und auch von der Startseite aus erreichbar sein." Der zweite Shopify-Store
+  `panels.polarisdx.net` war bis dahin von keiner Seite verlinkt.
+- **Shell (Kopfzeile):** neunter Desktop-Eintrag „Panels" rechts neben „Shop" (gleiche `NAV_LINK`-Rolle,
+  Unterstreichung auf Hover, kein Untermenü); im mobilen Menü derselbe Eintrag mit „Neu"-Label
+  (`SHOP_BADGE`). Damit neun Einträge ungescrollt (Logo `h-12`) in eine Zeile passen, ist der
+  Desktop-Abstand ab `xl` 16 px statt 20 px (`xl:gap-4`, derselbe Wert wie die Bedienleiste rechts);
+  gemessen bei 1366 px: de/en/it/pt/pl/cs/da einzeilig, nl/fr/es brechen oben um und sind im kompakten
+  Scrollzustand einzeilig (fr/es schon vor SC-007). Italienisches Label „Negozio" → „Shop".
+- **Startseite (Shop-Band):** zweite Pille „Zum Panel-Shop" als Navy-Kontur (`border-paper-line`,
+  `text-brand-deep`, Hover `border-brand-deep`) neben der gefüllten Navy-Pille „Zum Praxis-Shop"; beide
+  mit SC-006-Lift (`hover:-translate-y-0.5`, bei Bewegungsreduktion keiner) und rutschendem Pfeil; unter
+  640 px gestapelt, volle Breite. Eyebrow „Neu · Online-Shops", Titel und Hinweiszeile nennen beide
+  Shops. Keine neuen Tokens, Rollen oder Bausteine — alle Utilities existierten (Initial-CSS 17 667 B
+  gzip unverändert).
+- **Gates:** Typecheck, ESLint, Prettier, Guards grün; Vitest 1 124/1 124; E2E 131/131; Axe-Gate PT24.6
+  25/25; Perf-Budget `check-budgets --profile ci` 852/852 (Kopfzeilen-Anker 24–35 B gzip HTML je Route,
+  Service-Seite 67 B Luft; Band +109 B de / +129 B pl). Kein Budget gelockert.
+- **Baselines:** PT27.6 (17 von 21 Bildern neu, im Image `mcr.microsoft.com/playwright:v1.57.0-noble`,
+  zweiter Lauf ohne Update 21/21 grün): `article-desktop`, `contact-desktop`, `cookie-banner-desktop`,
+  `diagnostics-hub-desktop`, `diagnostics-megamenu-open-desktop`, `epigenetics-hub-desktop`,
+  `epigenetics-panel-desktop`, `home-desktop`, `igloo-pro-desktop`, `legal-privacy-desktop`,
+  `musterbefund-desktop`, `navigation-open-mobile`, `not-found-desktop`, `resource-center-desktop`,
+  `resource-gate-open-desktop`, `service-detail-desktop`, `support-desktop` — Ursache überall der neue
+  Kopfzeilen-Eintrag (Desktop) bzw. die beiden Shop-Einträge im mobilen Menü; `home-desktop` zusätzlich
+  das Band unter dem Falz nicht im Bild, nur die Kopfzeile. Unverändert und byteidentisch:
+  `consumer-spray-desktop`, `consumer-spray-mobile`, `home-mobile`, `search-dialog-open-desktop`.
+  Design-System-Spec: 35/35 grün, keine neuen Bilder (byteidentisch).
+- **Reviewer:** Claude (Implementierung, Messung, Baseline-Prüfung im Docker-Image); Owner-Sichtprüfung
+  auf der Preview offen.
+
 ### 2026-10-16 — SC-006 · „Editorial Motion“: lebendige Flächen, Zeiger-Spot, Scroll-Eintritte, mobile Schnapp-Reihen; Altlasten entfernt (Design-Delta + Typo-Rollen, kein Vertragsbruch)
 
 - **Ursache:** Owner-Auftrag 2026-10-16 nach dem Go-live (`SCOPE-CHANGELOG.md` SC-006): „Verbessere das

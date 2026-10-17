@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Novità",
-    "eyebrow": "Shop online per professionisti sanitari",
-    "title": "Ordina il lettore IglooPro e i kit di test direttamente online",
-    "cta": "Vai allo shop",
-    "note": "Portale ordini per professionisti · Tutti i prezzi sono netti, IVA di legge esclusa. Shop disponibile in tedesco e inglese."
+    "eyebrow": "Shop online",
+    "title": "Ordina il lettore IglooPro, i kit di test e i pannelli epigenetici direttamente online",
+    "cta": "Vai allo shop professionale",
+    "cta_panels": "Vai allo shop Panels",
+    "note": "Shop professionale: portale ordini per professionisti, prezzi netti IVA esclusa · Shop Panels: pannelli epigenetici da ordinare online. Shop disponibili in tedesco e inglese."
   }
 }

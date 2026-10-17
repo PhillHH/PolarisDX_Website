@@ -259,6 +259,7 @@ export const OUTBOUND_DOMAINS = [
   'ec.europa.eu',
   'nduclinic.com',
   'shop.polarisdx.net',
+  'panels.polarisdx.net',
 ] as const
 export type OutboundDomain = (typeof OUTBOUND_DOMAINS)[number]
 

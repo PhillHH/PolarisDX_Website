@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Neu",
-    "eyebrow": "Online-Shop für Fachkreise",
-    "title": "IglooPro-Reader und Testkits jetzt direkt online bestellen",
-    "cta": "Zum Shop",
-    "note": "Fachkreis-Bestellportal · Alle Preise netto zzgl. gesetzl. MwSt."
+    "eyebrow": "Online-Shops",
+    "title": "IglooPro-Reader, Testkits und Epigenetik-Panels direkt online bestellen",
+    "cta": "Zum Praxis-Shop",
+    "cta_panels": "Zum Panel-Shop",
+    "note": "Praxis-Shop: Fachkreis-Bestellportal, alle Preise netto zzgl. gesetzl. MwSt. · Panel-Shop: Epigenetik-Panels online bestellen"
   }
 }

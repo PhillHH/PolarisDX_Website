@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "New",
-    "eyebrow": "Online shop for healthcare professionals",
-    "title": "Order the IglooPro reader and test kits directly online",
-    "cta": "Visit the shop",
-    "note": "Professional ordering portal · All prices net, plus statutory VAT."
+    "eyebrow": "Online shops",
+    "title": "Order the IglooPro reader, test kits and epigenetic panels directly online",
+    "cta": "Visit the practice shop",
+    "cta_panels": "Visit the panel shop",
+    "note": "Practice shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online"
   }
 }

@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Nowość",
-    "eyebrow": "Sklep internetowy dla specjalistów",
-    "title": "Zamów czytnik IglooPro i zestawy testowe bezpośrednio online",
-    "cta": "Przejdź do sklepu",
-    "note": "Portal zamówień dla specjalistów · Wszystkie ceny netto plus ustawowy VAT. Sklep dostępny w języku niemieckim i angielskim."
+    "eyebrow": "Sklepy internetowe",
+    "title": "Zamów czytnik IglooPro, zestawy testowe i panele epigenetyczne bezpośrednio online",
+    "cta": "Przejdź do sklepu dla gabinetów",
+    "cta_panels": "Przejdź do sklepu Panels",
+    "note": "Sklep dla gabinetów: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku."
   }
 }

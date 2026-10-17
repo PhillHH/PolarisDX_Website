@@ -11,7 +11,7 @@ import logo from '../../assets/polaris_white-272w.webp'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useKeyboardDismiss } from '../../hooks/useKeyboardDismiss'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
-import { shopUrl } from '../../lib/shop'
+import { panelsUrl, shopUrl } from '../../lib/shop'
 
 interface NavChild {
   label: string
@@ -139,7 +139,7 @@ const NAV_LINK =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
   'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep motion-reduce:transition-none'
 
-/** Kleines Label am Shop-Eintrag; Akzent auf Navy nur als `accent-on-dark`. */
+/** Kleines Label an den Shop-Eintraegen (mobil); Akzent auf Navy nur als `accent-on-dark`. */
 const SHOP_BADGE = 'text-xs font-semibold text-accent-on-dark'
 
 /** Eintrag in einem geoeffneten Menue — hell, mit eigenem Fokusring. */
@@ -340,7 +340,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-5 text-white`}
+            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-4 text-white`}
           >
             {navItems.map((item) => {
               const active = isItemActive(item, location.pathname)
@@ -497,14 +497,20 @@ const Header = () => {
                 </div>
               )
             })}
-            {/* Online-Shop (O1, main@e66a562): fremde Domain, daher <a> statt
-                <Link> und ausserhalb von navItems (keine Route, kein Untermenue).
-                Das Label „Neu" steht nur im mobilen Menue: mit ihm passen acht
-                Eintraege bei 1280 px nicht mehr in eine Zeile. Mit den xl-Abstaenden
-                (5/4) bleiben de/en/it/nl/pt/pl/cs/da ab 1280 px einzeilig; fr und es
-                brechen weiter um (schon vor dem Shop-Eintrag, P2). */}
+            {/* Die beiden Online-Shops: Praxis-Shop (O1, main@e66a562) und
+                Panel-Shop (SC-007, Owner 2026-10-17). Fremde Domains, daher <a>
+                statt <Link> und ausserhalb von navItems (keine Route, kein
+                Untermenue). Das Label „Neu" steht nur im mobilen Menue: mit ihm
+                passen die Eintraege bei 1280 px nicht mehr in eine Zeile. Neun
+                Eintraege brauchen den xl-Abstand 4 (gemessen 2026-10-17, Kopfzeile
+                ungescrollt, Logo h-12): de/en/it/pt/pl/cs/da bleiben ab 1280 px
+                einzeilig; nl, fr und es brechen oben um und werden im kompakten
+                Scrollzustand einzeilig (fr/es schon vor den Shop-Eintraegen, P2). */}
             <a href={shopUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
               <span className={underline(false)}>{t('nav.shop')}</span>
+            </a>
+            <a href={panelsUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
+              <span className={underline(false)}>{t('nav.panels')}</span>
             </a>
           </nav>
 
@@ -718,6 +724,14 @@ const Header = () => {
                 className={`${MOBILE_LINK} gap-2 text-lg`}
               >
                 {t('nav.shop')}
+                <span className={SHOP_BADGE}>{t('nav.badge_new')}</span>
+              </a>
+              <a
+                href={panelsUrl(i18n.language)}
+                onClick={mobileMenu.onClose}
+                className={`${MOBILE_LINK} gap-2 text-lg`}
+              >
+                {t('nav.panels')}
                 <span className={SHOP_BADGE}>{t('nav.badge_new')}</span>
               </a>
               <div className="pt-4">

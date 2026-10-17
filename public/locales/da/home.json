@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Ny",
-    "eyebrow": "Onlineshop for fagfolk",
-    "title": "Bestil IglooPro-læseren og testkits direkte online",
-    "cta": "Gå til shoppen",
-    "note": "Bestillingsportal for fagfolk · Alle priser er netto ekskl. lovpligtig moms. Shoppen findes på tysk og engelsk."
+    "eyebrow": "Onlineshops",
+    "title": "Bestil IglooPro-læseren, testkits og epigenetiske paneler direkte online",
+    "cta": "Gå til praksisshoppen",
+    "cta_panels": "Gå til Panel-shoppen",
+    "note": "Praksisshop: bestillingsportal for fagfolk, priser netto ekskl. moms · Panel-shop: epigenetiske paneler, der kan bestilles online. Begge shops findes på tysk og engelsk."
   }
 }

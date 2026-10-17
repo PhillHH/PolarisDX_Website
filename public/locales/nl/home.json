@@ -407,9 +407,10 @@
   },
   "shop_teaser": {
     "badge": "Nieuw",
-    "eyebrow": "Online winkel voor zorgprofessionals",
-    "title": "Bestel de IglooPro-reader en testkits direct online",
-    "cta": "Naar de winkel",
-    "note": "Bestelportaal voor professionals · Alle prijzen zijn netto, exclusief wettelijke btw. De winkel is beschikbaar in het Duits en Engels."
+    "eyebrow": "Online winkels",
+    "title": "Bestel de IglooPro-reader, testkits en epigenetische panels direct online",
+    "cta": "Naar de praktijkwinkel",
+    "cta_panels": "Naar de Panel-shop",
+    "note": "Praktijkwinkel: bestelportaal voor professionals, prijzen netto exclusief btw · Panel-shop: epigenetische panels online bestellen. Beide winkels zijn beschikbaar in het Duits en Engels."
   }
 }

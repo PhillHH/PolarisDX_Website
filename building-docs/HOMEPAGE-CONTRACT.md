@@ -146,30 +146,41 @@ cards answer the pointer with a light spot (`spot`, one passive `pointermove` li
 adds no timers, tracking or third-party dependency; since SC-005 it carries three lazy, below-the-fold
 images (§4.2).
 
-### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16)
+### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16; two shops since SC-007, 2026-10-17)
 
 **Section order (current):** Hero → TrustBar → Business pillars (incl. the three selected service
 entry points) → **Shop band** → Why POC → Steps → Proof/Testimonials → ROI calculator → Knowledge
 (Blog) → FAQ → Final CTA (`src/pages/HomePage.tsx`).
 
 `ShopTeaserSection` (`src/components/sections/ShopTeaserSection.tsx`) stands directly after the
-business pillars. It points to the external Shopify shop, which has been live on `main` since
-2026-09-07 (`e66a562`) and was confirmed by the owner on 2026-10-16 (lifts the Shop part of
-`DEC-RL-015`; see `SCOPE-CHANGELOG.md` SC-004).
+business pillars. It points to the two external Shopify shops: the practice shop
+`shop.polarisdx.net` (live on `main` since 2026-09-07, `e66a562`, confirmed by the owner on
+2026-10-16 — lifts the Shop part of `DEC-RL-015`; see `SCOPE-CHANGELOG.md` SC-004) and, since
+SC-007 (owner instruction 2026-10-17: „Der Panelshop muss unbedingt von der Hauptseite und auch von
+der Startseite aus erreichbar sein"), the panel shop `panels.polarisdx.net` (epigenetic panels, a
+separate Shopify store that had no link from this website before).
 
-- Content (`home.shop_teaser`, 10 locales): eyebrow `badge · eyebrow` (de „Neu · Online-Shop für
-  Fachkreise"), H2 `title`, note `note` (de „Fachkreis-Bestellportal · Alle Preise netto zzgl.
-  gesetzl. MwSt."), exactly one action `cta` („Zum Shop"). Claim `HCL-015`.
-- Target: `shopUrl(i18n.language)` from `src/lib/shop.ts` — `de` → `https://shop.polarisdx.net`,
-  every other locale → `https://shop.polarisdx.net/en`. Plain `<a>` (other domain, full page load,
-  same tab); clicks are counted by `useOutboundTracking` via `OUTBOUND_DOMAINS`
-  (`shop.polarisdx.net`). No new event name.
-- Deliberately slim: no image, no body copy, no second button. SC-006: the band enters on scroll, a static
-  cyan dot precedes the eyebrow and the CTA arrow slides on hover (no new copy, same single action). The Homepage HTML budget had about
-  200 B gzip headroom; the full `main` version (image, text, second CTA „Testkits ansehen") would
-  have cost about 440 B. The band must not compete with the primary sales action
-  („Angebot anfragen", `DEC-RL-013`). No budget was loosened.
-- `/shop` on this website stays `INTENTIONAL_404`; the shop is not part of the Route Registry.
+- Content (`home.shop_teaser`, 10 locales, SC-007): eyebrow `badge · eyebrow` (de „Neu ·
+  Online-Shops"), H2 `title` (de „IglooPro-Reader, Testkits und Epigenetik-Panels direkt online
+  bestellen"), note `note` (de „Praxis-Shop: Fachkreis-Bestellportal, alle Preise netto zzgl. gesetzl.
+  MwSt. · Panel-Shop: Epigenetik-Panels online bestellen"), exactly two actions: `cta` („Zum
+  Praxis-Shop", `data-shop="practice"`, claim `HCL-015`) and `cta_panels` („Zum Panel-Shop",
+  `data-shop="panels"`, claim `HCL-016`). The net-price statement belongs to the practice shop only;
+  the note names both shops separately.
+- Targets: `shopUrl(i18n.language)` and `panelsUrl(i18n.language)` from `src/lib/shop.ts` — `de` →
+  `https://shop.polarisdx.net` / `https://panels.polarisdx.net`, every other locale → `…/en` (both
+  shops speak German and English). Plain `<a>` (other domain, full page load, same tab); clicks are
+  counted by `useOutboundTracking` via `OUTBOUND_DOMAINS` (`shop.polarisdx.net`,
+  `panels.polarisdx.net`). No new event name. Component test
+  `src/components/sections/ShopTeaserSection.test.tsx` pins exactly these two links.
+- Deliberately slim: no image, no body copy, no third button. SC-006: the band enters on scroll, a
+  static cyan dot precedes the eyebrow and the CTA arrows slide on hover. SC-007: the panel-shop pill
+  (navy outline) sits next to the filled practice-shop pill, stacked below 640 px; it cost the Homepage
+  HTML budget 109 B gzip (de), 127 B (en) and 129 B (pl). When the band was introduced the Homepage
+  HTML budget had about 200 B gzip headroom; the full `main` version (image, text, second CTA
+  „Testkits ansehen") would have cost about 440 B. The band must not compete with the primary sales
+  action („Angebot anfragen", `DEC-RL-013`). No budget was loosened.
+- `/shop` on this website stays `INTENTIONAL_404`; neither shop is part of the Route Registry.
 
 ### 4.2 SC-005 (2026-10-16) — Visual composition
 
@@ -344,51 +355,54 @@ hover/focus/open state and long copy.
 
 ## 8. Homepage deep-link matrix (current through PT11.6)
 
-| Source section       | CTA/link              | Target route ID               | Locale behavior                                                                   | Target status                  | Owner              |
-| -------------------- | --------------------- | ----------------------------- | --------------------------------------------------------------------------------- | ------------------------------ | ------------------ |
-| Hero                 | Primary quote request | `contact`                     | current locale through router basename; `#kontaktformular` retained               | Registry-valid, HTTP 200 ×10   | AP11 PT11.1        |
-| Hero                 | Diagnostics discovery | `diagnostics`                 | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.1        |
-| Business pillar      | Diagnostics           | `diagnostics`                 | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Business pillar      | IglooPro              | `igloo-pro`                   | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Business pillar      | Epigenetics           | `epigenetics`                 | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Selected application | Dental                | `service-detail:dental`       | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Selected application | Beauty                | `service-detail:beauty`       | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Selected application | Longevity             | `service-detail:longevity`    | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
-| Shop band            | Zum Shop              | external `shop.polarisdx.net` | `de` → root, all other locales → `/en` (`src/lib/shop.ts`)                        | external, not in the Registry  | SC-004 (O1)        |
-| ROI context          | Primary quote request | `contact`                     | current locale; structured `homepage/general_sales/roi` query + form anchor       | Registry-valid, HTTP 200 ×10   | AP11 PT11.5        |
-| ROI context          | ROI report            | in-page / `/api/roi-report`   | locale in validated report payload; no route change                               | Real consent-gated runtime     | AP11 PT11.5 / AP19 |
-| Knowledge teaser     | Three Article details | `article-detail:*`            | current locale; real Article source + Registry dynamic targets                    | Registry-derived, HTTP 200 ×10 | AP11 PT11.5        |
-| Knowledge teaser     | All articles          | `articles`                    | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.5        |
-| Final CTA            | Primary quote request | `contact`                     | current locale; structured `homepage/general_sales/final_cta` query + form anchor | Registry-valid, HTTP 200 ×10   | AP11 PT11.5        |
-| Final CTA            | ROI calculator        | `home#roi-rechner`            | current locale; real in-page target                                               | Attached ×10                   | AP11 PT11.5        |
-| FAQ footer           | Diagnostics           | `diagnostics`                 | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.6        |
-| FAQ footer           | Contact               | `contact`                     | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.6        |
+| Source section       | CTA/link              | Target route ID                 | Locale behavior                                                                   | Target status                  | Owner              |
+| -------------------- | --------------------- | ------------------------------- | --------------------------------------------------------------------------------- | ------------------------------ | ------------------ |
+| Hero                 | Primary quote request | `contact`                       | current locale through router basename; `#kontaktformular` retained               | Registry-valid, HTTP 200 ×10   | AP11 PT11.1        |
+| Hero                 | Diagnostics discovery | `diagnostics`                   | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.1        |
+| Business pillar      | Diagnostics           | `diagnostics`                   | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Business pillar      | IglooPro              | `igloo-pro`                     | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Business pillar      | Epigenetics           | `epigenetics`                   | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Selected application | Dental                | `service-detail:dental`         | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Selected application | Beauty                | `service-detail:beauty`         | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Selected application | Longevity             | `service-detail:longevity`      | current locale; dynamic service target from Registry/source                       | Registry-derived, HTTP 200 ×10 | AP11 PT11.3        |
+| Shop band            | Zum Praxis-Shop       | external `shop.polarisdx.net`   | `de` → root, all other locales → `/en` (`shopUrl`, `src/lib/shop.ts`)             | external, not in the Registry  | SC-004 (O1)        |
+| Shop band            | Zum Panel-Shop        | external `panels.polarisdx.net` | `de` → root, all other locales → `/en` (`panelsUrl`, `src/lib/shop.ts`)           | external, not in the Registry  | SC-007             |
+| ROI context          | Primary quote request | `contact`                       | current locale; structured `homepage/general_sales/roi` query + form anchor       | Registry-valid, HTTP 200 ×10   | AP11 PT11.5        |
+| ROI context          | ROI report            | in-page / `/api/roi-report`     | locale in validated report payload; no route change                               | Real consent-gated runtime     | AP11 PT11.5 / AP19 |
+| Knowledge teaser     | Three Article details | `article-detail:*`              | current locale; real Article source + Registry dynamic targets                    | Registry-derived, HTTP 200 ×10 | AP11 PT11.5        |
+| Knowledge teaser     | All articles          | `articles`                      | current locale through router basename                                            | Registry-derived, HTTP 200 ×10 | AP11 PT11.5        |
+| Final CTA            | Primary quote request | `contact`                       | current locale; structured `homepage/general_sales/final_cta` query + form anchor | Registry-valid, HTTP 200 ×10   | AP11 PT11.5        |
+| Final CTA            | ROI calculator        | `home#roi-rechner`              | current locale; real in-page target                                               | Attached ×10                   | AP11 PT11.5        |
+| FAQ footer           | Diagnostics           | `diagnostics`                   | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.6        |
+| FAQ footer           | Contact               | `contact`                       | current locale through router basename                                            | Registry-valid, HTTP 200 ×10   | AP11 PT11.6        |
 
 Later Homepage sections will extend this matrix in their owning PTs. It is a Homepage link-evidence
 matrix, not a competing route registry.
 
 ## 9. Claim register
 
-| Claim ID  | Visible claim                                                                                                               | Section                          | Source/evidence                                                                                                                                                                | Owner       | Status                        | Locale coverage |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ----------------------------- | --------------- |
-| `HCL-001` | PolarisDX supports professional users in integrating Point-of-Care diagnostics with IglooPro into existing workflows.       | Hero                             | Existing product/diagnostics positioning and visible Hero copy; descriptive integration statement without efficacy, revenue, certification, delivery-time or accuracy promise  | AP11 PT11.1 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-002` | `CV < 2 %` laboratory precision                                                                                             | TrustBar                         | Decision Lock `DEC-RL-008`; Content-Matrix `S-01`; existing Product copy                                                                                                       | AP11 PT11.2 | LOCKED_EXISTING               | x10             |
-| `HCL-003` | IVDR/CE conformity                                                                                                          | TrustBar                         | Existing Product/Legal copy; Content-Matrix `S-02`; retained without broader certification claim                                                                               | AP11 PT11.2 | EXISTING_SENSITIVE_SAFE_STATE | x10             |
-| `HCL-004` | Results in minutes                                                                                                          | TrustBar                         | Existing Product copy states a 3–15 minute result range; TrustBar uses no stronger value                                                                                       | AP11 PT11.2 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-005` | Cross-manufacturer compatibility                                                                                            | TrustBar                         | Existing Product feature; former Homepage `90 %` wording intentionally not surfaced                                                                                            | AP11 PT11.2 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-006` | Training and support from PolarisDX are straightforward; the device is part of everyday practice.                           | Proof / named practice reference | Existing productive `bastian_wessing` record, localized original quote and real portrait; claim-reduced excerpt                                                                | AP11 PT11.2 | EXISTING_PRODUCTIVE_REFERENCE | x10             |
-| `HCL-007` | PolarisDX provides a Diagnostics area with Point-of-Care and specialty application entry points for professional settings.  | Diagnostics business pillar      | Existing Registry `diagnostics`; nine real service records and published Diagnostics hub; descriptive navigation copy only                                                     | AP11 PT11.3 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-008` | The IglooPro reader evaluates compatible rapid tests at the Point of Care.                                                  | IglooPro business pillar         | Existing IglooPro product identity and cross-manufacturer compatibility evidence already recorded by `HCL-005`; no numeric compatibility/accuracy expansion                    | AP11 PT11.3 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-009` | Epigenetics is an independent area for epigenetic/genetic analyses and related sample reports.                              | Epigenetics business pillar      | Decision Lock `DEC-RL-005`; existing Registry family, Epigenetics hub and six real sample-report families; no new analysis/outcome claim                                       | AP11 PT11.3 | LOCKED_EXISTING_SAFE_STATE    | x10             |
-| `HCL-010` | Measurements are available at the Point of Care after the test-specific processing time.                                    | Why POC / direct information     | Existing Product evidence and broader `HCL-004` “results in minutes”; deliberately avoids a universal exact time or immediacy promise                                          | AP11 PT11.4 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-011` | Available values can support professional consultation and discussion of appropriate next steps.                            | Why POC / discussion             | Existing Point-of-Care workflow positioning; conditional support statement, no automated decision, treatment result or outcome promise                                         | AP11 PT11.4 | APPROVED_SAFE_STATE           | x10             |
-| `HCL-012` | The test complements professional assessment and replaces neither diagnosis nor treatment.                                  | Patient/user benefit + process   | Claim-safety qualifier required by AP11 §10; expressly limits the role of measurement information rather than asserting medical efficacy                                       | AP11 PT11.4 | REQUIRED_SAFETY_QUALIFIER     | x10             |
-| `HCL-013` | Homepage consultation and conversion copy is available in ten project languages.                                            | Final CTA                        | Canonical i18n contract and ten complete `home.json` resources; exact locale parity verified by PT11.5 tests                                                                   | AP11 PT11.5 | VERIFIED_FACTUAL              | x10             |
-| `HCL-014` | ROI output is a non-binding example based on the visitor's own inputs, not a revenue or profit commitment.                  | ROI calculator                   | Existing visible formula/input implementation and x10 disclaimer; no PolarisDX performance constant or guaranteed outcome                                                      | AP11 PT11.5 | REQUIRED_SAFETY_QUALIFIER     | x10             |
-| `HCL-015` | IglooPro readers and test kits can be ordered online in a professional order portal; all prices are net plus statutory VAT. | Shop band                        | Owner-approved shop copy live on `main` since 2026-09-07 (`e66a562`), confirmed for the relaunch on 2026-10-16 (SC-004, O1); the shop itself is `shop.polarisdx.net` (Shopify) | SC-004      | OWNER_APPROVED                | x10             |
+| Claim ID  | Visible claim                                                                                                               | Section                           | Source/evidence                                                                                                                                                                                                                                     | Owner       | Status                        | Locale coverage |
+| --------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------- | --------------- |
+| `HCL-001` | PolarisDX supports professional users in integrating Point-of-Care diagnostics with IglooPro into existing workflows.       | Hero                              | Existing product/diagnostics positioning and visible Hero copy; descriptive integration statement without efficacy, revenue, certification, delivery-time or accuracy promise                                                                       | AP11 PT11.1 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-002` | `CV < 2 %` laboratory precision                                                                                             | TrustBar                          | Decision Lock `DEC-RL-008`; Content-Matrix `S-01`; existing Product copy                                                                                                                                                                            | AP11 PT11.2 | LOCKED_EXISTING               | x10             |
+| `HCL-003` | IVDR/CE conformity                                                                                                          | TrustBar                          | Existing Product/Legal copy; Content-Matrix `S-02`; retained without broader certification claim                                                                                                                                                    | AP11 PT11.2 | EXISTING_SENSITIVE_SAFE_STATE | x10             |
+| `HCL-004` | Results in minutes                                                                                                          | TrustBar                          | Existing Product copy states a 3–15 minute result range; TrustBar uses no stronger value                                                                                                                                                            | AP11 PT11.2 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-005` | Cross-manufacturer compatibility                                                                                            | TrustBar                          | Existing Product feature; former Homepage `90 %` wording intentionally not surfaced                                                                                                                                                                 | AP11 PT11.2 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-006` | Training and support from PolarisDX are straightforward; the device is part of everyday practice.                           | Proof / named practice reference  | Existing productive `bastian_wessing` record, localized original quote and real portrait; claim-reduced excerpt                                                                                                                                     | AP11 PT11.2 | EXISTING_PRODUCTIVE_REFERENCE | x10             |
+| `HCL-007` | PolarisDX provides a Diagnostics area with Point-of-Care and specialty application entry points for professional settings.  | Diagnostics business pillar       | Existing Registry `diagnostics`; nine real service records and published Diagnostics hub; descriptive navigation copy only                                                                                                                          | AP11 PT11.3 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-008` | The IglooPro reader evaluates compatible rapid tests at the Point of Care.                                                  | IglooPro business pillar          | Existing IglooPro product identity and cross-manufacturer compatibility evidence already recorded by `HCL-005`; no numeric compatibility/accuracy expansion                                                                                         | AP11 PT11.3 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-009` | Epigenetics is an independent area for epigenetic/genetic analyses and related sample reports.                              | Epigenetics business pillar       | Decision Lock `DEC-RL-005`; existing Registry family, Epigenetics hub and six real sample-report families; no new analysis/outcome claim                                                                                                            | AP11 PT11.3 | LOCKED_EXISTING_SAFE_STATE    | x10             |
+| `HCL-010` | Measurements are available at the Point of Care after the test-specific processing time.                                    | Why POC / direct information      | Existing Product evidence and broader `HCL-004` “results in minutes”; deliberately avoids a universal exact time or immediacy promise                                                                                                               | AP11 PT11.4 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-011` | Available values can support professional consultation and discussion of appropriate next steps.                            | Why POC / discussion              | Existing Point-of-Care workflow positioning; conditional support statement, no automated decision, treatment result or outcome promise                                                                                                              | AP11 PT11.4 | APPROVED_SAFE_STATE           | x10             |
+| `HCL-012` | The test complements professional assessment and replaces neither diagnosis nor treatment.                                  | Patient/user benefit + process    | Claim-safety qualifier required by AP11 §10; expressly limits the role of measurement information rather than asserting medical efficacy                                                                                                            | AP11 PT11.4 | REQUIRED_SAFETY_QUALIFIER     | x10             |
+| `HCL-013` | Homepage consultation and conversion copy is available in ten project languages.                                            | Final CTA                         | Canonical i18n contract and ten complete `home.json` resources; exact locale parity verified by PT11.5 tests                                                                                                                                        | AP11 PT11.5 | VERIFIED_FACTUAL              | x10             |
+| `HCL-014` | ROI output is a non-binding example based on the visitor's own inputs, not a revenue or profit commitment.                  | ROI calculator                    | Existing visible formula/input implementation and x10 disclaimer; no PolarisDX performance constant or guaranteed outcome                                                                                                                           | AP11 PT11.5 | REQUIRED_SAFETY_QUALIFIER     | x10             |
+| `HCL-015` | IglooPro readers and test kits can be ordered online in a professional order portal; all prices are net plus statutory VAT. | Shop band                         | Owner-approved shop copy live on `main` since 2026-09-07 (`e66a562`), confirmed for the relaunch on 2026-10-16 (SC-004, O1); the shop itself is `shop.polarisdx.net` (Shopify)                                                                      | SC-004      | OWNER_APPROVED                | x10             |
+| `HCL-016` | Epigenetic panels can be ordered online in the Panels shop.                                                                 | Shop band / header entry „Panels" | Owner instruction 2026-10-17 (SC-007: „Der Panelshop muss unbedingt von der Hauptseite und auch von der Startseite aus erreichbar sein"); the shop itself is `panels.polarisdx.net` (separate Shopify store, German/English); descriptive copy only | SC-007      | OWNER_APPROVED                | x10             |
 
-`HCL-015` (SC-004) adds no price, discount, delivery-time or availability promise; the band states only
-where professionals order and that prices are net.
+`HCL-015` (SC-004) and `HCL-016` (SC-007) add no price, discount, delivery-time, outcome or availability
+promise; the band states only where professionals order (net prices) and where epigenetic panels are
+ordered online.
 
 The implementation through PT11.6 introduces no therapeutic, preventive, guaranteed revenue,
 profit, outcome, response-time, delivery-time or performance claim. The Hero does not use a

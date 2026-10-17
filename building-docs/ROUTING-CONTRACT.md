@@ -961,6 +961,7 @@ Master-Scope. Decision Locks werden hier nie geändert.
   aus dem `main`-Checkout und proxied `/api/early-access` an `127.0.0.1:5000` — diese Locations
   entfernt der Operator beim Cutover (`docs/deploy.md`, DEPLOYMENT-CONTRACT §12.3). Erst danach
   antwortet die Produktion für `/early` mit der Relaunch-404.
-- **Shop:** `/shop` bleibt `INTENTIONAL_404`. Der Kopfzeilen-Eintrag „Shop" und das Startseiten-Band
-  verlinken die fremde Domain `shop.polarisdx.net` (`src/lib/shop.ts`); sie ist kein Teil der Route
+- **Shop:** `/shop` bleibt `INTENTIONAL_404`. Die Kopfzeilen-Einträge „Shop" und „Panels" und das
+  Startseiten-Band verlinken die fremden Domains `shop.polarisdx.net` (Praxis-Shop, SC-004) und
+  `panels.polarisdx.net` (Panel-Shop, SC-007; `src/lib/shop.ts`); beide sind kein Teil der Route
   Registry.
