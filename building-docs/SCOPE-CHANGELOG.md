@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-008 — Panel-Shop auf der Epigenetik-Seite: dritte Aktion in der Bühne (Preview)
+
+- **Datum:** 2026-10-18
+- **Status:** ACCEPTED (Owner-Auftrag); Sichtprüfung auf der Preview steht aus
+- **Betroffene IDs:** SC-007 (Folgefrage „Epigenetik-Bereich verlinkt den Panel-Shop nicht" beantwortet), HCL-016 (gleicher Wortlaut „Zum Panel-Shop" wie im Startseiten-Band), AP27 (Baseline PT27.6 `epigenetics-hub-desktop`), I18N (neuer Schlüssel `epigenetics.hero.ctaShop` × 10)
+- **Vorheriger Zustand:** Die Bühne von `/epigenetics` hatte zwei Aktionen: „Die sechs Analysen" (Anker `#analysen`) und „Angebot anfragen". Der Panel-Shop `panels.polarisdx.net` war nur über die Kopfzeile („Panels") und das Startseiten-Band erreichbar (SC-007).
+- **Neuer Zustand:** Dritte Aktion „Zum Panel-Shop ↗" in der Bühne von `/epigenetics`, gleiche Ghost-Pille wie „Angebot anfragen" (weiße Kontur auf Navy) mit Außenpfeil, `href=panelsUrl(lang)` (de → Wurzel, sonst `/en`), `data-shop="panels"`; Klickzählung über `OUTBOUND_DOMAINS` wie in der Kopfzeile. Texte × 10 aus `home.shop_teaser.cta_panels` übernommen (de „Zum Panel-Shop", en „Visit the panel shop", fr „Vers la boutique Panels", es „Ir a la tienda Panels", it „Vai allo shop Panels", nl „Naar de Panel-shop", pl „Przejdź do sklepu Panels", pt „Ir para a loja Panels", cs „Přejít do e-shopu Panels", da „Gå til Panel-shoppen"). Keine Preise auf der Website, keine neue Route, kein neues Ereignis; Bereichsleiste und mobile Leiste unverändert.
+- **Begründung:** Owner-Auftrag 2026-10-18 im Wortlaut (Screenshot der Seite `/de/epigenetik`): „https://panels.polarisdx.net/ ich moechte da [ein] Button ist was die webseite verlinkt [zum] kauf fuer die end kunden oder so ähnlich". Nachgang in derselben Sitzung: „bitte korrigiere oder setze begonnenes um".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-18, Werkstatt-Sitzung; Ausrollen nur auf die Preview, Produktion unverändert bis zum Owner-Go.
+- **Auswirkung auf Scope:** Ein weiterer Verweis auf ein bestehendes externes Ziel (SC-007). Die Seite bleibt B2B-Unterlagenseite; Preise und Kauf liegen ausschließlich im fremden Shop (Seitenkopf-Hinweis „Keine Preise" bleibt erfüllt).
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** Typecheck, ESLint (0 Fehler), Prettier (eigene Dateien), Guards (`test:guards` inkl. i18n-Parität × 10) grün; Vitest `unit`+`component` 637/637 — das Projekt `server` scheitert auf dem Host am nativen Modul `better-sqlite3` (Node-ABI, unabhängig von diesem Change, Server unverändert); Perf-Budget `check-budgets --profile ci --routes epigenetics-hub` 70/70 (HTML 39,9 KB); visuelle Baselines PT27.6 20/21 unverändert, `epigenetics-hub-desktop` neu (Image `mcr.microsoft.com/playwright:v1.57.0-noble`).
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CHANGELOG.md` (Baseline), `building-docs/state/AP-STATE.md` (Preview-Release).
+
 ### SC-007 — Panel-Shop erreichbar: zweiter Shopify-Store in Kopfzeile und Startseiten-Band (Preview)
 
 - **Datum:** 2026-10-17

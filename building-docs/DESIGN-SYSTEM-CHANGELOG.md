@@ -27,6 +27,21 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-18 — SC-008 · Panel-Shop als dritte Aktion in der Epigenetik-Bühne (reines Design-Delta)
+
+- **Ursache:** Owner-Auftrag 2026-10-18 (`SCOPE-CHANGELOG.md` SC-008): Button auf der Epigenetik-Seite zum
+  Panel-Shop `panels.polarisdx.net` für Endkunden.
+- **Seite `/epigenetics` (Bühne):** dritte Pille „Zum Panel-Shop" neben „Angebot anfragen", gleiche
+  Ghost-Rolle (weiße Schrift, `ring-white/25`, Hover `bg-white/10`) plus `ArrowUpRight` 16 px als
+  Hinweis auf das externe Ziel; unter 640 px gestapelt, volle Breite. Keine neuen Tokens, Rollen oder
+  Bausteine.
+- **Gates:** Typecheck, ESLint, Prettier, Guards grün; Vitest unit+component 637/637; Perf-Budget
+  `epigenetics-hub` 70/70. Kein Budget gelockert.
+- **Baselines:** PT27.6 1 von 21 Bildern neu (`epigenetics-hub-desktop`, Ursache die neue Pille), im Image
+  `mcr.microsoft.com/playwright:v1.57.0-noble`; die übrigen 20 ohne Update grün.
+- **Reviewer:** Claude (Implementierung, Baseline-Prüfung im Docker-Image); Owner-Sichtprüfung auf der
+  Preview offen.
+
 ### 2026-10-17 — SC-007 · Panel-Shop in Kopfzeile und Startseiten-Band (reines Design-Delta, kein Vertragsbruch)
 
 - **Ursache:** Owner-Auftrag 2026-10-17 (`SCOPE-CHANGELOG.md` SC-007): „Der Panelshop, muss unbedingt von

@@ -50,6 +50,7 @@ import { useScrollDepth } from '../lib/useScrollDepth'
 // wurde begonnen" und wurde nirgends ausgeloest. Ohne dieses Ereignis laesst
 // sich nicht sagen, ob der umgebaute Anfrageweg traegt.
 import { track } from '../lib/tracking'
+import { panelsUrl } from '../lib/shop'
 import { useMerkliste } from '../lib/merkliste'
 import EpigeneticsInquiryForm from '../components/epigenetics/EpigeneticsInquiryForm'
 import AreaStage from '../components/area/AreaStage'
@@ -267,6 +268,17 @@ const EpigeneticsPage = () => {
                 className="w-full justify-center !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
               >
                 {t('hero.ctaQuote')}
+              </Button>
+              {/* SC-008: Panel-Shop (panels.polarisdx.net) fuer Endkunden;
+                  Klickzaehlung ueber OUTBOUND_DOMAINS wie in der Kopfzeile. */}
+              <Button
+                href={panelsUrl(i18n.language)}
+                variant="ghost"
+                data-shop="panels"
+                className="w-full justify-center gap-1.5 !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
+              >
+                {t('hero.ctaShop')}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Button>
             </>
           }
