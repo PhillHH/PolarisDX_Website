@@ -42,8 +42,7 @@ kein `work-packages/APxx-STATE.md`).
   **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
 - **SC-013 Startbereich je Sprache (2026-10-19, nur Preview):** Kopfzeile ab `xl`, einzeilig in 10 Sprachen,
   Titel drei Zeilen (`cqi`), Bühne 820 px. Preview-Release `2f83fda3863c` (Commit `2f83fda`; Smoke grün;
-  Livecheck Preview 1 280 px de/fr/es/nl/pl: Header 81 px, 3 Titelzeilen, Bühne 820 px). **Produktion
-  unverändert** (`914d5bc54c18`).
+  Livecheck Preview 1 280 px de/fr/es/nl/pl: Header 81 px, 3 Titelzeilen, Bühne 820 px). **Live seit 2026-10-19 14:48 CEST** (`./deploy.sh up 2f83fda3863c`, Owner-Go; Livecheck 10 Sprachen × 1 280/1 024/390 px: Header 81 px, 3 Titelzeilen, Bühne 820 px Desktop, kein Überlauf). Rückweg `./deploy.sh rollback` → `914d5bc54c18`.
 - **SC-011 Analytics-Trennung (2026-10-19, Owner-Wahl „G-Z1SBW4CJFP behalten", nur Preview):** Image als
   `production` mit `GTM-PL26PFFH` gebaut, Laufzeit-Meta `polaris-app-env` aus `APP_ENV`; Preview misst nicht.
   Preview-Release `914d5bc54c18` (Commit `914d5bc`; Health, Identität, Smoke grün). Nachweis per Playwright
