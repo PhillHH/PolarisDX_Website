@@ -11,6 +11,8 @@ import { fileURLToPath } from 'node:url'
  * leeren Stub beantwortet — kein Byte erreicht Google oder einen Marketing-Anbieter.
  *
  * Backend wie PT27.3: `APP_ENV=preview`, temporaere Datenbank, Provider-Variablen leer.
+ * SC-011: auch der SSR-Server laeuft mit `APP_ENV=preview` — die Laufzeit-Umgebung
+ * (`<meta name="polaris-app-env">`) hat seitdem Vorrang vor `VITE_APP_ENV`.
  */
 const port = Number(process.env.E2E_PORT ?? 3747)
 const backendPort = Number(process.env.E2E_BACKEND_PORT ?? 5747)
@@ -80,7 +82,7 @@ export default defineConfig({
       timeout: 60_000,
     },
     {
-      command: `cd .. && ${build} && PORT=${port} BACKEND_URL=http://127.0.0.1:${backendPort} POLARIS_CLIENT_DIST_DIR=${cacheDir}/client POLARIS_SERVER_DIST_DIR=${cacheDir}/server npm run start`,
+      command: `cd .. && ${build} && APP_ENV=preview PORT=${port} BACKEND_URL=http://127.0.0.1:${backendPort} POLARIS_CLIENT_DIST_DIR=${cacheDir}/client POLARIS_SERVER_DIST_DIR=${cacheDir}/server npm run start`,
       url: `http://127.0.0.1:${port}/de/`,
       reuseExistingServer: false,
       timeout: 300_000,

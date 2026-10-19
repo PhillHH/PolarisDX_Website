@@ -118,6 +118,18 @@ interface RenderModule {
  * Shift noch sporadisch auf. Ohne Preload laden die SSR-Namespaces nach dem
  * Entry-JS — trotzdem ~0,8 s frueher hydriert als mit allen 30 Dateien.
  */
+/**
+ * SC-011: die Laufzeit-Umgebung fuer den Browser (`analyticsConfig.ts`). Ein Image laeuft als
+ * Preview und als Produktion; nur der Container kennt sein `APP_ENV`. Erlaubt sind ausschliesslich
+ * bekannte Werte, damit nie Freitext aus der Umgebung ins HTML gelangt.
+ */
+const RUNTIME_APP_ENV = ['production', 'preview', 'staging'].includes(
+  String(process.env.APP_ENV ?? '').toLowerCase(),
+)
+  ? String(process.env.APP_ENV).toLowerCase()
+  : 'production'
+const RUNTIME_APP_ENV_TAG = `<meta name="polaris-app-env" content="${RUNTIME_APP_ENV}">`
+
 function i18nHeadTags(state: SsrI18nState | undefined): string {
   if (!state) return ''
   const json = JSON.stringify(state).replace(/</g, '\\u003c')
@@ -695,7 +707,7 @@ async function createServer() {
         .replace('<html lang="de">', `<html lang="${lang}">`)
         // AP25 PT25.2: i18n-Zustand ans Ende des Kopfes. Funktionsersatz statt
         // Ersatzstring, damit `$` in Uebersetzungen nie als Muster wirkt.
-        .replace('</head>', () => `${i18nHeadTags(i18nState)}</head>`)
+        .replace('</head>', () => `${RUNTIME_APP_ENV_TAG}${i18nHeadTags(i18nState)}</head>`)
 
       // HTML NIE cachen: die Seite referenziert content-gehashte Assets, die sich
       // bei jedem Deploy ändern. Ohne no-store zeigen Browser (heuristisch gecachte)

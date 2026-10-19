@@ -14,8 +14,8 @@
 #   - eigene Secrets-Datei `server/.env.preview` (DEP-28). Sie enthaelt keinen
 #     produktiven SendGrid-Schluessel.
 #
-# Das Frontend-Image ist dasselbe Build-Profil wie in docker-compose.yml
-# (VITE_APP_ENV=preview, Preview-GTM-Container). Die Nicht-Indexierbarkeit
+# Das Frontend-Image ist dasselbe wie in der Produktion (SC-011); APP_ENV=preview
+# schaltet zur Laufzeit jede Analytics-Messung ab. Die Nicht-Indexierbarkeit
 # setzt der Host-nginx (`X-Robots-Tag: noindex, nofollow`, DEP-30/D-T12).
 # =============================================================================
 
@@ -25,6 +25,9 @@ services:
   frontend:
     ports: !override
       - '127.0.0.1:${WEB_HOST_PORT:-9100}:3000'
+    # SC-011: die Preview misst nicht (gleiches Image wie die Produktion).
+    environment:
+      - APP_ENV=preview
 
   backend:
     ports: !override

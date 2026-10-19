@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-011 — Google Analytics: Produktion misst allein, Preview misst nicht (Preview)
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner-Auftrag und Owner-Wahl); wirksam für die Produktion erst mit dem nächsten Live-Release
+- **Betroffene IDs:** AP23 PT23.1/PT23.4 (Analytics-Konfiguration, Preview-Isolation), DEP (ein Image für beide Umgebungen), `docker-compose.yml`, `docker-compose.preview.yml`, `Dockerfile`, `server.ts`, `src/lib/analyticsConfig.ts`
+- **Vorheriger Zustand:** Gemessen 2026-10-19 (Playwright, Messanfragen abgefangen, nichts gesendet): polarisdx.net und preview.polarisdx.net laden beide `GTM-PL26PFFH` und senden `page_view` an `G-Z1SBW4CJFP`. Ursache: `deploy.sh` baut EIN Image (`VITE_APP_ENV=preview`, Preview-Container) und startet es in beiden Umgebungen; die Bauzeit-Isolation aus PT23.4 konnte die Produktion so nie erreichen. `GTM-TW6JFX7K` (`G-PLZNWGKW0P`, nur Google-Tag) erhielt seit dem Go-live 2026-10-16 keine Daten. Consent-Gate und SPA-Seitenaufrufe arbeiten (vor Einwilligung 0 Anfragen; Routenwechsel zählt GA4 über Verlaufsereignisse).
+- **Neuer Zustand:** Gebaut wird mit `VITE_APP_ENV=production` und `VITE_GTM_CONTAINER_ID=GTM-PL26PFFH`. Der SSR-Server schreibt `<meta name="polaris-app-env" content="production|preview|staging">` aus seinem `APP_ENV` (nur diese drei Werte); `analyticsConfig.ts` gibt diesem Laufzeitwert Vorrang. Das Preview-Frontend bekommt `APP_ENV=preview` (`docker-compose.preview.yml`) und lädt damit keinen Container mehr. Tests: `analyticsConfig.test.ts` (+3), `previewProvider.test.ts` auf das Laufzeit-Modell umgestellt, PT27.4-Server mit `APP_ENV=preview`.
+- **Begründung:** Owner-Auftrag 2026-10-19: „Bitte stelle auch sicher das Google Analytics funktioniert". Owner-Wahl: „G-Z1SBW4CJFP behalten" (dort sind die Ereignisse `contact_submit`, `support_submit`, `roi_report_request`, `epigenetics_inquiry_submit`, `lead_magnet_submit` eingerichtet); die Preview misst nicht.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung.
+- **Auswirkung auf Scope:** Keine neue Messung; Trennung von Test- und Echtdaten. In `G-Z1SBW4CJFP` liegen für 16.–19.10.2026 noch gemischte Daten (Preview-Klicks), sie lassen sich in GA4 über den Hostnamen filtern.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** Vitest unit+component 645/645; PT27.4 (Consent im Browser) läuft auf diesem Host nicht (Backend: `better-sqlite3`-ABI, unabhängig) — Konfiguration angepasst, Nachweis über die Preview-Messung nach dem Deploy.
+- **Aktualisierte kanonische Dokumente:** `building-docs/state/AP-STATE.md`, Kommentare in `Dockerfile`/Compose.
+
 ### SC-010 — Startseiten-Bühne: Hand des Zahnarztes nicht mehr vor dem Mund der Patientin (Preview)
 
 - **Datum:** 2026-10-19

@@ -29,24 +29,48 @@ const PREVIEW_CONTAINER = 'GTM-PL26PFFH'
 /** Der Produktionscontainer der Altseite — darf die Vorschau nie erreichen. */
 const PRODUCTION_CONTAINER = 'GTM-TW6JFX7K'
 
-describe('PT23.4 · Preview-Deployment traegt nur den Preview-Container', () => {
+/**
+ * SC-011 (Owner 2026-10-19) ersetzt das Bauzeit-Modell: ein Image fuer Preview UND Produktion
+ * (`deploy.sh` prueft die Artefaktidentitaet), deshalb konnte ein „Preview-Build" nie von der
+ * Produktion getrennt werden — gemessen schrieb polarisdx.net seit dem Go-live in die
+ * Preview-Property. Jetzt: gebaut wird mit dem Container der Produktion (`GTM-PL26PFFH`, Owner-
+ * Wahl), und die Preview schaltet die Messung zur LAUFZEIT ab (`APP_ENV=preview` am Frontend →
+ * `<meta name="polaris-app-env">` → `analyticsConfig.ts`).
+ */
+describe('SC-011 · ein Image, Messung nur in der Produktion', () => {
   const frontend = compose.slice(compose.indexOf('  frontend:'), compose.indexOf('  backend:'))
+  const previewCompose = fs.readFileSync(path.join(ROOT, 'docker-compose.preview.yml'), 'utf8')
+  const previewFrontend = previewCompose.slice(
+    previewCompose.indexOf('  frontend:'),
+    previewCompose.indexOf('  backend:'),
+  )
+  const server = fs.readFileSync(path.join(ROOT, 'server.ts'), 'utf8')
 
-  it('uebergibt VITE_APP_ENV=preview an den Build', () => {
-    // Ohne diese Deklaration greift die Isolation nicht: eine undeklarierte
-    // Umgebung gilt bewusst als Produktion.
-    expect(frontend).toMatch(/VITE_APP_ENV:\s*preview/)
-  })
-
-  it('uebergibt den Preview-Container als Build-Argument', () => {
-    expect(frontend).toMatch(new RegExp(`VITE_GTM_CONTAINER_ID_PREVIEW:\\s*${PREVIEW_CONTAINER}`))
-  })
-
-  it('uebergibt den Produktionscontainer NIRGENDS in der Compose-Datei', () => {
-    // Der wichtigste Test dieser Datei: waere er hier, laege er im
-    // Preview-Bundle, und Testklicks landeten in der Produktions-Property.
+  it('baut als Produktion mit genau dem Messcontainer der Produktion', () => {
+    expect(frontend).toMatch(/VITE_APP_ENV:\s*production/)
+    expect(frontend).toMatch(new RegExp(`VITE_GTM_CONTAINER_ID:\\s*${PREVIEW_CONTAINER}`))
+    // Kein zweiter Container im Image: die Preview darf nichts haben, was sie laden koennte.
+    expect(compose).not.toMatch(/VITE_GTM_CONTAINER_ID_PREVIEW:/)
     expect(compose).not.toContain(PRODUCTION_CONTAINER)
-    expect(compose).not.toMatch(/VITE_GTM_CONTAINER_ID:/)
+  })
+
+  it('setzt am Preview-Frontend APP_ENV=preview', () => {
+    expect(previewFrontend).toMatch(/APP_ENV=preview/)
+  })
+
+  it('schreibt die Laufzeit-Umgebung als Meta-Tag in jede SSR-Antwort', () => {
+    expect(server).toContain('<meta name="polaris-app-env" content="${RUNTIME_APP_ENV}">')
+    expect(server).toMatch(/RUNTIME_APP_ENV_TAG\}\$\{i18nHeadTags/)
+  })
+
+  it('loest dieselben Bauwerte je Laufzeit-Umgebung richtig auf', () => {
+    const build = { VITE_APP_ENV: 'production', VITE_GTM_CONTAINER_ID: PREVIEW_CONTAINER }
+    expect(resolveAnalyticsConfig({ ...build, RUNTIME_APP_ENV: 'production' }).gtmContainerId).toBe(
+      PREVIEW_CONTAINER,
+    )
+    expect(
+      resolveAnalyticsConfig({ ...build, RUNTIME_APP_ENV: 'preview' }).gtmContainerId,
+    ).toBeNull()
   })
 })
 

@@ -20,14 +20,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # AP23 Preview Analytics
-        # Vite benoetigt diese Werte bereits waehrend des Builds.
-        #
-        # Preview darf ausschliesslich den separaten Preview-GTM-Container
-        # verwenden. Der Production-GTM-Container wird hier bewusst NICHT
-        # uebergeben.
-        VITE_APP_ENV: preview
-        VITE_GTM_CONTAINER_ID_PREVIEW: GTM-PL26PFFH
+        # SC-011 (Owner 2026-10-19): EIN Image fuer Preview und Produktion. Gebaut
+        # wird mit dem Container, den die Produktion misst (GTM-PL26PFFH ->
+        # GA4 G-Z1SBW4CJFP, Owner-Wahl). Die Preview misst nicht: ihr Frontend
+        # bekommt APP_ENV=preview (docker-compose.preview.yml), der SSR-Server
+        # schreibt das als <meta name="polaris-app-env"> und analyticsConfig.ts
+        # unterdrueckt dort jeden Container (kein *_PREVIEW-Container gesetzt).
+        VITE_APP_ENV: production
+        VITE_GTM_CONTAINER_ID: GTM-PL26PFFH
         # Release-Identitaet bis zum Git-SHA (DEP-04, D-T2): landet als
         # OCI-Label im Image; `deploy.sh` vergleicht es nach dem Start.
         GIT_SHA: ${RELEASE:-local}
@@ -45,6 +45,8 @@ services:
       # er hinter dem Portmapping unerreichbar (DD-18). Ausserhalb des
       # Containers bleibt der Standard Loopback.
       - LISTEN_HOST=0.0.0.0
+      # SC-011: Laufzeit-Umgebung fuer <meta name="polaris-app-env"> (Analytics).
+      - APP_ENV=${APP_ENV:-production}
 
     # Startreihenfolge ist kein Bereitschaftsnachweis (DEP-49, DD-16): das Web
     # startet erst, wenn das Backend seine Datenbank lesen kann.

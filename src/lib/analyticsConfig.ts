@@ -60,12 +60,33 @@ export interface AnalyticsConfig {
 
 type EnvLike = Record<string, string | boolean | undefined>
 
+/**
+ * SC-011 (Owner 2026-10-19): Preview und Produktion laufen mit DEMSELBEN Image (ein Build, zwei
+ * Umgebungen; `deploy.sh` prueft die Artefaktidentitaet). Die Bauzeit-Umgebung kann sie deshalb
+ * nicht unterscheiden — gemessen lief polarisdx.net seit dem Go-live als `preview` gebaut und
+ * schrieb gemeinsam mit der Vorschau in dieselbe GA4-Property. Der SSR-Server setzt darum zur
+ * LAUFZEIT `<meta name="polaris-app-env">` aus seinem `APP_ENV`; dieser Wert hat Vorrang.
+ */
+export const RUNTIME_APP_ENV_META = 'polaris-app-env'
+
+function readRuntimeAppEnv(): string | undefined {
+  if (typeof document === 'undefined') return undefined
+  const value = document
+    .querySelector(`meta[name="${RUNTIME_APP_ENV_META}"]`)
+    ?.getAttribute('content')
+  return value ? value : undefined
+}
+
 function readEnv(): EnvLike {
+  let env: EnvLike = {}
   try {
-    return (import.meta.env ?? {}) as EnvLike
+    env = { ...((import.meta.env ?? {}) as EnvLike) }
   } catch {
-    return {}
+    env = {}
   }
+  const runtime = readRuntimeAppEnv()
+  if (runtime) env.RUNTIME_APP_ENV = runtime
+  return env
 }
 
 function normalize(value: unknown, pattern: RegExp): string | null {
@@ -81,7 +102,7 @@ function normalize(value: unknown, pattern: RegExp): string | null {
 const NON_PRODUCTION = ['preview', 'staging'] as const
 
 function runtimeEnvironment(env: EnvLike): string {
-  return String(env.VITE_APP_ENV ?? env.APP_ENV ?? '')
+  return String(env.RUNTIME_APP_ENV ?? env.VITE_APP_ENV ?? env.APP_ENV ?? '')
     .trim()
     .toLowerCase()
 }

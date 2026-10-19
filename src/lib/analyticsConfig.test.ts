@@ -69,3 +69,32 @@ describe('PT23.1 · Provider-Konfiguration', () => {
     expect(report.externallyVerified).toBe(false)
   })
 })
+
+describe('SC-011 · Laufzeit-Umgebung schlaegt Bauzeit-Umgebung', () => {
+  const productionBuild = { VITE_APP_ENV: 'production', VITE_GTM_CONTAINER_ID: 'GTM-PL26PFFH' }
+
+  it('misst in der Produktion mit dem eingebauten Container', () => {
+    const config = resolveAnalyticsConfig({ ...productionBuild, RUNTIME_APP_ENV: 'production' })
+    expect(config.gtmContainerId).toBe('GTM-PL26PFFH')
+  })
+
+  it('misst auf der Preview NICHT, obwohl dasselbe Image den Container traegt', () => {
+    const config = resolveAnalyticsConfig({ ...productionBuild, RUNTIME_APP_ENV: 'preview' })
+    expect(config.gtmContainerId).toBeNull()
+    expect(config.providerConfigured).toBe(false)
+    expect(config.productionContainerSuppressed).toBe(true)
+  })
+
+  it('liest die Laufzeit-Umgebung aus dem Meta-Tag des SSR-Servers', () => {
+    const meta = document.createElement('meta')
+    meta.name = 'polaris-app-env'
+    meta.content = 'preview'
+    document.head.appendChild(meta)
+    try {
+      expect(resolveAnalyticsConfig().environment).toBe('preview')
+      expect(resolveAnalyticsConfig().gtmContainerId).toBeNull()
+    } finally {
+      meta.remove()
+    }
+  })
+})

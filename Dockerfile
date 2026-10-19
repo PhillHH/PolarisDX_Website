@@ -22,13 +22,11 @@ COPY . .
 # Diese Werte muessen waehrend des Builds vorhanden sein, weil Vite
 # VITE_* Variablen in die gebauten Client-Artefakte uebernimmt.
 #
-# Preview:
-#   VITE_APP_ENV=preview
-#   VITE_GTM_CONTAINER_ID_PREVIEW=GTM-PL26PFFH
-#
-# Production:
+# SC-011 (2026-10-19): ein Image fuer Preview UND Produktion, gebaut mit
 #   VITE_APP_ENV=production
-#   VITE_GTM_CONTAINER_ID=GTM-TW6JFX7K
+#   VITE_GTM_CONTAINER_ID=GTM-PL26PFFH   (GA4 G-Z1SBW4CJFP, Owner-Wahl)
+# Die Preview misst nicht: APP_ENV=preview am Frontend-Container wird zur
+# Laufzeit als <meta name="polaris-app-env"> gesetzt (server.ts).
 #
 ARG VITE_APP_ENV
 ARG VITE_GTM_CONTAINER_ID
