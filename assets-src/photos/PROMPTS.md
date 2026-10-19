@@ -57,6 +57,15 @@ angeben, sonst malt das Modell ihn kaffeemaschinengross.
 
 Bildnachweis: KI-generierte Motive werden im Impressum §8 als „KI-generiert (PolarisDX)" gefuehrt.
 
+**Stand 2026-10-19 (SC-010, Korrektur Buehne):** Owner-Befund: „In der Hero haelt der Zahnarzt die
+Hand optisch ueber den Mund der auf dem Stuhl liegenden Patienten." `practice-dental-2600.jpg` per
+Bild-zu-Bild mit `gemini-3-pro-image-preview` (`aspectRatio 16:9`, `imageSize 4K`) korrigiert; alles
+ausser Armen und Haenden des Zahnarztes bleibt gleich. Prompt sinngemaess: Unterarme zeigen nach
+unten, Haende locker vor dem eigenen Bauch auf Guertelhoehe, mindestens eine Kopfbreite Abstand zu
+Gesicht, Kinn und Hals der Patientin, nichts ueberdeckt ihr Gesicht; kein Text, keine Bildschirme,
+keine neuen Objekte. Zwei Runden (2 + 3 Varianten), gewaehlt Runde 2 Variante 3 (Haende natuerlich,
+Gesicht frei). Danach `npm run build:photo-look` — nur die sechs `hero-*`-Stufen aendern sich.
+
 **Stand 2026-10-16 (Runde 4, „Bildwelt 3", SC-005):** Buehne und Detail neu erzeugt mit
 `gemini-3-pro-image-preview` nach Stilsatz 3 (drei Varianten je Slot, Auswahl Owner/Claude), Buehne
 per Bild-zu-Bild auf 4K gehoben (`imageSize: 4K`); die fuenf Artikelmotive bleiben aus Runde 2. Die

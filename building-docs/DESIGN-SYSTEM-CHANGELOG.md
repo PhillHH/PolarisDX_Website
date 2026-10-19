@@ -27,6 +27,16 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-19 — SC-010 · Bühnenfoto korrigiert (Hand vor dem Mund)
+
+- **Ursache:** Owner-Befund 2026-10-19 (`SCOPE-CHANGELOG.md` SC-010).
+- **Bild:** `practice-dental-2600.jpg` per Bild-zu-Bild korrigiert (Hände des Zahnarztes tief, Gesicht
+  der Patientin frei), `npm run build:photo-look` erzeugt nur die sechs `hero-*`-Stufen neu.
+- **Baselines:** PT27.6 5 von 21 neu (`home-desktop`, `home-mobile`, `navigation-open-mobile`,
+  `diagnostics-megamenu-open-desktop`, `cookie-banner-desktop`; Diff nur im Fotobereich), Image
+  `mcr.microsoft.com/playwright:v1.57.0-noble`, zweiter Lauf 21/21.
+- **Reviewer:** Claude (Variantenauswahl, Ausschnittprüfung Desktop/Mobil); Owner-Sichtprüfung offen.
+
 ### 2026-10-19 — SC-009 · Panel-Promo, Praxisstimmen-Karten, `.rich-content` aus dem Inline-CSS
 
 - **Ursache:** Owner-Aufträge 2026-10-19 (`SCOPE-CHANGELOG.md` SC-009).

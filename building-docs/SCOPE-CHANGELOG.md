@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-010 — Startseiten-Bühne: Hand des Zahnarztes nicht mehr vor dem Mund der Patientin (Preview)
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner-Auftrag); Sichtprüfung auf der Preview steht aus
+- **Betroffene IDs:** HOMEPAGE-CONTRACT §2.2 (Bühnenfoto, Motiv unverändert), AP27 (Baselines PT27.6), `assets-src/photos/PROMPTS.md`
+- **Vorheriger Zustand:** Bühnenfoto `practice-dental-2600.jpg` (KI-generiert, SC-005): die rechte Hand des Zahnarztes lag in beiden Zuschnitten optisch vor Mund und Kinn der zurückgelehnten Patientin.
+- **Neuer Zustand:** Dieselbe Szene per Bild-zu-Bild (`gemini-3-pro-image-preview`, 4K) korrigiert: Hände locker vor dem eigenen Bauch, Gesicht der Patientin frei; sonst unverändert. Neu erzeugt nur `src/assets/home/hero-{desktop-1440w,desktop-2400w}.avif`, `hero-mobile-{800w,1200w}.{avif,webp}` (±1 %, mobiles LCP-AVIF 9 731 B statt 9 575).
+- **Begründung:** Owner-Auftrag 2026-10-19 im Wortlaut: „In der Hero hält der Zahnarzt die Hand optisch über den Mund der auf dem Stuhl liegenden Patienten. Nutze Nano Banana via Api um das Bild zu verbessern." Zugang: Schlüssel aus `~/.config/polaris/gemini.env` (nie im Repo).
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung; Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Keine; Motiv, Bildnachweis (Impressum §8 „KI-generiert") und Regeln aus PROMPTS.md unverändert.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** Perf-Budget 852/852 (LCP-Bild mobil 9,5 KB, Grenze 19,4 KB); E2E `home-hero` 11/11; Artikel-Bild-Guard grün; visuelle Baselines PT27.6 5/21 neu (`home-desktop`, `home-mobile`, `navigation-open-mobile`, `diagnostics-megamenu-open-desktop`, `cookie-banner-desktop` — Abweichung nur im Fotobereich), zweiter Lauf 21/21.
+- **Aktualisierte kanonische Dokumente:** `assets-src/photos/PROMPTS.md`, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-009 — Startseite: Panel-Shop zeitlich begrenzt hervorgehoben, drei Praxisstimmen zurück (Preview)
 
 - **Datum:** 2026-10-19
