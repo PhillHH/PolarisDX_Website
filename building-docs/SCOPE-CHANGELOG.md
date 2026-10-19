@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-016 — Epigenetik: interne Redaktionsnotiz aus dem Evidenz-Einleitungstext entfernt (Preview)
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner-Auftrag)
+- **Betroffene IDs:** `epigenetics.evidence.lead` × 10 (Hub `/epigenetics` Abschnitt „Was belegt ist — und was nicht", Unterseite `/epigenetics/studienlage` Einleitung)
+- **Vorheriger Zustand:** de „In diesem Feld wird viel überversprochen. Wer die Analysen im Gespräch vertritt, sollte die Grenzen kennen — vor Fachpublikum ist Offenheit ein Vorteil, kein Risiko." (en „…with professionals, candour is an advantage, not a risk.") — eine Redaktionsanweisung, die als Seitentext ausgeliefert wurde; eine externe Partnerin hat sie am 2026-10-19 gemeldet.
+- **Neuer Zustand:** Sachlicher Einleitungstext × 10, de „Was die Studienlage zu epigenetischen und genetischen Analysen heute trägt – und wo die Evidenz noch vorläufig ist." Die Trennung „gesichert / vorläufig" und alle Belege bleiben unverändert. Suche nach weiteren internen Formulierungen in den deutschen Texten: kein weiterer Treffer.
+- **Begründung:** Owner-Auftrag 2026-10-19: „Entferne den Hinweis als auch den Content-Hinweis".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung.
+- **Auswirkung auf Scope:** Keine; kein neuer Claim.
+- **Auswirkung auf Abhängigkeiten:** Keine. Der „Testsystem"-Hinweis auf `my.polarisdx.net` gehört zum Kundenportal (eigenes Projekt, nicht dieser Baum).
+- **Auswirkung auf Gates:** Guards (i18n-Parität), Claim-Vertrag Epigenetik ohne Fehler, Vitest 645/645, E2E `epigenetics-deep-pages` 5/5.
+- **Aktualisierte kanonische Dokumente:** `building-docs/state/AP-STATE.md`.
+
 ### SC-013 — Startbereich und Kopfzeile in allen zehn Sprachen gleich gebaut (Preview)
 
 - **Datum:** 2026-10-19
