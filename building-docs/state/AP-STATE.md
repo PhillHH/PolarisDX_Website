@@ -40,6 +40,10 @@ kein `work-packages/APxx-STATE.md`).
   SEO-Head, Header, Consent). Protokoll, Abweichungen und Folgearbeiten: `release/AP31-GO-LIVE.md` §7
   (SendGrid-Rotation OA-11, Port 5000 streichen, Alt-Images, `main` nachziehen, CTC-04, E2E-Drift).
   **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
+- **SC-013 Startbereich je Sprache (2026-10-19, nur Preview):** Kopfzeile ab `xl`, einzeilig in 10 Sprachen,
+  Titel drei Zeilen (`cqi`), Bühne 820 px. Preview-Release `2f83fda3863c` (Commit `2f83fda`; Smoke grün;
+  Livecheck Preview 1 280 px de/fr/es/nl/pl: Header 81 px, 3 Titelzeilen, Bühne 820 px). **Produktion
+  unverändert** (`914d5bc54c18`).
 - **SC-011 Analytics-Trennung (2026-10-19, Owner-Wahl „G-Z1SBW4CJFP behalten", nur Preview):** Image als
   `production` mit `GTM-PL26PFFH` gebaut, Laufzeit-Meta `polaris-app-env` aus `APP_ENV`; Preview misst nicht.
   Preview-Release `914d5bc54c18` (Commit `914d5bc`; Health, Identität, Smoke grün). Nachweis per Playwright
