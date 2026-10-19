@@ -38,11 +38,24 @@ describe('PT11.2 Homepage Trust and Proof contract', () => {
     expect(within(trustbar).queryByRole('img')).not.toBeInTheDocument()
   })
 
-  it('renders one named existing reference without rating or carousel semantics', () => {
+  it('renders the featured reference plus three named voices without rating or carousel semantics', () => {
     render(<TestimonialsSection />)
 
     const proof = screen.getByRole('region', { name: 'testimonials.title' })
-    const figure = within(proof).getByRole('figure')
+    const figures = within(proof).getAllByRole('figure')
+    expect(figures.map((item) => item.getAttribute('data-testimonial-id'))).toEqual([
+      'bastian_wessing',
+      'richard_pollock',
+      'kristian_grimm',
+      'goran_stojanovic',
+    ])
+    expect(figures.slice(1).map((item) => item.getAttribute('data-claim-id'))).toEqual([
+      'HCL-017',
+      'HCL-017',
+      'HCL-017',
+    ])
+    expect(within(proof).queryByText(/martin_fischer|Martin Fischer/)).not.toBeInTheDocument()
+    const figure = figures[0]
     expect(figure).toHaveAttribute('data-testimonial-id', 'bastian_wessing')
     expect(figure).toHaveAttribute('data-claim-id', 'HCL-006')
     expect(within(figure).getByText('Dr. Bastian Wessing')).toBeInTheDocument()
@@ -74,13 +87,23 @@ describe('PT11.2 Homepage Trust and Proof contract', () => {
       expect(resource.trustbar).not.toHaveProperty('partner')
       expect(resource.trustbar).not.toHaveProperty('delivery')
 
-      const reference = resource.testimonials.bastian_wessing
-      for (const key of ['role', 'practice', 'proof_text']) {
-        expect(reference[key], `${locale}.testimonials.bastian_wessing.${key}`).toBeTruthy()
+      // „Behandlungsstuhl" (goran_stojanovic, de) ist ein Ort, kein Behandlungsversprechen.
+      for (const id of [
+        'bastian_wessing',
+        'richard_pollock',
+        'kristian_grimm',
+        'goran_stojanovic',
+      ]) {
+        const reference = resource.testimonials[id] as Record<string, string>
+        for (const key of ['role', 'proof_text']) {
+          expect(reference[key], `${locale}.testimonials.${id}.${key}`).toBeTruthy()
+        }
+        expect(reference.text, `${locale}.testimonials.${id}.text`).toContain(reference.proof_text)
+        expect(reference.proof_text, `${locale}.testimonials.${id}.proof_text`).not.toMatch(
+          /guarantee|garant|therap|treatment|behandlung(?!sstuhl)|revenue|profit|rating|reviewCount/i,
+        )
       }
-      expect(reference.proof_text).not.toMatch(
-        /guarantee|garant|therap|treatment|behandlung|revenue|profit|rating|reviewCount/i,
-      )
+      expect(resource.testimonials.bastian_wessing.practice).toBeTruthy()
     }
   })
 })

@@ -27,6 +27,22 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-19 — SC-009 · Panel-Promo, Praxisstimmen-Karten, `.rich-content` aus dem Inline-CSS
+
+- **Ursache:** Owner-Aufträge 2026-10-19 (`SCOPE-CHANGELOG.md` SC-009).
+- **Startseite:** `PanelsPromoSection` — Navy-Fläche (`rounded-band`, `brand-ring`), `t-eyebrow-dark`,
+  H2 `clamp(26px,3.6vw,40px)`, weiße Primärpille mit `ArrowUpRight` plus Ghost-Pille (`ring-white/25`);
+  ab `lg` Text links, Aktionen rechts gestapelt; mobil volle Breite. Proof: drei Karten
+  (`rounded-card`, `border-paper-line`, `shadow-card`) mit Zitat, Trennlinie, rundem 56-px-Porträt; ab
+  `md` dreispaltig. Keine neuen Tokens, Rollen oder Bausteine.
+- **CSS-Architektur:** `.rich-content` liegt in `src/styles/rich-content.css` (eigene Datei, nur im
+  Altinhalt-Zweig der Dienstseite geladen); `.article-col` bleibt in `index.css`. Initial-CSS 16,6 KB
+  gzip statt 17,3. Porträts nicht mehr inline (`assetsInlineLimit`).
+- **Gates:** Budget 852/852, Axe 25/25, Vitest 641/641, E2E Startseite 72/72.
+- **Baselines:** PT27.6 21/21 unverändert (die neuen Flächen liegen unter dem Falz der 1280×800-Aufnahme).
+- **Reviewer:** Claude (Implementierung, Messung, Sichtprüfung per Playwright-Aufnahme de/en, 1280 und
+  390 px); Owner-Sichtprüfung auf der Preview offen.
+
 ### 2026-10-18 — SC-008 · Panel-Shop als dritte Aktion in der Epigenetik-Bühne (reines Design-Delta)
 
 - **Ursache:** Owner-Auftrag 2026-10-18 (`SCOPE-CHANGELOG.md` SC-008): Button auf der Epigenetik-Seite zum

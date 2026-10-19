@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "PRACTICE REFERENCE",
+    "caption": "PRACTICE REFERENCES",
     "title": "Experience from everyday practice with IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
       "focus": "Fast on-site health checks (prevention, Vitamin D)",
       "text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated. The Igloo Pro enables me to perform a simple capillary blood test, to ascertain patients’ needs and to then guide them as to which additional supplements they might require to optimise treatment. This capability is proving transformative in terms of patient outcomes.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Carrying out analysis of Vitamin D levels and other key health indicators on-site cannot be underestimated."
     },
     "kristian_grimm": {
       "role": "Dentist",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevention, Vitamin D, HbA1c, systemic health",
       "text": "32reasons & Polaris DX – dentistry reimagined. The chairside reader lets us determine biomarkers such as Vitamin D and HbA1c directly on site. This links dentistry immediately with systemic health for fast, evidence-based treatment decisions.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "The chairside reader lets us determine biomarkers such as Vitamin D and HbA1c directly on site."
     },
     "martin_fischer": {
       "role": "Specialist in Internal Medicine",
@@ -222,7 +224,8 @@
       "title": "Biological Dentist / Principal Dentist & Owner",
       "focus": "Immediate diagnostics for implant planning (Vitamin D, CRP)",
       "text": "As a biological dentist, I am deeply convinced that holistic health always begins with the teeth. The Igloo Pro enables me to make fast, precise diagnostic decisions exactly where they are needed: at the chair. With immediate Vitamin D and CRP analysis, I can plan implant placements optimally and often accelerate them considerably. This gives my patients safer and more efficient treatment.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "The Igloo Pro enables me to make fast, precise diagnostic decisions exactly where they are needed: at the chair."
     },
     "goTo": "Show review {{n}}",
     "cta": "See for yourself",
@@ -411,6 +414,9 @@
     "title": "Order the IglooPro reader, test kits and epigenetic panels directly online",
     "cta": "Visit the practice shop",
     "cta_panels": "Visit the panel shop",
-    "note": "Practice shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online"
+    "note": "Practice shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online",
+    "promo_eyebrow": "New · Panel shop",
+    "promo_title": "Order epigenetic panels online now",
+    "promo_text": "Six analyses from capillary blood – available to order directly in the panel shop."
   }
 }

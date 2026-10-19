@@ -127,6 +127,28 @@ describe('PT13.1 common service-detail template', () => {
     expect(screen.queryByText(/placeholder|coming soon|dummy/i)).not.toBeInTheDocument()
   })
 
+  it('loads the rich-content stylesheet only with legacy rich content (SC-009)', () => {
+    const model = createModel()
+    const { container, unmount } = render(
+      <MemoryRouter>
+        <ServiceDetailSections
+          model={{ ...model, content: { ...model.content, legacyRichContent: '<h2>Alt</h2>' } }}
+        />
+      </MemoryRouter>,
+    )
+    // Vitest liefert fuer `?url`-CSS eine leere URL; den Pfad prueft der Produktionsbuild.
+    expect(container.querySelector('link[rel="stylesheet"]')).not.toBeNull()
+    expect(container.querySelector('.rich-content h2')).toHaveTextContent('Alt')
+    unmount()
+
+    const structured = render(
+      <MemoryRouter>
+        <ServiceDetailSections model={createModel()} />
+      </MemoryRouter>,
+    )
+    expect(structured.container.querySelector('link[rel="stylesheet"]')).toBeNull()
+  })
+
   it('emits FAQ schema only when the same visible FAQ model exists', () => {
     const withFaq = createServiceDetailStructuredData(createModel(), 'fr')
     const withoutFaq = createServiceDetailStructuredData(createModel(false), 'fr')

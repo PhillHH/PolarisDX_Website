@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "PRAKTIJKREFERENTIE",
+    "caption": "PRAKTIJKREFERENTIES",
     "title": "Een ervaring uit de dagelijkse praktijk met IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
       "focus": "Snelle gezondheidschecks ter plaatse (preventie, Vitamine D)",
       "text": "Het belang van het ter plaatse analyseren van vitamine D-spiegels en andere belangrijke gezondheidsindicatoren kan niet worden onderschat. Met de Igloo Pro kan ik een eenvoudige capillaire bloedtest uitvoeren om de behoeften van patiënten vast te stellen en hen vervolgens te adviseren welke aanvullende supplementen zij eventueel nodig hebben om de behandeling te optimaliseren. Deze mogelijkheid blijkt transformerend voor de behandelresultaten van patiënten.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Het belang van het ter plaatse analyseren van vitamine D-spiegels en andere belangrijke gezondheidsindicatoren kan niet worden onderschat."
     },
     "kristian_grimm": {
       "role": "Tandarts",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Preventie, Vitamine D, HbA1c, systemische gezondheid",
       "text": "32reasons & Polaris DX – tandheelkunde opnieuw bedacht. De chairside-reader stelt ons in staat biomarkers zoals Vitamine D en HbA1c direct ter plaatse te bepalen. Dit verbindt de tandheelkunde rechtstreeks met systemische gezondheid voor snelle, evidencebased therapiebeslissingen.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "De chairside-reader stelt ons in staat biomarkers zoals Vitamine D en HbA1c direct ter plaatse te bepalen."
     },
     "martin_fischer": {
       "role": "Internist",
@@ -222,7 +224,8 @@
       "title": "Biological Dentist / Principal Dentist & Owner",
       "focus": "Directe diagnostiek voor implantaatplanning (Vitamine D, CRP)",
       "text": "Als biologisch tandarts ben ik er diep van overtuigd dat holistische gezondheid altijd ook bij de tanden begint. De Igloo Pro stelt mij in staat snel en precies diagnostische beslissingen te nemen – precies daar waar ze nodig zijn: aan de behandelstoel. Dankzij de directe Vitamine D- en CRP-analyse kan ik implantaatplaatsingen optimaal plannen en vaak aanzienlijk versnellen. Zo krijgen mijn patiënten een veiligere en efficiëntere behandeling.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "De Igloo Pro stelt mij in staat snel en precies diagnostische beslissingen te nemen – precies daar waar ze nodig zijn: aan de behandelstoel."
     },
     "goTo": "Beoordeling {{n}} weergeven",
     "cta": "Overtuig uzelf nu",
@@ -411,6 +414,9 @@
     "title": "Bestel de IglooPro-reader, testkits en epigenetische panels direct online",
     "cta": "Naar de praktijkwinkel",
     "cta_panels": "Naar de Panel-shop",
-    "note": "Praktijkwinkel: bestelportaal voor professionals, prijzen netto exclusief btw · Panel-shop: epigenetische panels online bestellen. Beide winkels zijn beschikbaar in het Duits en Engels."
+    "note": "Praktijkwinkel: bestelportaal voor professionals, prijzen netto exclusief btw · Panel-shop: epigenetische panels online bestellen. Beide winkels zijn beschikbaar in het Duits en Engels.",
+    "promo_eyebrow": "Nieuw · Panel-shop",
+    "promo_title": "Bestel epigenetische panels nu online",
+    "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Panel-shop."
   }
 }

@@ -2,6 +2,8 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Check } from 'lucide-react'
 import Reveal, { REVEAL_STAGGER } from '../ui/Reveal'
+// SC-009: eigenes Stylesheet statt Inline-App-CSS auf jeder Seite (siehe Dateikopf).
+import richContentHref from '../../styles/rich-content.css?url'
 import type {
   ServiceDetailProof,
   ServiceDetailTextSection,
@@ -153,12 +155,17 @@ export function ServiceDetailSections({ model }: { model: ServiceDetailViewModel
   return (
     <div className="space-y-8" data-service-detail-sections>
       {content.legacyRichContent ? (
-        <Reveal width="100%">
+        // Altinhalt-Rueckfall (SC-009): keine der 90 Dienstseiten rendert ihn derzeit, alle
+        // haben strukturierte Inhalte. Das Stylesheet steht direkt davor (ohne `precedence`,
+        // routeJsGzip-Budget); der Browser zeichnet den folgenden Inhalt erst, wenn es geladen
+        // ist. Ohne Reveal aus demselben Grund.
+        <div>
+          <link rel="stylesheet" href={richContentHref} />
           <div
             className="rich-content"
             dangerouslySetInnerHTML={{ __html: content.legacyRichContent }}
           />
-        </Reveal>
+        </div>
       ) : (
         <>
           {namedSections.map((section) => (

@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-009 — Startseite: Panel-Shop zeitlich begrenzt hervorgehoben, drei Praxisstimmen zurück (Preview)
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner-Auftrag); Sichtprüfung auf der Preview steht aus
+- **Betroffene IDs:** HOMEPAGE-CONTRACT §2.3 (Proof), §4.1 (Shop-Band/Promo), §9 (neu `HCL-017`), PT11.2 (Proof-Fläche), PT25.5 (Budgets — gehalten, nicht gelockert), I18N (`home.shop_teaser.promo_*`, `home.testimonials.<id>.proof_text` × 3, `testimonials.caption` Plural, je × 10)
+- **Vorheriger Zustand:** Startseite: schmales Shop-Band mit zwei Pillen nach den Geschäftsbereichen (SC-007); Proof-Fläche mit genau einer Stimme (Wessing, `HCL-006`), die vier übrigen Datensätze bewusst nicht ausgegeben (PT11.2). Das App-Stylesheet stand auf jeder Seite inline und enthielt die `.rich-content`-Regeln der Dienstseiten-Altinhalte (747 B gzip je Seite); die Startseite lag mit 34 337 / 34 712 B `htmlBytes` (de) knapp unter dem Budget.
+- **Neuer Zustand:** (1) `PanelsPromoSection` direkt nach der TrustBar bis einschließlich 16.11.2026 (`PANELS_PROMO_LAST_DAY`, `isPanelsPromoActive`), Navy-Fläche „Neu · Panel-Shop — Epigenetik-Panels jetzt online bestellen", Aktionen „Zum Panel-Shop ↗" und „Zum Praxis-Shop"; ersetzt während der Aktion das Shop-Band, danach kehrt es von selbst zurück (SSR je Anfrage). Kein Slider in der Bühne (Vertrag: kein Autoplay/Karussell, Bühne bleibt LCP). (2) Proof: Wessing unverändert groß, darunter drei Karten Pollock, Grimm, Stojanovic mit echtem Porträt und je einem wörtlichen Satz aus dem lokalisierten Originalzitat (`HCL-017`); Abschnittsbezeichnung im Plural. `martin_fischer` bleibt verborgen (kein Porträt, keine Quelle, von einer früheren Assistenz-Sitzung angelegt). (3) Budget-Ausgleich: `.rich-content` nach `src/styles/rich-content.css` ausgelagert, `ServiceDetailSections` lädt es per `<link>` nur im Altinhalt-Zweig (derzeit rendert keine der 90 Dienstseiten diesen Zweig); Porträts unter `src/assets/Testimonials/` nicht mehr als Data-URI inline (`vite.config.ts`), das kostete +5,5 KB gzip HTML bzw. lag im Initial-JS.
+- **Begründung:** Owner-Aufträge 2026-10-19 im Wortlaut: „Teasere den panelsshop zeitlich limitiert auf der Startseite prominent, ggf im Hero wechsekn mit Slider." und „Rufe auch die alten Kundenstimmen wieder auf und aktiviere diese Auf der Startseite". Budget-Weg vom Owner gewählt: „Technisch einsparen".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung; Ausrollen nur auf die Preview, Produktion unverändert bis zum Owner-Go.
+- **Auswirkung auf Scope:** Zeitlich begrenzte Werbefläche ohne Preis-, Rabatt- oder Fristversprechen; drei zusätzliche namentliche Praxisstimmen ohne Bewertung/Sterne.
+- **Auswirkung auf Abhängigkeiten:** Keine neue Abhängigkeit.
+- **Auswirkung auf Gates:** Perf-Budget `check-budgets --profile ci` 852/852 auf frischem Build (Startseite de 33,5 KB / 33,9 KB, en 33,1 / 33,5, pl 33,8 / 34,2; Initial-CSS 16,6 KB gzip statt 17,3; Initial-JS 155,3 KB statt 159,4; Dienstseite `routeJsGzip` 9 167 / 9 185 B). Typecheck, ESLint (0 Fehler), Prettier (eigene Dateien), Guards grün; Vitest unit+component 641/641 (+1 Altinhalt-Stylesheet, +2 Promo, +1 Stichtag; Proof-Test auf vier Stimmen erweitert); E2E Startseite 72/72 (`e2e/home-*.spec.ts`, PT11.2 prüft vier Stimmen × 10 Sprachen); Axe-Gate PT24.6 25/25; visuelle Baselines PT27.6 21/21 unverändert. **Korrektur zu SC-008:** dessen Budget-Angabe „epigenetics-hub 70/70" lief gegen einen veralteten Build; nachgemessen auf frischem Build gehalten (Teil der 852).
+- **Aktualisierte kanonische Dokumente:** `building-docs/HOMEPAGE-CONTRACT.md` (§2.3, §4.1, §9 `HCL-017`), `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-008 — Panel-Shop auf der Epigenetik-Seite: dritte Aktion in der Bühne (Preview)
 
 - **Datum:** 2026-10-18

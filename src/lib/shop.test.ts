@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { PANELS_ORIGIN, SHOP_ORIGIN, panelsUrl, shopUrl } from './shop'
+import { PANELS_ORIGIN, SHOP_ORIGIN, isPanelsPromoActive, panelsUrl, shopUrl } from './shop'
 import { OUTBOUND_DOMAINS } from './tracking'
 
 describe('shopUrl', () => {
@@ -33,5 +33,13 @@ describe('panelsUrl (SC-007)', () => {
 
   it('zaehlt Panel-Shop-Klicks ueber die Outbound-Allowlist', () => {
     expect(OUTBOUND_DOMAINS).toContain(new URL(PANELS_ORIGIN).hostname)
+  })
+})
+
+describe('isPanelsPromoActive (SC-009)', () => {
+  it('laeuft bis einschliesslich 16.11.2026 (Berliner Zeit) und endet danach von selbst', () => {
+    expect(isPanelsPromoActive(new Date('2026-10-19T10:00:00+02:00'))).toBe(true)
+    expect(isPanelsPromoActive(new Date('2026-11-16T23:59:00+01:00'))).toBe(true)
+    expect(isPanelsPromoActive(new Date('2026-11-17T00:00:01+01:00'))).toBe(false)
   })
 })

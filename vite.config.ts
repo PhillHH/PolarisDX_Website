@@ -67,8 +67,12 @@ export default defineConfig(({ isSsrBuild }) => ({
     // nur, wer die Kachel sieht. Alle anderen Assets behalten das Standardverhalten.
     // 2026-10-16: dasselbe gilt fuer den Artikel-Render `article-hero-igloopro` (flache
     // Navy-Flaeche, alle Stufen 1–4 KB) — inline kostete er gemessen +11 KB gzip im Initial-JS.
+    // SC-009 (2026-10-19): ebenso die Praxis-Portraets (`Dr. Kristian Grimm.webp`, 3,8 KB) —
+    // als Data-URI im Startseiten-HTML kosteten sie gemessen +5,5 KB gzip `htmlBytes`.
     assetsInlineLimit: (filePath: string) =>
-      filePath.includes('/src/assets/home/') || filePath.includes('/src/assets/article-hero-')
+      filePath.includes('/src/assets/home/') ||
+      filePath.includes('/src/assets/article-hero-') ||
+      filePath.includes('/src/assets/Testimonials/')
         ? false
         : undefined,
 

@@ -4,6 +4,10 @@ import { testimonials } from '../../data/testimonials'
 import Eyebrow from '../ui/Eyebrow'
 
 const FEATURED_TESTIMONIAL_ID = 'bastian_wessing'
+/** SC-009 (Owner 2026-10-19): weitere Stimmen mit echtem Portraet, je ein woertlicher Satz
+ * aus dem lokalisierten Originalzitat (`proof_text`), Claim HCL-017. `martin_fischer` bleibt
+ * aussen vor: kein Portraet, keine Quelle. */
+const MORE_TESTIMONIAL_IDS = ['richard_pollock', 'kristian_grimm', 'goran_stojanovic']
 
 /**
  * One existing, named and previously productive practice reference.
@@ -14,6 +18,10 @@ const FEATURED_TESTIMONIAL_ID = 'bastian_wessing'
  * The selected quote is reduced to its existing training/support statement and
  * therefore makes no treatment-outcome or comparative performance claim.
  *
+ * SC-009 (Owner 2026-10-19, „alte Kundenstimmen wieder aktivieren"): three more named
+ * voices with real portraits follow as compact cards, each with one verbatim sentence of
+ * the localized original quote and no rating, carousel or link.
+ *
  * SC-006 (2026-10-16): the figure enters on scroll, the quotation mark leads
  * larger, the quote is balanced, the portrait sits on a paper-deep surface in
  * a 1:2 split (`sm:grid-cols-3`) — no bespoke grid templates any more.
@@ -21,6 +29,10 @@ const FEATURED_TESTIMONIAL_ID = 'bastian_wessing'
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
   const testimonial = testimonials.find(({ id }) => id === FEATURED_TESTIMONIAL_ID)
+
+  const more = MORE_TESTIMONIAL_IDS.map((id) => testimonials.find((item) => item.id === id)).filter(
+    (item) => item !== undefined,
+  )
 
   if (!testimonial) return null
 
@@ -71,6 +83,46 @@ const TestimonialsSection = () => {
             </figcaption>
           </div>
         </figure>
+
+        {more.length > 0 && (
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {more.map((item) => {
+              const itemPractice = t(`testimonials.${item.id}.practice`, '')
+              return (
+                <figure
+                  key={item.id}
+                  data-testimonial-id={item.id}
+                  data-claim-id="HCL-017"
+                  className="rv flex flex-col rounded-card border border-paper-line bg-white p-6 shadow-card"
+                >
+                  <blockquote className="flex-1 font-medium text-heading">
+                    <p>„{t(`testimonials.${item.id}.proof_text`)}“</p>
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-4 border-t border-paper-line pt-5">
+                    {item.avatar && (
+                      <img
+                        src={item.avatar}
+                        alt=""
+                        width={56}
+                        height={56}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-14 w-14 rounded-full bg-paper-deep object-cover"
+                      />
+                    )}
+                    <span>
+                      <span className="block font-semibold text-heading">{item.name}</span>
+                      <span className="mt-0.5 block text-sm text-gray-600">
+                        {t(`testimonials.${item.id}.role`)}
+                        {itemPractice && ` · ${itemPractice}`}
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              )
+            })}
+          </div>
+        )}
       </div>
     </section>
   )

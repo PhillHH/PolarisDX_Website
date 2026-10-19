@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "KLINIKREFERENCE",
+    "caption": "KLINIKREFERENCER",
     "title": "En erfaring fra hverdagen med IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
       "focus": "Hurtige helbredstjek på stedet (Forebyggelse, Vitamin D)",
       "text": "Betydningen af at udføre analyser af D-vitaminniveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes. Med Igloo Pro kan jeg foretage en simpel kapillær blodprøve for at fastslå patienternes behov og derefter vejlede dem om, hvilke supplerende kosttilskud de eventuelt har brug for for at optimere behandlingen. Denne mulighed viser sig at være transformerende for patientresultaterne.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Betydningen af at udføre analyser af D-vitaminniveauer og andre vigtige sundhedsindikatorer på stedet kan ikke undervurderes."
     },
     "kristian_grimm": {
       "role": "Tandlæge",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Forebyggelse, Vitamin D, HbA1c, systemisk sundhed",
       "text": "32reasons & Polaris DX – tandpleje gentænkt. Chairside-readeren giver os mulighed for at bestemme biomarkører som Vitamin D og HbA1c direkte på stedet. Det kobler tandplejen direkte sammen med systemisk sundhed for hurtige, evidensbaserede behandlingsbeslutninger.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "Chairside-readeren giver os mulighed for at bestemme biomarkører som Vitamin D og HbA1c direkte på stedet."
     },
     "martin_fischer": {
       "role": "Speciallæge i intern medicin",
@@ -222,7 +224,8 @@
       "title": "Biologisk tandlæge / Ledende tandlæge og ejer",
       "focus": "Øjeblikkelig diagnostik til implantatplanlægning (Vitamin D, CRP)",
       "text": "Som biologisk tandlæge er jeg dybt overbevist om, at helhedsorienteret sundhed altid også begynder ved tænderne. Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen. Med den øjeblikkelige Vitamin D- og CRP-analyse kan jeg planlægge implantatindsættelser optimalt og ofte fremskynde dem betydeligt. Sådan får mine patienter en sikrere og mere effektiv behandling.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen."
     },
     "goTo": "Vis anmeldelse {{n}}",
     "cta": "Bliv selv overbevist",
@@ -411,6 +414,9 @@
     "title": "Bestil IglooPro-læseren, testkits og epigenetiske paneler direkte online",
     "cta": "Gå til praksisshoppen",
     "cta_panels": "Gå til Panel-shoppen",
-    "note": "Praksisshop: bestillingsportal for fagfolk, priser netto ekskl. moms · Panel-shop: epigenetiske paneler, der kan bestilles online. Begge shops findes på tysk og engelsk."
+    "note": "Praksisshop: bestillingsportal for fagfolk, priser netto ekskl. moms · Panel-shop: epigenetiske paneler, der kan bestilles online. Begge shops findes på tysk og engelsk.",
+    "promo_eyebrow": "Nyhed · Panel-shop",
+    "promo_title": "Bestil epigenetiske paneler online nu",
+    "promo_text": "Seks analyser fra kapillærblod – kan bestilles direkte i Panel-shoppen."
   }
 }

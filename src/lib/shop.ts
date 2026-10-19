@@ -33,3 +33,17 @@ export function shopUrl(language: string | undefined, path = ''): string {
 export function panelsUrl(language: string | undefined, path = ''): string {
   return externalShopUrl(PANELS_ORIGIN, language, path)
 }
+
+/**
+ * SC-009 (Owner 2026-10-19): Der Panel-Shop wird auf der Startseite zeitlich
+ * begrenzt prominent beworben. Letzter Tag ist PANELS_PROMO_LAST_DAY (Berliner
+ * Zeit); danach rendert die Flaeche nichts mehr und das Shop-Band bleibt der
+ * einzige Startseiten-Hinweis. Die Seite wird je Anfrage serverseitig
+ * gerendert, das Ende greift also ohne neuen Build.
+ */
+export const PANELS_PROMO_LAST_DAY = '2026-11-16'
+const PANELS_PROMO_END = new Date(`${PANELS_PROMO_LAST_DAY}T23:59:59+01:00`)
+
+export function isPanelsPromoActive(now: Date = new Date()): boolean {
+  return now.getTime() <= PANELS_PROMO_END.getTime()
+}

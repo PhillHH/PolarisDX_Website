@@ -19,7 +19,7 @@ type HomeResource = {
       practice: string
       proof_text: string
     }
-  }
+  } & Record<string, { role: string; proof_text: string }>
 }
 
 const resources = Object.fromEntries(
@@ -65,7 +65,17 @@ for (const locale of SUPPORTED_LANGUAGES) {
     await expect(reference).toContainText('Dr. Bastian Wessing')
     await expect(reference).toContainText(resources[locale].testimonials.bastian_wessing.role)
     await expect(reference).toContainText(resources[locale].testimonials.bastian_wessing.practice)
-    await expect(proof.locator('figure')).toHaveCount(1)
+    // SC-009: drei weitere Stimmen mit echtem Portraet, je ein woertlicher Satz (HCL-017).
+    await expect(proof.locator('figure')).toHaveCount(4)
+    for (const id of ['richard_pollock', 'kristian_grimm', 'goran_stojanovic']) {
+      const voice = proof.locator(`[data-testimonial-id="${id}"]`)
+      await expect(voice).toHaveAttribute('data-claim-id', 'HCL-017')
+      await expect(voice.getByRole('blockquote')).toHaveText(
+        `„${resources[locale].testimonials[id].proof_text}“`,
+      )
+      await expect(voice).toContainText(resources[locale].testimonials[id].role)
+    }
+    await expect(proof.locator('[data-testimonial-id="martin_fischer"]')).toHaveCount(0)
     await expect(proof.getByRole('button')).toHaveCount(0)
     await expect(proof.getByRole('link')).toHaveCount(0)
     await expect(proof.locator('[aria-roledescription="carousel"]')).toHaveCount(0)
@@ -82,8 +92,8 @@ test('PT11.2 mobile Trust and Proof remains semantic and overflow-free', async (
   await expect(trustbar).toBeVisible()
   await expect(proof).toBeVisible()
   await expect(trustbar.getByRole('list')).toBeVisible()
-  await expect(proof.locator('figure')).toBeVisible()
-  await expect(proof.getByRole('blockquote')).toBeVisible()
+  await expect(proof.locator('figure')).toHaveCount(4)
+  await expect(proof.getByRole('blockquote').first()).toBeVisible()
   await expect(proof.getByRole('button')).toHaveCount(0)
   await expect(proof.getByRole('link')).toHaveCount(0)
 

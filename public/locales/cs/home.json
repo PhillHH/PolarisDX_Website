@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "REFERENCE Z ORDINACE",
+    "caption": "REFERENCE Z ORDINACÍ",
     "title": "Zkušenost z každodenní praxe s IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologický zubní lékař a implantolog / Chelsea Dental Clinic",
       "focus": "Rychlé zdravotní kontroly na místě (prevence, Vitamin D)",
       "text": "Možnost provádět analýzu hladiny vitaminu D a dalších klíčových zdravotních ukazatelů přímo na místě nelze podceňovat. Igloo Pro mi umožňuje provést jednoduchý odběr kapilární krve, zjistit potřeby pacientů a následně je nasměrovat k tomu, které doplňky stravy mohou potřebovat pro optimalizaci léčby. Tato schopnost se ukazuje jako přelomová z hlediska výsledků léčby pacientů.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Možnost provádět analýzu hladiny vitaminu D a dalších klíčových zdravotních ukazatelů přímo na místě nelze podceňovat."
     },
     "kristian_grimm": {
       "role": "Zubní lékař",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prevence, Vitamin D, HbA1c, systémové zdraví",
       "text": "32reasons & Polaris DX – stomatologie v novém pojetí. Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamin D a HbA1c přímo na místě. To propojuje stomatologii bezprostředně se systémovým zdravím pro rychlá, na důkazech založená terapeutická rozhodnutí.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "Chairside čtečka nám umožňuje stanovit biomarkery jako Vitamin D a HbA1c přímo na místě."
     },
     "martin_fischer": {
       "role": "Specialista vnitřního lékařství",
@@ -222,7 +224,8 @@
       "title": "Biologický zubní lékař / vedoucí zubní lékař a majitel",
       "focus": "Okamžitá diagnostika pro plánování implantátů (Vitamin D, CRP)",
       "text": "Jako biologický zubní lékař jsem hluboce přesvědčen, že celostní zdraví vždy začíná i u zubů. Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla. Díky okamžité analýze vitaminu D a CRP dokážu optimálně naplánovat zavedení implantátů a často je výrazně urychlit. Moji pacienti tak dostávají bezpečnější a efektivnější léčbu.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla."
     },
     "goTo": "Zobrazit hodnocení {{n}}",
     "cta": "Přesvědčte se sami",
@@ -411,6 +414,9 @@
     "title": "Objednejte čtečku IglooPro, testovací sady a epigenetické panely přímo online",
     "cta": "Přejít do e-shopu pro ordinace",
     "cta_panels": "Přejít do e-shopu Panels",
-    "note": "E-shop pro ordinace: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině."
+    "note": "E-shop pro ordinace: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině.",
+    "promo_eyebrow": "Novinka · E-shop Panels",
+    "promo_title": "Objednejte si epigenetické panely online",
+    "promo_text": "Šest analýz z kapilární krve – k objednání přímo v e-shopu Panels."
   }
 }

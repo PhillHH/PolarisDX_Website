@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "RÉFÉRENCE CABINET",
+    "caption": "RÉFÉRENCES CABINETS",
     "title": "Une expérience du quotidien avec IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Dentiste biologique et chirurgien implantologue / Chelsea Dental Clinic",
       "focus": "Bilans de santé rapides sur site (Prévention, Vitamin D)",
       "text": "Réaliser sur place l'analyse des taux de vitamine D et d'autres indicateurs de santé clés est d'une importance qu'on ne saurait sous-estimer. L'Igloo Pro me permet d'effectuer un simple test sanguin capillaire, de déterminer les besoins des patients, puis de les orienter vers les compléments supplémentaires dont ils pourraient avoir besoin pour optimiser leur traitement. Cette capacité s'avère véritablement transformatrice pour les résultats obtenus chez les patients.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Réaliser sur place l'analyse des taux de vitamine D et d'autres indicateurs de santé clés est d'une importance qu'on ne saurait sous-estimer."
     },
     "kristian_grimm": {
       "role": "Chirurgien-dentiste",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Prévention, Vitamin D, HbA1c, Santé systémique",
       "text": "32reasons & Polaris DX – la médecine dentaire repensée. Le lecteur chairside nous permet de déterminer des biomarqueurs comme la Vitamin D et l'HbA1c directement sur place. Cela relie immédiatement la médecine dentaire à la santé systémique pour des décisions thérapeutiques rapides et fondées sur les preuves.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "Le lecteur chairside nous permet de déterminer des biomarqueurs comme la Vitamin D et l'HbA1c directement sur place."
     },
     "martin_fischer": {
       "role": "Spécialiste en médecine interne",
@@ -222,7 +224,8 @@
       "title": "Dentiste biologique / Dentiste principal et propriétaire",
       "focus": "Diagnostic immédiat pour la planification implantaire (Vitamin D, CRP)",
       "text": "En tant que dentiste biologique, je suis profondément convaincu qu'une santé globale commence toujours aussi par les dents. L'Igloo Pro me permet de prendre des décisions diagnostiques rapides et précises – exactement là où elles sont nécessaires : au fauteuil. Grâce à l'analyse immédiate de la Vitamin D et de la CRP, je peux planifier les poses d'implants de façon optimale et souvent les accélérer nettement. Mes patientes et patients bénéficient ainsi d'un traitement plus sûr et plus efficace.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "L'Igloo Pro me permet de prendre des décisions diagnostiques rapides et précises – exactement là où elles sont nécessaires : au fauteuil."
     },
     "goTo": "Afficher l'avis {{n}}",
     "cta": "Convainquez-vous par vous-même",
@@ -411,6 +414,9 @@
     "title": "Commandez le lecteur IglooPro, les kits de test et les panels épigénétiques directement en ligne",
     "cta": "Vers la boutique pro",
     "cta_panels": "Vers la boutique Panels",
-    "note": "Boutique pro : portail de commande professionnel, prix nets hors TVA légale · Boutique Panels : panels épigénétiques à commander en ligne. Boutiques disponibles en allemand et en anglais."
+    "note": "Boutique pro : portail de commande professionnel, prix nets hors TVA légale · Boutique Panels : panels épigénétiques à commander en ligne. Boutiques disponibles en allemand et en anglais.",
+    "promo_eyebrow": "Nouveau · Boutique Panels",
+    "promo_title": "Commandez dès maintenant les panels épigénétiques en ligne",
+    "promo_text": "Six analyses à partir de sang capillaire – à commander directement dans la boutique Panels."
   }
 }

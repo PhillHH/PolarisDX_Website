@@ -186,21 +186,23 @@
     }
   },
   "testimonials": {
-    "caption": "REFERENCJA Z GABINETU",
+    "caption": "REFERENCJE Z GABINETÓW",
     "title": "Doświadczenie z codziennej pracy z IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Stomatolog biologiczny i chirurg implantolog / Chelsea Dental Clinic",
       "focus": "Szybkie badania zdrowotne na miejscu (profilaktyka, Vitamin D)",
       "text": "Nie sposób przecenić możliwości wykonywania na miejscu analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych. Igloo Pro pozwala mi przeprowadzić proste badanie krwi włośniczkowej, aby ustalić potrzeby pacjentów, a następnie doradzić im, jakich dodatkowych suplementów mogą potrzebować, by zoptymalizować leczenie. Ta możliwość okazuje się przełomowa pod względem wyników leczenia pacjentów.",
-      "practice": "Chelsea Dental Clinic"
+      "practice": "Chelsea Dental Clinic",
+      "proof_text": "Nie sposób przecenić możliwości wykonywania na miejscu analizy poziomu witaminy D i innych kluczowych wskaźników zdrowotnych."
     },
     "kristian_grimm": {
       "role": "Stomatolog",
       "title": "32reasons Zahnteam / Hamburg",
       "focus": "Profilaktyka, Vitamin D, HbA1c, zdrowie systemowe",
       "text": "32reasons & Polaris DX – stomatologia na nowo. Czytnik chairside umożliwia nam oznaczanie biomarkerów takich jak Vitamin D i HbA1c bezpośrednio na miejscu. To bezpośrednio łączy stomatologię ze zdrowiem systemowym, umożliwiając szybkie, oparte na dowodach decyzje terapeutyczne.",
-      "practice": "32reasons Zahnteam, Hamburg"
+      "practice": "32reasons Zahnteam, Hamburg",
+      "proof_text": "Czytnik chairside umożliwia nam oznaczanie biomarkerów takich jak Vitamin D i HbA1c bezpośrednio na miejscu."
     },
     "martin_fischer": {
       "role": "Specjalista chorób wewnętrznych",
@@ -222,7 +224,8 @@
       "title": "Stomatolog biologiczny / Główny stomatolog i właściciel",
       "focus": "Natychmiastowa diagnostyka do planowania implantów (Vitamin D, CRP)",
       "text": "Jako stomatolog biologiczny jestem głęboko przekonany, że zdrowie holistyczne zawsze zaczyna się także od zębów. Igloo Pro pozwala mi podejmować szybkie i precyzyjne decyzje diagnostyczne dokładnie tam, gdzie są potrzebne: przy fotelu. Dzięki natychmiastowej analizie Vitamin D i CRP mogę optymalnie planować wszczepianie implantów i często znacznie je przyspieszyć. Dzięki temu moje pacjentki i moi pacjenci otrzymują bezpieczniejsze i bardziej efektywne leczenie.",
-      "practice": ""
+      "practice": "",
+      "proof_text": "Igloo Pro pozwala mi podejmować szybkie i precyzyjne decyzje diagnostyczne dokładnie tam, gdzie są potrzebne: przy fotelu."
     },
     "goTo": "Pokaż opinię {{n}}",
     "cta": "Przekonaj się sam",
@@ -411,6 +414,9 @@
     "title": "Zamów czytnik IglooPro, zestawy testowe i panele epigenetyczne bezpośrednio online",
     "cta": "Przejdź do sklepu dla gabinetów",
     "cta_panels": "Przejdź do sklepu Panels",
-    "note": "Sklep dla gabinetów: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku."
+    "note": "Sklep dla gabinetów: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku.",
+    "promo_eyebrow": "Nowość · Sklep Panels",
+    "promo_title": "Zamów panele epigenetyczne online",
+    "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie Panels."
   }
 }
