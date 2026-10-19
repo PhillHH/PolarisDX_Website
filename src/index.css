@@ -233,26 +233,75 @@
     @apply flex flex-col items-start gap-2.5 border-paper-line px-4 py-4 [&:nth-child(-n+2)]:border-b [&:nth-child(odd)]:border-r sm:flex-row sm:items-center sm:gap-3.5 sm:px-5 sm:py-5 lg:border-b-0 lg:border-r lg:[&:nth-child(-n+2)]:border-b-0 lg:last:border-r-0;
   }
 
-  /* SC-013: Kopfzeile einzeilig in allen zehn Sprachen. Die volle Leiste erscheint erst ab `xl`
-     (1280 px, Container 1200 px); darunter passte sie gemessen in KEINER Sprache (+240 bis +346 px).
-     Bei 1200 px fehlten fr/es/nl 26-58 px, it hatte 2 px Luft: dort 14 statt 15 px und engere
-     Abstaende (gemessen, mind. 14 px Luft). */
+  /* SC-013/SC-015: Kopfzeile einzeilig in allen zehn Sprachen, volle Leiste ab `xl` (1280 px,
+     Container 1200 px; darunter passte sie in keiner Sprache). Die laengeren Sprachen setzen nur
+     Variablen — gemessen >= 18 px Luft in allen zehn, oben und gescrollt. */
+  :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl), :lang(pt)) {
+    --nav-fs: 14px;
+    --nav-gap: 0.5rem;
+    --tools-gap: 0.375rem;
+    --tile-fs: 12.5px;
+    --cta-fs: 13px;
+  }
+
   .site-nav {
-    font-size: 15px;
-    gap: 1rem;
+    font-size: var(--nav-fs, 15px);
+    gap: var(--nav-gap, 0.75rem);
   }
 
   .site-tools {
-    gap: 1rem;
+    gap: var(--tools-gap, 0.5rem);
   }
 
-  :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl)) .site-nav {
-    font-size: 14px;
-    gap: 0.625rem;
+  /* Button wie in der Buehne: weisse Pille mit Pfeil-Kreis, dazu ein heller Lichtrand. */
+  .site-tools [data-cta-role] {
+    font-size: var(--cta-fs, 14px);
+    padding: 0.25rem 0.25rem 0.25rem 1.125rem;
+    box-shadow:
+      0 24px 60px rgb(8 51 88 / 0.12),
+      0 0 0 4px #ffffff1a;
   }
 
-  :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl)) .site-tools {
-    gap: 0.75rem;
+  /* Entwurf B (Owner 2026-10-19): Rangfolge statt Weglassen — Blog, Termine, Ueber uns, Support
+     leiser und kleiner, mit Trenner vor dem ersten. */
+  .site-nav [data-nav-tier] a {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  .site-nav :not([data-nav-tier]) + [data-nav-tier] {
+    padding-left: 0.875rem;
+    background: linear-gradient(#ffffff33, #ffffff33) left center / 1px 22px no-repeat;
+  }
+
+  /* Die zwei Online-Shops als getrennte Kacheln: Praxis-Shop neutral, Panel-Shop im Signet-Cyan. */
+  .shop-tile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.75rem;
+    font-size: var(--tile-fs, 13.5px);
+    font-weight: 600;
+    line-height: 1.15;
+    white-space: nowrap;
+    color: #fff;
+    background: #ffffff14;
+    box-shadow: inset 0 0 0 1px #ffffff26;
+  }
+
+  /* Volle Deckkraft: mit 75 % fiel die Panels-Unterzeile gescrollt auf 3,74:1 (axe, PT24.6). */
+  .shop-tile small {
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .shop-tile + .shop-tile {
+    color: theme('colors.accent.on-dark');
+    background: #8fd8fb1a;
+    box-shadow: inset 0 0 0 1px #8fd8fb66;
   }
 
   /* SC-013: Buehnentitel immer drei Zeilen (ein Satz je Zeile). Die Groesse folgt der Spaltenbreite
@@ -379,86 +428,7 @@
   overflow-wrap: break-word;
 }
 
-/* ---------------------------------------------------------------------------
- * Vergleichstabellen mit eigenem Scroll-Container (ArticlePage,
- * S3LeitliniePage). Gemessen auf preview bei 375px Viewport:
- * /de/articles/die-5-minuten-diagnose 560px Tabelle in 343px Container
- * (217px verdeckt), /de/s3_leitlinie 468px in 341px (127px verdeckt) —
- * abgeschnitten war jeweils die dritte Spalte mit dem Verkaufsargument, und
- * zwar ohne jede Andeutung (background-image: none). Bei 1440px scrollt
- * nichts (Overflow 0), dort darf sich also auch nichts zeigen.
- *
- * Technik wie bei .rich-content table (dort in einer frueheren Welle
- * nachgemessen): zwei Deck-Layer haengen am Inhalt (background-attachment:
- * local), zwei Schatten an der Box (scroll). Am jeweiligen Ende schiebt sich
- * das Deck ueber den Schatten — sichtbar ist der Schatten also genau dann,
- * wenn in dieser Richtung noch Inhalt folgt (rechts: scrollLeft +
- * clientWidth < scrollWidth). Das braucht kein JS und kann nicht veralten.
- * Die Deckfarbe ist zugleich der Containerhintergrund und kann daher nie
- * gegen die Flaeche verrutschen; --table-scroll-surface waehlt sie pro
- * Einsatzort (weiss im Artikel, slate-50 auf der Leitlinien-Seite — beides
- * exakt die Farbe, die dort heute schon durchscheint).
- *
- * Die Hinweiszeile ist die dauerhaft sichtbare duenne Scrollleiste am
- * unteren Rand (padding-bottom haelt sie von der letzten Zeile frei). Sie
- * existiert nur, solange der Container ueberhaupt scrollt, und verschwindet
- * auf dem Desktop von selbst. Farben: nur slate-900-Neutraltoene.
- *
- * Steht bewusst ausserhalb von @layer und am Dateiende, damit die Regel nach
- * den Tailwind-Utilities greift. Die Regeln der frueheren Welle bleiben
- * unberuehrt: .article-col/.rich-content max-width 61ch und der
- * Tabellen-Overflow von .rich-content table stehen weiter oben und werden
- * hier weder ueberschrieben noch angefasst.
- * ------------------------------------------------------------------------- */
-.table-scroll {
-  --table-scroll-surface: #ffffff;
-  --table-scroll-surface-fade: rgba(255, 255, 255, 0);
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  padding-bottom: 0.625rem;
-  background-color: var(--table-scroll-surface);
-  background-image:
-    linear-gradient(to right, var(--table-scroll-surface) 45%, var(--table-scroll-surface-fade)),
-    linear-gradient(to left, var(--table-scroll-surface) 45%, var(--table-scroll-surface-fade)),
-    linear-gradient(to right, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0)),
-    linear-gradient(to left, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0));
-  background-position:
-    left center,
-    right center,
-    left center,
-    right center;
-  background-repeat: no-repeat;
-  background-size:
-    32px 100%,
-    32px 100%,
-    22px 100%,
-    22px 100%;
-  background-attachment: local, local, scroll, scroll;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(15, 23, 42, 0.28) rgba(15, 23, 42, 0.08);
-}
-
-/* Flaeche der Leitlinien-Seite (slate-50) statt Weiss. */
-.table-scroll-slate {
-  --table-scroll-surface: #f8fafc;
-  --table-scroll-surface-fade: rgba(248, 250, 252, 0);
-}
-
-.table-scroll::-webkit-scrollbar {
-  height: 8px;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.table-scroll::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.08);
-  border-radius: 4px;
-}
-
-.table-scroll::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.28);
-  border-radius: 4px;
-}
+/* `.table-scroll` (Tabellen-Rand-Fade) liegt seit SC-015 in src/styles/table-scroll.css. */
 
 /* ---------------------------------------------------------------------------
  * Editorial Motion (SC-006, 2026-10-16) — die gemeinsamen Bewegungs- und
@@ -471,7 +441,7 @@
  *                 nie zusammen mit .brand-ring (beide nutzen ::before)
  *   .spot         Lichtpunkt unter dem Zeiger auf Karten (--mx/--my setzt src/lib/spotlight.ts)
  *   .rv           Eintritt beim Hineinscrollen (Position, keine Deckkraft); .rv-rail zeichnet eine Linie
- *                 (.rv-rail-y vertikal)
+ *                 (die vertikale Variante .rv-rail-y war ungenutzt und ist seit SC-015 entfernt)
  *   .rail-x       mobil eine Schnapp-Reihe statt Stapel (Karten 84 %, die naechste lugt hervor)
  *   .enter        gestaffelter Eintritt (Buehnentexte, Kennzahlen); .faq-panel klappt weich auf
  *   .float-slow / .hero-pulse-ring  ruhige Dauerbewegung fuer Dekor (nie auf Elementen, die
@@ -518,9 +488,6 @@
 }
 .rv-rail {
   transform-origin: 0 0;
-}
-.rv-rail-y {
-  --d: 1 0;
 }
 @media (max-width: 767px) {
   .rail-x {

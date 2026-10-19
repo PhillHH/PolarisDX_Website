@@ -34,7 +34,9 @@
     "group_analysis": "Domaines d’analyse",
     "group_system": "Système & intégration",
     "diagnostics_all": "Tous les services de diagnostic",
-    "group_crosslink": "Également pertinent"
+    "group_crosslink": "Également pertinent",
+    "shop_sub": "Cabinet",
+    "panels_sub": "Épigénétique"
   },
   "badge": {
     "New": "Nouveau",

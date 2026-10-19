@@ -34,7 +34,9 @@
     "group_analysis": "Analysegebieden",
     "group_system": "Systeem & integratie",
     "diagnostics_all": "Alle diagnostiekdiensten",
-    "group_crosslink": "Ook relevant"
+    "group_crosslink": "Ook relevant",
+    "shop_sub": "Praktijk",
+    "panels_sub": "Epigenetica"
   },
   "badge": {
     "New": "Nieuw",

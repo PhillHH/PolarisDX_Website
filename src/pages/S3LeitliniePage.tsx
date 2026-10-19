@@ -21,6 +21,8 @@ import Reveal from '../components/ui/Reveal'
 import Eyebrow from '../components/ui/Eyebrow'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
+// SC-015: Tabellen-Stylesheet nur hier statt inline auf jeder Seite.
+import tableScrollHref from '../styles/table-scroll.css?url'
 
 const S3LeitliniePage = () => {
   const { t, i18n } = useTranslation('specialty')
@@ -253,6 +255,7 @@ const S3LeitliniePage = () => {
                       375px waren 127px der dritten Spalte verdeckt, ohne jede
                       Andeutung. -slate setzt die Deckfarbe auf die Flaeche
                       dieser Seite (slate-50). Siehe src/index.css. */}
+                  <link rel="stylesheet" href={tableScrollHref} />
                   <div className="table-scroll table-scroll-slate my-8 rounded-lg border border-gray-200">
                     {/* AP24 PT24.1: sr-only-Caption benennt die Tabelle im
                         Accessibility-Tree (bisher stand sie namenlos im

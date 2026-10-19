@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ChevronDown, Search } from 'lucide-react'
+import { ArrowRight, ChevronDown, Droplet, Search, ShoppingBag } from 'lucide-react'
 import { Button } from '../ui/Button'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 import SearchModal from '../ui/SearchModal'
@@ -134,6 +134,9 @@ const navItems: NavItem[] = [
  * Der Ring ist weiss mit navy Offset, weil der Header sowohl transparent
  * ueber dem Navy-Hero als auch als Navy-Flaeche auftritt.
  */
+/** SC-015: leise Eintraege der Desktop-Leiste (Service und Unternehmen). */
+const SECONDARY_NAV = new Set(['blog', 'events', 'about', 'support'])
+
 const NAV_LINK =
   'flex min-h-[44px] items-center gap-1 rounded-sm text-white transition-all duration-300 ' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
@@ -333,7 +336,7 @@ const Header = () => {
               // AP34: `low` haelt React davon ab, fuer das 4,8-KB-Logo einen eigenen
               // Preload in den <head> zu schreiben — der Platz gehoert dem LCP-Foto.
               fetchPriority="low"
-              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12'}`}
+              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12 xl:h-10'}`}
             />
           </Link>
 
@@ -346,9 +349,13 @@ const Header = () => {
               const active = isItemActive(item, location.pathname)
               const exact = isExactPage(item.route, location.pathname)
               const expanded = openSubmenu === item.label
+              // SC-015 (Entwurf B): die drei Bereiche laut, Service- und Unternehmensseiten
+              // leiser; vor dem ersten leisen Eintrag steht ein Trenner (rein dekorativ).
+              const secondary = SECONDARY_NAV.has(item.label)
               return (
                 <div
                   key={item.label}
+                  data-nav-tier={secondary ? '' : undefined}
                   // Stabile Marke statt `.closest('.relative')`: der
                   // Fokus-Waechter unten muss den Menuepunkt sicher finden,
                   // und `relative` ist eine Gestaltungsklasse, die jederzeit
@@ -497,34 +504,46 @@ const Header = () => {
                 </div>
               )
             })}
-            {/* Die beiden Online-Shops: Praxis-Shop (O1, main@e66a562) und
-                Panel-Shop (SC-007, Owner 2026-10-17). Fremde Domains, daher <a>
-                statt <Link> und ausserhalb von navItems (keine Route, kein
-                Untermenue). Das Label „Neu" steht nur im mobilen Menue: mit ihm
-                passen die Eintraege bei 1280 px nicht mehr in eine Zeile. Neun
-                Eintraege brauchen den xl-Abstand 4 (gemessen 2026-10-17, Kopfzeile
-                ungescrollt, Logo h-12): de/en/it/pt/pl/cs/da bleiben ab 1280 px
-                einzeilig; nl, fr und es brechen oben um und werden im kompakten
-                Scrollzustand einzeilig (fr/es schon vor den Shop-Eintraegen, P2). */}
-            <a href={shopUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
-              <span className={underline(false)}>{t('nav.shop')}</span>
-            </a>
-            <a href={panelsUrl(i18n.language)} className={`${NAV_LINK} hover:opacity-70`}>
-              <span className={underline(false)}>{t('nav.panels')}</span>
-            </a>
           </nav>
 
           <div className="site-tools hidden items-center xl:flex">
+            {/* Die beiden Online-Shops: Praxis-Shop (O1, main@e66a562) und Panel-Shop (SC-007).
+                SC-015 (Owner 2026-10-19, Entwurf B): als zwei getrennte Kacheln mit Symbol und
+                Unterzeile, damit sie sich voneinander und vom Seitenmenue abheben. Fremde
+                Domains, daher <a>; Klickzaehlung ueber OUTBOUND_DOMAINS. */}
+            <a
+              href={shopUrl(i18n.language)}
+              data-shop="practice"
+              className="shop-tile focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+            >
+              <ShoppingBag className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="flex flex-col">
+                <small>{t('nav.shop_sub')}</small>
+                {t('nav.shop')}
+              </span>
+            </a>
+            <a
+              href={panelsUrl(i18n.language)}
+              data-shop="panels"
+              className="shop-tile focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+            >
+              <Droplet className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="flex flex-col">
+                <small>{t('nav.panels_sub')}</small>
+                {t('nav.panels')}
+              </span>
+            </a>
+
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
-              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white transition-all duration-300 hover:bg-white/10 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
+              className={`flex h-11 w-11 items-center justify-center rounded-full text-white transition-all duration-300 hover:bg-white/10 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
               aria-label={t('a11y.search', 'Suche öffnen')}
             >
               <Search className="h-4 w-4" />
             </button>
 
-            <LanguageSwitcher className="text-white" />
+            <LanguageSwitcher className="text-white" compact />
 
             {/* GENERAL_SALES — der eine allgemeine Anfrageweg (DEC-RL-013).
                 Vorher stand hier `nav.contact` ("Kontakt"): eine
@@ -538,9 +557,15 @@ const Header = () => {
                 data-cta-role="GENERAL_SALES"
                 variant="light"
                 size="sm"
-                className="whitespace-nowrap shadow-card"
+                className="group whitespace-nowrap shadow-card"
               >
                 {t('nav.cta_quote')}
+                <span
+                  aria-hidden="true"
+                  className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white transition group-hover:translate-x-1"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </Button>
             </div>
           </div>

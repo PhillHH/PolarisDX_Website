@@ -54,17 +54,25 @@ test.describe('AP20-CLOSURE — keyboard (C20-45)', () => {
     // Nachweis per Click-Listener am versteckten File-Input (Enter → ref.click()).
     const uploadButton = form.getByRole('button', { name: /Datei|Anhang|Durchsuchen|Upload/i })
     await uploadButton.focus()
-    const inputClicked = page.evaluate(
-      () =>
-        new Promise<boolean>((resolve) => {
-          const input = document.querySelector('form input#attachment')
-          if (!input) return resolve(false)
-          input.addEventListener('click', () => resolve(true), { once: true })
-          setTimeout(() => resolve(false), 3_000)
-        }),
-    )
+    // Erst den Beobachter sicher anhaengen, DANN druecken: vorher lief beides parallel, und kam der
+    // Tastendruck vor dem Listener an, schlug der Test fehl, obwohl der Dialog aufging (SC-015).
+    const attached = await page.evaluate(() => {
+      const input = document.querySelector('form input#attachment')
+      if (!input) return false
+      const w = window as typeof window & { __attachmentClicked?: boolean }
+      w.__attachmentClicked = false
+      input.addEventListener('click', () => (w.__attachmentClicked = true), { once: true })
+      return true
+    })
+    expect(attached).toBe(true)
     await page.keyboard.press('Space')
-    expect(await inputClicked).toBe(true)
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => (window as typeof window & { __attachmentClicked?: boolean }).__attachmentClicked,
+        ),
+      )
+      .toBe(true)
   })
 
   test('Legal Longform: TOC-Anker per Tastatur erreichbar und sprungfaehig', async ({ page }) => {

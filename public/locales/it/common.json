@@ -34,7 +34,9 @@
     "group_analysis": "Aree di analisi",
     "group_system": "Sistema e integrazione",
     "diagnostics_all": "Tutti i servizi diagnostici",
-    "group_crosslink": "Anche rilevante"
+    "group_crosslink": "Anche rilevante",
+    "shop_sub": "Studio",
+    "panels_sub": "Epigenetica"
   },
   "badge": {
     "New": "Nuovo",

@@ -27,6 +27,17 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-19 — SC-015 · Kopfzeile Entwurf B
+
+- **Ursache:** Owner-Wahl 2026-10-19 (`SCOPE-CHANGELOG.md` SC-015), Vorlage als PNG.
+- **Shell:** Rangfolge in der Leiste (laut: Bereiche; leise: Service/Unternehmen mit Trenner),
+  `.shop-tile` (Praxis neutral `#ffffff14`/Ring `#ffffff26`, Panels `accent.on-dark` 10 %/Ring 40 %),
+  Suche als Symbol, `LanguageSwitcher compact`, Button mit Pfeil-Kreis wie `HeroSection`, Lichtrand
+  `0 0 0 4px #ffffff1a`. Sprachvariablen `--nav-fs`, `--nav-gap`, `--tools-gap`, `--tile-fs`, `--cta-fs`.
+- **CSS-Architektur:** `.table-scroll` in `src/styles/table-scroll.css` (nur Artikel/S3), `.rv-rail-y` entfernt.
+- **Baselines:** PT27.6 17 von 21 neu (alle Desktop-Aufnahmen; Kopfzeile), mobil unverändert, zweiter Lauf 21/21.
+- **Reviewer:** Claude (Messung 10 Sprachen oben/gescrollt, axe, Sichtprüfung); Owner-Abnahme über die PNG-Vorlage.
+
 ### 2026-10-19 — SC-013 · Kopfzeile ab `xl`, sprachfester Bühnentitel
 
 - **Ursache:** Owner-Auftrag 2026-10-19 (`SCOPE-CHANGELOG.md` SC-013).

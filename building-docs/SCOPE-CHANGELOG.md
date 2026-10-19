@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-015 — Kopfzeile „Entwurf B": Rangfolge statt Weglassen, Shop/Panels als Kacheln, Button im Bühnenstil
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner wählt Entwurf B nach PNG-Vorlage; „ja alles auf Production")
+- **Betroffene IDs:** AP06 (Kopfzeile), SC-007 (Shop-Einträge), SC-013 (Sprachanpassung), DESIGN-SYSTEM-CHANGELOG, AP27 (Baselines PT27.6), I18N (`nav.shop_sub`, `nav.panels_sub` × 10)
+- **Vorheriger Zustand:** Neun gleich laute Einträge in einer Reihe (Diagnostik … Support, Shop, Panels), runde Suche, großer Sprachumschalter, Button ohne Symbol.
+- **Neuer Zustand:** Alle 13 Elemente bleiben sichtbar. Diagnostik/Epigenetik/IglooPro laut; Blog/Termine/Über uns/Support 0,9 em, Gewicht 500, 78 % Weiß, mit Trenner (`data-nav-tier`). Shop und Panels als zwei Kacheln rechts mit Symbol (Tasche/Tropfen) und Unterzeile (de „Praxis"/„Epigenetik", × 10), Praxis-Shop neutral, Panel-Shop Signet-Cyan; `data-shop` bleibt. Suche als Symbol (44 × 44 px), Sprachumschalter `compact`, Logo `xl:h-10`. Button wie in der Bühne: weiße Pille mit Pfeil-Kreis (identische Klassen wie der Hero-Button) und Lichtrand. Sprachanpassung als Variablen (`--nav-fs` …) für fr/es/nl/it/pl/pt. Gemessen bei 1 280 px, oben und gescrollt: alle zehn Sprachen einzeilig, ≥ 18 px Luft. Budget-Ausgleich ohne Lockerung: `.table-scroll` aus dem Inline-CSS nach `src/styles/table-scroll.css` (ArticlePage, S3-Leitlinie laden es per `<link>`), ungenutzte Regel `.rv-rail-y` entfernt. Testkorrektur: AP20-Smoke „Support: Upload per Tastatur" hatte einen Wettlauf (Listener und Tastendruck parallel) — jetzt erst Listener, dann Taste, dann `expect.poll` (5/5 grün).
+- **Begründung:** Owner 2026-10-19: „Entwirf auch eine sauberere Topbar … Nichts aus der Informationsarchitektur wegrationalisieren", Wahl „Variante B mit ein bisschen mehr Klarheit Shop und Panels gegenüber. Schöner und präsenter Button", Freigabe „ja alles auf Production".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung.
+- **Auswirkung auf Scope:** Keine IA-Änderung; zwei neue Unterzeilen je Sprache (beschreibend, kein Claim). Mobiles Menü unverändert.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** Budget 852/852 (Startseite en 34 257-Grenze gehalten nach Auslagerung); Vitest 645/645; E2E Startseite/Navigation/Consumer-Shell/Diagnostik/AP20/Artikel 169 grün — drei Artikel-Fehlschläge (`PT17.1 index … images`, `PT17.2 … six article types`, `PT17.2 … lightweight`) identisch auf dem unveränderten Stand (Altbefund); Axe 25/25 (Unterzeile zunächst 3,74:1 gescrollt → volle Deckkraft); Baselines PT27.6 17/21 neu (alle Desktop-Seiten mit Kopfzeile), zweiter Lauf 21/21.
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-016 — Epigenetik: interne Redaktionsnotiz aus dem Evidenz-Einleitungstext entfernt (Preview)
 
 - **Datum:** 2026-10-19

@@ -34,7 +34,9 @@
     "group_analysis": "Analyseområder",
     "group_system": "System & integration",
     "diagnostics_all": "Alle diagnostikydelser",
-    "group_crosslink": "Også relevant"
+    "group_crosslink": "Også relevant",
+    "shop_sub": "Klinik",
+    "panels_sub": "Epigenetik"
   },
   "badge": {
     "New": "Ny",

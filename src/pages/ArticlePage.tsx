@@ -26,6 +26,8 @@ import type {
   ArticleTableSection,
   ArticleTextSection,
 } from '../content/articles/model'
+// SC-015: Tabellen-Stylesheet nur hier statt inline auf jeder Seite.
+import tableScrollHref from '../styles/table-scroll.css?url'
 
 // Local UI types for the discriminated-union section rendering.
 type BaseSection = ArticleContentSection
@@ -173,6 +175,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
                 Rand-Fade und die Hinweiszeile (duenne Scrollleiste) ein, solange
                 seitlich noch Inhalt folgt — bei 375px waren 217px der dritten
                 Spalte verdeckt, ohne jede Andeutung. Siehe src/index.css. */}
+            <link rel="stylesheet" href={tableScrollHref} />
             <div className="table-scroll">
               <table className="w-full min-w-[560px] border-collapse text-left text-sm text-gray-700 sm:text-base">
                 <caption className="sr-only">{section.heading || title}</caption>

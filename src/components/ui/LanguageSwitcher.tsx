@@ -25,9 +25,15 @@ const languages = SUPPORTED_LANGUAGES.map((code) => ({ code, ...languageMetadata
 interface LanguageSwitcherProps {
   className?: string
   isMobile?: boolean
+  /** SC-015: schmalere Fassung fuer die Desktop-Kopfzeile (kleinere Flagge, weniger Innenabstand). */
+  compact?: boolean
 }
 
-const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcherProps) => {
+const LanguageSwitcher = ({
+  className = '',
+  isMobile = false,
+  compact = false,
+}: LanguageSwitcherProps) => {
   const { t, i18n } = useTranslation('common')
   const location = useLocation()
   const [isOpen, setIsOpen] = useState(false)
@@ -135,7 +141,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
           )
         }}
         aria-expanded={isOpen}
-        className={`inline-flex items-center justify-center gap-2 rounded-full ${isMobile ? 'h-11 px-3 py-2' : 'min-h-[44px] px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
+        className={`inline-flex items-center justify-center rounded-full ${compact ? 'gap-1.5' : 'gap-2'} ${isMobile ? 'h-11 px-3 py-2' : compact ? 'min-h-[44px] px-2 py-2' : 'min-h-[44px] px-3 py-2'} leading-none transition-colors hover:bg-white/10 text-current`}
         // War hartkodiertes Englisch und damit in neun von zehn Sprachen
         // sprachfremd. Der Sprachumschalter ist genau das Element, das ein
         // Nutzer sucht, der die Seitensprache NICHT versteht.
@@ -143,7 +149,7 @@ const LanguageSwitcher = ({ className = '', isMobile = false }: LanguageSwitcher
       >
         <FlagIcon
           countryCode={currentLanguage.country_code}
-          className="h-5 w-8 rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white"
+          className={`${compact ? 'h-4 w-6' : 'h-5 w-8'} rounded-sm align-middle shrink-0 ring-1 ring-brand-primary/40 bg-white`}
         />
         <span className="uppercase text-sm font-medium leading-none">{currentLanguage.code}</span>
         {/* AP24 PT24.5: Der Pfeil zeigt den Zustand, den `aria-expanded`
