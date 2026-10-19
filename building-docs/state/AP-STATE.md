@@ -40,6 +40,12 @@ kein `work-packages/APxx-STATE.md`).
   SEO-Head, Header, Consent). Protokoll, Abweichungen und Folgearbeiten: `release/AP31-GO-LIVE.md` §7
   (SendGrid-Rotation OA-11, Port 5000 streichen, Alt-Images, `main` nachziehen, CTC-04, E2E-Drift).
   **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
+- **SC-011 Analytics-Trennung (2026-10-19, Owner-Wahl „G-Z1SBW4CJFP behalten", nur Preview):** Image als
+  `production` mit `GTM-PL26PFFH` gebaut, Laufzeit-Meta `polaris-app-env` aus `APP_ENV`; Preview misst nicht.
+  Preview-Release `914d5bc54c18` (Commit `914d5bc`; Health, Identität, Smoke grün). Nachweis per Playwright
+  (Messanfragen abgefangen): Preview nach Einwilligung 0 Google-Anfragen; dasselbe Image lokal mit
+  `APP_ENV=production` lädt `GTM-PL26PFFH` und sendet `page_view` an `G-Z1SBW4CJFP`, vor Einwilligung 0.
+  **Produktion unverändert** (`781d295d94d8`, misst bis zum nächsten Live-Release weiter gemeinsam mit der Preview).
 - **SC-009 + SC-010 (2026-10-19, Owner-Aufträge in der Werkstatt-Sitzung, nur Preview):** SC-009 Panel-Promo
   nach der TrustBar bis 16.11.2026 (ersetzt in der Zeit das Shop-Band), drei weitere Praxisstimmen
   (`HCL-017`), `.rich-content` aus dem Inline-CSS ausgelagert (Budget ohne Lockerung gehalten); SC-010
