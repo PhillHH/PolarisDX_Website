@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-013 — Startbereich und Kopfzeile in allen zehn Sprachen gleich gebaut (Preview)
+
+- **Datum:** 2026-10-19
+- **Status:** ACCEPTED (Owner-Auftrag); Sichtprüfung auf der Preview steht aus
+- **Betroffene IDs:** HOMEPAGE-CONTRACT §2 (Bühne), AP06 (Kopfzeile), AP27 (Baselines PT27.6), DESIGN-SYSTEM-CHANGELOG
+- **Vorheriger Zustand (gemessen 2026-10-19 auf polarisdx.net, 1280/1440/1770 px gleich):** Kopfzeile zweizeilig in fr/es/nl (Header 137 statt 81 px), Kopfzeilen-Button zweizeilig in fr/es/nl; Titel 3–6 Zeilen (fr 6, pl/pt 5, es/it/cs 4); Bühne 799–1 074 px hoch. Zwischen 768 und 1 279 px brauchte die Kopfzeile in JEDER Sprache 240–346 px mehr, als da war (Umbruch auch auf Deutsch).
+- **Neuer Zustand:** Volle Kopfzeile erst ab `xl` (1 280 px, Container 1 200 px), darunter Menü-Schaltfläche wie mobil; Leiste `flex-nowrap`/`whitespace-nowrap`, Button `whitespace-nowrap`; fr/es/nl/it/pl 14 statt 15 px und 10/12 px Abstand (`.site-nav`/`.site-tools`, `:lang()`), gemessen ≥ 20 px Luft je Sprache. Titel: ein Satz je Zeile, Schriftgröße aus Spaltenbreite (`cqi`) und längster Zeile (`--hl`, 0,49 em/Zeichen, ≥ 5 % Reserve), Obergrenze = deutscher Referenztitel; Bühne `lg:min-h-[820px]`. Ergebnis gemessen: alle zehn Sprachen bei 1 280/1 440/1 770 und 1 024 px eine Kopfzeile, drei Titelzeilen, Bühne 820 px; 390 px drei Titelzeilen, Bühne 1 097–1 156 px (Rest: Länge des Einleitungstexts).
+- **Begründung:** Owner-Auftrag 2026-10-19 im Wortlaut: „In verschiedenen Sprachen zerschießt sich die Herosection. Standarisiere die Höhe und Breite aller Elemente, Bei Längenproblemen, passe die Schriftgrösse jeweilig der Sprache an wenn nötig."
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19, Werkstatt-Sitzung; Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Keine Inhalte geändert; Tablets 768–1 279 px nutzen jetzt das Menü statt der zweizeiligen Leiste.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** Budget 852/852; Vitest unit+component 645/645; E2E Startseite, Navigation, Consumer-Shell, Diagnostik- und AP20-Smoke (inkl. 768/1 024 px) 154/154; Axe 25/25; Baselines PT27.6 5/21 neu (Startseiten-Aufnahmen; Titel 80 statt 84 px), zweiter Lauf 21/21, alle übrigen Seiten pixelgleich.
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-011 — Google Analytics: Produktion misst allein, Preview misst nicht (Preview)
 
 - **Datum:** 2026-10-19

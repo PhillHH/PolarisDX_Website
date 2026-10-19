@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { preload } from 'react-dom'
 import { useTranslation } from 'react-i18next'
@@ -38,6 +39,8 @@ const HeroSection = () => {
   const { t } = useTranslation('home')
   const title = t('hero.title')
   const lines = headlineLines(title)
+  // SC-013: laengste Zeile in Zeichen -> Schriftgroesse per CSS (`.hero-title`, index.css).
+  const longestLine = Math.max(...lines.map((line) => line.trim().length))
   const { desktop, mobile } = HERO_STAGE
 
   // Telefone: das Buehnenfoto ist dort das LCP-Element und konkurriert unter
@@ -79,16 +82,17 @@ const HeroSection = () => {
         />
       </picture>
 
-      <div className="mx-auto grid max-w-container gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:min-h-[760px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
+      <div className="mx-auto grid max-w-container gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:min-h-[820px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
         {/* min-w-0: ein langes H1-Wort (da „Laboratorieværdier.") darf die Spalte nicht aufblasen. */}
-        <div className="flex min-w-0 flex-col items-start">
+        <div className="flex min-w-0 flex-col items-start [container-type:inline-size]">
           <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 sm:text-sm">
             <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
             {t('hero.caption')}
           </p>
           <h1
             id="home-hero-title"
-            className="enter mt-7 max-w-3xl text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em]"
+            className="hero-title enter mt-7 max-w-3xl font-semibold leading-[0.98] tracking-[-0.045em]"
+            style={{ '--hl': longestLine } as CSSProperties}
           >
             {lines.map((line, index) => (
               <span

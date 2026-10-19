@@ -27,6 +27,17 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-19 — SC-013 · Kopfzeile ab `xl`, sprachfester Bühnentitel
+
+- **Ursache:** Owner-Auftrag 2026-10-19 (`SCOPE-CHANGELOG.md` SC-013).
+- **Shell:** Desktop-Leiste ab `xl` statt `md`, ohne Umbruch; `.site-nav` 15 px / 16 px Abstand,
+  in fr/es/nl/it/pl 14 px / 10 px; `.site-tools` 16 bzw. 12 px. Button einzeilig.
+- **Bühne:** `.hero-title` mit `cqi`-Formel (Spalte als Container), Obergrenze 5 rem, Untergrenze
+  1,75 rem; Bühne mindestens 820 px ab `lg`.
+- **Baselines:** PT27.6 5 von 21 neu (`home-desktop`, `home-mobile`, `navigation-open-mobile`,
+  `diagnostics-megamenu-open-desktop`, `cookie-banner-desktop` — Titelgröße), zweiter Lauf 21/21.
+- **Reviewer:** Claude (Messung 10 Sprachen × 5 Breiten, Sichtprüfung fr/es); Owner-Sichtprüfung offen.
+
 ### 2026-10-19 — SC-010 · Bühnenfoto korrigiert (Hand vor dem Mund)
 
 - **Ursache:** Owner-Befund 2026-10-19 (`SCOPE-CHANGELOG.md` SC-010).

@@ -233,6 +233,39 @@
     @apply flex flex-col items-start gap-2.5 border-paper-line px-4 py-4 [&:nth-child(-n+2)]:border-b [&:nth-child(odd)]:border-r sm:flex-row sm:items-center sm:gap-3.5 sm:px-5 sm:py-5 lg:border-b-0 lg:border-r lg:[&:nth-child(-n+2)]:border-b-0 lg:last:border-r-0;
   }
 
+  /* SC-013: Kopfzeile einzeilig in allen zehn Sprachen. Die volle Leiste erscheint erst ab `xl`
+     (1280 px, Container 1200 px); darunter passte sie gemessen in KEINER Sprache (+240 bis +346 px).
+     Bei 1200 px fehlten fr/es/nl 26-58 px, it hatte 2 px Luft: dort 14 statt 15 px und engere
+     Abstaende (gemessen, mind. 14 px Luft). */
+  .site-nav {
+    font-size: 15px;
+    gap: 1rem;
+  }
+
+  .site-tools {
+    gap: 1rem;
+  }
+
+  :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl)) .site-nav {
+    font-size: 14px;
+    gap: 0.625rem;
+  }
+
+  :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl)) .site-tools {
+    gap: 0.75rem;
+  }
+
+  /* SC-013: Buehnentitel immer drei Zeilen (ein Satz je Zeile). Die Groesse folgt der Spaltenbreite
+     (Container-Einheit `cqi`) und der laengsten Zeile (`--hl` Zeichen, HeroSection); 0,49 em je
+     Zeichen deckt die gemessene Glyphenbreite aller zehn Titel mit >= 5 % Reserve. Kopfzeile: es
+     brauchte bei 14 px noch 4 px mehr — darum 10/12 px Abstand in den langen Sprachen. */
+  .hero-title {
+    /* Obergrenze = Groesse des deutschen Referenztitels (16 Zeichen). Die gleiche Buehnenhoehe
+       in allen Sprachen haelt `lg:min-h-[820px]` (HeroSection), nicht eine feste Titelhoehe —
+       die liess unter kurzen Titeln ein Loch. */
+    font-size: max(1.75rem, min(5rem, calc(100cqi / 7.84), calc(100cqi / (var(--hl, 16) * 0.49))));
+  }
+
   .icon-tile {
     @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-strong;
   }

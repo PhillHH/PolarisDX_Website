@@ -340,7 +340,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`hidden flex-wrap items-center gap-7 text-[15px] font-semibold tracking-tight md:flex xl:gap-4 text-white`}
+            className={`site-nav hidden flex-nowrap items-center whitespace-nowrap font-semibold tracking-tight text-white xl:flex`}
           >
             {navItems.map((item) => {
               const active = isItemActive(item, location.pathname)
@@ -514,7 +514,7 @@ const Header = () => {
             </a>
           </nav>
 
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-4">
+          <div className="site-tools hidden items-center xl:flex">
             {/* Search Trigger Desktop */}
             <button
               onClick={searchModal.onOpen}
@@ -538,7 +538,7 @@ const Header = () => {
                 data-cta-role="GENERAL_SALES"
                 variant="light"
                 size="sm"
-                className="shadow-card"
+                className="whitespace-nowrap shadow-card"
               >
                 {t('nav.cta_quote')}
               </Button>
@@ -546,7 +546,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Nav Toggle & Search */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-2 xl:hidden">
             {/* Search Trigger Mobile */}
             <button
               onClick={searchModal.onOpen}
@@ -585,7 +585,7 @@ const Header = () => {
           <nav
             ref={mobileNavRef}
             aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`md:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-dialog transition-all duration-300`}
+            className={`xl:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-dialog transition-all duration-300`}
           >
             <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
               {navItems.map((item) => {
