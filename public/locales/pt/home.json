@@ -235,7 +235,12 @@
       "dots": "Selecionar uma avaliação",
       "pause": "Pausar a mudança automática",
       "play": "Retomar a mudança automática"
-    }
+    },
+    "prev": "Testemunho anterior",
+    "next": "Testemunho seguinte",
+    "slide": "Testemunho {{n}} de {{total}}",
+    "q_open": "«",
+    "q_close": "»"
   },
   "blog": {
     "caption": "Blog e notícias",

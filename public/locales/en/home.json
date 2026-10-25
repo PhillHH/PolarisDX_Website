@@ -235,7 +235,12 @@
       "dots": "Choose a review",
       "pause": "Pause automatic rotation",
       "play": "Resume automatic rotation"
-    }
+    },
+    "prev": "Previous testimonial",
+    "next": "Next testimonial",
+    "slide": "Testimonial {{n}} of {{total}}",
+    "q_open": "“",
+    "q_close": "”"
   },
   "blog": {
     "caption": "Blog & News",

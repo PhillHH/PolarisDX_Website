@@ -14,6 +14,9 @@ type HomeResource = {
   }
   testimonials: {
     title: string
+    q_open: string
+    q_close: string
+    next: string
     bastian_wessing: {
       role: string
       practice: string
@@ -60,7 +63,7 @@ for (const locale of SUPPORTED_LANGUAGES) {
     await expect(reference).toHaveCount(1)
     await expect(reference).toHaveAttribute('data-claim-id', 'HCL-006')
     await expect(reference.getByRole('blockquote')).toHaveText(
-      `„${resources[locale].testimonials.bastian_wessing.proof_text}“`,
+      `${resources[locale].testimonials.q_open}${resources[locale].testimonials.bastian_wessing.proof_text}${resources[locale].testimonials.q_close}`,
     )
     await expect(reference).toContainText('Dr. Bastian Wessing')
     await expect(reference).toContainText(resources[locale].testimonials.bastian_wessing.role)
@@ -71,17 +74,33 @@ for (const locale of SUPPORTED_LANGUAGES) {
       const voice = proof.locator(`[data-testimonial-id="${id}"]`)
       await expect(voice).toHaveAttribute('data-claim-id', 'HCL-017')
       await expect(voice.getByRole('blockquote')).toHaveText(
-        `„${resources[locale].testimonials[id].proof_text}“`,
+        `${resources[locale].testimonials.q_open}${resources[locale].testimonials[id].proof_text}${resources[locale].testimonials.q_close}`,
       )
       await expect(voice).toContainText(resources[locale].testimonials[id].role)
     }
     await expect(proof.locator('[data-testimonial-id="martin_fischer"]')).toHaveCount(0)
-    await expect(proof.getByRole('button')).toHaveCount(0)
+    // SC-014: Slider statt Reihe — zurueck/weiter + Zaehler, keine Links, keine Bewertung.
+    await expect(proof.getByRole('button')).toHaveCount(2)
     await expect(proof.getByRole('link')).toHaveCount(0)
-    await expect(proof.locator('[aria-roledescription="carousel"]')).toHaveCount(0)
+    await expect(proof.locator('[aria-roledescription="carousel"]')).toHaveCount(1)
+    await expect(proof.locator('[aria-roledescription="slide"]')).toHaveCount(4)
     await expect(reference.locator('img')).toHaveAttribute('loading', 'lazy')
   })
 }
+
+test('SC-014 Praxisstimmen-Slider laesst sich per Knopf bedienen', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 })
+  await page.goto('/de/')
+  const proof = page.locator('[data-home-proof]')
+  await proof.scrollIntoViewIfNeeded()
+  const track = proof.locator('#testimonial-track')
+  const second = proof.locator('[data-testimonial-id="richard_pollock"]')
+  await expect(second).not.toBeInViewport({ ratio: 0.9 })
+  await proof.getByRole('button', { name: resources.de.testimonials.next }).click()
+  await expect(second).toBeInViewport({ ratio: 0.9 })
+  await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0)
+  await expect(proof.getByText('2 / 4')).toBeVisible()
+})
 
 test('PT11.2 mobile Trust and Proof remains semantic and overflow-free', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
@@ -94,7 +113,7 @@ test('PT11.2 mobile Trust and Proof remains semantic and overflow-free', async (
   await expect(trustbar.getByRole('list')).toBeVisible()
   await expect(proof.locator('figure')).toHaveCount(4)
   await expect(proof.getByRole('blockquote').first()).toBeVisible()
-  await expect(proof.getByRole('button')).toHaveCount(0)
+  await expect(proof.getByRole('button')).toHaveCount(2)
   await expect(proof.getByRole('link')).toHaveCount(0)
 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(

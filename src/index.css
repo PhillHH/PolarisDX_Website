@@ -275,33 +275,71 @@
     background: linear-gradient(#ffffff33, #ffffff33) left center / 1px 22px no-repeat;
   }
 
-  /* Die zwei Online-Shops als getrennte Kacheln: Praxis-Shop neutral, Panel-Shop im Signet-Cyan. */
-  .shop-tile {
+  /* Die zwei Online-Shops in einer Kapsel (SC-015 Nachbesserung 2026-10-20). */
+  .shop-group {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 44px;
-    padding: 0.25rem 0.625rem;
-    border-radius: 0.75rem;
-    font-size: var(--tile-fs, 13.5px);
-    font-weight: 600;
-    line-height: 1.15;
-    white-space: nowrap;
-    color: #fff;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 9999px;
     background: #ffffff14;
     box-shadow: inset 0 0 0 1px #ffffff26;
   }
 
-  /* Volle Deckkraft: mit 75 % fiel die Panels-Unterzeile gescrollt auf 3,74:1 (axe, PT24.6). */
-  .shop-tile small {
-    font-size: 11px;
-    font-weight: 500;
+  .shop-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
+    padding: 0 0.875rem 0 0.25rem;
+    border-radius: 9999px;
+    font-size: var(--tile-fs, 14px);
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+    transition: background-color 0.2s;
   }
 
-  .shop-tile + .shop-tile {
+  .shop-link:hover {
+    background: #ffffff1f;
+  }
+
+  .shop-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: #fff;
+    color: theme('colors.brand.deep');
+  }
+
+  .shop-link + .shop-link {
     color: theme('colors.accent.on-dark');
-    background: #8fd8fb1a;
-    box-shadow: inset 0 0 0 1px #8fd8fb66;
+  }
+
+  .shop-link + .shop-link .shop-badge {
+    background: theme('colors.accent.on-dark');
+  }
+
+  /* Grosse Bildschirme (>= 1536 px): die Kopfzeile darf atmen (Owner 2026-10-20: „maechtiger und
+     grosszuegiger"). Lange Sprachen bleiben eine Stufe kleiner. */
+  @media (min-width: 1536px) {
+    :root {
+      --nav-fs: 17px;
+      --nav-gap: 1.75rem;
+      --tools-gap: 1rem;
+      --tile-fs: 15.5px;
+      --cta-fs: 16px;
+    }
+
+    :is(:lang(fr), :lang(es), :lang(nl), :lang(it), :lang(pl), :lang(pt)) {
+      --nav-fs: 16px;
+      --nav-gap: 1.25rem;
+      --tools-gap: 0.75rem;
+      --tile-fs: 14.5px;
+      --cta-fs: 15px;
+    }
   }
 
   /* SC-013: Buehnentitel immer drei Zeilen (ein Satz je Zeile). Die Groesse folgt der Spaltenbreite

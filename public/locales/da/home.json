@@ -235,7 +235,12 @@
       "dots": "Vælg anmeldelse",
       "pause": "Sæt automatisk skift på pause",
       "play": "Genoptag automatisk skift"
-    }
+    },
+    "prev": "Forrige udtalelse",
+    "next": "Næste udtalelse",
+    "slide": "Udtalelse {{n}} af {{total}}",
+    "q_open": "»",
+    "q_close": "«"
   },
   "blog": {
     "caption": "Blog & nyheder",

@@ -235,7 +235,12 @@
       "dots": "Wybierz opinię",
       "pause": "Wstrzymaj automatyczną zmianę",
       "play": "Wznów automatyczną zmianę"
-    }
+    },
+    "prev": "Poprzednia opinia",
+    "next": "Następna opinia",
+    "slide": "Opinia {{n}} z {{total}}",
+    "q_open": "„",
+    "q_close": "”"
   },
   "blog": {
     "caption": "Blog i aktualności",

@@ -27,6 +27,16 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-25 — SC-017/SC-014 · Kopfzeile großzügiger, Shop-Kapsel, Praxisstimmen-Slider
+
+- **Ursache:** Owner-Aufträge (`SCOPE-CHANGELOG.md` SC-014, SC-017).
+- **Shell:** Kopfzeilen-Rahmen `max-w-[1600px]`, ab 1 536 px größere Variablenstufe; `.shop-group` /
+  `.shop-link` / `.shop-badge` (32-px-Abzeichen, Praxis weiß, Panels `accent.on-dark`) ersetzen `.shop-tile`.
+- **Startseite:** Proof als Slider (einheitliche Folie, Pfeil-Knöpfe 44 px mit dem Pfeil-Symbol der Bühne,
+  Zähler statt Punkten — HTML-Budget).
+- **Baselines:** PT27.6 17 von 21 neu (alle Desktop-Aufnahmen), zweiter Lauf 21/21.
+- **Reviewer:** Claude (Messung 10 Sprachen × 1 280/1 536/1 920/2 560 px, axe, Sichtprüfung); Owner sah PNG-Vorschau.
+
 ### 2026-10-19 — SC-015 · Kopfzeile Entwurf B
 
 - **Ursache:** Owner-Wahl 2026-10-19 (`SCOPE-CHANGELOG.md` SC-015), Vorlage als PNG.

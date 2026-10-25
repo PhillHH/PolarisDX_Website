@@ -1,43 +1,54 @@
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Quote } from 'lucide-react'
+import { ArrowRight, Quote } from 'lucide-react'
 import { testimonials } from '../../data/testimonials'
 import Eyebrow from '../ui/Eyebrow'
 
-const FEATURED_TESTIMONIAL_ID = 'bastian_wessing'
-/** SC-009 (Owner 2026-10-19): weitere Stimmen mit echtem Portraet, je ein woertlicher Satz
- * aus dem lokalisierten Originalzitat (`proof_text`), Claim HCL-017. `martin_fischer` bleibt
- * aussen vor: kein Portraet, keine Quelle. */
-const MORE_TESTIMONIAL_IDS = ['richard_pollock', 'kristian_grimm', 'goran_stojanovic']
-
 /**
- * One existing, named and previously productive practice reference.
+ * Praxisstimmen der Startseite als Slider (SC-014, Owner 2026-10-19: „Diese Section
+ * dynamisieren bitte. Slider wäre schön").
  *
- * PT11.2 deliberately removes the rating UI, autoplay carousel and four other
- * voices from productive output: the repository proves their content/assets,
- * but does not carry equally strong release evidence for a new Trust surface.
- * The selected quote is reduced to its existing training/support statement and
- * therefore makes no treatment-outcome or comparative performance claim.
+ * Reihenfolge und Belege unverändert: Wessing zuerst (HCL-006, Schulungs-/Support-Satz),
+ * dann Pollock, Grimm, Stojanovic (HCL-017, je ein wörtlicher Satz aus dem lokalisierten
+ * Originalzitat, SC-009). `martin_fischer` bleibt außen vor: kein Porträt, keine Quelle.
+ * Keine Bewertung, keine Sterne, keine Links.
  *
- * SC-009 (Owner 2026-10-19, „alte Kundenstimmen wieder aktivieren"): three more named
- * voices with real portraits follow as compact cards, each with one verbatim sentence of
- * the localized original quote and no rating, carousel or link.
+ * Bedienung: Pfeile (Tastatur), Wischen per CSS-Scroll-Snap, Zaehler „1 / 4". Bewusst KEIN
+ * automatisches Weiterlaufen — ohne Pausenknopf verstößt das gegen WCAG 2.2.2 und kostet
+ * JavaScript. Alle Folien stehen im SSR-HTML (ohne JS bleibt es eine wischbare Reihe);
+ * eine einheitliche Folienstruktur hält das gzip-HTML klein (htmlBytes-Budget, PT25.5).
  *
- * SC-006 (2026-10-16): the figure enters on scroll, the quotation mark leads
- * larger, the quote is balanced, the portrait sits on a paper-deep surface in
- * a 1:2 split (`sm:grid-cols-3`) — no bespoke grid templates any more.
+ * Anführungszeichen je Sprache aus `testimonials.q_open`/`q_close` (vorher in allen zehn
+ * Sprachen deutsche „…").
  */
+const SLIDE_IDS = ['bastian_wessing', 'richard_pollock', 'kristian_grimm', 'goran_stojanovic']
+
+const CONTROL =
+  'inline-flex h-11 w-11 items-center justify-center rounded-full border border-paper-line bg-white text-heading shadow-card transition hover:border-accent hover:text-accent disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2'
+
 const TestimonialsSection = () => {
   const { t } = useTranslation('home')
-  const testimonial = testimonials.find(({ id }) => id === FEATURED_TESTIMONIAL_ID)
+  const track = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
 
-  const more = MORE_TESTIMONIAL_IDS.map((id) => testimonials.find((item) => item.id === id)).filter(
+  const slides = SLIDE_IDS.map((id) => testimonials.find((item) => item.id === id)).filter(
     (item) => item !== undefined,
   )
+  if (slides.length === 0) return null
 
-  if (!testimonial) return null
+  const go = (index: number) => {
+    const el = track.current
+    if (!el) return
+    const next = Math.max(0, Math.min(slides.length - 1, index))
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    el.scrollTo({ left: next * el.clientWidth, behavior: reduce ? 'auto' : 'smooth' })
+    setActive(next)
+  }
 
-  const role = t(`testimonials.${testimonial.id}.role`)
-  const practice = t(`testimonials.${testimonial.id}.practice`)
+  const onScroll = () => {
+    const el = track.current
+    if (el && el.clientWidth) setActive(Math.round(el.scrollLeft / el.clientWidth))
+  }
 
   return (
     <section
@@ -47,82 +58,101 @@ const TestimonialsSection = () => {
       className="bg-paper pb-16 lg:pb-20"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
-        <div className="rv max-w-3xl">
-          <Eyebrow>{t('testimonials.caption')}</Eyebrow>
-          <h2 id="homepage-proof-title" className="mt-3 t-display">
-            {t('testimonials.title')}
-          </h2>
+        <div className="rv flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <Eyebrow>{t('testimonials.caption')}</Eyebrow>
+            <h2 id="homepage-proof-title" className="mt-3 t-display">
+              {t('testimonials.title')}
+            </h2>
+          </div>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              className={CONTROL}
+              aria-controls="testimonial-track"
+              aria-label={t('testimonials.prev')}
+              disabled={active === 0}
+              onClick={() => go(active - 1)}
+            >
+              {/* Dasselbe Pfeil-Markup wie Buehne und Kopfzeile: komprimiert im HTML fast auf null. */}
+              <span className="inline-flex rotate-180">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </button>
+            <button
+              type="button"
+              className={CONTROL}
+              aria-controls="testimonial-track"
+              aria-label={t('testimonials.next')}
+              disabled={active === slides.length - 1}
+              onClick={() => go(active + 1)}
+            >
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
 
-        <figure
-          data-testimonial-id={testimonial.id}
-          data-claim-id="HCL-006"
-          className="rv mt-10 grid overflow-hidden rounded-band border border-paper-line bg-white shadow-card sm:grid-cols-3"
+        <div
+          id="testimonial-track"
+          ref={track}
+          onScroll={onScroll}
+          // Scrollbarer Bereich muss per Tastatur erreichbar sein (axe scrollable-region-focusable);
+          // fokussiert blaettern auch die Pfeiltasten. Wie EpigeneticsPage/BefundBlocks.
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
+          aria-roledescription="carousel"
+          aria-label={t('testimonials.aria.carousel')}
+          className="rv mt-10 flex snap-x snap-mandatory overflow-x-auto rounded-band [scrollbar-width:none] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         >
-          {testimonial.avatar && (
-            <img
-              src={testimonial.avatar}
-              alt=""
-              width={300}
-              height={300}
-              loading="lazy"
-              decoding="async"
-              className="h-64 w-full bg-paper-deep object-cover sm:h-full"
-            />
-          )}
-          <div className="flex flex-col justify-center p-7 sm:col-span-2 sm:p-10 lg:p-12">
-            <Quote className="h-10 w-10 text-accent" aria-hidden="true" />
-            <blockquote className="mt-4 text-balance text-xl font-medium leading-snug tracking-tight text-heading sm:text-2xl">
-              <p>„{t(`testimonials.${testimonial.id}.proof_text`)}“</p>
-            </blockquote>
-            <figcaption className="mt-7 border-t border-paper-line pt-5">
-              <p className="font-semibold text-heading">{testimonial.name}</p>
-              <p className="mt-1 text-sm text-gray-600">
-                {role} · {practice}
-              </p>
-            </figcaption>
-          </div>
-        </figure>
-
-        {more.length > 0 && (
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {more.map((item) => {
-              const itemPractice = t(`testimonials.${item.id}.practice`, '')
-              return (
-                <figure
-                  key={item.id}
-                  data-testimonial-id={item.id}
-                  data-claim-id="HCL-017"
-                  className="rv flex flex-col rounded-card border border-paper-line bg-white p-6 shadow-card"
-                >
-                  <blockquote className="flex-1 font-medium text-heading">
-                    <p>„{t(`testimonials.${item.id}.proof_text`)}“</p>
+          {slides.map((item, index) => {
+            const practice = t(`testimonials.${item.id}.practice`, '')
+            return (
+              <figure
+                key={item.id}
+                data-testimonial-id={item.id}
+                data-claim-id={index === 0 ? 'HCL-006' : 'HCL-017'}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={t('testimonials.slide', { n: index + 1, total: slides.length })}
+                className="grid w-full shrink-0 snap-start overflow-hidden rounded-band border border-paper-line bg-white sm:grid-cols-3"
+              >
+                {item.avatar && (
+                  <img
+                    src={item.avatar}
+                    alt=""
+                    width={300}
+                    height={300}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-64 w-full bg-paper-deep object-cover sm:h-full"
+                  />
+                )}
+                <div className="flex flex-col justify-center p-7 sm:col-span-2 sm:p-10 lg:p-12">
+                  <Quote className="h-10 w-10 text-accent" aria-hidden="true" />
+                  <blockquote className="mt-4 text-balance text-xl font-medium leading-snug tracking-tight text-heading sm:text-2xl">
+                    <p>
+                      {t('testimonials.q_open')}
+                      {t(`testimonials.${item.id}.proof_text`)}
+                      {t('testimonials.q_close')}
+                    </p>
                   </blockquote>
-                  <figcaption className="mt-6 flex items-center gap-4 border-t border-paper-line pt-5">
-                    {item.avatar && (
-                      <img
-                        src={item.avatar}
-                        alt=""
-                        width={56}
-                        height={56}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-14 w-14 rounded-full bg-paper-deep object-cover"
-                      />
-                    )}
-                    <span>
-                      <span className="block font-semibold text-heading">{item.name}</span>
-                      <span className="mt-0.5 block text-sm text-gray-600">
-                        {t(`testimonials.${item.id}.role`)}
-                        {itemPractice && ` · ${itemPractice}`}
-                      </span>
-                    </span>
+                  <figcaption className="mt-7 border-t border-paper-line pt-5">
+                    <p className="font-semibold text-heading">{item.name}</p>
+                    <p className="mt-1 text-sm text-gray-600">
+                      {t(`testimonials.${item.id}.role`)}
+                      {practice && ` · ${practice}`}
+                    </p>
                   </figcaption>
-                </figure>
-              )
-            })}
-          </div>
-        )}
+                </div>
+              </figure>
+            )
+          })}
+        </div>
+
+        {/* Zaehler statt Punkt-Knoepfen (htmlBytes-Budget); `aria-live` sagt den Wechsel an. */}
+        <p aria-live="polite" className="mt-5 text-center text-sm font-semibold text-gray-600">
+          {active + 1} / {slides.length}
+        </p>
       </div>
     </section>
   )

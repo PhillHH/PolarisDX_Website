@@ -122,6 +122,34 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-017 — Kopfzeile großzügiger, Shops als Kapsel (Nachbesserung zu SC-015)
+
+- **Datum:** 2026-10-25
+- **Status:** ACCEPTED (Owner-Auftrag)
+- **Betroffene IDs:** SC-015, AP06, PERFORMANCE-CONTRACT §29 (Startseiten-`htmlBytes` +600 B, Owner-Entscheidung), AP27 (Baselines PT27.6)
+- **Vorheriger Zustand:** SC-015 live (`5bab10986139`): Kopfzeile im 1 200-px-Rahmen des Inhalts, auf großen Bildschirmen klein und mittig; Shop/Panels als zwei Kacheln mit Mini-Unterzeile.
+- **Neuer Zustand:** Kopfzeilen-Rahmen bis 1 600 px (`lg:px-8`), ab 1 536 px größere Schrift/Abstände (`--nav-fs` 17 px, lange Sprachen 16 px), Leiste `2xl:py-5`, Logo `2xl:h-12`. Shops als gemeinsame Kapsel (`.shop-group`) mit rundem Symbol-Abzeichen je Shop (Praxis weiß, Panels Signet-Cyan) und klarem Namen; Unterzeile als `title`. Gemessen: 1 280 px alle zehn Sprachen ≥ 76 px Luft (oben/gescrollt), 1 536/1 920/2 560 px ≥ 119 px.
+- **Begründung:** Owner 2026-10-25: „Das ist nicht wie gewünscht, mache die Topbar mächtiger und großzügiger" und „die Verlinkungen in die Shops sind hässlich, das geht schöner".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-25, Werkstatt-Sitzung; Budget-Anhebung per Auswahl „Limit um 0,6 KB anheben (Empfohlen)".
+- **Auswirkung auf Scope:** Keine IA-Änderung.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates:** gemeinsam mit SC-014 gemessen (siehe dort).
+- **Aktualisierte kanonische Dokumente:** `building-docs/PERFORMANCE-CONTRACT.md` (Änderungstabelle), `scripts/perf/budgets.json`, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`.
+
+### SC-014 — Praxisstimmen als Slider, Anführungszeichen je Sprache
+
+- **Datum:** 2026-10-25
+- **Status:** ACCEPTED (Owner-Auftrag)
+- **Betroffene IDs:** HOMEPAGE-CONTRACT §2.3 (Proof — Karussell ausdrücklich beauftragt, hebt „no carousel" auf), `HCL-006`/`HCL-017` unverändert, I18N (`home.testimonials.prev|next|slide|q_open|q_close` × 10)
+- **Vorheriger Zustand:** Wessing groß, darunter drei Karten (SC-009); in allen zehn Sprachen deutsche Anführungszeichen „…".
+- **Neuer Zustand:** Slider mit vier gleich gebauten Folien (Wessing, Pollock, Grimm, Stojanovic; Porträt + Zitat + Name), Pfeile zurück/weiter, Zähler „n / 4" (`aria-live`), Wischen per CSS-Scroll-Snap, Spur per Tastatur fokussierbar (`tabIndex=0`, axe). Kein automatisches Weiterlaufen (WCAG 2.2.2), keine Links, keine Bewertung; alle Folien im SSR-HTML. Anführungszeichen je Sprache (de „…", en “…”, fr « … », es/it/pt «…», nl “…”, pl „…”, cs „…", da »…«).
+- **Begründung:** Owner 2026-10-19: „Diese Section dynamisieren bitte. Slider wäre schön"; FR-Screenshot zeigte deutsche Anführungszeichen.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-10-19/25, Werkstatt-Sitzung.
+- **Auswirkung auf Scope:** Keine neuen Inhalte oder Claims.
+- **Auswirkung auf Abhängigkeiten:** Keine.
+- **Auswirkung auf Gates (SC-014 + SC-017):** Budget 852/852 nach Owner-Anhebung der Startseiten-`htmlBytes` um 600 B (gemessen 35 059 / 34 708 / 35 381 B); Vitest 645/645; E2E 172 grün inkl. neuer Bedienprüfung „Weiter" (drei Artikel-Altbefunde identisch auf HEAD); Axe 25/25; Baselines PT27.6 17/21 neu (Kopfzeile), zweiter Lauf 21/21.
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-015 — Kopfzeile „Entwurf B": Rangfolge statt Weglassen, Shop/Panels als Kacheln, Button im Bühnenstil
 
 - **Datum:** 2026-10-19

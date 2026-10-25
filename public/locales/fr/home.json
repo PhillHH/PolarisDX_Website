@@ -235,7 +235,12 @@
       "dots": "Sélectionner un avis",
       "pause": "Mettre en pause le défilement automatique",
       "play": "Reprendre le défilement automatique"
-    }
+    },
+    "prev": "Témoignage précédent",
+    "next": "Témoignage suivant",
+    "slide": "Témoignage {{n}} sur {{total}}",
+    "q_open": "« ",
+    "q_close": " »"
   },
   "blog": {
     "caption": "Blog & Actualités",

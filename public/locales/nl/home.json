@@ -235,7 +235,12 @@
       "dots": "Beoordeling selecteren",
       "pause": "Automatisch wisselen pauzeren",
       "play": "Automatisch wisselen hervatten"
-    }
+    },
+    "prev": "Vorige ervaring",
+    "next": "Volgende ervaring",
+    "slide": "Ervaring {{n}} van {{total}}",
+    "q_open": "“",
+    "q_close": "”"
   },
   "blog": {
     "caption": "Blog & nieuws",

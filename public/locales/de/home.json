@@ -235,7 +235,12 @@
       "dots": "Bewertung auswählen",
       "pause": "Automatischen Wechsel pausieren",
       "play": "Automatischen Wechsel fortsetzen"
-    }
+    },
+    "prev": "Vorherige Stimme",
+    "next": "Nächste Stimme",
+    "slide": "Stimme {{n}} von {{total}}",
+    "q_open": "„",
+    "q_close": "“"
   },
   "blog": {
     "caption": "Blog & News",

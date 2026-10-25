@@ -235,7 +235,12 @@
       "dots": "Vybrat hodnocení",
       "pause": "Pozastavit automatické přepínání",
       "play": "Obnovit automatické přepínání"
-    }
+    },
+    "prev": "Předchozí ohlas",
+    "next": "Další ohlas",
+    "slide": "Ohlas {{n}} z {{total}}",
+    "q_open": "„",
+    "q_close": "“"
   },
   "blog": {
     "caption": "Blog a novinky",

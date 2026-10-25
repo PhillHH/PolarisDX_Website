@@ -313,8 +313,8 @@ const Header = () => {
         }`}
       >
         <div
-          className={`mx-auto flex max-w-container items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-0 ${
-            isScrolled ? 'py-2 lg:py-2.5' : 'py-3 lg:py-4'
+          className={`mx-auto flex max-w-[1600px] items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
+            isScrolled ? 'py-2 lg:py-2.5' : 'py-3 lg:py-4 2xl:py-5'
           }`}
         >
           {/* min-h-[44px]: Trefferflaeche des Logo-Links auf WCAG-2.5.5-Mindestmass.
@@ -336,7 +336,7 @@ const Header = () => {
               // AP34: `low` haelt React davon ab, fuer das 4,8-KB-Logo einen eigenen
               // Preload in den <head> zu schreiben — der Platz gehoert dem LCP-Foto.
               fetchPriority="low"
-              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12 xl:h-10'}`}
+              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12 xl:h-10 2xl:h-12'}`}
             />
           </Link>
 
@@ -508,31 +508,34 @@ const Header = () => {
 
           <div className="site-tools hidden items-center xl:flex">
             {/* Die beiden Online-Shops: Praxis-Shop (O1, main@e66a562) und Panel-Shop (SC-007).
-                SC-015 (Owner 2026-10-19, Entwurf B): als zwei getrennte Kacheln mit Symbol und
-                Unterzeile, damit sie sich voneinander und vom Seitenmenue abheben. Fremde
-                Domains, daher <a>; Klickzaehlung ueber OUTBOUND_DOMAINS. */}
-            <a
-              href={shopUrl(i18n.language)}
-              data-shop="practice"
-              className="shop-tile focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-            >
-              <ShoppingBag className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="flex flex-col">
-                <small>{t('nav.shop_sub')}</small>
+                SC-015 Nachbesserung (Owner 2026-10-20: „die Verlinkungen in die Shops sind
+                haesslich"): eine gemeinsame Kapsel, je Shop ein rundes Symbol-Abzeichen (Praxis
+                weiss, Panels Signet-Cyan) und ein klarer Name; die Unterzeile steht als Tooltip.
+                Fremde Domains, daher <a>; Klickzaehlung ueber OUTBOUND_DOMAINS. */}
+            <div className="shop-group">
+              <a
+                href={shopUrl(i18n.language)}
+                data-shop="practice"
+                title={t('nav.shop_sub')}
+                className="shop-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                <span className="shop-badge">
+                  <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+                </span>
                 {t('nav.shop')}
-              </span>
-            </a>
-            <a
-              href={panelsUrl(i18n.language)}
-              data-shop="panels"
-              className="shop-tile focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-            >
-              <Droplet className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="flex flex-col">
-                <small>{t('nav.panels_sub')}</small>
+              </a>
+              <a
+                href={panelsUrl(i18n.language)}
+                data-shop="panels"
+                title={t('nav.panels_sub')}
+                className="shop-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                <span className="shop-badge">
+                  <Droplet className="h-4 w-4" aria-hidden="true" />
+                </span>
                 {t('nav.panels')}
-              </span>
-            </a>
+              </a>
+            </div>
 
             {/* Search Trigger Desktop */}
             <button

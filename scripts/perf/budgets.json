@@ -63,7 +63,7 @@
     "routes": {
       "home": {
         "mobile": {
-          "htmlBytes": 34712,
+          "htmlBytes": 35312,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -75,7 +75,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 34712,
+          "htmlBytes": 35312,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -453,7 +453,7 @@
       },
       "home-en": {
         "mobile": {
-          "htmlBytes": 34257,
+          "htmlBytes": 34857,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -465,7 +465,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 34257,
+          "htmlBytes": 34857,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -479,7 +479,7 @@
       },
       "home-pl": {
         "mobile": {
-          "htmlBytes": 35013,
+          "htmlBytes": 35613,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -491,7 +491,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 35013,
+          "htmlBytes": 35613,
           "jsBytes": 165050,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,

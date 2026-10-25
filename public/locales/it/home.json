@@ -235,7 +235,12 @@
       "dots": "Seleziona una recensione",
       "pause": "Metti in pausa lo scorrimento automatico",
       "play": "Riprendi lo scorrimento automatico"
-    }
+    },
+    "prev": "Testimonianza precedente",
+    "next": "Testimonianza successiva",
+    "slide": "Testimonianza {{n}} di {{total}}",
+    "q_open": "«",
+    "q_close": "»"
   },
   "blog": {
     "caption": "Blog & News",

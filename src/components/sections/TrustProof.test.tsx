@@ -38,36 +38,45 @@ describe('PT11.2 Homepage Trust and Proof contract', () => {
     expect(within(trustbar).queryByRole('img')).not.toBeInTheDocument()
   })
 
-  it('renders the featured reference plus three named voices without rating or carousel semantics', () => {
+  it('renders the four sourced voices as an operable slider without rating or links (SC-014)', () => {
     render(<TestimonialsSection />)
 
     const proof = screen.getByRole('region', { name: 'testimonials.title' })
-    const figures = within(proof).getAllByRole('figure')
-    expect(figures.map((item) => item.getAttribute('data-testimonial-id'))).toEqual([
+    const slides = [...proof.querySelectorAll('[data-testimonial-id]')]
+    expect(slides.map((item) => item.getAttribute('data-testimonial-id'))).toEqual([
       'bastian_wessing',
       'richard_pollock',
       'kristian_grimm',
       'goran_stojanovic',
     ])
-    expect(figures.slice(1).map((item) => item.getAttribute('data-claim-id'))).toEqual([
+    expect(slides.map((item) => item.getAttribute('data-claim-id'))).toEqual([
+      'HCL-006',
       'HCL-017',
       'HCL-017',
       'HCL-017',
     ])
+    for (const slide of slides) {
+      expect(slide).toHaveAttribute('role', 'group')
+      expect(slide).toHaveAttribute('aria-roledescription', 'slide')
+    }
     expect(within(proof).queryByText(/martin_fischer|Martin Fischer/)).not.toBeInTheDocument()
-    const figure = figures[0]
-    expect(figure).toHaveAttribute('data-testimonial-id', 'bastian_wessing')
-    expect(figure).toHaveAttribute('data-claim-id', 'HCL-006')
-    expect(within(figure).getByText('Dr. Bastian Wessing')).toBeInTheDocument()
-    expect(
-      within(figure).getByText(/testimonials\.bastian_wessing\.proof_text/),
-    ).toBeInTheDocument()
-    expect(within(figure).getByRole('blockquote')).toBeInTheDocument()
-    expect(within(proof).queryByRole('button')).not.toBeInTheDocument()
     expect(within(proof).queryByRole('link')).not.toBeInTheDocument()
-    expect(proof).not.toHaveAttribute('aria-roledescription', 'carousel')
+    expect(proof.querySelector('[aria-roledescription="carousel"]')).not.toBeNull()
 
-    const image = figure.querySelector('img')
+    // Bedienung: zurueck/weiter und ein Zaehler; am Anfang ist „zurueck" gesperrt.
+    expect(within(proof).getAllByRole('button')).toHaveLength(2)
+    expect(within(proof).getByRole('button', { name: 'testimonials.prev' })).toBeDisabled()
+    expect(within(proof).getByRole('button', { name: 'testimonials.next' })).toBeEnabled()
+    expect(within(proof).getByText('1 / 4')).toHaveAttribute('aria-live', 'polite')
+
+    const first = slides[0] as HTMLElement
+    expect(within(first).getByText('Dr. Bastian Wessing')).toBeInTheDocument()
+    // Anfuehrungszeichen kommen je Sprache aus der Locale, nicht fest „…".
+    expect(within(first).getByRole('blockquote')).toHaveTextContent(
+      'testimonials.q_opentestimonials.bastian_wessing.proof_texttestimonials.q_close',
+    )
+
+    const image = first.querySelector('img')
     expect(image).toHaveAttribute('alt', '')
     expect(image).toHaveAttribute('width', '300')
     expect(image).toHaveAttribute('height', '300')
@@ -104,6 +113,9 @@ describe('PT11.2 Homepage Trust and Proof contract', () => {
         )
       }
       expect(resource.testimonials.bastian_wessing.practice).toBeTruthy()
+      for (const key of ['prev', 'next', 'slide', 'q_open', 'q_close']) {
+        expect(resource.testimonials[key], `${locale}.testimonials.${key}`).toBeTruthy()
+      }
     }
   })
 })
