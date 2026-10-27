@@ -423,5 +423,10 @@
     "promo_eyebrow": "Nieuw · Panel-shop",
     "promo_title": "Bestel epigenetische panels nu online",
     "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Panel-shop."
+  },
+  "aktuell": {
+    "title": "Actueel",
+    "event_eyebrow": "Nu · Evenement",
+    "event_cta": "Naar het evenement"
   }
 }

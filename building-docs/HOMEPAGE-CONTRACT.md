@@ -154,15 +154,18 @@ images (§4.2).
 entry points) → **Shop band** → Why POC → Steps → Proof/Testimonials → ROI calculator → Knowledge
 (Blog) → FAQ → Final CTA (`src/pages/HomePage.tsx`).
 
-**SC-009 panel promotion (owner 2026-10-19, time-limited):** until `PANELS_PROMO_LAST_DAY`
-(`src/lib/shop.ts`, `2026-11-16`, Europe/Berlin end of day) `PanelsPromoSection` stands directly
-after the TrustBar and **replaces** the Shop band: navy surface, eyebrow/H2/one line
-(`home.shop_teaser.promo_eyebrow|promo_title|promo_text`, 10 locales), primary action „Zum
-Panel-Shop" (`data-shop="panels"`, `HCL-016`) and secondary „Zum Praxis-Shop" (`data-shop="practice"`,
-`HCL-015`) — the homepage never loses a shop link. No image, no slider/autoplay (Hero stays the LCP
-element; §2.2), no price or deadline claim. The page is SSR-rendered per request, so the promotion
-ends on 2026-11-17 without a build; the Shop band then returns unchanged. Tests:
-`PanelsPromoSection.test.tsx` (links, end date), `shop.test.ts` (`isPanelsPromoActive`).
+**SC-019 „Aktuell" band (owner 2026-10-27) — supersedes the SC-009 promo surface:** `AktuellSection`
+stands directly after the TrustBar. Left: the next real event from `src/data/events.ts`
+(`getNextHomeEvent`: the first eligible configured highlight, else the next upcoming), title, date range
+(`lib/eventDates.ts`), location and `events:items.<id>.short` (e.g. „Halle 15, Stand E13"), one internal
+link to `/events` (`home.aktuell.event_cta`). Right: the time-limited panel-shop promotion until
+`PANELS_PROMO_LAST_DAY` (`src/lib/shop.ts`, `2026-11-16`): eyebrow/H3, action „Zum Panel-Shop"
+(`data-shop="panels"`, `HCL-016`). Each half is independent; the section renders nothing when neither
+applies, and the Shop band (§4.1 above) returns once the promotion has ended. No image, no slider/autoplay
+(Hero stays the LCP element; §2.2), no price or deadline claim; SSR per request, so both parts switch
+without a build (MEDICA 16.–19.11. → DGI 27.–28.11. → nothing). The practice shop no longer needs a second
+action here: the header carries both shops since SC-015. Tests: `AktuellSection.test.tsx` (event/promo
+states, link count), `shop.test.ts` (`isPanelsPromoActive`), `events.test.ts`.
 
 `ShopTeaserSection` (`src/components/sections/ShopTeaserSection.tsx`) stands directly after the
 business pillars. It points to the two external Shopify shops: the practice shop

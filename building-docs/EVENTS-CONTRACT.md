@@ -14,6 +14,27 @@ aber keine zweite ausführbare Eventliste ein.
 - Predecessor: **AP17-CLOSURE PASS / AP17 COMPLETE**
 - Decision Locks: **18/18 LOCKED**
 
+## Nachtrag SC-019 (2026-10-27) — MEDICA 2026
+
+- Inventar +1: `medica_2026` (2026-11-16 … 2026-11-19, Düsseldorf, kein Partner-Eigenname, kein Link,
+  `DATE_ONLY_ALL_DAY`). Quelle: Mails Ulrike Schürholz (26.10.2026), Einladungskarte Standevent,
+  Ausstellerheft WTSH „Schleswig-Holstein · Medica 2026 · Halle 15 | E13". Archiv nach Ablauf: 10.
+- Highlight: `HIGHLIGHT_EVENT_IDS = ['medica_2026', 'dgi_jahreskongress']` (geordnet, nur reale IDs);
+  `getEligibleHighlight` nimmt das erste nicht abgelaufene. Nach dem 19.11. rückt der DGI-Kongress nach,
+  nach dem 28.11. bleibt das Highlight leer. Es wird weiterhin kein Termin erfunden.
+  `HIGHLIGHT_EVENT_ID` bleibt als erste ID exportiert (Rückwärtskompatibilität).
+- Highlight-Fläche: optionale Detailzeilen `events:items.<id>.details[]` (Label/Text) und ein
+  vereinfachter Lageplan `events:items.<id>.plan` (Titel, Halle/Stand, Alt-Text, Legende) mit der
+  sprachneutralen Grafik `public/events/<id>-standplan.svg` als `<img loading="lazy">`. Kein Map-SDK.
+  Der Plan ist eine redaktionelle Vereinfachung des Messebauer-Grundrisses (LÜCO 058-26) und des
+  Geländeplans im Ausstellerheft (Eingang Ost → Halle 15); keine Geodaten.
+- Startseite: `getNextHomeEvent(now)` liefert Highlight oder nächsten kommenden Termin für das
+  „Aktuell"-Band (HOMEPAGE-CONTRACT §4.1). `lib/eventDates.ts` trägt die Datumsformate (vorher in
+  `EventsPage`).
+- Tests: `events.test.ts` (6 IDs, Highlight-Reihenfolge, Matrix +1), neu `EventsPage.test.tsx` (Uhr-Injektion
+  2026-10-28/11-21/12-01: Highlight, Details, Lageplan, Archiv), E2E PT18.2 Fixtures auf MEDICA angepasst
+  (laufen nur unter dem AP18-Fixed-Clock-Server; seit AP31 §6 als Drift bekannt).
+
 ## Operative Quellen und Identität
 
 - Stammdaten: `src/data/events.ts`

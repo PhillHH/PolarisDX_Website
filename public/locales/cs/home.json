@@ -423,5 +423,10 @@
     "promo_eyebrow": "Novinka · E-shop Panels",
     "promo_title": "Objednejte si epigenetické panely online",
     "promo_text": "Šest analýz z kapilární krve – k objednání přímo v e-shopu Panels."
+  },
+  "aktuell": {
+    "title": "Aktuálně",
+    "event_eyebrow": "Nyní · Akce",
+    "event_cta": "Zobrazit akci"
   }
 }

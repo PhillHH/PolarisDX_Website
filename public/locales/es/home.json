@@ -423,5 +423,10 @@
     "promo_eyebrow": "Novedad · Tienda Panels",
     "promo_title": "Pida ya los paneles epigenéticos en línea",
     "promo_text": "Seis análisis a partir de sangre capilar, disponibles directamente en la tienda Panels."
+  },
+  "aktuell": {
+    "title": "Actualidad",
+    "event_eyebrow": "Ahora · Evento",
+    "event_cta": "Ver el evento"
   }
 }

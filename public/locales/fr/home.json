@@ -423,5 +423,10 @@
     "promo_eyebrow": "Nouveau · Boutique Panels",
     "promo_title": "Commandez dès maintenant les panels épigénétiques en ligne",
     "promo_text": "Six analyses à partir de sang capillaire – à commander directement dans la boutique Panels."
+  },
+  "aktuell": {
+    "title": "Actualités",
+    "event_eyebrow": "Actuellement · Rendez-vous",
+    "event_cta": "Voir le rendez-vous"
   }
 }

@@ -8,6 +8,7 @@ import {
   EVENT_CALENDAR_DECISION,
   EVENT_DATE_SEMANTICS,
   HIGHLIGHT_EVENT_ID,
+  HIGHLIGHT_EVENT_IDS,
   events,
   buildPastEventArchive,
   getEligibleHighlight,
@@ -33,12 +34,13 @@ const baseEvent: EventEntry = {
 }
 
 describe('event inventory validation', () => {
-  it('keeps the measured five current and four historical stable IDs', () => {
+  it('keeps the measured six current and four historical stable IDs', () => {
     expect(events.map(({ id }) => id)).toEqual([
       'dentale_themenwelt',
       'dgi_summer_event',
       'nobel_biocare_dach_symposium',
       'kite_education',
+      'medica_2026',
       'dgi_jahreskongress',
     ])
     expect(pastEvents.map(({ id }) => id)).toEqual([
@@ -116,11 +118,14 @@ describe('sorting and highlight eligibility', () => {
     expect(future.upcoming.map(({ id }) => id)).toEqual(['a', 'b'])
   })
 
-  it('uses only the configured real highlight while it is eligible', () => {
-    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_ID, '2026-09-01')?.id).toBe(
+  it('uses only the configured real highlights, in order, while they are eligible', () => {
+    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_ID, '2026-09-01')?.id).toBe('medica_2026')
+    // SC-019: nach der MEDICA rueckt der DGI-Kongress nach, danach bleibt das Highlight leer.
+    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_IDS, '2026-11-20')?.id).toBe(
       'dgi_jahreskongress',
     )
-    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_ID, '2026-11-29')).toBeUndefined()
+    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_IDS, '2026-11-29')).toBeUndefined()
+    expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_ID, '2026-11-20')).toBeUndefined()
     expect(getEligibleHighlight(events, 'missing', '2026-09-01')).toBeUndefined()
   })
 
@@ -128,11 +133,13 @@ describe('sorting and highlight eligibility', () => {
     const presentation = getUpcomingEventPresentation(events, '2026-09-01')
     expect(presentation.upcoming.map(({ id }) => id)).toEqual([
       'kite_education',
+      'medica_2026',
       'dgi_jahreskongress',
     ])
-    expect(presentation.highlight?.id).toBe('dgi_jahreskongress')
+    expect(presentation.highlight?.id).toBe('medica_2026')
     expect(presentation.listEvents.map(({ id }) => id)).toEqual([
       'kite_education',
+      'medica_2026',
       'dgi_jahreskongress',
     ])
     expect(getEventStatus(presentation.listEvents[0], '2026-09-01')).toBe('ongoing')
@@ -215,7 +222,7 @@ describe('past archive transition, merge and stable-ID dedupe', () => {
   it('covers empty, static-only, all-past and past-highlight edge states', () => {
     expect(buildPastEventArchive([], [], '2026-01-01')).toEqual([])
     expect(buildPastEventArchive([], pastEvents, '2026-01-01')).toHaveLength(4)
-    expect(buildPastEventArchive(events, pastEvents, '2027-01-01')).toHaveLength(9)
+    expect(buildPastEventArchive(events, pastEvents, '2027-01-01')).toHaveLength(10)
 
     const afterHighlight = buildPastEventArchive(events, pastEvents, '2026-11-29')
     expect(afterHighlight.filter(({ id }) => id === HIGHLIGHT_EVENT_ID)).toHaveLength(1)
@@ -225,14 +232,14 @@ describe('past archive transition, merge and stable-ID dedupe', () => {
 
 describe('fixed-now full-page integration matrix', () => {
   it.each([
-    ['before single-day', '2026-06-11', [], 5],
-    ['same single-day', '2026-06-12', ['dentale_themenwelt', 'dgi_summer_event'], 5],
-    ['after single-day', '2026-06-14', [], 3],
-    ['before multi-day', '2026-07-31', [], 2],
-    ['multi-day start', '2026-08-01', ['kite_education'], 2],
-    ['multi-day middle', '2026-09-01', ['kite_education'], 2],
-    ['multi-day end', '2026-09-04', ['kite_education'], 2],
-    ['after multi-day', '2026-09-05', [], 1],
+    ['before single-day', '2026-06-11', [], 6],
+    ['same single-day', '2026-06-12', ['dentale_themenwelt', 'dgi_summer_event'], 6],
+    ['after single-day', '2026-06-14', [], 4],
+    ['before multi-day', '2026-07-31', [], 3],
+    ['multi-day start', '2026-08-01', ['kite_education'], 3],
+    ['multi-day middle', '2026-09-01', ['kite_education'], 3],
+    ['multi-day end', '2026-09-04', ['kite_education'], 3],
+    ['after multi-day', '2026-09-05', [], 2],
   ] as const)('%s', (_label, now, ongoingIds, upcomingCount) => {
     const projection = getEventPageProjection(events, pastEvents, now)
     expect(projection.upcoming).toHaveLength(upcomingCount)
@@ -242,7 +249,7 @@ describe('fixed-now full-page integration matrix', () => {
         .map(({ id }) => id),
     ).toEqual(ongoingIds)
     expect(new Set(projection.archive.map(({ id }) => id)).size).toBe(projection.archive.length)
-    expect(projection.highlight?.id).toBe('dgi_jahreskongress')
+    expect(projection.highlight?.id).toBe('medica_2026')
   })
 
   it('removes the expired real highlight from current UI and archives it once', () => {

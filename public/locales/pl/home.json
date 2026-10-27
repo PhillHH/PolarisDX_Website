@@ -423,5 +423,10 @@
     "promo_eyebrow": "Nowość · Sklep Panels",
     "promo_title": "Zamów panele epigenetyczne online",
     "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie Panels."
+  },
+  "aktuell": {
+    "title": "Aktualności",
+    "event_eyebrow": "Teraz · Wydarzenie",
+    "event_cta": "Zobacz wydarzenie"
   }
 }

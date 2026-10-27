@@ -423,5 +423,10 @@
     "promo_eyebrow": "Novità · Shop Panels",
     "promo_title": "Ordina ora online i pannelli epigenetici",
     "promo_text": "Sei analisi da sangue capillare – ordinabili direttamente nello shop Panels."
+  },
+  "aktuell": {
+    "title": "In evidenza",
+    "event_eyebrow": "Ora · Evento",
+    "event_cta": "Vedi l’evento"
   }
 }

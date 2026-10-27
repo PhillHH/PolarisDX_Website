@@ -27,6 +27,18 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-27 — SC-019 · „Aktuell"-Band, Termin-Details und Lageplan
+
+- **Ursache:** Owner-Auftrag MEDICA (`SCOPE-CHANGELOG.md` SC-019).
+- **Startseite:** `AktuellSection` — zwei Kacheln (`rounded-band`): Termin auf Navy (Eyebrow dunkel,
+  H3 `text-3xl lg:text-4xl`, weiße Pille), Panel-Aktion auf Weiß mit `accent-border` und Navy-Pille;
+  ab `lg` 3:2. Ersetzt `PanelsPromoSection`. Keine neuen Tokens, Rollen oder Bausteine.
+- **Terminseite:** Highlight-Karte mit Definitionsliste (Label `accent-on-dark`) und `StandPlan`-Figur
+  (`rounded-card`, `bg-white/5`, Legende als nummerierte Liste); Grafik `public/events/*.svg`.
+- **Gates:** siehe SC-019.
+- **Baselines:** PT27.6 21/21 unverändert (Band und Terminseite liegen außerhalb der Aufnahmen).
+- **Reviewer:** Claude (Messung, Plan gegen Grundriss und Geländeplan geprüft); Owner-Sichtprüfung offen.
+
 ### 2026-10-25 — SC-017/SC-014 · Kopfzeile großzügiger, Shop-Kapsel, Praxisstimmen-Slider
 
 - **Ursache:** Owner-Aufträge (`SCOPE-CHANGELOG.md` SC-014, SC-017).

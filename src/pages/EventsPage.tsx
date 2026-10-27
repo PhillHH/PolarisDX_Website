@@ -5,7 +5,7 @@ import { Calendar, MapPin, ArrowRight } from 'lucide-react'
 import {
   events,
   pastEvents,
-  HIGHLIGHT_EVENT_ID,
+  HIGHLIGHT_EVENT_IDS,
   getExternalEventLink,
   getEventPageProjection,
   getEventStatus,
@@ -18,36 +18,8 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
-
-/** Monats-Kurzformen je Sprache — sonst stünde in allen Sprachen "Mär"/"Okt"/"Dez". */
-const monthNames: Record<string, string[]> = {
-  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  fr: [
-    'janv.',
-    'févr.',
-    'mars',
-    'avr.',
-    'mai',
-    'juin',
-    'juil.',
-    'août',
-    'sept.',
-    'oct.',
-    'nov.',
-    'déc.',
-  ],
-  it: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
-  es: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
-  pt: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
-  pl: ['sty', 'lut', 'mar', 'kwi', 'maj', 'cze', 'lip', 'sie', 'wrz', 'paź', 'lis', 'gru'],
-  nl: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-  da: ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-  cs: ['led', 'úno', 'bře', 'dub', 'kvě', 'čvn', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
-}
-
-/** Sprachen, die hinter die Tageszahl einen Punkt setzen (12.–13. Jun 2026). */
-const DAY_DOT_LANGUAGES = new Set(['de', 'cs', 'da'])
+import StandPlan, { type StandPlanLabels } from '../components/events/StandPlan'
+import { formatEventDay, formatEventRange, monthNames } from '../lib/eventDates'
 
 interface PastCard {
   id: string
@@ -73,7 +45,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
   // lange laufender SSR-Prozess den "heute"-Stand auf seinen Start ein.
   const today = toIsoDay(now)
   const { upcoming, highlight, listEvents, archive } = useMemo(
-    () => getEventPageProjection(events, pastEvents, today, HIGHLIGHT_EVENT_ID),
+    () => getEventPageProjection(events, pastEvents, today, HIGHLIGHT_EVENT_IDS),
     [today],
   )
   const partners = Array.from(
@@ -85,35 +57,24 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
     : ''
   const highlightTag = highlight ? t(`events:items.${highlight.id}.tag`, '') : ''
   const highlightDescription = highlight ? t(`events:items.${highlight.id}.description`, '') : ''
+  // SC-019: optionale Detailzeilen und vereinfachter Lageplan je Termin (nur wo belegt).
+  const highlightDetailsRaw = highlight
+    ? t(`events:items.${highlight.id}.details`, { returnObjects: true, defaultValue: [] })
+    : []
+  const highlightDetails = Array.isArray(highlightDetailsRaw)
+    ? (highlightDetailsRaw as { label: string; text: string }[])
+    : []
+  const highlightPlanRaw = highlight
+    ? t(`events:items.${highlight.id}.plan`, { returnObjects: true, defaultValue: null })
+    : null
+  const highlightPlan =
+    highlightPlanRaw && typeof highlightPlanRaw === 'object'
+      ? (highlightPlanRaw as StandPlanLabels)
+      : null
 
-  const rangeLabel = (date: string, endDate?: string) => {
-    const s = parseIsoDate(date)
-    const e = endDate ? parseIsoDate(endDate) : s
-    const sameMonth = s.year === e.year && s.month === e.month
-
-    if (lang === 'en') {
-      if (sameMonth) {
-        const days = s.day === e.day ? `${s.day}` : `${s.day}–${e.day}`
-        return `${months[s.month]} ${days}, ${s.year}`
-      }
-      return `${months[s.month]} ${s.day} – ${months[e.month]} ${e.day}, ${e.year}`
-    }
-
-    const dot = DAY_DOT_LANGUAGES.has(lang) ? '.' : ''
-    if (sameMonth) {
-      const days = s.day === e.day ? `${s.day}${dot}` : `${s.day}${dot}–${e.day}${dot}`
-      return `${days} ${months[s.month]} ${s.year}`
-    }
-    return `${s.day}${dot} ${months[s.month]} – ${e.day}${dot} ${months[e.month]} ${e.year}`
-  }
-
+  const rangeLabel = (date: string, endDate?: string) => formatEventRange(lang, date, endDate)
   /** Ein einzelner Tag ohne Jahr — für den "bis …"-Hinweis laufender Termine. */
-  const dayLabel = (date: string) => {
-    const d = parseIsoDate(date)
-    if (lang === 'en') return `${months[d.month]} ${d.day}`
-    const dot = DAY_DOT_LANGUAGES.has(lang) ? '.' : ''
-    return `${d.day}${dot} ${months[d.month]}`
-  }
+  const dayLabel = (date: string) => formatEventDay(lang, date)
 
   /** Läuft der Termin heute bereits, ist aber noch nicht vorbei? */
   const isRunning = (event: (typeof events)[number]) => getEventStatus(event, today) === 'ongoing'
@@ -299,6 +260,24 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
                     <p className="mt-4 max-w-md leading-relaxed text-white/80">
                       {highlightDescription}
                     </p>
+                    {highlightDetails.length > 0 && (
+                      <dl className="mt-6 space-y-3 text-sm text-white/85">
+                        {highlightDetails.map((row) => (
+                          <div key={row.label} className="sm:flex sm:gap-4">
+                            <dt className="font-semibold text-accent-on-dark sm:w-32">
+                              {row.label}
+                            </dt>
+                            <dd>{row.text}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+                    {highlightPlan && (
+                      <StandPlan
+                        src={`/events/${highlight.id.replace(/_/g, '-')}-standplan.svg`}
+                        labels={highlightPlan}
+                      />
+                    )}
                     {getExternalEventLink(highlight) && (
                       <a
                         {...getExternalEventLink(highlight)}

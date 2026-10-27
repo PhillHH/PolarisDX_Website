@@ -60,6 +60,37 @@
       "tag": "Školení",
       "description": "Vítr, vlny a vědění — vzdělávání se potkává se životním stylem na ostrově Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Veletrh",
+      "short": "Hala 15, stánek E13",
+      "description": "Mezinárodní setkání zdravotnického odvětví v Düsseldorfu. Najdete nás na společném stánku Šlesvicka-Holštýnska: IglooPro naživo, epigenetické panely z jedné kapky krve a náš tým připravený k rozhovoru.",
+      "details": [
+        {
+          "label": "Kde",
+          "text": "Hala 15, stánek E13 – společný stánek Šlesvicka-Holštýnska (WTSH)"
+        },
+        {
+          "label": "Akce na stánku",
+          "text": "Pondělí 16. listopadu, 16:30: neformální setkání s pivem a občerstvením, zahájí státní tajemnice Julia Carstens"
+        },
+        {
+          "label": "Na místě",
+          "text": "IglooPro naživo, epigenetické panely, rozhovor s Adrianem Zuccalou a týmem"
+        }
+      ],
+      "plan": {
+        "title": "Kde nás najdete",
+        "hall": "Hala 15 · Stánek E13",
+        "alt": "Plán hala 15, stánek E13: cesty z uliček k pultu PolarisDX (1), info (2), bar (3), východní vchod (4)",
+        "legend": [
+          "Pult PolarisDX – přímo u uličky 15E18",
+          "Info společného stánku",
+          "Bar a občerstvení",
+          "Východní vchod Messe Düsseldorf – hala 15 je hned za ním"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "Výroční kongres DGI",
       "tag": "Kongres",

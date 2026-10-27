@@ -58,6 +58,37 @@
       "tag": "Fortbildung",
       "description": "Wind, Wellen und Wissen — Fortbildung trifft Lifestyle auf Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Messe",
+      "short": "Halle 15, Stand E13",
+      "description": "Internationaler Treffpunkt der Gesundheitswirtschaft. Am Schleswig-Holstein-Gemeinschaftsstand zeigen wir IglooPro live und Epigenetik-Panels aus einem Tropfen Blut.",
+      "details": [
+        {
+          "label": "Ort",
+          "text": "Halle 15, Stand E13 – Schleswig-Holstein-Gemeinschaftsstand (WTSH)"
+        },
+        {
+          "label": "Standevent",
+          "text": "Montag, 16. November, 16:30 Uhr: Get-together mit Bier und Fingerfood, eröffnet von Staatssekretärin Julia Carstens"
+        },
+        {
+          "label": "Vor Ort",
+          "text": "IglooPro live erleben, Epigenetik-Panels kennenlernen, Gespräch mit Adriano Zuccala und Team"
+        }
+      ],
+      "plan": {
+        "title": "So finden Sie uns",
+        "hall": "Halle 15 · Stand E13",
+        "alt": "Lageplan Halle 15, Stand E13: Wege von den Gängen zum PolarisDX-Counter (1), Info (2), Bar (3), Eingang Ost (4)",
+        "legend": [
+          "PolarisDX-Counter – direkt am Gang 15E18",
+          "Info des Gemeinschaftsstands",
+          "Bar und Bewirtung",
+          "Eingang Ost – Halle 15 liegt direkt dahinter"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "DGI Jahreskongress",
       "tag": "Kongress",

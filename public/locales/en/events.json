@@ -58,6 +58,37 @@
       "tag": "Training",
       "description": "Wind, waves and knowledge — training meets lifestyle on Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Trade fair",
+      "short": "Hall 15, Stand E13",
+      "description": "The international meeting point of the healthcare industry. On the Schleswig-Holstein joint pavilion we show IglooPro live and epigenetic panels from one drop of blood.",
+      "details": [
+        {
+          "label": "Where",
+          "text": "Hall 15, Stand E13 – Schleswig-Holstein joint pavilion (WTSH)"
+        },
+        {
+          "label": "Stand event",
+          "text": "Monday, 16 November, 4:30 pm: get-together with beer and finger food, opened by State Secretary Julia Carstens"
+        },
+        {
+          "label": "On site",
+          "text": "Experience IglooPro live, discover the epigenetic panels, talk to Adriano Zuccala and the team"
+        }
+      ],
+      "plan": {
+        "title": "How to find us",
+        "hall": "Hall 15 · Stand E13",
+        "alt": "Stand plan Hall 15, Stand E13: routes from the aisles to the PolarisDX counter (1), info (2), bar (3), East Entrance (4)",
+        "legend": [
+          "PolarisDX counter – right on aisle 15E18",
+          "Joint pavilion info desk",
+          "Bar and catering",
+          "East Entrance – Hall 15 is right behind it"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "DGI Annual Congress",
       "tag": "Congress",

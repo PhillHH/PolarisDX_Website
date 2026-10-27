@@ -58,6 +58,37 @@
       "tag": "Bijscholing",
       "description": "Wind, golven en kennis — bijscholing ontmoet lifestyle op Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Beurs",
+      "short": "Hal 15, stand E13",
+      "description": "Dé internationale ontmoetingsplek van de zorgsector in Düsseldorf. U vindt ons op de gezamenlijke stand van Sleeswijk-Holstein: IglooPro live, epigenetische panels uit één druppel bloed en ons team voor een gesprek.",
+      "details": [
+        {
+          "label": "Waar",
+          "text": "Hal 15, stand E13 – gezamenlijke stand Sleeswijk-Holstein (WTSH)"
+        },
+        {
+          "label": "Standevenement",
+          "text": "Maandag 16 november, 16:30 uur: get-together met bier en fingerfood, geopend door staatssecretaris Julia Carstens"
+        },
+        {
+          "label": "Ter plaatse",
+          "text": "IglooPro live ervaren, de epigenetische panels leren kennen, in gesprek met Adriano Zuccala en het team"
+        }
+      ],
+      "plan": {
+        "title": "Zo vindt u ons",
+        "hall": "Hal 15 · Stand E13",
+        "alt": "Plattegrond hal 15, stand E13: routes van de gangen naar de PolarisDX-balie (1), info (2), bar (3), ingang Oost (4)",
+        "legend": [
+          "PolarisDX-balie – direct aan gang 15E18",
+          "Info van de gezamenlijke stand",
+          "Bar en catering",
+          "Ingang Oost van Messe Düsseldorf – hal 15 ligt er direct achter"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "DGI Jaarcongres",
       "tag": "Congres",

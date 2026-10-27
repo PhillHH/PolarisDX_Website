@@ -423,5 +423,10 @@
     "promo_eyebrow": "Neu · Panel-Shop",
     "promo_title": "Epigenetik-Panels jetzt online bestellen",
     "promo_text": "Sechs Analysen aus Kapillarblut – direkt im Panel-Shop bestellbar."
+  },
+  "aktuell": {
+    "title": "Aktuell",
+    "event_eyebrow": "Aktuell · Termin",
+    "event_cta": "Zum Termin"
   }
 }

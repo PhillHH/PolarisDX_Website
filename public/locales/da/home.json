@@ -423,5 +423,10 @@
     "promo_eyebrow": "Nyhed · Panel-shop",
     "promo_title": "Bestil epigenetiske paneler online nu",
     "promo_text": "Seks analyser fra kapillærblod – kan bestilles direkte i Panel-shoppen."
+  },
+  "aktuell": {
+    "title": "Aktuelt",
+    "event_eyebrow": "Nu · Arrangement",
+    "event_cta": "Se arrangementet"
   }
 }

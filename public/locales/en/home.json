@@ -423,5 +423,10 @@
     "promo_eyebrow": "New · Panel shop",
     "promo_title": "Order epigenetic panels online now",
     "promo_text": "Six analyses from capillary blood – available to order directly in the panel shop."
+  },
+  "aktuell": {
+    "title": "What's on",
+    "event_eyebrow": "Now · Event",
+    "event_cta": "See the event"
   }
 }

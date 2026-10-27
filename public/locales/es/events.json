@@ -58,6 +58,37 @@
       "tag": "Formación",
       "description": "Viento, olas y conocimiento — la formación se une al lifestyle en Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Feria",
+      "short": "Pabellón 15, stand E13",
+      "description": "El punto de encuentro internacional del sector sanitario en Düsseldorf. Nos encontrará en el stand conjunto de Schleswig-Holstein: IglooPro en directo, paneles epigenéticos a partir de una gota de sangre y nuestro equipo a su disposición.",
+      "details": [
+        {
+          "label": "Lugar",
+          "text": "Pabellón 15, stand E13 – stand conjunto de Schleswig-Holstein (WTSH)"
+        },
+        {
+          "label": "Evento en el stand",
+          "text": "Lunes 16 de noviembre, 16:30 h: encuentro informal con cerveza y aperitivos, inaugurado por la secretaria de Estado Julia Carstens"
+        },
+        {
+          "label": "In situ",
+          "text": "Ver IglooPro en directo, conocer los paneles epigenéticos y hablar con Adriano Zuccala y el equipo"
+        }
+      ],
+      "plan": {
+        "title": "Cómo encontrarnos",
+        "hall": "Pabellón 15 · Stand E13",
+        "alt": "Plano pabellón 15, stand E13: caminos desde los pasillos al mostrador PolarisDX (1), información (2), bar (3), entrada Este (4)",
+        "legend": [
+          "Mostrador PolarisDX – junto al pasillo 15E18",
+          "Información del stand conjunto",
+          "Bar y catering",
+          "Entrada Este de Messe Düsseldorf – el pabellón 15 está justo detrás"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "Congreso anual DGI",
       "tag": "Congreso",

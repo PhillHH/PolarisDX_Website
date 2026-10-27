@@ -58,6 +58,37 @@
       "tag": "Efteruddannelse",
       "description": "Vind, bølger og viden — efteruddannelse møder livsstil på Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Messe",
+      "short": "Hal 15, stand E13",
+      "description": "Sundhedsbranchens internationale mødested i Düsseldorf. Du finder os på Slesvig-Holstens fællesstand: IglooPro live, epigenetiske paneler fra én dråbe blod og vores team klar til en snak.",
+      "details": [
+        {
+          "label": "Sted",
+          "text": "Hal 15, stand E13 – Slesvig-Holstens fællesstand (WTSH)"
+        },
+        {
+          "label": "Standevent",
+          "text": "Mandag den 16. november kl. 16.30: get-together med øl og fingermad, åbnet af statssekretær Julia Carstens"
+        },
+        {
+          "label": "På standen",
+          "text": "Oplev IglooPro live, lær de epigenetiske paneler at kende, tal med Adriano Zuccala og teamet"
+        }
+      ],
+      "plan": {
+        "title": "Sådan finder du os",
+        "hall": "Hal 15 · Stand E13",
+        "alt": "Standplan hal 15, stand E13: veje fra gangene til PolarisDX-skranken (1), info (2), bar (3), østindgang (4)",
+        "legend": [
+          "PolarisDX-skranke – lige ved gang 15E18",
+          "Fællesstandens info",
+          "Bar og forplejning",
+          "Messe Düsseldorfs østindgang – hal 15 ligger lige bagved"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "DGI Årskongres",
       "tag": "Kongres",

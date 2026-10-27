@@ -28,17 +28,20 @@ test('PT18.2 renders the fixed 2026-09-01 upcoming/ongoing projection across x10
 
     const highlight = page.locator('[data-event-highlight]')
     await expect(highlight).toHaveCount(1)
-    await expect(highlight).toHaveAttribute('data-event-id', 'dgi_jahreskongress')
+    // SC-019: MEDICA ist das erste konfigurierte Highlight; Details und Lageplan nur dort.
+    await expect(highlight).toHaveAttribute('data-event-id', 'medica_2026')
     await expect(highlight).toHaveAttribute('data-event-status', 'upcoming')
-    await expect(highlight).toContainText(localizedTitles[locale].dgi_jahreskongress.title)
-    await expect(highlight).toContainText('Hamburg')
-    await expect(highlight).toContainText('Nobel Biocare')
+    await expect(highlight).toContainText(localizedTitles[locale].medica_2026.title)
+    await expect(highlight).toContainText('Düsseldorf')
+    await expect(highlight).toContainText('E13')
+    await expect(highlight.locator('dl div')).toHaveCount(3)
+    await expect(highlight.locator('figure img[src$="standplan.svg"]')).toHaveCount(1)
 
     const list = page.locator('ul li[data-event-id]')
-    await expect(list).toHaveCount(2)
+    await expect(list).toHaveCount(3)
     expect(
       await list.evaluateAll((items) => items.map((item) => item.getAttribute('data-event-id'))),
-    ).toEqual(['kite_education', 'dgi_jahreskongress'])
+    ).toEqual(['kite_education', 'medica_2026', 'dgi_jahreskongress'])
     await expect(list.nth(0)).toHaveAttribute('data-event-status', 'ongoing')
     await expect(list.nth(0)).toContainText(localizedTitles[locale].kite_education.title)
     await expect(list.nth(0)).toContainText('Sylt')
@@ -64,7 +67,7 @@ for (const [width, locale] of [
     await page.setViewportSize({ width, height: 1000 })
     await page.goto(`/${locale}/events`)
     await expect(page.locator('[data-event-highlight]')).toBeVisible()
-    await expect(page.locator('li[data-event-id]')).toHaveCount(2)
+    await expect(page.locator('li[data-event-id]')).toHaveCount(3)
 
     const overflow = await page.evaluate(
       () => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth,

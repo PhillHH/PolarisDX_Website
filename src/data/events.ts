@@ -89,6 +89,15 @@ const eventRecords = [
     location: 'Sylt',
   },
   {
+    // SC-019 (Owner 2026-10-27, Unterlagen Ulrike Schürholz 26.10.2026): MEDICA Düsseldorf,
+    // Schleswig-Holstein-Gemeinschaftsstand der WTSH, Halle 15 Stand E13; Standevent Mo 16.11. 16:30.
+    id: 'medica_2026',
+    date: '2026-11-16',
+    endDate: '2026-11-19',
+    dateSemantics: EVENT_DATE_SEMANTICS,
+    location: 'Düsseldorf',
+  },
+  {
     id: 'dgi_jahreskongress',
     date: '2026-11-27',
     endDate: '2026-11-28',
@@ -98,8 +107,14 @@ const eventRecords = [
   },
 ] as const satisfies readonly EventEntry[]
 
-/** Reales Flaggschiff-Event; wird nach Ablauf nicht automatisch ersetzt. */
-export const HIGHLIGHT_EVENT_ID = 'dgi_jahreskongress'
+/**
+ * Reale Flaggschiff-Events in Reihenfolge: das erste noch nicht abgelaufene ist das Highlight.
+ * SC-019 (Owner 2026-10-27, „Die Medica ist wichtig"): MEDICA zuerst, danach rückt der
+ * DGI-Jahreskongress nach. Es wird kein Termin erfunden — nur konfigurierte, belegte IDs.
+ */
+export const HIGHLIGHT_EVENT_IDS = ['medica_2026', 'dgi_jahreskongress'] as const
+/** Rückwärtskompatibel: die erste konfigurierte Highlight-ID. */
+export const HIGHLIGHT_EVENT_ID: string = HIGHLIGHT_EVENT_IDS[0]
 
 const historicalRecords = [
   { id: 'ids_cologne', month: 10, year: 2025, location: 'Köln' },
@@ -195,21 +210,28 @@ export function splitEventsByDate(
   return { upcoming, past }
 }
 
-/** Liefert nur das konfigurierte Highlight, solange es nicht abgelaufen ist. */
+/**
+ * Liefert das erste konfigurierte Highlight, das noch nicht abgelaufen ist — oder nichts.
+ * Eine einzelne ID verhält sich wie bisher; eine Liste wird der Reihe nach geprüft.
+ */
 export function getEligibleHighlight(
   list: readonly EventEntry[],
-  highlightId: string,
+  highlightId: string | readonly string[],
   now: Date | string,
 ): EventEntry | undefined {
-  const highlight = list.find((event) => event.id === highlightId)
-  return highlight && getEventStatus(highlight, now) !== 'past' ? highlight : undefined
+  const ids = typeof highlightId === 'string' ? [highlightId] : highlightId
+  for (const id of ids) {
+    const highlight = list.find((event) => event.id === id)
+    if (highlight && getEventStatus(highlight, now) !== 'past') return highlight
+  }
+  return undefined
 }
 
 /** UI-Projektion ohne zweite Status-/Sortierlogik in der React-Seite. */
 export function getUpcomingEventPresentation(
   list: readonly EventEntry[],
   now: Date | string,
-  highlightId: string = HIGHLIGHT_EVENT_ID,
+  highlightId: string | readonly string[] = HIGHLIGHT_EVENT_IDS,
 ): {
   upcoming: EventEntry[]
   past: EventEntry[]
@@ -228,12 +250,21 @@ export function getUpcomingEventPresentation(
   }
 }
 
+/**
+ * SC-019: der Termin fuer das „Aktuell"-Band der Startseite — das erste konfigurierte
+ * Highlight, sonst der naechste kommende; nichts, wenn kein Termin ansteht.
+ */
+export function getNextHomeEvent(now: Date | string = new Date()): EventEntry | undefined {
+  const { highlight, upcoming } = getUpcomingEventPresentation(eventRecords, now)
+  return highlight ?? upcoming[0]
+}
+
 /** Eine gemeinsame, clock-injizierbare Projektion für die komplette Eventseite. */
 export function getEventPageProjection(
   current: readonly EventEntry[],
   historical: readonly PastEventEntry[],
   now: Date | string,
-  highlightId: string = HIGHLIGHT_EVENT_ID,
+  highlightId: string | readonly string[] = HIGHLIGHT_EVENT_IDS,
 ) {
   return {
     ...getUpcomingEventPresentation(current, now, highlightId),
@@ -313,7 +344,7 @@ export function getExternalEventLink(event: EventEntry):
 export function validateEventInventory(
   current: readonly EventEntry[],
   historical: readonly PastEventEntry[],
-  highlightId: string,
+  highlightId: string | readonly string[],
 ): void {
   const ids = new Set<string>()
   for (const event of current) {
@@ -357,10 +388,12 @@ export function validateEventInventory(
     if (!event.location.trim()) throw new Error(`Missing historical location for ${event.id}`)
   }
 
-  if (!ids.has(highlightId)) throw new Error(`Unknown highlight event id: ${highlightId}`)
+  for (const id of typeof highlightId === 'string' ? [highlightId] : highlightId) {
+    if (!ids.has(id)) throw new Error(`Unknown highlight event id: ${id}`)
+  }
 }
 
-validateEventInventory(eventRecords, historicalRecords, HIGHLIGHT_EVENT_ID)
+validateEventInventory(eventRecords, historicalRecords, HIGHLIGHT_EVENT_IDS)
 
 export const events: readonly EventEntry[] = eventRecords
 export const pastEvents: readonly PastEventEntry[] = historicalRecords

@@ -60,6 +60,37 @@
       "tag": "Szkolenie",
       "description": "Wiatr, fale i wiedza — szkolenie w połączeniu z lifestyle’em na wyspie Sylt."
     },
+    "medica_2026": {
+      "title": "MEDICA 2026",
+      "tag": "Targi",
+      "short": "Hala 15, stoisko E13",
+      "description": "Międzynarodowe miejsce spotkań branży ochrony zdrowia w Düsseldorfie. Znajdziecie nas na wspólnym stoisku Szlezwiku-Holsztynu: IglooPro na żywo, panele epigenetyczne z jednej kropli krwi i nasz zespół gotowy do rozmowy.",
+      "details": [
+        {
+          "label": "Miejsce",
+          "text": "Hala 15, stoisko E13 – wspólne stoisko Szlezwiku-Holsztynu (WTSH)"
+        },
+        {
+          "label": "Wydarzenie na stoisku",
+          "text": "Poniedziałek, 16 listopada, godz. 16:30: spotkanie przy piwie i przekąskach, otwarte przez sekretarz stanu Julię Carstens"
+        },
+        {
+          "label": "Na miejscu",
+          "text": "IglooPro na żywo, panele epigenetyczne, rozmowa z Adriano Zuccalą i zespołem"
+        }
+      ],
+      "plan": {
+        "title": "Jak nas znaleźć",
+        "hall": "Hala 15 · Stoisko E13",
+        "alt": "Plan hala 15, stoisko E13: drogi od przejść do lady PolarisDX (1), informacja (2), bar (3), wejście wschodnie (4)",
+        "legend": [
+          "Lada PolarisDX – bezpośrednio przy przejściu 15E18",
+          "Informacja wspólnego stoiska",
+          "Bar i poczęstunek",
+          "Wejście wschodnie Messe Düsseldorf – hala 15 jest tuż za nim"
+        ]
+      }
+    },
     "dgi_jahreskongress": {
       "title": "Kongres roczny DGI",
       "tag": "Kongres",
