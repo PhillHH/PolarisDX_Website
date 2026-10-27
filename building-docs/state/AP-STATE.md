@@ -46,7 +46,7 @@ kein `work-packages/APxx-STATE.md`).
   zum Counter, Legende × 10) auf der Terminseite; Startseite „Aktuell"-Band (`AktuellSection`: nächster
   Termin + Panel-Aktion bis 16.11.) ersetzt `PanelsPromoSection`. Gates siehe SC-019 (Budget 852/852, Vitest
   649/649, E2E Startseite 73/73, Axe 25/25, Visual 21/21). Wettbewerber-Recherche (10 Sites) im
-  UEBERGABE-LOG. Preview-Release: folgt. **Produktion unverändert** (`b8ccf2f990da`).
+  UEBERGABE-LOG. Preview-Release `f23055b01568` (Commit `f23055b`; Smoke grün; Preview de/en: Highlight MEDICA mit 3 Detailzeilen und Lageplan, Startseite „Aktuell"-Band mit MEDICA und Panel-Aktion). **Produktion unverändert** (`b8ccf2f990da`).
 - **SC-014 Slider + SC-017 Kopfzeile großzügiger (2026-10-25):** Preview `b8ccf2f990da` (Commit `b8ccf2f`;
   Smoke grün; Preview de/fr: Shop-Kapsel, vier Folien, Anführungszeichen je Sprache). Owner-Entscheidung
   Startseiten-`htmlBytes` +600 B (PERFORMANCE-CONTRACT). **Live seit 2026-10-27 10:56 CET** (`./deploy.sh up b8ccf2f990da`, Owner-Go; Livecheck: 10 Sprachen einzeilig, Luft 1 280 px ≥ 76 px, 1 920 px ≥ 183 px; Slider „Weiter" → „2 / 4"). Rückweg `./deploy.sh rollback` → `5bab10986139`.
