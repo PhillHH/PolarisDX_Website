@@ -98,7 +98,7 @@ const HeroSection = () => {
           height={mobile.height}
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-x-0 bottom-0 -z-10 h-auto w-full lg:inset-0 lg:h-full lg:object-cover lg:object-[center_35%]"
+          className={`absolute inset-x-0 bottom-0 -z-10 h-auto w-full lg:inset-0 lg:h-full lg:object-cover lg:object-[center_35%] ${STAGE.fade} ${active === 0 ? '' : 'opacity-0'}`}
         />
       </picture>
 

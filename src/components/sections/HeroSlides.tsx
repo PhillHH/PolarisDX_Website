@@ -8,9 +8,12 @@
  * referenziert — kein eigener Export, siehe heroStage.ts).
  *
  * Keine KI-Bilder (Owner 2026-10-27): Folie 2 zeigt den nächsten Termin mit dem eigenen
- * Lageplan (Alt-Text aus `plan.alt`), Folie 3 die Panel-Aktion mit dem echten Musterbefund. Das Bühnenfoto bleibt
- * leicht abgedunkelt im Hintergrund („nicht großartig überdeckt"). Ohne Termin und ohne
- * Aktion gibt es keinen Slider. Nur die aktive Folie steht im DOM.
+ * Lageplan (Alt-Text aus `plan.alt`), Folie 3 die Panel-Aktion mit dem echten Musterbefund.
+ * Owner 2026-10-29 („Das Herobild darf nicht das gleiche wie der Startseite sein"): ab lg tragen
+ * die Themenfolien eigene Hintergründe aus dem freigegebenen Motiv-Pool (`public/home/*.avif`
+ * aus `build-photo-look.mjs`, Verlauf eingebacken; feste Pfade statt Import — Budget); das
+ * Bühnenfoto blendet dann aus, auf Telefonen bleibt die Navy-Bühne.
+ * Ohne Termin und ohne Aktion gibt es keinen Slider. Nur die aktive Folie steht im DOM.
  *
  * Bedienung (Pfeile, Punkte, Pause/Weiter — WCAG 2.2.2) steht unter den Buttons der aktiven
  * Folie: `HeroSection` und jede Folie reservieren dafür einen Platzhalter (`mt-7 h-11`, kein
@@ -32,6 +35,8 @@ import { Button } from '../ui/Button'
 import type { Stage } from './heroStage'
 
 const INTERVAL_MS = 8000
+/** Hintergruende der Themenfolien ab lg (2:1, 1440w AVIF; ohne AVIF zeigt alt="" nichts → Navy). */
+const PHOTO = { event: '/home/event.avif', panels: '/home/panels.avif' }
 const CONTROL =
   'inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white'
 
@@ -83,8 +88,8 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
   const promo = isPanelsPromoActive()
   const ids = ['main', ...(event ? ['event'] : []), ...(promo ? ['panels'] : [])]
   const total = ids.length
-  const reduce =
-    typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  // Der Chunk laeuft nur im Browser (dynamischer Import nach dem ersten Bild) — kein SSR-Guard noetig.
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   const [playing, setPlaying] = useState(!reduce)
   const [held, setHeld] = useState(false)
   const [slideHost, setSlideHost] = useState<HTMLDivElement | null>(null)
@@ -92,7 +97,7 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
   const target = active === 0 ? host : slideHost
 
   useEffect(() => {
-    if (!playing || held || total < 2) return
+    if (!playing || held) return
     const id = window.setTimeout(() => onChange((active + 1) % total), INTERVAL_MS)
     return () => window.clearTimeout(id)
   }, [active, playing, held, total, onChange])
@@ -104,20 +109,13 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
     if (key) target?.querySelector<HTMLElement>(`[data-k="${key}"]`)?.focus()
   }, [target])
 
-  if (total < 2) return null
-
   const jump = (index: number, key: string) => () => {
     focusKey.current = key
     onChange((index + total) % total)
   }
   const slideLabel = (n: number) => t('hero_slides.slide', { n, total })
   const current = ids[active]
-  const plan =
-    event?.id === 'medica_2026'
-      ? (t(`events:items.${event.id}.plan`, { returnObjects: true, defaultValue: null }) as {
-          alt?: string
-        } | null)
-      : null
+  const planAlt = event?.id === 'medica_2026' ? t(`events:items.${event.id}.plan.alt`, '') : ''
 
   const slide: Omit<SlideProps, 'stage' | 'host'> | null =
     current === 'event' && event
@@ -155,11 +153,11 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
               </Button>
             </>
           ),
-          aside: plan && (
+          aside: planAlt && (
             <figure className="rounded-card border border-white/15 bg-white/5 p-4">
               <img
                 src="/events/medica-2026-standplan.svg"
-                alt={plan.alt ?? ''}
+                alt={planAlt}
                 width={560}
                 height={360}
                 className="h-auto w-full max-w-md"
@@ -253,16 +251,15 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
       onFocus={() => setHeld(true)}
       onBlur={() => setHeld(false)}
     >
-      {/* Abdunkelung des Fotos auf den Themenfolien (dieselbe Stufe wie der Dialog-Hintergrund) */}
-      <div
-        aria-hidden="true"
-        className={`absolute inset-0 bg-brand-deep/60 ${stage.fade} ${
-          active === 0 ? 'pointer-events-none opacity-0' : ''
-        }`}
-      />
-      <div aria-live={playing ? 'off' : 'polite'}>
-        {slide && <Slide {...slide} stage={stage} host={setSlideHost} />}
-      </div>
+      {/* Hintergrund der Themenfolie (ab lg); das Buehnenfoto darunter blendet in HeroSection aus */}
+      {slide && (
+        <img
+          src={PHOTO[current as keyof typeof PHOTO]}
+          alt=""
+          className="absolute inset-0 -z-10 hidden h-full w-full object-cover animate-modal-backdrop-in motion-reduce:animate-none lg:block"
+        />
+      )}
+      {slide && <Slide {...slide} stage={stage} host={setSlideHost} />}
       {target && createPortal(controls, target)}
     </div>
   )

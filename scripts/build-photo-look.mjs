@@ -116,6 +116,68 @@ async function article(source, base, position = 'attention') {
   }
 }
 
+/** Desktop-Buehne: Navy-Verlauf links (Textseite), weicher Fuss, Punktring des Signets. */
+function stageOverlays(w, h) {
+  const g = svgRect(
+    w,
+    h,
+    `<linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="${NAVY}" stop-opacity="0.97"/>
+      <stop offset="0.42" stop-color="${NAVY}" stop-opacity="0.93"/>
+      <stop offset="0.68" stop-color="${NAVY}" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="${NAVY}" stop-opacity="0.08"/></linearGradient>`,
+  )
+  const b = svgRect(
+    w,
+    h,
+    `<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.7" stop-color="${NAVY}" stop-opacity="0"/>
+      <stop offset="1" stop-color="${NAVY}" stop-opacity="0.45"/></linearGradient>`,
+  )
+  const size = Math.round(w * 0.46)
+  return [
+    { input: g, left: 0, top: 0 },
+    { input: b, left: 0, top: 0 },
+    { input: ringSvg(size, 0.06), left: Math.round(-w * 0.14), top: Math.round(h * 0.34) },
+  ]
+}
+
+/**
+ * Folien 2/3 des Hero-Sliders (SC-020; Owner 2026-10-29: „Das Herobild darf nicht das gleiche wie
+ * der Startseite sein" — Auswahl: vorhandene Artikelmotive, kein neues KI-Bild). Nur Desktop
+ * (ab lg), 2:1, eine Stufe 1440w AVIF: die Quellen sind 1376 px breit, eine 2400er waere 1,75-fach
+ * hochskaliert. Verlauf und Ring wie die Buehne, damit die Textseite links Navy bleibt. Ziel ist
+ * `public/home/` mit festen kurzen Namen: der Slider-Chunk traegt die Pfade als Literal (Budget
+ * `home.jsBytes`), ein Import ueber `homeImages.ts` kostete rund 100 B gzip mehr.
+ *   - event: lab-tubes.jpg (IglooPro auf dem Tresen rechts) — MEDICA „IglooPro live"
+ *   - panels: lab-micro.jpg gespiegelt (Haende mit Probenroehrchen rechts) — Panels aus
+ *     einem Tropfen Blut
+ */
+const SLIDES = [
+  { base: 'event', source: 'lab-tubes.jpg', flip: false },
+  { base: 'panels', source: 'lab-micro.jpg', flip: true },
+]
+async function slides() {
+  const w = 1440
+  const h = w / 2
+  for (const { base, source, flip } of SLIDES) {
+    const src = path.join(SRC, source)
+    const { width: SW, height: SH } = await sharp(src).metadata()
+    const ch = Math.min(SH, Math.round(SW / 2))
+    // Ausschnitt etwas unterhalb der Mitte: Geraet bzw. Haende liegen im unteren Bilddrittel.
+    let img = sharp(src).extract({
+      left: 0,
+      top: Math.round((SH - ch) * 0.7),
+      width: SW,
+      height: ch,
+    })
+    if (flip) img = img.flop()
+    const photo = await look(img.resize(w, h), w, h)
+    const raw = sharp(await photo.png().toBuffer()).composite(stageOverlays(w, h))
+    await encode(raw, path.join(ROOT, 'public', 'home', base), { avif: 46 })
+  }
+}
+
 /** Buehne der Startseite (AP34 / SC-002) — Verlauf und Punktring eingebacken. */
 async function stage() {
   const src = path.join(SRC, 'practice-dental-2600.jpg')
@@ -132,28 +194,7 @@ async function stage() {
       w,
       h,
     )
-    const g = svgRect(
-      w,
-      h,
-      `<linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="${NAVY}" stop-opacity="0.97"/>
-      <stop offset="0.42" stop-color="${NAVY}" stop-opacity="0.93"/>
-      <stop offset="0.68" stop-color="${NAVY}" stop-opacity="0.4"/>
-      <stop offset="1" stop-color="${NAVY}" stop-opacity="0.08"/></linearGradient>`,
-    )
-    const b = svgRect(
-      w,
-      h,
-      `<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0.7" stop-color="${NAVY}" stop-opacity="0"/>
-      <stop offset="1" stop-color="${NAVY}" stop-opacity="0.45"/></linearGradient>`,
-    )
-    const size = Math.round(w * 0.46)
-    const raw = sharp(await photo.png().toBuffer()).composite([
-      { input: g, left: 0, top: 0 },
-      { input: b, left: 0, top: 0 },
-      { input: ringSvg(size, 0.06), left: Math.round(-w * 0.14), top: Math.round(h * 0.34) },
-    ])
+    const raw = sharp(await photo.png().toBuffer()).composite(stageOverlays(w, h))
     await encode(raw, path.join(HOME, `hero-desktop-${w}w`), { avif: q })
   }
   const mobile = async (w, q, wq) => {
@@ -227,6 +268,7 @@ async function main() {
     )
   }
   await stage()
+  await slides()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }
 

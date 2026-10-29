@@ -80,7 +80,8 @@ const AktuellSection = () => {
               </h3>
               <p className="mt-3 text-sm text-gray-600">{t('shop_teaser.note_short')}</p>
             </div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            {/* flex-wrap: eine Pille rutscht als Ganzes in die naechste Zeile, statt dass ihr Text umbricht. */}
+            <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={panelsUrl(i18n.language)}
                 data-shop="panels"

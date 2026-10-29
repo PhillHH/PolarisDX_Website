@@ -9,6 +9,11 @@ Fachbereich-Moduls (`detail-capillary.jpg`, 4:5) und die fuenf Artikelfotos (`re
 `doctor-tablet.jpg`, `lab-tubes.jpg`, `clinic-modern.jpg`, `lab-micro.jpg`, 16:9). Die Startseite
 zeigt genau zwei generierte Fotos (Buehne + Detail); alles andere dort sind Produkt-Render, der
 echte Musterbefund, eine Parameter-Tafel, das echte Portraet der Praxisreferenz und ein Artikelfoto.
+**Nachtrag SC-020 (2026-10-29, Owner „Das Herobild darf nicht das gleiche wie der Startseite sein"):**
+die Folien 2/3 des Hero-Sliders zeigen ab `lg` zwei weitere Pool-Motive — `lab-tubes.jpg` (MEDICA) und
+`lab-micro.jpg` gespiegelt (Panels) — als `public/home/event.avif` / `panels.avif` (2:1, 1440w, Look und
+Navy-Verlauf der Buehne, Funktion `slides()`); sie laden nur im Browser mit dem Slider-Chunk, nie als
+LCP. Kein neues Motiv, kein neuer Prompt.
 Die fuenf Runde-2-Motive `practice-dental/-beauty/-longevity/-consult.jpg` und `lab-analyst.jpg`
 sind entfernt (zuletzt in `e5dbb3b`).
 

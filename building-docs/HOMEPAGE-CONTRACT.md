@@ -90,8 +90,14 @@ hardening remain AP22-owned and are not claimed as complete.
   reserve a `mt-7 h-11` slot (no layout shift), the bar is portaled into the active slot and the pressed
   control keeps focus across the move (at the stage's bottom edge the bar sat behind the TrustBar's
   negative margin; PT24.6 caught the intercepted click). 8 s interval, held on pointer/focus, no autoplay
-  under `prefers-reduced-motion`. No slider without an event and without a promotion; no AI imagery (SC-018
-  rejected by the owner). Tests: `HeroSection.test.tsx` (SSR without controls; slide 2 after the delay,
+  under `prefers-reduced-motion`. No slider without an event and without a promotion. Slide backgrounds (owner 2026-10-29, „Das
+  Herobild darf nicht das gleiche wie der Startseite sein"): from `lg` each theme slide shows its own
+  photo from the pool approved on 2026-10-16 — MEDICA `lab-tubes.jpg` (IglooPro on the counter), panels
+  `lab-micro.jpg` mirrored (hands with a sample tube) — with the stage's navy gradient baked in
+  (`scripts/build-photo-look.mjs` → `public/home/event.avif`, `panels.avif`, 1440w AVIF only, fixed
+  paths so the chunk carries no import); the stage photo fades out underneath, phones keep the navy
+  stage. No new AI imagery (SC-018 rejected by the owner); the SC-005 rule „two generated photos" still
+  describes the SSR page, the slide photos load client-side only. Tests: `HeroSection.test.tsx` (SSR without controls; slide 2 after the delay,
   slide 1 inert), PT27.6 waits for the `tablist` before every home shot, PT24.6 state „Hero-Slider, Folie 2".
 
 ### 2.3 Mobile and accessibility hierarchy

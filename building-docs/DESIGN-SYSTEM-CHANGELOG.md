@@ -39,6 +39,10 @@ Das ist **AP27** und wird nicht vorweggenommen.
   `bg-white/10`, Fokusring weiß), Punkte `h-1.5` (aktiv `w-8 accent-on-dark`, sonst `w-3 bg-white/40`),
   Pause/Weiter als Inline-SVG in `currentColor`. Die Bühne wird dadurch um 72 px höher (Desktop ≈ 882 px,
   Telefon entsprechend); Foto und Produktkarte bleiben unten verankert.
+- **Folienhintergründe (2026-10-29, Owner):** Folie 2 `lab-tubes` (IglooPro rechts), Folie 3 `lab-micro`
+  gespiegelt (Hände mit Röhrchen rechts) — Zuschnitt 2:1, Look und Navy-Verlauf/Ring der Bühne
+  (`stageOverlays` in `build-photo-look.mjs`), ab `lg` als `object-cover`-Bild mit Einblendung
+  `animate-modal-backdrop-in`; das Bühnenfoto blendet mit `transition-opacity` aus.
 - **Termin-Popup:** bestehender `Dialog` (`max-w-lg`): Eyebrow-Zeile, Beschreibung, zwei Wege (Outline-Link
   `border-paper-line`, `Button secondary sm`).
 - **Startseite:** Shop-Kachel im „Aktuell"-Band immer sichtbar — Weiß mit `accent-border`, Netto-Hinweis
