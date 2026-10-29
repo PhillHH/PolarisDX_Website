@@ -40,6 +40,14 @@ kein `work-packages/APxx-STATE.md`).
   SEO-Head, Header, Consent). Protokoll, Abweichungen und Folgearbeiten: `release/AP31-GO-LIVE.md` §7
   (SendGrid-Rotation OA-11, Port 5000 streichen, Alt-Images, `main` nachziehen, CTC-04, E2E-Drift).
   **`/home/phillip/01polaris` (main) ist nicht mehr Quelle der Produktion** — dort nie `compose up`.
+- **SC-020 Hero-Slider, Termin-Popup, Shop-Kachel (2026-10-28, Owner-Nachbesserung zu SC-019 — „nicht
+  professionell umgesetzt, der Hinweis zu unserem Shop ist weg, Slider oder Termin-Popup oder beides"):**
+  Hero-Karussell (Folie 1 SSR unverändert; Folien Termin mit Lageplan und Panel-Aktion mit Musterbefund als
+  Chunk `HeroSlides` 1,5 s nach dem ersten Bild; Pfeile/Punkte/Pause), Termin-Popup einmal je Sitzung nach
+  der Cookie-Entscheidung (nicht auf Termin-/Kontakt-/Supportseite), Shop-Kachel mit beiden Shops dauerhaft
+  im „Aktuell"-Band (`ShopTeaserSection` entfernt). Startseiten-`jsBytes` +300 B (Owner-Auswahl). Gates siehe
+  SC-020 (Budget 852/852, Vitest 652/652, E2E Startseite 105/105, Axe 27/27, Visual 22/22). Commit `89bd29d`;
+  Preview-Release wird nach dem Deploy nachgetragen. **Produktion unverändert** (`b8ccf2f990da`).
 - **SC-019 MEDICA 2026 (2026-10-27, Owner-Auftrag mit ZIP von Ulrike Schürholz):** Termin `medica_2026`
   (16.–19.11., Düsseldorf, Halle 15 Stand E13), Highlight-Reihenfolge MEDICA → DGI, Detailzeilen und
   vereinfachter Lageplan (`public/events/medica-2026-standplan.svg`, Eingang Ost → Halle 15, Wege mit Pfeil
