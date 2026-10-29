@@ -80,8 +80,8 @@ hardening remain AP22-owned and are not claimed as complete.
   1.5 s after mount (`HERO_SLIDES_DELAY_MS`) `HeroSection` lazy-loads `HeroSlides` (own chunk, 2.0 KB
   gzip; counted in the home `jsBytes` budget, raised by 300 B — PERFORMANCE-CONTRACT change table). Slide
   2 = the next real event (`getNextHomeEvent`: title, `short`, date, location, actions `/events` and
-  `/contact`, the stand plan from `lg` — no description, no caption: budget; both live in the popup and on
-  the events page), slide 3 = the panel promotion with the real sample
+  `/contact` — no description and no stand plan on the slide: budget, and the plan card covered the
+  device in the slide photo of 2026-10-29; both live on the events page), slide 3 = the panel promotion with the real sample
   report (`report-preview-800w.webp`); both overlay the stage with the photo dimmed to `bg-brand-deep/60`
   and reuse the stage classes (`heroStage.ts`, passed as prop — no second CSS, no extra export). Only the
   active slide is in the DOM; while a theme slide is active slide 1 keeps the height and the H1 but is

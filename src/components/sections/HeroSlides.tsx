@@ -7,8 +7,9 @@
  * Layout-Klassen kommen als Prop `stage` aus `HeroSection` (einmal im Hauptbündel, hier nur
  * referenziert — kein eigener Export, siehe heroStage.ts).
  *
- * Keine KI-Bilder (Owner 2026-10-27): Folie 2 zeigt den nächsten Termin mit dem eigenen
- * Lageplan (Alt-Text aus `plan.alt`), Folie 3 die Panel-Aktion mit dem echten Musterbefund.
+ * Keine KI-Bilder (Owner 2026-10-27): Folie 2 zeigt den nächsten Termin (der Lageplan bleibt auf der
+ * Terminseite — als Karte überdeckte er im Folienbild das Gerät), Folie 3 die Panel-Aktion mit dem
+ * echten Musterbefund.
  * Owner 2026-10-29 („Das Herobild darf nicht das gleiche wie der Startseite sein"): ab lg tragen
  * die Themenfolien eigene Hintergründe aus dem freigegebenen Motiv-Pool (`public/home/*.avif`
  * aus `build-photo-look.mjs`, Verlauf eingebacken; feste Pfade statt Import — Budget); das
@@ -115,7 +116,6 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
   }
   const slideLabel = (n: number) => t('hero_slides.slide', { n, total })
   const current = ids[active]
-  const planAlt = event?.id === 'medica_2026' ? t(`events:items.${event.id}.plan.alt`, '') : ''
 
   const slide: Omit<SlideProps, 'stage' | 'host'> | null =
     current === 'event' && event
@@ -152,17 +152,6 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
                 {t('hero_slides.meet')}
               </Button>
             </>
-          ),
-          aside: planAlt && (
-            <figure className="rounded-card border border-white/15 bg-white/5 p-4">
-              <img
-                src="/events/medica-2026-standplan.svg"
-                alt={planAlt}
-                width={560}
-                height={360}
-                className="h-auto w-full max-w-md"
-              />
-            </figure>
           ),
         }
       : current === 'panels'

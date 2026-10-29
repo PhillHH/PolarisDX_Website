@@ -38,8 +38,8 @@ aber keine zweite ausführbare Eventliste ein.
 ## Nachtrag SC-020 (2026-10-28) — Hero-Folie und Termin-Popup
 
 - Startseite, Bühne: `getNextHomeEvent()` liefert Folie 2 des Hero-Sliders (`HeroSlides`): Titel, `short`,
-  Datum (`formatEventRange`), Ort, ab `lg` der Lageplan (`plan.alt`, derzeit nur `medica_2026`); keine
-  `description` und keine Bildunterschrift (Budget — beides steht im Popup bzw. auf der Terminseite). Aktionen `home.aktuell.event_cta` → `/events` und `home.hero_slides.meet` → `/contact`.
+  Datum (`formatEventRange`), Ort; keine `description` und kein Lageplan auf der Folie (Budget; die
+  Lageplan-Karte überdeckte im Folienbild vom 29.10. das Gerät — beides steht auf der Terminseite). Aktionen `home.aktuell.event_cta` → `/events` und `home.hero_slides.meet` → `/contact`.
   Ohne kommenden Termin entfällt die Folie (HOMEPAGE-CONTRACT §2.2).
 - Termin-Popup (`src/components/events/EventPopup.tsx`; Regeln in `src/lib/eventPopupState.ts`): derselbe
   Termin auf jeder Seite außer `/events*`, `/contact*`, `/support*`. Erscheint 1,2 s nach der

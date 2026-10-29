@@ -33,8 +33,8 @@ Das ist **AP27** und wird nicht vorweggenommen.
 - **Bühne:** Karussell über dem bestehenden Hero. Folien 2/3 im Bühnenraster (`heroStage.ts`: Raster,
   Eyebrow-Pille, Titel, Lead, Aktionszeile, Ghost-Button — identisch mit Folie 1); Foto auf Themenfolien mit
   `bg-brand-deep/60` abgedunkelt (Stufe des Dialog-Hintergrunds); Folientitel `text-4xl sm:text-5xl` mit
-  Zweitzeile `accent-on-dark`; Lageplan-Figur wie auf der Terminseite (`rounded-card`, `border-white/15`,
-  `bg-white/5`), Musterbefund `rounded-card shadow-card`. Bedienung als Leiste direkt unter den Buttons
+  Zweitzeile `accent-on-dark`; Musterbefund auf Folie 3 `rounded-card shadow-card` (Folie 2 seit 29.10.
+  ohne Lageplan-Karte — sie überdeckte das Gerät im Folienbild). Bedienung als Leiste direkt unter den Buttons
   der aktiven Folie (reservierter Platz `mt-7 h-11`): runde 44-px-Knöpfe (`border-white/30`, Hover
   `bg-white/10`, Fokusring weiß), Punkte `h-1.5` (aktiv `w-8 accent-on-dark`, sonst `w-3 bg-white/40`),
   Pause/Weiter als Inline-SVG in `currentColor`. Die Bühne wird dadurch um 72 px höher (Desktop ≈ 882 px,
