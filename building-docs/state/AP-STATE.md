@@ -47,7 +47,7 @@ kein `work-packages/APxx-STATE.md`).
   der Cookie-Entscheidung (nicht auf Termin-/Kontakt-/Supportseite), Shop-Kachel mit beiden Shops dauerhaft
   im „Aktuell"-Band (`ShopTeaserSection` entfernt). Startseiten-`jsBytes` +300 B (Owner-Auswahl). Gates siehe
   SC-020 (Budget 852/852, Vitest 652/652, E2E Startseite 105/105, Axe 27/27, Visual 22/22). Commit `89bd29d`;
-  Preview-Release `2b587bad5aa6` (Commits `89bd29d`, `3aeb758`, `0f43397`, `2b587ba`; Health, Identität, Smoke grün; https://preview.polarisdx.net — Startseite: Slider mit Bedienleiste und eigenen Folienbildern aus dem Motiv-Pool (Owner 2026-10-29), Popup, Shop-Kachel; `routeJsGzip.service-detail` +50 B Toleranz; Owner-Sichtprüfung offen). Zuvor `3aeb7589bdad` (ohne Folienbilder). **Produktion unverändert** (`b8ccf2f990da`).
+  Preview-Release `118846161d1d` (Commits `89bd29d`, `3aeb758`, `0f43397`, `2b587ba`, `f11c907`, `1188461`; Health, Identität, Smoke grün; https://preview.polarisdx.net — Startseite: Slider mit Bedienleiste und eigenen Folienbildern aus dem Motiv-Pool (Owner 2026-10-29), Popup, Shop-Kachel; `routeJsGzip.service-detail` +50 B Toleranz; Owner-Sichtprüfung offen). Zuvor `3aeb7589bdad` (ohne Folienbilder) und `2b587bad5aa6` (Folie 2 noch mit Lageplan-Karte über dem Gerät). **Produktion unverändert** (`b8ccf2f990da`).
 - **SC-019 MEDICA 2026 (2026-10-27, Owner-Auftrag mit ZIP von Ulrike Schürholz):** Termin `medica_2026`
   (16.–19.11., Düsseldorf, Halle 15 Stand E13), Highlight-Reihenfolge MEDICA → DGI, Detailzeilen und
   vereinfachter Lageplan (`public/events/medica-2026-standplan.svg`, Eingang Ost → Halle 15, Wege mit Pfeil
