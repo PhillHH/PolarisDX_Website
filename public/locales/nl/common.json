@@ -292,5 +292,11 @@
     "saved": "Bewaard: {{count}}",
     "moreAreas": "Meer gebieden",
     "factsLabel": "In het kort"
+  },
+  "event_popup": {
+    "eyebrow": "Evenement",
+    "cta": "Naar het evenement",
+    "meet": "Afspraak op onze stand maken",
+    "close": "Sluiten"
   }
 }

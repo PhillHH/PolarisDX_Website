@@ -64,7 +64,7 @@
       "home": {
         "mobile": {
           "htmlBytes": 35312,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -76,7 +76,7 @@
         },
         "desktop": {
           "htmlBytes": 35312,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -454,7 +454,7 @@
       "home-en": {
         "mobile": {
           "htmlBytes": 34857,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -466,7 +466,7 @@
         },
         "desktop": {
           "htmlBytes": 34857,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -480,7 +480,7 @@
       "home-pl": {
         "mobile": {
           "htmlBytes": 35613,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,
@@ -492,7 +492,7 @@
         },
         "desktop": {
           "htmlBytes": 35613,
-          "jsBytes": 165050,
+          "jsBytes": 165350,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,

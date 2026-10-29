@@ -291,5 +291,11 @@
     "saved": "Saved: {{count}}",
     "moreAreas": "More areas",
     "factsLabel": "At a glance"
+  },
+  "event_popup": {
+    "eyebrow": "Event",
+    "cta": "See the event",
+    "meet": "Book a meeting at our stand",
+    "close": "Close"
   }
 }

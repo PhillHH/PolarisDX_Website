@@ -11,9 +11,7 @@ import {
 import HeroSection from '../components/sections/HeroSection'
 import TrustBar from '../components/sections/TrustBar'
 import BusinessPillarsSection from '../components/sections/BusinessPillarsSection'
-import ShopTeaserSection from '../components/sections/ShopTeaserSection'
 import AktuellSection from '../components/sections/AktuellSection'
-import { isPanelsPromoActive } from '../lib/shop'
 import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import StepsSection from '../components/sections/StepsSection'
@@ -61,11 +59,10 @@ const HomePage = () => {
       />
       <HeroSection />
       <TrustBar />
-      {/* SC-019: „Aktuell" — naechster Termin und (bis PANELS_PROMO_LAST_DAY) die Panel-Aktion;
-          rendert selbst nichts, wenn beides fehlt. Das Shop-Band kehrt nach der Aktion zurueck. */}
+      {/* SC-019/SC-020: „Aktuell" — naechster Termin und die Online-Shops (Panel-Aktion bis
+          PANELS_PROMO_LAST_DAY). Ersetzt das fruehere Shop-Band dauerhaft. */}
       <AktuellSection />
       <BusinessPillarsSection />
-      {isPanelsPromoActive() ? null : <ShopTeaserSection />}
       <WhyPocSection />
       <StepsSection />
       <div className="pt-20 lg:pt-24">

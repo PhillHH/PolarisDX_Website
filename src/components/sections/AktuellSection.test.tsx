@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import AktuellSection from './AktuellSection'
 import { getNextHomeEvent } from '../../data/events'
-import { PANELS_ORIGIN } from '../../lib/shop'
+import { PANELS_ORIGIN, SHOP_ORIGIN } from '../../lib/shop'
 
 const mount = () =>
   render(
@@ -12,12 +12,15 @@ const mount = () =>
     </MemoryRouter>,
   )
 
-describe('AktuellSection (SC-019)', () => {
+const shopLinks = (region: HTMLElement) =>
+  [...region.querySelectorAll('[data-home-shops] a')].map((a) => a.getAttribute('data-shop'))
+
+describe('AktuellSection (SC-019/SC-020)', () => {
   afterEach(() => {
     vi.useRealTimers()
   })
 
-  it('zeigt vor der MEDICA den Termin links und die Panel-Aktion rechts', () => {
+  it('zeigt vor der MEDICA den Termin links und beide Shops rechts (Panel-Aktion aktiv)', () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-10-28T12:00:00+01:00'))
     mount()
@@ -29,33 +32,38 @@ describe('AktuellSection (SC-019)', () => {
     expect(event).toHaveTextContent('Düsseldorf')
     expect(event).toHaveTextContent('16.–19. Nov 2026')
 
-    const panels = region.querySelector('[data-home-panels-promo] a')
-    expect(panels?.getAttribute('href')?.startsWith(PANELS_ORIGIN)).toBe(true)
-    expect(panels).toHaveAttribute('data-shop', 'panels')
-    expect(region.querySelectorAll('a')).toHaveLength(2)
+    const shops = region.querySelector('[data-home-shops]') as HTMLElement
+    expect(shops).toHaveTextContent('shop_teaser.promo_title')
+    expect(shops).toHaveTextContent('shop_teaser.note_short')
+    expect(shopLinks(region)).toEqual(['panels', 'practice'])
+    const [panels, practice] = shops.querySelectorAll('a')
+    expect(panels.getAttribute('href')?.startsWith(PANELS_ORIGIN)).toBe(true)
+    expect(practice.getAttribute('href')?.startsWith(SHOP_ORIGIN)).toBe(true)
+    expect(region.querySelectorAll('a')).toHaveLength(3)
   })
 
-  it('zeigt waehrend der MEDICA nur noch den Termin, danach den DGI-Kongress', () => {
+  it('behaelt beide Shops nach dem Ende der Panel-Aktion und rueckt den DGI-Kongress nach', () => {
     vi.useFakeTimers({ toFake: ['Date'] })
-    vi.setSystemTime(new Date('2026-11-18T08:00:00+01:00'))
-    expect(getNextHomeEvent()?.id).toBe('medica_2026')
-    const { unmount } = mount()
-    expect(
-      screen
-        .queryByRole('region', { name: 'aktuell.title' })
-        ?.querySelector('[data-home-panels-promo]'),
-    ).toBeNull()
-    unmount()
-
     vi.setSystemTime(new Date('2026-11-21T08:00:00+01:00'))
     expect(getNextHomeEvent()?.id).toBe('dgi_jahreskongress')
+    mount()
+    const region = screen.getByRole('region', { name: 'aktuell.title' })
+    const shops = region.querySelector('[data-home-shops]') as HTMLElement
+    expect(shops).toHaveTextContent('shop_teaser.title')
+    expect(shopLinks(region)).toEqual(['panels', 'practice'])
+    expect(region.querySelector('[data-home-event]')).toHaveAttribute(
+      'data-home-event',
+      'dgi_jahreskongress',
+    )
   })
 
-  it('rendert nichts, wenn weder Termin noch Aktion anstehen', () => {
+  it('zeigt ohne Termin nur die Shop-Kachel in voller Breite', () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-12-01T08:00:00+01:00'))
     expect(getNextHomeEvent()).toBeUndefined()
-    const { container } = mount()
-    expect(container).toBeEmptyDOMElement()
+    mount()
+    const region = screen.getByRole('region', { name: 'aktuell.title' })
+    expect(region.querySelector('[data-home-event]')).toBeNull()
+    expect(shopLinks(region)).toEqual(['panels', 'practice'])
   })
 })

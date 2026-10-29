@@ -1,6 +1,8 @@
 import { test, expect, type Page } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
+import { getNextHomeEvent } from '../src/data/events'
+import { popupStorageKey } from '../src/lib/eventPopupState'
 
 /**
  * PT24.6 — der breite automatisierte Accessibility-Gate.
@@ -46,9 +48,12 @@ type Verletzung = {
   daten: unknown
 }
 
-async function seedConsent(page: Page, path: string) {
+async function seedConsent(page: Page, path: string, { eventPopup = false } = {}) {
   await page.goto(path, { waitUntil: 'domcontentloaded' })
-  await page.evaluate(() => {
+  // SC-020: Das Termin-Popup kaeme 1,2 s nach der Einwilligung — ausser im eigenen Zustand ist es
+  // ueber das Sitzungsgedaechtnis abbestellt, damit jeder Lauf dieselbe Seite prueft.
+  const popupKey = eventPopup ? null : popupStorageKey(getNextHomeEvent()?.id ?? 'none')
+  await page.evaluate((popupKey) => {
     try {
       localStorage.setItem(
         'cookie-consent',
@@ -59,10 +64,11 @@ async function seedConsent(page: Page, path: string) {
           marketing: false,
         }),
       )
+      if (popupKey) sessionStorage.setItem(popupKey, '1')
     } catch {
       /* Storage kann gesperrt sein — dann bleibt der Banner stehen. */
     }
-  })
+  }, popupKey)
   await page.goto(path, { waitUntil: 'networkidle' })
   await page.waitForTimeout(400)
 }
@@ -168,6 +174,29 @@ const ZUSTAENDE: {
       await p.waitForTimeout(400)
     },
   },
+  // SC-020: Hero-Slider und Termin-Popup gibt es nur, solange ein Termin ansteht.
+  ...(getNextHomeEvent()
+    ? [
+        {
+          name: 'Hero-Slider, Folie 2',
+          viewport: { width: 1280, height: 900 },
+          oeffnen: async (p: Page) => {
+            await seedConsent(p, '/de/')
+            await p.locator('[data-home-hero] [role="tab"]').nth(1).click()
+            await p.waitForTimeout(400)
+          },
+        },
+        {
+          name: 'Termin-Popup offen',
+          viewport: { width: 1280, height: 900 },
+          oeffnen: async (p: Page) => {
+            await seedConsent(p, '/de/', { eventPopup: true })
+            await p.getByRole('dialog').waitFor()
+            await p.waitForTimeout(400)
+          },
+        },
+      ]
+    : []),
   {
     name: 'Mobiles Menue offen',
     viewport: { width: 390, height: 844 },

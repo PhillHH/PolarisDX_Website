@@ -422,11 +422,21 @@
     "note": "Tienda profesional: portal de pedidos para profesionales, precios netos sin IVA legal · Tienda Panels: paneles epigenéticos para pedir en línea. Tiendas disponibles en alemán e inglés.",
     "promo_eyebrow": "Novedad · Tienda Panels",
     "promo_title": "Pida ya los paneles epigenéticos en línea",
-    "promo_text": "Seis análisis a partir de sangre capilar, disponibles directamente en la tienda Panels."
+    "promo_text": "Seis análisis a partir de sangre capilar, disponibles directamente en la tienda Panels.",
+    "note_short": "Tienda para profesionales · precios netos más IVA"
   },
   "aktuell": {
     "title": "Actualidad",
     "event_eyebrow": "Ahora · Evento",
     "event_cta": "Ver el evento"
+  },
+  "hero_slides": {
+    "aria": "Temas actuales",
+    "prev": "Diapositiva anterior",
+    "next": "Siguiente diapositiva",
+    "pause": "Detener el cambio automático",
+    "play": "Reanudar el cambio automático",
+    "slide": "Diapositiva {{n}} de {{total}}",
+    "meet": "Concertar una cita en nuestro stand"
   }
 }

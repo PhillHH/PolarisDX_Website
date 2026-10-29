@@ -422,11 +422,21 @@
     "note": "Sklep dla gabinetów: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku.",
     "promo_eyebrow": "Nowość · Sklep Panels",
     "promo_title": "Zamów panele epigenetyczne online",
-    "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie Panels."
+    "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie Panels.",
+    "note_short": "Sklep dla profesjonalistów · ceny netto plus VAT"
   },
   "aktuell": {
     "title": "Aktualności",
     "event_eyebrow": "Teraz · Wydarzenie",
     "event_cta": "Zobacz wydarzenie"
+  },
+  "hero_slides": {
+    "aria": "Aktualne tematy",
+    "prev": "Poprzedni slajd",
+    "next": "Następny slajd",
+    "pause": "Zatrzymaj automatyczne przewijanie",
+    "play": "Wznów automatyczne przewijanie",
+    "slide": "Slajd {{n}} z {{total}}",
+    "meet": "Umów spotkanie na naszym stoisku"
   }
 }

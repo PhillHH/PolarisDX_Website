@@ -422,11 +422,21 @@
     "note": "Praxis-Shop: Fachkreis-Bestellportal, alle Preise netto zzgl. gesetzl. MwSt. · Panel-Shop: Epigenetik-Panels online bestellen",
     "promo_eyebrow": "Neu · Panel-Shop",
     "promo_title": "Epigenetik-Panels jetzt online bestellen",
-    "promo_text": "Sechs Analysen aus Kapillarblut – direkt im Panel-Shop bestellbar."
+    "promo_text": "Sechs Analysen aus Kapillarblut – direkt im Panel-Shop bestellbar.",
+    "note_short": "Praxis-Shop für Fachkreise · Preise netto zzgl. MwSt."
   },
   "aktuell": {
     "title": "Aktuell",
     "event_eyebrow": "Aktuell · Termin",
     "event_cta": "Zum Termin"
+  },
+  "hero_slides": {
+    "aria": "Aktuelle Themen",
+    "prev": "Vorherige Folie",
+    "next": "Nächste Folie",
+    "pause": "Automatischen Wechsel anhalten",
+    "play": "Automatischen Wechsel fortsetzen",
+    "slide": "Folie {{n}} von {{total}}",
+    "meet": "Termin am Stand vereinbaren"
   }
 }

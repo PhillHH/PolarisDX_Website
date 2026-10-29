@@ -293,5 +293,11 @@
     "saved": "Zapisane: {{count}}",
     "moreAreas": "Więcej obszarów",
     "factsLabel": "W skrócie"
+  },
+  "event_popup": {
+    "eyebrow": "Wydarzenie",
+    "cta": "Zobacz wydarzenie",
+    "meet": "Umów spotkanie na naszym stoisku",
+    "close": "Zamknij"
   }
 }

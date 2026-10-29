@@ -422,11 +422,21 @@
     "note": "Shop professionale: portale ordini per professionisti, prezzi netti IVA esclusa · Shop Panels: pannelli epigenetici da ordinare online. Shop disponibili in tedesco e inglese.",
     "promo_eyebrow": "Novità · Shop Panels",
     "promo_title": "Ordina ora online i pannelli epigenetici",
-    "promo_text": "Sei analisi da sangue capillare – ordinabili direttamente nello shop Panels."
+    "promo_text": "Sei analisi da sangue capillare – ordinabili direttamente nello shop Panels.",
+    "note_short": "Shop per professionisti · prezzi netti più IVA"
   },
   "aktuell": {
     "title": "In evidenza",
     "event_eyebrow": "Ora · Evento",
     "event_cta": "Vedi l’evento"
+  },
+  "hero_slides": {
+    "aria": "Temi attuali",
+    "prev": "Diapositiva precedente",
+    "next": "Diapositiva successiva",
+    "pause": "Interrompi lo scorrimento automatico",
+    "play": "Riprendi lo scorrimento automatico",
+    "slide": "Diapositiva {{n}} di {{total}}",
+    "meet": "Fissa un appuntamento al nostro stand"
   }
 }

@@ -292,5 +292,11 @@
     "saved": "Sélection : {{count}}",
     "moreAreas": "Autres domaines",
     "factsLabel": "En bref"
+  },
+  "event_popup": {
+    "eyebrow": "Rendez-vous",
+    "cta": "Voir le rendez-vous",
+    "meet": "Prendre rendez-vous sur notre stand",
+    "close": "Fermer"
   }
 }

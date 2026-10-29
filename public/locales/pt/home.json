@@ -422,11 +422,21 @@
     "note": "Loja profissional: portal de encomendas para profissionais, preços líquidos acrescidos do IVA legal · Loja Panels: painéis epigenéticos para encomendar online. Lojas disponíveis em alemão e inglês.",
     "promo_eyebrow": "Novidade · Loja Panels",
     "promo_title": "Encomende já os painéis epigenéticos online",
-    "promo_text": "Seis análises a partir de sangue capilar – disponíveis diretamente na loja Panels."
+    "promo_text": "Seis análises a partir de sangue capilar – disponíveis diretamente na loja Panels.",
+    "note_short": "Loja para profissionais · preços líquidos mais IVA"
   },
   "aktuell": {
     "title": "Atualidade",
     "event_eyebrow": "Agora · Evento",
     "event_cta": "Ver o evento"
+  },
+  "hero_slides": {
+    "aria": "Temas atuais",
+    "prev": "Diapositivo anterior",
+    "next": "Diapositivo seguinte",
+    "pause": "Parar a rotação automática",
+    "play": "Retomar a rotação automática",
+    "slide": "Diapositivo {{n}} de {{total}}",
+    "meet": "Marcar reunião no nosso stand"
   }
 }

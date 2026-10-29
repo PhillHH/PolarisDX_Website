@@ -422,11 +422,21 @@
     "note": "Praktijkwinkel: bestelportaal voor professionals, prijzen netto exclusief btw · Panel-shop: epigenetische panels online bestellen. Beide winkels zijn beschikbaar in het Duits en Engels.",
     "promo_eyebrow": "Nieuw · Panel-shop",
     "promo_title": "Bestel epigenetische panels nu online",
-    "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Panel-shop."
+    "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Panel-shop.",
+    "note_short": "Praktijkshop voor professionals · nettoprijzen excl. btw"
   },
   "aktuell": {
     "title": "Actueel",
     "event_eyebrow": "Nu · Evenement",
     "event_cta": "Naar het evenement"
+  },
+  "hero_slides": {
+    "aria": "Actuele onderwerpen",
+    "prev": "Vorige dia",
+    "next": "Volgende dia",
+    "pause": "Automatisch wisselen stoppen",
+    "play": "Automatisch wisselen hervatten",
+    "slide": "Dia {{n}} van {{total}}",
+    "meet": "Afspraak op onze stand maken"
   }
 }

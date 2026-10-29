@@ -293,5 +293,11 @@
     "saved": "Uloženo: {{count}}",
     "moreAreas": "Další oblasti",
     "factsLabel": "Ve zkratce"
+  },
+  "event_popup": {
+    "eyebrow": "Akce",
+    "cta": "Zobrazit akci",
+    "meet": "Domluvit schůzku na našem stánku",
+    "close": "Zavřít"
   }
 }

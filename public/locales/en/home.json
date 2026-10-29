@@ -417,16 +417,26 @@
     "badge": "New",
     "eyebrow": "Online shops",
     "title": "Order the IglooPro reader, test kits and epigenetic panels directly online",
-    "cta": "Visit the practice shop",
-    "cta_panels": "Visit the panel shop",
+    "cta": "Practice shop",
+    "cta_panels": "Panel shop",
     "note": "Practice shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online",
     "promo_eyebrow": "New · Panel shop",
     "promo_title": "Order epigenetic panels online now",
-    "promo_text": "Six analyses from capillary blood – available to order directly in the panel shop."
+    "promo_text": "Six analyses from capillary blood – available to order directly in the panel shop.",
+    "note_short": "For professionals · net prices plus VAT"
   },
   "aktuell": {
     "title": "What's on",
     "event_eyebrow": "Now · Event",
     "event_cta": "See the event"
+  },
+  "hero_slides": {
+    "aria": "Current topics",
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "pause": "Pause automatic rotation",
+    "play": "Resume automatic rotation",
+    "slide": "Slide {{n}} of {{total}}",
+    "meet": "Book a meeting at our stand"
   }
 }

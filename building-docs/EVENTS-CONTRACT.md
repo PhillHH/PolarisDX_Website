@@ -35,6 +35,24 @@ aber keine zweite ausführbare Eventliste ein.
   2026-10-28/11-21/12-01: Highlight, Details, Lageplan, Archiv), E2E PT18.2 Fixtures auf MEDICA angepasst
   (laufen nur unter dem AP18-Fixed-Clock-Server; seit AP31 §6 als Drift bekannt).
 
+## Nachtrag SC-020 (2026-10-28) — Hero-Folie und Termin-Popup
+
+- Startseite, Bühne: `getNextHomeEvent()` liefert Folie 2 des Hero-Sliders (`HeroSlides`): Titel, `short`,
+  Datum (`formatEventRange`), Ort, ab `lg` der Lageplan (`plan.alt`, derzeit nur `medica_2026`); keine
+  `description` und keine Bildunterschrift (Budget — beides steht im Popup bzw. auf der Terminseite). Aktionen `home.aktuell.event_cta` → `/events` und `home.hero_slides.meet` → `/contact`.
+  Ohne kommenden Termin entfällt die Folie (HOMEPAGE-CONTRACT §2.2).
+- Termin-Popup (`src/components/events/EventPopup.tsx`; Regeln in `src/lib/eventPopupState.ts`): derselbe
+  Termin auf jeder Seite außer `/events*`, `/contact*`, `/support*`. Erscheint 1,2 s nach der
+  Cookie-Entscheidung (vorher nie — keine zwei Ebenen), einmal je Sitzung (`sessionStorage`
+  `polaris-event-popup:<id>`), nie wenn bereits ein `[role="dialog"]` offen ist. Inhalt: Titel,
+  Datum · Ort · `short`, `description`, Wege `common.event_popup.cta` → `/events` und `.meet` → `/contact`;
+  Schließen merkt sich die Sitzung. Es wird weiterhin kein Termin erfunden: ohne kommenden Termin gibt es
+  weder Folie noch Popup.
+- Tests: `EventPopup.test.tsx` (Kandidatenregeln, Dialog-Erkennung, Dialog mit beiden Wegen und Gedächtnis),
+  `HeroSection.test.tsx` (Folie 2 nach der Verzögerung, Folie 1 `inert`), E2E PT27.6 Zustand `event-popup`,
+  PT24.6 Zustände „Hero-Slider, Folie 2" und „Termin-Popup offen" (nur solange ein Termin ansteht). Alle
+  anderen Prüfläufe bestellen das Popup über das Sitzungsgedächtnis ab, damit jedes Bild deterministisch ist.
+
 ## Operative Quellen und Identität
 
 - Stammdaten: `src/data/events.ts`

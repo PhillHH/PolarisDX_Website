@@ -292,5 +292,11 @@
     "saved": "Gemt: {{count}}",
     "moreAreas": "Flere områder",
     "factsLabel": "Kort fortalt"
+  },
+  "event_popup": {
+    "eyebrow": "Arrangement",
+    "cta": "Se arrangementet",
+    "meet": "Book et møde på vores stand",
+    "close": "Luk"
   }
 }

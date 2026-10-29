@@ -1,11 +1,18 @@
-import type { CSSProperties } from 'react'
+import { lazy, Suspense, useEffect, useState, type CSSProperties } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { preload } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import IglooProImage from '../../assets/home/Igloo-pro-frontal-320w.webp'
 import { HERO_STAGE } from '../../assets/home/homeImages'
+import { getNextHomeEvent } from '../../data/events'
+import { isPanelsPromoActive } from '../../lib/shop'
 import { getHomepageSalesTarget } from '../../lib/homepageConversion'
 import { Button } from '../ui/Button'
+import { STAGE } from './heroStage'
+
+// SC-020: Folien 2/3 und Bedienung laden erst im Browser nach dem ersten Bild (eigener Chunk).
+const HeroSlides = lazy(() => import('./HeroSlides'))
+const HERO_SLIDES_DELAY_MS = 1500
 
 /**
  * Static, SSR-first Homepage Hero — „Editorial" (AP34 / SC-002).
@@ -42,6 +49,18 @@ const HeroSection = () => {
   // SC-013: laengste Zeile in Zeichen -> Schriftgroesse per CSS (`.hero-title`, index.css).
   const longestLine = Math.max(...lines.map((line) => line.trim().length))
   const { desktop, mobile } = HERO_STAGE
+  // SC-020 (Owner 2026-10-27): Slider. Folie 1 ist dieses serverseitige Markup (H1, LCP-Foto);
+  // weitere Folien kommen nach dem ersten Bild als Overlay dazu. Gibt es weder Termin noch
+  // Panel-Aktion, bleibt die Buehne statisch — dann auch kein Platzhalter fuer die Bedienung.
+  const hasSlides = Boolean(getNextHomeEvent()) || isPanelsPromoActive()
+  const [active, setActive] = useState(0)
+  const [slides, setSlides] = useState(false)
+  const [controlsHost, setControlsHost] = useState<HTMLDivElement | null>(null)
+  useEffect(() => {
+    if (!hasSlides) return
+    const id = window.setTimeout(() => setSlides(true), HERO_SLIDES_DELAY_MS)
+    return () => window.clearTimeout(id)
+  }, [hasSlides])
 
   // Telefone: das Buehnenfoto ist dort das LCP-Element und konkurriert unter
   // Drosselung mit dem JS um Bandbreite. React 19 legt diesen Preload frueh in
@@ -62,6 +81,7 @@ const HeroSection = () => {
       id="hero"
       aria-labelledby="home-hero-title"
       data-home-hero
+      aria-roledescription={slides ? 'carousel' : undefined}
       className="aurora bg-brand-deep text-white"
     >
       {/* Ohne `sizes`: bei w-Deskriptoren ist 100vw der Standard. Desktop nur AVIF
@@ -82,16 +102,21 @@ const HeroSection = () => {
         />
       </picture>
 
-      <div className="mx-auto grid max-w-container gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:min-h-[820px] lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-16 lg:px-0 lg:pb-32 lg:pt-40">
+      <div
+        data-hero-slide="main"
+        aria-hidden={active !== 0 || undefined}
+        inert={active !== 0 || undefined}
+        className={`${STAGE.grid} ${STAGE.fade} ${active === 0 ? '' : 'opacity-0'}`}
+      >
         {/* min-w-0: ein langes H1-Wort (da „Laboratorieværdier.") darf die Spalte nicht aufblasen. */}
-        <div className="flex min-w-0 flex-col items-start [container-type:inline-size]">
-          <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 sm:text-sm">
+        <div className={`${STAGE.column} [container-type:inline-size]`}>
+          <p className={STAGE.eyebrow}>
             <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
             {t('hero.caption')}
           </p>
           <h1
             id="home-hero-title"
-            className="hero-title enter mt-7 max-w-3xl font-semibold leading-[0.98] tracking-[-0.045em]"
+            className={`${STAGE.title} hero-title max-w-3xl`}
             style={{ '--hl': longestLine } as CSSProperties}
           >
             {lines.map((line, index) => (
@@ -107,11 +132,9 @@ const HeroSection = () => {
               </span>
             ))}
           </h1>
-          <p className="enter mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/85 sm:text-xl">
-            {t('hero.description')}
-          </p>
+          <p className={STAGE.lead}>{t('hero.description')}</p>
 
-          <div className="enter mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
+          <div className={STAGE.actions}>
             <Button
               to={getHomepageSalesTarget('hero')}
               variant="light"
@@ -119,7 +142,7 @@ const HeroSection = () => {
               data-cta-source="homepage"
               data-cta-journey="general_sales"
               data-cta-section="hero"
-              className="group w-full !py-2.5 !pl-7 !pr-2.5 sm:w-auto"
+              className={`${STAGE.primary} !py-2.5 !pl-7 !pr-2.5`}
             >
               {t('hero.cta')}
               <span
@@ -133,7 +156,7 @@ const HeroSection = () => {
               to="/diagnostics"
               variant="ghost"
               data-home-hero-secondary
-              className="group w-full text-white hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-brand-deep sm:w-auto"
+              className={STAGE.ghost}
             >
               {t('hero.cta_secondary')}
               <ArrowRight
@@ -142,6 +165,8 @@ const HeroSection = () => {
               />
             </Button>
           </div>
+          {/* SC-020: fester Platz fuer die Slider-Bedienung (HeroSlides setzt sie per Portal ein) */}
+          {hasSlides && <div ref={setControlsHost} className="mt-7 h-11" />}
         </div>
 
         {/* Produktkarte: auf Telefonen nach einem Fotofenster, damit der Arzt im
@@ -170,6 +195,11 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      {slides && (
+        <Suspense fallback={null}>
+          <HeroSlides active={active} onChange={setActive} stage={STAGE} host={controlsHost} />
+        </Suspense>
+      )}
     </section>
   )
 }

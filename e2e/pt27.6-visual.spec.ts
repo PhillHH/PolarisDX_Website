@@ -1,4 +1,6 @@
 import { expect, test, type Page } from '@playwright/test'
+import { getNextHomeEvent } from '../src/data/events'
+import { popupStorageKey } from '../src/lib/eventPopupState'
 
 /**
  * AP27 PT27.6 — repraesentative visuelle Zustaende, keine Route×Locale-Vollabdeckung.
@@ -19,14 +21,20 @@ const DECIDED_CONSENT = JSON.stringify({
   analytics: false,
   marketing: false,
 })
+// SC-020: Das Termin-Popup erscheint 1,2 s nach der Einwilligung. In jedem Bild ist es ueber das
+// Sitzungsgedaechtnis abbestellt — ausser im eigenen Zustand `event-popup`.
+const POPUP_KEY = popupStorageKey(getNextHomeEvent(FIXED_TIME)?.id ?? 'none')
 
-async function prepare(page: Page, { consentDecided = true } = {}) {
+async function prepare(page: Page, { consentDecided = true, eventPopup = false } = {}) {
   await page.clock.setFixedTime(FIXED_TIME)
   if (consentDecided) {
     await page.addInitScript(
       (value) => window.localStorage.setItem('cookie-consent', value),
       DECIDED_CONSENT,
     )
+  }
+  if (!eventPopup) {
+    await page.addInitScript((key) => window.sessionStorage.setItem(key, '1'), POPUP_KEY)
   }
   // Fremde Hosts sind fuer diese Zustaende nie noetig; ein Treffer waere ein Befund, kein Bild.
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort())
@@ -35,6 +43,10 @@ async function prepare(page: Page, { consentDecided = true } = {}) {
 /** Wartet auf Netzruhe, Schriften und alle im Viewport sichtbaren Bilder. */
 async function settle(page: Page) {
   await page.waitForLoadState('networkidle')
+  // SC-020: Die Bedienung des Hero-Sliders kommt 1,5 s nach dem ersten Bild als eigener Chunk.
+  if (await page.locator('[data-home-hero]').count()) {
+    await page.locator('[data-home-hero] [role="tablist"]').waitFor({ state: 'attached' })
+  }
   await page.evaluate(() => document.fonts.ready)
   await page.evaluate(async () => {
     const visible = [...document.images].filter((image) => {
@@ -120,6 +132,14 @@ test.describe('PT27.6 · Zustaende (Desktop 1280×800)', () => {
     await page.locator('[data-gate-state="form"]').scrollIntoViewIfNeeded()
     await settle(page)
     await expect(page).toHaveScreenshot('resource-gate-open-desktop.png')
+  })
+
+  test('event-popup', async ({ page }) => {
+    await prepare(page, { eventPopup: true })
+    await page.goto('/de/')
+    await page.getByRole('dialog').waitFor()
+    await settle(page)
+    await expect(page).toHaveScreenshot('event-popup-desktop.png')
   })
 
   test('diagnostics-megamenu-open', async ({ page }) => {

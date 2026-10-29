@@ -422,11 +422,21 @@
     "note": "E-shop pro ordinace: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině.",
     "promo_eyebrow": "Novinka · E-shop Panels",
     "promo_title": "Objednejte si epigenetické panely online",
-    "promo_text": "Šest analýz z kapilární krve – k objednání přímo v e-shopu Panels."
+    "promo_text": "Šest analýz z kapilární krve – k objednání přímo v e-shopu Panels.",
+    "note_short": "E-shop pro odborníky · ceny bez DPH"
   },
   "aktuell": {
     "title": "Aktuálně",
     "event_eyebrow": "Nyní · Akce",
     "event_cta": "Zobrazit akci"
+  },
+  "hero_slides": {
+    "aria": "Aktuální témata",
+    "prev": "Předchozí snímek",
+    "next": "Další snímek",
+    "pause": "Zastavit automatické přepínání",
+    "play": "Pokračovat v automatickém přepínání",
+    "slide": "Snímek {{n}} z {{total}}",
+    "meet": "Domluvit schůzku na našem stánku"
   }
 }

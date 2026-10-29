@@ -1,12 +1,14 @@
 /**
- * AktuellSection — das „Aktuell"-Band der Startseite: nächster Termin und Panel-Shop.
+ * AktuellSection — das „Aktuell"-Band der Startseite: nächster Termin und die Online-Shops.
  *
  * SC-019 (Owner 2026-10-27, „Die Medica ist wichtig … mache ein Event-Teaser draus"):
  * Die Flaeche loest `PanelsPromoSection` (SC-009) ab. Links der naechste belegte Termin
  * aus `src/data/events.ts` (Highlight-Reihenfolge, sonst der naechste kommende), rechts die
  * zeitlich begrenzte Panel-Shop-Aktion (bis PANELS_PROMO_LAST_DAY). Beide Teile sind
- * unabhaengig: ohne Termin bleibt die Panel-Kachel, ohne Aktion bleibt der Termin.
- * Rendert nichts, wenn beides fehlt (HomePage zeigt dann wieder das Shop-Band).
+ * SC-020 (Owner 2026-10-27, „Der Hinweis zu unserem Shop ist weg"): die Shop-Kachel steht
+ * immer — Praxis-Shop (HCL-015) und Panel-Shop (HCL-016) mit dem Netto-Hinweis; waehrend der
+ * Aktion traegt sie deren Eyebrow und Titel. Ohne Termin fuellt sie die ganze Breite.
+ * Das fruehere Shop-Band (ShopTeaserSection) ist damit abgeloest.
  *
  * Navy-Flaeche ohne Bild (Startseiten-HTML- und Bildbudget); kein Autoplay, kein Slider.
  * Der Praxis-Shop steht seit SC-015 in der Kopfzeile und braucht hier keine zweite Aktion.
@@ -17,7 +19,7 @@ import { useTranslation } from 'react-i18next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { getNextHomeEvent } from '../../data/events'
 import { formatEventRange } from '../../lib/eventDates'
-import { isPanelsPromoActive, panelsUrl } from '../../lib/shop'
+import { isPanelsPromoActive, panelsUrl, shopUrl } from '../../lib/shop'
 
 const CTA =
   'inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-brand-deep transition hover:-translate-y-0.5 motion-reduce:hover:translate-y-0'
@@ -26,8 +28,6 @@ const AktuellSection = () => {
   const { t, i18n } = useTranslation(['home', 'events'])
   const event = getNextHomeEvent()
   const promo = isPanelsPromoActive()
-
-  if (!event && !promo) return null
 
   return (
     <section
@@ -39,11 +39,11 @@ const AktuellSection = () => {
         <h2 id="aktuell-title" className="sr-only">
           {t('aktuell.title')}
         </h2>
-        <div className={`grid gap-5 ${event && promo ? 'lg:grid-cols-5' : ''}`}>
+        <div className={`grid gap-5 ${event ? 'lg:grid-cols-5' : ''}`}>
           {event && (
             <article
               data-home-event={event.id}
-              className="rounded-band bg-brand-deep px-6 py-9 text-white sm:px-10 lg:col-span-3 lg:py-12"
+              className="rounded-band bg-brand-deep p-7 text-white sm:p-10 lg:col-span-3 lg:p-12"
             >
               <p className="t-eyebrow-dark">
                 {t('aktuell.event_eyebrow')} · {t(`events:items.${event.id}.tag`, '')}
@@ -67,28 +67,37 @@ const AktuellSection = () => {
               </Link>
             </article>
           )}
-          {promo && (
-            <article
-              data-home-panels-promo
-              className="flex flex-col justify-between rounded-band border border-accent-border bg-white px-6 py-9 sm:px-10 lg:col-span-2 lg:py-12"
-            >
-              <div>
-                <p className="t-eyebrow">{t('shop_teaser.promo_eyebrow')}</p>
-                <h3 className="mt-3 text-balance text-2xl font-semibold leading-tight tracking-tight text-heading">
-                  {t('shop_teaser.promo_title')}
-                </h3>
-              </div>
+          <article
+            data-home-shops
+            className={`flex flex-col justify-between rounded-band border border-accent-border bg-white p-7 sm:p-10 lg:p-12 ${event ? 'lg:col-span-2' : ''}`}
+          >
+            <div>
+              <p className="t-eyebrow">
+                {promo ? t('shop_teaser.promo_eyebrow') : t('shop_teaser.eyebrow')}
+              </p>
+              <h3 className="mt-3 text-balance text-2xl font-semibold leading-tight tracking-tight text-heading">
+                {promo ? t('shop_teaser.promo_title') : t('shop_teaser.title')}
+              </h3>
+              <p className="mt-3 text-sm text-gray-600">{t('shop_teaser.note_short')}</p>
+            </div>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={panelsUrl(i18n.language)}
                 data-shop="panels"
-                data-claim-id="HCL-016"
-                className="mt-7 inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-full bg-brand-deep px-7 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 motion-reduce:hover:translate-y-0"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-brand-deep px-6 py-3 font-semibold text-white hover:bg-brand-deep/90"
               >
                 {t('shop_teaser.cta_panels')}
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
-            </article>
-          )}
+              <a
+                href={shopUrl(i18n.language)}
+                data-shop="practice"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-paper-line px-6 py-3 font-semibold text-brand-deep hover:bg-paper"
+              >
+                {t('shop_teaser.cta')}
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>

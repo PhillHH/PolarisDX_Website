@@ -20,7 +20,9 @@ respective canonical contracts.
 The Hero is a static, SSR-first B2B positioning surface. The first viewport identifies PolarisDX,
 names practices/medical facilities and professional users, explains the practical Point-of-Care role
 with IglooPro, and exposes one dominant sales next step plus a distinct knowledge/product-navigation
-step. There is one H1 and no carousel, autoplay or client-JavaScript dependency for the message.
+step. There is one H1 and no client-JavaScript dependency for the message. **SC-020 (owner
+2026-10-27):** the stage is additionally a carousel — slide 1 is this SSR surface, slides 2/3 are
+client-only and load after the first paint (§2.2, §2.3).
 
 ### 2.1 Conversion contract
 
@@ -64,7 +66,7 @@ hardening remain AP22-owned and are not claimed as complete.
   `loading=lazy` because the card lies below the fold on phones; the card carries no link. Its copy
   reuses the existing strings `business_pillars.pillars.igloo.title` / `.text` (claim `HCL-008`,
   unchanged wording); no new claim enters the Hero.
-- No generated asset, no carousel, no slider timers, no animation dependency.
+- No generated asset, no animation dependency for the message. Carousel: SC-020 below.
 - **SC-006 (2026-10-16, „Editorial Motion“):** the stage carries the shared accent glow (`aurora`, two
   drifting CSS radial gradients from `accent`/`accent.line`, no image); caption, H1, lead and CTA row slide
   in staggered (`enter`, 0.7 s, +0.1 s per sibling, transform only — no opacity start at 0, so H1 and lead
@@ -73,6 +75,24 @@ hardening remain AP22-owned and are not claimed as complete.
   render, `p-4`) and the stage ends at `pb-20`, so the card edge sits below the patient's chin; the stage is
   54 px shorter at 390 px. All motion sits inside `prefers-reduced-motion: no-preference`; the stage photo
   remains the LCP element. No carousel, no timers.
+- **SC-020 (2026-10-27/28, owner: „ich wollte in der Hero einen Slider …"):** the Hero is a carousel
+  (`aria-roledescription="carousel"` set after hydration). Slide 1 = the SSR surface above, byte-identical;
+  1.5 s after mount (`HERO_SLIDES_DELAY_MS`) `HeroSection` lazy-loads `HeroSlides` (own chunk, 2.0 KB
+  gzip; counted in the home `jsBytes` budget, raised by 300 B — PERFORMANCE-CONTRACT change table). Slide
+  2 = the next real event (`getNextHomeEvent`: title, `short`, date, location, actions `/events` and
+  `/contact`, the stand plan from `lg` — no description, no caption: budget; both live in the popup and on
+  the events page), slide 3 = the panel promotion with the real sample
+  report (`report-preview-800w.webp`); both overlay the stage with the photo dimmed to `bg-brand-deep/60`
+  and reuse the stage classes (`heroStage.ts`, passed as prop — no second CSS, no extra export). Only the
+  active slide is in the DOM; while a theme slide is active slide 1 keeps the height and the H1 but is
+  `inert` + `aria-hidden` + `opacity-0`. Controls (44 px): previous/next, dots as `tablist`, pause/play
+  (`aria-pressed`) as one bar directly below the actions of the active slide — slide 1 and every slide
+  reserve a `mt-7 h-11` slot (no layout shift), the bar is portaled into the active slot and the pressed
+  control keeps focus across the move (at the stage's bottom edge the bar sat behind the TrustBar's
+  negative margin; PT24.6 caught the intercepted click). 8 s interval, held on pointer/focus, no autoplay
+  under `prefers-reduced-motion`. No slider without an event and without a promotion; no AI imagery (SC-018
+  rejected by the owner). Tests: `HeroSection.test.tsx` (SSR without controls; slide 2 after the delay,
+  slide 1 inert), PT27.6 waits for the `tablist` before every home shot, PT24.6 state „Hero-Slider, Folie 2".
 
 ### 2.3 Mobile and accessibility hierarchy
 
@@ -82,7 +102,8 @@ positioned behind it and has no accessible name.
 Content therefore precedes media at every breakpoint. Both actions are semantic links, inherit the
 Button component's minimum 44 px target and focus-visible styling, and have distinct accessible
 names. The product image has locale-aware alt text. Decorative glows are non-interactive and hidden
-from pointer input. No carousel roles, controls, keyboard traps or motion exist in the Hero.
+from pointer input. No keyboard traps. SC-020: carousel roles and controls exist only after hydration
+(§2.2) and sit after the product card in the DOM; the SSR order above is unchanged.
 
 ## 3. PT11.2 Trust and Proof contract
 
@@ -158,14 +179,21 @@ entry points) → **Shop band** → Why POC → Steps → Proof/Testimonials →
 stands directly after the TrustBar. Left: the next real event from `src/data/events.ts`
 (`getNextHomeEvent`: the first eligible configured highlight, else the next upcoming), title, date range
 (`lib/eventDates.ts`), location and `events:items.<id>.short` (e.g. „Halle 15, Stand E13"), one internal
-link to `/events` (`home.aktuell.event_cta`). Right: the time-limited panel-shop promotion until
-`PANELS_PROMO_LAST_DAY` (`src/lib/shop.ts`, `2026-11-16`): eyebrow/H3, action „Zum Panel-Shop"
-(`data-shop="panels"`, `HCL-016`). Each half is independent; the section renders nothing when neither
-applies, and the Shop band (§4.1 above) returns once the promotion has ended. No image, no slider/autoplay
-(Hero stays the LCP element; §2.2), no price or deadline claim; SSR per request, so both parts switch
-without a build (MEDICA 16.–19.11. → DGI 27.–28.11. → nothing). The practice shop no longer needs a second
-action here: the header carries both shops since SC-015. Tests: `AktuellSection.test.tsx` (event/promo
-states, link count), `shop.test.ts` (`isPanelsPromoActive`), `events.test.ts`.
+link to `/events` (`home.aktuell.event_cta`). Right — **SC-020 (owner 2026-10-27: „Der Hinweis zu
+unserem Shop ist weg")** — the permanent shop tile: both shops, `cta_panels` → `panels.polarisdx.net`
+(`data-shop="panels"`, `HCL-016`, filled navy pill) and `cta` → `shop.polarisdx.net`
+(`data-shop="practice"`, `HCL-015`, outline pill), with the note `shop_teaser.note_short` (net prices,
+practice shop; 10 locales). While the panel promotion runs (`PANELS_PROMO_LAST_DAY`, `src/lib/shop.ts`,
+`2026-11-16`) the tile carries `promo_eyebrow`/`promo_title` instead of `eyebrow`/`title`. The tile is
+always rendered; without an event it spans the full width. No image, no slider/autoplay in the band (the
+Hero carousel is §2.2), no price or deadline claim; SSR per request, so event and promotion switch
+without a build (MEDICA 16.–19.11. → DGI 27.–28.11. → shop tile only). Tests: `AktuellSection.test.tsx`
+(both shops in every state, promo state, DGI after MEDICA, no event), `shop.test.ts`
+(`isPanelsPromoActive`), `events.test.ts`.
+
+**History — Shop band (SC-004/SC-007, superseded by SC-020):** `ShopTeaserSection` and its test were
+removed on 2026-10-28; the two links, claims and targets described below now live in the shop tile. The
+text is kept for the provenance of `HCL-015`/`HCL-016` and the budget figures.
 
 `ShopTeaserSection` (`src/components/sections/ShopTeaserSection.tsx`) stands directly after the
 business pillars. It points to the two external Shopify shops: the practice shop

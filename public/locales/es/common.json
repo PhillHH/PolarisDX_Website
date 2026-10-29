@@ -292,5 +292,11 @@
     "saved": "Guardados: {{count}}",
     "moreAreas": "Más áreas",
     "factsLabel": "De un vistazo"
+  },
+  "event_popup": {
+    "eyebrow": "Evento",
+    "cta": "Ver el evento",
+    "meet": "Concertar una cita en nuestro stand",
+    "close": "Cerrar"
   }
 }

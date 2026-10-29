@@ -422,11 +422,21 @@
     "note": "Praksisshop: bestillingsportal for fagfolk, priser netto ekskl. moms · Panel-shop: epigenetiske paneler, der kan bestilles online. Begge shops findes på tysk og engelsk.",
     "promo_eyebrow": "Nyhed · Panel-shop",
     "promo_title": "Bestil epigenetiske paneler online nu",
-    "promo_text": "Seks analyser fra kapillærblod – kan bestilles direkte i Panel-shoppen."
+    "promo_text": "Seks analyser fra kapillærblod – kan bestilles direkte i Panel-shoppen.",
+    "note_short": "Klinikshop til fagfolk · nettopriser ekskl. moms"
   },
   "aktuell": {
     "title": "Aktuelt",
     "event_eyebrow": "Nu · Arrangement",
     "event_cta": "Se arrangementet"
+  },
+  "hero_slides": {
+    "aria": "Aktuelle emner",
+    "prev": "Forrige slide",
+    "next": "Næste slide",
+    "pause": "Stop automatisk skift",
+    "play": "Genoptag automatisk skift",
+    "slide": "Slide {{n}} af {{total}}",
+    "meet": "Book et møde på vores stand"
   }
 }

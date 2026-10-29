@@ -27,6 +27,31 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-10-28 — SC-020 · Hero-Slider, Termin-Popup, Shop-Kachel
+
+- **Ursache:** Owner-Nachbesserung zu SC-019 (`SCOPE-CHANGELOG.md` SC-020).
+- **Bühne:** Karussell über dem bestehenden Hero. Folien 2/3 im Bühnenraster (`heroStage.ts`: Raster,
+  Eyebrow-Pille, Titel, Lead, Aktionszeile, Ghost-Button — identisch mit Folie 1); Foto auf Themenfolien mit
+  `bg-brand-deep/60` abgedunkelt (Stufe des Dialog-Hintergrunds); Folientitel `text-4xl sm:text-5xl` mit
+  Zweitzeile `accent-on-dark`; Lageplan-Figur wie auf der Terminseite (`rounded-card`, `border-white/15`,
+  `bg-white/5`), Musterbefund `rounded-card shadow-card`. Bedienung als Leiste direkt unter den Buttons
+  der aktiven Folie (reservierter Platz `mt-7 h-11`): runde 44-px-Knöpfe (`border-white/30`, Hover
+  `bg-white/10`, Fokusring weiß), Punkte `h-1.5` (aktiv `w-8 accent-on-dark`, sonst `w-3 bg-white/40`),
+  Pause/Weiter als Inline-SVG in `currentColor`. Die Bühne wird dadurch um 72 px höher (Desktop ≈ 882 px,
+  Telefon entsprechend); Foto und Produktkarte bleiben unten verankert.
+- **Termin-Popup:** bestehender `Dialog` (`max-w-lg`): Eyebrow-Zeile, Beschreibung, zwei Wege (Outline-Link
+  `border-paper-line`, `Button secondary sm`).
+- **Startseite:** Shop-Kachel im „Aktuell"-Band immer sichtbar — Weiß mit `accent-border`, Netto-Hinweis
+  `text-sm text-gray-600`, Navy-Pille Panel-Shop und Outline-Pille Praxis-Shop (`border-paper-line`, Hover
+  `bg-paper`); beide Kacheln `p-7 sm:p-10 lg:p-12`. Keine neuen Tokens, Rollen oder Bausteine; keine neuen
+  Utility-Klassen (das App-CSS liegt inline auf jeder Seite).
+- **Gates:** siehe SC-020.
+- **Baselines:** PT27.6 6/22 neu (`home-desktop`, `home-mobile`, `cookie-banner-desktop`, `search-dialog-open-desktop`,
+  `diagnostics-megamenu-open-desktop`, `navigation-open-mobile`: Bühne 72 px höher, Bedienleiste unter den
+  Buttons) und 1 neu (`event-popup-desktop`); Lauf danach 22/22 (Image `mcr.microsoft.com/playwright:v1.57.0-noble`).
+  Die Aufnahmen bestellen das Termin-Popup über das Sitzungsgedächtnis ab und warten auf die Slider-Bedienung.
+- **Reviewer:** Claude (Messung, Layout in 10 Sprachen auf der Preview); Owner-Sichtprüfung offen.
+
 ### 2026-10-27 — SC-019 · „Aktuell"-Band, Termin-Details und Lageplan
 
 - **Ursache:** Owner-Auftrag MEDICA (`SCOPE-CHANGELOG.md` SC-019).

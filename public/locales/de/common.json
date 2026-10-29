@@ -291,5 +291,11 @@
     "saved": "Vorgemerkt: {{count}}",
     "moreAreas": "Weitere Bereiche",
     "factsLabel": "Auf einen Blick"
+  },
+  "event_popup": {
+    "eyebrow": "Termin",
+    "cta": "Zum Termin",
+    "meet": "Termin am Stand vereinbaren",
+    "close": "Schließen"
   }
 }
