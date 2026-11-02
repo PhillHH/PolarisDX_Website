@@ -307,5 +307,13 @@
     "cta": "Ver o evento",
     "meet": "Marcar reunião no nosso stand",
     "close": "Fechar"
+  },
+  "event_band": {
+    "eyebrow": "Vamos estar lá",
+    "title": "Encontre-nos em {{location}}.",
+    "days_label": "dias para a feira",
+    "day_label": "dia para a feira",
+    "now": "Agora no local",
+    "all": "Todos os eventos"
   }
 }

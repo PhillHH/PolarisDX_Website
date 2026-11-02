@@ -8,6 +8,7 @@ import SubpageHero from '../components/sections/SubpageHero'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import TrustBar from '../components/sections/TrustBar'
 import AboutPillarsSection from '../components/sections/AboutPillarsSection'
+import EventBand from '../components/events/EventBand'
 
 const AboutPage = () => {
   const { t, i18n } = useTranslation(['about', 'common', 'home'])
@@ -113,6 +114,7 @@ const AboutPage = () => {
       />
 
       <TrustBar />
+      <EventBand />
 
       <AboutPillarsSection />
 

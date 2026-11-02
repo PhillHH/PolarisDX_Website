@@ -108,6 +108,11 @@ export const i18nReady = i18n
     // HTTP Backend Konfiguration
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // SC-021 Nachtrag: `?v=<Build>` — die Dateien bleiben eine Stunde cachebar (PT26.1), aber
+      // jedes Release holt sie frisch; sonst zeigte der Browser nach neuen Schluesseln rohe Keys.
+      queryStringParams: {
+        v: typeof __POLARIS_BUILD_ID__ === 'string' ? __POLARIS_BUILD_ID__ : 'dev',
+      },
       requestOptions: {
         cache: 'default',
       },

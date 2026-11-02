@@ -306,5 +306,13 @@
     "cta": "Zum Termin",
     "meet": "Termin am Stand vereinbaren",
     "close": "Schließen"
+  },
+  "event_band": {
+    "eyebrow": "Wir sind dabei",
+    "title": "Treffen wir uns in {{location}}.",
+    "days_label": "Tage bis zur Messe",
+    "day_label": "Tag bis zur Messe",
+    "now": "Jetzt vor Ort",
+    "all": "Alle Termine"
   }
 }

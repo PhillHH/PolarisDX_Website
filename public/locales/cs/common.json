@@ -308,5 +308,13 @@
     "cta": "Zobrazit akci",
     "meet": "Domluvit schůzku na našem stánku",
     "close": "Zavřít"
+  },
+  "event_band": {
+    "eyebrow": "Budeme tam",
+    "title": "Sejdeme se v {{location}}.",
+    "days_label": "dní do veletrhu",
+    "day_label": "den do veletrhu",
+    "now": "Právě na místě",
+    "all": "Všechny termíny"
   }
 }

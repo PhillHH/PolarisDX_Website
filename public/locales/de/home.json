@@ -428,5 +428,15 @@
     "title": "Aktuell",
     "event_eyebrow": "Aktuell · Termin",
     "event_cta": "Zum Termin"
+  },
+  "hero_slides": {
+    "aria": "Aktuelle Themen",
+    "prev": "Vorherige Folie",
+    "next": "Nächste Folie",
+    "pause": "Automatischen Wechsel anhalten",
+    "play": "Automatischen Wechsel fortsetzen",
+    "slide": "Folie {{n}} von {{total}}",
+    "meet": "Termin am Stand vereinbaren",
+    "event_invite": "Kommen Sie vorbei."
   }
 }

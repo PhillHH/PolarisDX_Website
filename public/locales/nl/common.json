@@ -307,5 +307,13 @@
     "cta": "Naar het evenement",
     "meet": "Afspraak op onze stand maken",
     "close": "Sluiten"
+  },
+  "event_band": {
+    "eyebrow": "Wij zijn erbij",
+    "title": "Ontmoet ons in {{location}}.",
+    "days_label": "dagen tot de beurs",
+    "day_label": "dag tot de beurs",
+    "now": "Nu ter plaatse",
+    "all": "Alle evenementen"
   }
 }

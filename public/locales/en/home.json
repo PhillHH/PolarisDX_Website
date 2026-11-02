@@ -428,5 +428,15 @@
     "title": "What's on",
     "event_eyebrow": "Now · Event",
     "event_cta": "See the event"
+  },
+  "hero_slides": {
+    "aria": "Current topics",
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "pause": "Pause automatic rotation",
+    "play": "Resume automatic rotation",
+    "slide": "Slide {{n}} of {{total}}",
+    "meet": "Book a meeting at our stand",
+    "event_invite": "Come and see us."
   }
 }

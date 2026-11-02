@@ -307,5 +307,13 @@
     "cta": "Vedi l’evento",
     "meet": "Fissa un appuntamento al nostro stand",
     "close": "Chiudi"
+  },
+  "event_band": {
+    "eyebrow": "Ci saremo",
+    "title": "Ci vediamo a {{location}}.",
+    "days_label": "giorni alla fiera",
+    "day_label": "giorno alla fiera",
+    "now": "Ora in fiera",
+    "all": "Tutti gli eventi"
   }
 }

@@ -306,5 +306,13 @@
     "cta": "See the event",
     "meet": "Book a meeting at our stand",
     "close": "Close"
+  },
+  "event_band": {
+    "eyebrow": "We'll be there",
+    "title": "Meet us in {{location}}.",
+    "days_label": "days to go",
+    "day_label": "day to go",
+    "now": "On site now",
+    "all": "All events"
   }
 }

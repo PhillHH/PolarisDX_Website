@@ -308,5 +308,13 @@
     "cta": "Zobacz wydarzenie",
     "meet": "Umów spotkanie na naszym stoisku",
     "close": "Zamknij"
+  },
+  "event_band": {
+    "eyebrow": "Będziemy tam",
+    "title": "Spotkajmy się w {{location}}.",
+    "days_label": "dni do targów",
+    "day_label": "dzień do targów",
+    "now": "Teraz na miejscu",
+    "all": "Wszystkie wydarzenia"
   }
 }

@@ -18,6 +18,7 @@
  * Fachpublikum, keine Uebersichtsseite.
  */
 
+import EventBand from '../components/events/EventBand'
 import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -294,6 +295,7 @@ const EpigeneticsPage = () => {
             value: chip.value,
           }))}
         />
+        <EventBand />
 
         <div className="mt-8 lg:mt-10">
           <AreaNav

@@ -30,7 +30,8 @@ const TrustBar = () => {
     <section
       aria-label={t('trustbar.aria', 'Vertrauensmerkmale')}
       data-home-trustbar
-      className="relative z-10 -mt-14 lg:-mt-16"
+      // SC-021 Nachtrag: unter dem abgesetzten Buehnenband statt darueber gelegt.
+      className="relative z-10 mt-10 lg:mt-14"
     >
       <div className="mx-auto max-w-container px-4 pb-4 sm:px-6 lg:px-0">
         <ul className="grid grid-cols-2 overflow-hidden rounded-card border border-paper-line bg-white shadow-card lg:grid-cols-4">

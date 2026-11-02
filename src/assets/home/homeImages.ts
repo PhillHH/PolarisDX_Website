@@ -29,6 +29,10 @@ import heroCard800Avif from './hero-card-800w.avif'
 import heroCard800Webp from './hero-card-800w.webp'
 import heroCard1280Avif from './hero-card-1280w.avif'
 import heroCard1280Webp from './hero-card-1280w.webp'
+import eventBand480Avif from './event-band-480w.avif'
+import eventBand480Webp from './event-band-480w.webp'
+import eventBand960Avif from './event-band-960w.avif'
+import eventBand960Webp from './event-band-960w.webp'
 
 /** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
 export const DETAIL_IMAGE: ArticleImageAsset = {
@@ -48,6 +52,16 @@ export const DETAIL_IMAGE: ArticleImageAsset = {
  * Breiten aus der Darstellung: Desktop 560 px CSS (480w DPR 1 / 1280w DPR 2), Telefon volle
  * Breite (480w / 800w). Die 800w-AVIF-Stufe bleibt unter `lcpImageBytes` (19 438 B).
  */
+/** Messe-Band (SC-021 Nachtrag): 12:5-Foto, 420 px CSS ab lg (480w / 960w), lazy. */
+export const EVENT_BAND = {
+  src: eventBand960Webp,
+  width: 960,
+  height: 400,
+  sizes: '(min-width: 1024px) 420px, calc(100vw - 2rem)',
+  avif: `${eventBand480Avif} 480w, ${eventBand960Avif} 960w`,
+  webp: `${eventBand480Webp} 480w, ${eventBand960Webp} 960w`,
+} as const
+
 export const HERO_CARD = {
   src: heroCard1280Webp,
   width: 1280,

@@ -19,6 +19,7 @@ import TestimonialsSection from '../components/sections/TestimonialsSection'
 import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
 import FAQSection from '../components/sections/FAQSection'
 import BlogSection from '../components/sections/BlogSection'
+import EventBand from '../components/events/EventBand'
 
 const HomePage = () => {
   const { t, i18n } = useTranslation('home')
@@ -59,6 +60,8 @@ const HomePage = () => {
       />
       <HeroSection />
       <TrustBar />
+      {/* SC-021 Nachtrag (Owner, Idee 4): Messe-Band unter Buehne und Vertrauensband. */}
+      <EventBand />
       {/* SC-019/SC-020: „Aktuell" — naechster Termin und die Online-Shops (Panel-Aktion bis
           PANELS_PROMO_LAST_DAY). Ersetzt das fruehere Shop-Band dauerhaft. */}
       <AktuellSection />

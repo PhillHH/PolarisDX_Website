@@ -428,5 +428,15 @@
     "title": "Atualidade",
     "event_eyebrow": "Agora · Evento",
     "event_cta": "Ver o evento"
+  },
+  "hero_slides": {
+    "aria": "Temas atuais",
+    "prev": "Diapositivo anterior",
+    "next": "Diapositivo seguinte",
+    "pause": "Parar a rotação automática",
+    "play": "Retomar a rotação automática",
+    "slide": "Diapositivo {{n}} de {{total}}",
+    "meet": "Marcar reunião no nosso stand",
+    "event_invite": "Venha visitar-nos."
   }
 }

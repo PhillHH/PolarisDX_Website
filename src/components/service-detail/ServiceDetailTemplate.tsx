@@ -11,6 +11,7 @@ import ServiceDetailSalesCta from './ServiceDetailSalesCta'
 import ServiceDetailSections from './ServiceDetailSections'
 import type { ServiceDetailViewModel } from './model'
 import { createServiceDetailStructuredData } from './structuredData'
+import EventBand from '../events/EventBand'
 
 export function ServiceDetailTemplate({ model }: { model: ServiceDetailViewModel }) {
   const { i18n } = useTranslation()
@@ -34,6 +35,7 @@ export function ServiceDetailTemplate({ model }: { model: ServiceDetailViewModel
       />
       <ServiceDetailHero model={model} />
       <TrustBar />
+      <EventBand />
       <AreaNav
         label={tCommon('nav.service')}
         items={diagnosticsAreaItems(tCommon)}

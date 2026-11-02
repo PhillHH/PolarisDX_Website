@@ -27,6 +27,26 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-02 — SC-021 Nachtrag · Kopfzeile auf Seitenbreite, Bühne als Band und Slider, Messe-Band
+
+- **Ursache:** Owner nach der Live-Sichtprüfung (`SCOPE-CHANGELOG.md` SC-021 Nachtrag).
+- **Kopfzeile:** Messe-Zeile und Raster auf `max-w-page` (1440 px) begrenzt; ab 1441 px Haarlinien
+  `ui.border` links und rechts des Rasters.
+- **Bühne:** weißes Band (`bg-white`, `border-b` `ui.border`) auf der Papierseite; Vertrauensband
+  mit `mt-10 lg:mt-14` darunter statt `-mt-14` hinein. Slider wie SC-020, aber hell: Bedienung
+  `border-slate-300 bg-white text-brand-deep`, Punkte `accent.line` / `slate-300`; Folie 2 mit
+  Navy-Kachel (`rounded-card bg-brand-deep shadow-card`, `.aurora`, `t-eyebrow-dark`, Datum
+  `text-4xl xl:text-5xl`, Countdown `text-3xl`, weiße Pille), Folie 3 mit Musterbefund.
+- **Neu (Komponente, kein Export aus `ui/`):** `EventBand` — Navy-Karte `rounded-band shadow-card`
+  mit Foto (`rounded-card`), `t-eyebrow-dark`, H2 `text-2xl sm:text-3xl`, Countdown `text-4xl`,
+  weiße Pille (`Button light sm`), Link `accent.on-dark`; auf Startseite und Inhaltsseiten.
+- **Hover-Panels:** jede Hauptpunkt-Zelle ist Link + Aufklapper (`ChevronDown`, `data-submenu-trigger`,
+  `aria-expanded`); Hover oder Knopf öffnen das Panel des Punkts (`#site-menu[data-panel]`), die
+  Zelle wird `brand.soft`. Panel-Inhalte aus denselben Bausteinen (`MENU_LINK`, `t-h6`, Gerätekarte,
+  Shop-Pillen, Musterbefund-Vorschau `report-preview-400w`, Termin-Karte `rounded-card bg-brand-deep`).
+- **Baselines:** alle `pt27.6-visual`-Seitenbaselines erneut (Kopfzeilenbreite, Band), Zustand
+  „Hero-Slider, Folie 2" wieder in PT24.6.
+
 ### 2026-11-02 — SC-021 · Kopfzeile „Raster" (13A-4), Messe-Zeile, statische Bühne mit Fotokarte
 
 - **Ursache:** Owner-Entscheidung 2026-11-02 (`SCOPE-CHANGELOG.md` SC-021) nach fünf Entwurfsrunden
@@ -40,7 +60,7 @@ Das ist **AP27** und wird nicht vorweggenommen.
   Navy-Zelle (`brand.deep`, Hover `brand.navy-hover`); Such-Zelle; „Menü"-Zelle. Darüber die
   Messe-/Service-Zeile (`accent.soft`, 44 px — jede Zeile eine Trefferfläche) mit dem nächsten belegten
   Termin (SC-019-Daten, Link „Termin am Stand vereinbaren") und rechts Blog · Support · Kontakt ·
-  Sprache. Gescrollt: Zeile ausgeblendet, Raster 62 px, `shadow-dialog`. Unter `xl` eine Leiste mit
+  Sprache. Gescrollt: Zeile bleibt (Nachtrag: Sprachumschalter muss erreichbar bleiben), Raster 62 px, `shadow-dialog`. Unter `xl` eine Leiste mit
   Logo, CTA (ab `md`), Suche und Menü. Fokusringe `ring-inset ring-brand-primary` (auf Navy weiß).
   Zwischen `xl` und `2xl` sind die Zellen eng (Hauptpunkte `px-4` 15 px, Shops `px-3` 13 px, Suche 56 px,
   Menü nur als Symbol): gemessen brauchen die zehn Sprachen bei 1280 px 1 144 (de) bis 1 275 px (es);

@@ -428,5 +428,15 @@
     "title": "In evidenza",
     "event_eyebrow": "Ora · Evento",
     "event_cta": "Vedi l’evento"
+  },
+  "hero_slides": {
+    "aria": "Temi attuali",
+    "prev": "Diapositiva precedente",
+    "next": "Diapositiva successiva",
+    "pause": "Interrompi lo scorrimento automatico",
+    "play": "Riprendi lo scorrimento automatico",
+    "slide": "Diapositiva {{n}} di {{total}}",
+    "meet": "Fissa un appuntamento al nostro stand",
+    "event_invite": "Venite a trovarci."
   }
 }

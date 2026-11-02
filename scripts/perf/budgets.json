@@ -63,8 +63,8 @@
     "routes": {
       "home": {
         "mobile": {
-          "htmlBytes": 35312,
-          "jsBytes": 165350,
+          "htmlBytes": 36000,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -75,8 +75,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 35312,
-          "jsBytes": 165350,
+          "htmlBytes": 36000,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -89,7 +89,7 @@
       },
       "diagnostics-hub": {
         "mobile": {
-          "htmlBytes": 32705,
+          "htmlBytes": 33300,
           "jsBytes": 171260,
           "imageBytes": 89249,
           "lcpImageBytes": 0,
@@ -101,7 +101,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 32705,
+          "htmlBytes": 33300,
           "jsBytes": 171260,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -115,7 +115,7 @@
       },
       "service-detail": {
         "mobile": {
-          "htmlBytes": 31025,
+          "htmlBytes": 31900,
           "jsBytes": 175398,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -127,7 +127,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 31025,
+          "htmlBytes": 31900,
           "jsBytes": 175398,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -141,7 +141,7 @@
       },
       "igloo-pro": {
         "mobile": {
-          "htmlBytes": 30034,
+          "htmlBytes": 30800,
           "jsBytes": 170407,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -153,7 +153,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 30034,
+          "htmlBytes": 30800,
           "jsBytes": 170407,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -245,7 +245,7 @@
       },
       "articles-index": {
         "mobile": {
-          "htmlBytes": 28575,
+          "htmlBytes": 29100,
           "jsBytes": 172062,
           "imageBytes": 161477,
           "lcpImageBytes": 0,
@@ -257,7 +257,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 28575,
+          "htmlBytes": 29100,
           "jsBytes": 172062,
           "imageBytes": 123509,
           "lcpImageBytes": 11139,
@@ -297,7 +297,7 @@
       },
       "events": {
         "mobile": {
-          "htmlBytes": 27281,
+          "htmlBytes": 27600,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -309,7 +309,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 27281,
+          "htmlBytes": 27600,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -323,7 +323,7 @@
       },
       "downloads": {
         "mobile": {
-          "htmlBytes": 29832,
+          "htmlBytes": 30400,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -335,7 +335,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 29832,
+          "htmlBytes": 30400,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -453,8 +453,8 @@
       },
       "home-en": {
         "mobile": {
-          "htmlBytes": 34857,
-          "jsBytes": 165350,
+          "htmlBytes": 35500,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -465,8 +465,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 34857,
-          "jsBytes": 165350,
+          "htmlBytes": 35500,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -479,8 +479,8 @@
       },
       "home-pl": {
         "mobile": {
-          "htmlBytes": 35613,
-          "jsBytes": 165350,
+          "htmlBytes": 36300,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,
@@ -491,8 +491,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 35613,
-          "jsBytes": 165350,
+          "htmlBytes": 36300,
+          "jsBytes": 167400,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,

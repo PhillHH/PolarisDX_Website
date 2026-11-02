@@ -313,3 +313,16 @@ Unterstützte Locales exakt: `de,en,pl,fr,it,es,pt,da,nl,cs`.
   **NOT STARTED**.
 - AP23 bleibt Owner der globalen Tracking-/Consent-Governance.
 - AP19 bleibt **NOT STARTED**; keine Resource-/Gating-Plattform wurde vorgezogen.
+
+## Nachtrag SC-021 (2026-11-02) — Messe-Zeile, Hero-Folie und Messe-Band
+
+Der nächste belegte Termin (`getNextHomeEvent`, Highlight-Reihenfolge SC-019) erscheint seit SC-021 an
+vier Stellen, alle aus denselben Daten (`src/data/events.ts`, `events.json`): (1) **Messe-Zeile** der
+Kopfzeile auf jeder Seite (Titel → `/events`, Datum · Ort · `short`, „Termin am Stand vereinbaren" →
+`/contact`; bleibt auch gescrollt stehen); (2) **Folie 2** des Startseiten-Sliders mit Navy-Kachel (Datum,
+`short`, Countdown); (3) **Messe-Band** (`EventBand`) unter Bühne und Vertrauensband der Startseite und
+auf den Inhaltsseiten (Einladung, Beschreibung, Countdown, Standtermin, „Alle Termine"); (4) das
+Termin-Popup (SC-020, unverändert). Countdown: `daysUntil(event.date, toEventDay(now))` in ganzen
+Berliner Kalendertagen; am Tag selbst und während des Termins „Jetzt vor Ort" (`event_band.now`).
+Nach dem letzten Tag rückt automatisch der nächste Termin nach (MEDICA → DGI-Jahreskongress); ohne
+Termin verschwinden Zeile, Folie und Band. Keine neuen Termindaten, keine neuen Claims.

@@ -428,5 +428,15 @@
     "title": "Actueel",
     "event_eyebrow": "Nu · Evenement",
     "event_cta": "Naar het evenement"
+  },
+  "hero_slides": {
+    "aria": "Actuele onderwerpen",
+    "prev": "Vorige dia",
+    "next": "Volgende dia",
+    "pause": "Automatisch wisselen stoppen",
+    "play": "Automatisch wisselen hervatten",
+    "slide": "Dia {{n}} van {{total}}",
+    "meet": "Afspraak op onze stand maken",
+    "event_invite": "Kom langs."
   }
 }

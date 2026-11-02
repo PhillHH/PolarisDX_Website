@@ -428,5 +428,15 @@
     "title": "Aktualności",
     "event_eyebrow": "Teraz · Wydarzenie",
     "event_cta": "Zobacz wydarzenie"
+  },
+  "hero_slides": {
+    "aria": "Aktualne tematy",
+    "prev": "Poprzedni slajd",
+    "next": "Następny slajd",
+    "pause": "Zatrzymaj automatyczne przewijanie",
+    "play": "Wznów automatyczne przewijanie",
+    "slide": "Slajd {{n}} z {{total}}",
+    "meet": "Umów spotkanie na naszym stoisku",
+    "event_invite": "Zapraszamy na stoisko."
   }
 }

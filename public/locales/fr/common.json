@@ -307,5 +307,13 @@
     "cta": "Voir le rendez-vous",
     "meet": "Prendre rendez-vous sur notre stand",
     "close": "Fermer"
+  },
+  "event_band": {
+    "eyebrow": "Nous y serons",
+    "title": "Rendez-vous à {{location}}.",
+    "days_label": "jours avant le salon",
+    "day_label": "jour avant le salon",
+    "now": "En ce moment sur place",
+    "all": "Tous les événements"
   }
 }

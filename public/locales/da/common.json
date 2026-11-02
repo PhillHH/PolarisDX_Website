@@ -307,5 +307,13 @@
     "cta": "Se arrangementet",
     "meet": "Book et møde på vores stand",
     "close": "Luk"
+  },
+  "event_band": {
+    "eyebrow": "Vi er med",
+    "title": "Mød os i {{location}}.",
+    "days_label": "dage til messen",
+    "day_label": "dag til messen",
+    "now": "Lige nu på stedet",
+    "all": "Alle begivenheder"
   }
 }

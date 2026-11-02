@@ -19,6 +19,7 @@ import SubpageHero from '../components/sections/SubpageHero'
 import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
+import EventBand from '../components/events/EventBand'
 
 const EMAIL = 'contact@polarisdx.net'
 const PHONE_HREF = 'tel:+4915175011699'
@@ -159,6 +160,7 @@ const SupportPage = () => {
       />
 
       <TrustBar />
+      <EventBand />
 
       {/* Support channels — three rich, teal-tint cards */}
       <section className="bg-white">

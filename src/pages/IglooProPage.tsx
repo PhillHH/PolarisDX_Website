@@ -10,6 +10,7 @@ import IglooCompatibilitySection from '../components/sections/IglooCompatibility
 import IglooSpecsSection from '../components/sections/IglooSpecsSection'
 import IglooProductFinalCta from '../components/sections/IglooProductFinalCta'
 import { useAreaShell } from '../components/area/areaShell'
+import EventBand from '../components/events/EventBand'
 
 const IglooProPage: React.FC = () => {
   const { t, i18n } = useTranslation(['products', 'services', 'common'])
@@ -47,6 +48,7 @@ const IglooProPage: React.FC = () => {
         items={diagnosticsAreaItems(tCommon)}
         currentKey="igloo-pro"
       />
+      <EventBand />
       <IglooProductProof />
       <IglooFeaturesSection />
       <IglooWorkflowSection />

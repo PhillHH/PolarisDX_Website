@@ -22,6 +22,13 @@ import path from 'path'
 // Verwende Funktion um SSR/Client Build zu unterscheiden
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
+  // SC-021 Nachtrag (2026-11-02): Kennung des Builds fuer den Client. `/locales/*.json` wird eine
+  // Stunde lang gecacht (server.ts, PT26.1); ohne Versionszeichen zeigte ein Browser nach einem
+  // Release mit neuen Schluesseln bis zu einer Stunde rohe Keys (z. B. `nav.menu`). i18n.client.ts
+  // haengt die Kennung als `?v=` an — jeder Build laedt frische Sprachdateien.
+  define: {
+    __POLARIS_BUILD_ID__: JSON.stringify(process.env.POLARIS_BUILD_ID ?? Date.now().toString(36)),
+  },
 
   // =============================================================================
   // DEP-OPTIMIZER-CACHE (opt-in, Default unveraendert)

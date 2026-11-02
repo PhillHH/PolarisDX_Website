@@ -112,6 +112,14 @@ async function article(source, base, position = 'attention') {
  * Startbilds war ausdruecklich unerwuenscht). 480w (DPR 1 mobil), 800w (DPR 2 mobil, muss unter
  * `lcpImageBytes` 19 438 B der Startseite bleiben) und 1280w (Desktop DPR 2; Desktop zeigt 560 px).
  */
+/**
+ * SC-021 Nachtrag: Messe-Band (EventBand) — `lab-tubes.jpg` (IglooPro auf dem Tresen, Pool
+ * 2026-10-16) als 12:5-Karte, 480w (DPR 1) und 960w (DPR 2); lazy, nie LCP.
+ */
+async function eventBand() {
+  await card('lab-tubes.jpg', 'event-band', 12 / 5, [480, 960], [44, 40])
+}
+
 async function heroCard() {
   await card('practice-dental-2600.jpg', 'hero-card', 16 / 10, [480, 800, 1280], [44, 40, 36])
 }
@@ -147,9 +155,11 @@ async function main() {
     )
   }
   await heroCard()
+  await eventBand()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  await (process.argv[2] === 'hero-card' ? heroCard() : main())
+  const only = { 'hero-card': heroCard, 'event-band': eventBand }[process.argv[2]]
+  await (only ? only() : main())
 }

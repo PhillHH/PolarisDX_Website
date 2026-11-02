@@ -74,3 +74,15 @@ export function formatEventDay(language: string | undefined, date: string) {
   const dot = DAY_DOT_LANGUAGES.has(lang) ? '.' : ''
   return `${d.day}${dot} ${monthNames[lang][d.month]}`
 }
+
+/**
+ * SC-021 Nachtrag: ganze Kalendertage von `today` (YYYY-MM-DD, Berliner Tag) bis `date`;
+ * 0 am Tag selbst, negativ danach. Für Countdown in Messe-Band und Hero-Folie.
+ */
+export function daysUntil(date: string, today: string): number {
+  const a = parseIsoDate(date)
+  const b = parseIsoDate(today)
+  return Math.round(
+    (Date.UTC(a.year, a.month, a.day) - Date.UTC(b.year, b.month, b.day)) / 86_400_000,
+  )
+}

@@ -1,3 +1,4 @@
+import EventBand from '../components/events/EventBand'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -209,7 +210,6 @@ const DownloadsPage = () => {
           },
         ]}
       />
-
       <div className="bg-paper">
         <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
           <div className="space-y-14">
@@ -293,6 +293,10 @@ const DownloadsPage = () => {
             </Link>
           </div>
         </div>
+      </div>
+      {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
+      <div className="pb-16 lg:pb-24">
+        <EventBand />
       </div>
     </PageTransition>
   )

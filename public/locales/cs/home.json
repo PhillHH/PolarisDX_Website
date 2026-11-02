@@ -428,5 +428,15 @@
     "title": "Aktuálně",
     "event_eyebrow": "Nyní · Akce",
     "event_cta": "Zobrazit akci"
+  },
+  "hero_slides": {
+    "aria": "Aktuální témata",
+    "prev": "Předchozí snímek",
+    "next": "Další snímek",
+    "pause": "Zastavit automatické přepínání",
+    "play": "Pokračovat v automatickém přepínání",
+    "slide": "Snímek {{n}} z {{total}}",
+    "meet": "Domluvit schůzku na našem stánku",
+    "event_invite": "Přijďte se podívat."
   }
 }

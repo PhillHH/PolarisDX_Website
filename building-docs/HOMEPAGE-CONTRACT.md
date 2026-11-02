@@ -56,7 +56,20 @@ SC-020 carousel (both kept below as history).
   (DPR 2 phones) stays inside `lcpImageBytes` 19 438 B. Intrinsic `width`/`height` 1280×800. An early
   `<link rel="preload" as="image" fetchpriority="high">` (React `preload()`, same srcset/sizes)
   starts the request before the module preloads; the header logo is `fetchpriority="low"`.
-- No product card any more (`hero.visual_alt` removed), no carousel, no aurora glow on the stage;
+- **Addendum 2026-11-02 (owner after the live review):** the stage is a white band (`bg-white`,
+  hairline `ui.border`) on the paper page; the TrustBar sits below it on paper (no negative
+  margin). The stage is a carousel again (SC-020 structure: `aria-roledescription="carousel"` after
+  hydration, `HeroSlides` chunk 1.5 s after mount, controls portaled under the actions of the active
+  slide, 8 s interval, held on pointer/focus, no autoplay under reduced motion): slide 2 = the next
+  real event with a navy tile on the right (`formatEventRange`, `short`, countdown via `daysUntil`,
+  „Termin am Stand vereinbaren" → `/contact`), headline = event title + `hero_slides.event_invite`,
+  lead = the event description; slide 3 = the panel promotion with the real sample report. Light
+  controls (`border-slate-300`, dots `accent.line`). Below TrustBar the **EventBand** (navy
+  `rounded-band` card: pool photo `event-band-480/960w` lazy, „Wir sind dabei · MEDICA 2026",
+  „Treffen wir uns in Düsseldorf.", date · hall/stand — description, countdown, white pill to
+  `/contact`, link to `/events`) — the same component also sits on the content subpages (see
+  SCOPE-CHANGELOG SC-021 Nachtrag). No new claim: all band and slide copy is SC-019 event data.
+- No product card any more (`hero.visual_alt` removed), no aurora glow on the stage;
   `enter` stagger for caption/H1/lead/actions (transform only, H1 stays an LCP candidate).
 - The Homepage carries two generated photographs (this card and the detail photo, §4.2).
 

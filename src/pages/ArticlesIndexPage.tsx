@@ -1,3 +1,4 @@
+import EventBand from '../components/events/EventBand'
 import type { LucideIcon } from 'lucide-react'
 import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
@@ -128,7 +129,7 @@ const ArticlesIndexPage = () => {
               id="article-list"
               className="mt-10 scroll-mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-              {articles.map((post, index) => {
+              {articles.map((post) => {
                 const Icon = categoryIcon[post.category] ?? FileText
                 const image = getArticleImageAsset(post.sections[0]?.image)
                 const title = t(`articles:${post.id}.title`)
@@ -148,7 +149,9 @@ const ArticlesIndexPage = () => {
                           alt=""
                           sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
                           className="aspect-video w-full rounded-t-xl object-cover"
-                          priority={index === 0}
+                          // SC-021 Nachtrag: mit der hoeheren Kopfzeile liegt auch das erste Bild unter dem Falz
+                          // (Desktop top ~943 px) — nicht mehr eager, sonst meldet das Budget eagerBelowFold.
+                          priority={false}
                         />
                       ) : (
                         <div
@@ -189,6 +192,8 @@ const ArticlesIndexPage = () => {
         </div>
       </div>
 
+      {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
+      <EventBand />
       <FinalCtaSection roiHref="/#roi-rechner" />
     </PageTransition>
   )

@@ -294,6 +294,62 @@ describe('Header — Inhaltsuebersicht', () => {
   })
 })
 
+describe('Header — Hover-Panels je Hauptpunkt (SC-021 Nachtrag)', () => {
+  const trigger = (label: string) =>
+    within(mainNav()).getAllByRole('button', { name: 'a11y.toggle_submenu' })[
+      ['service', 'epigenetics', 'iglooPro', 'events'].indexOf(label)
+    ]
+
+  it('die Diagnostik klappt per Knopf (nicht nur per Hover) mit allen neun Leistungen auf', () => {
+    renderHeader()
+    const toggle = trigger('service')
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    fireEvent.click(toggle)
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    const hrefs = within(mainNav())
+      .getAllByRole('link')
+      .map((a) => a.getAttribute('href'))
+    for (const service of services) expect(hrefs).toContain(`/diagnostics/${service.id}`)
+    expect(within(mainNav()).getByRole('link', { name: /nav.diagnostics_all/ })).toBeInTheDocument()
+  })
+
+  it('Hover ueber einen Hauptpunkt oeffnet dessen Panel', () => {
+    const { container } = renderHeader()
+    fireEvent.mouseEnter(container.querySelector('[data-submenu-scope="epigenetics"]')!)
+    expect(container.querySelector('#site-menu')).toHaveAttribute('data-panel', 'epigenetics')
+    expect(within(mainNav()).getByRole('link', { name: 'footer.epi_basics' })).toHaveAttribute(
+      'href',
+      '/epigenetics/grundlagen',
+    )
+    expect(within(mainNav()).getAllByRole('link', { name: /nav\.shop_epigenetics/ }).length).toBe(2)
+  })
+
+  it('IglooPro- und Termin-Panel zeigen Geraet bzw. den naechsten Termin', () => {
+    const { container } = renderHeader()
+    fireEvent.click(trigger('iglooPro'))
+    expect(within(mainNav()).getByRole('link', { name: /nav.iglooPro_more/ })).toHaveAttribute(
+      'href',
+      '/igloo-pro',
+    )
+    fireEvent.click(trigger('events'))
+    expect(container.querySelector('#site-menu')).toHaveAttribute('data-panel', 'events')
+    expect(within(mainNav()).getByRole('link', { name: 'event_band.all' })).toHaveAttribute(
+      'href',
+      '/events',
+    )
+  })
+
+  it('Escape schliesst das Panel und gibt den Fokus an den Aufklapper zurueck', () => {
+    renderHeader()
+    const toggle = trigger('service')
+    fireEvent.click(toggle)
+    toggle.focus()
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(document.activeElement).toBe(toggle)
+  })
+})
+
 describe('Header — Ausgeschlossenes', () => {
   it('enthaelt keinen Chat-Trigger', () => {
     const { container } = renderHeader()

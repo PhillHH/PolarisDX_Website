@@ -10,6 +10,7 @@ import DiagnosticsUseCasesSection from '../components/sections/DiagnosticsUseCas
 import DiagnosticsRelatedArticlesSection from '../components/sections/DiagnosticsRelatedArticlesSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import IglooProImage from '../assets/Igloo-pro-frontal.webp'
+import EventBand from '../components/events/EventBand'
 
 const ServicesOverviewPage = () => {
   const { t, i18n } = useTranslation(['common', 'home', 'services'])
@@ -41,6 +42,7 @@ const ServicesOverviewPage = () => {
       <div>
         <DiagnosticsHero />
         <AreaNav label={t('nav.service')} items={diagnosticsAreaItems(t)} currentKey="overview" />
+        <EventBand />
         <DiagnosticsLandscapeSection />
         <DiagnosticsSpecialtySection />
         <DiagnosticsFocusSection />

@@ -107,5 +107,11 @@ test('PT17.1 index does not fetch article images before they are rendered', asyn
   await expect(page.locator('[data-article-card]')).toHaveCount(6)
   expect(requests.filter((url) => /preview\.polarisdx/u.test(url))).toEqual([])
   expect(requests.filter((url) => /google-analytics|googletagmanager/u.test(url))).toEqual([])
-  expect(await page.locator('img[loading="lazy"]').count()).toBe(4)
+  // SC-021: mit der hoeheren Kopfzeile liegt auch das erste Artikelbild unter dem Falz — alle
+  // Artikelbilder sind lazy (das Messe-Band am Seitenende bringt ein weiteres lazy Bild mit).
+  const cardImages = page.locator('[data-article-card] img')
+  expect(await cardImages.count()).toBeGreaterThan(0)
+  expect(await page.locator('[data-article-card] img[loading="lazy"]').count()).toBe(
+    await cardImages.count(),
+  )
 })
