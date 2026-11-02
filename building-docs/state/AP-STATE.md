@@ -10,12 +10,20 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
-**Stand 2026-11-02 (SC-021 Stufe A, Preview):** Kopfzeile „Raster" (Entwurf 13A-4) mit Messe-Zeile
+**Stand 2026-11-02 abends (SC-021 Nachtrag, Preview):** Hero wieder als Slider (Folie 2 MEDICA mit
+Navy-Kachel und Countdown, Folie 3 Panel-Aktion), Bühne als weißes Band, Messe-Band `EventBand` auf
+Startseite und Inhaltsseiten, Hover-Panels je Hauptpunkt, Kopfzeile auf 1440 px, Sprachdateien mit
+Build-Kennung; Budgets per Owner-Entscheidung angehoben (PERFORMANCE-CONTRACT §25). Code `6ddb9a6`,
+**Preview-Release `6ddb9a650bdb`** (healthy, Identität, Smoke grün), **Produktion `672cd28ab21d`**
+(seit 2026-11-02 mittags) — Veröffentlichungs-Go steht aus. Gates: Vitest unit/component 648/648,
+Guards grün, Perf-Budget ci 852/852 (neue Grenzen), Playwright Kern 139+57, Axe 27/27, Visual 22
+Baselines neu.
+
+**Stand 2026-11-02 mittags (SC-021 Stufe A, live):** Kopfzeile „Raster" (Entwurf 13A-4) mit Messe-Zeile
 und Inhaltsübersicht, statische Startseiten-Bühne mit Fotokarte, Design-Tokens benannt (`brand.soft`,
 `spacing.header-*`, `spacing.page-top/-xl`) — `SCOPE-CHANGELOG.md` SC-021, `DESIGN-SYSTEM-CONTRACT.md`
-§6.11, `HOMEPAGE-CONTRACT.md` §2. Code `672cd28`, **Preview-Release `672cd28ab21d`** (healthy,
-Identität, Smoke grün), **Produktion unverändert `118846161d1d`** — Owner-Sichtprüfung und
-Veröffentlichungs-Go stehen aus. Gates: Vitest unit/component 645/645, Guards grün, Perf-Budget ci
+§6.11, `HOMEPAGE-CONTRACT.md` §2. Code `672cd28`, Preview-Release `672cd28ab21d`, nach Owner-Go
+(„Ja, veröffentlichen") **Produktion `672cd28ab21d`** (vorher `118846161d1d`). Gates: Vitest unit/component 645/645, Guards grün, Perf-Budget ci
 852/852 ohne Budgetänderung, Playwright Startseite/Navigation/Termine/Diagnostik 116, Axe 26/26, Visual
 22 Baselines neu. Nicht lauffähig in dieser Umgebung (Altbefund, unabhängig): Server-Vitest und
 PT27.3-Core — `better-sqlite3` ist gegen einen anderen Node-Stand gebaut (`npm rebuild` im
