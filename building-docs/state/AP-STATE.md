@@ -14,8 +14,8 @@ kein `work-packages/APxx-STATE.md`).
 Navy-Kachel und Countdown, Folie 3 Panel-Aktion), Bühne als weißes Band, Messe-Band `EventBand` auf
 Startseite und Inhaltsseiten, Hover-Panels je Hauptpunkt, Kopfzeile auf 1440 px, Sprachdateien mit
 Build-Kennung; Budgets per Owner-Entscheidung angehoben (PERFORMANCE-CONTRACT §25). Code `6ddb9a6`,
-**Preview-Release `6ddb9a650bdb`** (healthy, Identität, Smoke grün), **Produktion `672cd28ab21d`**
-(seit 2026-11-02 mittags) — Veröffentlichungs-Go steht aus. Gates: Vitest unit/component 648/648,
+Preview-Release `6ddb9a650bdb`, nach Owner-Go („Ja, veröffentlichen", 2026-11-02 abends)
+**Produktion `6ddb9a650bdb`** (vorher `672cd28ab21d`; Backup/Restore-Test grün, Smoke grün). Gates: Vitest unit/component 648/648,
 Guards grün, Perf-Budget ci 852/852 (neue Grenzen), Playwright Kern 139+57, Axe 27/27, Visual 22
 Baselines neu.
 
