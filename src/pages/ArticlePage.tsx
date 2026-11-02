@@ -316,7 +316,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
       <article data-article-template={article.slug}>
         {/* ===================== HERO (Navy, zentriert) ===================== */}
         <section className="relative overflow-hidden bg-brand-deep text-white">
-          <div className="mx-auto max-w-3xl px-4 pt-24 pb-16 text-center lg:pt-28">
+          <div className="mx-auto max-w-3xl px-4 pt-page-top pb-16 text-center xl:pt-page-top-xl">
             <div className="mb-6 flex justify-center">
               <Breadcrumbs
                 variant="dark"

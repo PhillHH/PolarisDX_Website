@@ -150,29 +150,22 @@ test('PT11.6 page-level accessibility and performance structure stay regression-
   await expect(page.locator('main')).toHaveCount(1)
   await expect(page.locator('footer')).toHaveCount(1)
   await expect(page.locator('main img:not([alt])')).toHaveCount(0)
-  // AP34 / SC-002: the Editorial stage is one art-directed, decorative photo (alt="",
-  // eager, the page's only high-priority image, dimensioned, AVIF/WebP per breakpoint).
-  // The product keeps its localized alt text as a lazy 320-px cutout after both CTAs.
+  // SC-021: the stage is one decorative 16:10 photo card (alt="", eager, the page's only
+  // high-priority image, dimensioned, AVIF with WebP fallback) after both CTAs.
   const heroPhoto = page.locator('[data-home-hero] picture[data-home-hero-photo] img')
   await expect(heroPhoto).toHaveCount(1)
   await expect(heroPhoto).toHaveAttribute('alt', '')
   await expect(heroPhoto).toHaveAttribute('loading', 'eager')
   await expect(heroPhoto).toHaveAttribute('fetchpriority', 'high')
-  await expect(heroPhoto).toHaveAttribute('width', '800')
-  await expect(heroPhoto).toHaveAttribute('height', '1800')
+  await expect(heroPhoto).toHaveAttribute('width', '1280')
+  await expect(heroPhoto).toHaveAttribute('height', '800')
   expect(
     await page
       .locator('[data-home-hero] picture[data-home-hero-photo] source')
       .evaluateAll((sources) => sources.map((s) => s.getAttribute('type'))),
-  ).toEqual(['image/avif', 'image/avif'])
+  ).toEqual(['image/avif'])
   await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(1)
-  const heroProduct = page.locator('[data-home-hero-visual] img')
-  await expect(heroProduct).toHaveCount(1)
-  await expect(heroProduct).toHaveAttribute('loading', 'lazy')
-  await expect(heroProduct).toHaveAttribute('width', '320')
-  await expect(heroProduct).toHaveAttribute('height', '320')
-  await expect(heroProduct).not.toHaveAttribute('alt', '')
-  await expect(page.locator('[data-home-hero] img')).toHaveCount(2)
+  await expect(page.locator('[data-home-hero] img')).toHaveCount(1)
   await expect(page.locator('main img[loading="eager"]')).toHaveCount(1)
 
   const firstQuestion = page.locator('#faq button').first()

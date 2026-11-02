@@ -138,7 +138,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
 
       {/* ===================== HERO (Navy, zentriert) ===================== */}
       <section className="relative overflow-hidden bg-brand-deep text-white">
-        <div className="mx-auto max-w-container px-4 lg:px-0 pt-24 pb-20 lg:pt-28 text-center">
+        <div className="mx-auto max-w-container px-4 lg:px-0 pt-page-top pb-20 xl:pt-page-top-xl text-center">
           <Reveal width="100%">
             <div className="mb-5 flex justify-center">
               <Breadcrumbs

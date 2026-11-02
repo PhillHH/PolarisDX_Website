@@ -36,7 +36,14 @@
     "diagnostics_all": "Všechny diagnostické služby",
     "group_crosslink": "Také relevantní",
     "shop_sub": "Ordinace",
-    "panels_sub": "Epigenetika"
+    "panels_sub": "Epigenetika",
+    "shop_practice": "E-shop pro ordinace",
+    "shop_epigenetics": "Epigenetické testy",
+    "shop_practice_sub": "Pro ordinace",
+    "shop_epigenetics_sub": "Pro soukromé osoby",
+    "menu": "Nabídka",
+    "iglooPro_desc": "Laboratorní hodnoty během minut, přímo v ordinaci.",
+    "iglooPro_more": "Více o přístroji"
   },
   "badge": {
     "New": "Nové",
@@ -264,7 +271,9 @@
     "main_nav": "Hlavní navigace",
     "breadcrumb": "Drobečková navigace",
     "toggle_submenu": "{{name}} — podnabídka",
-    "skip_to_content": "Přejít k obsahu"
+    "skip_to_content": "Přejít k obsahu",
+    "secondary_nav": "Servisní navigace",
+    "event_strip": "Aktuální termín"
   },
   "languageFallback": {
     "notice": "Tato stránka je zatím k dispozici pouze v angličtině."

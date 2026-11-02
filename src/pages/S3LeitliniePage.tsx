@@ -109,7 +109,7 @@ const S3LeitliniePage = () => {
       <div className="bg-paper">
         {/* Hero / Above the Fold */}
         <section className="relative overflow-hidden bg-brand-deep text-white">
-          <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-32">
+          <div className="relative mx-auto flex min-h-[380px] max-w-page flex-col justify-end px-4 pb-12 pt-page-top lg:px-10 lg:pb-16 xl:pt-page-top-xl">
             <Reveal width="100%" yOffset={20}>
               <div className="max-w-[900px] mx-auto">
                 {/* Breadcrumb */}

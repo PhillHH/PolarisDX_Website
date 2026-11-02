@@ -36,7 +36,14 @@
     "diagnostics_all": "All diagnostics services",
     "group_crosslink": "Also relevant",
     "shop_sub": "Practice",
-    "panels_sub": "Epigenetics"
+    "panels_sub": "Epigenetics",
+    "shop_practice": "Practice shop",
+    "shop_epigenetics": "Epigenetics tests",
+    "shop_practice_sub": "For practices",
+    "shop_epigenetics_sub": "For individuals",
+    "menu": "Menu",
+    "iglooPro_desc": "Lab values in minutes, right in your practice.",
+    "iglooPro_more": "More about the device"
   },
   "badge": {
     "New": "New",
@@ -262,7 +269,9 @@
     "main_nav": "Main navigation",
     "breadcrumb": "Breadcrumb",
     "toggle_submenu": "{{name}} — submenu",
-    "skip_to_content": "Skip to content"
+    "skip_to_content": "Skip to content",
+    "secondary_nav": "Service navigation",
+    "event_strip": "Current event"
   },
   "languageFallback": {
     "notice": "This page is currently available in English only."

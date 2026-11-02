@@ -174,18 +174,9 @@ const ZUSTAENDE: {
       await p.waitForTimeout(400)
     },
   },
-  // SC-020: Hero-Slider und Termin-Popup gibt es nur, solange ein Termin ansteht.
+  // SC-020: das Termin-Popup gibt es nur, solange ein Termin ansteht.
   ...(getNextHomeEvent()
     ? [
-        {
-          name: 'Hero-Slider, Folie 2',
-          viewport: { width: 1280, height: 900 },
-          oeffnen: async (p: Page) => {
-            await seedConsent(p, '/de/')
-            await p.locator('[data-home-hero] [role="tab"]').nth(1).click()
-            await p.waitForTimeout(400)
-          },
-        },
         {
           name: 'Termin-Popup offen',
           viewport: { width: 1280, height: 900 },

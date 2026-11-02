@@ -5,12 +5,11 @@
     "social_image_alt": "Lecteur de diagnostic au point de soins IglooPro de PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX pour les cabinets et établissements de santé",
+    "caption": "Pour les cabinets dentaires, esthétiques et de longévité",
     "title": "Des valeurs de laboratoire. En quelques minutes. Dans votre cabinet.",
-    "description": "PolarisDX accompagne les professionnels dans l’intégration du diagnostic au point de soins avec IglooPro dans leurs processus existants, du choix de la solution à son utilisation sur site.",
+    "description": "IglooPro lit les tests rapides de nombreux fabricants et affiche la valeur pendant que le patient reste au fauteuil.",
     "cta": "Demander un devis",
-    "cta_secondary": "Découvrir le diagnostic",
-    "visual_alt": "Lecteur IglooPro pour le diagnostic au point de soins professionnel",
+    "cta_secondary": "Réserver un rendez-vous d'information",
     "cta_roi": "Lancer le calculateur de ROI",
     "cta_downloads": "Télécharger la documentation",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Actualités",
     "event_eyebrow": "Actuellement · Rendez-vous",
     "event_cta": "Voir le rendez-vous"
-  },
-  "hero_slides": {
-    "aria": "Actualités",
-    "prev": "Diapositive précédente",
-    "next": "Diapositive suivante",
-    "pause": "Arrêter le défilement automatique",
-    "play": "Reprendre le défilement automatique",
-    "slide": "Diapositive {{n}} sur {{total}}",
-    "meet": "Prendre rendez-vous sur notre stand"
   }
 }

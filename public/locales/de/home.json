@@ -5,12 +5,11 @@
     "social_image_alt": "IglooPro Point-of-Care-Reader von PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX für Praxen und medizinische Einrichtungen",
+    "caption": "Für Zahnarzt-, Beauty- und Longevity-Praxen",
     "title": "Laborwerte. In Minuten. In Ihrer Praxis.",
-    "description": "PolarisDX unterstützt professionelle Anwender dabei, Point-of-Care-Diagnostik mit IglooPro in bestehende Abläufe zu integrieren – von der passenden Lösung bis zur Anwendung vor Ort.",
+    "description": "IglooPro liest Schnelltests vieler Hersteller und zeigt den Wert, während der Patient im Stuhl bleibt.",
     "cta": "Angebot anfragen",
-    "cta_secondary": "Diagnostik entdecken",
-    "visual_alt": "IglooPro Point-of-Care-Reader für den professionellen Einsatz",
+    "cta_secondary": "Infotermin buchen",
     "cta_roi": "ROI-Rechner starten",
     "cta_downloads": "Infomaterialien herunterladen",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Aktuell",
     "event_eyebrow": "Aktuell · Termin",
     "event_cta": "Zum Termin"
-  },
-  "hero_slides": {
-    "aria": "Aktuelle Themen",
-    "prev": "Vorherige Folie",
-    "next": "Nächste Folie",
-    "pause": "Automatischen Wechsel anhalten",
-    "play": "Automatischen Wechsel fortsetzen",
-    "slide": "Folie {{n}} von {{total}}",
-    "meet": "Termin am Stand vereinbaren"
   }
 }

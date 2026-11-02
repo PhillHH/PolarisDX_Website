@@ -36,7 +36,14 @@
     "diagnostics_all": "Wszystkie usługi diagnostyczne",
     "group_crosslink": "Również istotne",
     "shop_sub": "Gabinet",
-    "panels_sub": "Epigenetyka"
+    "panels_sub": "Epigenetyka",
+    "shop_practice": "Sklep dla gabinetów",
+    "shop_epigenetics": "Testy epigenetyczne",
+    "shop_practice_sub": "Dla gabinetów",
+    "shop_epigenetics_sub": "Dla osób prywatnych",
+    "menu": "Menu",
+    "iglooPro_desc": "Wyniki laboratoryjne w kilka minut, bezpośrednio w gabinecie.",
+    "iglooPro_more": "Więcej o urządzeniu"
   },
   "badge": {
     "New": "Nowy",
@@ -264,7 +271,9 @@
     "main_nav": "Nawigacja główna",
     "breadcrumb": "Ścieżka nawigacyjna",
     "toggle_submenu": "{{name}} — podmenu",
-    "skip_to_content": "Przejdź do treści"
+    "skip_to_content": "Przejdź do treści",
+    "secondary_nav": "Nawigacja serwisowa",
+    "event_strip": "Aktualne wydarzenie"
   },
   "languageFallback": {
     "notice": "Ta strona jest obecnie dostępna tylko w języku angielskim."

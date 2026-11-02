@@ -1,62 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, ChevronDown, Droplet, Search, ShoppingBag } from 'lucide-react'
-import { Button } from '../ui/Button'
-import LanguageSwitcher from '../ui/LanguageSwitcher'
-import SearchModal from '../ui/SearchModal'
-// AP34 / SC-002 (2026-10-15): die Kopfzeile ist wieder Navy, das Logo weiss.
-// 272 px = 2x der 136-px-Darstellung; die 400-px-Datei zaehlte im Perf-Budget als "oversized".
-import logo from '../../assets/polaris_white-272w.webp'
+import { ChevronRight, Droplet, Menu, Search, ShoppingBag, X } from 'lucide-react'
+import IglooProImage from '../../assets/home/Igloo-pro-frontal-320w.webp'
+// SC-021 (Owner 2026-11-02, Kopfzeile 13A-4): die Kopfzeile ist weiss, das Logo farbig.
+// 272 px = 2x der Darstellung; die 400-px-Datei zaehlte im Perf-Budget als "oversized".
+import logo from '../../assets/polarisdx_logo-272w.webp'
+import { getNextHomeEvent } from '../../data/events'
 import { useDisclosure } from '../../hooks/useDisclosure'
 import { useKeyboardDismiss } from '../../hooks/useKeyboardDismiss'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
+import SearchModal from '../ui/SearchModal'
+import { formatEventRange } from '../../lib/eventDates'
 import { panelsUrl, shopUrl } from '../../lib/shop'
 
 interface NavChild {
+  /** i18n-Key unter `nav.` */
   label: string
   route: string
 }
 
-/** Eine fachlich begruendete Spalte im Mega-Menue. */
+/** Eine fachlich begruendete Spalte der Inhaltsuebersicht. */
 interface NavGroup {
-  /** i18n-Key der Spaltenueberschrift. */
   heading: string
   items: NavChild[]
-}
-
-interface NavItem {
-  label: string
-  route: string
-  /** Flaches Untermenue. */
-  children?: NavChild[]
-  /** Mega-Menue mit Spalten. Schliesst `children` aus. */
-  groups?: NavGroup[]
-  /** Link auf die Bereichsseite, im Mega-Menue als eigene Zeile. */
-  hubLabel?: string
-  /**
-   * Fachlicher Querverweis — bewusst KEINE Untergruppe des Bereichs.
-   * Steht optisch abgesetzt und traegt eine eigene Ueberschrift.
-   */
-  crosslinks?: NavChild[]
+  /** Link auf die Bereichsseite, als eigene Zeile unter der Spalte. */
+  hub?: NavChild
 }
 
 /**
- * Die neun kanonischen Diagnostik-Services (`src/data/services.tsx`) in drei
- * fachlich begruendeten Spalten. IA-INVENTORY §10.4 verlangt eine fachliche
- * Begruendung der Gruppierung und laesst die Spaltenform AP06.
- *
- * Die Trennlinie ist die FRAGE, die ein Interessent stellt:
- *   - Praxisfelder      — "Ich bin Zahnarzt/Aesthetik/Longevity" (Zielgruppe)
- *   - Analysebereiche   — "Ich will Marker X messen"             (Fragestellung)
- *   - System & Integration — "Passt das zu meinem Bestand?"      (Plattform)
- *
- * Die frueher hier verwendete POC/Labor-Zweiteilung ist bewusst NICHT
- * uebernommen: sie existierte nur, um Epigenetik als "Laborteil" der
- * Diagnostik unterzubringen — genau die Fehlklassifikation, die IA §10.4
- * ("Epigenetik nicht als Service-Untergruppe modellieren") untersagt.
- * Epigenetik steht seit PT06.1 als eigene Saeule und erscheint hier nur noch
- * als abgesetzter Querverweis (§10.5 erlaubt ihn ausdruecklich).
+ * Die neun kanonischen Diagnostik-Services (`src/data/services.tsx`) in drei fachlich
+ * begruendeten Spalten (IA-INVENTORY §10.4). Die Trennlinie ist die FRAGE, die ein
+ * Interessent stellt: Praxisfeld (Zielgruppe), Analysebereich (Fragestellung), System
+ * (Plattform). Epigenetik ist keine Service-Untergruppe (§10.4) und steht als abgesetzter
+ * Querverweis (§10.5) — siehe CROSSLINKS.
  */
 const DIAGNOSTICS_GROUPS: NavGroup[] = [
   {
@@ -66,6 +44,7 @@ const DIAGNOSTICS_GROUPS: NavGroup[] = [
       { label: 'beauty', route: '/diagnostics/beauty' },
       { label: 'longevity', route: '/diagnostics/longevity' },
     ],
+    hub: { label: 'diagnostics_all', route: '/diagnostics' },
   },
   {
     heading: 'group_analysis',
@@ -85,93 +64,57 @@ const DIAGNOSTICS_GROUPS: NavGroup[] = [
   },
 ]
 
-/**
- * Hauptnavigation nach AP03 IA-INVENTORY §10.3 ("Header-IA (Zielbild)").
- *
- * Die Saeulen sind bewusst wenige und klar unterscheidbar — der Header bildet
- * nicht jede Route ab (IA §10.1: "Nicht jede Route gehoert ins Menue").
- *
- * ZWEI AENDERUNGEN GEGENUEBER DEM IST-ZUSTAND, beide von der IA gefordert:
- *
- * 1. EPIGENETIK IST EINE EIGENE SAEULE (`IA-09`, `DEC-RL-005`).
- *    Vorher erschien sie ausschliesslich als Kind des Diagnostik-Menuepunkts,
- *    in der Gruppe `group_lab`. Eine eigenstaendige Geschaeftssaeule, die man
- *    nur ueber ein fremdes Aufklappmenue erreicht, ist keine eigenstaendige
- *    Saeule. Sie steht jetzt als eigener Punkt in der Hauptnavigation und ist
- *    aus dem Diagnostik-Menue entfernt (AP06.md §6.5).
- *
- * 2. IGLOOPRO IST SICHTBAR (IA §10.3 "Produktstrecke sichtbar, nicht in
- *    Diagnostik versteckt"). Vorher fuehrte kein Header-Weg zum Produkt.
- *
- * Ebenfalls IA-konform entfernt: `home` (das Logo ist der Heimweg) und der
- * `terms`-Unterpunkt unter About (Legal gehoert in den Footer, IA §10.3).
- *
- * Die fachliche Mega-Menue-Struktur der Diagnostik gehoert **PT06.2**; hier
- * steht bewusst nur der Parent mit seinen vorhandenen POC-Zielen.
- */
-const navItems: NavItem[] = [
-  {
-    label: 'service',
-    route: '/diagnostics',
-    groups: DIAGNOSTICS_GROUPS,
-    hubLabel: 'diagnostics_all',
-    crosslinks: [{ label: 'epigenetics', route: '/epigenetics' }],
-  },
+/** Fachlicher Querverweis unter der System-Spalte — bewusst keine Diagnostik-Gruppe. */
+const CROSSLINKS: NavChild[] = [
   { label: 'epigenetics', route: '/epigenetics' },
-  { label: 'iglooPro', route: '/igloo-pro' },
-  { label: 'blog', route: '/articles' },
-  { label: 'events', route: '/events' },
-  { label: 'about', route: '/about' },
-  { label: 'support', route: '/support' },
+  { label: 'musterbefunde', route: '/epigenetics#musterbefunde' },
 ]
 
 /**
- * Gemeinsamer Stil der Header-Links.
- *
- * FOKUSRING: Die Header-Navigationslinks hatten bis AP06 PT06.1 **keinen**
- * sichtbaren Fokusindikator — in der AP05-Closure gemessen (7 von 16
- * Tab-Zielen auf /de/contact ohne Ring) und dort als AP06-Item registriert.
- * Der Ring ist weiss mit navy Offset, weil der Header sowohl transparent
- * ueber dem Navy-Hero als auch als Navy-Flaeche auftritt.
+ * SC-021 (Owner 2026-11-02, Entwurf 13A-4): vier Woerter in der Leiste — die drei Saeulen
+ * (IA §10.3) und die Termine, solange die MEDICA-Saison laeuft. Blog, Support und Kontakt
+ * stehen in der Service-Zeile darueber, alles Weitere in der Inhaltsuebersicht.
  */
-/** SC-015: leise Eintraege der Desktop-Leiste (Service und Unternehmen). */
-const SECONDARY_NAV = new Set(['blog', 'events', 'about', 'support'])
+const PRIMARY: NavChild[] = [
+  { label: 'service', route: '/diagnostics' },
+  { label: 'epigenetics', route: '/epigenetics' },
+  { label: 'iglooPro', route: '/igloo-pro' },
+  { label: 'events', route: '/events' },
+]
 
-const NAV_LINK =
-  'flex min-h-[44px] items-center gap-1 rounded-sm text-white transition-all duration-300 ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
-  'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep motion-reduce:transition-none'
+/** Service-Zeile ueber dem Raster (ab xl); unter xl stehen dieselben Ziele in der Uebersicht. */
+const SERVICE_LINKS: NavChild[] = [
+  { label: 'blog', route: '/articles' },
+  { label: 'support', route: '/support' },
+  { label: 'contact', route: '/contact' },
+]
 
-/** Kleines Label an den Shop-Eintraegen (mobil); Akzent auf Navy nur als `accent-on-dark`. */
-const SHOP_BADGE = 'text-xs font-semibold text-accent-on-dark'
+/** Fusszeile der Inhaltsuebersicht. */
+const MORE_LINKS: NavChild[] = [
+  { label: 'downloads', route: '/downloads' },
+  { label: 'about', route: '/about' },
+]
 
-/** Eintrag in einem geoeffneten Menue — hell, mit eigenem Fokusring. */
-const MENU_LINK =
-  'flex min-h-[44px] items-center rounded-lg px-2 py-2 text-sm font-medium text-heading ' +
-  'transition-colors hover:bg-paper-deep motion-reduce:transition-none ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-inset'
-
-/** Mobiler Navigationslink: 44px Trefferflaeche plus sichtbarer Fokusring. */
-const MOBILE_LINK =
-  'flex min-h-[44px] items-center rounded-sm font-medium tracking-wide text-white ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ' +
-  'focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep'
-
-/** Die Sales-Machine-Unterstreichung: aktiv ausgefahren, sonst auf Hover. */
-const underline = (active: boolean) =>
-  `relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-accent-line ` +
-  `after:transition-transform after:duration-300 after:content-[''] ` +
-  `hover:after:origin-bottom-left hover:after:scale-x-100 motion-reduce:after:transition-none ` +
-  (active
-    ? 'after:origin-bottom-left after:scale-x-100'
-    : 'after:origin-bottom-right after:scale-x-0')
+/** Fokusring innerhalb der Zellen — auf Weiss und auf den getoenten Flaechen gleich. */
+const FOCUS =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary'
+/** Fokusring auf Navy (CTA-Zelle). */
+const FOCUS_ON_NAVY =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white'
+/** Eine Zelle des Rasters: volle Hoehe, Haarlinie rechts. */
+const CELL = `flex h-full items-center border-r border-ui-border transition-colors motion-reduce:transition-none ${FOCUS}`
+/** Rundes Symbol-Abzeichen in den Shop-Zellen. */
+const BADGE = 'inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full'
+/** Eintrag in der Inhaltsuebersicht. */
+const MENU_LINK = `flex min-h-[44px] items-center rounded-lg px-2 py-2 text-[15px] font-medium text-heading transition-colors hover:bg-paper-deep motion-reduce:transition-none ${FOCUS}`
+/** Shop-Pille in der Fusszeile der Uebersicht. */
+const SHOP_PILL = `inline-flex min-h-[44px] items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${FOCUS}`
 
 /**
- * Ist dieser Pfad der aktuelle Bereich? Ein Anker hinter der Route zaehlt
- * nicht mit — /epigenetics#musterbefunde und /epigenetics sind dieselbe Seite.
+ * Ist dieser Pfad der aktuelle Bereich? Ein Anker hinter der Route zaehlt nicht mit —
+ * /epigenetics#musterbefunde und /epigenetics sind dieselbe Seite.
  */
-function isPathActive(route: string | undefined, pathname: string): boolean {
-  if (!route) return false
+function isPathActive(route: string, pathname: string): boolean {
   const clean = route.split('#')[0]
   if (clean === '/') return pathname === '/'
   return pathname === clean || pathname.startsWith(clean + '/')
@@ -182,600 +125,366 @@ function isExactPage(route: string, pathname: string): boolean {
   return !route.includes('#') && pathname === route
 }
 
-/** Ein Menuepunkt ist aktiv, wenn er selbst oder eines seiner Ziele aktiv ist. */
-function isItemActive(item: NavItem, pathname: string): boolean {
+/** Ein Hauptpunkt ist aktiv, wenn er selbst oder eine seiner Unterseiten aktiv ist. */
+function isPrimaryActive(item: NavChild, pathname: string): boolean {
   if (isPathActive(item.route, pathname)) return true
-  if (item.children?.some((c) => isPathActive(c.route, pathname))) return true
-  // Crosslinks zaehlen BEWUSST nicht: sonst faerbte /epigenetics die
-  // Diagnostik aktiv und die eigene Saeule verloere ihre Kennzeichnung.
-  return Boolean(item.groups?.some((g) => g.items.some((c) => isPathActive(c.route, pathname))))
-}
-
-/** Hat der Punkt ueberhaupt ein Untermenue? */
-function hasSubmenu(item: NavItem): boolean {
-  return Boolean(item.children || item.groups)
+  // Querverweise zaehlen BEWUSST nicht: sonst faerbte /epigenetics die Diagnostik aktiv.
+  return (
+    item.label === 'service' &&
+    DIAGNOSTICS_GROUPS.some((g) => g.items.some((c) => isPathActive(c.route, pathname)))
+  )
 }
 
 const Header = () => {
-  const { t, i18n } = useTranslation('common')
+  const { t, i18n } = useTranslation(['common', 'events'])
   const scrollY = useScrollPosition()
   const isScrolled = scrollY > 24
-
-  // Using generic hooks for state
-  const mobileMenu = useDisclosure()
+  const menu = useDisclosure()
   const searchModal = useDisclosure()
-
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const location = useLocation()
-  const mobileToggleRef = useRef<HTMLButtonElement>(null)
-  const mobileNavRef = useRef<HTMLElement>(null)
+  const menuToggleRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  // SC-021: Messe-Zeile — der naechste belegte Termin (SC-019), sonst nur Service-Links.
+  const event = getNextHomeEvent()
 
-  // Beim Seitenwechsel schliesst das mobile Menue. Das aufgeklappte
-  // Untermenue wird hier NICHT mehr zurueckgesetzt: es ist nur innerhalb des
-  // geoeffneten Menues ueberhaupt sichtbar, und ein setState im Effekt laeuft
-  // eine Runde zu spaet - React raet davon ab. Zurueckgesetzt wird beim
-  // Oeffnen, also dort, wo es jemand zu sehen bekommt.
+  // Beim Seitenwechsel schliesst die Uebersicht.
+  const closeMenu = menu.onClose
   useEffect(() => {
-    mobileMenu.onClose()
-  }, [location, mobileMenu.onClose])
+    closeMenu()
+  }, [location, closeMenu])
 
-  // Escape schliesst das offene Mega-/Untermenue und gibt den Fokus an den
-  // ausloesenden Knopf zurueck. Ohne die Rueckgabe landet der Fokus auf
-  // <body> und der Nutzer faengt die Navigation von vorn an.
-  useEffect(() => {
-    if (!openSubmenu) return
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return
-      const trigger = document.querySelector<HTMLElement>(`[data-submenu-trigger="${openSubmenu}"]`)
-      setOpenSubmenu(null)
-      trigger?.focus()
-    }
-
-    // AP24 PT24.2 — wandert der Fokus aus dem Menuepunkt heraus, schliesst das
-    // Untermenue. Gemessen war vorher: nach dem letzten Untermenue-Eintrag ging
-    // es per Tab auf den naechsten Hauptpunkt, waehrend das Untermenue offen
-    // stehen blieb und `aria-expanded` weiter "true" meldete — ein Zustand,
-    // den niemand mehr benutzte. Der Fokus wird dabei NICHT angefasst: er ist
-    // bereits dort, wo die Nutzerin ihn haben wollte.
-    const onFocusIn = (event: FocusEvent) => {
-      const trigger = document.querySelector<HTMLElement>(`[data-submenu-trigger="${openSubmenu}"]`)
-      const scope = trigger?.closest('[data-submenu-scope]')
-      const target = event.target as Node | null
-      if (!scope || !target || scope.contains(target)) return
-      setOpenSubmenu(null)
-    }
-
-    document.addEventListener('keydown', onKeyDown)
-    document.addEventListener('focusin', onFocusIn)
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.removeEventListener('focusin', onFocusIn)
-    }
-  }, [openSubmenu])
-
-  // AP24 PT24.2 — das mobile Menue schliesst mit Escape, der Fokus kehrt auf
-  // den Burger zurueck. Gemessen war vorher: Escape tat nichts,
-  // `aria-expanded` blieb "true", und wer heraustabbte, liess ein offenes
-  // Menue hinter sich.
-  //
-  // Bewusst OHNE Fokusfalle: dieses Menue ist nicht modal — es sperrt den
-  // Hintergrund nicht und verdeckt ihn nicht vollstaendig. Eine Falle waere
-  // hier genau der „unbeabsichtigte Keyboard Trap", den AP24 verbietet.
+  // Escape schliesst die Uebersicht und gibt den Fokus an den Menue-Knopf zurueck; wandert der
+  // Fokus hinaus, schliesst sie ebenfalls. Bewusst OHNE Fokusfalle: nicht modal (AP24).
   useKeyboardDismiss({
-    open: mobileMenu.isOpen,
-    onDismiss: mobileMenu.onClose,
-    containerRef: mobileNavRef,
-    triggerRef: mobileToggleRef,
+    open: menu.isOpen,
+    onDismiss: menu.onClose,
+    containerRef: panelRef,
+    triggerRef: menuToggleRef,
   })
+
+  const navLink = (item: NavChild, className: string) => {
+    const active = isPrimaryActive(item, location.pathname)
+    const exact = isExactPage(item.route, location.pathname)
+    return (
+      <Link
+        key={item.label}
+        to={item.route}
+        aria-current={exact ? 'page' : active ? 'true' : undefined}
+        data-active={active || undefined}
+        className={className}
+      >
+        {t(`nav.${item.label}`)}
+      </Link>
+    )
+  }
+
+  /**
+   * Beide Online-Shops: in der Leiste als getoente Zellen mit Symbol-Abzeichen (13A-4),
+   * in der Uebersicht als Pillen mit Unterzeile. Fremde Domains, daher <a>; Klickzaehlung
+   * ueber OUTBOUND_DOMAINS (`data-shop`).
+   */
+  const shopLinks = (variant: 'cell' | 'pill') => {
+    const cell = variant === 'cell'
+    const base = cell
+      ? `${CELL} hidden shrink-0 gap-2 px-3 text-[13px] font-semibold xl:flex 2xl:gap-2.5 2xl:px-4 2xl:text-sm`
+      : SHOP_PILL
+    const sub = (key: string) =>
+      cell ? null : <span className="text-xs font-medium opacity-80">{t(key)}</span>
+    return (
+      <>
+        <a
+          href={shopUrl(i18n.language)}
+          data-shop="practice"
+          className={`${base} ${
+            cell
+              ? 'bg-brand-soft text-heading hover:bg-accent-soft'
+              : 'bg-brand-deep text-white hover:bg-brand-navy-hover'
+          }`}
+        >
+          <span
+            className={`${BADGE} ${cell ? 'bg-brand-deep text-white' : 'bg-white/20 text-white'}`}
+          >
+            <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
+          </span>
+          {t('nav.shop_practice')}
+          {sub('nav.shop_practice_sub')}
+        </a>
+        <a
+          href={panelsUrl(i18n.language)}
+          data-shop="panels"
+          className={`${base} bg-accent-soft text-heading hover:bg-accent-border`}
+        >
+          <span className={`${BADGE} bg-accent-line text-brand-deep`}>
+            <Droplet className="h-3.5 w-3.5" aria-hidden="true" />
+          </span>
+          {t('nav.shop_epigenetics')}
+          {sub('nav.shop_epigenetics_sub')}
+        </a>
+      </>
+    )
+  }
 
   return (
     <>
+      {/* Abdunkelung der Seite hinter der offenen Uebersicht (SC-021: Menue klappt von oben auf). */}
+      {menu.isOpen && (
+        <div
+          aria-hidden="true"
+          onClick={menu.onClose}
+          className="fixed inset-0 z-20 bg-brand-deep/40 backdrop-blur-sm"
+        />
+      )}
       {/*
-        AP24 PT24.6 — DER KOPFZEILEN-SCHLEIER.
-
-        Hier stand `bg-transparent`, solange die Seite nicht gescrollt war. Die
-        Navigation ist weiss, und das funktioniert genau so lange, wie unter
-        der Kopfzeile etwas Dunkles liegt. Auf der Startseite und auf
-        `/diagnostics` liegt dort aber ein HELLER Hero: gemessen wurde der
-        tatsaechliche Untergrund per Pixelabtastung als `rgb(248,250,252)` —
-        weisse Schrift darauf ergibt **1,05:1**. Die Hauptnavigation war auf
-        der Landingpage praktisch unsichtbar; `axe` meldet dafuer 16 Knoten
-        der Stufe `serious`.
-
-        Warum das bis hierher durchkam: PT24.3 hat den FOKUSRING dieser Links
-        gemessen (weiss auf Navy-Versatz, einwandfrei), und die
-        Kontrastmessung in PT24.4 schliesst Elemente unter fixierten
-        Ueberlagerungen aus — also ausgerechnet die Kopfzeile selbst. Erst der
-        breite axe-Lauf trifft sie.
-
-        Der Schleier loest das, ohne die Gestaltung umzubauen: `brand-deep/75`
-        ergibt auf dem hellen Hero **6,15:1**, auf dem Mintton **6,31:1** und
-        auf dunklem Hero faellt er nicht auf, weil er dieselbe Navy ist.
-        `backdrop-blur-sm` haelt den Eindruck, dass der Hero durchscheint.
-
-        SICHTBARE AENDERUNG — gehoert in die AP27-Referenzbilder.
-
-        RELAUNCH 2026-10-15 (SC-001): Die Kopfzeile war kurz HELL (Papierflaeche).
-
-        AP34 / SC-002 (2026-10-15): Die Kopfzeile ist wieder NAVY — jetzt deckend
-        statt Schleier, weil PolarisDX ueber Navy erkannt wird (Owner-Entscheidung).
-        Weiss auf `brand-deep` 12,6:1, Fokusringe weiss mit Navy-Versatz, aktive
-        Unterstreichung im Signet-Cyan. Die Aufklapp-Menues bleiben hell.
+        SC-021 (Owner 2026-11-02, Entwurf 13A-4 „Raster"): weisse Kopfzeile ueber die volle
+        Breite, jeder Punkt in seiner Zelle, getrennt durch Haarlinien (`ui.border`); der aktive
+        Punkt traegt eine Oberkante im Signet-Cyan. Darueber die Messe-/Service-Zeile
+        (`accent.soft`, 44 px). Beide Shops sind getoente Zellen mit Symbol (`brand.soft` / `accent.soft`),
+        der General-Sales-Knopf eine Navy-Zelle. Gescrollt faellt die Zeile weg und das Raster
+        wird kompakter (`header-bar-compact`); die Seite darunter bewegt sich nicht (fixed).
+        Hoehen: `spacing.header-*`, Seitenabstand `pt-page-top xl:pt-page-top-xl` (tailwind.config.js,
+        DESIGN-SYSTEM-CONTRACT §6.11/§7.1).
       */}
-      {/* SC-006 (2026-10-16): gescrollt wird die Kopfzeile kompakter (weniger Hoehe,
-          kleineres Logo) und leicht durchscheinend; der Schatten ist der Navy-getoente
-          `shadow-dialog`-Token statt eines neutralen Schwarz (DESIGN-SYSTEM-CONTRACT §7.3). */}
       <header
-        className={`fixed inset-x-0 top-0 z-30 border-b transition-all duration-500 ease-in-out ${
-          isScrolled
-            ? 'border-white/10 bg-brand-deep/90 shadow-dialog backdrop-blur-sm'
-            : 'border-white/5 bg-brand-deep'
+        className={`fixed inset-x-0 top-0 z-30 border-b border-ui-border bg-white text-heading ${
+          isScrolled ? 'shadow-dialog' : ''
         }`}
       >
         <div
-          className={`mx-auto flex max-w-[1600px] items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
-            isScrolled ? 'py-2 lg:py-2.5' : 'py-3 lg:py-4 2xl:py-5'
-          }`}
+          data-event-strip
+          className={`border-b border-ui-border bg-accent-soft text-sm ${isScrolled ? 'hidden' : ''}`}
         >
-          {/* min-h-[44px]: Trefferflaeche des Logo-Links auf WCAG-2.5.5-Mindestmass.
-              Das Bild bleibt h-10/h-12, nur die Klickflaeche waechst. */}
-          {/* AP24 PT24.1: der Link trug seinen Namen dreimal — `aria-label`,
-              `alt` am Bild und ein `sr-only`-Span. `aria-label` gewinnt, die
-              beiden anderen waren wirkungslos, und der Span haette den Namen
-              zu "... PolarisDX" verlaengert, sobald das `aria-label` faellt.
-              Native Semantik zuerst: der Alternativtext benennt den Link. */}
-          <Link
-            to="/"
-            className="flex min-h-[44px] shrink-0 items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-          >
-            <img
-              src={logo}
-              alt={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
-              width={136}
-              height={40}
-              // AP34: `low` haelt React davon ab, fuer das 4,8-KB-Logo einen eigenen
-              // Preload in den <head> zu schreiben — der Platz gehoert dem LCP-Foto.
-              fetchPriority="low"
-              className={`w-auto transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-10 sm:h-12 xl:h-10 2xl:h-12'}`}
-            />
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav
-            aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`site-nav hidden flex-nowrap items-center whitespace-nowrap font-semibold tracking-tight text-white xl:flex`}
-          >
-            {navItems.map((item) => {
-              const active = isItemActive(item, location.pathname)
-              const exact = isExactPage(item.route, location.pathname)
-              const expanded = openSubmenu === item.label
-              // SC-015 (Entwurf B): die drei Bereiche laut, Service- und Unternehmensseiten
-              // leiser; vor dem ersten leisen Eintrag steht ein Trenner (rein dekorativ).
-              const secondary = SECONDARY_NAV.has(item.label)
-              return (
-                <div
-                  key={item.label}
-                  data-nav-tier={secondary ? '' : undefined}
-                  // Stabile Marke statt `.closest('.relative')`: der
-                  // Fokus-Waechter unten muss den Menuepunkt sicher finden,
-                  // und `relative` ist eine Gestaltungsklasse, die jederzeit
-                  // an einem anderen Vorfahren auftauchen kann.
-                  data-submenu-scope={item.label}
-                  // Spalten-Menues (Diagnostik) verankern sich an der Kopfzeile,
-                  // nicht am Menuepunkt: 720 px unter dem ersten Punkt zentriert
-                  // ragten bei 1280 px links ~80 px aus dem Bild.
-                  className={item.groups ? undefined : 'relative'}
-                  onMouseEnter={() => item.children && setOpenSubmenu(item.label)}
-                  onMouseLeave={() => item.children && setOpenSubmenu(null)}
-                >
-                  <div className="flex items-center gap-1">
-                    <Link
-                      to={item.route}
-                      aria-current={exact ? 'page' : active ? 'true' : undefined}
-                      className={`${NAV_LINK} ${active ? '' : 'hover:opacity-70'}`}
-                    >
-                      <span className={underline(active)}>{t(`nav.${item.label}`)}</span>
-                    </Link>
-
-                    {/* Der Aufklapper ist ein eigener Knopf, kein Hover-Bereich.
-                        Vorher oeffnete das Untermenue ausschliesslich per
-                        `group-hover` — mit der Tastatur war es damit nicht zu
-                        erreichen, und die Diagnostik-Unterseiten waren aus dem
-                        Header heraus nur mit der Maus zugaenglich. Hover
-                        funktioniert weiterhin (onMouseEnter oben), ist aber
-                        nicht mehr der einzige Weg. */}
-                    {hasSubmenu(item) && (
-                      <button
-                        type="button"
-                        aria-expanded={expanded}
-                        data-submenu-trigger={item.label}
-                        aria-label={t('a11y.toggle_submenu', {
-                          name: t(`nav.${item.label}`),
-                          defaultValue: `${t(`nav.${item.label}`)} — Untermenü`,
-                        })}
-                        onClick={() => setOpenSubmenu(expanded ? null : item.label)}
-                        className="inline-flex h-11 w-6 items-center justify-center rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-                      >
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform duration-300 motion-reduce:transition-none ${expanded ? 'rotate-180' : ''}`}
-                          aria-hidden="true"
-                        />
-                      </button>
-                    )}
-                  </div>
-
-                  {hasSubmenu(item) && expanded && (
-                    <div
-                      className={`absolute left-1/2 top-full -translate-x-1/2 ${
-                        item.groups
-                          ? 'w-[720px] max-w-[calc(100vw-2rem)] pt-1'
-                          : 'min-w-[220px] pt-6'
-                      }`}
-                    >
-                      <div className="overflow-hidden rounded-card border border-paper-line bg-white shadow-card">
-                        {item.groups ? (
-                          <>
-                            <div className="grid grid-cols-3 gap-x-2 divide-x divide-paper-line px-2 py-3">
-                              {item.groups.map((group) => (
-                                <div key={group.heading} className="px-4">
-                                  <p className="t-h6 mb-2 px-2">{t(`nav.${group.heading}`)}</p>
-                                  {group.items.map((child) => (
-                                    <Link
-                                      key={child.label}
-                                      to={child.route}
-                                      aria-current={
-                                        isExactPage(child.route, location.pathname)
-                                          ? 'page'
-                                          : undefined
-                                      }
-                                      onClick={() => setOpenSubmenu(null)}
-                                      className={`${MENU_LINK} ${
-                                        isPathActive(child.route, location.pathname)
-                                          ? 'bg-paper-deep'
-                                          : ''
-                                      }`}
-                                    >
-                                      {t(`nav.${child.label}`)}
-                                    </Link>
-                                  ))}
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Bereichsseite und Querverweis stehen UNTER den
-                                Spalten und ausserhalb der Gruppen — der
-                                Querverweis ist damit sichtbar kein neunter
-                                Service und keine Untergruppe (IA §10.4/§10.5). */}
-                            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-paper-line bg-paper px-6 py-3">
-                              {item.hubLabel && (
-                                <Link
-                                  to={item.route}
-                                  onClick={() => setOpenSubmenu(null)}
-                                  aria-current={
-                                    isExactPage(item.route, location.pathname) ? 'page' : undefined
-                                  }
-                                  className="t-link-cta inline-flex min-h-[44px] items-center gap-1"
-                                >
-                                  {t(`nav.${item.hubLabel}`)}
-                                  <span aria-hidden="true">→</span>
-                                </Link>
-                              )}
-                              {item.crosslinks && (
-                                <p className="flex items-center gap-2 text-sm">
-                                  <span className="t-caption">{t('nav.group_crosslink')}:</span>
-                                  {item.crosslinks.map((cross) => (
-                                    <Link
-                                      key={cross.label}
-                                      to={cross.route}
-                                      onClick={() => setOpenSubmenu(null)}
-                                      className="rounded-sm font-semibold text-brand-primary underline decoration-from-font underline-offset-2 hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-                                    >
-                                      {t(`nav.${cross.label}`)}
-                                    </Link>
-                                  ))}
-                                </p>
-                              )}
-                            </div>
-                          </>
-                        ) : (
-                          <div className="py-2">
-                            {item.children?.map((child) => (
-                              <Link
-                                key={child.label}
-                                to={child.route}
-                                aria-current={
-                                  isExactPage(child.route, location.pathname) ? 'page' : undefined
-                                }
-                                onClick={() => setOpenSubmenu(null)}
-                                className={`${MENU_LINK} ${
-                                  isPathActive(child.route, location.pathname)
-                                    ? 'bg-paper-deep'
-                                    : ''
-                                }`}
-                              >
-                                {t(`nav.${child.label}`)}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </nav>
-
-          <div className="site-tools hidden items-center xl:flex">
-            {/* Die beiden Online-Shops: Praxis-Shop (O1, main@e66a562) und Panel-Shop (SC-007).
-                SC-015 Nachbesserung (Owner 2026-10-20: „die Verlinkungen in die Shops sind
-                haesslich"): eine gemeinsame Kapsel, je Shop ein rundes Symbol-Abzeichen (Praxis
-                weiss, Panels Signet-Cyan) und ein klarer Name; die Unterzeile steht als Tooltip.
-                Fremde Domains, daher <a>; Klickzaehlung ueber OUTBOUND_DOMAINS. */}
-            <div className="shop-group">
-              <a
-                href={shopUrl(i18n.language)}
-                data-shop="practice"
-                title={t('nav.shop_sub')}
-                className="shop-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              >
-                <span className="shop-badge">
-                  <ShoppingBag className="h-4 w-4" aria-hidden="true" />
-                </span>
-                {t('nav.shop')}
-              </a>
-              <a
-                href={panelsUrl(i18n.language)}
-                data-shop="panels"
-                title={t('nav.panels_sub')}
-                className="shop-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              >
-                <span className="shop-badge">
-                  <Droplet className="h-4 w-4" aria-hidden="true" />
-                </span>
-                {t('nav.panels')}
-              </a>
-            </div>
-
-            {/* Search Trigger Desktop */}
-            <button
-              onClick={searchModal.onOpen}
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-white transition-all duration-300 hover:bg-white/10 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
-              aria-label={t('a11y.search', 'Suche öffnen')}
-            >
-              <Search className="h-4 w-4" />
-            </button>
-
-            <LanguageSwitcher className="text-white" compact />
-
-            {/* GENERAL_SALES — der eine allgemeine Anfrageweg (DEC-RL-013).
-                Vorher stand hier `nav.contact` ("Kontakt"): eine
-                Navigations-Beschriftung, keine Handlungsaufforderung. Der
-                CTA-Vertrag verlangt "Angebot anfragen", lokalisiert in allen
-                zehn Sprachen. Support, Consumer-Bestellung und die
-                Epigenetik-Anfrage sind eigene Wege und bleiben getrennt. */}
-            <div className="rounded-full">
-              <Button
-                to="/contact"
-                data-cta-role="GENERAL_SALES"
-                variant="light"
-                size="sm"
-                className="group whitespace-nowrap shadow-card"
-              >
-                {t('nav.cta_quote')}
+          <div className="mx-auto flex h-header-strip items-center gap-2.5 px-4 sm:px-6 xl:px-10">
+            {event && (
+              <p className="flex min-w-0 items-center gap-2.5 whitespace-nowrap">
+                {/* aria-label ist auf <p> nicht erlaubt (ARIA 1.2) — die Zeile bekommt einen sr-only-Vorsatz. */}
+                <span className="sr-only">{t('a11y.event_strip')}: </span>
                 <span
                   aria-hidden="true"
-                  className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white transition group-hover:translate-x-1"
+                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-line"
+                />
+                <Link
+                  to="/events"
+                  className={`flex min-h-[44px] items-center truncate rounded-sm font-semibold ${FOCUS}`}
                 >
-                  <ArrowRight className="h-4 w-4" />
+                  {t(`events:items.${event.id}.title`)}
+                </Link>
+                <span className="hidden truncate text-heading/80 sm:inline">
+                  {formatEventRange(i18n.language, event.date, event.endDate)} · {event.location}
+                  {t(`events:items.${event.id}.short`, '') &&
+                    ` · ${t(`events:items.${event.id}.short`, '')}`}
                 </span>
-              </Button>
-            </div>
-          </div>
-
-          {/* Mobile Nav Toggle & Search */}
-          <div className="flex items-center gap-2 xl:hidden">
-            {/* Search Trigger Mobile */}
-            <button
-              onClick={searchModal.onOpen}
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
-              aria-label={t('a11y.search', 'Suche öffnen')}
+                <Link
+                  to="/contact"
+                  className={`hidden min-h-[44px] items-center gap-0.5 rounded-sm font-semibold text-accent-strong md:inline-flex ${FOCUS}`}
+                >
+                  {t('event_popup.meet')}
+                  <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Link>
+              </p>
+            )}
+            <nav
+              aria-label={t('a11y.secondary_nav')}
+              className="ml-auto flex shrink-0 items-center gap-4"
             >
-              <Search className="h-5 w-5" />
-            </button>
-
-            <LanguageSwitcher className="text-white" isMobile />
-
-            <button
-              ref={mobileToggleRef}
-              type="button"
-              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-colors duration-300 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep`}
-              onClick={() => {
-                if (!mobileMenu.isOpen) setOpenSubmenu(null)
-                mobileMenu.onToggle()
-              }}
-              aria-label={t('a11y.toggle_nav', 'Navigation umschalten')}
-              aria-expanded={mobileMenu.isOpen}
-            >
-              {/* AP24 PT24.1: der `sr-only`-Span wiederholte nur das
-                  `aria-label` und trug nichts zum Namen bei. */}
-              <div className="space-y-1.5">
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
-                <span className={`block h-0.5 w-5 transition-colors duration-300 bg-white`} />
-              </div>
-            </button>
+              {SERVICE_LINKS.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.route}
+                  aria-current={isExactPage(item.route, location.pathname) ? 'page' : undefined}
+                  className={`hidden min-h-[44px] items-center rounded-sm font-medium text-heading/80 hover:text-heading xl:inline-flex ${FOCUS}`}
+                >
+                  {t(`nav.${item.label}`)}
+                </Link>
+              ))}
+              <LanguageSwitcher compact />
+            </nav>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenu.isOpen && (
-          <nav
-            ref={mobileNavRef}
-            aria-label={t('a11y.main_nav', 'Hauptnavigation')}
-            className={`xl:hidden overflow-y-auto max-h-[80vh] border-t border-white/10 bg-brand-deep shadow-dialog transition-all duration-300`}
+        <nav aria-label={t('a11y.main_nav')} className="relative">
+          <div
+            className={`flex h-header-bar-sm items-stretch transition-[height] duration-300 motion-reduce:transition-none ${
+              isScrolled ? 'xl:h-header-bar-compact' : 'xl:h-header-bar'
+            }`}
           >
-            <div className="mx-auto flex max-w-container flex-col gap-6 px-6 py-8">
-              {navItems.map((item) => {
-                const expanded = openSubmenu === item.label
-                const active = isItemActive(item, location.pathname)
-                return (
-                  <div
-                    key={item.label}
-                    data-submenu-scope={item.label}
-                    className="border-b border-white/10 pb-2 last:border-0 last:pb-0"
+            <Link to="/" className={`${CELL} shrink-0 px-4 sm:px-6 2xl:px-8`}>
+              <img
+                src={logo}
+                alt={t('logo.alt', 'PolarisDX — POC-Diagnostik für Arztpraxen')}
+                width={272}
+                height={80}
+                // `low`: kein eigener Preload im <head> — der Platz gehoert dem Buehnenfoto.
+                fetchPriority="low"
+                className={`w-auto transition-[height] duration-300 motion-reduce:transition-none ${
+                  isScrolled ? 'h-7' : 'h-8 xl:h-9'
+                }`}
+              />
+            </Link>
+
+            {PRIMARY.map((item) =>
+              navLink(
+                item,
+                `${CELL} relative hidden shrink-0 px-4 text-[15px] font-medium hover:bg-brand-soft xl:flex 2xl:px-6 2xl:text-base ` +
+                  'data-[active]:font-semibold data-[active]:after:absolute data-[active]:after:inset-x-0 ' +
+                  'data-[active]:after:top-0 data-[active]:after:h-[3px] data-[active]:after:bg-accent-line',
+              ),
+            )}
+
+            <span aria-hidden="true" className="min-w-0 flex-1 border-r border-ui-border" />
+
+            {shopLinks('cell')}
+
+            <Link
+              to="/contact"
+              data-cta-role="GENERAL_SALES"
+              className={`hidden h-full shrink-0 items-center bg-brand-deep px-5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover motion-reduce:transition-none md:flex 2xl:px-5 2xl:text-base ${FOCUS_ON_NAVY}`}
+            >
+              {t('nav.cta_quote')}
+            </Link>
+
+            <button
+              type="button"
+              onClick={searchModal.onOpen}
+              aria-label={t('a11y.search', 'Suche öffnen')}
+              className={`${CELL} w-14 shrink-0 justify-center hover:bg-brand-soft 2xl:w-16`}
+            >
+              <Search className="h-5 w-5" aria-hidden="true" />
+            </button>
+
+            <button
+              ref={menuToggleRef}
+              type="button"
+              data-submenu-trigger="menu"
+              aria-expanded={menu.isOpen}
+              aria-label={t('a11y.toggle_nav', 'Navigation umschalten')}
+              onClick={menu.onToggle}
+              className={`flex h-full w-14 shrink-0 items-center justify-center gap-2 px-2 transition-colors hover:bg-brand-soft motion-reduce:transition-none 2xl:w-auto 2xl:px-6 ${FOCUS}`}
+            >
+              <span className="hidden text-base font-semibold 2xl:inline">{t('nav.menu')}</span>
+              {menu.isOpen ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+
+          {/* Inhaltsuebersicht — klappt unter dem Raster auf; mobil als Liste. */}
+          {menu.isOpen && (
+            <div
+              id="site-menu"
+              ref={panelRef}
+              className="absolute inset-x-0 top-full max-h-[calc(100vh-8rem)] overflow-y-auto border-b border-ui-border bg-white shadow-dialog xl:bg-white/95 xl:backdrop-blur-md"
+            >
+              <div className="mx-auto max-w-container px-4 py-6 sm:px-6 xl:px-0 xl:py-7">
+                <ul className="mb-6 grid gap-1 border-b border-ui-border pb-5 xl:hidden">
+                  {PRIMARY.map((item) => (
+                    <li key={item.label}>{navLink(item, `${MENU_LINK} text-lg font-semibold`)}</li>
+                  ))}
+                </ul>
+
+                <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_1.15fr] xl:gap-9">
+                  {DIAGNOSTICS_GROUPS.map((group) => (
+                    <div key={group.heading}>
+                      <p className="t-h6 mb-2 px-2">{t(`nav.${group.heading}`)}</p>
+                      {group.items.map((child) => (
+                        <Link
+                          key={child.label}
+                          to={child.route}
+                          aria-current={
+                            isExactPage(child.route, location.pathname) ? 'page' : undefined
+                          }
+                          className={`${MENU_LINK} ${
+                            isPathActive(child.route, location.pathname) ? 'bg-paper-deep' : ''
+                          }`}
+                        >
+                          {t(`nav.${child.label}`)}
+                        </Link>
+                      ))}
+                      {group.hub && (
+                        <Link
+                          to={group.hub.route}
+                          className={`t-link-cta mt-1 inline-flex min-h-[44px] items-center gap-1 rounded-sm px-2 ${FOCUS}`}
+                        >
+                          {t(`nav.${group.hub.label}`)}
+                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                        </Link>
+                      )}
+                      {/* Querverweis UNTER der System-Spalte, mit eigener Ueberschrift — sichtbar
+                          keine neunte Leistung und keine Untergruppe (IA §10.4/§10.5). */}
+                      {group.heading === 'group_system' && (
+                        <div className="mt-5 border-t border-ui-border pt-4">
+                          <p className="t-caption mb-1 px-2">{t('nav.group_crosslink')}</p>
+                          {CROSSLINKS.map((cross) => (
+                            <Link
+                              key={cross.label}
+                              to={cross.route}
+                              className={`${MENU_LINK} text-accent-strong underline decoration-from-font underline-offset-2`}
+                            >
+                              {t(`nav.${cross.label}`)}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                  {/* Vorschau: das Geraet — Bild und zwei Zeilen, ein Ziel. */}
+                  <Link
+                    to="/igloo-pro"
+                    className={`flex flex-col rounded-card bg-paper p-4 ring-1 ring-paper-line transition-colors hover:bg-paper-deep motion-reduce:transition-none ${FOCUS}`}
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      {/* Der Punkt selbst ist IMMER ein Link — auch wenn er
-                          Kinder hat. Vorher fuehrte der Elternpunkt mobil nur
-                          zum Aufklappen; die Bereichsseite war ein Klick
-                          tiefer versteckt. */}
+                    <img
+                      src={IglooProImage}
+                      alt=""
+                      width={320}
+                      height={320}
+                      loading="lazy"
+                      className="mx-auto h-28 w-auto"
+                    />
+                    <span className="mt-3 font-semibold">{t('nav.iglooPro')}</span>
+                    <span className="mt-1 text-sm text-gray-700">{t('nav.iglooPro_desc')}</span>
+                    <span className="t-link-cta mt-2 inline-flex items-center gap-1 text-sm">
+                      {t('nav.iglooPro_more')}
+                      <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </Link>
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-ui-border pt-5">
+                  {shopLinks('pill')}
+                  <span className="flex flex-wrap items-center gap-x-5 gap-y-2 md:ml-auto">
+                    {MORE_LINKS.map((item) => (
                       <Link
+                        key={item.label}
                         to={item.route}
-                        aria-current={
-                          isExactPage(item.route, location.pathname)
-                            ? 'page'
-                            : active
-                              ? 'true'
-                              : undefined
-                        }
-                        onClick={mobileMenu.onClose}
-                        className={`${MOBILE_LINK} flex-1 text-lg`}
+                        className={`inline-flex min-h-[44px] items-center rounded-sm text-sm font-medium text-heading hover:text-accent-strong ${FOCUS}`}
                       >
                         {t(`nav.${item.label}`)}
                       </Link>
-
-                      {hasSubmenu(item) && (
-                        <button
-                          type="button"
-                          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-                          onClick={() => setOpenSubmenu(expanded ? null : item.label)}
-                          aria-expanded={expanded}
-                          data-submenu-trigger={item.label}
-                          aria-label={t('a11y.toggle_submenu', {
-                            name: t(`nav.${item.label}`),
-                            defaultValue: `${t(`nav.${item.label}`)} — Untermenü`,
-                          })}
-                        >
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform duration-300 motion-reduce:transition-none ${expanded ? 'rotate-180' : ''}`}
-                            aria-hidden="true"
-                          />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Mobil wird das Mega-Menue zum Akkordeon: dieselben
-                        Gruppen, untereinander statt nebeneinander. Keine
-                        Spalten und keine feste Breite — genau daraus entsteht
-                        sonst horizontaler Ueberlauf auf schmalen Geraeten. */}
-                    {hasSubmenu(item) && expanded && (
-                      <div className="mt-3 space-y-3 border-l-2 border-white/20 pl-4">
-                        {item.groups?.map((group) => (
-                          <div key={group.heading} className="space-y-1">
-                            {/* AP24 PT24.4: `text-white/50` liegt auf der Navy
-                                des Menues bei 4,38:1 — knapp unter den 4,5:1
-                                fuer Fliesstext, und 11px ist kein grosser Text.
-                                `white/70` bringt 7,1:1. */}
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
-                              {t(`nav.${group.heading}`)}
-                            </p>
-                            {group.items.map((child) => (
-                              <Link
-                                key={child.label}
-                                to={child.route}
-                                aria-current={
-                                  isExactPage(child.route, location.pathname) ? 'page' : undefined
-                                }
-                                className={`${MOBILE_LINK} text-base font-normal text-white/75`}
-                                onClick={mobileMenu.onClose}
-                              >
-                                {t(`nav.${child.label}`)}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-
-                        {item.children?.map((child) => (
-                          <Link
-                            key={child.label}
-                            to={child.route}
-                            aria-current={
-                              isExactPage(child.route, location.pathname) ? 'page' : undefined
-                            }
-                            className={`${MOBILE_LINK} text-base font-normal text-white/75`}
-                            onClick={mobileMenu.onClose}
-                          >
-                            {t(`nav.${child.label}`)}
-                          </Link>
-                        ))}
-
-                        {item.hubLabel && (
-                          <Link
-                            to={item.route}
-                            onClick={mobileMenu.onClose}
-                            className={`${MOBILE_LINK} text-base font-semibold text-accent-on-dark`}
-                          >
-                            {t(`nav.${item.hubLabel}`)} <span aria-hidden="true">→</span>
-                          </Link>
-                        )}
-
-                        {item.crosslinks && (
-                          <div className="space-y-1 pt-1">
-                            {/* AP24 PT24.4: `text-white/50` liegt auf der Navy
-                                des Menues bei 4,38:1 — knapp unter den 4,5:1
-                                fuer Fliesstext, und 11px ist kein grosser Text.
-                                `white/70` bringt 7,1:1. */}
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">
-                              {t('nav.group_crosslink')}
-                            </p>
-                            {item.crosslinks.map((cross) => (
-                              <Link
-                                key={cross.label}
-                                to={cross.route}
-                                onClick={mobileMenu.onClose}
-                                className={`${MOBILE_LINK} text-base font-normal text-white/75 underline decoration-from-font underline-offset-2`}
-                              >
-                                {t(`nav.${cross.label}`)}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-              <a
-                href={shopUrl(i18n.language)}
-                onClick={mobileMenu.onClose}
-                className={`${MOBILE_LINK} gap-2 text-lg`}
-              >
-                {t('nav.shop')}
-                <span className={SHOP_BADGE}>{t('nav.badge_new')}</span>
-              </a>
-              <a
-                href={panelsUrl(i18n.language)}
-                onClick={mobileMenu.onClose}
-                className={`${MOBILE_LINK} gap-2 text-lg`}
-              >
-                {t('nav.panels')}
-                <span className={SHOP_BADGE}>{t('nav.badge_new')}</span>
-              </a>
-              <div className="pt-4">
-                <Button
-                  to="/contact"
-                  data-cta-role="GENERAL_SALES"
-                  className="w-full justify-center shadow-card"
-                  onClick={mobileMenu.onClose}
-                  variant="light"
-                >
-                  {t('nav.cta_quote')}
-                </Button>
+                    ))}
+                    {SERVICE_LINKS.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.route}
+                        className={`inline-flex min-h-[44px] items-center rounded-sm text-sm font-medium text-heading hover:text-accent-strong xl:hidden ${FOCUS}`}
+                      >
+                        {t(`nav.${item.label}`)}
+                      </Link>
+                    ))}
+                  </span>
+                  <Link
+                    to="/contact"
+                    data-cta-role="GENERAL_SALES"
+                    className={`inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-deep px-6 text-sm font-semibold text-white hover:bg-brand-navy-hover md:hidden ${FOCUS_ON_NAVY}`}
+                  >
+                    {t('nav.cta_quote')}
+                  </Link>
+                </div>
               </div>
             </div>
-          </nav>
-        )}
+          )}
+        </nav>
       </header>
 
       {/* Global Search Modal */}

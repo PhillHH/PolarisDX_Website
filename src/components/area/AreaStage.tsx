@@ -52,7 +52,7 @@ const AreaStage = ({
 }: AreaStageProps) => (
   <section aria-labelledby={titleId} className="aurora bg-brand-deep text-white">
     <div
-      className={`mx-auto grid max-w-container gap-10 px-4 pt-28 sm:px-6 lg:px-0 lg:pt-32 ${
+      className={`mx-auto grid max-w-container gap-10 px-4 pt-page-top sm:px-6 lg:px-0 xl:pt-page-top-xl ${
         overlap ? 'pb-24 lg:pb-28' : 'pb-14 lg:pb-20'
       } ${aside ? 'lg:grid-cols-2 lg:items-center' : ''}`}
     >

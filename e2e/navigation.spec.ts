@@ -69,7 +69,7 @@ test.describe('Desktop — Tastatur', () => {
 
   test('das Mega-Menue oeffnet mit der Tastatur — kein Hover-Zwang', async ({ page }) => {
     await page.goto('/de/')
-    const trigger = page.locator('[data-submenu-trigger="service"]').first()
+    const trigger = page.locator('[data-submenu-trigger="menu"]').first()
     // Der Kopf kommt aus dem SSR; der Umschalter lebt erst nach der Hydration.
     // Ein einzelner frueher Tastendruck ging unter Last verloren. Getastet wird
     // deshalb nur, solange das Menue ZU ist — die Schleife ist idempotent und
@@ -88,7 +88,7 @@ test.describe('Desktop — Tastatur', () => {
 
   test('Escape schliesst das Mega-Menue und gibt den Fokus zurueck', async ({ page }) => {
     await page.goto('/de/')
-    const trigger = page.locator('[data-submenu-trigger="service"]').first()
+    const trigger = page.locator('[data-submenu-trigger="menu"]').first()
     await expect(async () => {
       if ((await trigger.getAttribute('aria-expanded')) !== 'true') {
         await trigger.focus()
@@ -101,7 +101,7 @@ test.describe('Desktop — Tastatur', () => {
     await expect(trigger).toHaveAttribute('aria-expanded', 'false')
     expect(
       await page.evaluate(() => document.activeElement?.getAttribute('data-submenu-trigger')),
-    ).toBe('service')
+    ).toBe('menu')
   })
 
   test('der Sprunglink fuehrt in den Hauptinhalt', async ({ page }) => {
@@ -132,8 +132,8 @@ test.describe('Mobile — Tastatur und Interaktion', () => {
     page,
   }) => {
     await page.goto('/de/')
+    // SC-021: die Inhaltsuebersicht zeigt alle neun Leistungen direkt, ohne zweiten Aufklapper.
     await page.getByRole('button', { name: /Navigation umschalten/i }).click()
-    await page.locator('[data-submenu-trigger="service"]').last().click()
 
     const result = await page.evaluate(() => {
       const links = [...document.querySelectorAll('header a[href^="/de/diagnostics/"]')]

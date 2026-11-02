@@ -36,7 +36,14 @@
     "diagnostics_all": "Alle Diagnostik-Leistungen",
     "group_crosslink": "Auch relevant",
     "shop_sub": "Praxis",
-    "panels_sub": "Epigenetik"
+    "panels_sub": "Epigenetik",
+    "shop_practice": "Praxis-Shop",
+    "shop_epigenetics": "Epigenetik-Tests",
+    "shop_practice_sub": "Für Praxen",
+    "shop_epigenetics_sub": "Für Privatpersonen",
+    "menu": "Menü",
+    "iglooPro_desc": "Laborwerte in Minuten, direkt in der Praxis.",
+    "iglooPro_more": "Mehr zum Gerät"
   },
   "badge": {
     "New": "Neu",
@@ -262,7 +269,9 @@
     "main_nav": "Hauptnavigation",
     "breadcrumb": "Brotkrümelnavigation",
     "toggle_submenu": "{{name}} — Untermenü",
-    "skip_to_content": "Zum Inhalt springen"
+    "skip_to_content": "Zum Inhalt springen",
+    "secondary_nav": "Service-Navigation",
+    "event_strip": "Aktueller Termin"
   },
   "languageFallback": {
     "notice": "Diese Seite liegt bislang nur auf Englisch vor."

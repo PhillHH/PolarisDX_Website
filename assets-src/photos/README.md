@@ -32,4 +32,12 @@ sonst der echte Render (`src/assets/Igloo-pro-frontal.*`, `hero_device.webp`,
 `src/assets/home/igloo-explode-240w.webp`); der Musterbefund der Epigenetik-Saeule entsteht aus
 `src/assets/epigenetics/befund-biologische-altersuhr@2x.webp`, nicht aus diesem Ordner.
 
-Jede Aenderung an einer Quelle: `npm run build:photo-look` und `npm run check:article-images`.
+**Nachtrag SC-021 (2026-11-02, Kopfzeile 13A-4):** Die Startseiten-Buehne ist statisch; sie zeigt
+`practice-dental-2600.jpg` als saubere 16:10-Fotokarte (`src/assets/home/hero-card-{480,800,1280}w`,
+Funktion `heroCard()`, Look ohne eingebackenen Navy-Verlauf und ohne Punktring — der Schleier des
+alten Startbilds war vom Owner ausdruecklich unerwuenscht). Die Buehnenbilder `hero-desktop-*` /
+`hero-mobile-*` und die Folienbilder `public/home/event.avif` / `panels.avif` (Slider SC-020) sind
+entfernt; `stage()` und `slides()` gibt es nicht mehr. Kein neues Motiv, kein neuer Prompt.
+
+Jede Aenderung an einer Quelle: `npm run build:photo-look` und `npm run check:article-images`;
+nur die Fotokarte: `node scripts/build-photo-look.mjs hero-card`.

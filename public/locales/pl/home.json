@@ -5,12 +5,11 @@
     "social_image_alt": "Czytnik point-of-care IglooPro firmy PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX dla gabinetów i placówek medycznych",
+    "caption": "Dla gabinetów stomatologicznych, beauty i longevity",
     "title": "Wyniki laboratoryjne. W kilka minut. W Twoim gabinecie.",
-    "description": "PolarisDX wspiera profesjonalnych użytkowników we wdrażaniu diagnostyki point-of-care z IglooPro w istniejące procesy – od wyboru odpowiedniego rozwiązania po zastosowanie na miejscu.",
+    "description": "IglooPro odczytuje szybkie testy wielu producentów i pokazuje wynik, gdy pacjent pozostaje na fotelu.",
     "cta": "Poproś o ofertę",
-    "cta_secondary": "Poznaj diagnostykę",
-    "visual_alt": "Czytnik point-of-care IglooPro do zastosowań profesjonalnych",
+    "cta_secondary": "Umów rozmowę informacyjną",
     "cta_roi": "Uruchom kalkulator ROI",
     "cta_downloads": "Pobierz materiały informacyjne",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Aktualności",
     "event_eyebrow": "Teraz · Wydarzenie",
     "event_cta": "Zobacz wydarzenie"
-  },
-  "hero_slides": {
-    "aria": "Aktualne tematy",
-    "prev": "Poprzedni slajd",
-    "next": "Następny slajd",
-    "pause": "Zatrzymaj automatyczne przewijanie",
-    "play": "Wznów automatyczne przewijanie",
-    "slide": "Slajd {{n}} z {{total}}",
-    "meet": "Umów spotkanie na naszym stoisku"
   }
 }

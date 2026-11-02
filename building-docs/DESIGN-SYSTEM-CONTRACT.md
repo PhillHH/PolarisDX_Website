@@ -68,12 +68,13 @@ einführen will, verletzt `DEC-RL-003`. Das ist kein Design-, sondern ein Scope-
 
 ### 3.1 Marke
 
-| Token                    | Hex       | Rolle                                                                              |
-| ------------------------ | --------- | ---------------------------------------------------------------------------------- |
-| `brand.navy` / `heading` | `#083358` | **DIE Navy.** Überschriften-/Body-Ink, Hero- und Final-CTA-Flächen, dunkle Bänder. |
-| `brand.navy-hover`       | `#0a3f63` | CTA-Hover auf Navy; `theme-color`, OG-Bild.                                        |
-| `brand.blue`             | `#0d527f` | Sekundäres Markenblau: Footer-Fläche, Prosa-Links.                                 |
-| `brand.secondary`        | `#2f6fa0` | Helles Blau: Gradient-Start, Link-Hover.                                           |
+| Token                    | Hex       | Rolle                                                                                                             |
+| ------------------------ | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| `brand.navy` / `heading` | `#083358` | **DIE Navy.** Überschriften-/Body-Ink, Hero- und Final-CTA-Flächen, dunkle Bänder.                                |
+| `brand.navy-hover`       | `#0a3f63` | CTA-Hover auf Navy; `theme-color`, OG-Bild.                                                                       |
+| `brand.blue`             | `#0d527f` | Sekundäres Markenblau: Footer-Fläche, Prosa-Links.                                                                |
+| `brand.secondary`        | `#2f6fa0` | Helles Blau: Gradient-Start, Link-Hover.                                                                          |
+| `brand.soft`             | `#e8eef5` | Navy-Tönung als Dekorfläche (SC-021): Praxis-Shop-Zelle und Hover im Kopfzeilenraster; `heading` darauf ≈ 10,6:1. |
 
 **Relaunch SC-001 (2026-10-15) — warme Neutralfläche:** `paper` `#f5f3ee` ist die Seitenfläche,
 `paper.deep` `#ecebe4` die abgesetzte Füllung, `paper.line` `#e3e0d7` die Dekor-Trennlinie. Sie
@@ -114,6 +115,12 @@ nur als Render oder Render-basierte Platzierung, Bildnachweis §8) gelten unver�
 mit Label bei 1280 px nicht in eine Zeile. Die xl-Abstände sind dafür enger (Navigation `xl:gap-5`,
 Werkzeuge `xl:gap-4`): ab 1280 px bleiben die acht Einträge in de/en/it/nl/pt/pl/cs/da einzeilig;
 fr und es brechen um (schon vor SC-004, P2).
+
+**SC-021 (2026-11-02) — Kopfzeile „Raster" (13A-4):** Die Kopfzeile ist wieder **weiß** mit farbigem
+Logo und löst die Navy-Kopfzeile aus SC-002 ab (Owner-Entscheidung nach fünf Entwurfsrunden,
+`wireframes/sc-021-kopfzeile/`). Aufbau, Tokens und Maße stehen in §6.11; die Navy-Fläche bleibt
+Marke in CTA-Zelle, Shop-Pille, Fußzeile und den Navy-Bühnen der Unterseiten. Die SC-004-Regeln zum
+achten Eintrag sind damit Geschichte: beide Shops sind Zellen des Rasters.
 
 ### 3.2 Akzent — genau einer
 
@@ -163,7 +170,7 @@ Die entscheidende Trennung im System — **Dekor ≠ Bedienelement**:
 
 | Token                 | Hex           | Kontrast auf Weiß | Zulässige Rolle                                           |
 | --------------------- | ------------- | ----------------- | --------------------------------------------------------- |
-| `ui.border`           | `#e2e8f0`     | 1,23:1            | Dekor/Trennlinien — **0 Call-Sites**                      |
+| `ui.border`           | `#e2e8f0`     | 1,23:1            | Dekor/Trennlinien — Haarlinien der Kopfzeile (SC-021)     |
 | `ui.border-hover`     | `#cbd5e1`     | 1,48:1            | Dekor (0 Call-Sites)                                      |
 | `ui.text-muted`       | `#94a3b8`     | 2,56:1            | Dekor — **0 Call-Sites**, nie für Text                    |
 | **`ui.field`**        | **`#5e6a78`** | **5,51:1**        | **Rahmen, Placeholder und Hilfstext von Bedienelementen** |
@@ -187,7 +194,9 @@ Stand PT05.1 haben `ui.border`, `ui.border-hover` und `ui.text-muted` **0 Call-S
 `src/`: die letzten Verwendungen an echten Bedienelementen sind in PT05.1 auf `ui.field`
 umgestellt worden — `Textarea.tsx` (Rahmen, Placeholder, Hilfstext) sowie in
 `SupportForm.tsx` der Pflicht-`<select>` und der Upload-Button. `Input.tsx` folgte der
-Zuordnung bereits. Die drei Tokens bleiben als **Dekor**-Tokens verfügbar.
+Zuordnung bereits. Die drei Tokens bleiben als **Dekor**-Tokens verfügbar. Seit SC-021 (2026-11-02) trägt `ui.border`
+die Haarlinien des Kopfzeilenrasters und der Inhaltsübersicht — Dekor, keine Begrenzung eines
+Bedienelements (die Zellen werden über Beschriftung, Fläche und Fokusring erkannt).
 Fokus-Ring ist einheitlich `focus-visible:ring-2 ring-brand-primary ring-offset-2`
 (`#0d527f`, 8,30:1). Disabled ist `opacity-50` + `cursor-not-allowed` — ein Zustand,
 der zusätzlich über das `disabled`-Attribut assistiven Technologien gemeldet wird.
@@ -489,25 +498,26 @@ Screenreader-Nutzern dieselbe Karte zweimal vorlegt.
 
 ### 6.3 Hero / Split — Bühnen (Stand AP34 / SC-002, SC-003)
 
-| Muster                   | Quelle                            | Aufbau                                                                                                                                                                     |
-| ------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Startseiten-Bühne        | `HeroSection`                     | statisch, kein Slider; art-directed Praxisfoto mit eingebackenem Navy-Verlauf und Punktring als **einziges** `fetchpriority="high"`-Bild (LCP), Produktkarte lazy darunter |
-| Navy-Bühne (Hub/Produkt) | `DiagnosticsHero`, `IglooProHero` | Navy-Fläche, Eyebrow-Pille, H1, Lead, weiße Pille (`Button variant="light"`) + Ghost-Link; das Produktbild bleibt das einzige Prioritätsbild                               |
-| Bereichsbühne            | `AreaStage` + `StageFacts`        | Epigenetik-Hub und Vertiefungen: Navy **ohne Bild und ohne `.brand-ring`** (Routen mit `lcpImageBytes` 0 — selbst der SVG-Ring zählt sonst als LCP-Bild), Faktenleiste     |
-| Unterseiten-Bühne        | `SubpageHero`                     | Service, Kontakt, Support, Über uns, Blog, Termine, Downloads, Rechtstexte, VitD3: Navy, Breadcrumb, Eyebrow, H1, Untertitel, optional zwei CTAs; mobil kompakt            |
-| Rechts-Hero              | `.legal-hero`                     | mit Silbentrennung für lange Komposita                                                                                                                                     |
+| Muster                   | Quelle                            | Aufbau                                                                                                                                                                                                                                                                             |
+| ------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Startseiten-Bühne        | `HeroSection`                     | statisch, kein Slider (SC-021): Papierfläche, `t-eyebrow`, H1 (`hero-title`), `t-lead`, Navy-Pille + Outline-Pille; rechts das saubere Praxisfoto als 16:10-Karte (`HERO_CARD`, `rounded-card shadow-card`) als **einziges** `fetchpriority="high"`-Bild (LCP); keine Produktkarte |
+| Navy-Bühne (Hub/Produkt) | `DiagnosticsHero`, `IglooProHero` | Navy-Fläche, Eyebrow-Pille, H1, Lead, weiße Pille (`Button variant="light"`) + Ghost-Link; das Produktbild bleibt das einzige Prioritätsbild                                                                                                                                       |
+| Bereichsbühne            | `AreaStage` + `StageFacts`        | Epigenetik-Hub und Vertiefungen: Navy **ohne Bild und ohne `.brand-ring`** (Routen mit `lcpImageBytes` 0 — selbst der SVG-Ring zählt sonst als LCP-Bild), Faktenleiste                                                                                                             |
+| Unterseiten-Bühne        | `SubpageHero`                     | Service, Kontakt, Support, Über uns, Blog, Termine, Downloads, Rechtstexte, VitD3: Navy, Breadcrumb, Eyebrow, H1, Untertitel, optional zwei CTAs; mobil kompakt                                                                                                                    |
+| Rechts-Hero              | `.legal-hero`                     | mit Silbentrennung für lange Komposita                                                                                                                                                                                                                                             |
 
 **Mobiles Stacking:** immer Text zuerst, Visual danach. Das Bühnen-Visual ist **dekorativ**
 und trägt keine Information, die nicht auch im Text steht. Auf Navy ist die Primär-CTA die weiße
 Pille, Akzent-Text `accent.on-dark`.
 
-Seit SC-006 (2026-10-16) tragen alle Bühnen denselben Lichtschein (`.aurora`, auch die bildfreie
-`AreaStage`: ein CSS-Verlauf ist kein LCP-Bild), den gestaffelten Texteintritt (`.enter`, nur Position —
+Seit SC-006 (2026-10-16) tragen alle Navy-Bühnen denselben Lichtschein (`.aurora`, auch die bildfreie
+`AreaStage`: ein CSS-Verlauf ist kein LCP-Bild; die Startseiten-Bühne seit SC-021 nicht mehr —
+Papierfläche ohne Lichtschein), den gestaffelten Texteintritt (`.enter`, nur Position —
 H1 und Lead bleiben LCP-Kandidaten; Breadcrumbs statisch) und die Rolle `t-stage-h1`;
 Pfeilkreis-CTAs rücken beim Zeigen (`group-hover:translate-x-1`).
 Keine alternative Hero-Art-Direction; kein zweites Bühnenvokabular. Das Karussell der Startseite
-ist seit AP34 entfallen; die Pause/Play-Pflicht (WCAG 2.2.2) gilt weiter für jedes künftige
-bewegte Element.
+ist seit AP34 entfallen, der Slider aus SC-020 mit SC-021 wieder; die Pause/Play-Pflicht
+(WCAG 2.2.2) gilt weiter für jedes künftige bewegte Element.
 
 ### 6.4 Content + Sidebar
 
@@ -655,6 +665,24 @@ nutzen `Card`.
 anderer Radius, andere Grauskala, andere Rolle (kompakte Listenkacheln). Es gibt keine
 erzwungene Universal-Card.
 
+### 6.11 Kopfzeile „Raster" (SC-021, 2026-11-02)
+
+Fixierte weiße Kopfzeile (`Header.tsx`), vollständig aus Tokens — keine losen Hex-Werte:
+
+| Teil                 | Maß / Token                                                                                                                | Regel                                                                                                                                                                                                                                                                                                   |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Messe-/Service-Zeile | `h-header-strip` (44 px, jede Zeile eine Trefferfläche nach WCAG 2.5.5); `bg-accent-soft`, `border-b` `ui.border`          | nächster belegter Termin (`getNextHomeEvent`) mit Link `/events` und „Termin am Stand vereinbaren" → `/contact`; rechts Blog · Support · Kontakt (ab `xl`) und der Sprachumschalter; gescrollt ausgeblendet                                                                                             |
+| Raster               | `h-header-bar` (84 px) ab `xl`, gescrollt `h-header-bar-compact` (62 px), darunter `h-header-bar-sm` (60 px)               | Zellen `border-r` `ui.border`, `shrink-0`; aktiver Punkt 3-px-Oberkante `accent.line` und semibold; Hover `brand.soft`; Logo farbig (`polarisdx_logo-272w.webp`). `xl`–`2xl` enge Zellen (gemessen 1 144–1 275 px Bedarf bei 1 280 px), ab `2xl` großzügig mit „Menü" als Wort (bis 1 508 px bei 1 536) |
+| Shops                | Zellen `brand.soft` (Praxis-Shop) und `accent.soft` (Epigenetik-Tests), Abzeichen 24 px in `brand.deep` bzw. `accent.line` | externe `<a data-shop>`; in der Inhaltsübersicht als Pillen (Navy / `accent.soft`) mit Unterzeile „Für Praxen" / „Für Privatpersonen"                                                                                                                                                                   |
+| CTA                  | Zelle `brand.deep`, Hover `brand.navy-hover`, Fokusring weiß (inset)                                                       | `data-cta-role="GENERAL_SALES"`, ab `md`; unter `md` in der Fußzeile der Übersicht                                                                                                                                                                                                                      |
+| Inhaltsübersicht     | `bg-white/95 backdrop-blur-md shadow-dialog` unter dem Raster, Seite dahinter `bg-brand-deep/40 backdrop-blur-sm`          | ein Knopf für alle Breiten (`data-submenu-trigger="menu"`, `aria-expanded`); nicht modal; Escape, Fokus-Verlust und Seitenwechsel schließen; drei Diagnostik-Spalten, Querverweis, Vorschaukarte                                                                                                        |
+
+Fokusringe in den Zellen `focus-visible:ring-2 ring-inset ring-brand-primary`. Jede Seitenbühne
+(`HeroSection`, `AreaStage`, `SubpageHero`, `DiagnosticsHero`, `IglooProHero`, Artikel-, Termin-,
+Musterbefund- und S3-Seite) räumt die Kopfzeile mit `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile
+plus 24 px bzw. 48 px Luft); Kapitelanker `scroll-mt-28`. Die Maße stehen als `spacing.header-*`
+und `spacing.page-top*` in `tailwind.config.js` (§7.1).
+
 ## 7. Spacing, Radius, Shadow
 
 ### 7.1 Spacing
@@ -665,6 +693,12 @@ Seit PT05.1 benannt und additiv verfügbar: `spacing.section` = `6rem` (== `py-2
 ergänzen die Skala, sie ersetzen sie nicht.
 
 Breiten: `maxWidth.container` `1200px` (44 Dateien), `maxWidth.page` `1440px`.
+
+**SC-021 (2026-11-02) — Kopfzeile:** `spacing.header-strip` `2.75rem` (44 px), `header-bar`
+`5.25rem` (84 px), `header-bar-compact` `3.875rem` (62 px), `header-bar-sm` `3.75rem` (60 px) — die
+Maße der fixierten Kopfzeile (§6.11); `page-top` = Kopfzeile unter `xl` + 24 px (130 px) und
+`page-top-xl` = Kopfzeile ab `xl` + 48 px (178 px) als `calc()` aus denselben Werten — der einzige
+Seitenabstand unter der Kopfzeile. Additiv zur Skala.
 
 ### 7.2 Radius
 

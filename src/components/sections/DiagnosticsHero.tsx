@@ -31,7 +31,7 @@ const DiagnosticsHero = () => {
       data-diagnostics-hero
       className="aurora bg-brand-deep text-white"
     >
-      <div className="mx-auto grid max-w-container gap-10 px-4 pb-16 pt-28 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-0 lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid max-w-container gap-10 px-4 pb-16 pt-page-top sm:px-6 lg:grid-cols-2 lg:items-center lg:px-0 lg:pb-20 xl:pt-page-top-xl">
         <div className="min-w-0">
           <Breadcrumbs
             variant="dark"

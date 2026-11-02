@@ -36,7 +36,14 @@
     "diagnostics_all": "Alle diagnostikydelser",
     "group_crosslink": "Også relevant",
     "shop_sub": "Klinik",
-    "panels_sub": "Epigenetik"
+    "panels_sub": "Epigenetik",
+    "shop_practice": "Praksis-shop",
+    "shop_epigenetics": "Epigenetik-tests",
+    "shop_practice_sub": "Til praksisser",
+    "shop_epigenetics_sub": "Til privatpersoner",
+    "menu": "Menu",
+    "iglooPro_desc": "Laboratorieværdier på få minutter, direkte i praksis.",
+    "iglooPro_more": "Mere om apparatet"
   },
   "badge": {
     "New": "Ny",
@@ -263,7 +270,9 @@
     "main_nav": "Hovednavigation",
     "breadcrumb": "Brødkrummenavigation",
     "toggle_submenu": "{{name}} — undermenu",
-    "skip_to_content": "Gå til indhold"
+    "skip_to_content": "Gå til indhold",
+    "secondary_nav": "Servicenavigation",
+    "event_strip": "Aktuel begivenhed"
   },
   "languageFallback": {
     "notice": "Denne side er indtil videre kun tilgængelig på engelsk."

@@ -3,9 +3,10 @@ import { render, screen, fireEvent, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Header from './Header'
+import { services } from '../../data/services'
 
 /**
- * Header-Vertrag (AP06 PT06.1).
+ * Header-Vertrag (AP06 PT06.1, Raster-Kopfzeile seit SC-021).
  *
  * Die Tests pruefen Rollen, Ziele und Zustaende — nicht Tailwind-Klassen.
  * `src/test/setup.ts` mockt `react-i18next` so, dass `t(key)` den Key
@@ -23,11 +24,24 @@ const renderHeader = (initialPath = '/') =>
   )
 
 const mainNav = () => screen.getByRole('navigation', { name: 'a11y.main_nav' })
+const serviceNav = () => screen.getByRole('navigation', { name: 'a11y.secondary_nav' })
+const menuToggle = () => within(mainNav()).getByRole('button', { name: 'a11y.toggle_nav' })
+
+/** Oeffnet die Inhaltsuebersicht — ein Knopf fuer alle Breiten (SC-021). */
+const openMenu = (initialPath = '/') => {
+  renderHeader(initialPath)
+  const toggle = menuToggle()
+  expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  fireEvent.click(toggle)
+  expect(toggle).toHaveAttribute('aria-expanded', 'true')
+  return toggle
+}
 
 describe('Header — Grundgeruest', () => {
-  it('rendert eine benannte Hauptnavigation', () => {
+  it('rendert eine benannte Hauptnavigation und eine benannte Service-Navigation', () => {
     renderHeader()
     expect(mainNav()).toBeInTheDocument()
+    expect(serviceNav()).toBeInTheDocument()
   })
 
   it('das Logo fuehrt auf die Startseite und traegt einen Namen', () => {
@@ -40,42 +54,25 @@ describe('Header — Grundgeruest', () => {
 })
 
 describe('Header — Informationsarchitektur', () => {
-  it('traegt die strategischen Saeulen aus der IA', () => {
+  it('traegt die drei Saeulen und die Termine in der Leiste', () => {
     renderHeader()
     const nav = within(mainNav())
-    for (const key of [
-      'nav.service',
-      'nav.epigenetics',
-      'nav.iglooPro',
-      'nav.blog',
-      'nav.events',
-      'nav.about',
-      'nav.support',
+    for (const [key, href] of [
+      ['nav.service', '/diagnostics'],
+      ['nav.epigenetics', '/epigenetics'],
+      ['nav.iglooPro', '/igloo-pro'],
+      ['nav.events', '/events'],
     ]) {
-      expect(nav.getByRole('link', { name: key })).toBeInTheDocument()
+      expect(nav.getByRole('link', { name: key })).toHaveAttribute('href', href)
     }
   })
 
-  it('Epigenetik ist ein eigener Hauptnavigationspunkt, kein Kind der Diagnostik', () => {
+  it('Blog, Support und Kontakt stehen in der Service-Zeile', () => {
     renderHeader()
-    const epi = within(mainNav()).getByRole('link', { name: 'nav.epigenetics' })
-    expect(epi).toHaveAttribute('href', '/epigenetics')
-  })
-
-  it('Diagnostik bleibt ein eigener Parent mit eigener Bereichsseite', () => {
-    renderHeader()
-    expect(within(mainNav()).getByRole('link', { name: 'nav.service' })).toHaveAttribute(
-      'href',
-      '/diagnostics',
-    )
-  })
-
-  it('IglooPro ist sichtbar und nicht in der Diagnostik versteckt', () => {
-    renderHeader()
-    expect(within(mainNav()).getByRole('link', { name: 'nav.iglooPro' })).toHaveAttribute(
-      'href',
-      '/igloo-pro',
-    )
+    const nav = within(serviceNav())
+    expect(nav.getByRole('link', { name: 'nav.blog' })).toHaveAttribute('href', '/articles')
+    expect(nav.getByRole('link', { name: 'nav.support' })).toHaveAttribute('href', '/support')
+    expect(nav.getByRole('link', { name: 'nav.contact' })).toHaveAttribute('href', '/contact')
   })
 
   it('verlinkt keine Redirect-Quelle unter /services', () => {
@@ -87,6 +84,36 @@ describe('Header — Informationsarchitektur', () => {
   })
 })
 
+describe('Header — Messe-Zeile (SC-021)', () => {
+  it('nennt den naechsten belegten Termin und fuehrt zu Termin und Kontakt', () => {
+    const { container } = renderHeader()
+    const strip = container.querySelector('[data-event-strip]') as HTMLElement
+    expect(within(strip).getByText('a11y.event_strip:')).toBeInTheDocument()
+    expect(
+      within(strip).getByRole('link', { name: /events:items\.[a-z0-9_]+\.title/ }),
+    ).toHaveAttribute('href', '/events')
+    expect(within(strip).getByRole('link', { name: 'event_popup.meet' })).toHaveAttribute(
+      'href',
+      '/contact',
+    )
+  })
+})
+
+describe('Header — Shops (SC-021)', () => {
+  it('fuehrt beide Shops mit Namen in der Leiste', () => {
+    renderHeader()
+    const nav = within(mainNav())
+    expect(nav.getAllByRole('link', { name: /nav\.shop_practice/ })[0]).toHaveAttribute(
+      'data-shop',
+      'practice',
+    )
+    expect(nav.getAllByRole('link', { name: /nav\.shop_epigenetics/ })[0]).toHaveAttribute(
+      'data-shop',
+      'panels',
+    )
+  })
+})
+
 describe('Header — General Sales CTA', () => {
   it('traegt den GENERAL_SALES-CTA mit dem CTA-Key, nicht mit der Nav-Beschriftung', () => {
     renderHeader()
@@ -95,9 +122,9 @@ describe('Header — General Sales CTA', () => {
     expect(cta).toHaveAttribute('data-cta-role', 'GENERAL_SALES')
   })
 
-  it('nutzt nicht mehr die alte Kontakt-Beschriftung', () => {
+  it('der Kontakt-Link ist ein Service-Link, kein CTA', () => {
     renderHeader()
-    expect(screen.queryByRole('link', { name: 'nav.contact' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'nav.contact' })).not.toHaveAttribute('data-cta-role')
   })
 })
 
@@ -156,58 +183,114 @@ describe('Header — Aktive Zustaende', () => {
       .filter((a) => a.getAttribute('aria-current'))
     expect(current).toHaveLength(0)
   })
+
+  it('faerbt die Diagnostik NICHT aktiv, wenn nur der Epigenetik-Querverweis passt', () => {
+    renderHeader('/epigenetics')
+    const parent = within(mainNav()).getByRole('link', { name: 'nav.service' })
+    expect(parent).not.toHaveAttribute('aria-current')
+  })
 })
 
-describe('Header — Untermenue mit der Tastatur', () => {
-  it('das Untermenue ist nicht hover-only, sondern per Knopf bedienbar', () => {
-    renderHeader()
-    // Der i18n-Mock gibt den Key zurueck; der zugaengliche Name ist deshalb
-    // der Key selbst. Im Desktop-Menue hat nur die Diagnostik Kinder.
-    const toggle = within(mainNav()).getByRole('button', { name: 'a11y.toggle_submenu' })
-    expect(toggle).toHaveAttribute('aria-expanded', 'false')
-
+/**
+ * Inhaltsuebersicht (SC-021; Diagnostik-Spalten seit AP06 PT06.2).
+ *
+ * Die neun kanonischen Services stammen aus `src/data/services.tsx`; der Test
+ * liest sie DORT und nicht aus einer im Test wiederholten Liste — sonst
+ * bestaetigte er nur seine eigene Kopie und uebersaehe genau den Fall, dass ein
+ * Service im Menue fehlt.
+ */
+describe('Header — Inhaltsuebersicht', () => {
+  it('oeffnet und schliesst ueber den Menue-Knopf — kein Hover-Zwang', () => {
+    const toggle = openMenu()
     fireEvent.click(toggle)
-    expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    expect(within(mainNav()).getByRole('link', { name: 'nav.dental' })).toHaveAttribute(
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('macht ALLE neun kanonischen Services direkt erreichbar', () => {
+    openMenu()
+    const hrefs = within(mainNav())
+      .getAllByRole('link')
+      .map((a) => a.getAttribute('href'))
+
+    expect(services).toHaveLength(9)
+    for (const service of services) {
+      expect(hrefs).toContain(`/diagnostics/${service.id}`)
+    }
+  })
+
+  it('bietet den Hub als eigenen Einstieg an', () => {
+    openMenu()
+    expect(within(mainNav()).getByRole('link', { name: /nav.diagnostics_all/ })).toHaveAttribute(
       'href',
-      '/diagnostics/dental',
+      '/diagnostics',
     )
   })
-})
 
-describe('Header — Mobile Navigation', () => {
-  const openMobile = () => {
-    renderHeader()
-    const burger = screen.getByRole('button', { name: 'a11y.toggle_nav' })
-    expect(burger).toHaveAttribute('aria-expanded', 'false')
-    fireEvent.click(burger)
-    expect(burger).toHaveAttribute('aria-expanded', 'true')
-    return burger
-  }
-
-  it('oeffnet und schliesst ueber den Burger', () => {
-    const burger = openMobile()
-    fireEvent.click(burger)
-    expect(burger).toHaveAttribute('aria-expanded', 'false')
+  it('gruppiert die Services in drei fachliche Spalten', () => {
+    openMenu()
+    const nav = within(mainNav())
+    expect(nav.getByText('nav.group_fields')).toBeInTheDocument()
+    expect(nav.getByText('nav.group_analysis')).toBeInTheDocument()
+    expect(nav.getByText('nav.group_system')).toBeInTheDocument()
   })
 
-  it('macht Epigenetik auch mobil zu einem eigenen Punkt', () => {
-    openMobile()
-    // Desktop- und Mobilnavigation rendern beide — mindestens zwei Treffer.
-    expect(screen.getAllByRole('link', { name: 'nav.epigenetics' }).length).toBeGreaterThan(1)
+  it('fuehrt Epigenetik als abgesetzten Querverweis, nicht als Servicegruppe', () => {
+    openMenu()
+    const nav = within(mainNav())
+    // Als Querverweis gekennzeichnet ...
+    expect(nav.getByText(/nav.group_crosslink/)).toBeInTheDocument()
+    // ... und niemals als Diagnostik-Route modelliert.
+    const hrefs = nav.getAllByRole('link').map((a) => a.getAttribute('href') || '')
+    expect(hrefs).not.toContain('/diagnostics/epigenetics')
+    expect(hrefs.filter((h) => h === '/epigenetics').length).toBeGreaterThan(1)
   })
 
-  it('haelt den Diagnostik-Parent mobil als Link erreichbar', () => {
-    openMobile()
-    const links = screen
-      .getAllByRole('link', { name: 'nav.service' })
-      .filter((a) => a.getAttribute('href') === '/diagnostics')
-    expect(links.length).toBeGreaterThan(1)
+  it('zeigt das Geraet als Vorschau mit einem Ziel', () => {
+    openMenu()
+    expect(within(mainNav()).getByRole('link', { name: /nav.iglooPro_more/ })).toHaveAttribute(
+      'href',
+      '/igloo-pro',
+    )
   })
 
-  it('bietet mobil den General-Sales-CTA', () => {
-    openMobile()
+  it('haelt die vier Hauptpunkte, beide Shops und den CTA auch in der Uebersicht bereit', () => {
+    openMenu()
+    const nav = within(mainNav())
+    // Leiste und Uebersicht rendern beide — mindestens zwei Treffer je Ziel.
+    expect(nav.getAllByRole('link', { name: 'nav.epigenetics' }).length).toBeGreaterThan(1)
+    expect(
+      nav
+        .getAllByRole('link', { name: 'nav.service' })
+        .filter((a) => a.getAttribute('href') === '/diagnostics').length,
+    ).toBeGreaterThan(1)
+    expect(nav.getAllByRole('link', { name: /nav\.shop_practice/ }).length).toBeGreaterThan(1)
+    expect(nav.getAllByRole('link', { name: /nav\.shop_epigenetics/ }).length).toBeGreaterThan(1)
     expect(screen.getAllByRole('link', { name: 'nav.cta_quote' }).length).toBeGreaterThan(1)
+    expect(nav.getByRole('link', { name: 'nav.downloads' })).toHaveAttribute('href', '/downloads')
+    expect(nav.getByRole('link', { name: 'nav.about' })).toHaveAttribute('href', '/about')
+  })
+
+  it('schliesst mit Escape und gibt den Fokus an den Knopf zurueck', () => {
+    const toggle = openMenu()
+    toggle.focus()
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(document.activeElement).toBe(toggle)
+  })
+
+  it('haelt die geschlossene Uebersicht aus dem DOM heraus', () => {
+    renderHeader()
+    const nav = within(mainNav())
+    expect(nav.queryByRole('link', { name: 'nav.hormonTests' })).not.toBeInTheDocument()
+  })
+
+  it('zielt auf keine Redirect-Quelle und keinen toten Slug', () => {
+    openMenu()
+    const hrefs = within(mainNav())
+      .getAllByRole('link')
+      .map((a) => a.getAttribute('href') || '')
+    expect(hrefs.filter((h) => h.startsWith('/services'))).toHaveLength(0)
+    expect(hrefs).not.toContain('/diagnostics/sports')
   })
 })
 
@@ -221,112 +304,5 @@ describe('Header — Ausgeschlossenes', () => {
   it('enthaelt kein Garantie-/Performance-Band', () => {
     const { container } = renderHeader()
     expect(container.textContent).not.toMatch(/garant|guarantee/i)
-  })
-})
-
-/**
- * Diagnostik-Mega-Menue (AP06 PT06.2).
- *
- * Die neun kanonischen Services stammen aus `src/data/services.tsx`; der Test
- * liest sie DORT und nicht aus einer im Test wiederholten Liste — sonst
- * bestaetigte er nur seine eigene Kopie und uebersaehe genau den Fall, dass ein
- * Service im Menue fehlt.
- */
-import { services } from '../../data/services'
-
-const openMega = () => {
-  renderHeader()
-  const toggle = within(mainNav()).getByRole('button', { name: 'a11y.toggle_submenu' })
-  fireEvent.click(toggle)
-  return toggle
-}
-
-describe('Diagnostik-Mega-Menue', () => {
-  it('oeffnet und schliesst ueber den Trigger', () => {
-    const toggle = openMega()
-    expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    fireEvent.click(toggle)
-    expect(toggle).toHaveAttribute('aria-expanded', 'false')
-  })
-
-  it('macht ALLE neun kanonischen Services direkt erreichbar', () => {
-    openMega()
-    const hrefs = within(mainNav())
-      .getAllByRole('link')
-      .map((a) => a.getAttribute('href'))
-
-    expect(services).toHaveLength(9)
-    for (const service of services) {
-      expect(hrefs).toContain(`/diagnostics/${service.id}`)
-    }
-  })
-
-  it('bietet den Hub als eigenen Einstieg an', () => {
-    openMega()
-    expect(within(mainNav()).getByRole('link', { name: /nav.diagnostics_all/ })).toHaveAttribute(
-      'href',
-      '/diagnostics',
-    )
-  })
-
-  it('gruppiert die Services in drei fachliche Spalten', () => {
-    openMega()
-    const nav = within(mainNav())
-    expect(nav.getByText('nav.group_fields')).toBeInTheDocument()
-    expect(nav.getByText('nav.group_analysis')).toBeInTheDocument()
-    expect(nav.getByText('nav.group_system')).toBeInTheDocument()
-  })
-
-  it('fuehrt Epigenetik als abgesetzten Querverweis, nicht als Servicegruppe', () => {
-    openMega()
-    const nav = within(mainNav())
-    // Als Querverweis gekennzeichnet ...
-    expect(nav.getByText(/nav.group_crosslink/)).toBeInTheDocument()
-    // ... und niemals als Diagnostik-Route modelliert.
-    const hrefs = nav.getAllByRole('link').map((a) => a.getAttribute('href') || '')
-    expect(hrefs).not.toContain('/diagnostics/epigenetics')
-    expect(hrefs.filter((h) => h === '/epigenetics').length).toBeGreaterThan(0)
-  })
-
-  it('faerbt die Diagnostik NICHT aktiv, wenn nur der Epigenetik-Querverweis passt', () => {
-    renderHeader('/epigenetics')
-    const parent = within(mainNav()).getByRole('link', { name: 'nav.service' })
-    expect(parent).not.toHaveAttribute('aria-current')
-  })
-
-  it('schliesst mit Escape und gibt den Fokus an den Trigger zurueck', () => {
-    const toggle = openMega()
-    toggle.focus()
-    fireEvent.keyDown(document, { key: 'Escape' })
-    expect(toggle).toHaveAttribute('aria-expanded', 'false')
-    expect(document.activeElement).toBe(toggle)
-  })
-
-  it('haelt geschlossene Menuepunkte aus dem DOM heraus', () => {
-    renderHeader()
-    const nav = within(mainNav())
-    expect(nav.queryByRole('link', { name: 'nav.hormonTests' })).not.toBeInTheDocument()
-  })
-
-  it('zielt auf keine Redirect-Quelle und keinen toten Slug', () => {
-    openMega()
-    const hrefs = within(mainNav())
-      .getAllByRole('link')
-      .map((a) => a.getAttribute('href') || '')
-    expect(hrefs.filter((h) => h.startsWith('/services'))).toHaveLength(0)
-    expect(hrefs).not.toContain('/diagnostics/sports')
-  })
-
-  it('macht alle neun Services auch mobil erreichbar', () => {
-    renderHeader()
-    fireEvent.click(screen.getByRole('button', { name: 'a11y.toggle_nav' }))
-    const toggles = screen.getAllByRole('button', { name: 'a11y.toggle_submenu' })
-    // Der letzte Trigger gehoert der Mobilnavigation.
-    fireEvent.click(toggles[toggles.length - 1])
-
-    const hrefs = screen.getAllByRole('link').map((a) => a.getAttribute('href'))
-    for (const service of services) {
-      expect(hrefs).toContain(`/diagnostics/${service.id}`)
-    }
   })
 })

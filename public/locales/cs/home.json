@@ -5,12 +5,11 @@
     "social_image_alt": "Point-of-care čtečka IglooPro od PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX pro ordinace a zdravotnická zařízení",
+    "caption": "Pro zubní, estetické a longevity ordinace",
     "title": "Laboratorní hodnoty. Během minut. Ve vaší ordinaci.",
-    "description": "PolarisDX pomáhá profesionálním uživatelům začlenit point-of-care diagnostiku s IglooPro do stávajících pracovních postupů – od výběru vhodného řešení po použití na pracovišti.",
+    "description": "IglooPro čte rychlotesty mnoha výrobců a zobrazí hodnotu, zatímco pacient zůstává v křesle.",
     "cta": "Vyžádat nabídku",
-    "cta_secondary": "Prozkoumat diagnostiku",
-    "visual_alt": "Point-of-care čtečka IglooPro pro profesionální použití",
+    "cta_secondary": "Domluvit informační schůzku",
     "cta_roi": "Spustit ROI kalkulačku",
     "cta_downloads": "Stáhnout informační materiály",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Aktuálně",
     "event_eyebrow": "Nyní · Akce",
     "event_cta": "Zobrazit akci"
-  },
-  "hero_slides": {
-    "aria": "Aktuální témata",
-    "prev": "Předchozí snímek",
-    "next": "Další snímek",
-    "pause": "Zastavit automatické přepínání",
-    "play": "Pokračovat v automatickém přepínání",
-    "slide": "Snímek {{n}} z {{total}}",
-    "meet": "Domluvit schůzku na našem stánku"
   }
 }

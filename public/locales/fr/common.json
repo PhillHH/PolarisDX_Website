@@ -36,7 +36,14 @@
     "diagnostics_all": "Tous les services de diagnostic",
     "group_crosslink": "Également pertinent",
     "shop_sub": "Cabinet",
-    "panels_sub": "Épigénétique"
+    "panels_sub": "Épigénétique",
+    "shop_practice": "Boutique cabinets",
+    "shop_epigenetics": "Tests épigénétiques",
+    "shop_practice_sub": "Pour les cabinets",
+    "shop_epigenetics_sub": "Pour les particuliers",
+    "menu": "Menu",
+    "iglooPro_desc": "Des valeurs de laboratoire en quelques minutes, directement au cabinet.",
+    "iglooPro_more": "En savoir plus sur l'appareil"
   },
   "badge": {
     "New": "Nouveau",
@@ -263,7 +270,9 @@
     "main_nav": "Navigation principale",
     "breadcrumb": "Fil d’Ariane",
     "toggle_submenu": "{{name}} — sous-menu",
-    "skip_to_content": "Aller au contenu"
+    "skip_to_content": "Aller au contenu",
+    "secondary_nav": "Navigation de service",
+    "event_strip": "Prochain événement"
   },
   "languageFallback": {
     "notice": "Cette page n'est disponible qu'en anglais pour le moment."

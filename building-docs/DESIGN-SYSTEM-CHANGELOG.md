@@ -27,6 +27,49 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-02 — SC-021 · Kopfzeile „Raster" (13A-4), Messe-Zeile, statische Bühne mit Fotokarte
+
+- **Ursache:** Owner-Entscheidung 2026-11-02 (`SCOPE-CHANGELOG.md` SC-021) nach fünf Entwurfsrunden
+  (`wireframes/sc-021-kopfzeile/`): „Das hier nehmen wir, bringe das so auf Staging mit der Hero
+  Section" — Entwurf 13A-4, Design-Tokens dabei benannt und dokumentiert (Owner-Auftrag).
+- **Kopfzeile:** weiße, fixierte Kopfzeile über die volle Breite als Raster — jeder Punkt in seiner
+  Zelle, Haarlinien `ui.border` (damit die ersten Call-Sites dieses Dekor-Tokens), aktiver Punkt mit
+  3-px-Oberkante `accent.line`; Logo farbig (`polarisdx_logo-272w.webp`); vier Wörter (Diagnostik,
+  Epigenetik, IglooPro, Termine); beide Shops als getönte Zellen mit rundem Symbol-Abzeichen
+  (`brand.soft` + Navy-Abzeichen, `accent.soft` + Cyan-Abzeichen); General-Sales-Knopf als
+  Navy-Zelle (`brand.deep`, Hover `brand.navy-hover`); Such-Zelle; „Menü"-Zelle. Darüber die
+  Messe-/Service-Zeile (`accent.soft`, 44 px — jede Zeile eine Trefferfläche) mit dem nächsten belegten
+  Termin (SC-019-Daten, Link „Termin am Stand vereinbaren") und rechts Blog · Support · Kontakt ·
+  Sprache. Gescrollt: Zeile ausgeblendet, Raster 62 px, `shadow-dialog`. Unter `xl` eine Leiste mit
+  Logo, CTA (ab `md`), Suche und Menü. Fokusringe `ring-inset ring-brand-primary` (auf Navy weiß).
+  Zwischen `xl` und `2xl` sind die Zellen eng (Hauptpunkte `px-4` 15 px, Shops `px-3` 13 px, Suche 56 px,
+  Menü nur als Symbol): gemessen brauchen die zehn Sprachen bei 1280 px 1 144 (de) bis 1 275 px (es);
+  ab `2xl` großzügig (`px-6`/16 px, Menü mit Wort), gemessen bis 1 508 px (es) bei 1 536.
+- **Inhaltsübersicht (Menü klappt von oben auf):** Fläche `bg-white/95 backdrop-blur-md` unter dem
+  Raster, Seite dahinter `bg-brand-deep/40 backdrop-blur-sm`; drei Diagnostik-Spalten (Praxisfelder
+  - Hub, Analysebereiche, System & Integration) mit Querverweis Epigenetik/Musterbefunde (`t-caption`
+    „Auch relevant"), Vorschaukarte IglooPro (`rounded-card bg-paper ring-paper-line`), Fußzeile mit
+    Shop-Pillen (Navy / `accent.soft`, Unterzeile „Für Praxen" / „Für Privatpersonen"), Downloads,
+    Über uns, unter `xl` zusätzlich Blog/Support/Kontakt, Sprache und CTA. Ein Knopf für alle
+    Breiten; Escape, Fokus-Verlust und Seitenwechsel schließen; nicht modal (keine Fokusfalle).
+- **Bühne der Startseite:** Papierfläche statt Navy-Bühne — `t-eyebrow`, H1 (`hero-title`, letzte
+  Zeile `accent`), `t-lead`, Navy-Pille (`Button secondary`) und Outline-Pille („Infotermin buchen"),
+  rechts das saubere Praxisfoto als 16:10-Karte (`rounded-card shadow-card`, `HERO_CARD`
+  480/800/1280w, 800w-AVIF 9,0 KB). Entfernt: der Slider (SC-020, `HeroSlides.tsx`, `heroStage.ts`),
+  die Bühnenbilder `hero-desktop-*`/`hero-mobile-*`, die Folienbilder `public/home/{event,panels}.avif`
+  und das Hero-Produktkärtchen; `.aurora` wird auf der Startseite nicht mehr genutzt.
+- **Neues Token (SURFACE:colors):** `brand.soft` `#e8eef5` — Navy-Tönung als Dekorfläche
+  (Praxis-Shop-Zelle, Hover im Raster); Text darauf `heading` ≈ 10,6:1, `accent.strong` ≈ 6,2:1
+  (rechnerisch). **Spacing (nicht gegated, Vertrag §7.1):** `header-strip` 44 px, `header-bar` 84 px,
+  `header-bar-compact` 62 px, `header-bar-sm` 60 px; `page-top` 130 px und `page-top-xl` 178 px
+  (Kopfzeile plus Luft) ersetzen die bisherigen `pt-24/28 … lg:pt-32` aller Seitenbühnen.
+- **Entferntes CSS:** `.site-nav`, `.site-tools`, `.shop-group`, `.shop-link`, `.shop-badge` und die
+  Sprach-/≥1536-px-Variablen der alten Kopfzeile (`--nav-fs` …) aus `index.css`.
+- **Baselines:** alle `pt27.6-visual`-Seitenbaselines (die Kopfzeile steht auf jeder Seite),
+  `home-mobile`, `navigation-open-mobile`, `site-menu-open-desktop` (ersetzt
+  `diagnostics-megamenu-open-desktop`), `event-popup-desktop`, `search-dialog-open-desktop`,
+  `cookie-banner-desktop`. Neu aufgenommen im gepinnten Playwright-Image.
+
 ### 2026-10-28 — SC-020 · Hero-Slider, Termin-Popup, Shop-Kachel
 
 - **Ursache:** Owner-Nachbesserung zu SC-019 (`SCOPE-CHANGELOG.md` SC-020).
@@ -696,7 +739,7 @@ Diese Blöcke werden vom Gate gelesen. **Nicht von Hand kürzen** — sie sind d
 `accentBlue` · `befund.amber` · `befund.amber.ink` · `befund.amber.soft` · `befund.green` ·
 `befund.green.ink` · `befund.green.soft` · `befund.red` · `befund.red.ink` · `befund.red.soft` ·
 `brand.blue` · `brand.blue-bright` · `brand.deep` · `brand.navy` · `brand.navy-hover` ·
-`brand.navy-mid` · `brand.primary` · `brand.secondary` · `gray-100` · `gray-500` · `heading` ·
+`brand.navy-mid` · `brand.primary` · `brand.secondary` · `brand.soft` · `gray-100` · `gray-500` · `heading` ·
 `paper` · `paper.deep` · `paper.line` · `social.linkedin` · `success` · `success.soft` · `success.strong` · `ui.border` ·
 `ui.border-hover` · `ui.field` · `ui.text-muted` · `warning` · `warning.soft` · `warning.strong`
 

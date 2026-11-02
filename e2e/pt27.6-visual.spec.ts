@@ -43,10 +43,6 @@ async function prepare(page: Page, { consentDecided = true, eventPopup = false }
 /** Wartet auf Netzruhe, Schriften und alle im Viewport sichtbaren Bilder. */
 async function settle(page: Page) {
   await page.waitForLoadState('networkidle')
-  // SC-020: Die Bedienung des Hero-Sliders kommt 1,5 s nach dem ersten Bild als eigener Chunk.
-  if (await page.locator('[data-home-hero]').count()) {
-    await page.locator('[data-home-hero] [role="tablist"]').waitFor({ state: 'attached' })
-  }
   await page.evaluate(() => document.fonts.ready)
   await page.evaluate(async () => {
     const visible = [...document.images].filter((image) => {
@@ -142,7 +138,7 @@ test.describe('PT27.6 · Zustaende (Desktop 1280×800)', () => {
     await expect(page).toHaveScreenshot('event-popup-desktop.png')
   })
 
-  test('diagnostics-megamenu-open', async ({ page }) => {
+  test('site-menu-open', async ({ page }) => {
     await prepare(page)
     await page.goto('/de/')
     await settle(page)
@@ -153,7 +149,7 @@ test.describe('PT27.6 · Zustaende (Desktop 1280×800)', () => {
       async () => (await trigger.getAttribute('aria-expanded')) === 'true',
     )
     await settle(page)
-    await expect(page).toHaveScreenshot('diagnostics-megamenu-open-desktop.png')
+    await expect(page).toHaveScreenshot('site-menu-open-desktop.png')
   })
 
   test('search-dialog-open', async ({ page }) => {

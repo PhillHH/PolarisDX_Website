@@ -9,7 +9,6 @@ type HomeResource = {
     title: string
     cta: string
     cta_secondary: string
-    visual_alt: string
   }
 }
 
@@ -44,36 +43,29 @@ for (const locale of SUPPORTED_LANGUAGES) {
     await expect(primary).toHaveAttribute('data-cta-journey', 'general_sales')
     expect((await page.request.get(`/${locale}/contact`)).status()).toBe(200)
 
+    // SC-021: the second action books an info call — same contact page, no sales intent.
     const secondary = hero.getByRole('link', { name: resources[locale].hero.cta_secondary })
-    await expect(secondary).toHaveAttribute('href', `/${locale}/diagnostics`)
-    expect((await page.request.get(`/${locale}/diagnostics`)).status()).toBe(200)
+    await expect(secondary).toHaveAttribute('href', `/${locale}/contact`)
+    await expect(secondary).not.toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
 
-    // AP34 / SC-002: the localized product image is a lazy 320-px cutout in the
-    // visual card; the decorative Editorial photo carries the LCP priority.
-    const image = hero.getByRole('img', { name: resources[locale].hero.visual_alt })
-    await expect(image).toHaveAttribute('width', '320')
-    await expect(image).toHaveAttribute('height', '320')
-    await expect(image).toHaveAttribute('loading', 'lazy')
-    await image.scrollIntoViewIfNeeded()
-    await expect
-      .poll(() =>
-        image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0),
-      )
-      .toBe(true)
-
+    // SC-021: one decorative 16:10 photo card carries the LCP priority; no product cutout.
     const photo = hero.locator('[data-home-hero-photo] img')
+    await expect(photo).toHaveCount(1)
     await expect(photo).toHaveAttribute('fetchpriority', 'high')
     await expect(photo).toHaveAttribute('loading', 'eager')
     await expect(photo).toHaveAttribute('alt', '')
+    await expect(photo).toHaveAttribute('width', '1280')
+    await expect(photo).toHaveAttribute('height', '800')
     expect(
       await photo.evaluate(
         (element: HTMLImageElement) => element.complete && element.naturalWidth > 0,
       ),
     ).toBe(true)
+    await expect(hero.locator('img')).toHaveCount(1)
   })
 }
 
-test('PT11.1 mobile hierarchy keeps both actions before the product visual without overflow', async ({
+test('PT11.1 mobile hierarchy keeps both actions before the photo without overflow', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 })

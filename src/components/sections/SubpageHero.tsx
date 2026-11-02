@@ -114,7 +114,7 @@ export function SubpageHero({
   return (
     <section className="aurora bg-brand-deep text-white">
       <div
-        className={`mx-auto max-w-container px-4 pb-16 pt-24 sm:px-6 sm:pt-28 lg:px-0 lg:pb-20 lg:pt-32 ${
+        className={`mx-auto max-w-container px-4 pb-16 pt-page-top sm:px-6 lg:px-0 lg:pb-20 xl:pt-page-top-xl ${
           hasVisual ? 'grid items-center gap-8 lg:grid-cols-2' : ''
         }`}
       >

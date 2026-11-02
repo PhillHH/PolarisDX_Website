@@ -36,7 +36,14 @@
     "diagnostics_all": "Todos los servicios de diagnóstico",
     "group_crosslink": "También relevante",
     "shop_sub": "Consulta",
-    "panels_sub": "Epigenética"
+    "panels_sub": "Epigenética",
+    "shop_practice": "Tienda para consultas",
+    "shop_epigenetics": "Tests de epigenética",
+    "shop_practice_sub": "Para consultas",
+    "shop_epigenetics_sub": "Para particulares",
+    "menu": "Menú",
+    "iglooPro_desc": "Valores de laboratorio en minutos, directamente en la consulta.",
+    "iglooPro_more": "Más sobre el dispositivo"
   },
   "badge": {
     "New": "Nuevo",
@@ -263,7 +270,9 @@
     "main_nav": "Navegación principal",
     "breadcrumb": "Ruta de navegación",
     "toggle_submenu": "{{name}} — submenú",
-    "skip_to_content": "Ir al contenido"
+    "skip_to_content": "Ir al contenido",
+    "secondary_nav": "Navegación de servicio",
+    "event_strip": "Próximo evento"
   },
   "languageFallback": {
     "notice": "Esta página solo está disponible en inglés por el momento."

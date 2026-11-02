@@ -169,7 +169,7 @@ const LanguageSwitcher = ({
       {isOpen && (
         <div
           ref={listRef}
-          className={`absolute right-0 top-full mt-1 w-48 rounded-md bg-white py-1 shadow-card ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}
+          className={`absolute right-0 top-full w-48 rounded-md bg-white py-1 shadow-card ring-1 ring-black ring-opacity-5 z-50 overflow-hidden`}
         >
           {languages.map((language) => (
             /* AP24 PT24.1: Welche Sprache gerade aktiv ist, stand allein in

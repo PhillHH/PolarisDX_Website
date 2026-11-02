@@ -453,7 +453,7 @@ const MusterbefundPage = ({ slug: slugProp, befunde }: MusterbefundPageProps = {
       >
         {englishFallback ? <LanguageFallbackNotice lang={i18n.language} /> : null}
         <div className="bg-brand-deep">
-          <div className="mx-auto max-w-container px-4 pt-28 lg:px-0 lg:pt-32">
+          <div className="mx-auto max-w-container px-4 pt-page-top lg:px-0 xl:pt-page-top-xl">
             <Breadcrumbs
               variant="dark"
               items={[

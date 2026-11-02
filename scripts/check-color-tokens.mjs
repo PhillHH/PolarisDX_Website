@@ -52,6 +52,7 @@ const PALETTE_HEX = new Set([
   '#f1f9f5', // befund.green.soft
   '#377d5e', // befund.green.ink
   '#e6f5fc', // accent.soft
+  '#e8eef5', // brand.soft — Navy-Toenung (SC-021 Kopfzeile)
   '#10b981', // success
   '#047857', // success.strong
   '#ecfdf5', // success.soft

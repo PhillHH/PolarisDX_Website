@@ -80,6 +80,10 @@ export default {
           'navy-mid': '#0a3f63',
           blue: '#0d527f',
           'blue-bright': '#2f6fa0',
+          // SC-021 (2026-11-02) — Kopfzeile 13A-4: getoente Navy-Flaeche hinter beschriftetem
+          // Text (Praxis-Shop-Zelle, Hover im Raster). Dekorflaeche, keine Begrenzung; Text
+          // darauf ist `heading` (#083358, 11,0:1) oder `accent.strong` (6,1:1).
+          soft: '#e8eef5',
         },
         social: {
           linkedin: '#0077b5',
@@ -206,6 +210,15 @@ export default {
       spacing: {
         section: '6rem',
         'section-lg': '7rem',
+        // SC-021 (2026-11-02) — Masse der fixierten Kopfzeile (Raster 13A-4). Seiten raeumen
+        // oben `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile + Luft); Kapitelanker `scroll-mt-28`.
+        'header-strip': '2.75rem', // 44 px — Messe-/Service-Zeile (Trefferflaeche WCAG 2.5.5)
+        'header-bar': '5.25rem', // 84 px — Kopfzeilenraster ab xl
+        'header-bar-compact': '3.875rem', // 62 px — Raster gescrollt (ab xl)
+        'header-bar-sm': '3.75rem', // 60 px — Leiste unter xl
+        // Kopfzeile unter xl (44 + 60 + 1 px Haarlinie) + 24 px Luft, ab xl (44 + 84 + 1) + 48 px.
+        'page-top': 'calc(2.75rem + 3.75rem + 1px + 1.5rem)', // 130 px
+        'page-top-xl': 'calc(2.75rem + 5.25rem + 1px + 3rem)', // 178 px
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'Inter Fallback', 'system-ui', 'sans-serif'],

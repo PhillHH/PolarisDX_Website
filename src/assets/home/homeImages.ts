@@ -15,7 +15,7 @@
  * Breiten sind aus der Darstellung abgeleitet (CSS-Breite × DPR 1–2), damit
  * das Perf-Budget (`oversizedImages`, `imageBytes` der Startseite) haelt:
  *   - Detailfoto Fachbereich-Modul: bis ~520 px CSS → 480w/960w, 4:5
- *   - Buehne: siehe HERO_STAGE
+ *   - Fotokarte der Buehne: siehe HERO_CARD (SC-021)
  */
 import type { ArticleImageAsset } from '../articleImages'
 
@@ -23,12 +23,12 @@ import detail480Avif from './detail-capillary-480w.avif'
 import detail480Webp from './detail-capillary-480w.webp'
 import detail960Avif from './detail-capillary-960w.avif'
 import detail960Webp from './detail-capillary-960w.webp'
-import heroDesktop1440Avif from './hero-desktop-1440w.avif'
-import heroDesktop2400Avif from './hero-desktop-2400w.avif'
-import heroMobile800Avif from './hero-mobile-800w.avif'
-import heroMobile800Webp from './hero-mobile-800w.webp'
-import heroMobile1200Avif from './hero-mobile-1200w.avif'
-import heroMobile1200Webp from './hero-mobile-1200w.webp'
+import heroCard480Avif from './hero-card-480w.avif'
+import heroCard480Webp from './hero-card-480w.webp'
+import heroCard800Avif from './hero-card-800w.avif'
+import heroCard800Webp from './hero-card-800w.webp'
+import heroCard1280Avif from './hero-card-1280w.avif'
+import heroCard1280Webp from './hero-card-1280w.webp'
 
 /** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
 export const DETAIL_IMAGE: ArticleImageAsset = {
@@ -42,25 +42,19 @@ export const DETAIL_IMAGE: ArticleImageAsset = {
 }
 
 /**
- * Editorial-Buehne der Startseite (AP34 / SC-002) — art-directed.
+ * Fotokarte der Startseiten-Bühne (SC-021, Kopfzeile 13A-4 — Owner 2026-11-02).
  *
- * Ein Praxisfoto, Navy-Verlauf und Punktring des Signets sind IN die Datei
- * eingebacken: die Textseite ist nahezu flaches Navy und kostet kaum Bytes.
- *   - Desktop 2:1, ab 1024 px, nur AVIF: 1440w / 2400w fuer DPR 2
- *   - Mobil 4:9, Motiv unten im Bild: 800w / 1200w
- * Beide Erststufen liegen unter `lcpImageBytes` (19 438 B) der Startseite.
+ * Das saubere Praxisfoto als 16:10-Karte neben dem Text, ohne eingebackenen Verlauf.
+ * Breiten aus der Darstellung: Desktop 560 px CSS (480w DPR 1 / 1280w DPR 2), Telefon volle
+ * Breite (480w / 800w). Die 800w-AVIF-Stufe bleibt unter `lcpImageBytes` (19 438 B).
  */
-export const HERO_STAGE = {
-  desktop: {
-    avif: `${heroDesktop1440Avif} 1440w, ${heroDesktop2400Avif} 2400w`,
-  },
-  mobile: {
-    src: heroMobile800Webp,
-    /** Erste AVIF-Stufe — `href` des mobilen Preloads (AP34, LCP unter Drosselung). */
-    preloadHref: heroMobile800Avif,
-    width: 800,
-    height: 1800,
-    avif: `${heroMobile800Avif} 800w, ${heroMobile1200Avif} 1200w`,
-    webp: `${heroMobile800Webp} 800w, ${heroMobile1200Webp} 1200w`,
-  },
+export const HERO_CARD = {
+  src: heroCard1280Webp,
+  width: 1280,
+  height: 800,
+  /** Erste mobile AVIF-Stufe fuer DPR 2 — `href` des Preloads (LCP unter Drosselung). */
+  preloadHref: heroCard800Avif,
+  sizes: '(min-width: 1024px) 560px, calc(100vw - 2rem)',
+  avif: `${heroCard480Avif} 480w, ${heroCard800Avif} 800w, ${heroCard1280Avif} 1280w`,
+  webp: `${heroCard480Webp} 480w, ${heroCard800Webp} 800w, ${heroCard1280Webp} 1280w`,
 } as const

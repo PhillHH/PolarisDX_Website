@@ -5,12 +5,11 @@
     "social_image_alt": "IglooPro point-of-care-reader fra PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX til klinikker og sundhedsfaciliteter",
+    "caption": "Til tandlæge-, beauty- og longevity-praksisser",
     "title": "Laboratorieværdier. På få minutter. I din klinik.",
-    "description": "PolarisDX hjælper professionelle brugere med at integrere point-of-care-diagnostik med IglooPro i eksisterende arbejdsgange – fra valg af den rette løsning til anvendelse på stedet.",
+    "description": "IglooPro aflæser hurtigtests fra mange producenter og viser værdien, mens patienten bliver i stolen.",
     "cta": "Anmod om tilbud",
-    "cta_secondary": "Udforsk diagnostik",
-    "visual_alt": "IglooPro point-of-care-læser til professionel brug",
+    "cta_secondary": "Book et infomøde",
     "cta_roi": "Start ROI-beregner",
     "cta_downloads": "Download infomateriale",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Aktuelt",
     "event_eyebrow": "Nu · Arrangement",
     "event_cta": "Se arrangementet"
-  },
-  "hero_slides": {
-    "aria": "Aktuelle emner",
-    "prev": "Forrige slide",
-    "next": "Næste slide",
-    "pause": "Stop automatisk skift",
-    "play": "Genoptag automatisk skift",
-    "slide": "Slide {{n}} af {{total}}",
-    "meet": "Book et møde på vores stand"
   }
 }

@@ -5,12 +5,11 @@
     "social_image_alt": "Leitor point-of-care IglooPro da PolarisDX"
   },
   "hero": {
-    "caption": "PolarisDX para consultórios e instituições de saúde",
+    "caption": "Para consultórios dentários, de estética e longevidade",
     "title": "Valores laboratoriais. Em minutos. No seu consultório.",
-    "description": "A PolarisDX apoia profissionais na integração do diagnóstico point-of-care com o IglooPro nos processos existentes, desde a escolha da solução adequada até à utilização no local.",
+    "description": "O IglooPro lê testes rápidos de muitos fabricantes e mostra o valor enquanto o paciente permanece na cadeira.",
     "cta": "Pedir orçamento",
-    "cta_secondary": "Conhecer o diagnóstico",
-    "visual_alt": "Leitor point-of-care IglooPro para utilização profissional",
+    "cta_secondary": "Marcar uma reunião informativa",
     "cta_roi": "Iniciar calculadora de ROI",
     "cta_downloads": "Descarregar materiais informativos",
     "stat1": {
@@ -429,14 +428,5 @@
     "title": "Atualidade",
     "event_eyebrow": "Agora · Evento",
     "event_cta": "Ver o evento"
-  },
-  "hero_slides": {
-    "aria": "Temas atuais",
-    "prev": "Diapositivo anterior",
-    "next": "Diapositivo seguinte",
-    "pause": "Parar a rotação automática",
-    "play": "Retomar a rotação automática",
-    "slide": "Diapositivo {{n}} de {{total}}",
-    "meet": "Marcar reunião no nosso stand"
   }
 }

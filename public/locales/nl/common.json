@@ -36,7 +36,14 @@
     "diagnostics_all": "Alle diagnostiekdiensten",
     "group_crosslink": "Ook relevant",
     "shop_sub": "Praktijk",
-    "panels_sub": "Epigenetica"
+    "panels_sub": "Epigenetica",
+    "shop_practice": "Praktijkshop",
+    "shop_epigenetics": "Epigenetica-tests",
+    "shop_practice_sub": "Voor praktijken",
+    "shop_epigenetics_sub": "Voor particulieren",
+    "menu": "Menu",
+    "iglooPro_desc": "Laboratoriumwaarden in minuten, direct in de praktijk.",
+    "iglooPro_more": "Meer over het apparaat"
   },
   "badge": {
     "New": "Nieuw",
@@ -263,7 +270,9 @@
     "main_nav": "Hoofdnavigatie",
     "breadcrumb": "Kruimelpad",
     "toggle_submenu": "{{name}} — submenu",
-    "skip_to_content": "Naar de inhoud"
+    "skip_to_content": "Naar de inhoud",
+    "secondary_nav": "Servicenavigatie",
+    "event_strip": "Actueel evenement"
   },
   "languageFallback": {
     "notice": "Deze pagina is momenteel alleen in het Engels beschikbaar."
