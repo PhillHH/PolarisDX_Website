@@ -10,6 +10,18 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-02 (SC-021 Stufe A, Preview):** Kopfzeile „Raster" (Entwurf 13A-4) mit Messe-Zeile
+und Inhaltsübersicht, statische Startseiten-Bühne mit Fotokarte, Design-Tokens benannt (`brand.soft`,
+`spacing.header-*`, `spacing.page-top/-xl`) — `SCOPE-CHANGELOG.md` SC-021, `DESIGN-SYSTEM-CONTRACT.md`
+§6.11, `HOMEPAGE-CONTRACT.md` §2. Code `672cd28`, **Preview-Release `672cd28ab21d`** (healthy,
+Identität, Smoke grün), **Produktion unverändert `118846161d1d`** — Owner-Sichtprüfung und
+Veröffentlichungs-Go stehen aus. Gates: Vitest unit/component 645/645, Guards grün, Perf-Budget ci
+852/852 ohne Budgetänderung, Playwright Startseite/Navigation/Termine/Diagnostik 116, Axe 26/26, Visual
+22 Baselines neu. Nicht lauffähig in dieser Umgebung (Altbefund, unabhängig): Server-Vitest und
+PT27.3-Core — `better-sqlite3` ist gegen einen anderen Node-Stand gebaut (`npm rebuild` im
+`server/`-Ordner nötig). Offen: Shop-Name (Empfehlung „Epigenetik-Tests" umgesetzt), viertes Wort
+„Termine" bis es eine Preisseite gibt (Stufe B), Stufe B/C des Konzepts.
+
 **Stand 2026-10-16 (nach Owner-Entscheidungen, SC-004):**
 
 - **Owner „Alle ja" (2026-10-16):** alle Empfehlungen aus `migration/MAIN-DELTA-2026-10.md` §5 und
