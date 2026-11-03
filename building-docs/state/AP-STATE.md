@@ -10,7 +10,14 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
-**Stand 2026-11-02 abends (SC-021 Nachtrag, Preview):** Hero wieder als Slider (Folie 2 MEDICA mit
+**Stand 2026-11-03 (SC-021 Nachtrag 2, Preview):** Folie 1 der Bühne ist eine Diashow (Probe ·
+Messung · Ergebnis mit Bildzeile, Restzeit-Balken und Zeitleiste; danach Folie 2 MEDICA, Folie 3
+Panel-Aktion). Code `8ce8dac`, **Preview-Release `8ce8dac1463b`** (healthy, Identität, Smoke grün),
+**Produktion `6ddb9a650bdb`** — Veröffentlichungs-Go steht aus. Startseiten-`jsBytes` per Owner-Go
++1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
+27/27, Visual 22 Baselines neu.
+
+**Stand 2026-11-02 abends (SC-021 Nachtrag, live):** Hero wieder als Slider (Folie 2 MEDICA mit
 Navy-Kachel und Countdown, Folie 3 Panel-Aktion), Bühne als weißes Band, Messe-Band `EventBand` auf
 Startseite und Inhaltsseiten, Hover-Panels je Hauptpunkt, Kopfzeile auf 1440 px, Sprachdateien mit
 Build-Kennung; Budgets per Owner-Entscheidung angehoben (PERFORMANCE-CONTRACT §25). Code `6ddb9a6`,
