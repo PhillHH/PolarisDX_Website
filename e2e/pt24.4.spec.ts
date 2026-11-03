@@ -444,7 +444,6 @@ const CONTROLS = [
   },
   { name: 'Support-Auswahlfeld', route: '/de/support', sel: 'select#issueType', nth: 0 },
   { name: 'Support-Absenden', route: '/de/support', sel: 'form button[type="submit"]', nth: 0 },
-  { name: 'ROI-Zahlenfeld', route: '/de/', sel: 'input#roi-tests', nth: 0 },
 ] as const
 
 for (const ziel of CONTROLS) {

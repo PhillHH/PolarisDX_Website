@@ -4,7 +4,6 @@
     "caption": "IglooPro · Point-of-Care-læser",
     "description": "IglooPro er en selvstændig Point-of-Care-læser til praksisser og klinikker. Sammen afklarer vi, hvilken understøttet opsætning og testportefølje der passer til jeres arbejdsgang.",
     "cta_order": "Anmod om tilbud",
-    "cta_secondary": "Åbn ROI-beregneren",
     "cta_datasheet": "Datablad (PDF, DE)",
     "subline": "Til praksisser og klinikker · Personlig afklaring frem for en standardpakke",
     "chip_ivdr": "IVDR/CE",
@@ -204,7 +203,6 @@
     "title": "Vurdér IglooPro til jeres arbejdsgang",
     "description": "Beskriv jeres anvendelsesmiljø. Sammen afklarer vi det aktuelt understøttede omfang og det passende næste skridt.",
     "button": "Anmod om tilbud",
-    "resources": "Åbn ROI-beregneren",
     "datasheet": "Datablad (PDF, DE)",
     "chips": {
       "free": "Gratis & uforpligtende",

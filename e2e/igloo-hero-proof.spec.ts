@@ -39,10 +39,7 @@ for (const viewport of viewports) {
       'href',
       `/${viewport.locale}/contact`,
     )
-    await expect(hero.locator('[data-igloo-hero-secondary]')).toHaveAttribute(
-      'href',
-      `/${viewport.locale}#roi-rechner`,
-    )
+    await expect(hero.locator('[data-igloo-hero-secondary]')).toHaveCount(0)
     await expect(hero.getByRole('img')).toBeVisible()
     await expect(page.locator('[data-igloo-proof] [data-proof-signal]')).toHaveCount(3)
 
@@ -83,7 +80,7 @@ test('PT14.2 Hero and proof are productive in all ten SSR locales', async ({ req
     expect(decodedHtml, `${path} CTA`).toContain(resource.hero.cta_order)
     expect(decodedHtml, `${path} proof title`).toContain(resource.proof.title)
     expect(html, `${path} localized contact`).toContain(`href="/${locale}/contact"`)
-    expect(html, `${path} localized ROI calculator`).toContain(`href="/${locale}#roi-rechner"`)
+    expect(html, `${path} ROI calculator removed`).not.toContain('#roi-rechner')
   }
 })
 

@@ -60,6 +60,7 @@ describe('PT23.1 · Provider-Konfiguration', () => {
     expect(report).toEqual({
       gtm: 'CONFIGURED',
       ga4: 'UNCONFIGURED',
+      ads: 'UNCONFIGURED',
       environment: 'undeclared',
       productionContainerSuppressed: false,
       externallyVerified: false,
@@ -96,5 +97,31 @@ describe('SC-011 · Laufzeit-Umgebung schlaegt Bauzeit-Umgebung', () => {
     } finally {
       meta.remove()
     }
+  })
+})
+
+describe('SC-022 · Google-Ads-Kennung', () => {
+  it('nimmt eine gueltige AW-Kennung an und verwirft eine falsche', () => {
+    expect(resolveAnalyticsConfig({ VITE_GOOGLE_ADS_ID: 'AW-18553833510' }).googleAdsId).toBe(
+      'AW-18553833510',
+    )
+    expect(resolveAnalyticsConfig({ VITE_GOOGLE_ADS_ID: 'G-18553833510' }).googleAdsId).toBeNull()
+    expect(resolveAnalyticsConfig({}).googleAdsId).toBeNull()
+    expect(describeAnalyticsConfig({ VITE_GOOGLE_ADS_ID: 'AW-18553833510' }).ads).toBe('CONFIGURED')
+  })
+
+  it.each(['preview', 'staging'])('unterdrueckt in %s die Produktions-Werbekennung', (env) => {
+    const config = resolveAnalyticsConfig({
+      VITE_APP_ENV: env,
+      VITE_GOOGLE_ADS_ID: 'AW-18553833510',
+    })
+    expect(config.googleAdsId).toBeNull()
+    expect(
+      resolveAnalyticsConfig({
+        VITE_APP_ENV: env,
+        VITE_GOOGLE_ADS_ID: 'AW-18553833510',
+        VITE_GOOGLE_ADS_ID_PREVIEW: 'AW-999999999',
+      }).googleAdsId,
+    ).toBe('AW-999999999')
   })
 })

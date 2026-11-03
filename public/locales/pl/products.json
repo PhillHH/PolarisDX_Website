@@ -4,7 +4,6 @@
     "caption": "IglooPro · czytnik Point-of-Care",
     "description": "IglooPro to samodzielny czytnik Point-of-Care dla gabinetów i klinik. Wspólnie ustalamy, jaka obsługiwana konfiguracja i oferta testów pasują do Państwa procesu pracy.",
     "cta_order": "Poproś o ofertę",
-    "cta_secondary": "Otwórz kalkulator ROI",
     "cta_datasheet": "Karta danych (PDF, DE)",
     "subline": "Dla gabinetów i klinik · Indywidualna konsultacja zamiast standardowego pakietu",
     "chip_ivdr": "IVDR/CE",
@@ -204,7 +203,6 @@
     "title": "Oceń IglooPro dla swojego procesu",
     "description": "Opisz planowane zastosowanie. Wspólnie wyjaśnimy obecnie obsługiwany zakres i odpowiedni kolejny krok.",
     "button": "Poproś o ofertę",
-    "resources": "Otwórz kalkulator ROI",
     "datasheet": "Karta katalogowa (PDF, DE)",
     "chips": {
       "free": "Bezpłatnie i bez zobowiązań",

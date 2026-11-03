@@ -122,6 +122,34 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-023 — ROI-Rechner entfernt, „Angebot anfragen“ aus Kopfzeile und Bühne
+
+- **Datum:** 2026-11-03
+- **Status:** ACCEPTED (Owner-Aufträge „entferne ROI Rechner von der Startseite und aus allen Buttons“ und „Angebot anfragen als CTA aus der Topbar und der Herosection entfernen“)
+- **Betroffene IDs:** HOMEPAGE-CONTRACT §2.1 (Hero-Konversion), §6 (PT11.5 Sekundärkonversion), §8 (Deep-Link-Matrix), IGLOOPRO-CONTRACT (Bühne/Schluss-CTA), DESIGN-SYSTEM-CONTRACT §6.3 (Kopfzeile ohne Navy-Zelle), TRACKING-CONTRACT (Konversion `roi_report_request` entfällt), BACKEND-API-CONTRACT (`/api/roi-report` ohne Frontend-Aufrufer)
+- **Vorheriger Zustand:** Kopfzeile mit Navy-Zelle „Angebot anfragen“ (Desktop) und Pille im Mobil-Menü; Bühne mit zwei Knöpfen (`GENERAL_SALES` „Angebot anfragen“ + „Infotermin buchen“); `RoiCalculatorSection` auf der Startseite als Kontext-Konversion (`section=roi`) mit Report-Formular (`/api/roi-report`); ROI-Knöpfe im Schluss-CTA (alle Seiten), in der IglooPro-Bühne, im IglooPro-Schluss-CTA und in der Artikel-Schlusskarte; Anker `/#roi-rechner`.
+- **Neuer Zustand:** Kopfzeile ohne „Angebot anfragen“ (Desktop-Zelle und Mobil-Pille); Bühne mit genau einem Knopf „Infotermin buchen“ (Navy, `data-home-hero-cta`, → `/contact`, ohne Verkaufs-Attribution); `RoiCalculatorSection` und `src/api/roiReport.ts` gelöscht, `home.roi.*`, `home.final_cta.cta_secondary`, `home.hero.cta_roi`, `articles.detail.cta_secondary`, `products.hero.cta_secondary`, `products.cta_bottom.resources` in zehn Sprachen entfernt; Schluss-CTA nur noch „Angebot anfragen“ (einziger `GENERAL_SALES`-Einstieg der Startseite, `section=final_cta`), Untertitel ohne ROI-Bezug (×10); Artikel-Schlusskarte neuer Titel/Untertitel (×10) ohne ROI-Link; IglooPro-Bühne und -Schluss-CTA ohne ROI-Knopf. `HOMEPAGE_SALES_SECTIONS = ['final_cta']`; Konversion `roi_report_request` aus Taxonomie und Provider entfernt (vier Journey-Konversionen). Ankertest der Navigation nutzt `#los-gehts`.
+- **Begründung:** Owner-Entscheidung zur Vereinfachung der Startseite (SC-021-Richtung „einfacher“). Keine Ersatzsektion.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-03, Werkstatt-Sitzung.
+- **Auswirkung auf Scope:** PT11.5-Sekundärkonversion ist jetzt allein der Wissenseinstieg (Blog); Hero trägt keinen Verkaufs-CTA mehr. Backend-Endpunkt `/api/roi-report` bleibt bestehen, hat aber keinen Aufrufer (Abbau: Owner-Entscheidung).
+- **Auswirkung auf Abhängigkeiten:** keine neuen Anbieter.
+- **Auswirkung auf Gates:** siehe AP-STATE (Vitest, Guards, Perf-Budget, Playwright Startseite/Navigation/IglooPro/Artikel, pt26.2/pt23.1/pt27.4, pt24.4, Baselines PT27.6, Axe).
+- **Aktualisierte kanonische Dokumente:** `HOMEPAGE-CONTRACT.md` §2.4/§6.1, `IGLOOPRO-CONTRACT.md` Nachtrag SC-023, `DESIGN-SYSTEM-CONTRACT.md` §6.3-Hinweis, `DESIGN-SYSTEM-CHANGELOG.md`, `TRACKING-CONTRACT.md` Nachtrag, `BACKEND-API-CONTRACT.md` §3.
+
+### SC-022 — Google-Ads-Tag (AW-18553833510) nach Marketing-Einwilligung
+
+- **Datum:** 2026-11-03
+- **Status:** ACCEPTED (Owner-Auftrag „binde das hier ein“ mit gtag.js-Schnipsel `AW-18553833510`); juristische Prüfung des neuen Datenschutz-Absatzes durch den Owner steht aus
+- **Betroffene IDs:** CONSENT-TRACKING-CONTRACT §19 (neu), SECURITY-CONTRACT §8.3/§8.3.2/§8.4, NETWORK-ALLOWLIST §3 und Origin-Tabelle (Nachtrag SC-022), CONSENT-CONTRACT C-xx unverändert (Marketing nur bei Marketing-Zustimmung)
+- **Vorheriger Zustand:** Nur GTM-Container `GTM-PL26PFFH` (GA4) nach Analyse- oder Marketing-Zustimmung; kein Werbe-Tag (AP23 PT23.4); `www.google.com` und DoubleClick in der CSP gesperrt.
+- **Neuer Zustand:** `src/lib/googleConsent.ts` lädt zusätzlich `https://www.googletagmanager.com/gtag/js?id=AW-…` und ruft `gtag('js')`/`gtag('config', AW)` — ausschließlich nach **Marketing**-Zustimmung, genau einmal, Kennung aus `VITE_GOOGLE_ADS_ID` (`analyticsConfig.ts`, `docker-compose.yml`, Dockerfile, `.env.example`; Preview unterdrückt sie wie den Container). `gtag`-Schnipsel pusht `arguments` (Google-Form) statt Array. CSP: vier gemessene Marketing-Origins (`googleads.g.doubleclick.net` script-src; `www.google.com` connect-src/img-src; `www.google.de` img-src; `ad.doubleclick.net` connect-src), Klasse `CONSENT_MARKETING`; `stats.g.doubleclick.net` bleibt entfernt. Cookie-Banner-Kategorie Marketing nennt Google Ads; Datenschutzerklärung §6 neuer Unterabschnitt „Google Ads Conversion-Messung“ (zehn Sprachen).
+- **Begründung:** Owner-Auftrag; das Inline-Schnipsel ist mit CSP ohne `'unsafe-inline'` und Basic Consent Mode (nichts vor der Einwilligung) nicht vereinbar, daher consent-gegateter Loader nach demselben Muster wie der Container.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-03, Werkstatt-Sitzung (Schnipsel übergeben).
+- **Auswirkung auf Scope:** Marketing-Messung ergänzt; keine neue Route, keine neuen Inhalte außer Rechtstext und Banner-Beschreibung.
+- **Auswirkung auf Abhängigkeiten:** Neuer Anbieter-Dienst Google Ads (Google Ireland Ltd.); Origins siehe oben. Konversionsziele liegen im Ads-Konto (extern).
+- **Auswirkung auf Gates:** siehe AP-STATE (Vitest, Guards, CSP-Guard, Perf-Budget, pt26.2/pt23.1/pt27.4, Baselines, Axe).
+- **Aktualisierte kanonische Dokumente:** `CONSENT-TRACKING-CONTRACT.md` §19, `SECURITY-CONTRACT.md` §8.3/§8.3.2/§8.4, `NETWORK-ALLOWLIST.md`, `.env.example`, `Dockerfile`, `docker-compose.yml`.
+
 ### SC-021 — Kopfzeile „Raster" (13A-4) mit Messe-Zeile und Inhaltsübersicht, statische Bühne mit Fotokarte (Stufe A)
 
 - **Datum:** 2026-11-02

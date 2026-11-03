@@ -27,7 +27,7 @@ export interface CspThirdPartySource {
   origin: string
   directives: readonly CspDirective[]
   /** Klasse nach NETWORK-ALLOWLIST §3. */
-  classification: 'CONSENT_ANALYTICS'
+  classification: 'CONSENT_ANALYTICS' | 'CONSENT_MARKETING'
   /** Warum die Origin zur Laufzeit gebraucht wird — belegt, nicht vermutet. */
   reason: string
   /**
@@ -67,6 +67,40 @@ export const CSP_THIRD_PARTY_SOURCES: readonly CspThirdPartySource[] = [
       'GA4-Erfassung /g/collect fuer Besucher ausserhalb der EU (in CI gemessen, Runner in den USA); Nutzerentscheidung 2026-10-15',
     servedRegion: 'OUTSIDE_EU',
   },
+  /**
+   * SC-022 (Owner 2026-11-03, „binde das hier ein“): Google-Ads-Tag `AW-…`, geladen von
+   * `googleConsent.ts` NUR nach Marketing-Zustimmung. Gemessen am 2026-11-03 gegen einen lokalen
+   * Produktionsbau mit Report-Only-Policy (Scratch-Skript `ads-measure.mjs`, Zustimmung „alle
+   * akzeptieren“, drei Seiten, ein Reload): genau diese vier Origins, sonst nichts.
+   */
+  {
+    origin: 'https://googleads.g.doubleclick.net',
+    directives: ['script-src'],
+    classification: 'CONSENT_MARKETING',
+    reason:
+      'Google-Ads-Tag laedt nach dem config-Befehl (AW-Konto) das Skript /pagead/viewthroughconversion/<Konto>/ (Conversion-/Remarketing-Linker)',
+  },
+  {
+    origin: 'https://www.google.com',
+    directives: ['connect-src', 'img-src'],
+    classification: 'CONSENT_MARKETING',
+    reason:
+      'Google-Ads-Erfassung /rmkt/collect/<Konto>/ und /ccm/collect (fetch) sowie das Bild /pagead/1p-user-list/<Konto>/; bis SC-022 bewusst gesperrt (Nutzerentscheidung 2026-10-15, damals ohne Werbe-Tag)',
+  },
+  {
+    origin: 'https://www.google.de',
+    directives: ['img-src'],
+    classification: 'CONSENT_MARKETING',
+    reason:
+      'Google-Ads-Bild /pagead/1p-user-list/<Konto>/ auf der Laender-Domain des Abrufers (gemessen aus Deutschland); andere Laender-Domains bleiben ohne Wildcard gesperrt (N-13), die Conversion-Messung haengt nicht daran',
+  },
+  {
+    origin: 'https://ad.doubleclick.net',
+    directives: ['connect-src'],
+    classification: 'CONSENT_MARKETING',
+    reason:
+      'Google-Ads-Erfassung /ccm/s/collect (fetch) nach dem config-Befehl des Google-Ads-Tags',
+  },
 ]
 
 /**
@@ -78,8 +112,10 @@ export const CSP_REMOVED_SOURCES = [
   'ssl.google-analytics.com', // Universal Analytics, von GA4 nicht genutzt
   'fonts.googleapis.com', // Schrift ist selbstgehostet (N-02)
   'fonts.gstatic.com', // dito
-  'stats.g.doubleclick.net', // kein Werbe-Tag im Container (AP23 PT23.4)
-  'www.google.com', // Werbe-Abgleich /g/collect ausserhalb der EU, bewusst gesperrt (Nutzerentscheidung 2026-10-15)
+  'stats.g.doubleclick.net', // auch vom Google-Ads-Tag nicht angefragt (SC-022 gemessen)
+  // `www.google.com` stand hier bis SC-022 (Werbe-Abgleich /g/collect, Nutzerentscheidung
+  // 2026-10-15); seit dem Google-Ads-Tag (Owner 2026-11-03) ist die Origin nach Marketing-
+  // Zustimmung freigegeben, siehe CSP_THIRD_PARTY_SOURCES.
 ] as const
 
 export interface CspOptions {

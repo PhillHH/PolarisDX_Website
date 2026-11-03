@@ -18,11 +18,19 @@ const DENIED = { analytics: false, marketing: false }
 const reset = () => {
   localStorage.clear()
   document.getElementById('google-tag-manager-script')?.remove()
+  document.getElementById('google-ads-script')?.remove()
   delete window.dataLayer
   delete window.gtag
   delete window.__gtmBootstrapStarted
   delete window.__googleConsentDefaultsSet
+  delete window.__googleAdsConfigured
 }
+
+/** gtag-Befehle im Datenlayer: `Arguments`-Objekte (Google-Schnipsel), als Arrays gelesen. */
+const gtagCalls = () =>
+  (window.dataLayer ?? [])
+    .filter((entry) => Object.prototype.toString.call(entry) === '[object Arguments]')
+    .map((entry) => Array.from(entry as ArrayLike<unknown>))
 
 beforeEach(() => {
   reset()
@@ -105,9 +113,7 @@ describe('PT23.1 · nach der Einwilligung', () => {
     writeConsentDecision(GRANTED)
     applyGoogleConsent(GRANTED)
 
-    const calls = (window.dataLayer ?? []).filter(
-      (entry): entry is unknown[] => Array.isArray(entry) && entry[0] === 'consent',
-    )
+    const calls = gtagCalls().filter((entry) => entry[0] === 'consent')
     expect(calls.filter((c) => c[1] === 'default')).toHaveLength(1)
     expect(calls.filter((c) => c[1] === 'update')).toHaveLength(1)
     expect(calls.find((c) => c[1] === 'update')?.[2]).toMatchObject({
@@ -127,10 +133,7 @@ describe('PT23.1 · Widerruf', () => {
 
     expect(result.reloadRequired).toBe(true)
     expect(document.getElementById('google-tag-manager-script')).toBeNull()
-    const updates = (window.dataLayer ?? []).filter(
-      (entry): entry is unknown[] =>
-        Array.isArray(entry) && entry[0] === 'consent' && entry[1] === 'update',
-    )
+    const updates = gtagCalls().filter((entry) => entry[0] === 'consent' && entry[1] === 'update')
     expect(updates.at(-1)?.[2]).toMatchObject({
       analytics_storage: 'denied',
       ad_storage: 'denied',
@@ -166,5 +169,64 @@ describe('PT23.1 · Versionierung', () => {
       JSON.stringify({ version: CONSENT_VERSION + 1, analytics: true, marketing: true }),
     )
     expect(hasAnalyticsConsent()).toBe(false)
+  })
+})
+
+describe('SC-022 · Google-Ads-Tag', () => {
+  const ADS = 'AW-123456789'
+
+  it('laedt OHNE Marketing-Zustimmung kein Werbe-Tag — auch nicht bei Analyse-Zustimmung', () => {
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', ADS)
+    const analyticsOnly = { analytics: true, marketing: false }
+    writeConsentDecision(analyticsOnly)
+    applyGoogleConsent(analyticsOnly)
+
+    expect(document.getElementById('google-tag-manager-script')).not.toBeNull()
+    expect(document.getElementById('google-ads-script')).toBeNull()
+    expect(gtagCalls().filter((entry) => entry[0] === 'config')).toHaveLength(0)
+  })
+
+  it('laedt nach Marketing-Zustimmung das konfigurierte Tag genau einmal und ruft config', () => {
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', ADS)
+    writeConsentDecision(GRANTED)
+    applyGoogleConsent(GRANTED)
+    applyGoogleConsent(GRANTED)
+
+    const scripts = document.querySelectorAll('#google-ads-script')
+    expect(scripts).toHaveLength(1)
+    expect(scripts[0].getAttribute('src')).toBe(
+      `https://www.googletagmanager.com/gtag/js?id=${ADS}`,
+    )
+    expect(gtagCalls().filter((entry) => entry[0] === 'js')).toHaveLength(1)
+    expect(gtagCalls().filter((entry) => entry[0] === 'config')).toEqual([['config', ADS]])
+    // Die Zustimmungssignale stehen VOR dem config-Befehl im Datenlayer.
+    const order = gtagCalls().map((entry) => entry[0])
+    expect(order.indexOf('consent')).toBeLessThan(order.indexOf('config'))
+  })
+
+  it('laedt OHNE konfigurierte Kennung kein Werbe-Tag', () => {
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', '')
+    writeConsentDecision(GRANTED)
+    applyGoogleConsent(GRANTED)
+    expect(document.getElementById('google-ads-script')).toBeNull()
+  })
+
+  it('verwirft eine syntaktisch falsche Kennung', () => {
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', 'AW-abc')
+    writeConsentDecision(GRANTED)
+    applyGoogleConsent(GRANTED)
+    expect(document.getElementById('google-ads-script')).toBeNull()
+  })
+
+  it('entfernt das Werbe-Tag beim Widerruf und verlangt den Reload', () => {
+    vi.stubEnv('VITE_GTM_CONTAINER_ID', '')
+    vi.stubEnv('VITE_GOOGLE_ADS_ID', ADS)
+    writeConsentDecision(GRANTED)
+    applyGoogleConsent(GRANTED)
+    expect(document.getElementById('google-ads-script')).not.toBeNull()
+
+    const { reloadRequired } = withdrawGoogleConsent()
+    expect(reloadRequired).toBe(true)
+    expect(document.getElementById('google-ads-script')).toBeNull()
   })
 })

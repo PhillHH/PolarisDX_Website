@@ -25,16 +25,21 @@ COPY . .
 # SC-011 (2026-10-19): ein Image fuer Preview UND Produktion, gebaut mit
 #   VITE_APP_ENV=production
 #   VITE_GTM_CONTAINER_ID=GTM-PL26PFFH   (GA4 G-Z1SBW4CJFP, Owner-Wahl)
+#   VITE_GOOGLE_ADS_ID=AW-18553833510     (SC-022, Google-Ads-Tag, Owner 2026-11-03)
 # Die Preview misst nicht: APP_ENV=preview am Frontend-Container wird zur
 # Laufzeit als <meta name="polaris-app-env"> gesetzt (server.ts).
 #
 ARG VITE_APP_ENV
 ARG VITE_GTM_CONTAINER_ID
 ARG VITE_GTM_CONTAINER_ID_PREVIEW
+ARG VITE_GOOGLE_ADS_ID
+ARG VITE_GOOGLE_ADS_ID_PREVIEW
 
 ENV VITE_APP_ENV=${VITE_APP_ENV}
 ENV VITE_GTM_CONTAINER_ID=${VITE_GTM_CONTAINER_ID}
 ENV VITE_GTM_CONTAINER_ID_PREVIEW=${VITE_GTM_CONTAINER_ID_PREVIEW}
+ENV VITE_GOOGLE_ADS_ID=${VITE_GOOGLE_ADS_ID}
+ENV VITE_GOOGLE_ADS_ID_PREVIEW=${VITE_GOOGLE_ADS_ID_PREVIEW}
 
 # 4. Client und Server bauen
 # - dist/client: Statische Assets + index.html

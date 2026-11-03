@@ -7,8 +7,8 @@ import {
 
 describe('Homepage GENERAL_SALES context', () => {
   it('builds deterministic targets without inferring attribution from copy', () => {
-    expect(getHomepageSalesTarget('hero')).toBe(
-      '/contact?intent=quote&source=homepage&journey=general_sales&section=hero#kontaktformular',
+    expect(getHomepageSalesTarget('final_cta')).toBe(
+      '/contact?intent=quote&source=homepage&journey=general_sales&section=final_cta#kontaktformular',
     )
     expect(getHomepageSalesContext('final_cta')).toEqual({
       source: 'homepage',
@@ -20,9 +20,15 @@ describe('Homepage GENERAL_SALES context', () => {
   it('accepts only the explicit source, journey and section vocabulary', () => {
     expect(
       resolveHomepageSalesContext(
+        new URLSearchParams('source=homepage&journey=general_sales&section=final_cta'),
+      ),
+    ).toEqual({ source: 'homepage', journey: 'general_sales', section: 'final_cta' })
+    // SC-023: „roi“ und „hero“ sind keine Startseiten-Abschnitte mehr.
+    expect(
+      resolveHomepageSalesContext(
         new URLSearchParams('source=homepage&journey=general_sales&section=roi'),
       ),
-    ).toEqual({ source: 'homepage', journey: 'general_sales', section: 'roi' })
+    ).toBeNull()
     expect(
       resolveHomepageSalesContext(
         new URLSearchParams('source=homepage&journey=marketing&section=hero'),

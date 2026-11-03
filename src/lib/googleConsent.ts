@@ -21,6 +21,12 @@ import {
  * Es puffert auch nichts. Ereignisse, die vor der Einwilligung entstehen,
  * werden verworfen und nicht nachgesendet — ein Puffer waere eine
  * Vorratsdatenhaltung mit anderem Namen.
+ *
+ * SC-022 (Owner 2026-11-03, „binde das hier ein"): zusaetzlich zum Container laedt dieses Modul
+ * das Google-Ads-Tag (`gtag/js?id=AW-…`, `gtag('config', 'AW-…')`) — aber NUR nach
+ * MARKETING-Einwilligung (CONSENT_MARKETING, NETWORK-ALLOWLIST). Analyse-Zustimmung allein laedt
+ * den Container, nicht das Werbe-Tag. Dieselben drei Regeln wie beim Container: nichts vor der
+ * Zustimmung, genau einmal, keine Kennung ohne Konfiguration (`analyticsConfig.ts`).
  */
 
 export interface GoogleConsentPreferences {
@@ -34,10 +40,12 @@ declare global {
     gtag?: (...args: unknown[]) => void
     __gtmBootstrapStarted?: boolean
     __googleConsentDefaultsSet?: boolean
+    __googleAdsConfigured?: boolean
   }
 }
 
 const GTM_SCRIPT_ID = 'google-tag-manager-script'
+const ADS_SCRIPT_ID = 'google-ads-script'
 
 const deniedConsent = {
   analytics_storage: 'denied',
@@ -68,21 +76,59 @@ export function hasConsentFor(category: OptionalConsentCategory): boolean {
   return hasCategoryConsent(category)
 }
 
-/** Laeuft in diesem Dokument bereits ein Google-Provider? */
+/** Laeuft in diesem Dokument bereits ein Google-Provider (Container oder Werbe-Tag)? */
 export function isProviderLoaded(): boolean {
   if (typeof window === 'undefined') return false
-  return window.__gtmBootstrapStarted === true || document.getElementById(GTM_SCRIPT_ID) !== null
+  return (
+    window.__gtmBootstrapStarted === true ||
+    window.__googleAdsConfigured === true ||
+    document.getElementById(GTM_SCRIPT_ID) !== null ||
+    document.getElementById(ADS_SCRIPT_ID) !== null
+  )
+}
+
+/** Laeuft das Google-Ads-Tag bereits? */
+export function isGoogleAdsLoaded(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.__googleAdsConfigured === true || document.getElementById(ADS_SCRIPT_ID) !== null
 }
 
 function ensureGtag(): Window & typeof globalThis {
   const target = window
   target.dataLayer = target.dataLayer || []
+  /**
+   * Genau die Form des Google-Schnipsels: `dataLayer.push(arguments)`. gtag.js und gtm.js erkennen
+   * nur ein `Arguments`-Objekt als gtag-Befehl (`consent`, `config`, `event`); ein echtes Array
+   * waere fuer sie ein gewoehnlicher Datenlayer-Push ohne Wirkung (SC-022, vorher Array).
+   */
   target.gtag =
     target.gtag ||
-    ((...args: unknown[]) => {
-      target.dataLayer?.push(args)
-    })
+    function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      target.dataLayer?.push(arguments)
+    }
   return target
+}
+
+/**
+ * SC-022: Google-Ads-Tag laden — genau einmal, nur mit Marketing-Zustimmung und konfigurierter
+ * Kennung. `gtag('js')`/`gtag('config')` gehen in den Datenlayer, bevor das Skript da ist; gtag.js
+ * arbeitet die Warteschlange beim Laden ab (so funktioniert auch das Original-Schnipsel).
+ */
+function loadGoogleAds(target: Window & typeof globalThis, marketing: boolean): void {
+  if (!marketing || isGoogleAdsLoaded()) return
+  const { googleAdsId } = resolveAnalyticsConfig()
+  if (!googleAdsId) return
+
+  target.__googleAdsConfigured = true
+  target.gtag?.('js', new Date())
+  target.gtag?.('config', googleAdsId)
+
+  const script = document.createElement('script')
+  script.id = ADS_SCRIPT_ID
+  script.async = true
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`
+  document.head.appendChild(script)
 }
 
 /**
@@ -141,6 +187,7 @@ export function applyGoogleConsent(preferences: GoogleConsentPreferences): void 
   })
 
   if (!granted) return
+  loadGoogleAds(target, preferences.marketing)
   if (target.__gtmBootstrapStarted || document.getElementById(GTM_SCRIPT_ID)) return
 
   /**
@@ -191,7 +238,9 @@ export function withdrawGoogleConsent(): { reloadRequired: boolean } {
   // Der Anbieter wird ABGEMELDET, nicht nur stummgeschaltet: `track()` ist
   // danach wieder die leere Funktion aus dem Auslieferungszustand.
   setTrackingProvider(null)
-  const script = document.getElementById(GTM_SCRIPT_ID)
-  script?.parentElement?.removeChild(script)
+  for (const id of [GTM_SCRIPT_ID, ADS_SCRIPT_ID]) {
+    const script = document.getElementById(id)
+    script?.parentElement?.removeChild(script)
+  }
   return { reloadRequired: providerLoaded }
 }

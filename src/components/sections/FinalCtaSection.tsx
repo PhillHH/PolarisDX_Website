@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Check } from 'lucide-react'
 import { Button } from '../ui/Button'
-import { SUPPORTED_LANGUAGES } from '../../i18n'
 import { getHomepageSalesTarget, type HomepageSalesSection } from '../../lib/homepageConversion'
 
 /**
@@ -20,46 +19,13 @@ import { getHomepageSalesTarget, type HomepageSalesSection } from '../../lib/hom
  * StaticRouter (SSR) laufen mit basename="/<lang>". Ein hereingereichtes
  * Praefix wuerde sonst verdoppelt: /de/en/#roi-rechner.
  */
-const LANG_PREFIX_RE = new RegExp(`^/(?:${SUPPORTED_LANGUAGES.join('|')})(?=/|$)`, 'i')
-
-/**
- * Normalisiert den von den Seiten hereingereichten ROI-Link auf einen
- * router-tauglichen `to`-Wert.
- *
- * Hintergrund: zehn Seiten reichen "/#roi-rechner" herein. Als rohes <a href>
- * war das eine harte Navigation auf den Origin-Root; der Server leitete auf
- * /de/ um und die Sprache ging verloren (gemessen: der Klick auf /en/about,
- * /fr/support und /it/services landete jedes Mal auf /de/#roi-rechner).
- * Als <Link to> haengt der Router das aktive Sprachpraefix selbst an, die
- * Navigation bleibt clientseitig, und <ScrollToHash> in App.tsx springt mit
- * Header-Offset auf den Anker.
- *
- * Die Normalisierung sitzt hier in der Komponente, damit die aufrufenden
- * Seiten unveraendert bleiben koennen.
- */
-const normalizeRoiTo = (value: string): string => {
-  const raw = (value || '').trim()
-  // Externe/absolute Ziele gehen unveraendert durch.
-  if (/^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith('//')) return raw
-
-  const hashIndex = raw.indexOf('#')
-  const hash = hashIndex >= 0 ? raw.slice(hashIndex) : ''
-  let path = hashIndex >= 0 ? raw.slice(0, hashIndex) : raw
-  if (!path.startsWith('/')) path = `/${path}`
-  path = path.replace(LANG_PREFIX_RE, '')
-  if (path === '') path = '/'
-  return `${path}${hash}`
-}
-
+/** SC-023 (Owner 2026-11-03): ROI-Rechner von der Startseite und aus allen Knoepfen entfernt. */
 const FinalCtaSection = ({
-  roiHref = '/#roi-rechner',
   homepageSalesSection,
 }: {
-  roiHref?: string
   homepageSalesSection?: HomepageSalesSection
 }) => {
   const { t } = useTranslation('home')
-  const roiTo = normalizeRoiTo(roiHref)
   const primaryTarget = homepageSalesSection
     ? getHomepageSalesTarget(homepageSalesSection)
     : '/contact'
@@ -86,15 +52,12 @@ const FinalCtaSection = ({
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
             {t(
               'final_cta.subtitle',
-              'Sprechen Sie mit unserem Team über eine passende Point-of-Care-Lösung oder prüfen Sie Ihre eigenen Annahmen im unverbindlichen ROI-Rechner.',
+              'Sprechen Sie mit unserem Team über eine passende Point-of-Care-Lösung für Ihre Praxis.',
             )}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button to={primaryTarget} variant="light" {...homepageAttribution}>
               {t('final_cta.cta_primary', 'Angebot anfragen')}
-            </Button>
-            <Button to={roiTo} variant="outline">
-              {t('final_cta.cta_secondary', 'ROI-Rechner')}
             </Button>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

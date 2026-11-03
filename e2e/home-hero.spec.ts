@@ -33,20 +33,14 @@ for (const locale of SUPPORTED_LANGUAGES) {
     await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1)
     await expect(hero.getByRole('heading', { level: 1 })).toHaveText(resources[locale].hero.title)
 
-    const primary = hero.getByRole('link', { name: resources[locale].hero.cta })
-    await expect(primary).toHaveAttribute(
-      'href',
-      `/${locale}/contact?intent=quote&source=homepage&journey=general_sales&section=hero#kontaktformular`,
-    )
-    await expect(primary).toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
-    await expect(primary).toHaveAttribute('data-cta-source', 'homepage')
-    await expect(primary).toHaveAttribute('data-cta-journey', 'general_sales')
+    // SC-023 (Owner 2026-11-03): „Angebot anfragen“ ist aus der Bühne entfernt; die einzige
+    // Aktion bucht einen Infotermin — Kontaktseite ohne Verkaufs-Attribution.
+    const action = hero.getByRole('link', { name: resources[locale].hero.cta_secondary })
+    await expect(action).toHaveAttribute('href', `/${locale}/contact`)
+    await expect(action).not.toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
+    await expect(hero.locator('[data-cta-intent="GENERAL_SALES"]')).toHaveCount(0)
+    await expect(hero.getByRole('link')).toHaveCount(1)
     expect((await page.request.get(`/${locale}/contact`)).status()).toBe(200)
-
-    // SC-021: the second action books an info call — same contact page, no sales intent.
-    const secondary = hero.getByRole('link', { name: resources[locale].hero.cta_secondary })
-    await expect(secondary).toHaveAttribute('href', `/${locale}/contact`)
-    await expect(secondary).not.toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
 
     // SC-021: one decorative 16:10 photo card carries the LCP priority; no product cutout.
     const photo = hero.locator('[data-home-hero-photo] img')
@@ -65,7 +59,7 @@ for (const locale of SUPPORTED_LANGUAGES) {
   })
 }
 
-test('PT11.1 mobile hierarchy keeps both actions before the photo without overflow', async ({
+test('PT11.1 mobile hierarchy keeps the action before the photo without overflow', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 })
@@ -73,15 +67,13 @@ test('PT11.1 mobile hierarchy keeps both actions before the photo without overfl
 
   const hero = page.locator('[data-home-hero]')
   const heading = hero.getByRole('heading', { level: 1 })
-  const primary = hero.getByRole('link', { name: resources.de.hero.cta })
-  const secondary = hero.getByRole('link', { name: resources.de.hero.cta_secondary })
+  const action = hero.getByRole('link', { name: resources.de.hero.cta_secondary })
   const visual = hero.locator('[data-home-hero-visual]')
 
   const order = await hero.evaluate((section) => {
     const nodes = [
       section.querySelector('h1'),
-      section.querySelector('[data-cta-intent="GENERAL_SALES"]'),
-      section.querySelector('[data-home-hero-secondary]'),
+      section.querySelector('[data-home-hero-cta]'),
       section.querySelector('[data-home-hero-visual]'),
     ]
     return nodes.map((node) =>
@@ -92,13 +84,10 @@ test('PT11.1 mobile hierarchy keeps both actions before the photo without overfl
   expect(order.every((index) => index >= 0)).toBe(true)
 
   await expect(heading).toBeVisible()
-  await expect(primary).toBeVisible()
-  await expect(secondary).toBeVisible()
+  await expect(action).toBeVisible()
   await expect(visual).toBeVisible()
-  await primary.focus()
-  await expect(primary).toBeFocused()
-  await secondary.focus()
-  await expect(secondary).toBeFocused()
+  await action.focus()
+  await expect(action).toBeFocused()
 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,

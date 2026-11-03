@@ -112,6 +112,9 @@ const PrivacyPage = () => {
         <section>
           <h2 className={headingClass}>{t('privacy.section6.title')}</h2>
           <p>{t('privacy.section6.consent_mode')}</p>
+          {/* SC-022 (2026-11-03): Google-Ads-Tag nach Marketing-Einwilligung. */}
+          <h3 className={subHeadingClass}>{t('privacy.section6.google_ads_title')}</h3>
+          <p>{t('privacy.section6.google_ads_content')}</p>
 
           <h3 className={subHeadingClass}>{t('privacy.section6.support_title')}</h3>
           <p>{t('privacy.section6.support_content')}</p>

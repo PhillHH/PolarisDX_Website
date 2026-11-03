@@ -255,7 +255,7 @@ test.describe('Ankernavigation', () => {
   const anchors: [string, string][] = [
     ['/de/epigenetics#analysen', 'analysen'],
     ['/de/epigenetics#ablauf', 'ablauf'],
-    ['/de/#roi-rechner', 'roi-rechner'],
+    ['/de/#los-gehts', 'los-gehts'],
   ]
 
   for (const [url, id] of anchors) {

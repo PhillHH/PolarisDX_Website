@@ -290,3 +290,10 @@ T-G8 bis T-G10 sind so zu schreiben, dass sie **heute rot sind**.
 | Wartungsregel        | **AP33 PT33.3.6**                  | „neuer Tracking-Event" als dauerhafte Prozedur                                         |
 
 **Änderungen an diesem Vertrag** verantwortet AP23. Decision Locks werden hier nie geändert.
+
+## Nachtrag SC-023 (2026-11-03) — Konversion `roi_report_request` entfernt
+
+Mit dem ROI-Rechner (Owner-Auftrag) entfällt die Konversion `roi_report_request`: aus `KonversionsName`,
+`KONVERSIONEN`, `TRACKING_EREIGNISSE` (jetzt 16 Ereignisse, vier Journey-Konversionen) und dem Provider-Transport.
+`trackingTaxonomy.test.ts` kennt vier state-gated Konversionen; `trackingBypass.test.ts` elf kanonische Ereignisse.
+Ein Conversion-Tag für `roi_report_request` im Container wäre ohne Quelle und ist zu entfernen (Owner/Marketing).

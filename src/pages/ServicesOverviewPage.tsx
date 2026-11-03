@@ -56,7 +56,7 @@ const ServicesOverviewPage = () => {
             title: t('nav.dental'),
           }}
         />
-        <FinalCtaSection roiHref="/#roi-rechner" />
+        <FinalCtaSection />
       </div>
     </PageTransition>
   )

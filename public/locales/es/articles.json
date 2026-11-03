@@ -133,9 +133,8 @@
     "related_services": "Diagnóstico relacionado",
     "sources": "Fuentes",
     "longread": "Lectura larga",
-    "cta_title": "Calcula tu potencial de ahorro.",
-    "cta_subtitle": "Calculadora de ROI o asesoramiento — en menos de un minuto.",
-    "cta_secondary": "Calculadora de ROI",
+    "cta_title": "Hablemos de su consulta.",
+    "cta_subtitle": "Asesoramiento personal — solicitado en menos de un minuto.",
     "read_time": "{{minutes}} min de lectura"
   },
   "ui": {

@@ -162,6 +162,8 @@
     "section6": {
       "title": "6. Formularer, samtykker og dataflow",
       "consent_mode": "Dette website bruger Google Consent Mode v2 (basic): Analyse- og marketingværktøjer (f.eks. Google Analytics 4 via Google Tag Manager) indlæses først, efter du har givet samtykke i cookie-banneret. Før samtykke og ved afvisning kontaktes ingen analyse- eller marketingudbydere.",
+      "google_ads_title": "Google Ads-konverteringsmåling",
+      "google_ads_content": "Med dit samtykke til kategorien „Marketing“ indlæser vi Google Ads-tagget fra Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Det måler, om et besøg eller en forespørgsel stammer fra en Google-annonce (konvertering), og sætter cookies til formålet (bl.a. „_gcl_au“). Data kan blive overført til Google LLC i USA; Google LLC er certificeret under EU-US Data Privacy Framework. Retsgrundlaget er dit samtykke (art. 6, stk. 1, litra a, GDPR, § 25, stk. 1, TDDDG). Uden samtykke indlæses tagget ikke; du kan til enhver tid trække dit samtykke tilbage via cookie-banneret.",
       "support_title": "Supportformular og vedhæftede filer",
       "support_content": "Oplysninger sendt via supportformularen (navn, e-mailadresse, enhedens UDI, softwareversion, problembeskrivelse) gemmes først i en database på vores server og sendes derefter pr. e-mail til vores supportteam. Valgfrie vedhæftede filer (dokumenter og billeder i tilladte formater) gemmes under et automatisk genereret, offentligt utilgængeligt navn og kobles udelukkende til supportsagen; den planlagte slettefrist er 90 dage. De videregives ikke til tredjepart.",
       "marketing_title": "Adskilte samtykker",

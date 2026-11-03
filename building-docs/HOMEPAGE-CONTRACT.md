@@ -147,6 +147,15 @@ SC-020 carousel (both kept below as history).
   describes the SSR page, the slide photos load client-side only. Tests: `HeroSection.test.tsx` (SSR without controls; slide 2 after the delay,
   slide 1 inert), PT27.6 waits for the `tablist` before every home shot, PT24.6 state „Hero-Slider, Folie 2".
 
+### 2.4 SC-023 (2026-11-03) — kein „Angebot anfragen“ in der Bühne
+
+Owner: „Angebot anfragen als CTA aus der Topbar und der Herosection entfernen“. Die Bühne trägt
+seitdem genau einen Knopf: „Infotermin buchen“ (`home.hero.cta_secondary`, Navy-Pille,
+`data-home-hero-cta`, Ziel `/contact` ohne `intent`/`source`/`journey`/`section`). Der
+`GENERAL_SALES`-Einstieg der Startseite ist allein der Schluss-CTA (§6.1). §2.1 gilt für den
+Schluss-CTA weiter; die Kopfzeile hat keine Navy-Zelle und keine Mobil-Pille mehr
+(DESIGN-SYSTEM-CONTRACT §6.3). DOM-Reihenfolge: Eyebrow → H1 → Satz → Knopf → Foto.
+
 ### 2.3 Mobile and accessibility hierarchy
 
 DOM and mobile order are: caption → H1 → core benefit → primary CTA → secondary CTA → photo card
@@ -424,6 +433,19 @@ component prop, so uses of the shared Final CTA on other routes are not falsely 
   Resource Center, durable lead persistence, CRM handoff or a finished AP19 delivery platform.
 - Boundary: AP19 owns final resource/gating/delivery integration; AP22 retains persistence, CRM,
   queue/retry and lead-platform ownership; AP23 retains final consent/tracking hardening.
+
+### 6.1 SC-023 (2026-11-03) — ROI-Rechner entfernt
+
+Owner: „entferne ROI Rechner von der Startseite und aus allen Buttons“. `RoiCalculatorSection`
+ist gelöscht (Komponente, Client `src/api/roiReport.ts`, Strings `home.roi.*`), ebenso jeder Knopf
+und Link auf `/#roi-rechner` (Schluss-CTA aller Seiten, IglooPro-Bühne und -Schluss-CTA,
+Artikel-Schlusskarte). Die Startseite hat damit genau einen `GENERAL_SALES`-Einstieg
+(`section=final_cta`, `HOMEPAGE_SALES_SECTIONS = ['final_cta']`) und als Sekundärkonversion den
+Wissenseinstieg (Blog, `data-home-secondary-conversion="knowledge"`). Die Konversion
+`roi_report_request` ist aus der Tracking-Taxonomie entfernt; `/api/roi-report` bleibt serverseitig
+ohne Aufrufer (BACKEND-API-CONTRACT). Die Zeilen „ROI context“ und „Final CTA → ROI calculator“ in
+§8 sind damit historisch. Belege: `HomeConversion.test.tsx`, `HeroSection.test.tsx`,
+`e2e/home-conversion.spec.ts`, `e2e/home-hero.spec.ts`.
 
 ## 7. PT11.6 FAQ, SEO and page integration
 

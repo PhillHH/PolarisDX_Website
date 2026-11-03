@@ -28,6 +28,9 @@ services:
         # unterdrueckt dort jeden Container (kein *_PREVIEW-Container gesetzt).
         VITE_APP_ENV: production
         VITE_GTM_CONTAINER_ID: GTM-PL26PFFH
+        # SC-022 (Owner 2026-11-03): Google-Ads-Tag, nur nach Marketing-Zustimmung;
+        # die Preview unterdrueckt es wie den Container (keine *_PREVIEW-Kennung).
+        VITE_GOOGLE_ADS_ID: AW-18553833510
         # Release-Identitaet bis zum Git-SHA (DEP-04, D-T2): landet als
         # OCI-Label im Image; `deploy.sh` vergleicht es nach dem Start.
         GIT_SHA: ${RELEASE:-local}

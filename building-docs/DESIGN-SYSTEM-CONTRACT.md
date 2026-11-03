@@ -595,6 +595,8 @@ Untertitel, zwei CTAs, darunter Reassurance-Chips.
 
 Verbindlich:
 
+- SC-023 (Owner 2026-11-03): Kopfzeile (Desktop-Zelle und Mobil-Pille) und Startseiten-Bühne tragen **keinen**
+  „Angebot anfragen"-CTA mehr; der Knopf bleibt in Schluss-CTAs, Produkt-Bühnen und Artikel-Schlusskarte.
 - Primaer-CTA des allgemeinen Anfragewegs ist **„Angebot anfragen"** (`DEC-RL-013`),
   lokalisiert in allen 10 Sprachen.
 - Sekundaer-CTA nur, wenn fachlich passend (z. B. ROI-Rechner).

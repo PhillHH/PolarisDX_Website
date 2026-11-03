@@ -10,7 +10,6 @@
     "description": "IglooPro aflæser hurtigtests fra mange producenter og viser værdien, mens patienten bliver i stolen.",
     "cta": "Anmod om tilbud",
     "cta_secondary": "Book et infomøde",
-    "cta_roi": "Start ROI-beregner",
     "cta_downloads": "Download infomateriale",
     "stat1": {
       "value": "3-5 hverdage",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Klar til at komme i gang",
     "title": "Klar til laboratorienøjagtig diagnostik i din klinik?",
-    "subtitle": "Tal med vores team om en passende point-of-care-løsning, eller gennemgå dine egne antagelser med den uforpligtende ROI-beregner.",
+    "subtitle": "Tal med vores team om en passende point-of-care-løsning til din klinik.",
     "cta_primary": "Anmod om tilbud",
-    "cta_secondary": "ROI-beregner",
     "chips": {
       "free": "Uforpligtende forespørgsel",
       "reply": "Personlig rådgivning",
       "delivery": "Tilgængelig på 10 sprog"
     }
-  },
-  "roi": {
-    "caption": "ROI-beregner",
-    "title": "Hvad giver POC-diagnostik din klinik?",
-    "intro": "Se på under et minut, hvilket selvbetaler-potentiale chairside-diagnostik har i din klinik.",
-    "input": {
-      "tests": "Tests pr. måned",
-      "price": "Pris pr. test (€)",
-      "material": "Materialeomkostninger pr. test (€)",
-      "minutes": "Minutter pr. test",
-      "staff": "Personaleomkostninger pr. time (€)",
-      "investment": "Investering i apparat (€, valgfrit)",
-      "hint": "Eksempelværdier – tilpas venligst til din klinik."
-    },
-    "out": {
-      "month": "Dækningsbidrag / måned",
-      "revenue": "Selvbetaler-omsætning / måned",
-      "year": "Dækningsbidrag / år",
-      "per_test": "Dækningsbidrag pr. test",
-      "payback": "Tilbagebetaling (måneder)"
-    },
-    "warn_negative": "Med disse værdier er dækningsbidraget negativt – tjek venligst priser/omkostninger.",
-    "payback_hint": "For din individuelle tilbagebetaling: anmod om tilbud eller rapporten.",
-    "disclaimer": "Uforpligtende eksempelberegning på baggrund af dine indtastninger. Ingen garanti for omsætning eller gevinst.",
-    "cta_consult": "Anmod om tilbud",
-    "cta_report": "Send resultatet som PDF",
-    "form": {
-      "email": "E-mailadresse",
-      "field": "Speciale",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Andet",
-      "practice": "Klinikkens navn (valgfrit)",
-      "consent": "Jeg samtykker i, at mine oplysninger behandles med henblik på fremsendelse af rapporten og kontakt.",
-      "privacy": "Privatlivspolitik",
-      "submit": "Anmod om rapport",
-      "sending": "Sender …",
-      "success": "Tak! Vi sender dig rapporten inden længe.",
-      "error": "Ikke muligt i øjeblikket – book venligst en rådgivning direkte.",
-      "error_retryable": "Det lykkedes ikke lige nu. Prøv igen om et øjeblik – dine indtastninger bevares."
-    },
-    "report_hint": "Som PDF til jeres e-mail"
   },
   "segments": {
     "dental": {

@@ -133,9 +133,8 @@
     "related_services": "Diagnostica correlata",
     "sources": "Fonti",
     "longread": "Approfondimento",
-    "cta_title": "Calcola il tuo potenziale di risparmio.",
-    "cta_subtitle": "Calcolatore ROI o consulenza — in meno di un minuto.",
-    "cta_secondary": "Calcolatore ROI",
+    "cta_title": "Parliamo del tuo studio.",
+    "cta_subtitle": "Consulenza personale — richiesta in meno di un minuto.",
     "read_time": "{{minutes}} min di lettura"
   },
   "ui": {

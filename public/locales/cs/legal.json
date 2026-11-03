@@ -162,6 +162,8 @@
     "section6": {
       "title": "6. Formuláře, souhlasy a tok dat",
       "consent_mode": "Tento web používá Google Consent Mode v2 (základní režim): analytické a marketingové nástroje (např. Google Analytics 4 prostřednictvím Google Tag Manageru) se načítají až poté, co udělíte souhlas v cookie liště. Před udělením souhlasu a při jeho odmítnutí není kontaktován žádný analytický ani marketingový poskytovatel.",
+      "google_ads_title": "Měření konverzí Google Ads",
+      "google_ads_content": "S vaším souhlasem s kategorií „Marketing“ načítáme značku Google Ads společnosti Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irsko). Měří, zda návštěva nebo poptávka pochází z reklamy Google (konverze), a ukládá k tomu cookies (mj. „_gcl_au“). Údaje mohou být předány společnosti Google LLC v USA; Google LLC je certifikována podle rámce EU-US Data Privacy Framework. Právním základem je váš souhlas (čl. 6 odst. 1 písm. a) GDPR, § 25 odst. 1 TDDDG). Bez souhlasu se značka nenačte; souhlas můžete kdykoli odvolat v cookie liště.",
       "support_title": "Formulář podpory a přílohy",
       "support_content": "Údaje odeslané prostřednictvím formuláře podpory (jméno, e-mailová adresa, UDI zařízení, verze softwaru, popis problému) se nejprve ukládají do databáze na našem serveru a teprve poté se e-mailem předávají našemu týmu podpory. Volitelné přílohy (dokumenty a obrázky v povolených formátech) se ukládají pod automaticky vygenerovaným, veřejně nepřístupným názvem a výhradně se váží k případu podpory; předpokládaná lhůta smazání je 90 dní. Nepředávají se třetím stranám.",
       "marketing_title": "Oddělené souhlasy",

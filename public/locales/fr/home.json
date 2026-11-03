@@ -10,7 +10,6 @@
     "description": "IglooPro lit les tests rapides de nombreux fabricants et affiche la valeur pendant que le patient reste au fauteuil.",
     "cta": "Demander un devis",
     "cta_secondary": "Réserver un rendez-vous d'information",
-    "cta_roi": "Lancer le calculateur de ROI",
     "cta_downloads": "Télécharger la documentation",
     "stat1": {
       "value": "3 à 5 jours ouvrés",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Prêt à vous lancer",
     "title": "Prêt pour un diagnostic d'une précision de laboratoire dans votre cabinet ?",
-    "subtitle": "Échangez avec notre équipe sur une solution point-of-care adaptée ou vérifiez vos propres hypothèses avec le calculateur de ROI sans engagement.",
+    "subtitle": "Échangez avec notre équipe sur une solution point-of-care adaptée à votre cabinet.",
     "cta_primary": "Demander un devis",
-    "cta_secondary": "Calculateur de ROI",
     "chips": {
       "free": "Demande sans engagement",
       "reply": "Conseil personnalisé",
       "delivery": "Disponible en 10 langues"
     }
-  },
-  "roi": {
-    "caption": "Calculateur de ROI",
-    "title": "Qu'apporte le diagnostic POC à votre cabinet ?",
-    "intro": "Découvrez en moins d'une minute le potentiel de prestations privées que le diagnostic au fauteuil représente pour votre cabinet.",
-    "input": {
-      "tests": "Tests par mois",
-      "price": "Prix par test (€)",
-      "material": "Coût du matériel par test (€)",
-      "minutes": "Minutes par test",
-      "staff": "Coût du personnel par heure (€)",
-      "investment": "Investissement matériel (€, facultatif)",
-      "hint": "Valeurs d'exemple – à adapter à votre cabinet."
-    },
-    "out": {
-      "month": "Marge sur coûts variables / mois",
-      "revenue": "Chiffre d'affaires en prestations privées / mois",
-      "year": "Marge sur coûts variables / an",
-      "per_test": "Marge sur coûts variables par test",
-      "payback": "Amortissement (mois)"
-    },
-    "warn_negative": "Avec ces valeurs, la marge sur coûts variables est négative – veuillez vérifier les prix et les coûts.",
-    "payback_hint": "Pour votre amortissement individuel : demandez un devis ou le rapport.",
-    "disclaimer": "Calcul d'exemple sans engagement, fondé sur vos saisies. Aucune garantie de chiffre d'affaires ou de bénéfice.",
-    "cta_consult": "Demander un devis",
-    "cta_report": "Recevoir le résultat en PDF",
-    "form": {
-      "email": "Adresse e-mail",
-      "field": "Spécialité",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Autre",
-      "practice": "Nom du cabinet (facultatif)",
-      "consent": "J'accepte que mes données soient traitées pour l'envoi du rapport et la prise de contact.",
-      "privacy": "Politique de confidentialité",
-      "submit": "Demander le rapport",
-      "sending": "Envoi en cours …",
-      "success": "Merci ! Nous vous envoyons le rapport sous peu.",
-      "error": "Actuellement indisponible – veuillez réserver directement un conseil.",
-      "error_retryable": "Cela n'a pas fonctionné à l'instant. Merci de réessayer dans un moment – vos données sont conservées."
-    },
-    "report_hint": "En PDF, envoyé à votre e-mail"
   },
   "segments": {
     "dental": {

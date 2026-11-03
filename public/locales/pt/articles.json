@@ -133,9 +133,8 @@
     "related_services": "Diagnósticos relacionados",
     "sources": "Fontes",
     "longread": "Leitura Longa",
-    "cta_title": "Calcule o seu potencial de poupança.",
-    "cta_subtitle": "Calculadora de ROI ou uma consulta — em menos de um minuto.",
-    "cta_secondary": "Calculadora de ROI",
+    "cta_title": "Vamos falar sobre a sua clínica.",
+    "cta_subtitle": "Aconselhamento pessoal — pedido em menos de um minuto.",
     "read_time": "Leitura de {{minutes}} min"
   },
   "ui": {

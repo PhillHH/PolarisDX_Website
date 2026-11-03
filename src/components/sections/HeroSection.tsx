@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { HERO_CARD } from '../../assets/home/homeImages'
 import { getNextHomeEvent } from '../../data/events'
 import { isPanelsPromoActive } from '../../lib/shop'
-import { getHomepageSalesTarget } from '../../lib/homepageConversion'
 import { Button } from '../ui/Button'
 import { STAGE } from './heroStage'
 
@@ -16,8 +15,9 @@ const HERO_SLIDES_DELAY_MS = 1500
 /**
  * SSR-first Startseiten-Bühne (SC-021, Owner 2026-11-02 — Entwurf 13A-4, als Slider).
  *
- * Weißes Band auf der Papierseite („Hero, das sich abgrenzt"): Eyebrow, H1, ein Satz, zwei
- * Knöpfe; rechts das saubere Praxisfoto als 16:10-Karte (`HERO_CARD`), dekorativ (`alt=""`),
+ * Weißes Band auf der Papierseite („Hero, das sich abgrenzt"): Eyebrow, H1, ein Satz, ein
+ * Knopf (SC-023, Owner 2026-11-03: „Angebot anfragen" aus Kopfzeile und Hero entfernt — es bleibt
+ * „Infotermin buchen" → /contact, ohne Verkaufs-Attribution); rechts das saubere Praxisfoto als 16:10-Karte (`HERO_CARD`), dekorativ (`alt=""`),
  * das einzige Bild mit `fetchpriority="high"` und auf allen Viewports das LCP-Element.
  * Folie 1 ist dieses serverseitige Markup; 1,5 s nach dem Laden kommen Folie 2 (nächster Termin
  * mit Navy-Kachel) und Folie 3 (Panel-Aktion) als Overlay dazu (`HeroSlides`). Owner 2026-11-02
@@ -26,7 +26,7 @@ const HERO_SLIDES_DELAY_MS = 1500
  * dem dritten Motiv geht es zu Folie 2. Gibt es weder
  * Termin noch Aktion, bleibt die Bühne statisch — dann auch kein Platz für die Bedienung.
  *
- * DOM-Reihenfolge: Eyebrow → H1 → Satz → Knöpfe → Foto (mobil also beide Aktionen vor dem Bild).
+ * DOM-Reihenfolge: Eyebrow → H1 → Satz → Knopf → Foto (mobil also die Aktion vor dem Bild).
  */
 
 /**
@@ -108,23 +108,12 @@ const HeroSection = () => {
           <p className={STAGE.lead}>{t('hero.description')}</p>
 
           <div className={STAGE.actions}>
-            <Button
-              to={getHomepageSalesTarget('hero')}
-              variant="secondary"
-              data-cta-intent="GENERAL_SALES"
-              data-cta-source="homepage"
-              data-cta-journey="general_sales"
-              data-cta-section="hero"
-              className={STAGE.primary}
-            >
-              {t('hero.cta')}
+            <Button to="/contact" variant="secondary" data-home-hero-cta className={STAGE.primary}>
+              {t('hero.cta_secondary')}
               <ArrowRight
                 className="h-4 w-4 transition group-hover:translate-x-1 motion-reduce:transform-none"
                 aria-hidden="true"
               />
-            </Button>
-            <Button to="/contact" variant="ghost" data-home-hero-secondary className={STAGE.ghost}>
-              {t('hero.cta_secondary')}
             </Button>
           </div>
           {/* SC-020: fester Platz fuer die Slider-Bedienung (HeroSlides setzt sie per Portal ein) */}

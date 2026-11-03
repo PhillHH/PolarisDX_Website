@@ -4,7 +4,6 @@
     "title": "IglooPro für professionelle Point-of-Care-Workflows",
     "description": "Der IglooPro ist ein eigenständiger Point-of-Care-Reader für Praxen und Kliniken. Gemeinsam klären wir, welches unterstützte Setup und Testportfolio zu Ihrem Arbeitsablauf passt.",
     "cta_order": "Angebot anfragen",
-    "cta_secondary": "ROI-Rechner öffnen",
     "cta_datasheet": "Datenblatt (PDF)",
     "subline": "Für Praxen und Kliniken · Persönliche Einordnung statt Standardpaket",
     "chip_ivdr": "IVDR/CE",
@@ -204,7 +203,6 @@
     "title": "IglooPro für Ihren Workflow prüfen",
     "description": "Beschreiben Sie Ihren Einsatzkontext. Gemeinsam klären wir den aktuell unterstützten Umfang und den passenden nächsten Schritt.",
     "button": "Angebot anfragen",
-    "resources": "ROI-Rechner öffnen",
     "datasheet": "Datenblatt (PDF)",
     "chips": {
       "free": "Kostenlos & unverbindlich",

@@ -10,7 +10,6 @@
     "description": "O IglooPro lê testes rápidos de muitos fabricantes e mostra o valor enquanto o paciente permanece na cadeira.",
     "cta": "Pedir orçamento",
     "cta_secondary": "Marcar uma reunião informativa",
-    "cta_roi": "Iniciar calculadora de ROI",
     "cta_downloads": "Descarregar materiais informativos",
     "stat1": {
       "value": "3-5 dias úteis",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Pronto para começar",
     "title": "Pronto para um diagnóstico com precisão laboratorial no seu consultório?",
-    "subtitle": "Fale com a nossa equipa sobre uma solução point-of-care adequada ou reveja os seus pressupostos com a calculadora de ROI sem compromisso.",
+    "subtitle": "Fale com a nossa equipa sobre uma solução point-of-care adequada para a sua clínica.",
     "cta_primary": "Pedir orçamento",
-    "cta_secondary": "Calculadora de ROI",
     "chips": {
       "free": "Pedido sem compromisso",
       "reply": "Aconselhamento pessoal",
       "delivery": "Disponível em 10 idiomas"
     }
-  },
-  "roi": {
-    "caption": "Calculadora de ROI",
-    "title": "O que traz o diagnóstico POC ao seu consultório?",
-    "intro": "Veja em menos de um minuto qual o potencial de pagamento particular que o diagnóstico chairside tem no seu consultório.",
-    "input": {
-      "tests": "Testes por mês",
-      "price": "Preço por teste (€)",
-      "material": "Custos de material por teste (€)",
-      "minutes": "Minutos por teste",
-      "staff": "Custos de pessoal por hora (€)",
-      "investment": "Investimento no dispositivo (€, opcional)",
-      "hint": "Valores de exemplo – ajuste ao seu consultório."
-    },
-    "out": {
-      "month": "Margem de contribuição / mês",
-      "revenue": "Receita particular / mês",
-      "year": "Margem de contribuição / ano",
-      "per_test": "Margem de contribuição por teste",
-      "payback": "Amortização (meses)"
-    },
-    "warn_negative": "Com estes valores, a margem de contribuição é negativa – verifique os preços/custos.",
-    "payback_hint": "Para a sua amortização individual: peça um orçamento ou o relatório.",
-    "disclaimer": "Cálculo de exemplo, sem caráter vinculativo, com base nos seus dados. Não constitui qualquer garantia de receita ou lucro.",
-    "cta_consult": "Pedir orçamento",
-    "cta_report": "Enviar o resultado em PDF",
-    "form": {
-      "email": "Endereço de e-mail",
-      "field": "Especialidade",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Outra",
-      "practice": "Nome do consultório (opcional)",
-      "consent": "Consinto que os meus dados sejam tratados para o envio do relatório e para contacto.",
-      "privacy": "Política de privacidade",
-      "submit": "Solicitar relatório",
-      "sending": "A enviar …",
-      "success": "Obrigado! Enviar-lhe-emos o relatório em breve.",
-      "error": "De momento não é possível – agende diretamente uma consulta.",
-      "error_retryable": "Neste momento não funcionou. Tente novamente daqui a pouco — os seus dados são mantidos."
-    },
-    "report_hint": "Em PDF para o seu e-mail"
   },
   "segments": {
     "dental": {

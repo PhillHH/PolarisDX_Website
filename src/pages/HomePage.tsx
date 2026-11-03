@@ -15,7 +15,6 @@ import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import StepsSection from '../components/sections/StepsSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
-import RoiCalculatorSection from '../components/sections/RoiCalculatorSection'
 import FAQSection from '../components/sections/FAQSection'
 import BlogSection from '../components/sections/BlogSection'
 import EventBand from '../components/events/EventBand'
@@ -72,7 +71,7 @@ const HomePage = () => {
       <div className="pt-20 lg:pt-24">
         <TestimonialsSection />
       </div>
-      <RoiCalculatorSection />
+      {/* SC-023 (Owner 2026-11-03): ROI-Rechner von der Startseite entfernt. */}
       <div className="mx-auto w-full max-w-container px-4 py-24 lg:px-0 lg:py-32">
         <BlogSection />
       </div>

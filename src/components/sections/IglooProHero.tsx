@@ -1,4 +1,4 @@
-import { ArrowRight, Calculator } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
 import { Button } from '../ui/Button'
@@ -59,15 +59,7 @@ export default function IglooProHero() {
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Button>
-            <Button
-              to="/#roi-rechner"
-              variant="ghost"
-              data-igloo-hero-secondary
-              className="w-full justify-center !text-white ring-1 ring-inset ring-white/25 hover:!bg-white/10 focus-visible:!ring-white focus-visible:!ring-offset-brand-deep sm:w-auto"
-            >
-              <Calculator className="h-4 w-4" aria-hidden="true" />
-              {t('products:hero.cta_secondary')}
-            </Button>
+            {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Knopf entfernt. */}
           </div>
 
           <p className="enter mt-5 max-w-xl text-sm leading-relaxed text-white/70">

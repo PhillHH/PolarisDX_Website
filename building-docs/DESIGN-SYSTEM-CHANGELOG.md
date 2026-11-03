@@ -54,6 +54,13 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **SC-023 (2026-11-03, Owner): Kopfzeile ohne Navy-Zelle „Angebot anfragen“, Bühne mit einem Knopf, ROI-Rechner
+  weg.** Kopfzeile: die `bg-brand-deep`-Zelle (Desktop) und die Mobil-Pille im Menü entfallen; die Leiste endet mit
+  Shop-Zellen, Suche, Menü (Fokusring-Konstante `FOCUS_ON_NAVY` entfernt). Bühne: nur noch „Infotermin buchen“ als
+  `secondary`-Pille mit Pfeil (vorher Navy + Outline). `RoiCalculatorSection` (Navy-Ergebniskarte, Formular)
+  gelöscht; Schluss-CTA, IglooPro-Bühne/-Schluss-CTA und Artikel-Schlusskarte ohne Outline-Knopf „ROI-Rechner“.
+  Keine Token-Änderung. Baselines PT27.6: alle Desktop-Screenshots mit Kopfzeile sowie `home-mobile`,
+  `navigation-open-mobile` (Menü ohne Pille), `igloo-pro-desktop`, `article-desktop` erneut — siehe AP-STATE.
 - **Team-Sektion (Nachtrag 5, 2026-11-03, Entwurf T3):** neue Startseiten-Sektion ohne neue Token —
   `t-eyebrow`/`t-display` mit `text-accent`-Zeile, Fakten mit `lucide`-Icons in `accent`, Knöpfe
   `secondary` + Outline-Pille (§3.4); Foto `rounded-card shadow-card -rotate-2` auf `bg-brand-deep`

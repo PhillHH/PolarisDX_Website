@@ -10,7 +10,6 @@
     "description": "IglooPro odczytuje szybkie testy wielu producentów i pokazuje wynik, gdy pacjent pozostaje na fotelu.",
     "cta": "Poproś o ofertę",
     "cta_secondary": "Umów rozmowę informacyjną",
-    "cta_roi": "Uruchom kalkulator ROI",
     "cta_downloads": "Pobierz materiały informacyjne",
     "stat1": {
       "value": "3–5 dni roboczych",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Gotów, by zacząć",
     "title": "Gotów na diagnostykę o dokładności laboratoryjnej w swoim gabinecie?",
-    "subtitle": "Porozmawiaj z naszym zespołem o odpowiednim rozwiązaniu point-of-care lub sprawdź własne założenia w niezobowiązującym kalkulatorze ROI.",
+    "subtitle": "Porozmawiaj z naszym zespołem o odpowiednim rozwiązaniu point-of-care dla Twojego gabinetu.",
     "cta_primary": "Poproś o ofertę",
-    "cta_secondary": "Kalkulator ROI",
     "chips": {
       "free": "Niezobowiązujące zapytanie",
       "reply": "Indywidualna konsultacja",
       "delivery": "Dostępne w 10 językach"
     }
-  },
-  "roi": {
-    "caption": "Kalkulator ROI",
-    "title": "Co diagnostyka POC daje Twojemu gabinetowi?",
-    "intro": "W mniej niż minutę zobacz, jaki potencjał przychodów z usług płatnych ma diagnostyka chairside w Twoim gabinecie.",
-    "input": {
-      "tests": "Testy miesięcznie",
-      "price": "Cena za test (€)",
-      "material": "Koszt materiałów na test (€)",
-      "minutes": "Minuty na test",
-      "staff": "Koszt personelu za godzinę (€)",
-      "investment": "Inwestycja w urządzenie (€, opcjonalnie)",
-      "hint": "Wartości przykładowe – dostosuj je do swojego gabinetu."
-    },
-    "out": {
-      "month": "Marża pokrycia / miesiąc",
-      "revenue": "Przychód z usług płatnych / miesiąc",
-      "year": "Marża pokrycia / rok",
-      "per_test": "Marża pokrycia na test",
-      "payback": "Amortyzacja (miesiące)"
-    },
-    "warn_negative": "Przy tych wartościach marża pokrycia jest ujemna – sprawdź ceny/koszty.",
-    "payback_hint": "Dla indywidualnego zwrotu z inwestycji: poproś o ofertę lub zamów raport.",
-    "disclaimer": "Niewiążące obliczenie przykładowe na podstawie podanych danych. Nie stanowi gwarancji przychodu ani zysku.",
-    "cta_consult": "Poproś o ofertę",
-    "cta_report": "Prześlij wynik w formacie PDF",
-    "form": {
-      "email": "Adres e-mail",
-      "field": "Specjalizacja",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Inna",
-      "practice": "Nazwa gabinetu (opcjonalnie)",
-      "consent": "Wyrażam zgodę na przetwarzanie moich danych w celu przesłania raportu i nawiązania kontaktu.",
-      "privacy": "Polityka prywatności",
-      "submit": "Zamów raport",
-      "sending": "Wysyłanie …",
-      "success": "Dziękujemy! Wkrótce prześlemy Ci raport.",
-      "error": "Obecnie niemożliwe – prosimy o bezpośrednie umówienie konsultacji.",
-      "error_retryable": "Tym razem się nie udało. Spróbuj ponownie za chwilę – Twoje dane zostaną zachowane."
-    },
-    "report_hint": "W formacie PDF na Państwa e-mail"
   },
   "segments": {
     "dental": {

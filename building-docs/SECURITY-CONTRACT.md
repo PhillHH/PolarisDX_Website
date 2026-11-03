@@ -191,11 +191,15 @@ connect-src 'self' https://region1.google-analytics.com https://www.google-analy
 
 ### 8.3 Third-Party-Allowlist (jede Origin mit Laufzeitgrund)
 
-| Origin                                 | Direktive     | Klasse            | Laufzeitgrund (gemessen PT26.2)                                                                           |
-| -------------------------------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
-| `https://www.googletagmanager.com`     | `script-src`  | CONSENT_ANALYTICS | `gtm.js` aus dem Loader nach Zustimmung; der Container laedt `gtag/js` von derselben Origin               |
-| `https://region1.google-analytics.com` | `connect-src` | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe aus der EU (Google liefert das Google-Tag dort mit `"33":"region1"` aus)     |
-| `https://www.google-analytics.com`     | `connect-src` | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe ausserhalb der EU (seit AP27-CLOSURE, Nutzerentscheidung 2026-10-15, §8.3.1) |
+| Origin                                 | Direktive                | Klasse            | Laufzeitgrund (gemessen PT26.2)                                                                           |
+| -------------------------------------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
+| `https://www.googletagmanager.com`     | `script-src`             | CONSENT_ANALYTICS | `gtm.js` aus dem Loader nach Zustimmung; der Container laedt `gtag/js` von derselben Origin               |
+| `https://region1.google-analytics.com` | `connect-src`            | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe aus der EU (Google liefert das Google-Tag dort mit `"33":"region1"` aus)     |
+| `https://www.google-analytics.com`     | `connect-src`            | CONSENT_ANALYTICS | GA4 `/g/collect` fuer Abrufe ausserhalb der EU (seit AP27-CLOSURE, Nutzerentscheidung 2026-10-15, §8.3.1) |
+| `https://googleads.g.doubleclick.net`  | `script-src`             | CONSENT_MARKETING | Google-Ads-Linker `/pagead/viewthroughconversion/<Konto>/` nach `config AW-…` (SC-022, §8.3.2)            |
+| `https://www.google.com`               | `connect-src`, `img-src` | CONSENT_MARKETING | Google-Ads-Erfassung `/rmkt/collect`, `/ccm/collect`; Bild `/pagead/1p-user-list` (SC-022, §8.3.2)        |
+| `https://www.google.de`                | `img-src`                | CONSENT_MARKETING | Google-Ads-Bild `/pagead/1p-user-list` auf der Laender-Domain des Abrufers (SC-022, §8.3.2)               |
+| `https://ad.doubleclick.net`           | `connect-src`            | CONSENT_MARKETING | Google-Ads-Erfassung `/ccm/s/collect` (SC-022, §8.3.2)                                                    |
 
 Messmethode: veroeffentlichter Container und Google-Tag einmal lesend abgerufen (oeffentliche Skripte, kein Collect), im Browser unter der durchgesetzten Policy lokal ausgeliefert; jede weitere externe Anfrage protokolliert und **abgebrochen**. Beobachtet: `gtm.js`, `gtag/js`, `region1…/g/collect` — sonst nichts, 0 Verstoesse.
 
@@ -213,6 +217,30 @@ Messmethode: veroeffentlichter Container und Google-Tag einmal lesend abgerufen 
   (`servedRegion` in `CSP_THIRD_PARTY_SOURCES`) und wertet nur den Diagnose-Beacon und den gesperrten
   Werbe-Abgleich als gewollt blockiert; jeder andere Verstoss bleibt ein Befund.
 
+#### 8.3.2 Nachtrag SC-022 (2026-11-03): Google-Ads-Tag nach Marketing-Zustimmung
+
+- **Auftrag:** Owner, Schnipsel `gtag/js?id=AW-18553833510` („binde das hier ein“). Nicht als Inline-Skript in
+  den Kopf (CSP ohne `'unsafe-inline'`, Basic Consent Mode), sondern als Loader in `src/lib/googleConsent.ts`:
+  nur nach **Marketing**-Zustimmung, genau einmal, Kennung aus `VITE_GOOGLE_ADS_ID` (`analyticsConfig.ts`,
+  Format `AW-` + 9–12 Ziffern; in `preview`/`staging` nur `VITE_GOOGLE_ADS_ID_PREVIEW`). Der `gtag`-Schnipsel
+  pusht jetzt wie bei Google `arguments` statt eines Arrays — nur so erkennen gtag.js/gtm.js `consent`/`config`
+  als Befehle.
+- **Gemessen (2026-11-03):** lokaler Produktionsbau mit Container `GTM-PL26PFFH` und `AW-18553833510`, Policy
+  Report-Only, Zustimmung „alle akzeptieren“, drei Seiten und ein Reload, Anfragen nicht abgebrochen (damit
+  Weiterleitungen sichtbar sind; ein Messbesuch in Ads/GA4). Beobachtete Werbe-Ziele: `googleads.g.doubleclick.net`
+  `/pagead/viewthroughconversion/…` (Skript), `www.google.com` `/rmkt/collect/…` und `/ccm/collect` (fetch) sowie
+  `/pagead/1p-user-list/…` (Bild), `www.google.de` `/pagead/1p-user-list/…` (Bild), `ad.doubleclick.net`
+  `/ccm/s/collect` (fetch). Sonst nichts; Cookies danach `_gcl_au`, `_ga`, `_ga_…`.
+- **Entscheidung:** genau diese vier Origins mit genau diesen Direktiven (§8.3). `www.google.com` war seit
+  2026-10-15 bewusst gesperrt (damals kein Werbe-Tag); der Owner-Auftrag hebt das auf. Andere Laender-Domains
+  (`www.google.<cc>`) bleiben ohne Wildcard gesperrt (N-13): der 1p-user-list-Ping ist ein Zweitbild, die
+  Conversion-Messung laeuft ueber `googleads.g.doubleclick.net`/`www.google.com`; betroffene Besucher sehen nur
+  eine Konsolenmeldung. `frame-src 'none'` bleibt (kein iframe beobachtet).
+- **Beweis:** `contentSecurityPolicy.test.ts` (Allowlist = genau sieben Origins, Marketing-Klasse),
+  `googleConsent.test.ts` (kein Tag ohne Marketing-Zustimmung, einmal, Widerruf entfernt es),
+  `analyticsConfig.test.ts` (Preview unterdrueckt die Produktions-Kennung); `pt26.2` prueft weiterhin, dass der
+  Testbau (ohne AW) keine Marketing-Origin anfragt.
+
 ### 8.4 Entfernt
 
 | Quelle                                                                             | Grund                                                                                                                                                                                                                                                                                                                                          |
@@ -220,7 +248,7 @@ Messmethode: veroeffentlichter Container und Google-Tag einmal lesend abgerufen 
 | `https:` (6 Direktiven), `'unsafe-eval'`, `'unsafe-inline'` (`script-src`, Styles) | ohne Verwender bzw. durch Hash ersetzt                                                                                                                                                                                                                                                                                                         |
 | `ssl.google-analytics.com`                                                         | Universal Analytics; GA4 nutzt die Domain nicht                                                                                                                                                                                                                                                                                                |
 | `fonts.googleapis.com`, `fonts.gstatic.com`                                        | Schrift selbstgehostet (N-02)                                                                                                                                                                                                                                                                                                                  |
-| `www.google.com` (`/g/collect`)                                                    | Werbe-Abgleich des Google-Tags ausserhalb der EU; bewusst **nicht** freigegeben (Nutzerentscheidung 2026-10-15, §8.3.1). Bis AP27-CLOSURE stand hier `www.google-analytics.com`; das ist seit 2026-10-15 wieder erlaubt (§8.3)                                                                                                                 |
+| ~~`www.google.com` (`/g/collect`)~~                                                | bis SC-022 bewusst nicht freigegeben (Nutzerentscheidung 2026-10-15, §8.3.1); seit 2026-11-03 fuer das Google-Ads-Tag in `connect-src`/`img-src` (§8.3.2). `stats.g.doubleclick.net` bleibt entfernt                                                                                                                                           |
 | `www.googletagmanager.com` in `connect-src`/`frame-src`, `img-src https:`          | kein Funktionsgrund. Beobachtet (1 von 3 Laeufen): gesampelter Diagnose-Beacon `www.googletagmanager.com/a?…` als Bild → von `img-src` blockiert, Erfassung unberuehrt. Weitere Code-Pfade: CSP-Meldungen an Google, optionales Service-Worker-iframe. Blockade gewollt (N-07/N-13); erzeugt gelegentlich eine Konsolenmeldung nach Zustimmung |
 | Chat/HiHuman                                                                       | seit AP22 PT22.7 weg; Guard in `chat-removal.test.js` und `contentSecurityPolicy.test.ts`                                                                                                                                                                                                                                                      |
 

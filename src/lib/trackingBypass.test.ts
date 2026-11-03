@@ -42,7 +42,7 @@ describe('PT23.2 · keine Umgehung im Quellbaum', () => {
     expect(treffer).toEqual([])
   })
 
-  it('fuehrt die zwoelf kanonischen Ereignisse der Taxonomie', () => {
+  it('fuehrt die elf kanonischen Ereignisse der Taxonomie (roi_report_request seit SC-023 entfernt)', () => {
     // AP23 PT23.3 — die Liste aus der Aufgabenstellung.
     // `consumer_order_submit` ist seit dem Shopify-Beschluss (2026-09-11)
     // keine geforderte Website-Konversion mehr; das Ereignis existiert
@@ -51,7 +51,6 @@ describe('PT23.2 · keine Umgehung im Quellbaum', () => {
       'page_view',
       'contact_submit',
       'support_submit',
-      'roi_report_request',
       'epigenetics_inquiry_submit',
       'lead_magnet_submit',
       'download_delivered',
@@ -64,7 +63,7 @@ describe('PT23.2 · keine Umgehung im Quellbaum', () => {
       expect(TRACKING_EREIGNISSE, name).toContain(name)
     }
     // Der Bestand aus AP15/AP19/AP21 bleibt — Engagement, keine Konversionen.
-    expect(TRACKING_EREIGNISSE).toHaveLength(17)
+    expect(TRACKING_EREIGNISSE).toHaveLength(16)
     // `consumer_page_view` ist entfallen: es zaehlte denselben Wechsel ein
     // zweites Mal, den `page_view` bereits meldet.
     expect(TRACKING_EREIGNISSE).not.toContain('consumer_page_view')

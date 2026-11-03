@@ -381,9 +381,14 @@ test.describe('PT26.2 · Consent-Netz unter der Policy', () => {
     const regional = CSP_THIRD_PARTY_SOURCES.filter((source) => source.servedRegion)
     const usedRegional = regional.filter((source) => origins.includes(source.origin))
     expect(usedRegional, origins.join('\n')).toHaveLength(1)
+    // SC-022: Die Marketing-Origins des Google-Ads-Tags gehoeren nicht zu diesem Testbau (kein
+    // AW-Tag konfiguriert); sie sind getrennt gemessen (SECURITY-CONTRACT §8.3.2). Hier gilt: jede
+    // Analytics-Origin wurde gebraucht, und keine Marketing-Origin wurde angefragt.
     expect(origins).toEqual(
       CSP_THIRD_PARTY_SOURCES.filter(
-        (source) => !source.servedRegion || usedRegional.includes(source),
+        (source) =>
+          source.classification === 'CONSENT_ANALYTICS' &&
+          (!source.servedRegion || usedRegional.includes(source)),
       )
         .map((source) => source.origin)
         .sort(),

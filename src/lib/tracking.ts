@@ -182,20 +182,18 @@ export interface ConsumerBestellEreignis {
 export type KonversionsName =
   | 'contact_submit'
   | 'support_submit'
-  | 'roi_report_request'
   | 'epigenetics_inquiry_submit'
   | 'lead_magnet_submit'
 
 export const KONVERSIONEN: readonly KonversionsName[] = [
   'contact_submit',
   'support_submit',
-  'roi_report_request',
   'epigenetics_inquiry_submit',
   'lead_magnet_submit',
 ] as const
 
 export interface KontaktKonversionEreignis {
-  name: 'contact_submit' | 'support_submit' | 'roi_report_request'
+  name: 'contact_submit' | 'support_submit'
 }
 
 export interface EpigenetikKonversionEreignis {
@@ -321,10 +319,10 @@ export type TrackingEreignisName = TrackingEreignis['name']
 export const TRACKING_EREIGNISSE = [
   // Seitenaufruf
   'page_view',
-  // Die fuenf Journey-Konversionen (state-gated)
+  // Die vier Journey-Konversionen (state-gated; `roi_report_request` seit SC-023 entfernt —
+  // der ROI-Rechner ist von der Startseite genommen, Owner 2026-11-03)
   'contact_submit',
   'support_submit',
-  'roi_report_request',
   'epigenetics_inquiry_submit',
   'lead_magnet_submit',
   // Zustellung (nur nach beobachtetem Erfolg)
@@ -498,11 +496,10 @@ export function pruefeEreignis(ereignis: TrackingEreignis): TrackingEreignis | n
       if (istConsumerSeite(ereignis.seite)) geprueft.seite = ereignis.seite
       return geprueft
     }
-    // Die drei kontextlosen Konversionen tragen NICHTS ausser ihrem Namen:
+    // Die zwei kontextlosen Konversionen tragen NICHTS ausser ihrem Namen:
     // keine Vorgangsnummer, keine Lead-ID, kein Kontaktdatum.
     case 'contact_submit':
     case 'support_submit':
-    case 'roi_report_request':
       return { name: ereignis.name }
     case 'epigenetics_inquiry_submit': {
       const geprueft: EpigenetikKonversionEreignis = { name: 'epigenetics_inquiry_submit' }

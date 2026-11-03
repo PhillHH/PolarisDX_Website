@@ -41,7 +41,6 @@ const TRANSPORT: Record<TrackingEreignis['name'], TransportArt> = {
   contact_submit: 'dataLayer',
   support_submit: 'dataLayer',
   consumer_order_submit: 'dataLayer',
-  roi_report_request: 'dataLayer',
   epigenetics_inquiry_submit: 'dataLayer',
   lead_magnet_submit: 'dataLayer',
   download_delivered: 'dataLayer',
@@ -79,10 +78,9 @@ function parameter(ereignis: TrackingEreignis): Record<string, unknown> {
         cta_location: ereignis.ort,
         ...(ereignis.seite ? { consumer_page: ereignis.seite } : {}),
       }
-    // Die drei kontextlosen Konversionen tragen keinen einzigen Parameter.
+    // Die zwei kontextlosen Konversionen tragen keinen einzigen Parameter.
     case 'contact_submit':
     case 'support_submit':
-    case 'roi_report_request':
       return {}
     case 'epigenetics_inquiry_submit':
       return ereignis.panel ? { panel: ereignis.panel } : {}

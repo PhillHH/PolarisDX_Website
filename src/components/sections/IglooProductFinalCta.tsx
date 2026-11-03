@@ -23,14 +23,7 @@ export default function IglooProductFinalCta() {
           <Button to="/contact" variant="light" size="sm" data-cta-intent="GENERAL_SALES">
             {t('cta_bottom.button', 'Angebot anfragen')}
           </Button>
-          <Button
-            to="/#roi-rechner"
-            variant="outline"
-            size="sm"
-            className="focus-visible:!ring-white"
-          >
-            {t('cta_bottom.resources')}
-          </Button>
+          {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Knopf entfernt. */}
         </div>
       </div>
     </section>

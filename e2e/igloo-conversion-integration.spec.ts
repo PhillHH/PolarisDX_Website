@@ -26,10 +26,9 @@ test('PT14.6 keeps both real conversion targets available in all ten locales', a
     const html = (await productResponse.text()).replaceAll('&amp;', '&')
     expect(html, `${productPath} primary label`).toContain(product.hero.cta_order)
     expect(html, `${productPath} final primary label`).toContain(product.cta_bottom.button)
-    expect(html, `${productPath} ROI label`).toContain(product.hero.cta_secondary)
-    expect(html, `${productPath} final ROI label`).toContain(product.cta_bottom.resources)
     expect(html, `${productPath} primary target`).toContain(`href="/${locale}/contact"`)
-    expect(html, `${productPath} ROI target`).toContain(`href="/${locale}#roi-rechner"`)
+    // SC-023: kein ROI-Rechner mehr — weder Knopf noch Ziel.
+    expect(html, `${productPath} ROI target`).not.toContain('#roi-rechner')
     expect(html, `${productPath} support target`).toContain(`href="/${locale}/support"`)
     expect(html, `${productPath} fake product resource`).not.toMatch(
       /href="[^"]*igloo-pro-(?:flyer|brochure|datasheet)/i,
@@ -41,11 +40,10 @@ test('PT14.6 keeps both real conversion targets available in all ten locales', a
     expect(contactResponse.headers().location, contactPath).toBeUndefined()
     expect(await contactResponse.text(), `${contactPath} form`).toContain('id="kontaktformular"')
 
-    const roiPath = `/${locale}/`
-    const roiResponse = await request.get(roiPath, { maxRedirects: 0 })
-    expect(roiResponse.status(), roiPath).toBe(200)
-    expect(roiResponse.headers().location, roiPath).toBeUndefined()
-    expect(await roiResponse.text(), `${roiPath} ROI runtime`).toContain('id="roi-rechner"')
+    const homePath = `/${locale}/`
+    const homeResponse = await request.get(homePath, { maxRedirects: 0 })
+    expect(homeResponse.status(), homePath).toBe(200)
+    expect(await homeResponse.text(), `${homePath} ROI removed`).not.toContain('id="roi-rechner"')
   }
 })
 

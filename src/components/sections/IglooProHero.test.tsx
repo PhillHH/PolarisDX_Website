@@ -12,7 +12,6 @@ type ProductResource = {
     title: string
     description: string
     cta_order: string
-    cta_secondary: string
     subline: string
     visual: { device_alt: string; context: string }
   }
@@ -48,9 +47,9 @@ describe('PT14.2 IglooPro Hero and proof contract', () => {
     expect(primary).toHaveAttribute('href', '/contact')
     expect(primary).toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
 
-    const secondary = screen.getByRole('link', { name: 'products:hero.cta_secondary' })
-    expect(secondary).toHaveAttribute('href', '/#roi-rechner')
-    expect(secondary).not.toHaveAttribute('data-cta-intent')
+    // SC-023: kein ROI-Rechner-Knopf mehr — genau eine Aktion in der Buehne.
+    expect(screen.queryByRole('link', { name: 'products:hero.cta_secondary' })).toBeNull()
+    expect(document.querySelector('[data-igloo-hero-secondary]')).toBeNull()
   })
 
   it('uses the real dimensioned LCP image and exposes no interactive visual', () => {
@@ -87,7 +86,6 @@ describe('PT14.2 IglooPro Hero and proof contract', () => {
         resource.hero.title,
         resource.hero.description,
         resource.hero.cta_order,
-        resource.hero.cta_secondary,
         resource.hero.subline,
         resource.hero.visual.device_alt,
         resource.hero.visual.context,

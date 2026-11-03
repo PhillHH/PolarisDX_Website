@@ -133,9 +133,8 @@
     "related_services": "Diagnostics associés",
     "sources": "Sources",
     "longread": "Lecture longue",
-    "cta_title": "Calculez votre potentiel d'économies.",
-    "cta_subtitle": "Calculateur de ROI ou consultation — en moins d'une minute.",
-    "cta_secondary": "Calculateur de ROI",
+    "cta_title": "Parlons de votre cabinet.",
+    "cta_subtitle": "Un conseil personnalisé — demandé en moins d’une minute.",
     "read_time": "Lecture de {{minutes}} min"
   },
   "ui": {

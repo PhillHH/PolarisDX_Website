@@ -20,6 +20,8 @@
  *   VITE_APP_ENV=production|preview|staging
  *   VITE_GTM_CONTAINER_ID=GTM-XXXXXXX
  *   VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+ *   VITE_GOOGLE_ADS_ID=AW-XXXXXXXXXX        (SC-022, Owner 2026-11-03: Google-Ads-Tag)
+ *   VITE_GOOGLE_ADS_ID_PREVIEW=AW-XXXXXXXXXX
  *
  * AP23 PT23.4 — zweite Regel, aus einer gemessenen Gefahr: **eine Vorschau
  * darf nicht in die Produktionsauswertung schreiben.** Der Container wird zur
@@ -44,12 +46,20 @@ export const HISTORICAL_BASELINE_GA4_MEASUREMENT = 'G-PLZNWGKW0P'
 const GTM_PATTERN = /^GTM-[A-Z0-9]{4,}$/
 /** GA4-Messkennung: `G-` plus mindestens acht Grossbuchstaben/Ziffern. */
 const GA4_PATTERN = /^G-[A-Z0-9]{8,}$/
+/** Google-Ads-Konto (Conversion-Tag): `AW-` plus neun bis zwoelf Ziffern. */
+const ADS_PATTERN = /^AW-[0-9]{9,12}$/
 
 export interface AnalyticsConfig {
   /** Der GTM-Container oder `null`, wenn keiner konfiguriert ist. */
   gtmContainerId: string | null
   /** Das GA4-Ziel oder `null`. Nur relevant, wenn GTM ein Google-Tag laedt. */
   ga4MeasurementId: string | null
+  /**
+   * SC-022 (Owner 2026-11-03): das Google-Ads-Tag (`gtag/js?id=AW-…`) oder `null`. Laedt
+   * unabhaengig vom Container, aber nur nach MARKETING-Einwilligung (`googleConsent.ts`); in
+   * `preview`/`staging` gilt wie beim Container nur die eigens gesetzte Preview-Kennung.
+   */
+  googleAdsId: string | null
   /** `true`, sobald ueberhaupt ein Provider geladen werden darf. */
   providerConfigured: boolean
   /** Wie sich die Umgebung benennt: `production`, `preview`, … */
@@ -111,6 +121,8 @@ export function resolveAnalyticsConfig(env: EnvLike = readEnv()): AnalyticsConfi
   const declared = normalize(env.VITE_GTM_CONTAINER_ID, GTM_PATTERN)
   const previewContainer = normalize(env.VITE_GTM_CONTAINER_ID_PREVIEW, GTM_PATTERN)
   const ga4MeasurementId = normalize(env.VITE_GA4_MEASUREMENT_ID, GA4_PATTERN)
+  const declaredAds = normalize(env.VITE_GOOGLE_ADS_ID, ADS_PATTERN)
+  const previewAds = normalize(env.VITE_GOOGLE_ADS_ID_PREVIEW, ADS_PATTERN)
   const environment = runtimeEnvironment(env)
 
   /**
@@ -121,11 +133,13 @@ export function resolveAnalyticsConfig(env: EnvLike = readEnv()): AnalyticsConfi
    */
   const isolated = NON_PRODUCTION.includes(environment as (typeof NON_PRODUCTION)[number])
   const gtmContainerId = isolated ? previewContainer : declared
+  const googleAdsId = isolated ? previewAds : declaredAds
 
   return {
     gtmContainerId,
     ga4MeasurementId: isolated && !previewContainer ? null : ga4MeasurementId,
-    providerConfigured: gtmContainerId !== null,
+    googleAdsId,
+    providerConfigured: gtmContainerId !== null || googleAdsId !== null,
     environment: environment || 'undeclared',
     /** `true`, wenn die Umgebung einen Produktionscontainer unterdrueckt hat. */
     productionContainerSuppressed: isolated && declared !== null && previewContainer === null,
@@ -139,6 +153,7 @@ export function resolveAnalyticsConfig(env: EnvLike = readEnv()): AnalyticsConfi
 export function describeAnalyticsConfig(env: EnvLike = readEnv()): {
   gtm: 'CONFIGURED' | 'UNCONFIGURED'
   ga4: 'CONFIGURED' | 'UNCONFIGURED'
+  ads: 'CONFIGURED' | 'UNCONFIGURED'
   environment: string
   productionContainerSuppressed: boolean
   externallyVerified: boolean
@@ -147,6 +162,7 @@ export function describeAnalyticsConfig(env: EnvLike = readEnv()): {
   return {
     gtm: config.gtmContainerId ? 'CONFIGURED' : 'UNCONFIGURED',
     ga4: config.ga4MeasurementId ? 'CONFIGURED' : 'UNCONFIGURED',
+    ads: config.googleAdsId ? 'CONFIGURED' : 'UNCONFIGURED',
     environment: config.environment,
     productionContainerSuppressed: config.productionContainerSuppressed,
     /**

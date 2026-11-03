@@ -397,7 +397,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
           </div>
         </section>
       )}
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

@@ -357,7 +357,7 @@ const SupportPage = () => {
           </div>
         </section>
       )}
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

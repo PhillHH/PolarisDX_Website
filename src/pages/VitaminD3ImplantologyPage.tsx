@@ -644,7 +644,7 @@ const VitaminD3ImplantologyPage = () => {
 
       {/* Mobile bottom padding for sticky CTA */}
       <div className="h-20 lg:hidden" />
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

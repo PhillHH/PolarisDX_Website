@@ -1,7 +1,8 @@
 export const HOMEPAGE_SALES_SOURCE = 'homepage' as const
 export const HOMEPAGE_SALES_JOURNEY = 'general_sales' as const
 
-export const HOMEPAGE_SALES_SECTIONS = ['hero', 'roi', 'final_cta'] as const
+// SC-023 (Owner 2026-11-03): Hero-CTA und ROI-Kontext entfernt — es bleibt der Schluss-CTA.
+export const HOMEPAGE_SALES_SECTIONS = ['final_cta'] as const
 export type HomepageSalesSection = (typeof HOMEPAGE_SALES_SECTIONS)[number]
 
 export interface HomepageSalesContext {

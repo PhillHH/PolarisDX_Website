@@ -15,45 +15,34 @@ const renderHero = () =>
  * `src/test/setup.ts` mockt `react-i18next` so, dass `t(key)` den Key zurückgibt.
  */
 describe('Homepage Hero contract', () => {
-  it('renders one stable H1 and two distinct, real route intents', () => {
+  it('renders one stable H1 and exactly one real route action (SC-023: no quote CTA)', () => {
     renderHero()
 
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('hero.title')
 
-    const primary = screen.getByRole('link', { name: 'hero.cta' })
-    expect(primary).toHaveAttribute(
-      'href',
-      '/contact?intent=quote&source=homepage&journey=general_sales&section=hero#kontaktformular',
-    )
-    expect(primary).toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
-    expect(primary).toHaveAttribute('data-cta-source', 'homepage')
-    expect(primary).toHaveAttribute('data-cta-journey', 'general_sales')
-    expect(primary).toHaveAttribute('data-cta-section', 'hero')
-
-    const secondary = screen.getByRole('link', { name: 'hero.cta_secondary' })
-    expect(secondary).toHaveAttribute('href', '/contact')
-    expect(secondary).not.toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
+    // Owner 2026-11-03: „Angebot anfragen“ aus Kopfzeile und Hero entfernt. Es bleibt der
+    // Infotermin — Kontaktseite ohne Verkaufs-Attribution.
+    const action = screen.getByRole('link', { name: 'hero.cta_secondary' })
+    expect(action).toHaveAttribute('href', '/contact')
+    expect(action).toHaveAttribute('data-home-hero-cta')
+    expect(action).not.toHaveAttribute('data-cta-intent')
+    expect(screen.queryByRole('link', { name: 'hero.cta' })).toBeNull()
+    expect(screen.getAllByRole('link')).toHaveLength(1)
   })
 
-  it('keeps caption, headline, sentence and both actions before the photo in DOM order', () => {
+  it('keeps caption, headline, sentence and the action before the photo in DOM order', () => {
     const { container } = renderHero()
 
     const heading = screen.getByRole('heading', { level: 1 })
-    const primary = screen.getByRole('link', { name: 'hero.cta' })
-    const secondary = screen.getByRole('link', { name: 'hero.cta_secondary' })
+    const action = screen.getByRole('link', { name: 'hero.cta_secondary' })
     const visual = container.querySelector('[data-home-hero-visual]')!
 
     expect(screen.getByText('hero.caption').compareDocumentPosition(heading)).toBe(
       Node.DOCUMENT_POSITION_FOLLOWING,
     )
-    expect(heading.compareDocumentPosition(primary) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
-    expect(
-      primary.compareDocumentPosition(secondary) & Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy()
-    expect(
-      secondary.compareDocumentPosition(visual) & Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy()
+    expect(heading.compareDocumentPosition(action) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(action.compareDocumentPosition(visual) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
   it('uses exactly one decorative, eager, dimensioned photo card and no carousel', () => {

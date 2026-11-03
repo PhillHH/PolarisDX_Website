@@ -55,7 +55,15 @@ async function isolateProviders(page: Page): Promise<Net> {
 const readDataLayer = (page: Page) =>
   page.evaluate(() => {
     const w = window as unknown as { dataLayer?: unknown[] }
-    return w.dataLayer === undefined ? null : (JSON.parse(JSON.stringify(w.dataLayer)) as unknown[])
+    if (w.dataLayer === undefined) return null
+    // SC-022: der gtag-Schnipsel pusht wie bei Google `arguments`-Objekte; fuer die Auswertung
+    // werden sie als Arrays gelesen (ein Array im Datenlayer waere fuer gtag.js kein Befehl).
+    const entries = w.dataLayer.map((entry) =>
+      Object.prototype.toString.call(entry) === '[object Arguments]'
+        ? Array.from(entry as ArrayLike<unknown>)
+        : entry,
+    )
+    return JSON.parse(JSON.stringify(entries)) as unknown[]
   }) as Promise<DataLayerEntry[] | null>
 
 const pushedEvents = (layer: DataLayerEntry[] | null) =>

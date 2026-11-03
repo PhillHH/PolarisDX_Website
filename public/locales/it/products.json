@@ -4,7 +4,6 @@
     "caption": "IglooPro · lettore Point-of-Care",
     "description": "IglooPro è un lettore Point-of-Care autonomo per studi e cliniche. Insieme valutiamo quale configurazione supportata e quale gamma di test si adattano al vostro flusso di lavoro.",
     "cta_order": "Richiedi un preventivo",
-    "cta_secondary": "Apri il calcolatore ROI",
     "cta_datasheet": "Scheda tecnica (PDF, DE)",
     "subline": "Per studi e cliniche · Consulenza personale invece di un pacchetto standard",
     "chip_ivdr": "IVDR/CE",
@@ -204,7 +203,6 @@
     "title": "Valutare IglooPro per il vostro workflow",
     "description": "Descrivete il vostro contesto d'uso. Insieme chiariamo l'ambito attualmente supportato e il passo successivo appropriato.",
     "button": "Richiedi un preventivo",
-    "resources": "Apri il calcolatore ROI",
     "datasheet": "Scheda tecnica (PDF, DE)",
     "chips": {
       "free": "Gratuito e senza impegno",

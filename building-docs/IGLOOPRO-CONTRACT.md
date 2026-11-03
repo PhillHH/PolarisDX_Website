@@ -617,3 +617,12 @@ Der Owner hat die PT14.4-Tabelle „Gelockter Produkt- und Content-Claim“ (`Ig
   (`data-igloo-specification` darf nicht vorkommen, kein `CV < 2 %` im Seiten-HTML).
 - Alles Übrige aus AP14 (keine unbelegten Spezifikationen, keine Parameterlisten, Flyer
   NOT_LAUNCH_VISIBLE) unverändert.
+
+## Nachtrag SC-023 (2026-11-03) — ROI-Knöpfe entfernt
+
+Owner: „entferne ROI Rechner … aus allen Buttons“. Die IglooPro-Bühne trägt nur noch „Angebot
+anfragen“ (`products:hero.cta_order`, `GENERAL_SALES` → `/contact`); `data-igloo-hero-secondary` und
+`products.hero.cta_secondary` sind entfernt. Der Schluss-CTA (`IglooProductFinalCta`) trägt nur noch
+„Angebot anfragen“; `products.cta_bottom.resources` ist entfernt. Belege: `IglooProHero.test.tsx`,
+`IglooProductJourney.test.tsx`, `e2e/igloo-hero-proof.spec.ts`, `e2e/igloo-conversion-integration.spec.ts`
+(kein `#roi-rechner` im HTML).

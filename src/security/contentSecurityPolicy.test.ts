@@ -92,12 +92,26 @@ describe('PT26.2 — Zielpolicy', () => {
     for (const source of CSP_THIRD_PARTY_SOURCES) {
       expect(source.origin).toMatch(/^https:\/\/[a-z0-9.-]+$/)
       expect(source.reason.length).toBeGreaterThan(20)
-      expect(source.classification).toBe('CONSENT_ANALYTICS')
+      expect(['CONSENT_ANALYTICS', 'CONSENT_MARKETING']).toContain(source.classification)
     }
     expect([...allowed].sort()).toEqual([
+      'https://ad.doubleclick.net',
+      'https://googleads.g.doubleclick.net',
       'https://region1.google-analytics.com',
       'https://www.google-analytics.com',
+      'https://www.google.com',
+      'https://www.google.de',
       'https://www.googletagmanager.com',
+    ])
+    // SC-022: Werbe-Origins nur mit Marketing-Klasse; keine davon in script-src ausser dem Linker.
+    const marketing = CSP_THIRD_PARTY_SOURCES.filter(
+      (s) => s.classification === 'CONSENT_MARKETING',
+    )
+    expect(marketing.map((s) => s.origin).sort()).toEqual([
+      'https://ad.doubleclick.net',
+      'https://googleads.g.doubleclick.net',
+      'https://www.google.com',
+      'https://www.google.de',
     ])
     // Erfassung: genau ein Endpunkt je Region, nur fuer connect-src.
     const collect = CSP_THIRD_PARTY_SOURCES.filter((source) => source.servedRegion)
@@ -108,6 +122,9 @@ describe('PT26.2 — Zielpolicy', () => {
   it('der GTM-Eintrag hat einen Verwender: den consent-gegateten Loader', () => {
     const loader = stripComments(read('src/lib/googleConsent.ts'))
     expect(loader).toContain('https://www.googletagmanager.com/gtm.js')
+    // SC-022: das Werbe-Tag haengt an der MARKETING-Zustimmung, nicht an `granted`.
+    expect(loader).toContain('https://www.googletagmanager.com/gtag/js?id=')
+    expect(loader).toMatch(/if \(!marketing \|\| isGoogleAdsLoaded\(\)\) return/)
     // Der Loader kehrt ohne Zustimmung vor jedem Seiteneffekt zurueck (AP23).
     expect(loader).toMatch(/if \(!granted && !providerAlreadyLoaded\)/)
   })

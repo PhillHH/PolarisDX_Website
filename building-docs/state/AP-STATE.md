@@ -23,6 +23,25 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-03 abends (SC-022 + SC-023, Preview):** SC-022 Google-Ads-Tag `AW-18553833510`
+als consent-gegateter Loader (nur Marketing-Zustimmung, `VITE_GOOGLE_ADS_ID` in `docker-compose.yml`,
+Preview unterdrückt es wie den Container), gtag-Schnipsel auf `arguments`, vier gemessene
+Marketing-Origins in der CSP (SECURITY-CONTRACT §8.3.2), Cookie-Banner-Text und Datenschutz-Absatz
+„Google Ads Conversion-Messung“ in zehn Sprachen (juristische Prüfung durch Owner offen). SC-023
+ROI-Rechner von der Startseite und aus allen Knöpfen entfernt (Komponente, Client, Strings,
+Konversion `roi_report_request`), „Angebot anfragen“ aus Kopfzeile (Zelle + Mobil-Pille) und Bühne
+(nur noch „Infotermin buchen“). Budget per Owner-Go: `routeJsGzip.downloads` 13.500 B; Startseiten-JS
+≈ 165,8 KB (−2,8 KB), `initialJsGzip` 162.150 B. Gates: Typecheck, ESLint, Prettier, Vitest 656/656
+(+1 skip), Guards + Claims, Perf-Budget ci 852/852, Playwright Startseite/Navigation/IglooPro/Artikel
+86/89, pt26.2 5/5, pt27.4 11/11, pt23.1 9/11, ap23-closure 11/12, pt24.4 18/19 (Node 20 für die
+Backend-Suiten: `better-sqlite3` ist für NODE_MODULE_VERSION 115 gebaut), Baselines PT27.6 22/22 nach
+Aktualisierung (20 neu: alle Desktop-Seiten mit Kopfzeile, `home-mobile`, `navigation-open-mobile`),
+Axe 27/27. **Nicht grün, aber auf HEAD identisch (vorbestehend, in Worktree gegengeprüft):**
+`articles-template` ×2 (Breadcrumb `/de`, lazy Artikelbild), `consent-basic-remediation` „grant“
+(Standardbau ohne Container), `pt23.1` ×2 (Kontaktformular `success`, Banner-Knopf
+`aria-controls`), `ap23-closure` Tastatur (dito), `pt24.4` Kontrast `/de/` (Messung unter dem
+Termin-Popup-Overlay). Code siehe Commit, Preview-Release siehe UEBERGABE-LOG.
+
 **Stand 2026-11-03 nachmittags (SC-021 Nachtrag 6, live):** IglooPro-Spezifikationstabelle
 `IglooSpecsSection` entfernt (Owner „Das muss raus“), `products.specification.*` gelöscht, Claim-Guard
 und E2E prüfen das Fernbleiben; 17 Desktop-Baselines für Kopfzeile „Shop“. Code `1f821af`,

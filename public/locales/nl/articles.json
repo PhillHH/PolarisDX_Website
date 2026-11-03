@@ -133,9 +133,8 @@
     "related_services": "Gerelateerde diagnostiek",
     "sources": "Bronnen",
     "longread": "Lang artikel",
-    "cta_title": "Bereken uw besparingspotentieel.",
-    "cta_subtitle": "ROI-calculator of een consult — in minder dan een minuut.",
-    "cta_secondary": "ROI-calculator",
+    "cta_title": "Laten we over uw praktijk praten.",
+    "cta_subtitle": "Persoonlijk advies — aangevraagd in minder dan een minuut.",
     "read_time": "{{minutes}} min leestijd"
   },
   "ui": {

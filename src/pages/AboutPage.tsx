@@ -254,7 +254,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

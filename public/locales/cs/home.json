@@ -10,7 +10,6 @@
     "description": "IglooPro čte rychlotesty mnoha výrobců a zobrazí hodnotu, zatímco pacient zůstává v křesle.",
     "cta": "Vyžádat nabídku",
     "cta_secondary": "Domluvit informační schůzku",
-    "cta_roi": "Spustit ROI kalkulačku",
     "cta_downloads": "Stáhnout informační materiály",
     "stat1": {
       "value": "3–5 pracovních dnů",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Připraveni začít",
     "title": "Připraveni na laboratorně přesnou diagnostiku ve vaší ordinaci?",
-    "subtitle": "Promluvte si s naším týmem o vhodném point-of-care řešení nebo si ověřte vlastní předpoklady v nezávazné ROI kalkulačce.",
+    "subtitle": "Promluvte si s naším týmem o vhodném point-of-care řešení pro vaši ordinaci.",
     "cta_primary": "Vyžádat nabídku",
-    "cta_secondary": "ROI kalkulačka",
     "chips": {
       "free": "Nezávazná poptávka",
       "reply": "Osobní konzultace",
       "delivery": "Dostupné v 10 jazycích"
     }
-  },
-  "roi": {
-    "caption": "ROI kalkulačka",
-    "title": "Co přinese POC diagnostika vaší ordinaci?",
-    "intro": "Za méně než minutu zjistíte, jaký potenciál samoplátců má diagnostika u křesla ve vaší ordinaci.",
-    "input": {
-      "tests": "Testů za měsíc",
-      "price": "Cena za test (€)",
-      "material": "Náklady na materiál za test (€)",
-      "minutes": "Minut na test",
-      "staff": "Mzdové náklady za hodinu (€)",
-      "investment": "Investice do přístroje (€, volitelné)",
-      "hint": "Příkladové hodnoty – upravte prosím podle své ordinace."
-    },
-    "out": {
-      "month": "Krycí příspěvek / měsíc",
-      "revenue": "Příjem od samoplátců / měsíc",
-      "year": "Krycí příspěvek / rok",
-      "per_test": "Krycí příspěvek na test",
-      "payback": "Návratnost (měsíce)"
-    },
-    "warn_negative": "Při těchto hodnotách je krycí příspěvek záporný – zkontrolujte prosím ceny/náklady.",
-    "payback_hint": "Pro vaši individuální návratnost: vyžádejte si nabídku nebo report.",
-    "disclaimer": "Nezávazný příkladový výpočet na základě vašich zadání. Nejedná se o příslib obratu ani zisku.",
-    "cta_consult": "Vyžádat nabídku",
-    "cta_report": "Zaslat výsledek jako PDF",
-    "form": {
-      "email": "E-mailová adresa",
-      "field": "Specializace",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Jiná",
-      "practice": "Název ordinace (volitelné)",
-      "consent": "Souhlasím se zpracováním svých údajů za účelem zaslání reportu a navázání kontaktu.",
-      "privacy": "Zásady ochrany osobních údajů",
-      "submit": "Vyžádat report",
-      "sending": "Odesílání …",
-      "success": "Děkujeme! Report vám brzy zašleme.",
-      "error": "Aktuálně to není možné – rezervujte si prosím přímo konzultaci.",
-      "error_retryable": "Právě teď se to nepodařilo. Zkuste to prosím za chvíli znovu – vaše údaje zůstávají zachovány."
-    },
-    "report_hint": "Jako PDF na váš e-mail"
   },
   "segments": {
     "dental": {

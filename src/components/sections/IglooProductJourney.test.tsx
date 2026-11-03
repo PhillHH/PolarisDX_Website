@@ -32,7 +32,7 @@ type ProductResource = {
     links_title: string
     links: Record<string, string>
   }
-  cta_bottom: { title: string; description: string; button: string; resources: string }
+  cta_bottom: { title: string; description: string; button: string }
 }
 
 const localeModules = import.meta.glob('/public/locales/*/products.json', {
@@ -90,9 +90,8 @@ describe('PT14.3 IglooPro features, workflow and compatibility contract', () => 
     expect(primary).toHaveAttribute('href', '/contact')
     expect(primary).toHaveAttribute('data-cta-intent', 'GENERAL_SALES')
 
-    const secondary = screen.getByRole('link', { name: 'cta_bottom.resources' })
-    expect(secondary).toHaveAttribute('href', '/#roi-rechner')
-    expect(secondary).not.toHaveAttribute('target')
+    // SC-023: kein ROI-Rechner-Knopf mehr.
+    expect(screen.queryByRole('link', { name: 'cta_bottom.resources' })).toBeNull()
   })
 
   it('provides complete and claim-safe journey content for exactly ten locales', () => {
@@ -138,7 +137,6 @@ describe('PT14.3 IglooPro features, workflow and compatibility contract', () => 
         resource.cta_bottom.title,
         resource.cta_bottom.description,
         resource.cta_bottom.button,
-        resource.cta_bottom.resources,
       ]
 
       for (const value of visibleValues) {

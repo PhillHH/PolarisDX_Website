@@ -10,7 +10,6 @@
     "description": "IglooPro leest sneltests van veel fabrikanten en toont de waarde terwijl de patiënt in de stoel blijft.",
     "cta": "Offerte aanvragen",
     "cta_secondary": "Infogesprek boeken",
-    "cta_roi": "ROI-calculator starten",
     "cta_downloads": "Informatiemateriaal downloaden",
     "stat1": {
       "value": "3–5 werkdagen",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Klaar om te beginnen",
     "title": "Klaar voor labnauwkeurige diagnostiek in uw praktijk?",
-    "subtitle": "Bespreek met ons team een passende point-of-care-oplossing of toets uw eigen aannames met de vrijblijvende ROI-calculator.",
+    "subtitle": "Bespreek met ons team een passende point-of-care-oplossing voor uw praktijk.",
     "cta_primary": "Offerte aanvragen",
-    "cta_secondary": "ROI-calculator",
     "chips": {
       "free": "Vrijblijvende aanvraag",
       "reply": "Persoonlijk advies",
       "delivery": "Beschikbaar in 10 talen"
     }
-  },
-  "roi": {
-    "caption": "ROI-calculator",
-    "title": "Wat levert POC-diagnostiek uw praktijk op?",
-    "intro": "Zie in minder dan een minuut welk zelfbetalerspotentieel chairside-diagnostiek in uw praktijk heeft.",
-    "input": {
-      "tests": "Tests per maand",
-      "price": "Prijs per test (€)",
-      "material": "Materiaalkosten per test (€)",
-      "minutes": "Minuten per test",
-      "staff": "Personeelskosten per uur (€)",
-      "investment": "Investering in apparatuur (€, optioneel)",
-      "hint": "Voorbeeldwaarden – pas deze aan uw praktijk aan."
-    },
-    "out": {
-      "month": "Dekkingsbijdrage / maand",
-      "revenue": "Omzet uit zelfbetalers / maand",
-      "year": "Dekkingsbijdrage / jaar",
-      "per_test": "Dekkingsbijdrage per test",
-      "payback": "Terugverdientijd (maanden)"
-    },
-    "warn_negative": "Bij deze waarden is de dekkingsbijdrage negatief – controleer de prijzen/kosten.",
-    "payback_hint": "Voor uw individuele terugverdientijd: vraag een offerte of het rapport aan.",
-    "disclaimer": "Vrijblijvende voorbeeldberekening op basis van uw invoer. Geen toezegging van omzet of winst.",
-    "cta_consult": "Offerte aanvragen",
-    "cta_report": "Resultaat als pdf toesturen",
-    "form": {
-      "email": "E-mailadres",
-      "field": "Vakgebied",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Anders",
-      "practice": "Praktijknaam (optioneel)",
-      "consent": "Ik ga ermee akkoord dat mijn gegevens worden verwerkt voor het toesturen van het rapport en voor contactopname.",
-      "privacy": "Privacyverklaring",
-      "submit": "Rapport aanvragen",
-      "sending": "Bezig met verzenden …",
-      "success": "Bedankt! Wij sturen u het rapport binnenkort toe.",
-      "error": "Momenteel niet mogelijk – boek direct een adviesgesprek.",
-      "error_retryable": "Dat lukte zojuist niet. Probeer het over een moment opnieuw – uw gegevens blijven behouden."
-    },
-    "report_hint": "Als PDF naar uw e-mail"
   },
   "segments": {
     "dental": {

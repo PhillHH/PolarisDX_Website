@@ -231,7 +231,7 @@
       },
       "marketing": {
         "name": "Marketing",
-        "description": "Ads."
+        "description": "Ads (Google Ads conversion measurement)."
       },
       "analytics": {
         "name": "Analytics",

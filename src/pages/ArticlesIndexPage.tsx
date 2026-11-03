@@ -194,7 +194,7 @@ const ArticlesIndexPage = () => {
 
       {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
       <EventBand />
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

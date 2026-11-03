@@ -10,7 +10,6 @@
     "description": "IglooPro legge i test rapidi di molti produttori e mostra il valore mentre il paziente resta sulla poltrona.",
     "cta": "Richiedi un preventivo",
     "cta_secondary": "Prenota un appuntamento informativo",
-    "cta_roi": "Avvia il calcolatore ROI",
     "cta_downloads": "Scarica il materiale informativo",
     "stat1": {
       "value": "3-5 giorni lavorativi",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Pronto a iniziare",
     "title": "Pronto per una diagnostica con precisione di laboratorio nel tuo studio?",
-    "subtitle": "Parla con il nostro team di una soluzione point-of-care adatta o verifica le tue ipotesi con il calcolatore ROI non vincolante.",
+    "subtitle": "Parla con il nostro team di una soluzione point-of-care adatta al tuo studio.",
     "cta_primary": "Richiedi un preventivo",
-    "cta_secondary": "Calcolatore ROI",
     "chips": {
       "free": "Richiesta non vincolante",
       "reply": "Consulenza personale",
       "delivery": "Disponibile in 10 lingue"
     }
-  },
-  "roi": {
-    "caption": "Calcolatore ROI",
-    "title": "Cosa porta la diagnostica POC al tuo studio?",
-    "intro": "In meno di un minuto scopri quale potenziale di prestazioni private ha la diagnostica chairside nel tuo studio.",
-    "input": {
-      "tests": "Test al mese",
-      "price": "Prezzo per test (€)",
-      "material": "Costo materiali per test (€)",
-      "minutes": "Minuti per test",
-      "staff": "Costo del personale all'ora (€)",
-      "investment": "Investimento nel dispositivo (€, opzionale)",
-      "hint": "Valori di esempio – adattali al tuo studio."
-    },
-    "out": {
-      "month": "Margine di contribuzione / mese",
-      "revenue": "Ricavi da prestazioni private / mese",
-      "year": "Margine di contribuzione / anno",
-      "per_test": "Margine di contribuzione per test",
-      "payback": "Ammortamento (mesi)"
-    },
-    "warn_negative": "Con questi valori il margine di contribuzione è negativo – controlla prezzi e costi.",
-    "payback_hint": "Per il tuo ammortamento individuale: richiedi un preventivo o il report.",
-    "disclaimer": "Calcolo di esempio non vincolante basato sui tuoi dati. Nessuna garanzia di fatturato o profitto.",
-    "cta_consult": "Richiedi un preventivo",
-    "cta_report": "Inviami il risultato in PDF",
-    "form": {
-      "email": "Indirizzo e-mail",
-      "field": "Specializzazione",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Altro",
-      "practice": "Nome dello studio (opzionale)",
-      "consent": "Acconsento al trattamento dei miei dati per l'invio del report e per essere ricontattato.",
-      "privacy": "Informativa sulla privacy",
-      "submit": "Richiedi il report",
-      "sending": "Invio in corso …",
-      "success": "Grazie! Ti invieremo il report a breve.",
-      "error": "Al momento non è possibile – prenota direttamente una consulenza.",
-      "error_retryable": "Al momento non ha funzionato. Riprova tra un istante – i tuoi dati vengono conservati."
-    },
-    "report_hint": "In PDF alla vostra e-mail"
   },
   "segments": {
     "dental": {

@@ -133,9 +133,8 @@
     "related_services": "Powiązana diagnostyka",
     "sources": "Źródła",
     "longread": "Long-read",
-    "cta_title": "Oblicz swój potencjał oszczędności.",
-    "cta_subtitle": "Kalkulator ROI lub konsultacja — w niecałą minutę.",
-    "cta_secondary": "Kalkulator ROI",
+    "cta_title": "Porozmawiajmy o Twoim gabinecie.",
+    "cta_subtitle": "Osobista konsultacja — zapytanie w niecałą minutę.",
     "read_time": "{{minutes}} min czytania"
   },
   "ui": {

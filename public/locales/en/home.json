@@ -10,7 +10,6 @@
     "description": "IglooPro reads rapid tests from many manufacturers and shows the value while the patient stays in the chair.",
     "cta": "Request a quote",
     "cta_secondary": "Book an info call",
-    "cta_roi": "Launch ROI calculator",
     "cta_downloads": "Download information materials",
     "stat1": {
       "value": "3–5 business days",
@@ -334,57 +333,13 @@
   "final_cta": {
     "caption": "Ready to get started",
     "title": "Ready for lab-accurate diagnostics in your practice?",
-    "subtitle": "Talk to our team about a suitable point-of-care solution or review your own assumptions with the non-binding ROI calculator.",
+    "subtitle": "Talk to our team about a suitable point-of-care solution for your practice.",
     "cta_primary": "Request a quote",
-    "cta_secondary": "ROI calculator",
     "chips": {
       "free": "Non-binding enquiry",
       "reply": "Personal consultation",
       "delivery": "Available in 10 languages"
     }
-  },
-  "roi": {
-    "caption": "ROI calculator",
-    "title": "What does POC diagnostics bring your practice?",
-    "intro": "See in under a minute what self-pay potential chairside diagnostics holds for your practice.",
-    "input": {
-      "tests": "Tests per month",
-      "price": "Price per test (€)",
-      "material": "Material cost per test (€)",
-      "minutes": "Minutes per test",
-      "staff": "Staff cost per hour (€)",
-      "investment": "Device investment (€, optional)",
-      "hint": "Example values – please adapt to your practice."
-    },
-    "out": {
-      "month": "Contribution margin / month",
-      "revenue": "Self-pay revenue / month",
-      "year": "Contribution margin / year",
-      "per_test": "Contribution margin per test",
-      "payback": "Payback period (months)"
-    },
-    "warn_negative": "With these values the contribution margin is negative – please check your prices/costs.",
-    "payback_hint": "For your individual payback: request a quote or request the report.",
-    "disclaimer": "Non-binding example calculation based on your inputs. No guarantee of revenue or profit.",
-    "cta_consult": "Request a quote",
-    "cta_report": "Send result as a PDF",
-    "form": {
-      "email": "Email address",
-      "field": "Specialty",
-      "opt_dental": "Dental",
-      "opt_beauty": "Beauty",
-      "opt_longevity": "Longevity",
-      "opt_other": "Other",
-      "practice": "Practice name (optional)",
-      "consent": "I consent to my details being processed in order to send the report and to make contact.",
-      "privacy": "Privacy policy",
-      "submit": "Request report",
-      "sending": "Sending …",
-      "success": "Thank you! We'll send you the report shortly.",
-      "error": "Not possible at the moment – please book a consultation directly.",
-      "error_retryable": "That didn't go through just now. Please try again in a moment — your entries are kept."
-    },
-    "report_hint": "As a PDF to your email"
   },
   "segments": {
     "dental": {

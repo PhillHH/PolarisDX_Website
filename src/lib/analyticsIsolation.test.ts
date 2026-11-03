@@ -100,10 +100,13 @@ describe('PT23.4 · providerbezogene CSP', () => {
   // Literal in server.ts. Gelesen wird die Policy, die der Server tatsaechlich ausliefert.
   const direktiven = buildContentSecurityPolicy()
 
-  it('fuehrt keine DoubleClick-Origin mehr', () => {
-    // Der veroeffentlichte Container enthaelt keinen einzigen Werbe-Tag
-    // (weder AW- noch DC-), also entsteht kein DoubleClick-Aufruf.
-    expect(direktiven).not.toContain('doubleclick')
+  it('fuehrt DoubleClick nur fuer das Google-Ads-Tag (SC-022), nie die alte Statistik-Origin', () => {
+    // Der veroeffentlichte Container enthaelt keinen Werbe-Tag; seit SC-022 (Owner 2026-11-03)
+    // laedt `googleConsent.ts` das Google-Ads-Tag NUR nach Marketing-Zustimmung. Gemessen:
+    // `googleads.g.doubleclick.net` (Linker-Skript) und `ad.doubleclick.net` (Erfassung).
+    expect(direktiven).toContain('https://googleads.g.doubleclick.net')
+    expect(direktiven).toContain('https://ad.doubleclick.net')
+    expect(direktiven).not.toContain('stats.g.doubleclick.net')
   })
 
   it('behaelt die Origins, die der Container nachweislich braucht', () => {
@@ -112,7 +115,9 @@ describe('PT23.4 · providerbezogene CSP', () => {
     // AP27-CLOSURE gemessen: ausserhalb der EU sendet das Google-Tag an `www`; der parallele
     // Werbe-Abgleich an `www.google.com` bleibt gesperrt (Nutzerentscheidung 2026-10-15).
     expect(direktiven).toContain('https://www.google-analytics.com')
-    expect(direktiven).not.toContain('https://www.google.com')
+    // SC-022: `www.google.com` ist seit dem Google-Ads-Tag freigegeben (connect-src, img-src),
+    // bis dahin bewusst gesperrt (Nutzerentscheidung 2026-10-15).
+    expect(direktiven).toContain('https://www.google.com')
   })
 
   it('fuehrt weiterhin keine Chat-Domain (DEC-RL-007)', () => {

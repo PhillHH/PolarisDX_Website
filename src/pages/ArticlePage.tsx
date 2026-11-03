@@ -495,12 +495,12 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               {/* Navy Schluss-CTA-Karte */}
               <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">
                 <h2 className="text-2xl font-medium tracking-tight">
-                  {t('articles:detail.cta_title', 'Rechnen Sie Ihr Einsparpotenzial durch.')}
+                  {t('articles:detail.cta_title', 'Lassen Sie uns über Ihre Praxis sprechen.')}
                 </h2>
                 <p className="mx-auto mt-2 max-w-md text-white/75">
                   {t(
                     'articles:detail.cta_subtitle',
-                    'ROI-Rechner oder Beratung — in unter einer Minute.',
+                    'Persönliche Beratung — in unter einer Minute angefragt.',
                   )}
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -510,16 +510,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
                   >
                     {t('common:nav.cta_quote', 'Angebot anfragen')}
                   </Link>
-                  {/* <Link> statt <a href="/#roi-rechner">: der rohe Anchor kannte
-                    den Sprach-Prefix nicht und landete immer auf /de/. Der
-                    Router haengt den Basename an; das Scrollen zum Anker
-                    uebernimmt ScrollToHash in App.tsx. */}
-                  <Link
-                    to="/#roi-rechner"
-                    className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-                  >
-                    {t('articles:detail.cta_secondary', 'ROI-Rechner')}
-                  </Link>
+                  {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Link entfernt. */}
                 </div>
               </div>
             </Reveal>

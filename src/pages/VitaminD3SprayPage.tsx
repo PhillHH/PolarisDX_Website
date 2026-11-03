@@ -592,7 +592,7 @@ const VitaminD3SprayPage = () => {
 
       {/* Mobile bottom padding */}
       <div className="h-20 lg:hidden" />
-      <FinalCtaSection roiHref="/#roi-rechner" />
+      <FinalCtaSection />
     </PageTransition>
   )
 }

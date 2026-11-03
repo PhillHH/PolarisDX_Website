@@ -73,12 +73,6 @@ describe('PT23.3 · sechs Konversionen, alle state-gated', () => {
       "track({ name: 'support_submit' })",
     ],
     [
-      'roi_report_request',
-      'src/components/sections/RoiCalculatorSection.tsx',
-      'if (result.ok)',
-      "track({ name: 'roi_report_request' })",
-    ],
-    [
       'epigenetics_inquiry_submit',
       'src/components/epigenetics/EpigeneticsInquiryForm.tsx',
       // AP26 PT26.3/PT26.5: der Erfolgszweig steht jetzt ausdruecklich vorn — die Konversion
@@ -94,7 +88,7 @@ describe('PT23.3 · sechs Konversionen, alle state-gated', () => {
     ],
   ]
 
-  it('kennt genau diese fuenf als Konversionen', () => {
+  it('kennt genau diese vier als Konversionen (roi_report_request seit SC-023 entfernt)', () => {
     expect([...KONVERSIONEN].sort()).toEqual(stellen.map(([name]) => name).sort())
   })
 
@@ -137,8 +131,8 @@ describe('PT23.3 · sechs Konversionen, alle state-gated', () => {
   })
 
   it('traegt in keiner Konversion eine Vorgangsnummer oder ein Kontaktdatum', () => {
-    // Die drei kontextlosen Konversionen tragen ueberhaupt keine Parameter.
-    for (const name of ['contact_submit', 'support_submit', 'roi_report_request'] as const) {
+    // Die zwei kontextlosen Konversionen tragen ueberhaupt keine Parameter.
+    for (const name of ['contact_submit', 'support_submit'] as const) {
       const geprueft = pruefeEreignis({ name } as TrackingEreignis)
       expect(Object.keys(geprueft ?? {})).toEqual(['name'])
     }

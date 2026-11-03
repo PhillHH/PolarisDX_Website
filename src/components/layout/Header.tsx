@@ -122,9 +122,6 @@ const MORE_LINKS: NavChild[] = [
 /** Fokusring innerhalb der Zellen — auf Weiss und auf den getoenten Flaechen gleich. */
 const FOCUS =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-primary'
-/** Fokusring auf Navy (CTA-Zelle). */
-const FOCUS_ON_NAVY =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white'
 /** Eine Zelle des Rasters: volle Hoehe, Haarlinie rechts. */
 const CELL = `flex h-full items-center border-r border-ui-border transition-colors motion-reduce:transition-none ${FOCUS}`
 /** Rundes Symbol-Abzeichen in den Shop-Zellen. */
@@ -451,14 +448,7 @@ const Header = () => {
             <span aria-hidden="true" className="min-w-0 flex-1 border-r border-ui-border" />
 
             {shopLinks('cell')}
-
-            <Link
-              to="/contact"
-              data-cta-role="GENERAL_SALES"
-              className={`hidden h-full shrink-0 items-center bg-brand-deep px-5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-hover motion-reduce:transition-none md:flex 2xl:px-5 2xl:text-base ${FOCUS_ON_NAVY}`}
-            >
-              {t('nav.cta_quote')}
-            </Link>
+            {/* SC-023 (Owner 2026-11-03): Navy-Zelle „Angebot anfragen“ entfernt. */}
 
             <button
               type="button"
@@ -696,13 +686,6 @@ const Header = () => {
                         </Link>
                       ))}
                     </span>
-                    <Link
-                      to="/contact"
-                      data-cta-role="GENERAL_SALES"
-                      className={`inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-brand-deep px-6 text-sm font-semibold text-white hover:bg-brand-navy-hover md:hidden ${FOCUS_ON_NAVY}`}
-                    >
-                      {t('nav.cta_quote')}
-                    </Link>
                   </div>
                 )}
               </div>

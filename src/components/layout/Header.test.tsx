@@ -125,7 +125,13 @@ describe('Header — externe Links', () => {
 })
 
 describe('Header — General Sales CTA', () => {
-  it('traegt den GENERAL_SALES-CTA mit dem CTA-Key, nicht mit der Nav-Beschriftung', () => {
+  it('traegt seit SC-023 keinen „Angebot anfragen“-CTA mehr (Owner 2026-11-03)', () => {
+    renderHeader()
+    expect(screen.queryByRole('link', { name: 'nav.cta_quote' })).toBeNull()
+    expect(document.querySelector('[data-cta-role="GENERAL_SALES"]')).toBeNull()
+  })
+
+  it.skip('traegt den GENERAL_SALES-CTA mit dem CTA-Key, nicht mit der Nav-Beschriftung', () => {
     renderHeader()
     const cta = screen.getAllByRole('link', { name: 'nav.cta_quote' })[0]
     expect(cta).toHaveAttribute('href', '/contact')
@@ -263,7 +269,7 @@ describe('Header — Inhaltsuebersicht', () => {
     )
   })
 
-  it('haelt die vier Hauptpunkte, beide Shops und den CTA auch in der Uebersicht bereit', () => {
+  it('haelt die vier Hauptpunkte und beide Shops auch in der Uebersicht bereit', () => {
     openMenu()
     const nav = within(mainNav())
     // Leiste und Uebersicht rendern beide — mindestens zwei Treffer je Ziel.
@@ -275,7 +281,6 @@ describe('Header — Inhaltsuebersicht', () => {
     ).toBeGreaterThan(1)
     expect(nav.getAllByRole('link', { name: /nav\.shop_practice/ }).length).toBeGreaterThan(1)
     expect(nav.getAllByRole('link', { name: /nav\.shop_epigenetics/ }).length).toBeGreaterThan(1)
-    expect(screen.getAllByRole('link', { name: 'nav.cta_quote' }).length).toBeGreaterThan(1)
     expect(nav.getByRole('link', { name: 'nav.downloads' })).toHaveAttribute('href', '/downloads')
     expect(nav.getByRole('link', { name: 'nav.about' })).toHaveAttribute('href', '/about')
   })

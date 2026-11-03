@@ -1114,3 +1114,30 @@ Offen bleiben ausschließlich Punkte, die **außerhalb dieses Repositories**
 liegen (Produktions-Property, Produktions-Deployment, Go-live-Umstellung) sowie
 die vier manuellen Preview-Prüfungen. Keiner davon macht eine Aussage dieser
 Arbeit unwahr; alle sind benannt, mit Owner.
+
+## 19. Delta SC-022 — Google-Ads-Tag (2026-11-03, Owner „binde das hier ein“)
+
+- **Was:** Google-Ads-Konto `AW-18553833510` als Google-Tag (`gtag/js?id=AW-…`, `gtag('config', …)`).
+  Das Owner-Schnipsel (Inline-Skript im Kopf) ist mit Basic Consent Mode und der CSP ohne
+  `'unsafe-inline'` nicht vereinbar; stattdessen lädt `src/lib/googleConsent.ts` das Tag.
+- **Wann:** ausschließlich nach **Marketing**-Zustimmung (`preferences.marketing`), genau einmal pro
+  Dokument, nach den Consent-Signalen (`consent default/update` stehen vor `config` im Datenlayer).
+  Analyse-Zustimmung allein lädt den Container, nicht das Werbe-Tag. Vor einer Entscheidung und bei
+  Ablehnung entsteht nichts (kein Script, kein Datenlayer-Eintrag). Widerruf entfernt das Script und
+  verlangt den Reload wie beim Container.
+- **Kennung:** `VITE_GOOGLE_ADS_ID` (Bauzeit, `docker-compose.yml`), Format `AW-` + 9–12 Ziffern, sonst
+  verworfen; `preview`/`staging` laden nur `VITE_GOOGLE_ADS_ID_PREVIEW` (nicht gesetzt → kein Tag auf der
+  Preview, wie beim Container). `describeAnalyticsConfig().ads` meldet den Stand ohne Kennung.
+- **`gtag`-Schnipsel korrigiert:** `dataLayer.push(arguments)` statt `push(args)` (Array). gtag.js und gtm.js
+  erkennen nur `Arguments`-Objekte als Befehle; das Array-Format der bisherigen Fassade hätte dem Ads-Tag
+  `config` nicht zugestellt. Tests lesen die Einträge jetzt über `Array.from`.
+- **Netz:** vier neue Marketing-Origins in der CSP, gemessen (SECURITY-CONTRACT §8.3.2, NETWORK-ALLOWLIST).
+  Die Lab-Messung des Perf-Budgets (ohne Zustimmung) bleibt bei 0 externen Anfragen.
+- **Oberfläche:** Cookie-Banner, Kategorie „Marketing“: „Werbung (Google Ads Conversion-Messung).“;
+  Datenschutzerklärung Abschnitt 6, neuer Unterabschnitt „Google Ads Conversion-Messung“ (zehn Sprachen,
+  Anbieter, Zweck, Cookie `_gcl_au`, Drittlandtransfer, Rechtsgrundlage, Widerruf). **Juristische Prüfung
+  des Textes durch den Owner steht aus.**
+- **Verifikation live:** das Tag feuert nur in Produktion nach Marketing-Zustimmung; Prüfung mit Google Tag
+  Assistant auf polarisdx.net nach dem Release. Konversionsziele (welche Aktion zählt als Conversion) liegen im
+  Google-Ads-Konto und sind von hier nicht einsehbar; die Website sendet heute `config` (Seitenaufruf) und die
+  Datenlayer-Ereignisse der Taxonomie (§14), die im Container als Conversion verdrahtet werden können.

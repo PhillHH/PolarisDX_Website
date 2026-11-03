@@ -133,9 +133,8 @@
     "related_services": "Související diagnostika",
     "sources": "Zdroje",
     "longread": "Long-read",
-    "cta_title": "Spočítejte si svůj potenciál úspor.",
-    "cta_subtitle": "Kalkulačka ROI nebo konzultace — za necelou minutu.",
-    "cta_secondary": "Kalkulačka ROI",
+    "cta_title": "Pojďme si promluvit o vaší ordinaci.",
+    "cta_subtitle": "Osobní konzultace — poptávka za necelou minutu.",
     "read_time": "{{minutes}} min čtení"
   },
   "ui": {

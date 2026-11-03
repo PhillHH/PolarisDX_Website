@@ -4,7 +4,6 @@
     "caption": "IglooPro · Point-of-Care čtečka",
     "description": "IglooPro je samostatná Point-of-Care čtečka pro ordinace a kliniky. Společně upřesníme, jaké podporované nastavení a portfolio testů odpovídají vašemu pracovnímu postupu.",
     "cta_order": "Vyžádat nabídku",
-    "cta_secondary": "Otevřít kalkulačku ROI",
     "cta_datasheet": "Datový list (PDF, DE)",
     "subline": "Pro ordinace a kliniky · Osobní konzultace namísto standardního balíčku",
     "chip_ivdr": "IVDR/CE",
@@ -204,7 +203,6 @@
     "title": "Posuďte IglooPro pro svůj workflow",
     "description": "Popište své prostředí použití. Společně upřesníme aktuálně podporovaný rozsah a vhodný další krok.",
     "button": "Vyžádat nabídku",
-    "resources": "Otevřít kalkulačku ROI",
     "datasheet": "Datový list (PDF, DE)",
     "chips": {
       "free": "Zdarma a nezávazně",

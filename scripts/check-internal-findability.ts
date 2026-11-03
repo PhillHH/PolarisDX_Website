@@ -86,10 +86,7 @@ assert(
 for (const anchor of ['vergleich', 'musterbefunde']) {
   assert(epigeneticsPage.includes(`id="${anchor}"`), `epigenetics anchor #${anchor} missing`)
 }
-assert(
-  read('src/components/sections/RoiCalculatorSection.tsx').includes('id="roi-rechner"'),
-  'lead-magnet anchor #roi-rechner missing',
-)
+// SC-023 (Owner 2026-11-03): ROI-Rechner und Anker #roi-rechner entfernt — keine Pruefung mehr.
 assert(
   befundPage.includes('to={hubBack}') &&
     epigeneticsHubHref({ panel: 'metabolic-health' }, 'musterbefunde') ===

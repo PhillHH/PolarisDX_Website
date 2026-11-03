@@ -111,7 +111,7 @@
       },
       "marketing": {
         "name": "Marketing",
-        "description": "Per pubblicità."
+        "description": "Per pubblicità (misurazione delle conversioni Google Ads)."
       },
       "analytics": {
         "name": "Analisi",

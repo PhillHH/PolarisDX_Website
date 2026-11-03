@@ -133,9 +133,8 @@
     "related_services": "Relateret diagnostik",
     "sources": "Kilder",
     "longread": "Lang læsning",
-    "cta_title": "Beregn dit besparelsespotentiale.",
-    "cta_subtitle": "ROI-beregner eller en konsultation – på under et minut.",
-    "cta_secondary": "ROI-beregner",
+    "cta_title": "Lad os tale om din klinik.",
+    "cta_subtitle": "Personlig rådgivning – forespørgsel på under et minut.",
     "read_time": "{{minutes}} min læsning"
   },
   "ui": {
