@@ -23,6 +23,13 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-03 nachmittags (SC-021 Nachtrag 6, live):** IglooPro-Spezifikationstabelle
+`IglooSpecsSection` entfernt (Owner „Das muss raus“), `products.specification.*` gelöscht, Claim-Guard
+und E2E prüfen das Fernbleiben; 17 Desktop-Baselines für Kopfzeile „Shop“. Code `1f821af`,
+Preview-Release `1f821affb421`, nach Owner-Go („Ja, veröffentlichen“) **Produktion `1f821affb421`**
+(vorher `9460daf7620b`; Smoke grün). Gates: Vitest 649/649, Guards + Claims, Perf-Budget ci 852/852,
+Playwright IglooPro 11/11, Axe 27/27, Baselines 22/22 nach Aktualisierung.
+
 **Stand 2026-11-03 mittags (SC-021 Nachtrag 4+5, live):** „Aktuell“-Band entfernt, externe Shop-Zellen
 in neuem Fenster, MEDICA-Kachel breiter (Nachtrag 4); Team-Sektion `TeamEventSection` (Entwurf T3,
 Hamburger Team beim DGI-Jahreskongress, echtes Foto, bis 28.11.) unter dem Messe-Band (Nachtrag 5);
