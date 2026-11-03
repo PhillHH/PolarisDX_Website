@@ -7,7 +7,6 @@ import IglooProductProof from '../components/sections/IglooProductProof'
 import IglooFeaturesSection from '../components/sections/IglooFeaturesSection'
 import IglooWorkflowSection from '../components/sections/IglooWorkflowSection'
 import IglooCompatibilitySection from '../components/sections/IglooCompatibilitySection'
-import IglooSpecsSection from '../components/sections/IglooSpecsSection'
 import IglooProductFinalCta from '../components/sections/IglooProductFinalCta'
 import { useAreaShell } from '../components/area/areaShell'
 import EventBand from '../components/events/EventBand'
@@ -53,7 +52,7 @@ const IglooProPage: React.FC = () => {
       <IglooFeaturesSection />
       <IglooWorkflowSection />
       <IglooCompatibilitySection />
-      <IglooSpecsSection />
+      {/* SC-021 Nachtrag 6 (Owner 2026-11-03, „Das muss raus“): Spezifikationstabelle entfernt. */}
       <NextSteps
         label={tCommon('area.nextLabel')}
         previous={{

@@ -27,9 +27,18 @@
     "title": "O que pode avaliar com rigor hoje",
     "description": "Estes sinais descrevem o produto e o percurso de pedido atuais. As especificações técnicas e as alegações regulamentares são documentadas separadamente.",
     "items": {
-      "reader": { "title": "Leitor POC independente", "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care." },
-      "audience": { "title": "Para consultórios e clínicas", "text": "O percurso de produto destina-se a equipas profissionais que avaliam um fluxo POC adequado." },
-      "enquiry": { "title": "Percurso de pedido real", "text": "O seu pedido conduz ao formulário de contacto existente, sem reserva ou checkout simulados." }
+      "reader": {
+        "title": "Leitor POC independente",
+        "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care."
+      },
+      "audience": {
+        "title": "Para consultórios e clínicas",
+        "text": "O percurso de produto destina-se a equipas profissionais que avaliam um fluxo POC adequado."
+      },
+      "enquiry": {
+        "title": "Percurso de pedido real",
+        "text": "O seu pedido conduz ao formulário de contacto existente, sem reserva ou checkout simulados."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Três características fundamentadas",
     "description": "O IglooPro é descrito aqui apenas através de características sustentadas pelo produto e pelo percurso de pedido atuais.",
     "items": {
-      "reader": { "title": "Leitor POC independente", "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care." },
-      "context": { "title": "Ambiente profissional", "text": "O percurso de produto destina-se a consultórios, clínicas e respetivas equipas profissionais." },
-      "scope": { "title": "Âmbito verificado", "text": "A configuração suportada e a gama de testes são esclarecidas para o fluxo específico durante o pedido." }
+      "reader": {
+        "title": "Leitor POC independente",
+        "text": "O IglooPro é apresentado como um produto próprio para fluxos de medição Point-of-Care."
+      },
+      "context": {
+        "title": "Ambiente profissional",
+        "text": "O percurso de produto destina-se a consultórios, clínicas e respetivas equipas profissionais."
+      },
+      "scope": {
+        "title": "Âmbito verificado",
+        "text": "A configuração suportada e a gama de testes são esclarecidas para o fluxo específico durante o pedido."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "Como é esclarecida a adequação",
     "description": "O percurso atual é um processo de pedido transparente, não uma configuração automática do produto.",
     "steps": {
-      "context": { "title": "Descrever o ambiente de utilização", "text": "O tipo de unidade, o contexto Point-of-Care previsto e os requisitos em aberto são o ponto de partida." },
-      "scope": { "title": "Verificar o âmbito suportado", "text": "A configuração, a gama de testes e as questões operacionais relevantes são confirmadas antes de uma recomendação." },
-      "decision": { "title": "Acordar o próximo passo", "text": "O percurso de contacto existente conduz a um esclarecimento pessoal e, quando adequado, a um orçamento." }
+      "context": {
+        "title": "Descrever o ambiente de utilização",
+        "text": "O tipo de unidade, o contexto Point-of-Care previsto e os requisitos em aberto são o ponto de partida."
+      },
+      "scope": {
+        "title": "Verificar o âmbito suportado",
+        "text": "A configuração, a gama de testes e as questões operacionais relevantes são confirmadas antes de uma recomendação."
+      },
+      "decision": {
+        "title": "Acordar o próximo passo",
+        "text": "O percurso de contacto existente conduz a um esclarecimento pessoal e, quando adequado, a um orçamento."
+      }
     },
     "boundary": "A utilização, o fluxo da amostra e o tratamento dos resultados só são descritos com base em documentação de produto aprovada; esta página não inventa automações."
   },
@@ -59,24 +86,32 @@
     "description": "A compatibilidade exige uma validação concreta. Estas perguntas estruturam o pedido sem presumir suporte técnico.",
     "boundary": "Atualmente não é alegado suporte geral para testes, interfaces, software de consultório ou níveis de serviço específicos.",
     "items": {
-      "portfolio": { "title": "Gama de testes", "text": "Que testes e materiais são efetivamente suportados para a utilização prevista?" },
-      "setting": { "title": "Ambiente de trabalho", "text": "Que requisitos organizacionais e espaciais deve a configuração cumprir?" },
-      "data": { "title": "Percurso de dados e sistemas", "text": "Que transferências de dados ou ligações de sistemas são necessárias e estão atualmente confirmadas?" },
-      "service": { "title": "Suporte e operação", "text": "Que formação, documentação e suporte serão acordados para a utilização específica?" }
+      "portfolio": {
+        "title": "Gama de testes",
+        "text": "Que testes e materiais são efetivamente suportados para a utilização prevista?"
+      },
+      "setting": {
+        "title": "Ambiente de trabalho",
+        "text": "Que requisitos organizacionais e espaciais deve a configuração cumprir?"
+      },
+      "data": {
+        "title": "Percurso de dados e sistemas",
+        "text": "Que transferências de dados ou ligações de sistemas são necessárias e estão atualmente confirmadas?"
+      },
+      "service": {
+        "title": "Suporte e operação",
+        "text": "Que formação, documentação e suporte serão acordados para a utilização específica?"
+      }
     },
     "links_label": "Ligações adicionais do IglooPro",
     "links_title": "Próximos destinos reais",
-    "links": { "poc": "Soluções de sistemas POC", "compatibility": "Compatibilidade e integração", "downloads": "Recursos do produto", "support": "Pedido de suporte", "contact": "Pedir orçamento" }
-  },
-  "specification": {
-    "eyebrow": "ESPECIFICAÇÃO TÉCNICA",
-    "title": "Alegação de produto e conteúdo bloqueada",
-    "description": "Esta apresentação documenta a redação bloqueada para o projeto. Não constitui uma validação científica independente.",
-    "caption": "Estado das especificações IglooPro",
-    "headers": { "metric": "Indicador", "value": "Valor", "context": "Contexto" },
-    "metric": "Coeficiente de variação (CV)",
-    "value": "CV < 2 %",
-    "context": "Decisão de produto/conteúdo; o repositório não valida de forma independente a exatidão científica."
+    "links": {
+      "poc": "Soluções de sistemas POC",
+      "compatibility": "Compatibilidade e integração",
+      "downloads": "Recursos do produto",
+      "support": "Pedido de suporte",
+      "contact": "Pedir orçamento"
+    }
   },
   "intro": {
     "title": "O laboratório móvel",

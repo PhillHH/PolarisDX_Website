@@ -63,7 +63,6 @@ test('PT14.6 all ten locale renders remain complete without mobile overflow', as
     await expect(page.locator('[data-igloo-hero]')).toBeVisible()
     await expect(page.locator('[data-igloo-features]')).toBeVisible()
     await expect(page.locator('[data-igloo-workflow]')).toBeVisible()
-    await expect(page.locator('[data-igloo-specification]')).toBeVisible()
     await expect(page.locator('[data-cta-intent="GENERAL_SALES"]')).toHaveCount(2)
     const horizontalOverflow = await page.evaluate(
       () =>

@@ -31,11 +31,10 @@ const errors = []
 const localeRows = locales.map((locale) => {
   const products = json(`public/locales/${locale}/products.json`)
   const home = json(`public/locales/${locale}/home.json`)
-  if (products.specification?.value !== canonicalClaim) {
-    errors.push(`${locale}: product specification claim is not canonical`)
-  }
-  if (!products.specification?.context || !products.specification?.description) {
-    errors.push(`${locale}: product specification context is incomplete`)
+  // SC-021 Nachtrag 6 (Owner 2026-11-03): Die Spezifikationstabelle der IglooPro-Seite ist entfernt;
+  // der gelockte Claim steht produktiv nur noch im Vertrauensband der Startseite.
+  if (products.specification !== undefined) {
+    errors.push(`${locale}: product specification table strings must stay removed`)
   }
   if (home.trustbar?.cv !== `IglooPro · ${canonicalClaim}`) {
     errors.push(`${locale}: Homepage claim lacks the locked product context`)
@@ -43,10 +42,10 @@ const localeRows = locales.map((locale) => {
   if (/CV\s*<|3[–-]15|600\s*g|HbA1c|TSH|CRP|immuno/iu.test(products.seo?.description ?? '')) {
     errors.push(`${locale}: active product SEO amplifies an unverified specification`)
   }
-  return { locale, product: products.specification.value, homepage: home.trustbar.cv }
+  return { locale, homepage: home.trustbar.cv }
 })
 
-const productiveClaimOccurrences = localeRows.length * 2
+const productiveClaimOccurrences = localeRows.length
 const staleFiles = [...filesBelow('src'), ...filesBelow('public/locales')]
   .filter((path) => /\.(?:[cm]?[jt]sx?|json|html|md)$/u.test(path))
   .flatMap((path) => {
@@ -83,8 +82,8 @@ const expectedFlyerHash = 'ae726928cf750b21df3d409469df97c5f5e55cd11a0b25c938fda
 if (flyerHash !== expectedFlyerHash) errors.push('owner-bound flyer inventory hash changed')
 
 const pageSource = readFileSync(resolve(root, 'src/pages/IglooProPage.tsx'), 'utf8')
-if (!pageSource.includes('<IglooSpecsSection />'))
-  errors.push('claim-safe specification is not composed')
+if (pageSource.includes('IglooSpecsSection'))
+  errors.push('specification table must stay removed (SC-021 Nachtrag 6)')
 
 const result = {
   locales: localeRows.length,

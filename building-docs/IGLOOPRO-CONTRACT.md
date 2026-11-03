@@ -600,3 +600,20 @@ consent/component/form tests, Production Client/SSR build and 8/8 focused Playwr
 network/route/Axe tests PASS. At the remediation handoff AP14 remained `IN_PROGRESS` and Closure
 required a rerun. Section 16 records the subsequent independent Closure PASS; AP15 remains
 `NOT STARTED`.
+
+## Nachtrag SC-021 Nachtrag 6 (2026-11-03) — Spezifikationstabelle entfernt (Owner-Entscheidung)
+
+Der Owner hat die PT14.4-Tabelle „Gelockter Produkt- und Content-Claim“ (`IglooSpecsSection`,
+`products.specification.*`) mit Bildschirmfoto als zu entfernen markiert („Das muss raus“). Seitdem:
+
+- Die IglooPro-Seite zeigt keine Spezifikationstabelle und keinen `CV`-Wert mehr; Produktseite =
+  Bühne, Produktkontext, Merkmale, Arbeitsablauf, Kompatibilität, nächste Schritte, Abschluss-CTA.
+- Der gelockte Claim `CV < 2 %` bleibt als Owner-Entscheidung bestehen und steht produktiv nur noch
+  im Vertrauensband der Startseite (`home.trustbar.cv`, zehn Sprachen). §12 „Productive
+  occurrences: 20“ gilt damit als 10.
+- `scripts/check-igloo-claim-contract.mjs` prüft weiterhin Startseiten-Claim, Stale-Claim-Scan
+  (`< 5 %`), SEO-Beschreibung und den owner-gebundenen Flyer; neu prüft er, dass Tabelle und
+  Strings entfernt bleiben. Die E2E-Prüfungen der Produktreise erwarten keine Tabelle mehr
+  (`data-igloo-specification` darf nicht vorkommen, kein `CV < 2 %` im Seiten-HTML).
+- Alles Übrige aus AP14 (keine unbelegten Spezifikationen, keine Parameterlisten, Flyer
+  NOT_LAUNCH_VISIBLE) unverändert.

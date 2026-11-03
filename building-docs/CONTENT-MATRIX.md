@@ -1721,11 +1721,11 @@ anderes: die drei PDFs unter `src/assets/downloads/` waren **byte-identisch** (m
 `public/downloads/`, aber **nicht verwaist** — fünf Produktionskomponenten importierten sie und
 lieferten dieselben Dokumente unter einer **zweiten, bundle-gehashten URL** aus:
 
-| Datei                                               | zweite Auslieferung durch                                                       |
-| --------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `igloo-pro-flyer.pdf`                               | `IglooProHero.tsx:5` · `IglooSpecsSection.tsx:3` · `IglooProductFinalCta.tsx:3` |
-| `Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf` | `VitaminD3SprayPage.tsx:25`                                                     |
-| `Polaris Vitamin D Spray  A4zuA5_EN(8).pdf`         | `VitaminD3SprayPage.tsx:26`                                                     |
+| Datei                                               | zweite Auslieferung durch                           |
+| --------------------------------------------------- | --------------------------------------------------- |
+| `igloo-pro-flyer.pdf`                               | `IglooProHero.tsx:5` · `IglooProductFinalCta.tsx:3` |
+| `Polaris Vitamin D Spray  A4zuA5_DE_2025-01-20.pdf` | `VitaminD3SprayPage.tsx:25`                         |
+| `Polaris Vitamin D Spray  A4zuA5_EN(8).pdf`         | `VitaminD3SprayPage.tsx:26`                         |
 
 Dasselbe Dokument hatte damit **zwei Identitäten und zwei URLs** — Verstoß gegen `CA-19`
 (eine fachliche Asset-Identität) und `CA-22` (keine zweite Fassung in einem parallelen Baum). Die

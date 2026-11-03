@@ -47,6 +47,13 @@ Das ist **AP27** und wird nicht vorweggenommen.
   (aktiv `bg-brand-deep border-accent-line` + `.hero-pulse-ring`, erledigt `border-accent-line`, offen
   `border-paper-line`), Linien `h-[3px]` `paper.line` mit `accent.line`-Füllung. Neue Bilder
   `hero-card-capillary-*`, `hero-card-device-*` (`scripts/build-photo-look.mjs hero-card`).
+- **Kopfzeile „Shop“ und IglooPro ohne Spezifikationstabelle (Nachtrag 5b/6, 2026-11-03):** Shop-Zelle der
+  Kopfzeile heißt „Shop“ statt „Praxis-Shop“ (zehn Sprachen) — 17 Desktop-Baselines PT27.6 erneut (alle
+  Seiten mit Kopfzeile: article, contact, cookie-banner, diagnostics-hub, epigenetics-hub, epigenetics-panel,
+  event-popup, home, igloo-pro, legal-privacy, musterbefund, not-found, resource-center, resource-gate-open,
+  service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
+  `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
+  „Das muss raus“); keine Token-Änderung.
 - **Team-Sektion (Nachtrag 5, 2026-11-03, Entwurf T3):** neue Startseiten-Sektion ohne neue Token —
   `t-eyebrow`/`t-display` mit `text-accent`-Zeile, Fakten mit `lucide`-Icons in `accent`, Knöpfe
   `secondary` + Outline-Pille (§3.4); Foto `rounded-card shadow-card -rotate-2` auf `bg-brand-deep`

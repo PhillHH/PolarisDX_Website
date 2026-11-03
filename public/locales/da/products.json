@@ -27,9 +27,18 @@
     "title": "Det, I kan vurdere på et sikkert grundlag i dag",
     "description": "Disse signaler beskriver det aktuelle produkt og forespørgselsforløb. Tekniske specifikationer og regulatoriske udsagn dokumenteres separat.",
     "items": {
-      "reader": { "title": "Selvstændig POC-læser", "text": "IglooPro præsenteres som et dedikeret produkt til Point-of-Care-måleworkflows." },
-      "audience": { "title": "Til praksisser og klinikker", "text": "Produktforløbet henvender sig til professionelle teams, der vurderer en passende POC-arbejdsgang." },
-      "enquiry": { "title": "Reel forespørgselsvej", "text": "Jeres forespørgsel fører til den eksisterende kontaktformular — uden simuleret booking eller checkout." }
+      "reader": {
+        "title": "Selvstændig POC-læser",
+        "text": "IglooPro præsenteres som et dedikeret produkt til Point-of-Care-måleworkflows."
+      },
+      "audience": {
+        "title": "Til praksisser og klinikker",
+        "text": "Produktforløbet henvender sig til professionelle teams, der vurderer en passende POC-arbejdsgang."
+      },
+      "enquiry": {
+        "title": "Reel forespørgselsvej",
+        "text": "Jeres forespørgsel fører til den eksisterende kontaktformular — uden simuleret booking eller checkout."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Tre dokumenterbare egenskaber",
     "description": "IglooPro beskrives her kun med egenskaber, som det aktuelle produkt- og forespørgselsforløb understøtter.",
     "items": {
-      "reader": { "title": "Selvstændig POC-læser", "text": "IglooPro vises som et særskilt produkt til Point-of-Care-måleworkflows." },
-      "context": { "title": "Professionelt miljø", "text": "Produktforløbet henvender sig til praksisser, klinikker og deres professionelle teams." },
-      "scope": { "title": "Omfanget afklares", "text": "Understøttet opsætning og testportefølje afklares for den konkrete arbejdsgang i forespørgslen." }
+      "reader": {
+        "title": "Selvstændig POC-læser",
+        "text": "IglooPro vises som et særskilt produkt til Point-of-Care-måleworkflows."
+      },
+      "context": {
+        "title": "Professionelt miljø",
+        "text": "Produktforløbet henvender sig til praksisser, klinikker og deres professionelle teams."
+      },
+      "scope": {
+        "title": "Omfanget afklares",
+        "text": "Understøttet opsætning og testportefølje afklares for den konkrete arbejdsgang i forespørgslen."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "Sådan afklares egnetheden",
     "description": "Det aktuelle forløb er en gennemsigtig forespørgselsproces, ikke en automatisk konfigureret produktrejse.",
     "steps": {
-      "context": { "title": "Beskriv anvendelsesmiljøet", "text": "Praksistype, planlagt Point-of-Care-kontekst og åbne krav er udgangspunktet." },
-      "scope": { "title": "Kontrollér det understøttede omfang", "text": "Opsætning, testportefølje og relevante driftsspørgsmål bekræftes før en produktanbefaling." },
-      "decision": { "title": "Aftal næste skridt", "text": "Den eksisterende kontaktvej fører til personlig afklaring og, når det er relevant, et tilbud." }
+      "context": {
+        "title": "Beskriv anvendelsesmiljøet",
+        "text": "Praksistype, planlagt Point-of-Care-kontekst og åbne krav er udgangspunktet."
+      },
+      "scope": {
+        "title": "Kontrollér det understøttede omfang",
+        "text": "Opsætning, testportefølje og relevante driftsspørgsmål bekræftes før en produktanbefaling."
+      },
+      "decision": {
+        "title": "Aftal næste skridt",
+        "text": "Den eksisterende kontaktvej fører til personlig afklaring og, når det er relevant, et tilbud."
+      }
     },
     "boundary": "Betjening, prøveflow og resultathåndtering beskrives kun ud fra godkendt produktdokumentation; denne side opfinder ikke automatisering."
   },
@@ -59,24 +86,32 @@
     "description": "Kompatibilitet kræver konkret validering. Spørgsmålene strukturerer forespørgslen uden at forudsætte teknisk understøttelse.",
     "boundary": "Der hævdes aktuelt ingen generel understøttelse af bestemte tests, grænseflader, praksissoftware eller serviceniveauer.",
     "items": {
-      "portfolio": { "title": "Testportefølje", "text": "Hvilke tests og materialer understøttes faktisk til den planlagte anvendelse?" },
-      "setting": { "title": "Arbejds- og driftsmiljø", "text": "Hvilke organisatoriske og fysiske krav skal opsætningen opfylde?" },
-      "data": { "title": "Data- og systemvej", "text": "Hvilke dataoverførsler eller systemforbindelser kræves og er aktuelt bekræftet?" },
-      "service": { "title": "Support og drift", "text": "Hvilken oplæring, dokumentation og support aftales til den konkrete anvendelse?" }
+      "portfolio": {
+        "title": "Testportefølje",
+        "text": "Hvilke tests og materialer understøttes faktisk til den planlagte anvendelse?"
+      },
+      "setting": {
+        "title": "Arbejds- og driftsmiljø",
+        "text": "Hvilke organisatoriske og fysiske krav skal opsætningen opfylde?"
+      },
+      "data": {
+        "title": "Data- og systemvej",
+        "text": "Hvilke dataoverførsler eller systemforbindelser kræves og er aktuelt bekræftet?"
+      },
+      "service": {
+        "title": "Support og drift",
+        "text": "Hvilken oplæring, dokumentation og support aftales til den konkrete anvendelse?"
+      }
     },
     "links_label": "Yderligere IglooPro-links",
     "links_title": "Reelle næste destinationer",
-    "links": { "poc": "POC-systemløsninger", "compatibility": "Kompatibilitet og integration", "downloads": "Produktmateriale", "support": "Supportforespørgsel", "contact": "Anmod om tilbud" }
-  },
-  "specification": {
-    "eyebrow": "TEKNISK SPECIFIKATION",
-    "title": "Låst produkt- og indholdspåstand",
-    "description": "Denne visning dokumenterer den formulering, der er låst for projektet. Den er ikke en uafhængig videnskabelig validering.",
-    "caption": "IglooPro-specifikationsstatus",
-    "headers": { "metric": "Måleparameter", "value": "Værdi", "context": "Kontekst" },
-    "metric": "Variationskoefficient (CV)",
-    "value": "CV < 2 %",
-    "context": "Produkt-/indholdsbeslutning; repositoryet validerer ikke uafhængigt den videnskabelige korrekthed."
+    "links": {
+      "poc": "POC-systemløsninger",
+      "compatibility": "Kompatibilitet og integration",
+      "downloads": "Produktmateriale",
+      "support": "Supportforespørgsel",
+      "contact": "Anmod om tilbud"
+    }
   },
   "intro": {
     "title": "Laboratoriekvalitet i håndformat",

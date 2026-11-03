@@ -37,8 +37,6 @@ for (const viewport of viewports) {
       4,
     )
     await expect(page.locator('[data-igloo-compatibility] [data-related-route-id]')).toHaveCount(5)
-    await expect(page.locator('[data-igloo-specification]')).toHaveCount(1)
-    await expect(page.locator('[data-igloo-specification] tbody tr')).toHaveCount(1)
     await expect(page.locator('[data-cta-intent="GENERAL_SALES"]')).toHaveCount(2)
 
     const expectedTargets = [
@@ -57,7 +55,8 @@ for (const viewport of viewports) {
     }
 
     const visibleCopy = await page.locator('main').innerText()
-    expect(visibleCopy.match(/CV < 2 %/g)).toHaveLength(1)
+    // SC-021 Nachtrag 6: keine Spezifikationstabelle, kein CV-Wert auf der Produktseite.
+    expect(visibleCopy.match(/CV < 2 %/g)).toBeNull()
     expect(visibleCopy).not.toMatch(
       /CV\s*<\s*5|600\s*g|3.?15\s*min|10[.,]000|IVDR|LIS\/?HIS|Wi-?Fi|Bluetooth/i,
     )
@@ -90,7 +89,6 @@ test('PT14.3 feature, workflow and compatibility content is productive in all te
       product_story: { title: string }
       workflow: { title: string }
       compatibility: { title: string }
-      specification: { title: string; value: string; context: string }
       cta_bottom: { button: string }
     }
     const path = `/${locale}/igloo-pro`
@@ -102,13 +100,13 @@ test('PT14.3 feature, workflow and compatibility content is productive in all te
     expect(html, `${path} features`).toContain('data-igloo-features="true"')
     expect(html, `${path} workflow`).toContain('data-igloo-workflow="true"')
     expect(html, `${path} compatibility`).toContain('data-igloo-compatibility="true"')
-    expect(html, `${path} specification`).toContain('data-igloo-specification="true"')
     expect(decodedHtml, `${path} product story`).toContain(resource.product_story.title)
     expect(decodedHtml, `${path} workflow title`).toContain(resource.workflow.title)
     expect(decodedHtml, `${path} compatibility title`).toContain(resource.compatibility.title)
-    expect(decodedHtml, `${path} specification title`).toContain(resource.specification.title)
-    expect(decodedHtml.match(/CV &lt; 2 %|CV < 2 %/g), `${path} canonical claim`).toHaveLength(1)
-    expect(decodedHtml, `${path} specification context`).toContain(resource.specification.context)
+    // SC-021 Nachtrag 6: keine Spezifikationstabelle mehr — der gelockte Claim steht nur im
+    // Vertrauensband der Startseite, auf der Produktseite gar nicht.
+    expect(html, `${path} specification`).not.toContain('data-igloo-specification')
+    expect(decodedHtml.match(/CV &lt; 2 %|CV < 2 %/g), `${path} canonical claim`).toBeNull()
     expect(decodedHtml, `${path} stale claim`).not.toMatch(/CV\s*(?:&lt;|<)\s*5/)
     expect(decodedHtml, `${path} CTA`).toContain(resource.cta_bottom.button)
     expect(html, `${path} contact target`).toContain(`href="/${locale}/contact"`)

@@ -27,9 +27,18 @@
     "title": "What you can assess with confidence today",
     "description": "These signals describe the current product and enquiry path. Technical specifications and regulatory statements are evidenced separately.",
     "items": {
-      "reader": { "title": "Standalone POC reader", "text": "IglooPro is presented as a dedicated product for point-of-care measurement workflows." },
-      "audience": { "title": "For practices and clinics", "text": "The product path is intended for professional teams assessing a suitable POC workflow." },
-      "enquiry": { "title": "Real enquiry path", "text": "Your enquiry leads to the existing contact form, with no simulated booking or checkout." }
+      "reader": {
+        "title": "Standalone POC reader",
+        "text": "IglooPro is presented as a dedicated product for point-of-care measurement workflows."
+      },
+      "audience": {
+        "title": "For practices and clinics",
+        "text": "The product path is intended for professional teams assessing a suitable POC workflow."
+      },
+      "enquiry": {
+        "title": "Real enquiry path",
+        "text": "Your enquiry leads to the existing contact form, with no simulated booking or checkout."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Three evidence-bounded characteristics",
     "description": "IglooPro is described here only through characteristics supported by the current product and enquiry path.",
     "items": {
-      "reader": { "title": "Standalone POC reader", "text": "IglooPro is visible as a dedicated product for point-of-care measurement workflows." },
-      "context": { "title": "Professional setting", "text": "The product path is intended for practices, clinics and their professional teams." },
-      "scope": { "title": "Scope is checked", "text": "The supported setup and test portfolio are clarified for the specific workflow during the enquiry." }
+      "reader": {
+        "title": "Standalone POC reader",
+        "text": "IglooPro is visible as a dedicated product for point-of-care measurement workflows."
+      },
+      "context": {
+        "title": "Professional setting",
+        "text": "The product path is intended for practices, clinics and their professional teams."
+      },
+      "scope": {
+        "title": "Scope is checked",
+        "text": "The supported setup and test portfolio are clarified for the specific workflow during the enquiry."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "How suitability is clarified",
     "description": "The current path is a transparent enquiry process, not an automatically configured product journey.",
     "steps": {
-      "context": { "title": "Describe the setting", "text": "Practice type, intended point-of-care context and open requirements form the starting point." },
-      "scope": { "title": "Check the supported scope", "text": "Setup, test portfolio and relevant operating questions are confirmed before a product recommendation." },
-      "decision": { "title": "Agree the next step", "text": "The existing contact path leads to personal clarification and, where appropriate, a quotation." }
+      "context": {
+        "title": "Describe the setting",
+        "text": "Practice type, intended point-of-care context and open requirements form the starting point."
+      },
+      "scope": {
+        "title": "Check the supported scope",
+        "text": "Setup, test portfolio and relevant operating questions are confirmed before a product recommendation."
+      },
+      "decision": {
+        "title": "Agree the next step",
+        "text": "The existing contact path leads to personal clarification and, where appropriate, a quotation."
+      }
     },
     "boundary": "Operation, sample workflow and result handling are described only from approved product documentation; this page does not invent automation for them."
   },
@@ -59,24 +86,32 @@
     "description": "Compatibility is a concrete validation task. These questions structure the enquiry without presuming technical support.",
     "boundary": "No blanket support for particular tests, interfaces, practice software or service levels is currently claimed.",
     "items": {
-      "portfolio": { "title": "Test portfolio", "text": "Which tests and materials are actually supported for the intended use?" },
-      "setting": { "title": "Practice and operating setting", "text": "Which organisational and spatial requirements must the setup meet?" },
-      "data": { "title": "Data and system path", "text": "Which data transfers or system connections are needed and currently confirmed?" },
-      "service": { "title": "Support and operation", "text": "Which training, documentation and support are agreed for the specific use?" }
+      "portfolio": {
+        "title": "Test portfolio",
+        "text": "Which tests and materials are actually supported for the intended use?"
+      },
+      "setting": {
+        "title": "Practice and operating setting",
+        "text": "Which organisational and spatial requirements must the setup meet?"
+      },
+      "data": {
+        "title": "Data and system path",
+        "text": "Which data transfers or system connections are needed and currently confirmed?"
+      },
+      "service": {
+        "title": "Support and operation",
+        "text": "Which training, documentation and support are agreed for the specific use?"
+      }
     },
     "links_label": "Further IglooPro links",
     "links_title": "Real next destinations",
-    "links": { "poc": "POC system solutions", "compatibility": "Compatibility & integration", "downloads": "Product resources", "support": "Support request", "contact": "Request a quote" }
-  },
-  "specification": {
-    "eyebrow": "TECHNICAL SPECIFICATION",
-    "title": "Locked product and content claim",
-    "description": "This presentation records the wording locked for the project. It is not independent scientific validation.",
-    "caption": "IglooPro specification status",
-    "headers": { "metric": "Metric", "value": "Value", "context": "Context" },
-    "metric": "Coefficient of variation (CV)",
-    "value": "CV < 2 %",
-    "context": "Product/content decision; the repository does not independently validate scientific correctness."
+    "links": {
+      "poc": "POC system solutions",
+      "compatibility": "Compatibility & integration",
+      "downloads": "Product resources",
+      "support": "Support request",
+      "contact": "Request a quote"
+    }
   },
   "intro": {
     "title": "Lab quality in a handheld format",

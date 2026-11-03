@@ -27,9 +27,18 @@
     "title": "Wat u vandaag betrouwbaar kunt beoordelen",
     "description": "Deze signalen beschrijven het huidige product en aanvraagtraject. Technische specificaties en regelgevende uitspraken worden afzonderlijk onderbouwd.",
     "items": {
-      "reader": { "title": "Zelfstandige POC-reader", "text": "IglooPro wordt gepresenteerd als een afzonderlijk product voor Point-of-Care-meetworkflows." },
-      "audience": { "title": "Voor praktijken en klinieken", "text": "Het producttraject is bedoeld voor professionele teams die een passende POC-workflow beoordelen." },
-      "enquiry": { "title": "Reëel aanvraagtraject", "text": "Uw aanvraag leidt naar het bestaande contactformulier, zonder gesimuleerde boeking of checkout." }
+      "reader": {
+        "title": "Zelfstandige POC-reader",
+        "text": "IglooPro wordt gepresenteerd als een afzonderlijk product voor Point-of-Care-meetworkflows."
+      },
+      "audience": {
+        "title": "Voor praktijken en klinieken",
+        "text": "Het producttraject is bedoeld voor professionele teams die een passende POC-workflow beoordelen."
+      },
+      "enquiry": {
+        "title": "Reëel aanvraagtraject",
+        "text": "Uw aanvraag leidt naar het bestaande contactformulier, zonder gesimuleerde boeking of checkout."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Drie onderbouwde kenmerken",
     "description": "IglooPro wordt hier alleen beschreven met kenmerken die door het huidige product- en aanvraagtraject worden gedragen.",
     "items": {
-      "reader": { "title": "Zelfstandige POC-reader", "text": "IglooPro wordt getoond als een afzonderlijk product voor Point-of-Care-meetworkflows." },
-      "context": { "title": "Professionele omgeving", "text": "Het producttraject is bedoeld voor praktijken, klinieken en hun professionele teams." },
-      "scope": { "title": "Omvang wordt afgestemd", "text": "De ondersteunde configuratie en het testportfolio worden tijdens de aanvraag voor de specifieke workflow verduidelijkt." }
+      "reader": {
+        "title": "Zelfstandige POC-reader",
+        "text": "IglooPro wordt getoond als een afzonderlijk product voor Point-of-Care-meetworkflows."
+      },
+      "context": {
+        "title": "Professionele omgeving",
+        "text": "Het producttraject is bedoeld voor praktijken, klinieken en hun professionele teams."
+      },
+      "scope": {
+        "title": "Omvang wordt afgestemd",
+        "text": "De ondersteunde configuratie en het testportfolio worden tijdens de aanvraag voor de specifieke workflow verduidelijkt."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "Zo wordt de geschiktheid verduidelijkt",
     "description": "Het huidige traject is een transparant aanvraagproces, geen automatisch geconfigureerde productreis.",
     "steps": {
-      "context": { "title": "Beschrijf de gebruiksomgeving", "text": "Praktijktype, beoogde Point-of-Care-context en open eisen vormen het vertrekpunt." },
-      "scope": { "title": "Controleer de ondersteunde omvang", "text": "Configuratie, testportfolio en relevante operationele vragen worden vóór een productadvies bevestigd." },
-      "decision": { "title": "Spreek de volgende stap af", "text": "Het bestaande contacttraject leidt tot persoonlijke afstemming en, waar passend, een offerte." }
+      "context": {
+        "title": "Beschrijf de gebruiksomgeving",
+        "text": "Praktijktype, beoogde Point-of-Care-context en open eisen vormen het vertrekpunt."
+      },
+      "scope": {
+        "title": "Controleer de ondersteunde omvang",
+        "text": "Configuratie, testportfolio en relevante operationele vragen worden vóór een productadvies bevestigd."
+      },
+      "decision": {
+        "title": "Spreek de volgende stap af",
+        "text": "Het bestaande contacttraject leidt tot persoonlijke afstemming en, waar passend, een offerte."
+      }
     },
     "boundary": "Bediening, monsterworkflow en resultaatverwerking worden alleen op basis van goedgekeurde productdocumentatie beschreven; deze pagina verzint daarvoor geen automatisering."
   },
@@ -59,24 +86,32 @@
     "description": "Compatibiliteit vereist concrete validatie. Deze vragen structureren de aanvraag zonder technische ondersteuning te veronderstellen.",
     "boundary": "Er wordt momenteel geen algemene ondersteuning voor specifieke tests, interfaces, praktijksoftware of serviceniveaus geclaimd.",
     "items": {
-      "portfolio": { "title": "Testportfolio", "text": "Welke tests en materialen worden daadwerkelijk ondersteund voor het beoogde gebruik?" },
-      "setting": { "title": "Werk- en gebruiksomgeving", "text": "Aan welke organisatorische en ruimtelijke eisen moet de configuratie voldoen?" },
-      "data": { "title": "Data- en systeemroute", "text": "Welke gegevensoverdrachten of systeemkoppelingen zijn nodig en momenteel bevestigd?" },
-      "service": { "title": "Support en gebruik", "text": "Welke training, documentatie en ondersteuning worden voor het specifieke gebruik afgesproken?" }
+      "portfolio": {
+        "title": "Testportfolio",
+        "text": "Welke tests en materialen worden daadwerkelijk ondersteund voor het beoogde gebruik?"
+      },
+      "setting": {
+        "title": "Werk- en gebruiksomgeving",
+        "text": "Aan welke organisatorische en ruimtelijke eisen moet de configuratie voldoen?"
+      },
+      "data": {
+        "title": "Data- en systeemroute",
+        "text": "Welke gegevensoverdrachten of systeemkoppelingen zijn nodig en momenteel bevestigd?"
+      },
+      "service": {
+        "title": "Support en gebruik",
+        "text": "Welke training, documentatie en ondersteuning worden voor het specifieke gebruik afgesproken?"
+      }
     },
     "links_label": "Aanvullende IglooPro-links",
     "links_title": "Reële volgende bestemmingen",
-    "links": { "poc": "POC-systeemoplossingen", "compatibility": "Compatibiliteit en integratie", "downloads": "Productinformatie", "support": "Supportaanvraag", "contact": "Offerte aanvragen" }
-  },
-  "specification": {
-    "eyebrow": "TECHNISCHE SPECIFICATIE",
-    "title": "Vastgelegde product- en contentclaim",
-    "description": "Deze weergave documenteert de voor het project vastgelegde formulering. Ze is geen onafhankelijke wetenschappelijke validatie.",
-    "caption": "Specificatiestatus van IglooPro",
-    "headers": { "metric": "Maatstaf", "value": "Waarde", "context": "Context" },
-    "metric": "Variatiecoëfficiënt (CV)",
-    "value": "CV < 2 %",
-    "context": "Product-/contentbesluit; de repository valideert de wetenschappelijke juistheid niet onafhankelijk."
+    "links": {
+      "poc": "POC-systeemoplossingen",
+      "compatibility": "Compatibiliteit en integratie",
+      "downloads": "Productinformatie",
+      "support": "Supportaanvraag",
+      "contact": "Offerte aanvragen"
+    }
   },
   "intro": {
     "title": "Laboratoriumkwaliteit in handformaat",

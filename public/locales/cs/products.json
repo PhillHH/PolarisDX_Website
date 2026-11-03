@@ -27,9 +27,18 @@
     "title": "Co dnes můžete spolehlivě posoudit",
     "description": "Tyto informace popisují současný produkt a cestu poptávky. Technické specifikace a regulatorní tvrzení jsou dokládány samostatně.",
     "items": {
-      "reader": { "title": "Samostatná POC čtečka", "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow." },
-      "audience": { "title": "Pro ordinace a kliniky", "text": "Produktová cesta je určena profesionálním týmům, které posuzují vhodný POC workflow." },
-      "enquiry": { "title": "Skutečná cesta poptávky", "text": "Vaše poptávka vede na existující kontaktní formulář — bez simulované rezervace nebo checkoutu." }
+      "reader": {
+        "title": "Samostatná POC čtečka",
+        "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow."
+      },
+      "audience": {
+        "title": "Pro ordinace a kliniky",
+        "text": "Produktová cesta je určena profesionálním týmům, které posuzují vhodný POC workflow."
+      },
+      "enquiry": {
+        "title": "Skutečná cesta poptávky",
+        "text": "Vaše poptávka vede na existující kontaktní formulář — bez simulované rezervace nebo checkoutu."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Tři doložitelné vlastnosti",
     "description": "IglooPro je zde popsán pouze vlastnostmi, které podporuje současný produkt a cesta poptávky.",
     "items": {
-      "reader": { "title": "Samostatná POC čtečka", "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow." },
-      "context": { "title": "Profesionální prostředí", "text": "Produktová cesta je určena ordinacím, klinikám a jejich profesionálním týmům." },
-      "scope": { "title": "Rozsah se ověřuje", "text": "Podporované nastavení a portfolio testů se pro konkrétní workflow upřesňují během poptávky." }
+      "reader": {
+        "title": "Samostatná POC čtečka",
+        "text": "IglooPro je prezentován jako samostatný produkt pro Point-of-Care měřicí workflow."
+      },
+      "context": {
+        "title": "Profesionální prostředí",
+        "text": "Produktová cesta je určena ordinacím, klinikám a jejich profesionálním týmům."
+      },
+      "scope": {
+        "title": "Rozsah se ověřuje",
+        "text": "Podporované nastavení a portfolio testů se pro konkrétní workflow upřesňují během poptávky."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "Jak se ověřuje vhodnost",
     "description": "Současná cesta je transparentní proces poptávky, nikoli automaticky nakonfigurovaná produktová nabídka.",
     "steps": {
-      "context": { "title": "Popište prostředí použití", "text": "Typ pracoviště, zamýšlený Point-of-Care kontext a otevřené požadavky tvoří výchozí bod." },
-      "scope": { "title": "Ověřte podporovaný rozsah", "text": "Nastavení, portfolio testů a relevantní provozní otázky se potvrzují před doporučením produktu." },
-      "decision": { "title": "Dohodněte další krok", "text": "Stávající kontaktní cesta vede k osobnímu upřesnění a případně k nabídce." }
+      "context": {
+        "title": "Popište prostředí použití",
+        "text": "Typ pracoviště, zamýšlený Point-of-Care kontext a otevřené požadavky tvoří výchozí bod."
+      },
+      "scope": {
+        "title": "Ověřte podporovaný rozsah",
+        "text": "Nastavení, portfolio testů a relevantní provozní otázky se potvrzují před doporučením produktu."
+      },
+      "decision": {
+        "title": "Dohodněte další krok",
+        "text": "Stávající kontaktní cesta vede k osobnímu upřesnění a případně k nabídce."
+      }
     },
     "boundary": "Obsluha, práce se vzorkem a zpracování výsledků jsou popisovány pouze podle schválené produktové dokumentace; tato stránka nevytváří smyšlenou automatizaci."
   },
@@ -59,24 +86,32 @@
     "description": "Kompatibilita vyžaduje konkrétní ověření. Tyto otázky strukturují poptávku bez předpokladu technické podpory.",
     "boundary": "V současnosti není deklarována obecná podpora konkrétních testů, rozhraní, softwaru ordinace ani úrovní služeb.",
     "items": {
-      "portfolio": { "title": "Portfolio testů", "text": "Které testy a materiály jsou pro zamýšlené použití skutečně podporovány?" },
-      "setting": { "title": "Pracovní a provozní prostředí", "text": "Jaké organizační a prostorové požadavky musí nastavení splnit?" },
-      "data": { "title": "Cesta dat a systémů", "text": "Jaké přenosy dat nebo systémová připojení jsou potřebné a aktuálně potvrzené?" },
-      "service": { "title": "Podpora a provoz", "text": "Jaké školení, dokumentace a podpora budou pro konkrétní použití dohodnuty?" }
+      "portfolio": {
+        "title": "Portfolio testů",
+        "text": "Které testy a materiály jsou pro zamýšlené použití skutečně podporovány?"
+      },
+      "setting": {
+        "title": "Pracovní a provozní prostředí",
+        "text": "Jaké organizační a prostorové požadavky musí nastavení splnit?"
+      },
+      "data": {
+        "title": "Cesta dat a systémů",
+        "text": "Jaké přenosy dat nebo systémová připojení jsou potřebné a aktuálně potvrzené?"
+      },
+      "service": {
+        "title": "Podpora a provoz",
+        "text": "Jaké školení, dokumentace a podpora budou pro konkrétní použití dohodnuty?"
+      }
     },
     "links_label": "Další odkazy IglooPro",
     "links_title": "Skutečné další cíle",
-    "links": { "poc": "Systémová řešení POC", "compatibility": "Kompatibilita a integrace", "downloads": "Produktové materiály", "support": "Požadavek na podporu", "contact": "Vyžádat nabídku" }
-  },
-  "specification": {
-    "eyebrow": "TECHNICKÁ SPECIFIKACE",
-    "title": "Uzamčené produktové a obsahové tvrzení",
-    "description": "Toto zobrazení dokumentuje formulaci uzamčenou pro projekt. Nejde o nezávislé vědecké ověření.",
-    "caption": "Stav specifikace IglooPro",
-    "headers": { "metric": "Ukazatel", "value": "Hodnota", "context": "Kontext" },
-    "metric": "Variační koeficient (CV)",
-    "value": "CV < 2 %",
-    "context": "Produktové/obsahové rozhodnutí; repozitář nezávisle neověřuje vědeckou správnost."
+    "links": {
+      "poc": "Systémová řešení POC",
+      "compatibility": "Kompatibilita a integrace",
+      "downloads": "Produktové materiály",
+      "support": "Požadavek na podporu",
+      "contact": "Vyžádat nabídku"
+    }
   },
   "intro": {
     "title": "Laboratorní kvalita v ruční velikosti",

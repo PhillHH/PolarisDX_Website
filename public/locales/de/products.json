@@ -27,9 +27,18 @@
     "title": "Was Sie heute belastbar einordnen können",
     "description": "Diese Signale beschreiben den aktuellen Produkt- und Anfrageweg. Technische Spezifikationen und regulatorische Aussagen werden separat belegt.",
     "items": {
-      "reader": { "title": "Eigenständiger POC-Reader", "text": "IglooPro wird als eigenes Produkt für Point-of-Care-Messworkflows gezeigt." },
-      "audience": { "title": "Für Praxen und Kliniken", "text": "Die Produktstrecke richtet sich an professionelle Teams, die einen passenden POC-Workflow prüfen." },
-      "enquiry": { "title": "Realer Anfrageweg", "text": "Ihre Anfrage führt zum bestehenden Kontaktformular – ohne simulierte Buchung oder Checkout." }
+      "reader": {
+        "title": "Eigenständiger POC-Reader",
+        "text": "IglooPro wird als eigenes Produkt für Point-of-Care-Messworkflows gezeigt."
+      },
+      "audience": {
+        "title": "Für Praxen und Kliniken",
+        "text": "Die Produktstrecke richtet sich an professionelle Teams, die einen passenden POC-Workflow prüfen."
+      },
+      "enquiry": {
+        "title": "Realer Anfrageweg",
+        "text": "Ihre Anfrage führt zum bestehenden Kontaktformular – ohne simulierte Buchung oder Checkout."
+      }
     }
   },
   "product_story": {
@@ -37,9 +46,18 @@
     "title": "Drei belastbare Merkmale",
     "description": "IglooPro wird hier nur mit Eigenschaften beschrieben, die der aktuelle Produkt- und Anfrageweg tatsächlich trägt.",
     "items": {
-      "reader": { "title": "Eigenständiger POC-Reader", "text": "IglooPro ist als eigenes Produkt für Point-of-Care-Messworkflows sichtbar." },
-      "context": { "title": "Professioneller Einsatzkontext", "text": "Die Produktstrecke richtet sich an Praxen, Kliniken und ihre professionellen Teams." },
-      "scope": { "title": "Umfang wird abgeglichen", "text": "Unterstütztes Setup und Testportfolio werden für den konkreten Workflow in der Anfrage geklärt." }
+      "reader": {
+        "title": "Eigenständiger POC-Reader",
+        "text": "IglooPro ist als eigenes Produkt für Point-of-Care-Messworkflows sichtbar."
+      },
+      "context": {
+        "title": "Professioneller Einsatzkontext",
+        "text": "Die Produktstrecke richtet sich an Praxen, Kliniken und ihre professionellen Teams."
+      },
+      "scope": {
+        "title": "Umfang wird abgeglichen",
+        "text": "Unterstütztes Setup und Testportfolio werden für den konkreten Workflow in der Anfrage geklärt."
+      }
     }
   },
   "workflow": {
@@ -47,9 +65,18 @@
     "title": "So wird die Passung geklärt",
     "description": "Der aktuelle Weg ist ein transparenter Anfrageprozess und keine automatisch konfigurierte Produktstrecke.",
     "steps": {
-      "context": { "title": "Einsatzkontext beschreiben", "text": "Praxistyp, geplanter Point-of-Care-Kontext und offene Anforderungen bilden den Ausgangspunkt." },
-      "scope": { "title": "Unterstützten Umfang abgleichen", "text": "Setup, Testportfolio und relevante Betriebsfragen werden vor einer Produktempfehlung bestätigt." },
-      "decision": { "title": "Nächsten Schritt vereinbaren", "text": "Die bestehende Kontaktstrecke führt zur persönlichen Klärung und gegebenenfalls zu einem Angebot." }
+      "context": {
+        "title": "Einsatzkontext beschreiben",
+        "text": "Praxistyp, geplanter Point-of-Care-Kontext und offene Anforderungen bilden den Ausgangspunkt."
+      },
+      "scope": {
+        "title": "Unterstützten Umfang abgleichen",
+        "text": "Setup, Testportfolio und relevante Betriebsfragen werden vor einer Produktempfehlung bestätigt."
+      },
+      "decision": {
+        "title": "Nächsten Schritt vereinbaren",
+        "text": "Die bestehende Kontaktstrecke führt zur persönlichen Klärung und gegebenenfalls zu einem Angebot."
+      }
     },
     "boundary": "Bedienung, Probenablauf und Ergebnisverarbeitung werden erst auf Basis freigegebener Produktunterlagen beschrieben; diese Seite erfindet dafür keine Automatisierung."
   },
@@ -59,24 +86,32 @@
     "description": "Kompatibilität ist eine konkrete Prüfaufgabe. Diese Fragen strukturieren die Anfrage, ohne technische Unterstützung vorwegzunehmen.",
     "boundary": "Aktuell wird keine pauschale Unterstützung bestimmter Tests, Schnittstellen, Praxissoftware oder Service-Level behauptet.",
     "items": {
-      "portfolio": { "title": "Testportfolio", "text": "Welche Tests und Materialien werden für den geplanten Einsatz tatsächlich unterstützt?" },
-      "setting": { "title": "Praxis- und Betriebsumfeld", "text": "Welche organisatorischen und räumlichen Anforderungen muss das Setup erfüllen?" },
-      "data": { "title": "Daten- und Systemweg", "text": "Welche Datenübergaben oder Systemanschlüsse werden benötigt und sind aktuell bestätigt?" },
-      "service": { "title": "Support und Betrieb", "text": "Welche Einweisung, Dokumentation und Unterstützung werden für den konkreten Einsatz vereinbart?" }
+      "portfolio": {
+        "title": "Testportfolio",
+        "text": "Welche Tests und Materialien werden für den geplanten Einsatz tatsächlich unterstützt?"
+      },
+      "setting": {
+        "title": "Praxis- und Betriebsumfeld",
+        "text": "Welche organisatorischen und räumlichen Anforderungen muss das Setup erfüllen?"
+      },
+      "data": {
+        "title": "Daten- und Systemweg",
+        "text": "Welche Datenübergaben oder Systemanschlüsse werden benötigt und sind aktuell bestätigt?"
+      },
+      "service": {
+        "title": "Support und Betrieb",
+        "text": "Welche Einweisung, Dokumentation und Unterstützung werden für den konkreten Einsatz vereinbart?"
+      }
     },
     "links_label": "Weiterführende IglooPro-Links",
     "links_title": "Reale nächste Ziele",
-    "links": { "poc": "POC-Systemlösungen", "compatibility": "Kompatibilität & Integration", "downloads": "Produktunterlagen", "support": "Support-Anfrage", "contact": "Angebot anfragen" }
-  },
-  "specification": {
-    "eyebrow": "TECHNISCHE SPEZIFIKATION",
-    "title": "Gelockter Produkt- und Content-Claim",
-    "description": "Diese Darstellung dokumentiert die im Projekt gelockte Schreibweise. Sie ist keine unabhängige wissenschaftliche Validierung.",
-    "caption": "IglooPro Spezifikationsstatus",
-    "headers": { "metric": "Kennzahl", "value": "Wert", "context": "Kontext" },
-    "metric": "Variationskoeffizient (CV)",
-    "value": "CV < 2 %",
-    "context": "Produkt-/Content-Entscheidung; wissenschaftliche Richtigkeit im Repository nicht unabhängig validiert."
+    "links": {
+      "poc": "POC-Systemlösungen",
+      "compatibility": "Kompatibilität & Integration",
+      "downloads": "Produktunterlagen",
+      "support": "Support-Anfrage",
+      "contact": "Angebot anfragen"
+    }
   },
   "intro": {
     "title": "Laborqualität im Handformat",
