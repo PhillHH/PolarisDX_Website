@@ -23,6 +23,16 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-03 mittags (SC-021 Nachtrag 4+5, Preview):** „Aktuell“-Band entfernt, externe Shop-Zellen
+in neuem Fenster, MEDICA-Kachel breiter (Nachtrag 4); Team-Sektion `TeamEventSection` (Entwurf T3,
+Hamburger Team beim DGI-Jahreskongress, echtes Foto, bis 28.11.) unter dem Messe-Band (Nachtrag 5);
+Kopfzeilen-Zelle „Shop“ statt „Praxis-Shop“ (5b). Budgets per Owner-Go: `htmlBytes` home 36.300,
+home-en 35.800, home-pl 36.500, `jsBytes` Startseite 168.700 (gemessen 36.023 / 35.682 / 36.401 B,
+JS 168.405 B; PERFORMANCE-CONTRACT §25). Code `9460daf`, **Preview-Release `9460daf7620b`**
+(Smoke grün, Artefaktidentität beide Dienste). Produktion weiter `ff0eb6822b7f`. Gates: Vitest
+652/652, Guards grün, Perf-Budget ci 852/852, Playwright Startseite/Navigation 51, Axe 27/27,
+Baselines PT27.6 22/22 unverändert (Viewport-Screenshots).
+
 **Stand 2026-11-02 abends (SC-021 Nachtrag, live):** Hero wieder als Slider (Folie 2 MEDICA mit
 Navy-Kachel und Countdown, Folie 3 Panel-Aktion), Bühne als weißes Band, Messe-Band `EventBand` auf
 Startseite und Inhaltsseiten, Hover-Panels je Hauptpunkt, Kopfzeile auf 1440 px, Sprachdateien mit
