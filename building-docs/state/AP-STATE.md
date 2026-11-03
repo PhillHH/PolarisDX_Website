@@ -10,7 +10,13 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
-**Stand 2026-11-03 (SC-021 Nachtrag 2, Preview):** Folie 1 der Bühne ist eine Diashow (Probe ·
+**Stand 2026-11-03 (SC-021 Nachtrag 3, Preview):** MEDICA-Folie mit Messehalle (Owner-Motiv per Gemini
+auf Düsseldorf korrigiert, PolarisDX-Stand „Halle 15 · Stand E13“). Code `ff0eb68`, **Preview-Release
+`ff0eb6822b7f`** (healthy, Identität, Smoke grün), **Produktion `8ce8dac1463b`** — Veröffentlichungs-Go
+steht aus. Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 71, Axe 27/27, Visual
+22 Baselines neu. Parallel: Säulen-Entwürfe P1–P15 (`wireframes/sc-021-kopfzeile/runde-10/`).
+
+**Stand 2026-11-03 (SC-021 Nachtrag 2, live):** Folie 1 der Bühne ist eine Diashow (Probe ·
 Messung · Ergebnis mit Bildzeile, Restzeit-Balken und Zeitleiste; danach Folie 2 MEDICA, Folie 3
 Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go („Ja, veröffentlichen", 2026-11-03)
 **Produktion `8ce8dac1463b`** (vorher `6ddb9a650bdb`; Backup/Restore-Test grün, Smoke grün). Startseiten-`jsBytes` per Owner-Go
