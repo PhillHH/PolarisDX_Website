@@ -69,6 +69,14 @@ SC-020 carousel (both kept below as history).
   „Treffen wir uns in Düsseldorf.", date · hall/stand — description, countdown, white pill to
   `/contact`, link to `/events`) — the same component also sits on the content subpages (see
   SCOPE-CHANGELOG SC-021 Nachtrag). No new claim: all band and slide copy is SC-019 event data.
+- **Addendum 2 (2026-11-03):** slide 1 is a slideshow — the photo frame cycles every 4 s through
+  Probe (capillary, `HERO_CARD`, SSR/LCP) → Messung (IglooPro on the counter) → Ergebnis
+  (practice), each with a caption pill (`hero.steps[n].title · text`) and a cyan progress bar;
+  below it the step timeline 01 · 02 · 03 (buttons, `aria-current="step"`, growing connector
+  lines). Photos 2/3 (`HERO_SHOW`, lazy), caption, bar and timeline live in the `HeroSlides`
+  chunk and are portaled into reserved slots (frame overlay, `mt-5 h-11`). After the third photo
+  the carousel moves to slide 2; returning to slide 1 restarts at photo 1. Pointer/focus hold,
+  no cycling under reduced motion. No new claim: step copy restates `HCL-004`/`HCL-008`.
 - No product card any more (`hero.visual_alt` removed), no aurora glow on the stage;
   `enter` stagger for caption/H1/lead/actions (transform only, H1 stays an LCP candidate).
 - The Homepage carries two generated photographs (this card and the detail photo, §4.2).

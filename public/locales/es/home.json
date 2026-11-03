@@ -75,7 +75,22 @@
         "label": "Validado y listo para usar"
       }
     },
-    "stats_disclaimer": "* Valor de ejemplo: depende de las cifras de su consulta."
+    "stats_disclaimer": "* Valor de ejemplo: depende de las cifras de su consulta.",
+    "steps": [
+      {
+        "title": "Muestra",
+        "text": "Una gota de sangre capilar."
+      },
+      {
+        "title": "Medición",
+        "text": "IglooPro lee el test rápido."
+      },
+      {
+        "title": "Resultado",
+        "text": "El valor está listo mientras el paciente sigue en el sillón."
+      }
+    ],
+    "steps_aria": "Así funciona en la consulta"
   },
   "business_pillars": {
     "eyebrow": "Tres pilares de negocio",
@@ -437,6 +452,7 @@
     "play": "Reanudar el cambio automático",
     "slide": "Diapositiva {{n}} de {{total}}",
     "meet": "Concertar una cita en nuestro stand",
-    "event_invite": "Venga a vernos."
+    "event_invite": "Venga a vernos.",
+    "photo": "Imagen {{n}} de {{total}}"
   }
 }

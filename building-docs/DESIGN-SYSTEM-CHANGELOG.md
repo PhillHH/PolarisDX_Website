@@ -40,6 +40,13 @@ Das ist **AP27** und wird nicht vorweggenommen.
 - **Neu (Komponente, kein Export aus `ui/`):** `EventBand` — Navy-Karte `rounded-band shadow-card`
   mit Foto (`rounded-card`), `t-eyebrow-dark`, H2 `text-2xl sm:text-3xl`, Countdown `text-4xl`,
   weiße Pille (`Button light sm`), Link `accent.on-dark`; auf Startseite und Inhaltsseiten.
+- **Diashow in Folie 1 (Nachtrag 2, 2026-11-03):** Fotorahmen `rounded-card bg-brand-deep shadow-card`
+  mit drei übereinanderliegenden Bildern (Blende `STAGE.fade`), Bildzeile als weiße Pille
+  (`bg-white/95 shadow-card`, Punkt `accent.line`, Eintritt `.hero-caption`), Restzeit-Balken `h-1`
+  `accent.line` auf `white/25` (`.hero-progress`, Dauer 4 s); Zeitleiste: Kreise 40 px `border-[3px]`
+  (aktiv `bg-brand-deep border-accent-line` + `.hero-pulse-ring`, erledigt `border-accent-line`, offen
+  `border-paper-line`), Linien `h-[3px]` `paper.line` mit `accent.line`-Füllung. Neue Bilder
+  `hero-card-capillary-*`, `hero-card-device-*` (`scripts/build-photo-look.mjs hero-card`).
 - **Hover-Panels:** jede Hauptpunkt-Zelle ist Link + Aufklapper (`ChevronDown`, `data-submenu-trigger`,
   `aria-expanded`); Hover oder Knopf öffnen das Panel des Punkts (`#site-menu[data-panel]`), die
   Zelle wird `brand.soft`. Panel-Inhalte aus denselben Bausteinen (`MENU_LINK`, `t-h6`, Gerätekarte,

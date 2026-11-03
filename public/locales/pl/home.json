@@ -75,7 +75,22 @@
         "label": "Walidowane i gotowe do pracy"
       }
     },
-    "stats_disclaimer": "* Wartość przykładowa – zależna od danych Twojego gabinetu."
+    "stats_disclaimer": "* Wartość przykładowa – zależna od danych Twojego gabinetu.",
+    "steps": [
+      {
+        "title": "Próbka",
+        "text": "Jedna kropla krwi włośniczkowej."
+      },
+      {
+        "title": "Pomiar",
+        "text": "IglooPro odczytuje szybki test."
+      },
+      {
+        "title": "Wynik",
+        "text": "Wynik jest gotowy, a pacjent wciąż siedzi na fotelu."
+      }
+    ],
+    "steps_aria": "Tak to wygląda w gabinecie"
   },
   "business_pillars": {
     "eyebrow": "Trzy filary działalności",
@@ -437,6 +452,7 @@
     "play": "Wznów automatyczne przewijanie",
     "slide": "Slajd {{n}} z {{total}}",
     "meet": "Umów spotkanie na naszym stoisku",
-    "event_invite": "Zapraszamy na stoisko."
+    "event_invite": "Zapraszamy na stoisko.",
+    "photo": "Obraz {{n}} z {{total}}"
   }
 }

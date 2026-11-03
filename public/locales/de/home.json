@@ -75,7 +75,22 @@
         "label": "Validiert & einsatzbereit"
       }
     },
-    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten."
+    "stats_disclaimer": "* Beispielwert – abhängig von Ihren Praxiswerten.",
+    "steps": [
+      {
+        "title": "Probe",
+        "text": "Ein Tropfen Kapillarblut."
+      },
+      {
+        "title": "Messung",
+        "text": "IglooPro liest den Schnelltest."
+      },
+      {
+        "title": "Ergebnis",
+        "text": "Der Wert liegt vor, der Patient ist noch im Stuhl."
+      }
+    ],
+    "steps_aria": "So läuft es in der Praxis"
   },
   "business_pillars": {
     "eyebrow": "Drei Geschäftssäulen",
@@ -437,6 +452,7 @@
     "play": "Automatischen Wechsel fortsetzen",
     "slide": "Folie {{n}} von {{total}}",
     "meet": "Termin am Stand vereinbaren",
-    "event_invite": "Kommen Sie vorbei."
+    "event_invite": "Kommen Sie vorbei.",
+    "photo": "Bild {{n}} von {{total}}"
   }
 }

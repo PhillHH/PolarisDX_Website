@@ -72,9 +72,11 @@ describe('Homepage Hero contract', () => {
     expect(photo.closest('picture')!.querySelectorAll('source')).toHaveLength(1)
     expect(container.querySelectorAll('[fetchpriority="high"]')).toHaveLength(1)
 
-    // Das SSR-Markup traegt keine Bedienung und keine Karussell-Semantik — beides kommt erst im
-    // Browser nach HERO_SLIDES_DELAY_MS als eigener Chunk (HeroSlides).
+    // Das SSR-Markup traegt keine Slider-Bedienung und keine Karussell-Semantik — beides kommt
+    // erst im Browser nach HERO_SLIDES_DELAY_MS als eigener Chunk (HeroSlides). Die drei Schritte
+    // der Diashow stehen statisch (Schritt 1 aktiv).
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(container.querySelector('[data-home-hero-steps]')).toBeNull()
     expect(container.querySelector('[aria-roledescription]')).toBeNull()
     expect(container.querySelector('[data-hero-slide="main"]')).not.toHaveAttribute('aria-hidden')
   })
@@ -94,6 +96,11 @@ describe('Homepage Hero contract', () => {
       expect(container.querySelector('[aria-roledescription="carousel"]')).not.toBeNull()
       expect(screen.getAllByRole('tab')).toHaveLength(3)
       expect(container.querySelectorAll('[aria-roledescription="slide"]')).toHaveLength(0)
+      // Zeitleiste der Diashow kommt mit dem Chunk; Schritt 1 ist aktiv.
+      expect(container.querySelectorAll('[data-home-hero-steps] button')).toHaveLength(3)
+      expect(
+        container.querySelector('[data-home-hero-steps] [aria-current="step"]'),
+      ).toHaveTextContent('01')
       expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
       // Folie 2 (Termin mit Navy-Kachel): Folie 1 bleibt fuer Hoehe und H1 im DOM, aber unsichtbar und inert.
       await act(async () => {
@@ -106,8 +113,14 @@ describe('Homepage Hero contract', () => {
       expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
         'events:items.medica_2026.title',
       )
-      expect(screen.getByText('14')).toBeInTheDocument()
+      // Countdown der Kachel (Tageszahl haengt vom echten Datum ab — nach useRealTimers).
+      expect(screen.getByText('common:event_band.days_label')).toBeInTheDocument()
       expect(container.querySelectorAll('h1')).toHaveLength(1)
+      // Diashow in Folie 1: Bild 2/3 sind nachgeladen (lazy) und nur eines sichtbar.
+      expect(container.querySelectorAll('[data-home-hero-visual] img')).toHaveLength(3)
+      expect(
+        container.querySelectorAll('[data-home-hero-visual] img[loading="lazy"]'),
+      ).toHaveLength(2)
     } finally {
       vi.useRealTimers()
     }

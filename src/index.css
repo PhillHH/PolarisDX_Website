@@ -454,6 +454,14 @@
       scale: var(--d, 0 1);
     }
   }
+  @keyframes heroProgress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
   @keyframes auroraDrift {
     to {
       transform: translate(8%, -6%) scale(1.12);
@@ -483,6 +491,14 @@
      LCP-Kandidaten aus (gemessen: Text-LCP-Routen +600 ms, /pl/ Desktop faellt auf ein lazy Bild). */
   .enter {
     animation: enterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  /* SC-021 Nachtrag: Diashow der Startseiten-Buehne — Restzeit-Balken und Bildzeile */
+  .hero-progress {
+    animation: heroProgress linear forwards;
+  }
+  .hero-caption {
+    animation: enterIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.3s;
   }
   .faq-panel:not([hidden]) {
     animation: rvIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;

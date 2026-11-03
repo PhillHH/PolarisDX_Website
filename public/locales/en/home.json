@@ -75,7 +75,22 @@
         "label": "Validated & ready to use"
       }
     },
-    "stats_disclaimer": "* Example value — depends on your practice figures."
+    "stats_disclaimer": "* Example value — depends on your practice figures.",
+    "steps": [
+      {
+        "title": "Sample",
+        "text": "One drop of capillary blood."
+      },
+      {
+        "title": "Measurement",
+        "text": "IglooPro reads the rapid test."
+      },
+      {
+        "title": "Result",
+        "text": "The value is in while the patient is still in the chair."
+      }
+    ],
+    "steps_aria": "How it works in the practice"
   },
   "business_pillars": {
     "eyebrow": "Three business pillars",
@@ -437,6 +452,7 @@
     "play": "Resume automatic rotation",
     "slide": "Slide {{n}} of {{total}}",
     "meet": "Book a meeting at our stand",
-    "event_invite": "Come and see us."
+    "event_invite": "Come and see us.",
+    "photo": "Image {{n}} of {{total}}"
   }
 }

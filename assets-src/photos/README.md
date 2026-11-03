@@ -40,6 +40,7 @@ alten Startbilds war vom Owner ausdruecklich unerwuenscht). Die Buehnenbilder `h
 entfernt; `stage()` und `slides()` gibt es nicht mehr. Kein neues Motiv, kein neuer Prompt.
 
 Jede Aenderung an einer Quelle: `npm run build:photo-look` und `npm run check:article-images`;
-nur die Fotokarte: `node scripts/build-photo-look.mjs hero-card`; nur das Messe-Band
+nur die Fotokarten der Buehne (Praxis, Kapillarblut `detail-capillary.jpg` mittig, Geraet
+`lab-tubes.jpg` rechts — Diashow der Folie 1, SC-021 Nachtrag 2): `node scripts/build-photo-look.mjs hero-card`; nur das Messe-Band
 (`lab-tubes.jpg` als 12:5-Karte `event-band-480/960w`, Funktion `eventBand()`, SC-021 Nachtrag):
 `node scripts/build-photo-look.mjs event-band`.

@@ -75,7 +75,22 @@
         "label": "Validováno a připraveno k použití"
       }
     },
-    "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace."
+    "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace.",
+    "steps": [
+      {
+        "title": "Vzorek",
+        "text": "Jedna kapka kapilární krve."
+      },
+      {
+        "title": "Měření",
+        "text": "IglooPro přečte rychlotest."
+      },
+      {
+        "title": "Výsledek",
+        "text": "Hodnota je k dispozici, pacient je stále v křesle."
+      }
+    ],
+    "steps_aria": "Jak to probíhá v ordinaci"
   },
   "business_pillars": {
     "eyebrow": "Tři obchodní pilíře",
@@ -437,6 +452,7 @@
     "play": "Pokračovat v automatickém přepínání",
     "slide": "Snímek {{n}} z {{total}}",
     "meet": "Domluvit schůzku na našem stánku",
-    "event_invite": "Přijďte se podívat."
+    "event_invite": "Přijďte se podívat.",
+    "photo": "Obrázek {{n}} z {{total}}"
   }
 }

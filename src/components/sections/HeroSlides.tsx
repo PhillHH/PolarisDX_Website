@@ -21,13 +21,18 @@ import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import reportImage from '../../assets/home/report-preview-800w.webp'
+import { HERO_CARD, HERO_SHOW } from '../../assets/home/homeImages'
 import { getEventStatus, getNextHomeEvent, toEventDay } from '../../data/events'
 import { daysUntil, formatEventRange } from '../../lib/eventDates'
 import { isPanelsPromoActive, panelsUrl } from '../../lib/shop'
 import { Button } from '../ui/Button'
 import type { Stage } from './heroStage'
+import { heroSteps } from './heroSteps'
 
 const INTERVAL_MS = 8000
+/** Diashow der Folie 1: drei Motive, je 4 s; nach dem letzten geht es zu Folie 2. */
+const PHOTO_MS = 4000
+const PHOTOS = 3
 const CONTROL =
   'inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-brand-deep hover:border-brand-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2'
 
@@ -68,12 +73,28 @@ const Slide = ({ stage, label, eyebrow, title, lead, actions, aside, host }: Sli
 interface HeroSlidesProps {
   active: number
   onChange: (index: number) => void
+  /** Aktives Motiv der Diashow auf Folie 1 (0..2). */
+  photo: number
+  onPhoto: (index: number) => void
   stage: Stage
   /** Platzhalter unter den Buttons von Folie 1 (HeroSection). */
   host: HTMLDivElement | null
+  /** Fotorahmen der Folie 1 — hier landen Bild 2/3, Bildzeile und Restzeit-Balken. */
+  frameHost: HTMLDivElement | null
+  /** Platz unter dem Fotorahmen fuer die Zeitleiste der drei Schritte. */
+  stepsHost: HTMLDivElement | null
 }
 
-const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
+const HeroSlides = ({
+  active,
+  onChange,
+  photo,
+  onPhoto,
+  stage,
+  host,
+  frameHost,
+  stepsHost,
+}: HeroSlidesProps) => {
   const { t, i18n } = useTranslation(['home', 'events', 'common'])
   const event = getNextHomeEvent()
   const promo = isPanelsPromoActive()
@@ -87,11 +108,26 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
   const focusKey = useRef<string | null>(null)
   const target = active === 0 ? host : slideHost
 
+  // Folie 1: alle PHOTO_MS das naechste Motiv, nach dem dritten die naechste Folie (sofern es
+  // eine gibt); Themenfolien wechseln nach INTERVAL_MS. Beim Rueckkehr auf Folie 1 beginnt die
+  // Diashow wieder beim ersten Motiv.
   useEffect(() => {
     if (!playing || held) return
-    const id = window.setTimeout(() => onChange((active + 1) % total), INTERVAL_MS)
+    const onMain = active === 0
+    const last = photo >= PHOTOS - 1
+    const id = window.setTimeout(
+      () => {
+        if (onMain && !last) onPhoto(photo + 1)
+        else if (onMain && total === 1) onPhoto(0)
+        else {
+          onPhoto(0)
+          onChange((active + 1) % total)
+        }
+      },
+      onMain ? PHOTO_MS : INTERVAL_MS,
+    )
     return () => window.clearTimeout(id)
-  }, [active, playing, held, total, onChange])
+  }, [active, photo, playing, held, total, onChange, onPhoto])
 
   // Nach einem Klick zieht die Leiste in die neue Folie um — der gedrückte Knopf behält den Fokus.
   useEffect(() => {
@@ -245,6 +281,107 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
     </div>
   )
 
+  const steps = heroSteps(t)
+  const timeline = (
+    <ol
+      data-home-hero-steps
+      aria-label={t('hero.steps_aria')}
+      className="mt-5 flex items-center gap-2 sm:gap-3"
+    >
+      {steps.map((step, index) => (
+        <li
+          key={step.title}
+          className={`flex min-w-0 items-center gap-2 sm:gap-3 ${index < steps.length - 1 ? 'flex-1' : ''}`}
+        >
+          <button
+            type="button"
+            data-k={`s${index}`}
+            aria-current={photo === index ? 'step' : undefined}
+            onClick={() => onPhoto(index)}
+            className="group flex min-h-[44px] min-w-0 items-center gap-2 rounded-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+          >
+            <span
+              className={`relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[3px] text-sm font-bold transition-colors motion-reduce:transition-none ${
+                photo === index
+                  ? 'border-accent-line bg-brand-deep text-white'
+                  : photo > index
+                    ? 'border-accent-line bg-white text-heading'
+                    : 'border-paper-line bg-white text-heading'
+              }`}
+            >
+              0{index + 1}
+              {photo === index && (
+                <span
+                  aria-hidden="true"
+                  className="hero-pulse-ring absolute -inset-[3px] rounded-full border-[3px] border-accent-line"
+                />
+              )}
+            </span>
+            <span
+              className={`hidden whitespace-nowrap text-sm sm:inline ${
+                photo === index ? 'font-semibold text-heading' : 'font-medium text-gray-700'
+              }`}
+            >
+              {step.title}
+            </span>
+          </button>
+          {index < steps.length - 1 && (
+            <span
+              aria-hidden="true"
+              className="relative h-[3px] min-w-4 flex-1 overflow-hidden rounded-full bg-paper-line"
+            >
+              <span
+                className={`absolute inset-y-0 left-0 rounded-full bg-accent-line transition-[width] duration-700 motion-reduce:transition-none ${
+                  photo > index ? 'w-full' : 'w-0'
+                }`}
+              />
+            </span>
+          )}
+        </li>
+      ))}
+    </ol>
+  )
+  // Diashow in Folie 1: Bild 2/3 ueber Bild 1 (das bleibt im SSR), Bildzeile und Restzeit-Balken.
+  const show = (
+    <>
+      {HERO_SHOW.map((img, k) => {
+        const index = k + 1
+        return (
+          <picture key={index}>
+            <source type="image/avif" srcSet={img.avif} sizes={HERO_CARD.sizes} />
+            <img
+              src={img.src}
+              srcSet={img.webp}
+              sizes={HERO_CARD.sizes}
+              alt=""
+              width={HERO_CARD.width}
+              height={HERO_CARD.height}
+              loading="lazy"
+              className={`absolute inset-0 h-full w-full object-cover ${stage.fade} ${photo === index ? '' : 'opacity-0'}`}
+            />
+          </picture>
+        )
+      })}
+      <p
+        key={photo}
+        className="hero-caption absolute bottom-4 left-4 inline-flex max-w-[calc(100%-2rem)] items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-[13px] font-semibold text-heading shadow-card"
+      >
+        <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
+        <span className="truncate">
+          {steps[photo]?.title} · {steps[photo]?.text}
+        </span>
+        <span className="sr-only">{t('hero_slides.photo', { n: photo + 1, total: PHOTOS })}</span>
+      </p>
+      <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1 bg-white/25">
+        <span
+          key={`${active}-${photo}-${playing && !held}`}
+          className={`block h-full bg-accent-line ${active === 0 && playing && !held ? 'hero-progress' : 'w-0'}`}
+          style={{ animationDuration: `${PHOTO_MS}ms` }}
+        />
+      </span>
+    </>
+  )
+
   return (
     <div
       onPointerEnter={() => setHeld(true)}
@@ -254,6 +391,8 @@ const HeroSlides = ({ active, onChange, stage, host }: HeroSlidesProps) => {
     >
       {slide && <Slide {...slide} stage={stage} host={setSlideHost} />}
       {target && createPortal(controls, target)}
+      {frameHost && createPortal(show, frameHost)}
+      {stepsHost && createPortal(timeline, stepsHost)}
     </div>
   )
 }

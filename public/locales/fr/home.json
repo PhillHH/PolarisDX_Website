@@ -75,7 +75,22 @@
         "label": "Validé et prêt à l'emploi"
       }
     },
-    "stats_disclaimer": "* Valeur d'exemple – dépend des chiffres de votre cabinet."
+    "stats_disclaimer": "* Valeur d'exemple – dépend des chiffres de votre cabinet.",
+    "steps": [
+      {
+        "title": "Prélèvement",
+        "text": "Une goutte de sang capillaire."
+      },
+      {
+        "title": "Mesure",
+        "text": "IglooPro lit le test rapide."
+      },
+      {
+        "title": "Résultat",
+        "text": "La valeur est disponible, le patient est encore au fauteuil."
+      }
+    ],
+    "steps_aria": "Comment ça se passe au cabinet"
   },
   "business_pillars": {
     "eyebrow": "Trois piliers d’activité",
@@ -437,6 +452,7 @@
     "play": "Reprendre le défilement automatique",
     "slide": "Diapositive {{n}} sur {{total}}",
     "meet": "Prendre rendez-vous sur notre stand",
-    "event_invite": "Venez nous voir."
+    "event_invite": "Venez nous voir.",
+    "photo": "Image {{n}} sur {{total}}"
   }
 }

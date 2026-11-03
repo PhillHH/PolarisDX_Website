@@ -29,6 +29,18 @@ import heroCard800Avif from './hero-card-800w.avif'
 import heroCard800Webp from './hero-card-800w.webp'
 import heroCard1280Avif from './hero-card-1280w.avif'
 import heroCard1280Webp from './hero-card-1280w.webp'
+import heroCapillary480Avif from './hero-card-capillary-480w.avif'
+import heroCapillary480Webp from './hero-card-capillary-480w.webp'
+import heroCapillary800Avif from './hero-card-capillary-800w.avif'
+import heroCapillary800Webp from './hero-card-capillary-800w.webp'
+import heroCapillary1280Avif from './hero-card-capillary-1280w.avif'
+import heroCapillary1280Webp from './hero-card-capillary-1280w.webp'
+import heroDevice480Avif from './hero-card-device-480w.avif'
+import heroDevice480Webp from './hero-card-device-480w.webp'
+import heroDevice800Avif from './hero-card-device-800w.avif'
+import heroDevice800Webp from './hero-card-device-800w.webp'
+import heroDevice1280Avif from './hero-card-device-1280w.avif'
+import heroDevice1280Webp from './hero-card-device-1280w.webp'
 import eventBand480Avif from './event-band-480w.avif'
 import eventBand480Webp from './event-band-480w.webp'
 import eventBand960Avif from './event-band-960w.avif'
@@ -62,13 +74,32 @@ export const EVENT_BAND = {
   webp: `${eventBand480Webp} 480w, ${eventBand960Webp} 960w`,
 } as const
 
+/**
+ * Diashow der Folie 1 (SC-021 Nachtrag, Owner 2026-11-02 „die Bilder nacheinander gezeigt"):
+ * Reihenfolge Probe (Kapillarblut, `HERO_CARD`, SSR/LCP) → Messung (IglooPro auf dem Tresen) →
+ * Ergebnis (Praxis); Bild 2/3 laden nur im Browser mit dem Slider-Chunk.
+ */
+export const HERO_SHOW = [
+  {
+    src: heroDevice1280Webp,
+    avif: `${heroDevice480Avif} 480w, ${heroDevice800Avif} 800w, ${heroDevice1280Avif} 1280w`,
+    webp: `${heroDevice480Webp} 480w, ${heroDevice800Webp} 800w, ${heroDevice1280Webp} 1280w`,
+  },
+  {
+    src: heroCard1280Webp,
+    avif: `${heroCard480Avif} 480w, ${heroCard800Avif} 800w, ${heroCard1280Avif} 1280w`,
+    webp: `${heroCard480Webp} 480w, ${heroCard800Webp} 800w, ${heroCard1280Webp} 1280w`,
+  },
+] as const
+
 export const HERO_CARD = {
-  src: heroCard1280Webp,
+  // Bild 1 = Schritt „Probe" (Kapillarblut): serverseitig, LCP. Praxisfoto und Geraet folgen (HERO_SHOW).
+  src: heroCapillary1280Webp,
   width: 1280,
   height: 800,
   /** Erste mobile AVIF-Stufe fuer DPR 2 — `href` des Preloads (LCP unter Drosselung). */
-  preloadHref: heroCard800Avif,
+  preloadHref: heroCapillary800Avif,
   sizes: '(min-width: 1024px) 560px, calc(100vw - 2rem)',
-  avif: `${heroCard480Avif} 480w, ${heroCard800Avif} 800w, ${heroCard1280Avif} 1280w`,
-  webp: `${heroCard480Webp} 480w, ${heroCard800Webp} 800w, ${heroCard1280Webp} 1280w`,
+  avif: `${heroCapillary480Avif} 480w, ${heroCapillary800Avif} 800w, ${heroCapillary1280Avif} 1280w`,
+  webp: `${heroCapillary480Webp} 480w, ${heroCapillary800Webp} 800w, ${heroCapillary1280Webp} 1280w`,
 } as const

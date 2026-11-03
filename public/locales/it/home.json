@@ -75,7 +75,22 @@
         "label": "Validato e pronto all'uso"
       }
     },
-    "stats_disclaimer": "* Valore esemplificativo – dipende dai dati del tuo studio."
+    "stats_disclaimer": "* Valore esemplificativo – dipende dai dati del tuo studio.",
+    "steps": [
+      {
+        "title": "Campione",
+        "text": "Una goccia di sangue capillare."
+      },
+      {
+        "title": "Misurazione",
+        "text": "IglooPro legge il test rapido."
+      },
+      {
+        "title": "Risultato",
+        "text": "Il valore è pronto mentre il paziente è ancora sulla poltrona."
+      }
+    ],
+    "steps_aria": "Come funziona nello studio"
   },
   "business_pillars": {
     "eyebrow": "Tre pilastri di attività",
@@ -437,6 +452,7 @@
     "play": "Riprendi lo scorrimento automatico",
     "slide": "Diapositiva {{n}} di {{total}}",
     "meet": "Fissa un appuntamento al nostro stand",
-    "event_invite": "Venite a trovarci."
+    "event_invite": "Venite a trovarci.",
+    "photo": "Immagine {{n}} di {{total}}"
   }
 }

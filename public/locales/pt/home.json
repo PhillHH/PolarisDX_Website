@@ -75,7 +75,22 @@
         "label": "Validado e pronto a utilizar"
       }
     },
-    "stats_disclaimer": "* Valor exemplificativo – depende dos dados do seu consultório."
+    "stats_disclaimer": "* Valor exemplificativo – depende dos dados do seu consultório.",
+    "steps": [
+      {
+        "title": "Amostra",
+        "text": "Uma gota de sangue capilar."
+      },
+      {
+        "title": "Medição",
+        "text": "O IglooPro lê o teste rápido."
+      },
+      {
+        "title": "Resultado",
+        "text": "O valor está pronto enquanto o paciente ainda está na cadeira."
+      }
+    ],
+    "steps_aria": "Como funciona no consultório"
   },
   "business_pillars": {
     "eyebrow": "Três pilares de negócio",
@@ -437,6 +452,7 @@
     "play": "Retomar a rotação automática",
     "slide": "Diapositivo {{n}} de {{total}}",
     "meet": "Marcar reunião no nosso stand",
-    "event_invite": "Venha visitar-nos."
+    "event_invite": "Venha visitar-nos.",
+    "photo": "Imagem {{n}} de {{total}}"
   }
 }

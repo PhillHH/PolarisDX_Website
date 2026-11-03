@@ -20,7 +20,10 @@ const HERO_SLIDES_DELAY_MS = 1500
  * Knöpfe; rechts das saubere Praxisfoto als 16:10-Karte (`HERO_CARD`), dekorativ (`alt=""`),
  * das einzige Bild mit `fetchpriority="high"` und auf allen Viewports das LCP-Element.
  * Folie 1 ist dieses serverseitige Markup; 1,5 s nach dem Laden kommen Folie 2 (nächster Termin
- * mit Navy-Kachel) und Folie 3 (Panel-Aktion) als Overlay dazu (`HeroSlides`). Gibt es weder
+ * mit Navy-Kachel) und Folie 3 (Panel-Aktion) als Overlay dazu (`HeroSlides`). Owner 2026-11-02
+ * („die Bilder nacheinander gezeigt“): Folie 1 ist selbst eine Diashow — drei Motive (Probe,
+ * Messung, Ergebnis) wechseln alle 4 s im Fotorahmen, die Zeitleiste darunter läuft mit; nach
+ * dem dritten Motiv geht es zu Folie 2. Gibt es weder
  * Termin noch Aktion, bleibt die Bühne statisch — dann auch kein Platz für die Bedienung.
  *
  * DOM-Reihenfolge: Eyebrow → H1 → Satz → Knöpfe → Foto (mobil also beide Aktionen vor dem Bild).
@@ -44,8 +47,12 @@ const HeroSection = () => {
   const longestLine = Math.max(...lines.map((line) => line.trim().length))
   const hasSlides = Boolean(getNextHomeEvent()) || isPanelsPromoActive()
   const [active, setActive] = useState(0)
+  // SC-021 Nachtrag: Folie 1 zeigt drei Motive nacheinander (Probe · Messung · Ergebnis).
+  const [photo, setPhoto] = useState(0)
   const [slides, setSlides] = useState(false)
   const [controlsHost, setControlsHost] = useState<HTMLDivElement | null>(null)
+  const [frameHost, setFrameHost] = useState<HTMLDivElement | null>(null)
+  const [stepsHost, setStepsHost] = useState<HTMLDivElement | null>(null)
   useEffect(() => {
     if (!hasSlides) return
     const id = window.setTimeout(() => setSlides(true), HERO_SLIDES_DELAY_MS)
@@ -124,26 +131,43 @@ const HeroSection = () => {
           {hasSlides && <div ref={setControlsHost} className="mt-7 h-11" />}
         </div>
 
-        <div data-home-hero-visual className="w-full lg:justify-self-end">
-          <picture data-home-hero-photo>
-            <source type="image/avif" srcSet={HERO_CARD.avif} sizes={HERO_CARD.sizes} />
-            <img
-              src={HERO_CARD.src}
-              srcSet={HERO_CARD.webp}
-              sizes={HERO_CARD.sizes}
-              alt=""
-              width={HERO_CARD.width}
-              height={HERO_CARD.height}
-              loading="eager"
-              fetchPriority="high"
-              className="aspect-[16/10] w-full rounded-card object-cover shadow-card"
-            />
-          </picture>
+        <div data-home-hero-visual className="w-full min-w-0 lg:justify-self-end">
+          {/* Diashow-Rahmen: Bild 1 serverseitig (LCP); Bild 2/3, Bildzeile und Restzeit-Balken
+              setzt HeroSlides per Portal in `frameHost` — kein Layoutsprung, die Hoehe steht. */}
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-card bg-brand-deep shadow-card">
+            <picture data-home-hero-photo>
+              <source type="image/avif" srcSet={HERO_CARD.avif} sizes={HERO_CARD.sizes} />
+              <img
+                src={HERO_CARD.src}
+                srcSet={HERO_CARD.webp}
+                sizes={HERO_CARD.sizes}
+                alt=""
+                width={HERO_CARD.width}
+                height={HERO_CARD.height}
+                loading="eager"
+                fetchPriority="high"
+                className={`absolute inset-0 h-full w-full object-cover ${STAGE.fade} ${photo === 0 ? '' : 'opacity-0'}`}
+              />
+            </picture>
+            <div ref={setFrameHost} className="absolute inset-0" />
+          </div>
+          {/* Zeitleiste der drei Schritte: fester Platz (kein Layoutsprung); HeroSlides setzt sie per
+              Portal ein — so bleibt das Markup aus dem Hauptbuendel und dem Startseiten-HTML. */}
+          {hasSlides && <div ref={setStepsHost} className="mt-5 h-11" />}
         </div>
       </div>
       {slides && (
         <Suspense fallback={null}>
-          <HeroSlides active={active} onChange={setActive} stage={STAGE} host={controlsHost} />
+          <HeroSlides
+            active={active}
+            onChange={setActive}
+            photo={photo}
+            onPhoto={setPhoto}
+            stage={STAGE}
+            host={controlsHost}
+            frameHost={frameHost}
+            stepsHost={stepsHost}
+          />
         </Suspense>
       )}
     </section>

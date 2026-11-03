@@ -122,6 +122,9 @@ async function eventBand() {
 
 async function heroCard() {
   await card('practice-dental-2600.jpg', 'hero-card', 16 / 10, [480, 800, 1280], [44, 40, 36])
+  // SC-021 Nachtrag (Owner: Diashow in Folie 1): zwei weitere 16:10-Karten, nur im Browser (lazy).
+  await card('detail-capillary.jpg', 'hero-card-capillary', 16 / 10, [480, 800, 1280], [44, 40, 36], 'centre')
+  await card('lab-tubes.jpg', 'hero-card-device', 16 / 10, [480, 800, 1280], [44, 40, 36], 'right')
 }
 
 /** Motivzuordnung der Artikel (src/data/articles.ts). */

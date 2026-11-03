@@ -75,7 +75,22 @@
         "label": "Gevalideerd & gebruiksklaar"
       }
     },
-    "stats_disclaimer": "* Voorbeeldwaarde – afhankelijk van uw praktijkcijfers."
+    "stats_disclaimer": "* Voorbeeldwaarde – afhankelijk van uw praktijkcijfers.",
+    "steps": [
+      {
+        "title": "Monster",
+        "text": "Eén druppel capillair bloed."
+      },
+      {
+        "title": "Meting",
+        "text": "IglooPro leest de sneltest."
+      },
+      {
+        "title": "Resultaat",
+        "text": "De waarde is er terwijl de patiënt nog in de stoel zit."
+      }
+    ],
+    "steps_aria": "Zo gaat het in de praktijk"
   },
   "business_pillars": {
     "eyebrow": "Drie bedrijfspijlers",
@@ -437,6 +452,7 @@
     "play": "Automatisch wisselen hervatten",
     "slide": "Dia {{n}} van {{total}}",
     "meet": "Afspraak op onze stand maken",
-    "event_invite": "Kom langs."
+    "event_invite": "Kom langs.",
+    "photo": "Afbeelding {{n}} van {{total}}"
   }
 }
