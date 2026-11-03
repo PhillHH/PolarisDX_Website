@@ -47,6 +47,9 @@ Das ist **AP27** und wird nicht vorweggenommen.
   (aktiv `bg-brand-deep border-accent-line` + `.hero-pulse-ring`, erledigt `border-accent-line`, offen
   `border-paper-line`), Linien `h-[3px]` `paper.line` mit `accent.line`-Füllung. Neue Bilder
   `hero-card-capillary-*`, `hero-card-device-*` (`scripts/build-photo-look.mjs hero-card`).
+- **MEDICA-Folie (Nachtrag 3, 2026-11-03):** Kachel `rounded-card bg-brand-deep shadow-card` mit Foto
+  (`event-hall-*`, `object-cover`) und Verlauf `from-brand-deep via-brand-deep/70 to-transparent`;
+  Datum `text-3xl xl:text-4xl`, Halle/Stand `text-base text-white/85`, Countdown und weiße Pille wie zuvor.
 - **Hover-Panels:** jede Hauptpunkt-Zelle ist Link + Aufklapper (`ChevronDown`, `data-submenu-trigger`,
   `aria-expanded`); Hover oder Knopf öffnen das Panel des Punkts (`#site-menu[data-panel]`), die
   Zelle wird `brand.soft`. Panel-Inhalte aus denselben Bausteinen (`MENU_LINK`, `t-h6`, Gerätekarte,

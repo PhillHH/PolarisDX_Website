@@ -77,6 +77,10 @@ SC-020 carousel (both kept below as history).
   chunk and are portaled into reserved slots (frame overlay, `mt-5 h-11`). After the third photo
   the carousel moves to slide 2; returning to slide 1 restarts at photo 1. Pointer/focus hold,
   no cycling under reduced motion. No new claim: step copy restates `HCL-004`/`HCL-008`.
+- **Addendum 3 (2026-11-03):** slide 2's tile shows the trade-fair hall photo (`HERO_EVENT`,
+  owner-supplied AI image corrected to Düsseldorf and fitted with a PolarisDX stand via Gemini,
+  see `assets-src/photos/PROMPTS.md`) with a navy gradient carrying date, hall/stand, countdown
+  and the stand-appointment pill; lazy, chunk-only, not an LCP candidate.
 - No product card any more (`hero.visual_alt` removed), no aurora glow on the stage;
   `enter` stagger for caption/H1/lead/actions (transform only, H1 stays an LCP candidate).
 - The Homepage carries two generated photographs (this card and the detail photo, §4.2).

@@ -45,6 +45,12 @@ import eventBand480Avif from './event-band-480w.avif'
 import eventBand480Webp from './event-band-480w.webp'
 import eventBand960Avif from './event-band-960w.avif'
 import eventBand960Webp from './event-band-960w.webp'
+import eventHall480Avif from './event-hall-480w.avif'
+import eventHall480Webp from './event-hall-480w.webp'
+import eventHall800Avif from './event-hall-800w.avif'
+import eventHall800Webp from './event-hall-800w.webp'
+import eventHall1280Avif from './event-hall-1280w.avif'
+import eventHall1280Webp from './event-hall-1280w.webp'
 
 /** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
 export const DETAIL_IMAGE: ArticleImageAsset = {
@@ -91,6 +97,15 @@ export const HERO_SHOW = [
     webp: `${heroCard480Webp} 480w, ${heroCard800Webp} 800w, ${heroCard1280Webp} 1280w`,
   },
 ] as const
+
+/** MEDICA-Folie der Buehne (SC-021 Nachtrag 3): Messehalle mit PolarisDX-Stand, 16:10, lazy. */
+export const HERO_EVENT = {
+  src: eventHall1280Webp,
+  width: 1280,
+  height: 800,
+  avif: `${eventHall480Avif} 480w, ${eventHall800Avif} 800w, ${eventHall1280Avif} 1280w`,
+  webp: `${eventHall480Webp} 480w, ${eventHall800Webp} 800w, ${eventHall1280Webp} 1280w`,
+} as const
 
 export const HERO_CARD = {
   // Bild 1 = Schritt „Probe" (Kapillarblut): serverseitig, LCP. Praxisfoto und Geraet folgen (HERO_SHOW).

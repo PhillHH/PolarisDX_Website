@@ -78,3 +78,21 @@ Prompt = Motiv + Stilsatz, `imageConfig.aspectRatio` wie in der Tabelle. Schlues
 
 **Stand 2026-10-16 (Runde 2):** damals alle elf Slots erzeugt mit `gemini-3-pro-image-preview` (je
 zwei Varianten, Auswahl Owner/Claude), Buehne per Bild-zu-Bild auf 4K gehoben.
+
+## Nachtrag SC-021 Nachtrag 3 (2026-11-03): MEDICA-Folie der Startseiten-Buehne
+
+Owner-Motiv (Messe-Eingangshalle, KI-generiert, lautete „2026 HAMBURG" mit Elbphilharmonie) per
+Bild-zu-Bild mit `gemini-3-pro-image-preview` (`aspectRatio 16:9`, `imageSize 2K`) korrigiert, weil die
+MEDICA 2026 in Duesseldorf stattfindet (Termindaten SC-019), und mit einem PolarisDX-Stand versehen
+(Owner: „Irgendwo ein Fake-Stand mit unserem Logo"). Referenzbilder: das Owner-Motiv,
+`src/assets/polarisdx_logo.webp`, `public/brand/polarisdx-logo-white.png`. Skript:
+`wireframes/sc-021-kopfzeile/runde-9/medica-gemini-gen.mjs` (Schluessel aus `~/.config/polaris/gemini.env`).
+Prompt (Kurzfassung): „HAMBURG" auf Banner und Boden durch „DÜSSELDORF" ersetzen; Hamburger Silhouette
+durch Rheinturm, Rheinbruecke und Medienhafen; hinter der Glaswand Rhein mit Rheinturm; die weisse
+Stellwand links wird eine PolarisDX-Stellwand (Logo, „Halle 15 · Stand E13"); auf einem Stand hinten
+links eine kleine Navy-Blende mit weissem Logo; alles Uebrige unveraendert, fotorealistisch, kein
+Wasserzeichen. Zwei Varianten erzeugt, Variante 1 gewaehlt (Variante 2 ersetzte „WELCOME" durch
+„DÜSSELDORF"); Ablage `assets-src/photos/medica-2026-hall.jpg`, Stufen `src/assets/home/event-hall-*`
+(`node scripts/build-photo-look.mjs event-hall`). Hinweis: das MEDICA-Logo im Bild ist eine Marke der
+Messe Duesseldorf — Verwendung als Aussteller-Hinweis auf eigener Website; bei Bedenken Motiv ohne
+Logo nachziehen.

@@ -43,4 +43,6 @@ Jede Aenderung an einer Quelle: `npm run build:photo-look` und `npm run check:ar
 nur die Fotokarten der Buehne (Praxis, Kapillarblut `detail-capillary.jpg` mittig, Geraet
 `lab-tubes.jpg` rechts — Diashow der Folie 1, SC-021 Nachtrag 2): `node scripts/build-photo-look.mjs hero-card`; nur das Messe-Band
 (`lab-tubes.jpg` als 12:5-Karte `event-band-480/960w`, Funktion `eventBand()`, SC-021 Nachtrag):
-`node scripts/build-photo-look.mjs event-band`.
+`node scripts/build-photo-look.mjs event-band`. Nur die Messehalle der MEDICA-Folie (`medica-2026-hall.jpg`, Owner-Motiv per Gemini
+auf Duesseldorf korrigiert und mit PolarisDX-Stand, PROMPTS.md; 16:10 `event-hall-480/800/1280w`,
+Funktion `eventHall()`, SC-021 Nachtrag 3): `node scripts/build-photo-look.mjs event-hall`.

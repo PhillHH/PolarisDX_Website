@@ -21,7 +21,7 @@ import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import reportImage from '../../assets/home/report-preview-800w.webp'
-import { HERO_CARD, HERO_SHOW } from '../../assets/home/homeImages'
+import { HERO_CARD, HERO_EVENT, HERO_SHOW } from '../../assets/home/homeImages'
 import { getEventStatus, getNextHomeEvent, toEventDay } from '../../data/events'
 import { daysUntil, formatEventRange } from '../../lib/eventDates'
 import { isPanelsPromoActive, panelsUrl } from '../../lib/shop'
@@ -173,18 +173,37 @@ const HeroSlides = ({
           </Button>
         </>
       ),
+      // SC-021 Nachtrag 3 (Owner 2026-11-03): Messehalle mit PolarisDX-Stand als Folienbild; Datum,
+      // Halle/Stand, Countdown und Standtermin liegen auf einem Navy-Verlauf am unteren Rand.
       aside: (
-        <div className="aurora flex aspect-[16/10] w-full flex-col rounded-card bg-brand-deep p-7 text-white shadow-card">
-          <p className="t-eyebrow-dark">
+        <div className="relative flex aspect-[16/10] w-full flex-col justify-end overflow-hidden rounded-card bg-brand-deep p-6 text-white shadow-card">
+          <picture>
+            <source type="image/avif" srcSet={HERO_EVENT.avif} sizes={HERO_CARD.sizes} />
+            <img
+              src={HERO_EVENT.src}
+              srcSet={HERO_EVENT.webp}
+              sizes={HERO_CARD.sizes}
+              alt=""
+              width={HERO_EVENT.width}
+              height={HERO_EVENT.height}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/70 to-transparent"
+          />
+          <p className="t-eyebrow-dark relative">
             {t(`events:items.${event.id}.title`)} · {event.location}
           </p>
-          <p className="mt-3 text-4xl font-semibold tracking-tight xl:text-5xl">
+          <p className="relative mt-2 text-3xl font-semibold tracking-tight xl:text-4xl">
             <time dateTime={event.date}>
               {formatEventRange(i18n.language, event.date, event.endDate)}
             </time>
+            {short && <span className="block text-base font-medium text-white/85">{short}</span>}
           </p>
-          {short && <p className="mt-2 text-lg text-white/85">{short}</p>}
-          <div className="mt-auto flex items-end justify-between gap-4">
+          <div className="relative mt-4 flex items-end justify-between gap-4">
             <p className="text-sm text-white/80">
               <span className="block text-3xl font-semibold tracking-tight text-white">
                 {ongoing || days <= 0 ? t('common:event_band.now') : days}
