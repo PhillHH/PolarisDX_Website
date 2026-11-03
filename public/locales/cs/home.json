@@ -433,7 +433,7 @@
     "title": "Objednejte čtečku IglooPro, testovací sady a epigenetické panely přímo online",
     "cta": "Přejít do e-shopu pro ordinace",
     "cta_panels": "Přejít do e-shopu Panels",
-    "note": "E-shop pro ordinace: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině.",
+    "note": "E-shop: objednávkový portál pro odborníky, ceny bez zákonné DPH · E-shop Panels: epigenetické panely k objednání online. E-shopy jsou k dispozici v němčině a angličtině.",
     "promo_eyebrow": "Novinka · E-shop Panels",
     "promo_title": "Objednejte si epigenetické panely online",
     "promo_text": "Šest analýz z kapilární krve – k objednání přímo v e-shopu Panels.",
@@ -454,5 +454,18 @@
     "meet": "Domluvit schůzku na našem stánku",
     "event_invite": "Přijďte se podívat.",
     "photo": "Obrázek {{n}} z {{total}}"
+  },
+  "team": {
+    "eyebrow": "Setkejte se s námi",
+    "title": "Náš hamburský tým",
+    "accent": "na výročním kongresu DGI.",
+    "when_text": "Dva kongresové dny, demo termíny po domluvě",
+    "where_text": "Největší implantologický kongres v německy mluvících zemích",
+    "what": "IglooPro naživo",
+    "what_text": "Laboratorní hodnoty během minut — vyzkoušejte na stánku",
+    "cta": "Rezervovat demo",
+    "cta_secondary": "K termínu",
+    "caption": "Hamburk · sídlo",
+    "alt": "Tým PolarisDX u konferenčního stolu v hamburské kanceláři"
   }
 }

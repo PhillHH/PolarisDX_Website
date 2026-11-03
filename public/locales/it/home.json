@@ -454,5 +454,18 @@
     "meet": "Fissa un appuntamento al nostro stand",
     "event_invite": "Venite a trovarci.",
     "photo": "Immagine {{n}} di {{total}}"
+  },
+  "team": {
+    "eyebrow": "Incontriamoci",
+    "title": "Il nostro team di Amburgo",
+    "accent": "al congresso annuale DGI.",
+    "when_text": "Due giorni di congresso, demo su appuntamento",
+    "where_text": "Il più grande congresso di implantologia dell’area germanofona",
+    "what": "IglooPro dal vivo",
+    "what_text": "Valori di laboratorio in pochi minuti — da provare allo stand",
+    "cta": "Prenota una demo",
+    "cta_secondary": "All'evento",
+    "caption": "Amburgo · sede",
+    "alt": "Il team PolarisDX al tavolo riunioni dell’ufficio di Amburgo"
   }
 }

@@ -122,7 +122,22 @@ async function article(source, base, position = 'attention') {
  * versehen (PROMPTS.md). 16:10, 480/800/1280w, lazy (laedt mit dem Slider-Chunk).
  */
 async function eventHall() {
-  await card('medica-2026-hall.jpg', 'event-hall', 16 / 10, [480, 800, 1280], [44, 40, 36], 'centre')
+  await card(
+    'medica-2026-hall.jpg',
+    'event-hall',
+    16 / 10,
+    [480, 800, 1280],
+    [44, 40, 36],
+    'centre',
+  )
+}
+
+/**
+ * SC-021 Nachtrag 5 (Owner 2026-11-03): echtes Teamfoto (Hamburg, Konferenzraum) fuer die
+ * Team-Sektion der Startseite — 4:3, 480/800/1280w, lazy. Kein KI-Bild.
+ */
+async function teamPhoto() {
+  await card('team-hamburg.jpg', 'team-hamburg', 4 / 3, [800, 1280], [42, 38], 'centre')
 }
 
 async function eventBand() {
@@ -132,7 +147,14 @@ async function eventBand() {
 async function heroCard() {
   await card('practice-dental-2600.jpg', 'hero-card', 16 / 10, [480, 800, 1280], [44, 40, 36])
   // SC-021 Nachtrag (Owner: Diashow in Folie 1): zwei weitere 16:10-Karten, nur im Browser (lazy).
-  await card('detail-capillary.jpg', 'hero-card-capillary', 16 / 10, [480, 800, 1280], [44, 40, 36], 'centre')
+  await card(
+    'detail-capillary.jpg',
+    'hero-card-capillary',
+    16 / 10,
+    [480, 800, 1280],
+    [44, 40, 36],
+    'centre',
+  )
   await card('lab-tubes.jpg', 'hero-card-device', 16 / 10, [480, 800, 1280], [44, 40, 36], 'right')
 }
 
@@ -169,10 +191,16 @@ async function main() {
   await heroCard()
   await eventBand()
   await eventHall()
+  await teamPhoto()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const only = { 'hero-card': heroCard, 'event-band': eventBand, 'event-hall': eventHall }[process.argv[2]]
+  const only = {
+    'hero-card': heroCard,
+    'event-band': eventBand,
+    'event-hall': eventHall,
+    team: teamPhoto,
+  }[process.argv[2]]
   await (only ? only() : main())
 }

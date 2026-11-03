@@ -227,8 +227,8 @@ const Header = () => {
 
   /**
    * Beide Online-Shops: in der Leiste als getoente Zellen mit Symbol-Abzeichen (13A-4),
-   * in der Uebersicht als Pillen mit Unterzeile. Fremde Domains, daher <a>; Klickzaehlung
-   * ueber OUTBOUND_DOMAINS (`data-shop`).
+   * in der Uebersicht als Pillen mit Unterzeile. Fremde Domains, daher <a> in neuem Fenster
+   * (Owner 2026-11-03: externe Links immer in neuem Fenster); Klickzaehlung ueber OUTBOUND_DOMAINS.
    */
   const shopLinks = (variant: 'cell' | 'pill', only?: 'practice' | 'panels') => {
     const cell = variant === 'cell'
@@ -243,6 +243,8 @@ const Header = () => {
           <a
             href={shopUrl(i18n.language)}
             data-shop="practice"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${base} ${
               cell
                 ? 'bg-brand-soft text-heading hover:bg-accent-soft'
@@ -262,6 +264,8 @@ const Header = () => {
           <a
             href={panelsUrl(i18n.language)}
             data-shop="panels"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${base} bg-accent-soft text-heading hover:bg-accent-border`}
           >
             <span className={`${BADGE} bg-accent-line text-brand-deep`}>

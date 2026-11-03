@@ -147,7 +147,9 @@ test('PT15.1 hub and standalone navigation are keyboard-safe and Axe-clean', asy
 
   const menu = page.getByRole('button', { name: /navig/i }).first()
   await menu.click()
-  const epigeneticsEntry = page.locator('header a[href="/cs/epigenetics"]:visible')
+  // SC-021: die Inhaltsuebersicht fuehrt Epigenetik als Hauptpunkt UND als Querverweis — der erste
+  // sichtbare Eintrag ist der Hauptpunkt.
+  const epigeneticsEntry = page.locator('header a[href="/cs/epigenetics"]:visible').first()
   await expect(epigeneticsEntry).toBeVisible()
   await epigeneticsEntry.focus()
   await expect(epigeneticsEntry).toBeFocused()

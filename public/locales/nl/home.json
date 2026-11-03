@@ -437,7 +437,7 @@
     "promo_eyebrow": "Nieuw · Panel-shop",
     "promo_title": "Bestel epigenetische panels nu online",
     "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Panel-shop.",
-    "note_short": "Praktijkshop voor professionals · nettoprijzen excl. btw"
+    "note_short": "Shop voor professionals · nettoprijzen excl. btw"
   },
   "aktuell": {
     "title": "Actueel",
@@ -454,5 +454,18 @@
     "meet": "Afspraak op onze stand maken",
     "event_invite": "Kom langs.",
     "photo": "Afbeelding {{n}} van {{total}}"
+  },
+  "team": {
+    "eyebrow": "Ontmoet ons",
+    "title": "Ons team uit Hamburg",
+    "accent": "op het DGI-jaarcongres.",
+    "when_text": "Twee congresdagen, demo-slots op afspraak",
+    "where_text": "Het grootste implantologiecongres in het Duitstalige gebied",
+    "what": "IglooPro live",
+    "what_text": "Laboratoriumwaarden in minuten — probeer het op de stand",
+    "cta": "Demo-slot boeken",
+    "cta_secondary": "Naar het evenement",
+    "caption": "Hamburg · hoofdkantoor",
+    "alt": "Het PolarisDX-team aan de vergadertafel op het kantoor in Hamburg"
   }
 }

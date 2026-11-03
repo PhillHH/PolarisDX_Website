@@ -114,6 +114,16 @@ describe('Header — Shops (SC-021)', () => {
   })
 })
 
+describe('Header — externe Links', () => {
+  it('oeffnet beide Shops in neuem Fenster, ohne Opener-Zugriff', () => {
+    renderHeader()
+    for (const link of screen.getAllByRole('link', { name: /nav\.shop_(practice|epigenetics)/ })) {
+      expect(link).toHaveAttribute('target', '_blank')
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    }
+  })
+})
+
 describe('Header — General Sales CTA', () => {
   it('traegt den GENERAL_SALES-CTA mit dem CTA-Key, nicht mit der Nav-Beschriftung', () => {
     renderHeader()

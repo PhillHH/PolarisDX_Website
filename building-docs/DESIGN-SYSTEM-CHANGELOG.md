@@ -47,6 +47,18 @@ Das ist **AP27** und wird nicht vorweggenommen.
   (aktiv `bg-brand-deep border-accent-line` + `.hero-pulse-ring`, erledigt `border-accent-line`, offen
   `border-paper-line`), Linien `h-[3px]` `paper.line` mit `accent.line`-Füllung. Neue Bilder
   `hero-card-capillary-*`, `hero-card-device-*` (`scripts/build-photo-look.mjs hero-card`).
+- **Team-Sektion (Nachtrag 5, 2026-11-03, Entwurf T3):** neue Startseiten-Sektion ohne neue Token —
+  `t-eyebrow`/`t-display` mit `text-accent`-Zeile, Fakten mit `lucide`-Icons in `accent`, Knöpfe
+  `secondary` + Outline-Pille (§3.4); Foto `rounded-card shadow-card -rotate-2` auf `bg-brand-deep`
+  `rotate-3` mit `.brand-ring`, Chip `bg-white/95 rounded-full`. Neue Bilder `team-hamburg-800/1280w`
+  (`scripts/build-photo-look.mjs team`). Baselines PT27.6 unverändert (Viewport-Screenshots; die Sektion
+  liegt unter dem Falz) — Lauf mit `--update-snapshots` schrieb keine Datei neu, 22/22.
+- **Termin-Folie breiter (Nachtrag 4):** `STAGE.gridWide` (Bildspalte 1,15 : 0,85 statt 1 : 1,05), Verlauf
+  `via-brand-deep/55 via-45%` — mehr Messehalle sichtbar. Externe Shop-Zellen der Kopfzeile mit
+  `target="_blank"` (Vertrag §4.4).
+- **„Aktuell“-Band entfernt (Nachtrag 4, 2026-11-03, Owner „Das Element bitte raus“):** `AktuellSection`
+  (zwei `rounded-band`-Kacheln, SC-019/SC-020) gelöscht; Startseite = Bühne → Vertrauensband → Messe-Band →
+  Säulen. Baselines PT27.6 unverändert (das Band lag unter dem Falz der Viewport-Screenshots).
 - **MEDICA-Folie (Nachtrag 3, 2026-11-03):** Kachel `rounded-card bg-brand-deep shadow-card` mit Foto
   (`event-hall-*`, `object-cover`) und Verlauf `from-brand-deep via-brand-deep/70 to-transparent`;
   Datum `text-3xl xl:text-4xl`, Halle/Stand `text-base text-white/85`, Countdown und weiße Pille wie zuvor.

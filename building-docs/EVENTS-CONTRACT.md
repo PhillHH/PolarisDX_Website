@@ -320,9 +320,13 @@ Der nächste belegte Termin (`getNextHomeEvent`, Highlight-Reihenfolge SC-019) e
 vier Stellen, alle aus denselben Daten (`src/data/events.ts`, `events.json`): (1) **Messe-Zeile** der
 Kopfzeile auf jeder Seite (Titel → `/events`, Datum · Ort · `short`, „Termin am Stand vereinbaren" →
 `/contact`; bleibt auch gescrollt stehen); (2) **Folie 2** des Startseiten-Sliders mit Navy-Kachel (Datum,
-`short`, Countdown); (3) **Messe-Band** (`EventBand`) unter Bühne und Vertrauensband der Startseite und
-auf den Inhaltsseiten (Einladung, Beschreibung, Countdown, Standtermin, „Alle Termine"); (4) das
+`short`, Countdown); (3) **Messe-Band** (`EventBand`) unter Bühne und Vertrauensband der Startseite (das „Aktuell“-Band
+SC-019/SC-020 ist seit SC-021 Nachtrag 4 entfernt) und auf den Inhaltsseiten (Einladung, Beschreibung, Countdown, Standtermin, „Alle Termine"); (4) das
 Termin-Popup (SC-020, unverändert). Countdown: `daysUntil(event.date, toEventDay(now))` in ganzen
 Berliner Kalendertagen; am Tag selbst und während des Termins „Jetzt vor Ort" (`event_band.now`).
 Nach dem letzten Tag rückt automatisch der nächste Termin nach (MEDICA → DGI-Jahreskongress); ohne
 Termin verschwinden Zeile, Folie und Band. Keine neuen Termindaten, keine neuen Claims.
+
+Nachtrag 5 (2026-11-03): die Startseiten-`TeamEventSection` ist fest an `dgi_jahreskongress` gebunden
+(Datum per `formatEventRange`, `location · partner`), rendert nach dem letzten Kongresstag `null`
+und rückt nicht auf den nächsten Termin nach (`HOMEPAGE-CONTRACT.md` §3.1).

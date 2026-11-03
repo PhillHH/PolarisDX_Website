@@ -431,13 +431,13 @@
     "badge": "Neu",
     "eyebrow": "Online-Shops",
     "title": "IglooPro-Reader, Testkits und Epigenetik-Panels direkt online bestellen",
-    "cta": "Zum Praxis-Shop",
+    "cta": "Zum Shop",
     "cta_panels": "Zum Panel-Shop",
-    "note": "Praxis-Shop: Fachkreis-Bestellportal, alle Preise netto zzgl. gesetzl. MwSt. · Panel-Shop: Epigenetik-Panels online bestellen",
+    "note": "Shop: Fachkreis-Bestellportal, alle Preise netto zzgl. gesetzl. MwSt. · Panel-Shop: Epigenetik-Panels online bestellen",
     "promo_eyebrow": "Neu · Panel-Shop",
     "promo_title": "Epigenetik-Panels jetzt online bestellen",
     "promo_text": "Sechs Analysen aus Kapillarblut – direkt im Panel-Shop bestellbar.",
-    "note_short": "Praxis-Shop für Fachkreise · Preise netto zzgl. MwSt."
+    "note_short": "Shop für Fachkreise · Preise netto zzgl. MwSt."
   },
   "aktuell": {
     "title": "Aktuell",
@@ -454,5 +454,18 @@
     "meet": "Termin am Stand vereinbaren",
     "event_invite": "Kommen Sie vorbei.",
     "photo": "Bild {{n}} von {{total}}"
+  },
+  "team": {
+    "eyebrow": "Treffen Sie uns",
+    "title": "Unser Hamburger Team",
+    "accent": "beim DGI Jahreskongress.",
+    "when_text": "Zwei Kongresstage, Demo-Slots nach Vereinbarung",
+    "where_text": "Der größte implantologische Fachkongress im deutschsprachigen Raum",
+    "what": "IglooPro live",
+    "what_text": "Laborwerte in Minuten — am Stand ausprobieren",
+    "cta": "Demo-Slot sichern",
+    "cta_secondary": "Zum Termin",
+    "caption": "Hamburg · Hauptsitz",
+    "alt": "Das PolarisDX-Team am Konferenztisch im Hamburger Büro"
   }
 }

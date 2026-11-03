@@ -6,6 +6,9 @@
  */
 export const STAGE = {
   grid: 'mx-auto grid max-w-container gap-10 px-4 pb-16 pt-page-top sm:px-6 lg:min-h-[600px] lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,1fr)] lg:items-center lg:gap-14 lg:px-0 lg:pb-20 xl:pt-page-top-xl',
+  /** Termin-Folie (SC-021 Nachtrag 4, Owner: das MEDICA-Bild darf groesser): rechte Spalte breiter. */
+  gridWide:
+    'mx-auto grid max-w-container gap-10 px-4 pb-16 pt-page-top sm:px-6 lg:min-h-[600px] lg:grid-cols-[minmax(0,0.85fr)_minmax(320px,1.15fr)] lg:items-center lg:gap-14 lg:px-0 lg:pb-20 xl:pt-page-top-xl',
   column: 'flex min-w-0 flex-col items-start [container-type:inline-size]',
   eyebrow: 't-eyebrow enter flex items-center gap-2',
   title: 'enter mt-5 font-semibold leading-[0.98] tracking-[-0.045em] text-heading',

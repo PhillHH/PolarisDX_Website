@@ -190,6 +190,16 @@ portrait is decorative beside the fully named caption (`alt=""`), dimensioned, l
 LCP competitor. There is no autoplay, carousel role, rating UI, logo, CTA or keyboard interaction in
 either section.
 
+### 3.1 SC-021 Nachtrag 5 (2026-11-03) — Team-Sektion „Unser Hamburger Team beim DGI Jahreskongress“
+
+Zwischen Messe-Band und Säulen steht bis zum 28.11.2026 die `TeamEventSection` (Entwurf T3): Fakten
+links (Datum, Ort · Partner, „IglooPro live“ — alle aus `src/data/events.ts` bzw. `home.team.*`),
+rechts das echte Teamfoto (`TEAM_PHOTO`, 4:3, `loading="lazy"`, beschreibender Alt-Text) gekippt auf
+einer Navy-Rückkarte mit Punktring. Wege: „Demo-Slot sichern“ → `/contact`, „Zum Termin“ → `/events`.
+Nach dem letzten Kongresstag rendert die Sektion `null` (kein neuer Termin wird nachgezogen — das Foto
+gehört zum Hamburger Kongress). Claims: keine neuen; „größter implantologischer Fachkongress im
+deutschsprachigen Raum“ ist die bestehende DGI-Beschreibung aus den Termindaten (SC-019).
+
 ## 4. PT11.3 Business pillars and selected service entry points
 
 The Homepage now presents Diagnostics, IglooPro and Epigenetics in one shared, equally weighted
@@ -220,6 +230,13 @@ adds no timers, tracking or third-party dependency; since SC-005 it carries thre
 images (§4.2).
 
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16; two shops since SC-007, 2026-10-17)
+
+**SC-021 Nachtrag 4 (2026-11-03, owner: „Das Element bitte raus“):** the „Aktuell“ band
+(`AktuellSection`, event tile + shop tile) is removed from the Homepage. Both shops stay reachable
+from the Homepage through the header cells (`data-shop="practice"` / `"panels"`) and slide 3 of the
+hero (panel promotion until `PANELS_PROMO_LAST_DAY`); the next event lives in the header strip,
+hero slide 2 and the `EventBand`. `HCL-015`/`HCL-016` therefore attach to header and slide 3. The
+text below is history.
 
 **Section order (current):** Hero → TrustBar → Business pillars (incl. the three selected service
 entry points) → **Shop band** → Why POC → Steps → Proof/Testimonials → ROI calculator → Knowledge

@@ -63,8 +63,8 @@
     "routes": {
       "home": {
         "mobile": {
-          "htmlBytes": 36000,
-          "jsBytes": 168400,
+          "htmlBytes": 36300,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -75,8 +75,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 36000,
-          "jsBytes": 168400,
+          "htmlBytes": 36300,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -453,8 +453,8 @@
       },
       "home-en": {
         "mobile": {
-          "htmlBytes": 35500,
-          "jsBytes": 168400,
+          "htmlBytes": 35800,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -465,8 +465,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 35500,
-          "jsBytes": 168400,
+          "htmlBytes": 35800,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 1,
@@ -479,8 +479,8 @@
       },
       "home-pl": {
         "mobile": {
-          "htmlBytes": 36300,
-          "jsBytes": 168400,
+          "htmlBytes": 36500,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,
@@ -491,8 +491,8 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 36300,
-          "jsBytes": 168400,
+          "htmlBytes": 36500,
+          "jsBytes": 168700,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
           "fontRequests": 2,

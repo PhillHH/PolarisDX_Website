@@ -454,5 +454,18 @@
     "meet": "Concertar una cita en nuestro stand",
     "event_invite": "Venga a vernos.",
     "photo": "Imagen {{n}} de {{total}}"
+  },
+  "team": {
+    "eyebrow": "Conózcanos",
+    "title": "Nuestro equipo de Hamburgo",
+    "accent": "en el congreso anual de la DGI.",
+    "when_text": "Dos días de congreso, demos con cita previa",
+    "where_text": "El mayor congreso de implantología del ámbito germanohablante",
+    "what": "IglooPro en vivo",
+    "what_text": "Valores de laboratorio en minutos — pruébelo en el stand",
+    "cta": "Reservar una demo",
+    "cta_secondary": "Ver el evento",
+    "caption": "Hamburgo · sede",
+    "alt": "El equipo de PolarisDX en la mesa de reuniones de la oficina de Hamburgo"
   }
 }

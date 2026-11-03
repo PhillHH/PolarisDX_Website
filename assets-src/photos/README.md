@@ -46,3 +46,6 @@ nur die Fotokarten der Buehne (Praxis, Kapillarblut `detail-capillary.jpg` mitti
 `node scripts/build-photo-look.mjs event-band`. Nur die Messehalle der MEDICA-Folie (`medica-2026-hall.jpg`, Owner-Motiv per Gemini
 auf Duesseldorf korrigiert und mit PolarisDX-Stand, PROMPTS.md; 16:10 `event-hall-480/800/1280w`,
 Funktion `eventHall()`, SC-021 Nachtrag 3): `node scripts/build-photo-look.mjs event-hall`.
+Nur das Teamfoto der Startseite (`team-hamburg.jpg`, echtes Owner-Foto des Hamburger Teams im
+Konferenzraum, 2000x1500, kein KI-Bild, keine Bearbeitung ausser Zuschnitt/Kompression; 4:3
+`team-hamburg-800/1280w`, Funktion `teamPhoto()`, SC-021 Nachtrag 5): `node scripts/build-photo-look.mjs team`.

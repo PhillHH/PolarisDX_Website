@@ -454,5 +454,18 @@
     "meet": "Book et møde på vores stand",
     "event_invite": "Kom forbi.",
     "photo": "Billede {{n}} af {{total}}"
+  },
+  "team": {
+    "eyebrow": "Mød os",
+    "title": "Vores Hamburg-team",
+    "accent": "på DGI-årskongressen.",
+    "when_text": "To kongresdage, demo-slots efter aftale",
+    "where_text": "Den største implantologiske fagkongres i det tysksprogede område",
+    "what": "IglooPro live",
+    "what_text": "Laboratorieværdier på få minutter — prøv det på standen",
+    "cta": "Book et demo-slot",
+    "cta_secondary": "Til begivenheden",
+    "caption": "Hamburg · hovedkontor",
+    "alt": "PolarisDX-teamet omkring konferencebordet på kontoret i Hamburg"
   }
 }

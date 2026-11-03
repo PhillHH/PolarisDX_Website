@@ -431,9 +431,9 @@
     "badge": "New",
     "eyebrow": "Online shops",
     "title": "Order the IglooPro reader, test kits and epigenetic panels directly online",
-    "cta": "Practice shop",
+    "cta": "Shop",
     "cta_panels": "Panel shop",
-    "note": "Practice shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online",
+    "note": "Shop: professional ordering portal, all prices net plus statutory VAT · Panel shop: order epigenetic panels online",
     "promo_eyebrow": "New · Panel shop",
     "promo_title": "Order epigenetic panels online now",
     "promo_text": "Six analyses from capillary blood – available to order directly in the panel shop.",
@@ -454,5 +454,18 @@
     "meet": "Book a meeting at our stand",
     "event_invite": "Come and see us.",
     "photo": "Image {{n}} of {{total}}"
+  },
+  "team": {
+    "eyebrow": "Meet us",
+    "title": "Our Hamburg team",
+    "accent": "at the DGI annual congress.",
+    "when_text": "Two congress days, demo slots by appointment",
+    "where_text": "The largest implantology congress in the German-speaking world",
+    "what": "IglooPro live",
+    "what_text": "Lab values in minutes — try it at the stand",
+    "cta": "Book a demo slot",
+    "cta_secondary": "See the event",
+    "caption": "Hamburg · headquarters",
+    "alt": "The PolarisDX team around the conference table in the Hamburg office"
   }
 }

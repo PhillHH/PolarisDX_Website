@@ -433,7 +433,7 @@
     "title": "Zamów czytnik IglooPro, zestawy testowe i panele epigenetyczne bezpośrednio online",
     "cta": "Przejdź do sklepu dla gabinetów",
     "cta_panels": "Przejdź do sklepu Panels",
-    "note": "Sklep dla gabinetów: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku.",
+    "note": "Sklep: portal zamówień dla specjalistów, ceny netto plus ustawowy VAT · Sklep Panels: panele epigenetyczne do zamówienia online. Sklepy dostępne po niemiecku i angielsku.",
     "promo_eyebrow": "Nowość · Sklep Panels",
     "promo_title": "Zamów panele epigenetyczne online",
     "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie Panels.",
@@ -454,5 +454,18 @@
     "meet": "Umów spotkanie na naszym stoisku",
     "event_invite": "Zapraszamy na stoisko.",
     "photo": "Obraz {{n}} z {{total}}"
+  },
+  "team": {
+    "eyebrow": "Spotkajmy się",
+    "title": "Nasz zespół z Hamburga",
+    "accent": "na kongresie rocznym DGI.",
+    "when_text": "Dwa dni kongresu, pokazy po umówieniu",
+    "where_text": "Największy kongres implantologiczny w krajach niemieckojęzycznych",
+    "what": "IglooPro na żywo",
+    "what_text": "Wyniki laboratoryjne w kilka minut — wypróbuj na stoisku",
+    "cta": "Zarezerwuj pokaz",
+    "cta_secondary": "Do wydarzenia",
+    "caption": "Hamburg · siedziba",
+    "alt": "Zespół PolarisDX przy stole konferencyjnym w biurze w Hamburgu"
   }
 }

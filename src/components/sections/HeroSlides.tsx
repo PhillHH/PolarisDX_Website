@@ -46,15 +46,17 @@ interface SlideProps {
   lead: ReactNode
   actions: ReactNode
   aside?: ReactNode
+  /** Breitere Bildspalte (Termin-Folie). */
+  wide?: boolean
   host: Host
 }
 
-const Slide = ({ stage, label, eyebrow, title, lead, actions, aside, host }: SlideProps) => (
+const Slide = ({ stage, label, eyebrow, title, lead, actions, aside, wide, host }: SlideProps) => (
   <div
     role="group"
     aria-roledescription="slide"
     aria-label={label}
-    className={`absolute inset-0 ${stage.grid}`}
+    className={`absolute inset-0 ${wide ? stage.gridWide : stage.grid}`}
   >
     <div className={stage.column}>
       <p className={stage.eyebrow}>
@@ -173,6 +175,7 @@ const HeroSlides = ({
           </Button>
         </>
       ),
+      wide: true,
       // SC-021 Nachtrag 3 (Owner 2026-11-03): Messehalle mit PolarisDX-Stand als Folienbild; Datum,
       // Halle/Stand, Countdown und Standtermin liegen auf einem Navy-Verlauf am unteren Rand.
       aside: (
@@ -192,7 +195,7 @@ const HeroSlides = ({
           </picture>
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/70 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/55 via-45% to-transparent"
           />
           <p className="t-eyebrow-dark relative">
             {t(`events:items.${event.id}.title`)} · {event.location}
