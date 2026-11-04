@@ -23,12 +23,14 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
-**Stand 2026-11-04 (SC-021 Nachtrag 7, Preview):** Teamfoto raus (Owner „Nimm das Bild raus, ersetze
+**Stand 2026-11-04 (SC-021 Nachtrag 7, live):** Teamfoto raus (Owner „Nimm das Bild raus, ersetze
 das durch irgendwas Cooles“), stattdessen Kongress-Ticket aus Tokens mit Live-Countdown
 (`data-home-team-ticket`); Assets `team-hamburg-*` und `teamPhoto()` entfernt, Strings ×10. Gates:
 Typecheck, ESLint, Prettier, Vitest 658/658 (+1 skip), Guards + Claims, Perf-Budget ci 852/852
 (Desktop-Bildbytes Startseite −21 KB), Playwright Startseite/Navigation 54/54 (nach Clip gegen
-mobilen Überlauf), Baselines PT27.6 22/22 unverändert, Axe 27/27. Code/Preview siehe UEBERGABE-LOG.
+mobilen Überlauf), Baselines PT27.6 22/22 unverändert, Axe 27/27. Code `4c7d1f6`, Preview-Release `4c7d1f69c7f5`, nach Owner-Go („Ja, veröffentlichen“, 2026-11-04)
+**Produktion `4c7d1f69c7f5`** (vorher `1c863a2d34cd`; Smoke grün). Push aus der Werkstatt-Shell blockiert
+(Deploy-Key nur lesend), Owner holt ihn nach.
 
 **Stand 2026-11-04 (SC-022 + SC-023, live):** SC-022 Google-Ads-Tag `AW-18553833510`
 als consent-gegateter Loader (nur Marketing-Zustimmung, `VITE_GOOGLE_ADS_ID` in `docker-compose.yml`,
