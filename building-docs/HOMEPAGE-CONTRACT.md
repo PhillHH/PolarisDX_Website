@@ -203,8 +203,9 @@ either section.
 
 Zwischen Messe-Band und Säulen steht bis zum 28.11.2026 die `TeamEventSection` (Entwurf T3): Fakten
 links (Datum, Ort · Partner, „IglooPro live“ — alle aus `src/data/events.ts` bzw. `home.team.*`),
-rechts das echte Teamfoto (`TEAM_PHOTO`, 4:3, `loading="lazy"`, beschreibender Alt-Text) gekippt auf
-einer Navy-Rückkarte mit Punktring. Wege: „Demo-Slot sichern“ → `/contact`, „Zum Termin“ → `/events`.
+rechts seit Nachtrag 7 (2026-11-04, Owner „Nimm das Bild raus“) statt des Teamfotos eine rein
+grafische Kongress-Karte (`data-home-team-ticket`: Ticket mit Live-Countdown, Wann/Wo, „IglooPro live“)
+gekippt auf einer Navy-Rückkarte mit Punktring — kein Bild. Wege: „Demo-Slot sichern“ → `/contact`, „Zum Termin“ → `/events`.
 Nach dem letzten Kongresstag rendert die Sektion `null` (kein neuer Termin wird nachgezogen — das Foto
 gehört zum Hamburger Kongress). Claims: keine neuen; „größter implantologischer Fachkongress im
 deutschsprachigen Raum“ ist die bestehende DGI-Beschreibung aus den Termindaten (SC-019).

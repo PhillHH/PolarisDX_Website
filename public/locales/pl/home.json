@@ -420,7 +420,10 @@
     "what_text": "Wyniki laboratoryjne w kilka minut — wypróbuj na stoisku",
     "cta": "Zarezerwuj pokaz",
     "cta_secondary": "Do wydarzenia",
-    "caption": "Hamburg · siedziba",
-    "alt": "Zespół PolarisDX przy stole konferencyjnym w biurze w Hamburgu"
+    "caption": "PolarisDX · Hamburg",
+    "countdown_days": "dni do kongresu",
+    "countdown_day": "dzień do kongresu",
+    "ticket_when": "Kiedy",
+    "ticket_where": "Gdzie"
   }
 }

@@ -420,7 +420,10 @@
     "what_text": "Valores de laboratorio en minutos — pruébelo en el stand",
     "cta": "Reservar una demo",
     "cta_secondary": "Ver el evento",
-    "caption": "Hamburgo · sede",
-    "alt": "El equipo de PolarisDX en la mesa de reuniones de la oficina de Hamburgo"
+    "caption": "PolarisDX · Hamburgo",
+    "countdown_days": "días para el congreso",
+    "countdown_day": "día para el congreso",
+    "ticket_when": "Cuándo",
+    "ticket_where": "Dónde"
   }
 }

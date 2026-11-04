@@ -51,10 +51,6 @@ import eventHall800Avif from './event-hall-800w.avif'
 import eventHall800Webp from './event-hall-800w.webp'
 import eventHall1280Avif from './event-hall-1280w.avif'
 import eventHall1280Webp from './event-hall-1280w.webp'
-import team800Avif from './team-hamburg-800w.avif'
-import team800Webp from './team-hamburg-800w.webp'
-import team1280Avif from './team-hamburg-1280w.avif'
-import team1280Webp from './team-hamburg-1280w.webp'
 
 /** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
 export const DETAIL_IMAGE: ArticleImageAsset = {
@@ -109,19 +105,6 @@ export const HERO_EVENT = {
   height: 800,
   avif: `${eventHall480Avif} 480w, ${eventHall800Avif} 800w, ${eventHall1280Avif} 1280w`,
   webp: `${eventHall480Webp} 480w, ${eventHall800Webp} 800w, ${eventHall1280Webp} 1280w`,
-} as const
-
-/**
- * Team-Sektion (SC-021 Nachtrag 5): echtes Teamfoto Hamburg, 4:3, lazy. Nur 800/1280w: bei 100vw
- * und DPR >= 2 waehlt kein Telefon die 480w-Stufe, und jede Stufe kostet Startseiten-HTML/JS.
- */
-export const TEAM_PHOTO = {
-  src: team1280Webp,
-  width: 1280,
-  height: 960,
-  sizes: '(min-width:1024px) 600px, 100vw',
-  avif: `${team800Avif} 800w, ${team1280Avif} 1280w`,
-  webp: `${team800Webp} 800w, ${team1280Webp} 1280w`,
 } as const
 
 export const HERO_CARD = {

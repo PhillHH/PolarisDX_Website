@@ -420,7 +420,10 @@
     "what_text": "Valori di laboratorio in pochi minuti — da provare allo stand",
     "cta": "Prenota una demo",
     "cta_secondary": "All'evento",
-    "caption": "Amburgo · sede",
-    "alt": "Il team PolarisDX al tavolo riunioni dell’ufficio di Amburgo"
+    "caption": "PolarisDX · Amburgo",
+    "countdown_days": "giorni al congresso",
+    "countdown_day": "giorno al congresso",
+    "ticket_when": "Quando",
+    "ticket_where": "Dove"
   }
 }

@@ -420,7 +420,10 @@
     "what_text": "Laboratorieværdier på få minutter — prøv det på standen",
     "cta": "Book et demo-slot",
     "cta_secondary": "Til begivenheden",
-    "caption": "Hamburg · hovedkontor",
-    "alt": "PolarisDX-teamet omkring konferencebordet på kontoret i Hamburg"
+    "caption": "PolarisDX · Hamburg",
+    "countdown_days": "dage til kongressen",
+    "countdown_day": "dag til kongressen",
+    "ticket_when": "Hvornår",
+    "ticket_where": "Hvor"
   }
 }

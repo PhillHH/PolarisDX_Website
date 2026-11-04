@@ -54,6 +54,11 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **Team-Sektion ohne Foto (SC-021 Nachtrag 7, 2026-11-04, Owner „irgendwas Cooles“):** Kongress-Ticket statt Teamfoto —
+  `rounded-card bg-white shadow-card -rotate-2` auf `bg-brand-deep rotate-3` mit `.brand-ring`; Kopfzeile
+  `bg-brand-deep` mit `t-eyebrow-dark`, Countdown `text-[clamp(64px,10vw,104px)] text-heading` + Label
+  `text-accent`, `dl` mit `t-eyebrow`, Perforation `border-dashed border-ui-border` mit `bg-paper`-Kreisen,
+  Chip `bg-accent-soft`. Keine neuen Token, keine Bilder. Baselines unverändert (unter dem Falz).
 - **SC-023 (2026-11-03, Owner): Kopfzeile ohne Navy-Zelle „Angebot anfragen“, Bühne mit einem Knopf, ROI-Rechner
   weg.** Kopfzeile: die `bg-brand-deep`-Zelle (Desktop) und die Mobil-Pille im Menü entfallen; die Leiste endet mit
   Shop-Zellen, Suche, Menü (Fokusring-Konstante `FOCUS_ON_NAVY` entfernt). Bühne: nur noch „Infotermin buchen“ als

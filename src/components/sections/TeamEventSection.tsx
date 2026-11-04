@@ -1,7 +1,10 @@
 /**
  * TeamEventSection — „Unser Hamburger Team beim DGI Jahreskongress" (SC-021 Nachtrag 5, Owner
  * 2026-11-03, Entwurf T3): links Eyebrow, Titel und drei Fakten (Wann · Wo · Was) mit Knöpfen,
- * rechts das echte Teamfoto leicht gekippt auf einer Navy-Rückkarte mit Punktring.
+ * rechts (Nachtrag 7, Owner 2026-11-04 „Nimm das Bild raus, ersetze das durch irgendwas Cooles"):
+ * statt des Teamfotos eine rein grafische Kongress-Karte — weißes Ticket mit Live-Countdown,
+ * Datum, Ort · Partner und „IglooPro live", leicht gekippt auf einer Navy-Rückkarte mit Punktring.
+ * Kein Bild, keine KI-Grafik; alles aus Tokens und Termindaten.
  *
  * Ohne Icons (nur der Pfeil, der schon im Hauptbündel liegt): jedes Inline-SVG kostet ~300 B HTML und
  * jede neue lucide-Ikone ~250 B JS — die Startseite liegt an `htmlBytes`/`jsBytes` (PERFORMANCE-CONTRACT).
@@ -12,9 +15,8 @@
  */
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
-import { TEAM_PHOTO } from '../../assets/home/homeImages'
 import { events, getEventStatus, toEventDay } from '../../data/events'
-import { formatEventRange } from '../../lib/eventDates'
+import { daysUntil, formatEventRange } from '../../lib/eventDates'
 import { Button } from '../ui/Button'
 import { STAGE } from './heroStage'
 
@@ -23,7 +25,9 @@ export const TEAM_EVENT_ID = 'dgi_jahreskongress'
 const TeamEventSection = () => {
   const { t, i18n } = useTranslation('home')
   const event = events.find((entry) => entry.id === TEAM_EVENT_ID)
-  if (!event || getEventStatus(event, toEventDay(new Date())) === 'past') return null
+  const today = toEventDay(new Date())
+  if (!event || getEventStatus(event, today) === 'past') return null
+  const remaining = daysUntil(event.date, today)
 
   const facts = [
     {
@@ -41,7 +45,7 @@ const TeamEventSection = () => {
     <section
       aria-labelledby="team-title"
       data-home-team
-      className="mx-auto grid w-full max-w-container gap-10 px-4 pb-6 pt-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14 lg:px-0 lg:pt-20"
+      className="mx-auto grid w-full max-w-container gap-10 px-4 pb-6 pt-16 max-lg:overflow-x-clip sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14 lg:px-0 lg:pt-20"
     >
       <div className="rv min-w-0">
         <p className="t-eyebrow">{t('team.eyebrow')}</p>
@@ -78,27 +82,69 @@ const TeamEventSection = () => {
         </div>
       </div>
 
-      <div className="rv relative aspect-[4/3] w-full">
+      <div className="rv relative mx-auto w-full max-w-[560px] py-6 lg:max-w-none">
         <span
           aria-hidden="true"
-          className="brand-ring absolute -right-2 -top-3 bottom-4 left-6 rotate-3 rounded-card bg-brand-deep"
+          className="brand-ring absolute -top-1 bottom-1 left-6 right-0 rotate-2 rounded-card bg-brand-deep"
         />
-        <picture>
-          <source type="image/avif" srcSet={TEAM_PHOTO.avif} sizes={TEAM_PHOTO.sizes} />
-          <img
-            src={TEAM_PHOTO.src}
-            srcSet={TEAM_PHOTO.webp}
-            sizes={TEAM_PHOTO.sizes}
-            alt={t('team.alt')}
-            width={TEAM_PHOTO.width}
-            height={TEAM_PHOTO.height}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full -rotate-2 rounded-card object-cover shadow-card"
-          />
-        </picture>
-        <span className="absolute bottom-5 left-5 inline-flex -rotate-2 items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-[13px] font-semibold text-heading shadow-card">
-          {t('team.caption')}
-        </span>
+        {/* Kongress-Ticket: Kopfzeile navy, Countdown gross, Perforation, Fusszeile. */}
+        <div
+          data-home-team-ticket
+          className="relative -rotate-2 overflow-hidden rounded-card bg-white shadow-card"
+        >
+          <div className="flex items-center justify-between gap-3 bg-brand-deep px-6 py-4 text-white">
+            <span className="t-eyebrow-dark">{t('events:items.dgi_jahreskongress.tag')}</span>
+            <span className="text-sm font-semibold">
+              {t('events:items.dgi_jahreskongress.title')}
+            </span>
+          </div>
+          <div className="px-6 pb-5 pt-6 sm:px-8">
+            {remaining <= 0 ? (
+              <p className="t-display text-accent">{t('common:event_band.now')}</p>
+            ) : (
+              <p className="flex items-baseline gap-3">
+                <span className="text-[clamp(64px,10vw,104px)] font-semibold leading-none tracking-[-0.05em] text-heading">
+                  {remaining}
+                </span>
+                <span className="max-w-[10rem] text-base font-semibold leading-tight text-accent">
+                  {t(remaining === 1 ? 'team.countdown_day' : 'team.countdown_days')}
+                </span>
+              </p>
+            )}
+            <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <dt className="t-eyebrow">{t('team.ticket_when')}</dt>
+                <dd className="mt-1 font-semibold text-heading">
+                  {formatEventRange(i18n.language, event.date, event.endDate)}
+                </dd>
+              </div>
+              <div>
+                <dt className="t-eyebrow">{t('team.ticket_where')}</dt>
+                <dd className="mt-1 font-semibold text-heading">
+                  {event.location}
+                  {event.partner ? ` · ${event.partner}` : ''}
+                </dd>
+              </div>
+            </dl>
+          </div>
+          {/* Perforation: zwei Halbkreise in Papier plus gestrichelte Linie. */}
+          <div
+            aria-hidden="true"
+            className="relative mx-6 border-t-2 border-dashed border-ui-border sm:mx-8"
+          >
+            <span className="absolute -left-9 -top-3 h-6 w-6 rounded-full bg-paper sm:-left-11" />
+            <span className="absolute -right-9 -top-3 h-6 w-6 rounded-full bg-paper sm:-right-11" />
+          </div>
+          <div className="flex items-center justify-between gap-3 px-6 py-4 sm:px-8">
+            <span className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-heading">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />
+              {t('team.what')}
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+              {t('team.caption')}
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   )

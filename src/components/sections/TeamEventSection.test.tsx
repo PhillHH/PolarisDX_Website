@@ -20,18 +20,27 @@ describe('TeamEventSection', () => {
     const { container } = renderSection()
     expect(container.querySelector('[data-home-team]')).not.toBeNull()
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('team.title')
-    expect(screen.getByText(/27\./)).toBeInTheDocument()
-    expect(screen.getByText('Hamburg · Nobel Biocare')).toBeInTheDocument()
+    expect(screen.getAllByText(/27\./).length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Hamburg · Nobel Biocare').length).toBeGreaterThan(0)
     expect(screen.getByRole('link', { name: 'team.cta' })).toHaveAttribute('href', '/contact')
     expect(screen.getByRole('link', { name: 'team.cta_secondary' })).toHaveAttribute(
       'href',
       '/events',
     )
-    const img = container.querySelector('img')!
-    expect(img).toHaveAttribute('alt', 'team.alt')
-    expect(img).toHaveAttribute('loading', 'lazy')
-    expect(img).toHaveAttribute('width', '1280')
-    expect(img).toHaveAttribute('height', '960')
+    // Nachtrag 7: kein Foto mehr — Kongress-Ticket mit Live-Countdown (2026-11-03 → 24 Tage).
+    expect(container.querySelector('img')).toBeNull()
+    const ticket = container.querySelector('[data-home-team-ticket]')!
+    expect(ticket).toHaveTextContent('24')
+    expect(ticket).toHaveTextContent('team.countdown_days')
+    expect(ticket).toHaveTextContent('events:items.dgi_jahreskongress.title')
+  })
+
+  it('sagt waehrend des Kongresses „jetzt vor Ort" statt zu zaehlen', () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-11-27T12:00:00+01:00'))
+    renderSection()
+    expect(screen.getByText('common:event_band.now')).toBeInTheDocument()
+    expect(screen.queryByText('team.countdown_days')).toBeNull()
   })
 
   it('verschwindet nach dem letzten Kongresstag', () => {

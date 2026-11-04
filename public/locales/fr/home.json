@@ -420,7 +420,10 @@
     "what_text": "Des valeurs de laboratoire en quelques minutes — à essayer sur le stand",
     "cta": "Réserver une démo",
     "cta_secondary": "Voir l'événement",
-    "caption": "Hambourg · siège",
-    "alt": "L'équipe PolarisDX autour de la table de réunion du bureau de Hambourg"
+    "caption": "PolarisDX · Hambourg",
+    "countdown_days": "jours avant le congrès",
+    "countdown_day": "jour avant le congrès",
+    "ticket_when": "Quand",
+    "ticket_where": "Où"
   }
 }

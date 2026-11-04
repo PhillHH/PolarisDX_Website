@@ -420,7 +420,10 @@
     "what_text": "Laboratorní hodnoty během minut — vyzkoušejte na stánku",
     "cta": "Rezervovat demo",
     "cta_secondary": "K termínu",
-    "caption": "Hamburk · sídlo",
-    "alt": "Tým PolarisDX u konferenčního stolu v hamburské kanceláři"
+    "caption": "PolarisDX · Hamburk",
+    "countdown_days": "dní do kongresu",
+    "countdown_day": "den do kongresu",
+    "ticket_when": "Kdy",
+    "ticket_where": "Kde"
   }
 }

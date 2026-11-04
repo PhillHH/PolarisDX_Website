@@ -420,7 +420,10 @@
     "what_text": "Lab values in minutes — try it at the stand",
     "cta": "Book a demo slot",
     "cta_secondary": "See the event",
-    "caption": "Hamburg · headquarters",
-    "alt": "The PolarisDX team around the conference table in the Hamburg office"
+    "caption": "PolarisDX · Hamburg",
+    "countdown_days": "days to the congress",
+    "countdown_day": "day to the congress",
+    "ticket_when": "When",
+    "ticket_where": "Where"
   }
 }

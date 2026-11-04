@@ -23,6 +23,13 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-04 (SC-021 Nachtrag 7, Preview):** Teamfoto raus (Owner „Nimm das Bild raus, ersetze
+das durch irgendwas Cooles“), stattdessen Kongress-Ticket aus Tokens mit Live-Countdown
+(`data-home-team-ticket`); Assets `team-hamburg-*` und `teamPhoto()` entfernt, Strings ×10. Gates:
+Typecheck, ESLint, Prettier, Vitest 658/658 (+1 skip), Guards + Claims, Perf-Budget ci 852/852
+(Desktop-Bildbytes Startseite −21 KB), Playwright Startseite/Navigation 54/54 (nach Clip gegen
+mobilen Überlauf), Baselines PT27.6 22/22 unverändert, Axe 27/27. Code/Preview siehe UEBERGABE-LOG.
+
 **Stand 2026-11-04 (SC-022 + SC-023, live):** SC-022 Google-Ads-Tag `AW-18553833510`
 als consent-gegateter Loader (nur Marketing-Zustimmung, `VITE_GOOGLE_ADS_ID` in `docker-compose.yml`,
 Preview unterdrückt es wie den Container), gtag-Schnipsel auf `arguments`, vier gemessene

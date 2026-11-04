@@ -132,14 +132,6 @@ async function eventHall() {
   )
 }
 
-/**
- * SC-021 Nachtrag 5 (Owner 2026-11-03): echtes Teamfoto (Hamburg, Konferenzraum) fuer die
- * Team-Sektion der Startseite — 4:3, 480/800/1280w, lazy. Kein KI-Bild.
- */
-async function teamPhoto() {
-  await card('team-hamburg.jpg', 'team-hamburg', 4 / 3, [800, 1280], [42, 38], 'centre')
-}
-
 async function eventBand() {
   await card('lab-tubes.jpg', 'event-band', 12 / 5, [480, 960], [44, 40])
 }
@@ -191,7 +183,6 @@ async function main() {
   await heroCard()
   await eventBand()
   await eventHall()
-  await teamPhoto()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }
 
@@ -200,7 +191,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     'hero-card': heroCard,
     'event-band': eventBand,
     'event-hall': eventHall,
-    team: teamPhoto,
   }[process.argv[2]]
   await (only ? only() : main())
 }

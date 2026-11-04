@@ -420,7 +420,10 @@
     "what_text": "Laboratoriumwaarden in minuten — probeer het op de stand",
     "cta": "Demo-slot boeken",
     "cta_secondary": "Naar het evenement",
-    "caption": "Hamburg · hoofdkantoor",
-    "alt": "Het PolarisDX-team aan de vergadertafel op het kantoor in Hamburg"
+    "caption": "PolarisDX · Hamburg",
+    "countdown_days": "dagen tot het congres",
+    "countdown_day": "dag tot het congres",
+    "ticket_when": "Wanneer",
+    "ticket_where": "Waar"
   }
 }
