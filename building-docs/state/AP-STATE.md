@@ -23,7 +23,7 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
-**Stand 2026-11-03 abends (SC-022 + SC-023, Preview):** SC-022 Google-Ads-Tag `AW-18553833510`
+**Stand 2026-11-04 (SC-022 + SC-023, live):** SC-022 Google-Ads-Tag `AW-18553833510`
 als consent-gegateter Loader (nur Marketing-Zustimmung, `VITE_GOOGLE_ADS_ID` in `docker-compose.yml`,
 Preview unterdrückt es wie den Container), gtag-Schnipsel auf `arguments`, vier gemessene
 Marketing-Origins in der CSP (SECURITY-CONTRACT §8.3.2), Cookie-Banner-Text und Datenschutz-Absatz
@@ -40,7 +40,11 @@ Axe 27/27. **Nicht grün, aber auf HEAD identisch (vorbestehend, in Worktree geg
 `articles-template` ×2 (Breadcrumb `/de`, lazy Artikelbild), `consent-basic-remediation` „grant“
 (Standardbau ohne Container), `pt23.1` ×2 (Kontaktformular `success`, Banner-Knopf
 `aria-controls`), `ap23-closure` Tastatur (dito), `pt24.4` Kontrast `/de/` (Messung unter dem
-Termin-Popup-Overlay). Code siehe Commit, Preview-Release siehe UEBERGABE-LOG.
+Termin-Popup-Overlay). Code `1c863a2`, Preview-Release `1c863a2d34cd`, nach Owner-Go („Ja, veröffentlichen“, 2026-11-04)
+**Produktion `1c863a2d34cd`** (vorher `1f821affb421`; Smoke grün). Live gemessen (Playwright gegen
+polarisdx.net): 0 externe Anfragen vor der Entscheidung; nach „Alle akzeptieren“ laden Container und
+Google-Ads-Tag (`gtag/js?id=AW-18553833510`, `viewthroughconversion`, `/rmkt/collect`, `/ccm/collect`),
+0 CSP-Meldungen.
 
 **Stand 2026-11-03 nachmittags (SC-021 Nachtrag 6, live):** IglooPro-Spezifikationstabelle
 `IglooSpecsSection` entfernt (Owner „Das muss raus“), `products.specification.*` gelöscht, Claim-Guard
