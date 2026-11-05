@@ -109,7 +109,7 @@ const BusinessPillarsSection = () => {
                 <ChevronRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </div>
-            <div className="relative aspect-[16/10] lg:aspect-auto">
+            <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-auto">
               <picture>
                 <source type="image/avif" srcSet={PILLAR_READER.avif} sizes={PILLAR_READER.sizes} />
                 <img

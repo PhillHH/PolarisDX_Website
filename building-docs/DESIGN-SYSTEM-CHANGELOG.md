@@ -57,7 +57,8 @@ Das ist **AP27** und wird nicht vorweggenommen.
 - **Mobil kuratiert (SC-021 Nachtrag 10, 2026-11-05):** Startseiten-Zweitinformationen unter `md` per `hidden md:*`/
   `hidden sm:*` ausgeblendet (Hero-Zeitleiste, Band-Beschreibung, Team-Fakten, Fachbereichs-Einleitung, Nutzen-
   Karten, Prozess-Zitat, CTA-Chips, Abschnitts-Einleitungen, zweiter Team-Knopf, Band-Link, Blog-Leseliste);
-  Abschnittsabstand mobil `py-16`. Keine Token-Änderung; Baselines siehe AP-STATE.
+  Abschnittsabstand mobil `py-16`; Hero-Eyebrow `hidden sm:flex`; Render-Fläche `aspect-[4/5] sm:aspect-[16/10]`;
+  POC-Merkmale mobil `rounded-card bg-paper p-5`. Keine Token-Änderung; Baseline `home-mobile` erneut (Eyebrow).
 - **Mobil-Korrekturen Startseite (SC-021 Nachtrag 9, 2026-11-05, Owner „Responsive bzw. mobile suboptimal“):**
   Vertrauensband-Beschriftung `min-w-0 break-words` (Überlauf „Herstellerübergreifend“ bei 390 px); Säulen-
   Foto-Kacheln `aspect-[4/5] md:aspect-[16/10]`; Fachbereichs-Detailfoto `hidden lg:block`. Keine Token-

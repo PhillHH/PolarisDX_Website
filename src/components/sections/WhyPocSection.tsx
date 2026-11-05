@@ -42,9 +42,13 @@ const WhyPocSection = () => {
           </p>
         </div>
 
-        <dl className="rv mt-12 grid gap-6 border-b border-paper-line pb-12 md:grid-cols-3">
+        <dl className="rv mt-12 grid gap-4 md:grid-cols-3 md:gap-6 md:border-b md:border-paper-line md:pb-12">
           {signals.map(({ id, icon: Icon }) => (
-            <div key={id} data-poc-signal={id} className="border-t border-paper-line pt-6">
+            <div
+              key={id}
+              data-poc-signal={id}
+              className="rounded-card bg-paper p-5 md:rounded-none md:border-t md:border-paper-line md:bg-transparent md:p-0 md:pt-6"
+            >
               <dt className="flex items-center gap-3 t-h3">
                 <span className="icon-tile h-11 w-11">
                   <Icon aria-hidden="true" className="h-5 w-5" />

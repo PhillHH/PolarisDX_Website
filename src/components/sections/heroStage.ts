@@ -10,7 +10,8 @@ export const STAGE = {
   gridWide:
     'mx-auto grid max-w-container gap-10 px-4 pb-16 pt-page-top sm:px-6 lg:min-h-[600px] lg:grid-cols-[minmax(0,0.85fr)_minmax(320px,1.15fr)] lg:items-center lg:gap-14 lg:px-0 lg:pb-20 xl:pt-page-top-xl',
   column: 'flex min-w-0 flex-col items-start [container-type:inline-size]',
-  eyebrow: 't-eyebrow enter flex items-center gap-2',
+  /** Nachtrag 10: die zweizeilige Eyebrow-Zeile entfaellt auf dem Telefon (ruhigere Buehne). */
+  eyebrow: 't-eyebrow enter hidden items-center gap-2 sm:flex',
   title: 'enter mt-5 font-semibold leading-[0.98] tracking-[-0.045em] text-heading',
   lead: 't-lead enter mt-6 max-w-xl text-pretty',
   actions:
