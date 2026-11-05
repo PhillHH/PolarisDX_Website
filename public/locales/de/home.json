@@ -100,17 +100,19 @@
         "title": "Diagnostik",
         "text": "Point-of-Care-Diagnostik und fachbezogene Anwendungen für Praxen und medizinische Einrichtungen.",
         "cta": "Diagnostik entdecken",
-        "board_label": "Parameter aus den Fachbereichen"
+        "headline": "Laborwerte am Behandlungsstuhl."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "Der IglooPro Reader wertet kompatible Schnelltests direkt am Point of Care aus.",
-        "cta": "IglooPro ansehen"
+        "cta": "IglooPro ansehen",
+        "headline": "Ergebnis in Minuten. Testkits vieler Hersteller."
       },
       "epigenetics": {
         "title": "Epigenetik",
         "text": "Ein eigenständiger Bereich für epigenetische und genetische Analysen sowie zugehörige Musterbefunde.",
-        "cta": "Epigenetik kennenlernen"
+        "cta": "Epigenetik kennenlernen",
+        "headline": "Sechs Analysen aus einem Tropfen Blut."
       }
     },
     "core": {

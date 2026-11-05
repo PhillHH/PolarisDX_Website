@@ -239,6 +239,21 @@ cards answer the pointer with a light spot (`spot`, one passive `pointermove` li
 adds no timers, tracking or third-party dependency; since SC-005 it carries three lazy, below-the-fold
 images (§4.2).
 
+### 4.0 SC-021 Nachtrag 8 (2026-11-05) — Säulen nach Entwurf A2-3
+
+Owner-Wahl nach sieben Entwurfsrunden (Vorbild Apple/Stripe: viel Weiß, große Produktbilder,
+wenig Text). Die drei Säulen sind nicht mehr drei gleich große Karten, sondern: (1) eine breite
+IglooPro-Hauptkachel (`bg-paper`, links H3 „IglooPro“ als Eyebrow, große Zeile `headline`, Text,
+Linktext; rechts der Geräte-Render mit Display und Testkassette, `PILLAR_READER`, lazy), (2) darunter
+zwei volle Foto-Kacheln mit Text im Bild auf Navy-Verlauf — Diagnostik mit dem Praxisfoto
+(`PILLAR_PRAXIS` = `hero-card-*`), Epigenetik mit der Probenentnahme (`PILLAR_SAMPLE`,
+`lab-micro.jpg`). Unverändert: jede Kachel ist EIN Link mit `data-business-pillar`/`data-route-id`
+aus dem Route Registry, H3 = Säulentitel, Linktexte `cta`, sechs fokussierbare Links der Sektion,
+die drei Fachbereichs-Einstiege (§4.2). Entfallen: Snap-Reihe `rail-x`, Lichtpunkt `useSpotlight`,
+Parameter-Tafel, Explosionsbild, Musterbefund-Kachel (SC-005/SC-006 in §4.2 sind Historie). Die
+Headlines sind Formulierungen bestehender Claims (§9: HCL-001, HCL-004/005,
+`common.nav.epigenetics_desc`), keine neuen Aussagen. Sektion auf Weiß; Bilder lazy, unter dem Falz.
+
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16; two shops since SC-007, 2026-10-17)
 
 **SC-021 Nachtrag 4 (2026-11-03, owner: „Das Element bitte raus“):** the „Aktuell“ band

@@ -100,17 +100,19 @@
         "title": "Diagnostika",
         "text": "Point-of-care diagnostika a specializované aplikace pro ordinace a zdravotnická zařízení.",
         "cta": "Objevte diagnostiku",
-        "board_label": "Parametry z odborných oblastí"
+        "headline": "Laboratorní hodnoty u křesla."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "Čtečka IglooPro analyzuje kompatibilní rychlotesty přímo v místě péče.",
-        "cta": "Zobrazit IglooPro"
+        "cta": "Zobrazit IglooPro",
+        "headline": "Výsledek za minuty. Testovací sady mnoha výrobců."
       },
       "epigenetics": {
         "title": "Epigenetika",
         "text": "Samostatná oblast pro epigenetické a genetické analýzy a související vzorové zprávy.",
-        "cta": "Poznejte epigenetiku"
+        "cta": "Poznejte epigenetiku",
+        "headline": "Šest analýz z jedné kapky krve."
       }
     },
     "core": {

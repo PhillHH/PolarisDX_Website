@@ -100,17 +100,19 @@
         "title": "Diagnóstico",
         "text": "Diagnóstico point-of-care y aplicaciones especializadas para consultas y centros médicos.",
         "cta": "Descubrir el diagnóstico",
-        "board_label": "Parámetros de las áreas"
+        "headline": "Valores de laboratorio en el sillón."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "El lector IglooPro analiza pruebas rápidas compatibles directamente en el punto de atención.",
-        "cta": "Ver IglooPro"
+        "cta": "Ver IglooPro",
+        "headline": "Resultados en minutos. Kits de prueba de muchos fabricantes."
       },
       "epigenetics": {
         "title": "Epigenética",
         "text": "Un área independiente para análisis epigenéticos y genéticos y sus correspondientes informes de muestra.",
-        "cta": "Conocer la epigenética"
+        "cta": "Conocer la epigenética",
+        "headline": "Seis análisis a partir de una gota de sangre."
       }
     },
     "core": {

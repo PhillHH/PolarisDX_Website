@@ -100,17 +100,19 @@
         "title": "Diagnostica",
         "text": "Diagnostica point-of-care e applicazioni specialistiche per studi e strutture mediche.",
         "cta": "Scopri la diagnostica",
-        "board_label": "Parametri dalle aree specialistiche"
+        "headline": "Valori di laboratorio alla poltrona."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "Il lettore IglooPro analizza test rapidi compatibili direttamente al point of care.",
-        "cta": "Scopri IglooPro"
+        "cta": "Scopri IglooPro",
+        "headline": "Risultato in pochi minuti. Kit di test di molti produttori."
       },
       "epigenetics": {
         "title": "Epigenetica",
         "text": "Un’area autonoma per analisi epigenetiche e genetiche e i relativi referti di esempio.",
-        "cta": "Conosci l’epigenetica"
+        "cta": "Conosci l’epigenetica",
+        "headline": "Sei analisi da una goccia di sangue."
       }
     },
     "core": {

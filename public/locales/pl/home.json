@@ -100,17 +100,19 @@
         "title": "Diagnostyka",
         "text": "Diagnostyka point-of-care i zastosowania specjalistyczne dla gabinetów i placówek medycznych.",
         "cta": "Poznaj diagnostykę",
-        "board_label": "Parametry z obszarów specjalistycznych"
+        "headline": "Wyniki laboratoryjne przy fotelu."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "Czytnik IglooPro analizuje kompatybilne szybkie testy bezpośrednio w miejscu opieki.",
-        "cta": "Zobacz IglooPro"
+        "cta": "Zobacz IglooPro",
+        "headline": "Wynik w kilka minut. Zestawy testowe wielu producentów."
       },
       "epigenetics": {
         "title": "Epigenetyka",
         "text": "Samodzielny obszar analiz epigenetycznych i genetycznych oraz powiązanych raportów przykładowych.",
-        "cta": "Poznaj epigenetykę"
+        "cta": "Poznaj epigenetykę",
+        "headline": "Sześć analiz z jednej kropli krwi."
       }
     },
     "core": {

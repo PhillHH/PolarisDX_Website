@@ -23,6 +23,14 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-05 (SC-021 Nachtrag 8, Preview):** Säulen-Sektion nach Entwurf A2-3 (Owner-Wahl nach
+sieben Entwurfsrunden): IglooPro-Hauptkachel mit Geräte-Render, darunter Foto-Kacheln Diagnostik (Praxis)
+und Epigenetik (Probenentnahme); Snap-Reihe/Lichtpunkt/Parameter-Tafel entfallen; `headline`-Strings ×10
+als Formulierungen bestehender Claims. Erste Fassung mit Sonder-Utilities kippte acht fremde
+`htmlBytes`-Budgets um wenige Byte (Inline-CSS), danach nur Bestands-Utilities: Gates Typecheck, ESLint,
+Prettier, Vitest 657/657 (+1 skip), Guards + Claims, Perf-Budget ci 852/852, Playwright Säulen/
+Startseite/Navigation 65/65, Baselines PT27.6 22/22 unverändert, Axe 27/27. Code/Preview siehe UEBERGABE-LOG.
+
 **Stand 2026-11-04 (SC-021 Nachtrag 7, live):** Teamfoto raus (Owner „Nimm das Bild raus, ersetze
 das durch irgendwas Cooles“), stattdessen Kongress-Ticket aus Tokens mit Live-Countdown
 (`data-home-team-ticket`); Assets `team-hamburg-*` und `teamPhoto()` entfernt, Strings ×10. Gates:

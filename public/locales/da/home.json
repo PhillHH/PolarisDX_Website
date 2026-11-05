@@ -100,17 +100,19 @@
         "title": "Diagnostik",
         "text": "Point-of-care-diagnostik og specialiserede anvendelser til klinikker og medicinske institutioner.",
         "cta": "Udforsk diagnostik",
-        "board_label": "Parametre fra fagområderne"
+        "headline": "Laboratorieværdier ved stolen."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "IglooPro-læseren analyserer kompatible hurtigtests direkte på behandlingsstedet.",
-        "cta": "Se IglooPro"
+        "cta": "Se IglooPro",
+        "headline": "Resultat på minutter. Testkits fra mange producenter."
       },
       "epigenetics": {
         "title": "Epigenetik",
         "text": "Et selvstændigt område for epigenetiske og genetiske analyser samt tilhørende eksempelrapporter.",
-        "cta": "Lær epigenetik at kende"
+        "cta": "Lær epigenetik at kende",
+        "headline": "Seks analyser fra én dråbe blod."
       }
     },
     "core": {

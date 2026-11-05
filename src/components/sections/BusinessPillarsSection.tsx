@@ -1,14 +1,14 @@
-import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Activity, ArrowRight, Dna, Microscope } from 'lucide-react'
+import { ArrowRight, ChevronRight } from 'lucide-react'
 import { services } from '../../data/services'
 import { getCanonicalRouteEntries } from '../../routing'
-import { useSpotlight } from '../../lib/spotlight'
-import { DETAIL_IMAGE } from '../../assets/home/homeImages'
-import IglooExplodeImage from '../../assets/home/igloo-explode-240w.webp'
-import ReportPreview400 from '../../assets/home/report-preview-400w.webp'
-import ReportPreview800 from '../../assets/home/report-preview-800w.webp'
+import {
+  DETAIL_IMAGE,
+  PILLAR_PRAXIS,
+  PILLAR_READER,
+  PILLAR_SAMPLE,
+} from '../../assets/home/homeImages'
 import { Card } from '../ui/Card'
 import Eyebrow from '../ui/Eyebrow'
 import { ResponsivePicture } from '../ui/ResponsivePicture'
@@ -44,101 +44,35 @@ const CORE_SERVICES = CORE_SERVICE_IDS.map((sourceId) => {
   return { sourceId, routeId, path: requireRegistryPath(routeId) }
 })
 
-const PILLAR_IDS: readonly PillarId[] = ['diagnostics', 'igloo', 'epigenetics']
-const PILLAR_ICONS: Record<PillarId, ReactNode> = {
-  diagnostics: <Microscope aria-hidden="true" />,
-  igloo: <Activity aria-hidden="true" />,
-  epigenetics: <Dna aria-hidden="true" />,
-}
-
 const DETAIL_SIZES = '(min-width:1024px) 520px,calc(100vw - 2rem)'
-const CARD_SIZES = '(min-width:1024px) 384px,(min-width:768px) 30vw,calc(100vw - 2rem)'
+
+/** Die beiden Foto-Kacheln: Praxisfoto (Diagnostik) und Probenentnahme (Epigenetik). */
+const PHOTO_PILLARS = [
+  { id: 'diagnostics', image: PILLAR_PRAXIS, position: 'object-right' },
+  { id: 'epigenetics', image: PILLAR_SAMPLE, position: 'object-left' },
+] as const satisfies readonly { id: PillarId; image: unknown; position: string }[]
 
 /**
  * Three business pillars and three selected service entry points (PT11.3).
  *
- * SC-005 (2026-10-16, owner: „Agentur-Niveau, lockerer Mix"): each pillar card
- * carries a DIFFERENT kind of visual instead of three look-alike photos —
- * Diagnostics a parameter board built from the existing, localized biomarker
- * lines of the three selected services, IglooPro the exploded product render,
- * Epigenetics a real sample report. The service entry points are a numbered
- * reading list beside ONE detail photograph (4:5). Targets, data attributes,
- * headings and copy keys are unchanged; the route logic is the Registry's.
- *
- * SC-006 „Editorial Motion": the cards answer the pointer (spot light, lift,
- * accent border, the report rising, the render floating) and enter on scroll
- * (`rv`); below `md` the three cards become ONE snap rail (`rail-x`) instead of
- * a 1 400 px stack. Everything is CSS; the only script is the shared
- * `useSpotlight` listener on the grid. Nothing changes without hover, without
- * JavaScript or with reduced motion.
+ * SC-021 Nachtrag 8 (Owner 2026-11-05, Entwurf A2-3 nach Vorbild Apple/Stripe, „den hier mit
+ * besseren Visuals“): statt drei gleich großer Karten eine breite IglooPro-Hauptkachel (Text links,
+ * Geräte-Render mit Display und Testkassette rechts, Spiegelung in die Fläche ausgeblendet) und
+ * darunter zwei volle Foto-Kacheln mit Text im Bild — Praxisfoto für Diagnostik, Probenentnahme für
+ * Epigenetik. Jede Kachel bleibt EIN semantischer Link mit `data-business-pillar`/`data-route-id`,
+ * H3 = Säulentitel (als Eyebrow gesetzt), große Zeile = `headline`, dann Text und Linktext — alle
+ * Strings aus `business_pillars.pillars.*`; die Headlines sind Formulierungen bestehender Claims
+ * (HOMEPAGE-CONTRACT §9), keine neuen Aussagen. Snap-Reihe (`rail-x`), Lichtpunkt (`useSpotlight`),
+ * Parameter-Tafel und Explosionsbild aus SC-005/SC-006 entfallen. Bilder lazy, unter dem Falz.
  */
 const BusinessPillarsSection = () => {
   const { t } = useTranslation('home')
-  const spot = useSpotlight<HTMLDivElement>()
-
-  // Parameter-Tafel: die Biomarker-Zeilen der drei Fachbereiche („Vitamin D · CRP · HbA1c"),
-  // in jeder Sprache aus derselben Quelle — keine neue Behauptung, kein neuer Text.
-  const parameters = Array.from(
-    new Set(
-      CORE_SERVICE_IDS.flatMap((id) =>
-        t(`segments.${id}.bio`)
-          .split('·')
-          .map((token) => token.trim())
-          .filter(Boolean),
-      ),
-    ),
-  )
-
-  const visuals: Record<PillarId, ReactNode> = {
-    // Die Tafel ist nicht interaktiv: kein Hover, sie tritt als Ganzes ein.
-    diagnostics: (
-      <ul
-        aria-label={t('business_pillars.pillars.diagnostics.board_label')}
-        className="flex h-full flex-wrap content-center gap-2 p-7"
-      >
-        {parameters.map((label) => (
-          <li
-            key={label}
-            className="inline-flex items-center gap-2 rounded-full border border-paper-line bg-white px-3.5 py-1.5 text-sm font-semibold"
-          >
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-line" />
-            {label}
-          </li>
-        ))}
-      </ul>
-    ),
-    igloo: (
-      <img
-        src={IglooExplodeImage}
-        alt=""
-        width={240}
-        height={280}
-        loading="lazy"
-        className="float-slow h-full w-full object-contain p-6"
-      />
-    ),
-    // Der Befund steckt im Kartenfalz; beim Zeigen waechst er vom unteren Rand aus nach oben.
-    epigenetics: (
-      <div className="h-full px-8 pt-8">
-        <img
-          src={ReportPreview400}
-          srcSet={`${ReportPreview400} 400w, ${ReportPreview800} 800w`}
-          sizes={CARD_SIZES}
-          alt=""
-          width={400}
-          height={267}
-          loading="lazy"
-          className="h-full w-full origin-bottom rounded-t-lg border border-b-0 border-paper-line object-cover shadow-card transition-transform duration-700 group-hover:scale-105"
-        />
-      </div>
-    ),
-  }
 
   return (
     <section
       aria-labelledby="homepage-pillars-title"
       data-home-business-pillars
-      className="bg-paper py-20 lg:py-24"
+      className="bg-white py-20 lg:py-24"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
         <div className="rv grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
@@ -153,38 +87,90 @@ const BusinessPillarsSection = () => {
           </p>
         </div>
 
-        {/* Unter md eine Schnapp-Reihe (.rail-x ueberschreibt grid/gap aus index.css,
-            das nach den Utilities steht), ab md das Dreiergitter. Ein Zeiger-Listener
-            am Gitter versorgt alle drei Karten mit dem Lichtpunkt. */}
-        <div ref={spot} className="rail-x mt-12 grid gap-6 md:grid-cols-3">
-          {PILLAR_IDS.map((id) => (
-            <Card
-              key={id}
-              to={PILLAR_TARGETS[id].path}
-              padding="none"
-              data-business-pillar={id}
-              data-route-id={PILLAR_TARGETS[id].routeId}
-              data-spot=""
-              className="spot rv h-auto overflow-hidden shadow-card hover:border-accent-border"
-            >
-              <div className="aspect-[3/2] overflow-hidden bg-paper">{visuals[id]}</div>
-              <div className="flex flex-1 flex-col p-6 sm:p-7">
-                <h3 className="flex items-center gap-3 text-2xl font-semibold tracking-tight">
-                  <span className="icon-tile h-9 w-9 [&>svg]:h-4 [&>svg]:w-4">
-                    {PILLAR_ICONS[id]}
+        <div className="mt-12 grid gap-5">
+          {/* Hauptkachel IglooPro: helle Fläche, Text links, Render rechts. */}
+          <Card
+            to={PILLAR_TARGETS.igloo.path}
+            padding="none"
+            data-business-pillar="igloo"
+            data-route-id={PILLAR_TARGETS.igloo.routeId}
+            className="group rv grid overflow-hidden border-transparent bg-paper lg:grid-cols-2"
+          >
+            <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+              <h3 className="t-eyebrow">{t('business_pillars.pillars.igloo.title')}</h3>
+              <p className="mt-3 text-balance text-3xl font-semibold leading-[1.05] tracking-[-0.035em] text-heading lg:text-4xl">
+                {t('business_pillars.pillars.igloo.headline')}
+              </p>
+              <p className="mt-4 max-w-md text-base leading-7 text-gray-700">
+                {t('business_pillars.pillars.igloo.text')}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
+                {t('business_pillars.pillars.igloo.cta')}
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </div>
+            <div className="relative aspect-[16/10] lg:aspect-auto">
+              <picture>
+                <source type="image/avif" srcSet={PILLAR_READER.avif} sizes={PILLAR_READER.sizes} />
+                <img
+                  src={PILLAR_READER.src}
+                  srcSet={PILLAR_READER.webp}
+                  sizes={PILLAR_READER.sizes}
+                  alt=""
+                  width={PILLAR_READER.width}
+                  height={PILLAR_READER.height}
+                  loading="lazy"
+                  className="h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-105 motion-reduce:transform-none"
+                />
+              </picture>
+              {/* Die eingebackene Spiegelung des Renders läuft in die Fläche aus. */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent via-paper/85 to-paper"
+              />
+            </div>
+          </Card>
+
+          {/* Foto-Kacheln: Diagnostik und Epigenetik, Text im Bild auf Navy-Verlauf. */}
+          <div className="grid gap-5 md:grid-cols-2">
+            {PHOTO_PILLARS.map(({ id, image, position }) => (
+              <Card
+                key={id}
+                to={PILLAR_TARGETS[id].path}
+                padding="none"
+                data-business-pillar={id}
+                data-route-id={PILLAR_TARGETS[id].routeId}
+                className="group rv relative aspect-[16/10] overflow-hidden border-transparent bg-brand-deep text-white"
+              >
+                <picture>
+                  <source type="image/avif" srcSet={image.avif} sizes={image.sizes} />
+                  <img
+                    src={image.src}
+                    srcSet={image.webp}
+                    sizes={image.sizes}
+                    alt=""
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    className={`absolute inset-0 h-full w-full object-cover ${position} transition-transform duration-700 group-hover:scale-105 motion-reduce:transform-none`}
+                  />
+                </picture>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-deep via-brand-deep/55 to-transparent p-7 pt-24 sm:p-8 sm:pt-24">
+                  <h3 className="t-eyebrow-dark">{t(`business_pillars.pillars.${id}.title`)}</h3>
+                  <p className="mt-2 text-balance text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
+                    {t(`business_pillars.pillars.${id}.headline`)}
+                  </p>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">
+                    {t(`business_pillars.pillars.${id}.text`)}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-white">
+                    {t(`business_pillars.pillars.${id}.cta`)}
+                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
                   </span>
-                  {t(`business_pillars.pillars.${id}.title`)}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-gray-700">
-                  {t(`business_pillars.pillars.${id}.text`)}
-                </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
-                  {t(`business_pillars.pillars.${id}.cta`)}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </span>
-              </div>
-            </Card>
-          ))}
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Fachbereiche: Text zuerst, dann die Liste, das Foto zuletzt (mobil) —

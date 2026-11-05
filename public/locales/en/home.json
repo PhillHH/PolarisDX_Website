@@ -100,17 +100,19 @@
         "title": "Diagnostics",
         "text": "Point-of-care diagnostics and specialty applications for practices and medical facilities.",
         "cta": "Explore diagnostics",
-        "board_label": "Parameters from the specialist areas"
+        "headline": "Lab values at the chair."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "The IglooPro reader evaluates compatible rapid tests directly at the point of care.",
-        "cta": "View IglooPro"
+        "cta": "View IglooPro",
+        "headline": "Results in minutes. Test kits from many manufacturers."
       },
       "epigenetics": {
         "title": "Epigenetics",
         "text": "A dedicated area for epigenetic and genetic analyses and their related sample reports.",
-        "cta": "Explore epigenetics"
+        "cta": "Explore epigenetics",
+        "headline": "Six analyses from one drop of blood."
       }
     },
     "core": {

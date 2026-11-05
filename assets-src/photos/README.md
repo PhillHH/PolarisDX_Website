@@ -46,6 +46,10 @@ nur die Fotokarten der Buehne (Praxis, Kapillarblut `detail-capillary.jpg` mitti
 `node scripts/build-photo-look.mjs event-band`. Nur die Messehalle der MEDICA-Folie (`medica-2026-hall.jpg`, Owner-Motiv per Gemini
 auf Duesseldorf korrigiert und mit PolarisDX-Stand, PROMPTS.md; 16:10 `event-hall-480/800/1280w`,
 Funktion `eventHall()`, SC-021 Nachtrag 3): `node scripts/build-photo-look.mjs event-hall`.
+Nur die Säulen-Bilder (SC-021 Nachtrag 8): `lab-micro.jpg` als 16:10 `pillar-sample-480/800/1280w` (Position links,
+Probenentnahme) und der Render `src/assets/hero_device.webp` ohne Grading als `igloo-reader-480/800w` (AVIF/WebP mit
+Transparenz), Funktion `pillars()`: `node scripts/build-photo-look.mjs pillars`.
+
 Das Teamfoto der Startseite (`team-hamburg.jpg`, SC-021 Nachtrag 5) ist mit Nachtrag 7 (Owner 2026-11-04,
 „Nimm das Bild raus“) samt Ableitungen und Funktion `teamPhoto()` wieder entfernt; die Team-Sektion
 zeigt stattdessen eine rein grafische Kongress-Karte (kein Bild).

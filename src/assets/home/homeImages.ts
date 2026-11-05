@@ -51,6 +51,16 @@ import eventHall800Avif from './event-hall-800w.avif'
 import eventHall800Webp from './event-hall-800w.webp'
 import eventHall1280Avif from './event-hall-1280w.avif'
 import eventHall1280Webp from './event-hall-1280w.webp'
+import sample480Avif from './pillar-sample-480w.avif'
+import sample480Webp from './pillar-sample-480w.webp'
+import sample800Avif from './pillar-sample-800w.avif'
+import sample800Webp from './pillar-sample-800w.webp'
+import sample1280Avif from './pillar-sample-1280w.avif'
+import sample1280Webp from './pillar-sample-1280w.webp'
+import reader480Avif from './igloo-reader-480w.avif'
+import reader480Webp from './igloo-reader-480w.webp'
+import reader800Avif from './igloo-reader-800w.avif'
+import reader800Webp from './igloo-reader-800w.webp'
 
 /** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
 export const DETAIL_IMAGE: ArticleImageAsset = {
@@ -105,6 +115,37 @@ export const HERO_EVENT = {
   height: 800,
   avif: `${eventHall480Avif} 480w, ${eventHall800Avif} 800w, ${eventHall1280Avif} 1280w`,
   webp: `${eventHall480Webp} 480w, ${eventHall800Webp} 800w, ${eventHall1280Webp} 1280w`,
+} as const
+
+/**
+ * Säulen-Sektion (SC-021 Nachtrag 8, Entwurf A2-3): IglooPro-Render mit Display und Kassette (transparent,
+ * 1:1), Praxisfoto (= Bild 3 der Diashow) und Probenentnahme — alle lazy, unter dem Falz.
+ */
+export const PILLAR_READER = {
+  src: reader800Webp,
+  width: 800,
+  height: 800,
+  sizes: '(min-width: 1024px) 440px, 70vw',
+  avif: `${reader480Avif} 480w, ${reader800Avif} 800w`,
+  webp: `${reader480Webp} 480w, ${reader800Webp} 800w`,
+} as const
+
+export const PILLAR_PRAXIS = {
+  src: heroCard1280Webp,
+  width: 1280,
+  height: 800,
+  sizes: '(min-width: 768px) 50vw, 100vw',
+  avif: `${heroCard480Avif} 480w, ${heroCard800Avif} 800w, ${heroCard1280Avif} 1280w`,
+  webp: `${heroCard480Webp} 480w, ${heroCard800Webp} 800w, ${heroCard1280Webp} 1280w`,
+} as const
+
+export const PILLAR_SAMPLE = {
+  src: sample1280Webp,
+  width: 1280,
+  height: 800,
+  sizes: '(min-width: 768px) 50vw, 100vw',
+  avif: `${sample480Avif} 480w, ${sample800Avif} 800w, ${sample1280Avif} 1280w`,
+  webp: `${sample480Webp} 480w, ${sample800Webp} 800w, ${sample1280Webp} 1280w`,
 } as const
 
 export const HERO_CARD = {

@@ -132,6 +132,19 @@ async function eventHall() {
   )
 }
 
+/**
+ * SC-021 Nachtrag 8 (Owner 2026-11-05, Säulen-Entwurf A2-3): Probenentnahme-Foto `lab-micro.jpg` als
+ * 16:10-Kachel der Epigenetik-Säule (lazy) und der IglooPro-Render `src/assets/hero_device.webp`
+ * (Display + Kassette, transparenter Grund) in zwei Stufen ohne Foto-Grading — ein Render ist kein Foto.
+ */
+async function pillars() {
+  await card('lab-micro.jpg', 'pillar-sample', 16 / 10, [480, 800, 1280], [44, 40, 36], 'left')
+  for (const w of [480, 800]) {
+    const img = sharp(path.join(ASSETS, 'hero_device.webp')).resize(w, w, { fit: 'inside' })
+    await encode(img, path.join(HOME, `igloo-reader-${w}w`), { avif: 52, webp: 78 })
+  }
+}
+
 async function eventBand() {
   await card('lab-tubes.jpg', 'event-band', 12 / 5, [480, 960], [44, 40])
 }
@@ -183,6 +196,7 @@ async function main() {
   await heroCard()
   await eventBand()
   await eventHall()
+  await pillars()
   for (const { base, source } of ARTICLE_PHOTOS) await article(source, base)
 }
 
@@ -191,6 +205,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     'hero-card': heroCard,
     'event-band': eventBand,
     'event-hall': eventHall,
+    pillars,
   }[process.argv[2]]
   await (only ? only() : main())
 }

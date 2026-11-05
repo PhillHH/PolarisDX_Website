@@ -54,6 +54,13 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **Säulen-Sektion nach Entwurf A2-3 (SC-021 Nachtrag 8, 2026-11-05):** `BusinessPillarsSection` auf `bg-white`;
+  Hauptkachel `Card` ohne Rahmen auf `bg-paper` (`lg:grid-cols-[1fr_1.1fr]`, `t-eyebrow` als H3, Headline
+  `clamp(28px,3.2vw,40px)`), Render mit `drop-shadow` und Verlauf `from-transparent via-paper/85 to-paper`;
+  Foto-Kacheln `bg-brand-deep` mit Textfeld `bg-gradient-to-t from-brand-deep/90 via-brand-deep/55`,
+  `t-eyebrow-dark`, Weiß/85; Hover: Bild `scale-[1.03]` + Card-Lift. `rail-x`/`spot`-Hover entfallen hier.
+  Neue Bilder `igloo-reader-480/800w`, `pillar-sample-480/800/1280w` (`scripts/build-photo-look.mjs pillars`).
+  Keine Token-Änderung; Baselines siehe AP-STATE.
 - **Team-Sektion ohne Foto (SC-021 Nachtrag 7, 2026-11-04, Owner „irgendwas Cooles“):** Kongress-Ticket statt Teamfoto —
   `rounded-card bg-white shadow-card -rotate-2` auf `bg-brand-deep rotate-3` mit `.brand-ring`; Kopfzeile
   `bg-brand-deep` mit `t-eyebrow-dark`, Countdown `text-[clamp(64px,10vw,104px)] text-heading` + Label

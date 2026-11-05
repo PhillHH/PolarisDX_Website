@@ -100,17 +100,19 @@
         "title": "Diagnostic",
         "text": "Diagnostic au point de service et applications spécialisées pour les cabinets et établissements médicaux.",
         "cta": "Découvrir le diagnostic",
-        "board_label": "Paramètres issus des domaines"
+        "headline": "Des valeurs de laboratoire au fauteuil."
       },
       "igloo": {
         "title": "IglooPro",
         "text": "Le lecteur IglooPro analyse des tests rapides compatibles directement au point de service.",
-        "cta": "Voir IglooPro"
+        "cta": "Voir IglooPro",
+        "headline": "Résultat en quelques minutes. Kits de test de nombreux fabricants."
       },
       "epigenetics": {
         "title": "Épigénétique",
         "text": "Un domaine autonome consacré aux analyses épigénétiques et génétiques ainsi qu’aux rapports d’exemple associés.",
-        "cta": "Découvrir l’épigénétique"
+        "cta": "Découvrir l’épigénétique",
+        "headline": "Six analyses à partir d’une goutte de sang."
       }
     },
     "core": {
