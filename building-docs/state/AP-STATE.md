@@ -23,7 +23,7 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
-**Stand 2026-11-05 (SC-021 Nachtrag 9+10, Preview):** Mobil-Korrekturen (N9) und mobil kuratierte Startseite
+**Stand 2026-11-05 (SC-021 Nachtrag 9+10, live):** Mobil-Korrekturen (N9) und mobil kuratierte Startseite
 (N10, Owner „wir müssen mobil nicht alles darstellen, mache es schöner / cleaner“): Zweitinformationen unter
 `md` per CSS ausgeblendet, Abstände mobil `py-16`; Team-Sektion in viewport-weitem `overflow-x-clip` (die
 gekippten Karten weiteten die Seite bei 1024 px — PT11.6 visuelle QA „desktop-compact“, jetzt 6/6).
@@ -31,7 +31,9 @@ Gates: Typecheck, ESLint, Vitest 657/657, Guards, Perf-Budget ci 852/852, Playwr
 Termine/FAQ 86/88 (rot nur `events-integration` PT18.4 „analytics grant startet Provider“ — Standardbau
 ohne GTM-Container, gleiche Ursache wie `consent-basic-remediation`), Axe 27/27. Dritter Durchgang (Hero-
 Eyebrow mobil weg, Render 4:5, POC-Merkmale als Karten): Playwright 82/82, Baselines 22/22 nach
-Aktualisierung (`home-mobile`, `navigation-open-mobile`), Axe 27/27. Code/Preview siehe UEBERGABE-LOG.
+Aktualisierung (`home-mobile`, `navigation-open-mobile`), Axe 27/27. Code `0c2153b`, Preview-Release
+`0c2153b866bb`, nach Owner-Go („Ja, veröffentlichen“, 2026-11-05) **Produktion `0c2153b866bb`** (vorher
+`0562b7b76223`; Smoke grün).
 
 **Stand 2026-11-05 (SC-021 Nachtrag 9, abgelöst durch N9+10 oben):** Mobil-Korrekturen (Owner „Responsive bzw. mobile
 suboptimal“): Vertrauensband bricht lange Beschriftungen, Säulen-Foto-Kacheln mobil 4:5, Fachbereichs-
