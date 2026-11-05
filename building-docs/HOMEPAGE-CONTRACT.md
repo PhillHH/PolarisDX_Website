@@ -253,6 +253,9 @@ die drei Fachbereichs-Einstiege (§4.2). Entfallen: Snap-Reihe `rail-x`, Lichtpu
 Parameter-Tafel, Explosionsbild, Musterbefund-Kachel (SC-005/SC-006 in §4.2 sind Historie). Die
 Headlines sind Formulierungen bestehender Claims (§9: HCL-001, HCL-004/005,
 `common.nav.epigenetics_desc`), keine neuen Aussagen. Sektion auf Weiß; Bilder lazy, unter dem Falz.
+Nachtrag 9 (2026-11-05, mobil): Foto-Kacheln unter `md` im Format 4:5 (Textfeld passt vollständig in die
+Kachel), das Detailfoto der Fachbereichs-Einstiege (§4.2) erscheint nur ab `lg`; das Vertrauensband bricht
+lange Beschriftungen (`break-words`).
 
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16; two shops since SC-007, 2026-10-17)
 

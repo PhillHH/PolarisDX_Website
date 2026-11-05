@@ -23,6 +23,11 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-05 (SC-021 Nachtrag 9, Preview):** Mobil-Korrekturen (Owner „Responsive bzw. mobile
+suboptimal“): Vertrauensband bricht lange Beschriftungen, Säulen-Foto-Kacheln mobil 4:5, Fachbereichs-
+Detailfoto nur ab `lg`. Gates: Typecheck, ESLint, Vitest 657/657, Guards, Perf-Budget ci 852/852,
+Playwright 65/65, Baselines 22/22 unverändert, Axe 27/27. Code/Preview siehe UEBERGABE-LOG.
+
 **Stand 2026-11-05 (SC-021 Nachtrag 8, live):** Säulen-Sektion nach Entwurf A2-3 (Owner-Wahl nach
 sieben Entwurfsrunden): IglooPro-Hauptkachel mit Geräte-Render, darunter Foto-Kacheln Diagnostik (Praxis)
 und Epigenetik (Probenentnahme); Snap-Reihe/Lichtpunkt/Parameter-Tafel entfallen; `headline`-Strings ×10

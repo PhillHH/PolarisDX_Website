@@ -140,7 +140,7 @@ const BusinessPillarsSection = () => {
                 padding="none"
                 data-business-pillar={id}
                 data-route-id={PILLAR_TARGETS[id].routeId}
-                className="group rv relative aspect-[16/10] overflow-hidden border-transparent bg-brand-deep text-white"
+                className="group rv relative aspect-[4/5] overflow-hidden border-transparent bg-brand-deep text-white md:aspect-[16/10]"
               >
                 <picture>
                   <source type="image/avif" srcSet={image.avif} sizes={image.sizes} />
@@ -217,7 +217,8 @@ const BusinessPillarsSection = () => {
             ))}
           </ol>
 
-          <figure className="rv overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2">
+          {/* SC-021 Nachtrag 9: das Detailfoto nur ab lg — mobil kostete es 400 px Scrollweg ohne Inhalt. */}
+          <figure className="rv hidden overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2 lg:block">
             <ResponsivePicture
               image={DETAIL_IMAGE}
               alt=""

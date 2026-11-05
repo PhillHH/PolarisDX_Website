@@ -54,6 +54,10 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **Mobil-Korrekturen Startseite (SC-021 Nachtrag 9, 2026-11-05, Owner „Responsive bzw. mobile suboptimal“):**
+  Vertrauensband-Beschriftung `min-w-0 break-words` (Überlauf „Herstellerübergreifend“ bei 390 px); Säulen-
+  Foto-Kacheln `aspect-[4/5] md:aspect-[16/10]`; Fachbereichs-Detailfoto `hidden lg:block`. Keine Token-
+  Änderung. Baselines PT27.6 unverändert (Viewport-Screenshots).
 - **Säulen-Sektion nach Entwurf A2-3 (SC-021 Nachtrag 8, 2026-11-05):** `BusinessPillarsSection` auf `bg-white`;
   Hauptkachel `Card` ohne Rahmen auf `bg-paper` (`lg:grid-cols-[1fr_1.1fr]`, `t-eyebrow` als H3, Headline
   `clamp(28px,3.2vw,40px)`), Render mit `drop-shadow` und Verlauf `from-transparent via-paper/85 to-paper`;

@@ -40,7 +40,10 @@ const TrustBar = () => {
               <span className="icon-tile">
                 <Icon size={18} aria-hidden="true" />
               </span>
-              <span className="text-sm font-semibold leading-snug sm:text-base">{label}</span>
+              {/* SC-021 Nachtrag 9: lange Woerter („Herstellerübergreifend“) duerfen in der schmalen Zelle brechen. */}
+              <span className="min-w-0 break-words text-sm font-semibold leading-snug sm:text-base">
+                {label}
+              </span>
             </li>
           ))}
         </ul>
