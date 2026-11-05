@@ -54,6 +54,10 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **Mobil kuratiert (SC-021 Nachtrag 10, 2026-11-05):** Startseiten-Zweitinformationen unter `md` per `hidden md:*`/
+  `hidden sm:*` ausgeblendet (Hero-Zeitleiste, Band-Beschreibung, Team-Fakten, Fachbereichs-Einleitung, Nutzen-
+  Karten, Prozess-Zitat, CTA-Chips, Abschnitts-Einleitungen, zweiter Team-Knopf, Band-Link, Blog-Leseliste);
+  Abschnittsabstand mobil `py-16`. Keine Token-Änderung; Baselines siehe AP-STATE.
 - **Mobil-Korrekturen Startseite (SC-021 Nachtrag 9, 2026-11-05, Owner „Responsive bzw. mobile suboptimal“):**
   Vertrauensband-Beschriftung `min-w-0 break-words` (Überlauf „Herstellerübergreifend“ bei 390 px); Säulen-
   Foto-Kacheln `aspect-[4/5] md:aspect-[16/10]`; Fachbereichs-Detailfoto `hidden lg:block`. Keine Token-

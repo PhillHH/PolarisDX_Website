@@ -28,13 +28,13 @@ const WhyPocSection = () => {
 
   return (
     <section id="warum-poc" aria-labelledby="why-poc-title" className="bg-white">
-      <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
         <div className="rv max-w-3xl">
           <p className="t-eyebrow">{t('why.caption', 'Point of Care im Arbeitsalltag')}</p>
           <h2 id="why-poc-title" className="mt-3 t-display">
             {t('why.title', 'Information dort, wo sie gebraucht wird')}
           </h2>
-          <p className="mt-4 max-w-2xl t-body">
+          <p className="mt-4 hidden max-w-2xl t-body md:block">
             {t(
               'why.intro',
               'Point-of-Care-Messungen stellen zusätzliche Informationen direkt im Praxisablauf bereit. Sie unterstützen die fachliche Einordnung, ohne sie zu automatisieren oder zu ersetzen.',
@@ -56,7 +56,7 @@ const WhyPocSection = () => {
           ))}
         </dl>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 hidden gap-6 md:grid lg:grid-cols-2">
           <article
             data-benefit-audience="practice"
             className="rv rounded-card border border-accent-border bg-paper p-7 sm:p-8"

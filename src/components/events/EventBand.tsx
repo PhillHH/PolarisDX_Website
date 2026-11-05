@@ -55,7 +55,7 @@ const EventBand = () => {
           >
             {t('event_band.title', { location: event.location })}
           </h2>
-          <p className="mt-3 text-pretty leading-relaxed text-white/85">
+          <p className="mt-3 hidden text-pretty leading-relaxed text-white/85 sm:block">
             <time dateTime={event.date}>
               {formatEventRange(i18n.language, event.date, event.endDate)}
             </time>
@@ -88,7 +88,7 @@ const EventBand = () => {
           </Button>
           <Link
             to="/events"
-            className="rounded-sm text-sm font-semibold text-accent-on-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="hidden rounded-sm text-sm font-semibold text-accent-on-dark hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:inline-block"
           >
             {t('event_band.all')}
           </Link>

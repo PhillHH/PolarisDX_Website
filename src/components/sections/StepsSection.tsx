@@ -32,7 +32,7 @@ const StepsSection = () => {
 
   return (
     <section id="ablauf" aria-labelledby="process-title" className="bg-paper">
-      <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
+      <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
         <div className="rv grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-12">
           <div>
             <Eyebrow className="mb-4">{t('steps.caption', 'Der POC-Prozess')}</Eyebrow>
@@ -40,7 +40,7 @@ const StepsSection = () => {
               {t('steps.title', 'Von der Anwendung zur fachlichen Einordnung')}
             </h2>
           </div>
-          <p className="max-w-xl t-body">
+          <p className="hidden max-w-xl t-body md:block">
             {t(
               'steps.intro',
               'Ein klarer Ablauf macht Messinformationen im Praxisalltag nutzbar und lässt die medizinische Verantwortung bei den behandelnden Fachpersonen.',
@@ -72,7 +72,7 @@ const StepsSection = () => {
           })}
         </ol>
 
-        <p className="mt-12 max-w-3xl border-l-[3px] border-accent pl-5 t-small">
+        <p className="mt-12 hidden max-w-3xl border-l-[3px] border-accent pl-5 t-small md:block">
           {t(
             'steps.safety_note',
             'Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson.',

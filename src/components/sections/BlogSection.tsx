@@ -41,7 +41,9 @@ const BlogSection = () => {
             {t('blog.title')}
           </h2>
         </div>
-        <p className="max-w-xl text-base leading-7 text-gray-700">{t('blog.eeat_text')}</p>
+        <p className="hidden max-w-xl text-base leading-7 text-gray-700 md:block">
+          {t('blog.eeat_text')}
+        </p>
       </div>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-stretch lg:gap-12">
@@ -80,7 +82,7 @@ const BlogSection = () => {
           </Link>
         </article>
 
-        <div className="lg:self-center">
+        <div className="hidden md:block lg:self-center">
           <ol className="rv divide-y divide-paper-line border-y border-paper-line">
             {more.map((post, index) => (
               <li key={post.id}>

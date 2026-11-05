@@ -256,6 +256,11 @@ Headlines sind Formulierungen bestehender Claims (§9: HCL-001, HCL-004/005,
 Nachtrag 9 (2026-11-05, mobil): Foto-Kacheln unter `md` im Format 4:5 (Textfeld passt vollständig in die
 Kachel), das Detailfoto der Fachbereichs-Einstiege (§4.2) erscheint nur ab `lg`; das Vertrauensband bricht
 lange Beschriftungen (`break-words`).
+Nachtrag 10 (2026-11-05, Owner „mobil nicht alles darstellen“): unter `md` sind Zweitinformationen per
+CSS ausgeblendet — Hero-Zeitleiste, Messe-Band-Beschreibung, Team-Faktenliste, Einleitung der
+Fachbereichs-Einstiege, Nutzen-Karten (Warum POC), Prozess-Zitat, Schluss-CTA-Chips, Abschnitts-Einleitungen
+(Säulen, Warum POC, Prozess, Blog), zweiter Team-Knopf, „Alle Termine“ im Band, Blog-Leseliste 02/03;
+Abschnittsabstände mobil `py-16`. DOM, Links, Datenattribute und Tests unverändert; ab `md` erscheint alles.
 
 ### 4.1 Shop band (owner decision O1, SC-004, 2026-10-16; two shops since SC-007, 2026-10-17)
 

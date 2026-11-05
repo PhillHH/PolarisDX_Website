@@ -72,7 +72,7 @@ const HomePage = () => {
         <TestimonialsSection />
       </div>
       {/* SC-023 (Owner 2026-11-03): ROI-Rechner von der Startseite entfernt. */}
-      <div className="mx-auto w-full max-w-container px-4 py-24 lg:px-0 lg:py-32">
+      <div className="mx-auto w-full max-w-container px-4 py-16 lg:px-0 lg:py-32">
         <BlogSection />
       </div>
       <div className="mx-auto flex max-w-container flex-col px-4 pb-24 pt-4 lg:px-0 lg:pb-32">

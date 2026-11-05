@@ -142,7 +142,7 @@ const HeroSection = () => {
           </div>
           {/* Zeitleiste der drei Schritte: fester Platz (kein Layoutsprung); HeroSlides setzt sie per
               Portal ein — so bleibt das Markup aus dem Hauptbuendel und dem Startseiten-HTML. */}
-          {hasSlides && <div ref={setStepsHost} className="mt-5 h-11" />}
+          {hasSlides && <div ref={setStepsHost} className="mt-5 hidden h-11 md:block" />}
         </div>
       </div>
       {slides && (

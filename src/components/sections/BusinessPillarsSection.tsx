@@ -72,7 +72,7 @@ const BusinessPillarsSection = () => {
     <section
       aria-labelledby="homepage-pillars-title"
       data-home-business-pillars
-      className="bg-white py-20 lg:py-24"
+      className="bg-white py-16 lg:py-24"
     >
       <div className="mx-auto max-w-container px-4 lg:px-0">
         <div className="rv grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
@@ -82,7 +82,7 @@ const BusinessPillarsSection = () => {
               {t('business_pillars.title')}
             </h2>
           </div>
-          <p className="max-w-xl text-lg leading-relaxed text-gray-700">
+          <p className="hidden max-w-xl text-lg leading-relaxed text-gray-700 md:block">
             {t('business_pillars.intro')}
           </p>
         </div>
@@ -184,7 +184,7 @@ const BusinessPillarsSection = () => {
             <h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
               {t('business_pillars.core.title')}
             </h3>
-            <p className="mt-4 max-w-xl text-base leading-7 text-gray-700">
+            <p className="mt-4 hidden max-w-xl text-base leading-7 text-gray-700 md:block">
               {t('business_pillars.core.intro')}
             </p>
           </div>

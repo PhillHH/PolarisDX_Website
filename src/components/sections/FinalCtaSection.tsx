@@ -60,7 +60,7 @@ const FinalCtaSection = ({
               {t('final_cta.cta_primary', 'Angebot anfragen')}
             </Button>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 hidden flex-wrap justify-center gap-3 sm:flex">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
               <Check size={13} className="text-accent-on-dark" aria-hidden />
               {t('final_cta.chips.free', 'Unverbindliche Anfrage')}
