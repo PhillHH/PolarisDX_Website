@@ -1,17 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ChevronRight, HeartPulse, Sparkles, Stethoscope, type LucideIcon } from 'lucide-react'
 import { services } from '../../data/services'
 import { getCanonicalRouteEntries } from '../../routing'
-import {
-  DETAIL_IMAGE,
-  PILLAR_PRAXIS,
-  PILLAR_READER,
-  PILLAR_SAMPLE,
-} from '../../assets/home/homeImages'
+import { PILLAR_PRAXIS, PILLAR_READER, PILLAR_SAMPLE } from '../../assets/home/homeImages'
 import { Card } from '../ui/Card'
 import Eyebrow from '../ui/Eyebrow'
-import { ResponsivePicture } from '../ui/ResponsivePicture'
 
 type PillarId = 'diagnostics' | 'igloo' | 'epigenetics'
 type CoreServiceId = 'dental' | 'beauty' | 'longevity'
@@ -30,30 +24,34 @@ const PILLAR_TARGETS: Record<PillarId, { routeId: string; path: string }> = {
   epigenetics: { routeId: 'epigenetics', path: requireRegistryPath('epigenetics') },
 }
 
+/** Die beiden Foto-Kacheln: Praxisfoto (Diagnostik) und Probenentnahme (Epigenetik). */
 const CORE_SERVICE_IDS = [
   'dental',
   'beauty',
   'longevity',
 ] as const satisfies readonly CoreServiceId[]
+const CORE_ICONS: Record<CoreServiceId, LucideIcon> = {
+  dental: Stethoscope,
+  beauty: Sparkles,
+  longevity: HeartPulse,
+}
 
 const CORE_SERVICES = CORE_SERVICE_IDS.map((sourceId) => {
   const service = services.find(({ id }) => id === sourceId)
   if (!service) throw new Error(`Homepage core service is missing from services.tsx: ${sourceId}`)
 
   const routeId = `service-detail:${sourceId}`
-  return { sourceId, routeId, path: requireRegistryPath(routeId) }
+  return { sourceId, routeId, path: requireRegistryPath(routeId), icon: CORE_ICONS[sourceId] }
 })
 
-const DETAIL_SIZES = '(min-width:1024px) 520px,calc(100vw - 2rem)'
-
-/** Die beiden Foto-Kacheln: Praxisfoto (Diagnostik) und Probenentnahme (Epigenetik). */
 const PHOTO_PILLARS = [
   { id: 'diagnostics', image: PILLAR_PRAXIS, position: 'object-right' },
   { id: 'epigenetics', image: PILLAR_SAMPLE, position: 'object-left' },
 ] as const satisfies readonly { id: PillarId; image: unknown; position: string }[]
 
 /**
- * Three business pillars and three selected service entry points (PT11.3).
+ * Three business pillars and three selected service entry points (PT11.3). Die Fachbereiche stehen
+ * seit SC-021 Nachtrag 11 (Owner 2026-11-06, Entwurf F4) als ruhiges Papier-Band ohne Foto.
  *
  * SC-021 Nachtrag 8 (Owner 2026-11-05, Entwurf A2-3 nach Vorbild Apple/Stripe, „den hier mit
  * besseren Visuals“): statt drei gleich großer Karten eine breite IglooPro-Hauptkachel (Text links,
@@ -173,60 +171,51 @@ const BusinessPillarsSection = () => {
           </div>
         </div>
 
-        {/* Fachbereiche: Text zuerst, dann die Liste, das Foto zuletzt (mobil) —
-            ab lg steht das Foto links neben Kopf und Liste. */}
+        {/* Fachbereichs-Einstiege (PT11.3 §4.2) — SC-021 Nachtrag 11 (Owner 2026-11-06, Entwurf F4
+            „cleaner und klarer“): helles Papier-Band ohne Foto, links Eyebrow/Titel/Satz, rechts drei
+            ruhige Zeilen mit Icon-Kachel, Titel, Parameterzeile und Chevron. */}
         <div
-          className="mt-16 grid gap-8 border-t border-paper-line pt-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-14 lg:gap-y-8"
           data-home-core-services
+          className="mt-12 grid gap-8 rounded-card bg-paper px-6 py-8 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16 lg:p-12"
         >
-          <div>
+          <div className="rv">
             <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h3 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-heading lg:text-4xl">
               {t('business_pillars.core.title')}
             </h3>
-            <p className="mt-4 hidden max-w-xl text-base leading-7 text-gray-700 md:block">
+            <p className="mt-4 hidden max-w-md text-base leading-7 text-gray-700 md:block">
               {t('business_pillars.core.intro')}
             </p>
           </div>
 
           <ol className="rv divide-y divide-paper-line border-y border-paper-line">
-            {CORE_SERVICES.map(({ sourceId, routeId, path }, index) => (
+            {CORE_SERVICES.map(({ sourceId, routeId, path, icon: Icon }) => (
               <li key={sourceId}>
                 <Link
                   to={path}
                   data-core-service={sourceId}
                   data-route-id={routeId}
-                  className="group flex items-center gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 sm:gap-7"
+                  className="group flex items-center gap-5 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                 >
-                  <span className="text-sm font-semibold tabular-nums text-accent-strong">
-                    0{index + 1}
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-accent shadow-card">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <h4 className="text-xl font-semibold tracking-tight group-hover:text-brand-deep">
+                    <h4 className="text-lg font-semibold tracking-tight text-heading group-hover:text-brand-deep sm:text-xl">
                       {t(`segments.${sourceId}.title`)}
                     </h4>
-                    <span className="mt-1 block text-sm text-gray-600">
+                    <span className="mt-0.5 block text-sm text-gray-600">
                       {t(`segments.${sourceId}.bio`)}
                     </span>
                   </span>
-                  <span className="icon-tile transition-colors group-hover:bg-accent group-hover:text-white">
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </span>
+                  <ChevronRight
+                    className="h-5 w-5 shrink-0 text-accent transition group-hover:translate-x-1 motion-reduce:transform-none"
+                    aria-hidden="true"
+                  />
                 </Link>
               </li>
             ))}
           </ol>
-
-          {/* SC-021 Nachtrag 9: das Detailfoto nur ab lg — mobil kostete es 400 px Scrollweg ohne Inhalt. */}
-          <figure className="rv hidden overflow-hidden rounded-card bg-paper-deep lg:order-first lg:row-span-2 lg:block">
-            <ResponsivePicture
-              image={DETAIL_IMAGE}
-              alt=""
-              lean
-              sizes={DETAIL_SIZES}
-              className="aspect-[4/5] h-full w-full object-cover"
-            />
-          </figure>
         </div>
       </div>
     </section>

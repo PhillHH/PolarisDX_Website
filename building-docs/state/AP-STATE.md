@@ -23,6 +23,12 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-06 (SC-021 Nachtrag 11, Preview):** Fachbereichs-Einstiege nach Entwurf F4 (Owner: erst
+„Raus“, dann nach Entwürfen F1–F5 „so in etwa, etwas cleaner und klarer“): helles Papier-Band ohne Foto,
+Icon-Kacheln, Chevrons; 4:5-Detailfoto und Pipeline-Schritt entfernt. Gates: Typecheck, ESLint,
+Vitest 657/657, Guards, Perf-Budget ci 852/852, Playwright 82/82, Baselines 22/22 unverändert, Axe 27/27.
+Code/Preview siehe UEBERGABE-LOG.
+
 **Stand 2026-11-05 (SC-021 Nachtrag 9+10, live):** Mobil-Korrekturen (N9) und mobil kuratierte Startseite
 (N10, Owner „wir müssen mobil nicht alles darstellen, mache es schöner / cleaner“): Zweitinformationen unter
 `md` per CSS ausgeblendet, Abstände mobil `py-16`; Team-Sektion in viewport-weitem `overflow-x-clip` (die

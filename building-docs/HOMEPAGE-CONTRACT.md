@@ -241,6 +241,12 @@ images (§4.2).
 
 ### 4.0 SC-021 Nachtrag 8 (2026-11-05) — Säulen nach Entwurf A2-3
 
+**Nachtrag 11 (2026-11-06, Owner-Wahl F4 „cleaner und klarer“):** Die drei Fachbereichs-Einstiege (§4.2)
+stehen als helles Papier-Band ohne Foto: links Eyebrow/Titel/Satz, rechts drei Zeilen (Icon-Kachel,
+Titel, Parameterzeile, Chevron). Ziele, `data-core-service`/`data-route-id`, Strings und die sechs
+fokussierbaren Links der Sektion bleiben; das 4:5-Detailfoto und die nummerierte Leseliste aus SC-005
+sind Historie.
+
 Owner-Wahl nach sieben Entwurfsrunden (Vorbild Apple/Stripe: viel Weiß, große Produktbilder,
 wenig Text). Die drei Säulen sind nicht mehr drei gleich große Karten, sondern: (1) eine breite
 IglooPro-Hauptkachel (`bg-paper`, links H3 „IglooPro“ als Eyebrow, große Zeile `headline`, Text,

@@ -13,7 +13,6 @@
  * Kein Motiv wird erfunden, kein Geraet gemalt, kein Messwert eingesetzt (main 6908b61).
  *
  * Ausgaben (Dateinamen wie bisher, Code unveraendert):
- *   src/assets/home/detail-capillary-{480,960}w.{avif,webp}                    4:5 (Fachbereich-Modul)
  *   src/assets/home/report-preview-{400,800}w.webp                               Musterbefund (Saeule Epigenetik)
  *   src/assets/home/hero-desktop-{1440,2400}w.avif, hero-mobile-{800,1200}w.{avif,webp}
  *   src/assets/article-<motiv>.webp (1200w, Original fuer OG/Fallback) + -{400,800}w.{avif,webp}
@@ -152,14 +151,6 @@ async function eventBand() {
 async function heroCard() {
   await card('practice-dental-2600.jpg', 'hero-card', 16 / 10, [480, 800, 1280], [44, 40, 36])
   // SC-021 Nachtrag (Owner: Diashow in Folie 1): zwei weitere 16:10-Karten, nur im Browser (lazy).
-  await card(
-    'detail-capillary.jpg',
-    'hero-card-capillary',
-    16 / 10,
-    [480, 800, 1280],
-    [44, 40, 36],
-    'centre',
-  )
   await card('lab-tubes.jpg', 'hero-card-device', 16 / 10, [480, 800, 1280], [44, 40, 36], 'right')
 }
 
@@ -173,10 +164,8 @@ export const ARTICLE_PHOTOS = [
 ]
 
 async function main() {
-  // SC-005 (2026-10-16): die Startseite traegt noch EIN Detailfoto (Fachbereich-Modul, 4:5);
-  // die fuenf Karten-Motive der Saeulen und Fachbereiche sind durch Parameter-Tafel,
-  // Produkt-Render und Musterbefund ersetzt (HOMEPAGE-CONTRACT §4).
-  await card('detail-capillary.jpg', 'detail-capillary', 4 / 5, [480, 960], [40, 44])
+  // SC-021 Nachtrag 11 (2026-11-06): das 4:5-Detailfoto `detail-capillary` entfaellt mit den
+  // Fachbereichs-Einstiegen der Startseite.
   // Musterbefund-Vorschau der Epigenetik-Saeule: echtes Dokument aus src/assets/epigenetics,
   // auf Kartenbreite skaliert (384 px CSS → 400w/800w), sonst meldet das Budget „oversized".
   for (const [w, q] of [

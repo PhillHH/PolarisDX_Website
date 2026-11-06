@@ -17,12 +17,7 @@
  *   - Detailfoto Fachbereich-Modul: bis ~520 px CSS → 480w/960w, 4:5
  *   - Fotokarte der Buehne: siehe HERO_CARD (SC-021)
  */
-import type { ArticleImageAsset } from '../articleImages'
 
-import detail480Avif from './detail-capillary-480w.avif'
-import detail480Webp from './detail-capillary-480w.webp'
-import detail960Avif from './detail-capillary-960w.avif'
-import detail960Webp from './detail-capillary-960w.webp'
 import heroCard480Avif from './hero-card-480w.avif'
 import heroCard480Webp from './hero-card-480w.webp'
 import heroCard800Avif from './hero-card-800w.avif'
@@ -61,17 +56,6 @@ import reader480Avif from './igloo-reader-480w.avif'
 import reader480Webp from './igloo-reader-480w.webp'
 import reader800Avif from './igloo-reader-800w.avif'
 import reader800Webp from './igloo-reader-800w.webp'
-
-/** Detailfoto des Fachbereich-Moduls — 4:5, 480w fuer DPR 1, 960w fuer DPR 2 und Telefone. */
-export const DETAIL_IMAGE: ArticleImageAsset = {
-  src: detail960Webp,
-  width: 960,
-  height: 1200,
-  variants: [
-    { width: 480, avif: detail480Avif, webp: detail480Webp },
-    { width: 960, avif: detail960Avif, webp: detail960Webp },
-  ],
-}
 
 /**
  * Fotokarte der Startseiten-Bühne (SC-021, Kopfzeile 13A-4 — Owner 2026-11-02).
