@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ChevronRight, HeartPulse, Sparkles, Stethoscope, type LucideIcon } from 'lucide-react'
 import { services } from '../../data/services'
@@ -171,51 +170,59 @@ const BusinessPillarsSection = () => {
           </div>
         </div>
 
-        {/* Fachbereichs-Einstiege (PT11.3 §4.2) — SC-021 Nachtrag 11 (Owner 2026-11-06, Entwurf F4
-            „cleaner und klarer“): helles Papier-Band ohne Foto, links Eyebrow/Titel/Satz, rechts drei
-            ruhige Zeilen mit Icon-Kachel, Titel, Parameterzeile und Chevron. */}
-        <div
-          data-home-core-services
-          className="mt-12 grid gap-8 rounded-card bg-paper px-6 py-8 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16 lg:p-12"
-        >
-          <div className="rv">
-            <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
-            <h3 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-heading lg:text-4xl">
-              {t('business_pillars.core.title')}
-            </h3>
-            <p className="mt-4 hidden max-w-md text-base leading-7 text-gray-700 md:block">
+        {/* Fachbereichs-Einstiege (PT11.3 §4.2) — SC-021 Nachtrag 11 (Owner 2026-11-06, Entwurf F4,
+            dann „moderner“): Kopfzeile wie die Sektionen, darunter drei weiße Karten mit Icon-Kachel,
+            Titel, Parameter-Chips und Linkzeile — jede Karte ein Link. */}
+        <div data-home-core-services className="mt-20 lg:mt-24">
+          <div className="rv grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-12">
+            <div>
+              <Eyebrow>{t('business_pillars.core.eyebrow')}</Eyebrow>
+              <h3 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-heading lg:text-4xl">
+                {t('business_pillars.core.title')}
+              </h3>
+            </div>
+            <p className="hidden max-w-xl text-base leading-7 text-gray-700 md:block">
               {t('business_pillars.core.intro')}
             </p>
           </div>
 
-          <ol className="rv divide-y divide-paper-line border-y border-paper-line">
+          <ul className="mt-8 grid gap-5 md:grid-cols-3">
             {CORE_SERVICES.map(({ sourceId, routeId, path, icon: Icon }) => (
-              <li key={sourceId}>
-                <Link
+              <li key={sourceId} className="rv">
+                <Card
                   to={path}
                   data-core-service={sourceId}
                   data-route-id={routeId}
-                  className="group flex items-center gap-5 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  className="group flex h-full flex-col p-7 shadow-card hover:border-accent-border"
                 >
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-accent shadow-card">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                    <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <span className="min-w-0 flex-1">
-                    <h4 className="text-lg font-semibold tracking-tight text-heading group-hover:text-brand-deep sm:text-xl">
-                      {t(`segments.${sourceId}.title`)}
-                    </h4>
-                    <span className="mt-0.5 block text-sm text-gray-600">
-                      {t(`segments.${sourceId}.bio`)}
-                    </span>
+                  <h4 className="mt-6 text-2xl font-semibold tracking-tight text-heading">
+                    {t(`segments.${sourceId}.title`)}
+                  </h4>
+                  <span className="mt-4 flex flex-wrap gap-2">
+                    {t(`segments.${sourceId}.bio`)
+                      .split('·')
+                      .map((token) => token.trim())
+                      .filter(Boolean)
+                      .map((label) => (
+                        <span
+                          key={label}
+                          className="rounded-full bg-paper px-3 py-1 text-sm font-semibold text-heading"
+                        >
+                          {label}
+                        </span>
+                      ))}
                   </span>
-                  <ChevronRight
-                    className="h-5 w-5 shrink-0 text-accent transition group-hover:translate-x-1 motion-reduce:transform-none"
-                    aria-hidden="true"
-                  />
-                </Link>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-7 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
+                    {t(`segments.${sourceId}.cta`)}
+                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                </Card>
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </div>
     </section>

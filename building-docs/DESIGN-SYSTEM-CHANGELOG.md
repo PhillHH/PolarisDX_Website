@@ -54,9 +54,9 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
-- **Fachbereichs-Einstiege als Papier-Band (SC-021 Nachtrag 11, 2026-11-06, Entwurf F4):** `rounded-card bg-paper`
-  mit Zeilen `divide-paper-line`, Icon-Kacheln `rounded-xl bg-white shadow-card text-accent`, Chevron `text-accent`
-  mit Hover-Versatz; Detailfoto 4:5 entfällt (`detail-capillary-*` gelöscht). Keine Token-Änderung; Baselines
+- **Fachbereichs-Einstiege als Papier-Band (SC-021 Nachtrag 11, 2026-11-06, Entwurf F4):** drei `Card`-Links
+  `p-7 shadow-card hover:border-accent-border`, Icon-Kachel `rounded-2xl bg-accent-soft text-accent`, Parameter-Chips
+  `rounded-full bg-paper`, Linkzeile `text-accent-strong`; Detailfoto 4:5 entfällt (`detail-capillary-*` gelöscht). Keine Token-Änderung; Baselines
   unverändert (unter dem Falz).
 - **Mobil kuratiert (SC-021 Nachtrag 10, 2026-11-05):** Startseiten-Zweitinformationen unter `md` per `hidden md:*`/
   `hidden sm:*` ausgeblendet (Hero-Zeitleiste, Band-Beschreibung, Team-Fakten, Fachbereichs-Einleitung, Nutzen-
