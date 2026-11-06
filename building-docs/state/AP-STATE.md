@@ -23,11 +23,14 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
-**Stand 2026-11-06 (SC-021 Nachtrag 11, Preview):** Fachbereichs-Einstiege (Owner: erst „Raus“, dann nach
+**Stand 2026-11-06 (SC-021 Nachtrag 11, live):** Fachbereichs-Einstiege (Owner: erst „Raus“, dann nach
 Entwürfen F1–F5 „so in etwa, etwas cleaner und klarer“, dann „Mache es moderner“): drei weiße Karten mit
 Icon-Kachel, Parameter-Chips und Linkzeile unter einer Sektions-Kopfzeile; 4:5-Detailfoto und Pipeline-Schritt entfernt. Gates: Typecheck, ESLint,
 Vitest 657/657, Guards, Perf-Budget ci 852/852, Playwright 82/82, Baselines 22/22 unverändert, Axe 27/27.
-Code/Preview siehe UEBERGABE-LOG.
+Code `dc6a6c3`, Preview-Release `dc6a6c3d1776`, nach Owner-Go („Ja, veröffentlichen“, 2026-11-06)
+**Produktion `dc6a6c3d1776`** (vorher `0c2153b866bb`; Smoke grün). Vorfall davor: das Release lief durch einen
+Shell-Fehler der Werkstatt ca. eine Minute ohne Freigabe live und wurde sofort auf `0c2153b866bb`
+zurückgespielt (UEBERGABE-LOG).
 
 **Stand 2026-11-05 (SC-021 Nachtrag 9+10, live):** Mobil-Korrekturen (N9) und mobil kuratierte Startseite
 (N10, Owner „wir müssen mobil nicht alles darstellen, mache es schöner / cleaner“): Zweitinformationen unter
