@@ -7,6 +7,10 @@
  * ohne Termin rendert das Band nichts. Steht auf der Startseite und den Inhaltsseiten
  * (Diagnostik, Leistungen, Epigenetik, IglooPro, Blog, Downloads, Über uns, Support) — nicht auf
  * Termin- und Kontaktseite (dort ist es Ziel), nicht auf Rechtstexten und Consumer-Seiten.
+ *
+ * SC-021 Nachtrag 12 (Owner 2026-11-06, „können wir das reduzieren?“): `variant="strip"` für die
+ * Startseite — eine schmale Navy-Zeile ohne Foto und Beschreibung: Eyebrow, Titel, Datum,
+ * Countdown, Knopf. Die Inhaltsseiten behalten das volle Band.
  */
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -16,7 +20,7 @@ import { getEventStatus, getNextHomeEvent, toEventDay } from '../../data/events'
 import { daysUntil, formatEventRange } from '../../lib/eventDates'
 import { Button } from '../ui/Button'
 
-const EventBand = () => {
+const EventBand = ({ variant = 'full' }: { variant?: 'full' | 'strip' }) => {
   const { t, i18n } = useTranslation(['common', 'events'])
   const event = getNextHomeEvent()
   if (!event) return null
@@ -24,6 +28,58 @@ const EventBand = () => {
   const ongoing = getEventStatus(event, today) === 'ongoing'
   const days = daysUntil(event.date, today)
   const short = t(`events:items.${event.id}.short`, '')
+
+  if (variant === 'strip') {
+    return (
+      <section
+        aria-labelledby="event-band-title"
+        data-event-band={event.id}
+        data-event-band-variant="strip"
+        className="mx-auto w-full max-w-container px-4 pt-10 sm:px-6 lg:px-0 lg:pt-14"
+      >
+        <div className="flex flex-col gap-5 rounded-band bg-brand-deep px-6 py-6 text-white shadow-card lg:flex-row lg:items-center lg:gap-8 lg:px-8">
+          <div className="min-w-0 flex-1">
+            <p className="t-eyebrow-dark">
+              {t('event_band.eyebrow')} · {t(`events:items.${event.id}.title`)}
+            </p>
+            <h2
+              id="event-band-title"
+              className="mt-1 text-balance text-2xl font-semibold tracking-tight sm:text-3xl"
+            >
+              {t('event_band.title', { location: event.location })}
+            </h2>
+            <p className="mt-2 text-sm text-white/85 sm:text-base">
+              <time dateTime={event.date}>
+                {formatEventRange(i18n.language, event.date, event.endDate)}
+              </time>
+              {short && ` · ${short}`}
+            </p>
+          </div>
+          <p className="text-sm text-white/80 lg:text-right">
+            {ongoing || days <= 0 ? (
+              <span className="block text-3xl font-semibold tracking-tight text-white">
+                {t('event_band.now')}
+              </span>
+            ) : (
+              <>
+                <span className="block text-4xl font-semibold tracking-tight text-white">
+                  {days}
+                </span>
+                {days === 1 ? t('event_band.day_label') : t('event_band.days_label')}
+              </>
+            )}
+          </p>
+          <Button to="/contact" variant="light" size="sm" className="group whitespace-nowrap">
+            {t('event_popup.meet')}
+            <ArrowRight
+              className="h-4 w-4 transition group-hover:translate-x-1 motion-reduce:transform-none"
+              aria-hidden="true"
+            />
+          </Button>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section

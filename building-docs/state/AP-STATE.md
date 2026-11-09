@@ -23,6 +23,15 @@ Panel-Aktion). Code `8ce8dac`, Preview-Release `8ce8dac1463b`, nach Owner-Go (�
 +1 KB (168.400 B). Gates: Vitest 652/652, Guards grün, Perf-Budget ci 852/852, Playwright 107, Axe
 27/27, Visual 22 Baselines neu.
 
+**Stand 2026-11-09 (SC-021 Nachtrag 12+13, Preview):** Vertrauensband von der Startseite entfernt (bleibt auf
+Leistungs-/Über-uns-/Kontaktseite), Messe-Band auf der Startseite als schmale Zeile (`EventBand variant="strip"`,
+ohne Foto/Beschreibung); Epigenetik-Shop heißt in Kopfzeile, Folie 3 und Epigenetik-Seite einheitlich
+„Epigenetik-Shop“ (×10). Budget-Go: `routeJsGzip` service-detail 10.800, contact 13.000, not-found 2.300 B
+(TrustBar-Code wanderte in die Seiten-Chunks). Gates: Typecheck, ESLint, Vitest 657/657, Guards + Claims,
+Perf-Budget ci 852/852, Playwright 102/103 (rot nur PT18.4 ohne Container im Standardbau), Baselines PT27.6
+22/22 nach Aktualisierung (Kopfzeilen-Beschriftung, `home-desktop`/`home-mobile`), Axe 27/27 (der
+Alle-Routen-Fall einmal flaky, Wiederholung grün). Code/Preview siehe UEBERGABE-LOG.
+
 **Stand 2026-11-06 (SC-021 Nachtrag 11, live):** Fachbereichs-Einstiege (Owner: erst „Raus“, dann nach
 Entwürfen F1–F5 „so in etwa, etwas cleaner und klarer“, dann „Mache es moderner“): drei weiße Karten mit
 Icon-Kachel, Parameter-Chips und Linkzeile unter einer Sektions-Kopfzeile; 4:5-Detailfoto und Pipeline-Schritt entfernt. Gates: Typecheck, ESLint,

@@ -1,6 +1,5 @@
 import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import TrustBar from './TrustBar'
 import TestimonialsSection from './TestimonialsSection'
 
 const localeModules = import.meta.glob('/public/locales/*/home.json', {
@@ -19,25 +18,8 @@ const localeModules = import.meta.glob('/public/locales/*/home.json', {
 const locales = ['de', 'en', 'pl', 'fr', 'it', 'es', 'pt', 'da', 'nl', 'cs'] as const
 
 describe('PT11.2 Homepage Trust and Proof contract', () => {
-  it('renders exactly four sourced product signals with stable claim IDs', () => {
-    render(<TrustBar />)
-
-    const trustbar = screen.getByRole('region', { name: 'trustbar.aria' })
-    const items = within(trustbar).getAllByRole('listitem')
-    expect(items).toHaveLength(4)
-    expect(items.map((item) => item.getAttribute('data-claim-id'))).toEqual([
-      'HCL-002',
-      'HCL-003',
-      'HCL-004',
-      'HCL-005',
-    ])
-    expect(trustbar).toHaveTextContent('trustbar.cv')
-    expect(trustbar).toHaveTextContent('trustbar.ivdr')
-    expect(trustbar).toHaveTextContent('trustbar.minutes')
-    expect(trustbar).toHaveTextContent('trustbar.compat')
-    expect(within(trustbar).queryByRole('img')).not.toBeInTheDocument()
-  })
-
+  // SC-021 Nachtrag 12 (Owner 2026-11-06): das Vertrauensband ist von der Startseite entfernt (Unterseiten
+  // behalten es); die vier Signal-Strings werden unten auf x10-Vollstaendigkeit geprueft.
   it('renders the four sourced voices as an operable slider without rating or links (SC-014)', () => {
     render(<TestimonialsSection />)
 

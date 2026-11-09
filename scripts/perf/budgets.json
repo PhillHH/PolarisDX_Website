@@ -30,7 +30,7 @@
     "routeJsGzip": {
       "home": 0,
       "diagnostics-hub": 5909,
-      "service-detail": 9235,
+      "service-detail": 10800,
       "igloo-pro": 5217,
       "epigenetics-hub": 30222,
       "epigenetics-deep": 11315,
@@ -39,10 +39,10 @@
       "article-detail": 36711,
       "events": 6615,
       "downloads": 13500,
-      "contact": 11711,
+      "contact": 13000,
       "consumer-d3": 15166,
       "consumer-duo": 13884,
-      "not-found": 2099
+      "not-found": 2300
     },
     "interFontFaces": 7,
     "fallbackFaces": 2,

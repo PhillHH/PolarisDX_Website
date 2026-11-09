@@ -39,21 +39,8 @@ for (const locale of SUPPORTED_LANGUAGES) {
     const response = await page.goto(`/${locale}/`)
     expect(response?.status()).toBe(200)
 
-    const trustbar = page.locator('[data-home-trustbar]')
-    await expect(trustbar).toHaveAttribute('aria-label', resources[locale].trustbar.aria)
-    await expect(trustbar.getByRole('listitem')).toHaveCount(4)
-    for (const [claimId, key] of [
-      ['HCL-002', 'cv'],
-      ['HCL-003', 'ivdr'],
-      ['HCL-004', 'minutes'],
-      ['HCL-005', 'compat'],
-    ] as const) {
-      await expect(trustbar.locator(`[data-claim-id="${claimId}"]`)).toHaveText(
-        resources[locale].trustbar[key],
-      )
-    }
-    await expect(trustbar).not.toContainText(/Nobel Biocare|Premium[ -]?Partner/i)
-    await expect(trustbar.locator('img')).toHaveCount(0)
+    // SC-021 Nachtrag 12: kein Vertrauensband mehr auf der Startseite.
+    await expect(page.locator('[data-home-trustbar]')).toHaveCount(0)
 
     const proof = page.locator('[data-home-proof]')
     await expect(proof.getByRole('heading', { level: 2 })).toHaveText(
@@ -106,11 +93,8 @@ test('PT11.2 mobile Trust and Proof remains semantic and overflow-free', async (
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/de/')
 
-  const trustbar = page.locator('[data-home-trustbar]')
   const proof = page.locator('[data-home-proof]')
-  await expect(trustbar).toBeVisible()
   await expect(proof).toBeVisible()
-  await expect(trustbar.getByRole('list')).toBeVisible()
   await expect(proof.locator('figure')).toHaveCount(4)
   await expect(proof.getByRole('blockquote').first()).toBeVisible()
   await expect(proof.getByRole('button')).toHaveCount(2)

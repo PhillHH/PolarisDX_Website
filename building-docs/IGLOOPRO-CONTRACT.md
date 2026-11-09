@@ -618,6 +618,13 @@ Der Owner hat die PT14.4-Tabelle „Gelockter Produkt- und Content-Claim“ (`Ig
 - Alles Übrige aus AP14 (keine unbelegten Spezifikationen, keine Parameterlisten, Flyer
   NOT_LAUNCH_VISIBLE) unverändert.
 
+## Nachtrag SC-021 Nachtrag 12 (2026-11-06) — Vertrauensband entfernt
+
+Mit dem Startseiten-Vertrauensband entfällt die Sichtbarkeit des gelockten Claims `CV < 2 %` (HCL-002) auf der
+Startseite; das Band steht weiter auf Leistungs-, Über-uns- und Kontaktseite. Die Strings `home.trustbar.*` bleiben (OG-Karte, Claim-Guard
+`check-igloo-claim-contract.mjs` prüft weiterhin die kanonische Schreibweise); §12 „Productive
+occurrences“ ist damit 0 auf der Website. Kein neuer Claim, keine Lockerung.
+
 ## Nachtrag SC-023 (2026-11-03) — ROI-Knöpfe entfernt
 
 Owner: „entferne ROI Rechner … aus allen Buttons“. Die IglooPro-Bühne trägt nur noch „Angebot

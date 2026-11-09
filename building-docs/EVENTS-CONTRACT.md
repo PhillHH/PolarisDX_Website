@@ -327,6 +327,10 @@ Berliner Kalendertagen; am Tag selbst und während des Termins „Jetzt vor Ort"
 Nach dem letzten Tag rückt automatisch der nächste Termin nach (MEDICA → DGI-Jahreskongress); ohne
 Termin verschwinden Zeile, Folie und Band. Keine neuen Termindaten, keine neuen Claims.
 
+Nachtrag 12 (2026-11-06): auf der Startseite rendert `EventBand` als `variant="strip"` — eine Zeile ohne
+Foto und Beschreibung (Eyebrow, Titel, Datum · Kurzzeile, Countdown, Knopf, kein „Alle Termine“); die
+Inhaltsseiten behalten das volle Band.
+
 Nachtrag 5 (2026-11-03): die Startseiten-`TeamEventSection` ist fest an `dgi_jahreskongress` gebunden
 (Datum per `formatEventRange`, `location · partner`), rendert nach dem letzten Kongresstag `null`
 und rückt nicht auf den nächsten Termin nach (`HOMEPAGE-CONTRACT.md` §3.1).

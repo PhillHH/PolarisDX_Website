@@ -54,6 +54,13 @@ Das ist **AP27** und wird nicht vorweggenommen.
   service-detail, site-menu-open, support; Delta nur die Zellenbeschriftung, Mobil unverändert).
   `IglooSpecsSection` (Tabelle `bg-brand-deep`-Kopf auf `rounded-xl border-paper-line`) entfernt (Owner
   „Das muss raus“); keine Token-Änderung.
+- **Kopfzeile „Epigenetik-Shop“ (SC-021 Nachtrag 13, 2026-11-06):** Zelle `accent.soft` heißt „Epigenetik-Shop“ statt
+  „Epigenetik-Tests“, Folie 3 „Neu · Epigenetik-Shop“ / „Zum Epigenetik-Shop“ (zehn Sprachen). Baselines PT27.6 mit
+  Kopfzeile erneut (Delta nur die Beschriftung).
+- **Vertrauensband raus, Messe-Band als Zeile (SC-021 Nachtrag 12, 2026-11-06):** `TrustBar` nur noch auf Unterseiten (`home-signal`-
+  Zellen entfallen auf der Startseite); `EventBand variant="strip"`: `rounded-band bg-brand-deep px-6 py-6`,
+  `lg:flex-row`, Countdown `text-4xl`, Knopf `light sm`. Keine Token-Änderung; Baselines `home-desktop`/`home-mobile`
+  ggf. erneut (Band rückt näher an die Bühne).
 - **Fachbereichs-Einstiege als Papier-Band (SC-021 Nachtrag 11, 2026-11-06, Entwurf F4):** drei `Card`-Links
   `p-7 shadow-card hover:border-accent-border`, Icon-Kachel `rounded-2xl bg-accent-soft text-accent`, Parameter-Chips
   `rounded-full bg-paper`, Linkzeile `text-accent-strong`; Detailfoto 4:5 entfällt (`detail-capillary-*` gelöscht). Keine Token-Änderung; Baselines

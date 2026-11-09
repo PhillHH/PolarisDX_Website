@@ -9,7 +9,6 @@ import {
   type FAQItem,
 } from '../components/seo'
 import HeroSection from '../components/sections/HeroSection'
-import TrustBar from '../components/sections/TrustBar'
 import BusinessPillarsSection from '../components/sections/BusinessPillarsSection'
 import WhyPocSection from '../components/sections/WhyPocSection'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
@@ -58,11 +57,11 @@ const HomePage = () => {
         structuredData={structuredData}
       />
       <HeroSection />
-      <TrustBar />
-      {/* SC-021 Nachtrag (Owner, Idee 4): Messe-Band unter Buehne und Vertrauensband. Das
+      {/* SC-021 Nachtrag 12 (Owner 2026-11-06, „reduzieren“): Vertrauensband entfernt, Messe-Band als
+          schmale Zeile (variant="strip"). Vorher: Messe-Band unter Buehne und Vertrauensband. Das
           „Aktuell"-Band (SC-019/SC-020) ist seit Nachtrag 4 entfernt — Termin und Shops stehen in
           Messe-Zeile, Folie 2/3, Band und Kopfzeile. */}
-      <EventBand />
+      <EventBand variant="strip" />
       {/* SC-021 Nachtrag 5 (Owner 2026-11-03, Entwurf T3): Hamburger Team beim DGI-Kongress. */}
       <TeamEventSection />
       <BusinessPillarsSection />

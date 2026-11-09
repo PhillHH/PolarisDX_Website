@@ -166,6 +166,11 @@ names. There is no product image and no carousel (SC-021 removed both); no keybo
 
 ## 3. PT11.2 Trust and Proof contract
 
+**SC-021 Nachtrag 12 (2026-11-06, Owner „reduzieren“):** Das Vertrauensband (`TrustBar`, vier Signale
+HCL-002…HCL-005) ist von der Startseite entfernt (auf Leistungs-, Über-uns- und Kontaktseite weiter im Einsatz); die
+Strings `home.trustbar.*` bleiben für OG-Karte und Claim-Guard. Das Messe-Band steht auf der Startseite als `EventBand variant="strip"` (ohne Foto und
+Beschreibung). Der Text unten zum Trust-Teil ist Historie; Proof (Praxisstimmen) unverändert.
+
 The light TrustBar directly below the Hero is a semantic list of four sourced product signals, not a
 logo or badge wall. Each visible signal maps to the Claim Register. The former persistent Nobel
 Biocare “Premium Partner” label is not used: current repository evidence establishes named event

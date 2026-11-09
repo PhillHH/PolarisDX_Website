@@ -39,4 +39,24 @@ describe('EventBand', () => {
     expect(screen.getByText('event_band.now')).toBeInTheDocument()
     expect(screen.queryByText('event_band.days_label')).not.toBeInTheDocument()
   })
+
+  it('rendert als „strip" ohne Foto und Beschreibung, mit Countdown und Knopf (Startseite)', () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-11-02T12:00:00+01:00'))
+    const { container } = render(
+      <MemoryRouter>
+        <EventBand variant="strip" />
+      </MemoryRouter>,
+    )
+    expect(container.querySelector('[data-event-band-variant="strip"]')).not.toBeNull()
+    expect(container.querySelector('img')).toBeNull()
+    expect(screen.getByText('14')).toBeInTheDocument()
+    expect(screen.getByText('event_band.days_label')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /event_popup.meet/ })).toHaveAttribute(
+      'href',
+      '/contact',
+    )
+    expect(screen.queryByRole('link', { name: 'event_band.all' })).toBeNull()
+    expect(screen.queryByText(/events:items.medica_2026.description/)).toBeNull()
+  })
 })
