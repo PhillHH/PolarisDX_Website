@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Analizy epigenetyczne i genetyczne dla Twojej praktyki",
-    "description": "Sześć analiz epigenetycznych i genetycznych z jednej kropli krwi kapilarnej: co jest mierzone, dla kogo i co mówi dowód naukowy. Wszystkie arkusze w formacie PDF."
+    "description": "Sześć analiz epigenetycznych i genetycznych z kropli krwi kapilarnej: co jest mierzone, dla kogo i co mówią dowody. Wszystkie arkusze PDF."
   },
   "breadcrumb": {
     "home": "Strona główna",
@@ -699,27 +699,27 @@
     "seo": {
       "metabolic-health": {
         "title": "Raport przykładowy Metabolic Health: typ żywienia",
-        "description": "Przykładowy raport Metabolic Health: metabotyp, typ sportu i cztery modyfikowalne wartości dotyczące żywienia i metabolizmu, wyjaśnione strona po stronie. Dane przykładowe."
+        "description": "Przykładowy raport Metabolic Health: metabotyp, typ sportu i cztery modyfikowalne wartości żywienia i metabolizmu z wyjaśnieniem. Dane przykładowe."
       },
       "healthy-aging": {
         "title": "Raport przykładowy Healthy Aging: wiek biologiczny",
-        "description": "Przykładowy raport Healthy Aging: cztery wartości epigenetyczne dotyczące wieku biologicznego, każda z oceną w skali świateł drogowych 1–9 i wyjaśnieniem. Dane przykładowe, nie dane pacjenta."
+        "description": "Przykładowy raport Healthy Aging: cztery wartości epigenetyczne wieku biologicznego z oceną 1–9 i wyjaśnieniem. Dane przykładowe, nie dane pacjenta."
       },
       "biologische-altersuhr": {
         "title": "Raport przykładowy Biological Age Clock: microRNA",
-        "description": "Przykładowy raport Biological Age Clock: trzy microRNA jako sygnał stylu życia do eksploracji, wyraźnie nie określenie wieku. Dane przykładowe, każda wartość wyjaśniona."
+        "description": "Przykładowy raport Biological Age Clock: trzy microRNA jako eksploracyjny sygnał stylu życia, nie określenie wieku. Dane przykładowe."
       },
       "telomer-analyse": {
         "title": "Raport przykładowy Telomere Analysis: długość telomerów",
-        "description": "Przykładowy raport Telomere Analysis: długość telomerów w kiloparach jako wartość wyjściowa, z kontekstem i wyjaśnieniem. Dane przykładowe, nie dane pacjenta."
+        "description": "Przykładowy raport Telomere Analysis: długość telomerów w kiloparach z kontekstem i wyjaśnieniem. Dane przykładowe, nie dane pacjenta."
       },
       "stress-monitor": {
         "title": "Raport przykładowy Stress Monitor: sześć microRNA",
-        "description": "Przykładowy raport Stress Monitor: sześć microRNA w czterech obszarach zestawia zmierzone obciążenie z odczuwanym. Dane przykładowe, każda wartość wyjaśniona."
+        "description": "Przykładowy raport Stress Monitor: sześć microRNA w czterech obszarach zestawia obciążenie zmierzone z odczuwanym. Dane przykładowe."
       },
       "healthy-sport": {
         "title": "Raport przykładowy Healthy Sport: wartości treningowe",
-        "description": "Przykładowy raport Healthy Sport: osiem microRNA w siedmiu ocenach aktualnego stanu, plus cztery niezmienne warianty genetyczne. Dane przykładowe, wszystko wyjaśnione."
+        "description": "Przykładowy raport Healthy Sport: osiem microRNA w siedmiu ocenach aktualnego stanu plus cztery niezmienne warianty genetyczne. Dane przykładowe."
       }
     },
     "notFoundTitle": "Ten raport przykładowy nie istnieje",

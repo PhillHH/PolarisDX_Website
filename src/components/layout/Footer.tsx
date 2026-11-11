@@ -78,19 +78,20 @@ const COLUMNS: FooterColumn[] = [
       { label: 'nav.iglooPro', to: '/igloo-pro' },
       { label: 'nav.blog', to: '/articles' },
       { label: 'nav.downloads', to: '/downloads' },
+      { label: 'footer.s3_guideline', to: '/s3_leitlinie' },
+      { label: 'footer.implantology', to: '/vitamin-d3-implantologie' },
+      { label: 'footer.vitamin_d3_spray', to: '/vitamin-d3-spray' },
+    ],
+  },
+  {
+    heading: 'footer.col_consumer',
+    links: [
+      { label: 'footer.consumer_spray', to: '/consumer/vitamin-d3-spray' },
+      { label: 'footer.consumer_masks', to: '/consumer/hydrating-masks' },
+      { label: 'footer.consumer_duo', to: '/consumer/inside-out-duo' },
     ],
   },
 ]
-
-/**
- * CONSUMER IST HIER BEWUSST NICHT VERLINKT.
- *
- * IA §10.8 sieht fuer den Footer `INDIRECT` vor — ein dezenter Produkteinstieg.
- * PT08.4 hat die Locale-Weiche geschlossen; die Seiten sind ueber Suche und
- * bestehende kontextuelle Einstiege erreichbar. Ein globaler Footer-Einstieg
- * bleibt eine bewusste IA-/Consumer-Journey-Entscheidung spaeterer Owner und
- * wird durch das reine Locale-Routing nicht vorgezogen.
- */
 
 const LEGAL_LINKS: FooterLink[] = [
   { label: 'footer.imprint', to: '/imprint' },
@@ -100,8 +101,8 @@ const LEGAL_LINKS: FooterLink[] = [
 
 /** Fusszeilen-Link: 44px Trefferflaeche und sichtbarer Fokusring auf Navy. */
 const FOOTER_LINK =
-  'inline-flex min-h-[44px] items-center rounded-sm text-white/70 transition-colors ' +
-  'hover:text-white motion-reduce:transition-none focus-visible:outline-none ' +
+  'inline-flex min-h-[44px] items-center rounded-sm outline-none transition-colors ' +
+  'hover:text-white motion-reduce:transition-none ' +
   'focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 ' +
   'focus-visible:ring-offset-brand-deep'
 
@@ -162,11 +163,13 @@ const Footer = () => {
               sich dadurch nicht. */}
           <nav
             aria-label={t('footer.nav_label', 'Fußzeilen-Navigation')}
-            className="grid flex-1 grid-cols-2 gap-8 text-sm md:grid-cols-3 lg:grid-cols-4"
+            className="grid flex-1 grid-cols-2 gap-8 text-sm text-white/70 md:grid-cols-3 lg:grid-cols-4"
           >
             {COLUMNS.map((column) => (
               <div key={column.heading} className="space-y-1">
-                <h2 className="mb-2 text-sm font-semibold tracking-tight">{t(column.heading)}</h2>
+                <h2 className="mb-2 text-sm font-semibold tracking-tight text-white">
+                  {t(column.heading)}
+                </h2>
                 <ul className="list-none space-y-1 p-0">
                   {column.links.map((link) => (
                     <li key={`${column.heading}-${link.to}`}>
@@ -182,7 +185,9 @@ const Footer = () => {
             {/* Standorte stehen in der Navigationsflaeche, tragen aber keine
                 Links — sie sind Information, kein Ziel. */}
             <div className="space-y-1">
-              <h2 className="mb-2 text-sm font-semibold tracking-tight">{t('footer.locations')}</h2>
+              <h2 className="mb-2 text-sm font-semibold tracking-tight text-white">
+                {t('footer.locations')}
+              </h2>
               <p className="text-sm text-white/70">{t('footer.london')}</p>
               <p className="text-sm text-white/70">{t('footer.hamburg')}</p>
             </div>

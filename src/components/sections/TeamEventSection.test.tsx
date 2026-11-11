@@ -43,10 +43,17 @@ describe('TeamEventSection', () => {
     expect(screen.queryByText('team.countdown_days')).toBeNull()
   })
 
-  it('verschwindet nach dem letzten Kongresstag', () => {
+  it.each([
+    ['2026-11-15', true],
+    ['2026-11-20', true],
+    ['2026-11-27', true],
+    ['2026-11-28', true],
+    ['2026-11-29', false],
+  ])('bleibt am %s nur bis einschliesslich Kongressende sichtbar', (day, visible) => {
     vi.useFakeTimers({ toFake: ['Date'] })
-    vi.setSystemTime(new Date('2026-11-29T12:00:00+01:00'))
+    vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
     const { container } = renderSection()
-    expect(container.querySelector('[data-home-team]')).toBeNull()
+    expect(container.querySelector('[data-home-team]') !== null).toBe(visible)
+    expect(container.querySelector('[data-home-team-ticket]') !== null).toBe(visible)
   })
 })

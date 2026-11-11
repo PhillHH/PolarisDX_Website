@@ -91,11 +91,19 @@ describe('Footer — Produkt, Wissen und Consumer', () => {
     expect(all).toContain('/downloads')
   })
 
-  it('zieht keinen globalen Consumer-Footer-Einstieg vor', () => {
+  it('verlinkt die drei Fachseiten und dezent alle drei Consumer-Produkte (SC-024)', () => {
     const { container } = renderFooter()
-    // PT08.4 macht die Route locale-sicher. Ob Consumer global im Footer
-    // beworben wird, bleibt davon getrennte IA-/Journey-Owner-Arbeit.
-    expect(hrefs(container).filter((h) => h.startsWith('/consumer/'))).toHaveLength(0)
+    const all = hrefs(container)
+    for (const route of [
+      '/s3_leitlinie',
+      '/vitamin-d3-implantologie',
+      '/vitamin-d3-spray',
+      '/consumer/vitamin-d3-spray',
+      '/consumer/hydrating-masks',
+      '/consumer/inside-out-duo',
+    ]) {
+      expect(all).toContain(route)
+    }
   })
 })
 

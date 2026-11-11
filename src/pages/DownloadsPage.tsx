@@ -171,12 +171,11 @@ const DownloadsPage = () => {
       <SEOHead
         title={t('downloads:seo.title')}
         description={t('downloads:seo.description')}
-        keywords={['PolarisDX Downloads', 'Produktdatenblatt', 'POC Diagnostik PDF']}
         structuredData={[
           createBreadcrumbSchema(
             [
-              { name: 'Home', url: '/' },
-              { name: 'Downloads', url: '/downloads' },
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('downloads:title'), url: '/downloads' },
             ],
             i18n.language,
           ),

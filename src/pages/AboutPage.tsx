@@ -48,18 +48,12 @@ const AboutPage = () => {
           'about:seo.description',
           'PolarisDX bringt patientennahe Labordiagnostik in Praxen und Kliniken. IVDR-konform, 100+ Geräte in 15+ Ländern. Lernen Sie unser Team kennen.',
         )}
-        keywords={[
-          'PolarisDX Team',
-          'Über uns',
-          'POC Diagnostik Unternehmen',
-          'Medizintechnik Hamburg',
-        ]}
         structuredData={[
           organizationSchema,
           createBreadcrumbSchema(
             [
-              { name: 'Home', url: '/' },
-              { name: 'Über uns', url: '/about' },
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('about:hero.caption'), url: '/about' },
             ],
             i18n.language,
           ),

@@ -794,3 +794,13 @@ Diese Matrix klassifiziert Seitentypen; sie ist ausdrücklich keine Route Regist
 - G3/Meta: PASS, 290 locale records, 39/390 Sitemap evidence, Preview/Dev leakage unchanged at 0.
 - DG09-01: **RESOLVED** by AP10 PT10.3; no longer a launch blocker.
 - Historical AP09 Closure facts in §16 remain immutable evidence of the state before AP10 started.
+
+## 18. Nachtrag SC-024 (2026-11-10) — Meta, Breadcrumbs und Support-Sitemap
+
+Auftrag der Claude-Werkstatt K-001 im Namen des Owners; Ausrollen nur auf die Preview.
+
+- **Meta-Quality:** `scripts/check-meta-descriptions.mjs` deckt jetzt zusätzlich `overview_*`, Artikel-Excerpts und die beiden flachen Specialty-SEO-Felder ab. Alle **470** Datensätze ×10 sind nicht leer, frei von Translation-Keys/Platzhaltern/Duplikaten und höchstens **155 Zeichen** lang; Überschreitungen sind ein harter Fehler. Ergebnis: PASS, 0 Hard Findings.
+- **Meta-Keywords:** das optionale `keywords`-Prop und die Ausgabe `<meta name="keywords">` sind aus `SEOHead` und allen produktiven Call-Sites entfernt. Der ungenutzte `events.seo_keywords`-Schlüssel ist ×10 entfernt.
+- **Breadcrumbs:** About, Downloads, IglooPro und Support verwenden lokalisierte Namen aus den Locales. S3 und Implantologie führen sichtbar und im JSON-LD über Home → Diagnostik → Dental zur jeweiligen Fachseite statt über den falschen `/articles`-Zweig.
+- **Support:** `/support` ist `INDEX_FOLLOW` mit statischer Sitemap-Policy statt `INDEXABLE_EXCLUDED_INTENTIONAL`. Sitemap: **40 Familien / 400 eindeutige URLs**, weiterhin nur 60 echte Artikel-`lastmod`-Werte. Support-Titel und -Beschreibungen sind ×10 fachlich erweitert und ebenfalls ≤155 Zeichen.
+- **Runtime-Nachweis:** `npm run test:seo:regression` **82/82 PASS** einschließlich aller 400 Sitemap-Ziele, Canonical/hreflang, 200/301/404 und spezieller Routen. G1/G3 und Meta-Quality sind PASS.

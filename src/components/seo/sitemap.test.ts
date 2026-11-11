@@ -10,10 +10,10 @@ const entries = getSitemapUrlEntries(families)
 const xml = generateSitemapXml(entries)
 
 describe('PT09.2 sitemap contract', () => {
-  it('emits 39 real route families as 390 unique public URLs', () => {
-    expect(families).toHaveLength(39)
-    expect(entries).toHaveLength(390)
-    expect(new Set(entries.map((entry) => entry.loc)).size).toBe(390)
+  it('emits 40 real route families as 400 unique public URLs', () => {
+    expect(families).toHaveLength(40)
+    expect(entries).toHaveLength(400)
+    expect(new Set(entries.map((entry) => entry.loc)).size).toBe(400)
     expect(entries.every((entry) => entry.loc.startsWith('https://polarisdx.net/'))).toBe(true)
   })
 
@@ -64,13 +64,13 @@ describe('PT09.2 sitemap contract', () => {
     }
   })
 
-  it('excludes legal noindex, support utility, redirect sources and unknown routes', () => {
+  it('includes support and excludes legal noindex, redirect sources and unknown routes', () => {
     const paths = new Set(families.map((family) => family.path))
+    expect(paths.has('/support')).toBe(true)
     for (const excluded of [
       '/privacy',
       '/imprint',
       '/terms',
-      '/support',
       '/services',
       '/services/dental',
       '/unknown',
@@ -94,9 +94,9 @@ describe('PT09.2 sitemap contract', () => {
     expect(xml).toContain('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
     expect(xml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"')
     expect(validateSitemapArtifact(xml, families)).toEqual({
-      routeFamilyCount: 39,
-      urlCount: 390,
-      uniqueUrlCount: 390,
+      routeFamilyCount: 40,
+      urlCount: 400,
+      uniqueUrlCount: 400,
       lastmodCount: 60,
     })
   })

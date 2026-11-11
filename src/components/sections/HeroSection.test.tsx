@@ -70,6 +70,55 @@ describe('Homepage Hero contract', () => {
     expect(container.querySelector('[data-hero-slide="main"]')).not.toHaveAttribute('aria-hidden')
   })
 
+  it.each([
+    ['2026-11-15', 'medica_2026'],
+    ['2026-11-20', 'dgi_jahreskongress'],
+    ['2026-11-27', 'dgi_jahreskongress'],
+  ])('schaltet Folie 2 am %s zur Laufzeit auf den passenden Termin', async (day, eventId) => {
+    vi.useFakeTimers({
+      toFake: ['Date', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'],
+    })
+    vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
+    try {
+      const { container } = renderHero()
+      await act(async () => {
+        vi.advanceTimersByTime(1600)
+      })
+      vi.useRealTimers()
+      await screen.findByRole('button', { name: 'hero_slides.next' })
+      vi.useFakeTimers({ toFake: ['Date'] })
+      vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
+      await act(async () => {
+        screen.getByRole('button', { name: 'hero_slides.next' }).click()
+      })
+      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+        `events:items.${eventId}.title`,
+      )
+      expect(container.querySelectorAll('h1')).toHaveLength(1)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('laesst die Buehne nach dem 28.11. ohne Slider und ohne leere Bedienflaeche stehen', async () => {
+    vi.useFakeTimers({
+      toFake: ['Date', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'],
+    })
+    vi.setSystemTime(new Date('2026-11-29T12:00:00+01:00'))
+    try {
+      const { container } = renderHero()
+      await act(async () => {
+        vi.advanceTimersByTime(1600)
+      })
+      expect(container.querySelector('[aria-roledescription="carousel"]')).toBeNull()
+      expect(screen.queryByRole('button', { name: 'hero_slides.next' })).toBeNull()
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('hero.title')
+      expect(screen.getByRole('link', { name: 'hero.cta_secondary' })).toBeInTheDocument()
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('adds slides and controls after the delay without touching the H1 (SC-021 slider)', async () => {
     vi.useFakeTimers({
       toFake: ['Date', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'],

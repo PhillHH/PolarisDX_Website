@@ -53,6 +53,7 @@ function readJson(relativePath: string): Record<string, unknown> {
 }
 
 function valueAt(source: Record<string, unknown>, dottedPath: string): unknown {
+  if (Object.hasOwn(source, dottedPath)) return source[dottedPath]
   return dottedPath.split('.').reduce<unknown>((value, segment) => {
     if (!value || typeof value !== 'object') return undefined
     return (value as Record<string, unknown>)[segment]

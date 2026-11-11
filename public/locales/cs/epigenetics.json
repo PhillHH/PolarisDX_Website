@@ -699,11 +699,11 @@
     "seo": {
       "metabolic-health": {
         "title": "Vzorová zpráva Metabolic Health: typ výživy",
-        "description": "Ukázková zpráva Metabolic Health: metabotyp, typ sportu a čtyři modifikovatelné hodnoty týkající se výživy a metabolismu, vysvětlené stránku po stránce. Ukázková data."
+        "description": "Ukázková zpráva Metabolic Health: metabotyp, typ sportu a čtyři modifikovatelné hodnoty výživy a metabolismu. Ukázková data."
       },
       "healthy-aging": {
         "title": "Vzorová zpráva Healthy Aging: biologický věk",
-        "description": "Ukázková zpráva Healthy Aging: čtyři epigenetické hodnoty biologického věku, každá s barevným rozlišením 1–9 a vysvětlením. Ukázková data, nikoli data pacienta."
+        "description": "Ukázková zpráva Healthy Aging: čtyři epigenetické hodnoty biologického věku s hodnocením 1–9 a vysvětlením. Ukázková data, nikoli data pacienta."
       },
       "biologische-altersuhr": {
         "title": "Vzorová zpráva Biological Age Clock: microRNA",
@@ -711,7 +711,7 @@
       },
       "telomer-analyse": {
         "title": "Vzorová zpráva Telomere Analysis: délka telomer",
-        "description": "Ukázková zpráva Telomere Analysis: délka telomer v kilobázových párech jako výchozí hodnota, s kontextem a vysvětlením. Ukázková data, nikoli data pacienta."
+        "description": "Ukázková zpráva Telomere Analysis: délka telomer v kilobázových párech jako výchozí hodnota s kontextem a vysvětlením. Ukázková data, nikoli data pacienta."
       },
       "stress-monitor": {
         "title": "Vzorová zpráva Stress Monitor: šest microRNA",

@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Análises epigenéticas e genéticas para a sua prática",
-    "description": "Seis análises epigenéticas e genéticas a partir de uma gota de sangue capilar: o que é medido, para quem é indicado e o que a evidência diz. Todas as fichas em PDF."
+    "description": "Seis análises epigenéticas e genéticas a partir de uma gota de sangue capilar: conteúdo, indicação e evidência. Todas as fichas em PDF."
   },
   "breadcrumb": {
     "home": "Início",
@@ -699,27 +699,27 @@
     "seo": {
       "metabolic-health": {
         "title": "Relatório de amostra Metabolic Health: tipo de nutrição",
-        "description": "Relatório de exemplo Metabolic Health: metabótipo, tipo de desporto e quatro valores modificáveis sobre nutrição e metabolismo, explicados página a página. Dados de exemplo."
+        "description": "Relatório de exemplo Metabolic Health: metabótipo, tipo de desporto e quatro valores modificáveis sobre nutrição e metabolismo. Dados de exemplo."
       },
       "healthy-aging": {
         "title": "Relatório de amostra Healthy Aging: idade biológica",
-        "description": "Relatório de exemplo Healthy Aging: quatro valores epigenéticos sobre idade biológica, cada um com o semáforo 1–9 e uma explicação. Dados de exemplo, não dados de paciente."
+        "description": "Relatório de exemplo Healthy Aging: quatro valores epigenéticos sobre idade biológica com semáforo 1–9 e explicação. Dados de exemplo."
       },
       "biologische-altersuhr": {
         "title": "Relatório de amostra Biological Age Clock: microRNA",
-        "description": "Relatório de exemplo Biological Age Clock: três microRNA como sinal exploratório de estilo de vida, explicitamente não uma determinação da idade. Dados de exemplo, cada valor explicado."
+        "description": "Relatório de exemplo Biological Age Clock: três microRNA como sinal exploratório de estilo de vida, não uma determinação da idade. Dados de exemplo."
       },
       "telomer-analyse": {
         "title": "Relatório de amostra Telomere Analysis: comprimento dos telómeros",
-        "description": "Relatório de exemplo Telomere Analysis: comprimento dos telómeros em pares de kilobases como valor base, com contexto e explicação. Dados de exemplo, não dados de paciente."
+        "description": "Relatório de exemplo Telomere Analysis: comprimento dos telómeros em pares de kilobases como valor base com contexto e explicação. Dados de exemplo."
       },
       "stress-monitor": {
         "title": "Relatório de amostra Stress Monitor: seis microRNA",
-        "description": "Relatório de exemplo Stress Monitor: seis microRNA em quatro áreas que colocam a tensão medida ao lado da tensão percebida. Dados de exemplo, cada valor explicado."
+        "description": "Relatório de exemplo Stress Monitor: seis microRNA em quatro áreas que comparam a tensão medida com a percebida. Dados de exemplo, cada valor explicado."
       },
       "healthy-sport": {
         "title": "Relatório de amostra Healthy Sport: valores de treino",
-        "description": "Relatório de exemplo Healthy Sport: oito microRNAs em sete avaliações sobre condição atual, mais quatro variantes genéticas imutáveis. Dados de exemplo, tudo explicado."
+        "description": "Relatório de exemplo Healthy Sport: oito microRNAs em sete avaliações da condição atual mais quatro variantes genéticas imutáveis. Dados de exemplo."
       }
     },
     "notFoundTitle": "Este relatório de amostra não existe",

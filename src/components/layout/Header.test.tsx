@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { afterEach, describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -85,6 +85,31 @@ describe('Header — Informationsarchitektur', () => {
 })
 
 describe('Header — Messe-Zeile (SC-021)', () => {
+  afterEach(() => vi.useRealTimers())
+
+  it.each([
+    ['2026-11-15', 'medica_2026'],
+    ['2026-11-20', 'dgi_jahreskongress'],
+    ['2026-11-27', 'dgi_jahreskongress'],
+    ['2026-11-29', undefined],
+  ])('schaltet am %s um und behaelt danach die Service-Navigation', (day, eventId) => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
+    const { container } = renderHeader()
+    const strip = container.querySelector('[data-event-strip]') as HTMLElement
+    const eventLink = within(strip).queryByRole('link', {
+      name: /events:items\.[a-z0-9_]+\.title/,
+    })
+    if (eventId) {
+      expect(eventLink).toHaveTextContent(`events:items.${eventId}.title`)
+      expect(eventLink).toHaveAttribute('href', '/events')
+    } else {
+      expect(eventLink).toBeNull()
+      expect(within(strip).queryByRole('link', { name: 'event_popup.meet' })).toBeNull()
+    }
+    expect(within(serviceNav()).getByRole('link', { name: 'nav.blog' })).toBeInTheDocument()
+  })
+
   it('nennt den naechsten belegten Termin und fuehrt zu Termin und Kontakt', () => {
     const { container } = renderHeader()
     const strip = container.querySelector('[data-event-strip]') as HTMLElement

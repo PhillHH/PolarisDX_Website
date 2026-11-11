@@ -59,17 +59,6 @@ const VitaminD3ImplantologyPage = () => {
         title={t('vitamin_d3_implantology.copy_010')}
         description={t('vitamin_d3_implantology.copy_011')}
         ogType="article"
-        keywords={[
-          t('s3_leitlinie.copy_030'),
-          t('vitamin_d3_implantology.copy_012'),
-          t('vitamin_d3_implantology.copy_013'),
-          t('vitamin_d3_implantology.copy_014'),
-          t('vitamin_d3_implantology.copy_015'),
-          t('vitamin_d3_implantology.copy_016'),
-          t('vitamin_d3_implantology.copy_017'),
-          t('vitamin_d3_implantology.copy_018'),
-          t('vitamin_d3_implantology.copy_019'),
-        ]}
         article={{
           publishedTime: '2026-02-01',
           author: 'Fachredaktion PolarisDX',
@@ -89,8 +78,9 @@ const VitaminD3ImplantologyPage = () => {
           }),
           createBreadcrumbSchema(
             [
-              { name: t('s3_leitlinie.copy_042'), url: '/' },
-              { name: t('vitamin_d3_implantology.copy_022'), url: '/articles' },
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('common:nav.service'), url: '/diagnostics' },
+              { name: t('s3_leitlinie.copy_046'), url: '/diagnostics/dental' },
               { name: t('s3_leitlinie.copy_180'), url: '/vitamin-d3-implantologie' },
             ],
             i18n.language,
@@ -101,8 +91,9 @@ const VitaminD3ImplantologyPage = () => {
 
       <SubpageHero
         breadcrumbs={[
-          { label: t('s3_leitlinie.copy_042'), href: '/' },
-          { label: t('vitamin_d3_implantology.copy_022'), href: '/articles' },
+          { label: t('common:nav.home'), href: '/' },
+          { label: t('common:nav.service'), href: '/diagnostics' },
+          { label: t('s3_leitlinie.copy_046'), href: '/diagnostics/dental' },
           { label: t('s3_leitlinie.copy_180') },
         ]}
         eyebrow={t('vitamin_d3_implantology.copy_023')}

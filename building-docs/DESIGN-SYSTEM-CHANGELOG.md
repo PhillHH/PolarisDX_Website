@@ -27,6 +27,14 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-10 — SC-024 · Fußzeile für Fachseiten und dezente Consumer-Einstiege
+
+- **Ursache:** Auftrag der Claude-Werkstatt K-001 im Namen des Owners; Ausrollen nur auf die Preview.
+- **Produkt & Wissen:** zusätzliche Links auf `/s3_leitlinie`, `/vitamin-d3-implantologie` und `/vitamin-d3-spray`.
+- **Für Endkunden:** neue dezente Footer-Rubrik mit den drei bestehenden Consumer-Produktseiten; keine Änderung an Consumer-Shell oder B2B-Hauptnavigation.
+- **Oberfläche:** ausschließlich bestehende Tailwind-Utilities und lokalisierte `footer.*`-Labels ×10. Keine Token-, Farb-, Typografie- oder Exportänderung.
+- **Visual:** 21/22 Baselines blieben im gepinnten Playwright-Image unverändert; insbesondere alle Footer- und Seiten-Baselines. Nur `search-dialog-open-desktop` wurde nach Sichtprüfung der 2.516 abweichenden Pixel aktualisiert: Der Suchtreffer der Startseite zeigt jetzt die für SC-024 auf höchstens 155 Zeichen gekürzte `home.seo.description`. Keine Änderung an Dialoglayout, Footer, Farben oder Typografie; Review: Kimi, Diff-Bilder alt/neu.
+
 ### 2026-11-02 — SC-021 Nachtrag · Kopfzeile auf Seitenbreite, Bühne als Band und Slider, Messe-Band
 
 - **Ursache:** Owner nach der Live-Sichtprüfung (`SCOPE-CHANGELOG.md` SC-021 Nachtrag).

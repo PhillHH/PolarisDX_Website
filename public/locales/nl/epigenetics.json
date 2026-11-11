@@ -699,15 +699,15 @@
     "seo": {
       "metabolic-health": {
         "title": "Metabolic Health voorbeeldrapport: voedingstype",
-        "description": "Metabolic Health voorbeeldrapport: metabotype, sporttype en vier aanpasbare waarden over voeding en metabolisme, pagina voor pagina uitgelegd. Voorbeeldgegevens."
+        "description": "Metabolic Health voorbeeldrapport: metabotype, sporttype en vier aanpasbare waarden over voeding en metabolisme. Voorbeeldgegevens."
       },
       "healthy-aging": {
         "title": "Healthy Aging voorbeeldrapport: biologische leeftijd",
-        "description": "Healthy Aging voorbeeldrapport: vier epigenetische waarden over biologische leeftijd, elk met het verkeerslicht 1–9 en een uitleg. Voorbeeldgegevens, geen patiëntgegevens."
+        "description": "Healthy Aging voorbeeldrapport: vier epigenetische waarden over biologische leeftijd met verkeerslicht 1–9 en uitleg. Voorbeeldgegevens."
       },
       "biologische-altersuhr": {
         "title": "Biological Age Clock voorbeeldrapport: microRNA",
-        "description": "Biological Age Clock voorbeeldrapport: drie microRNA als verkennend leefstijlsignaal, nadrukkelijk geen leeftijdsbepaling. Voorbeeldgegevens, elke waarde uitgelegd."
+        "description": "Biological Age Clock voorbeeldrapport: drie microRNA als verkennend leefstijlsignaal, geen leeftijdsbepaling. Voorbeeldgegevens, elke waarde uitgelegd."
       },
       "telomer-analyse": {
         "title": "Telomere Analysis voorbeeldrapport: telomeerlengte",
@@ -715,11 +715,11 @@
       },
       "stress-monitor": {
         "title": "Stress Monitor voorbeeldrapport: zes microRNA",
-        "description": "Stress Monitor voorbeeldrapport: zes microRNA over vier gebieden zetten gemeten belasting naast ervaren belasting. Voorbeeldgegevens, elke waarde uitgelegd."
+        "description": "Stress Monitor voorbeeldrapport: zes microRNA over vier gebieden vergelijken gemeten en ervaren belasting. Voorbeeldgegevens, elke waarde uitgelegd."
       },
       "healthy-sport": {
         "title": "Healthy Sport voorbeeldrapport: trainingswaarden",
-        "description": "Healthy Sport voorbeeldrapport: acht microRNA in zeven beoordelingen over de huidige conditie, plus vier onveranderlijke genetische varianten. Voorbeeldgegevens, alles uitgelegd."
+        "description": "Healthy Sport voorbeeldrapport: acht microRNA in zeven beoordelingen van de conditie plus vier onveranderlijke genetische varianten. Voorbeeldgegevens."
       }
     },
     "notFoundTitle": "Dit voorbeeldrapport bestaat niet",

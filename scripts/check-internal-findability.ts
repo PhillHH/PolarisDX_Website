@@ -118,6 +118,24 @@ const productionFiles = [
     .map((file) => `src/components/${file}`),
   'src/hooks/useSearch.ts',
 ]
+const productionSource = productionFiles.map(read).join('\n')
+const hasIncomingLink = (routePath: string): boolean => {
+  const escaped = routePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return new RegExp(`(?:to|href)\\s*[:=]\\s*["'{]${escaped}(?:["'}?#])`).test(productionSource)
+}
+const { getCanonicalRouteEntries } = await import('../src/routing/routeRegistry.ts')
+const routesWithoutIncomingLinks = getCanonicalRouteEntries()
+  .filter(
+    (route) => route.indexability === 'INDEX_FOLLOW' && !route.dynamicSource && route.path !== '/',
+  )
+  .map((route) => route.path)
+  .filter((routePath) => !hasIncomingLink(routePath))
+assert(
+  routesWithoutIncomingLinks.length === 0,
+  `indexable static routes without incoming link: ${routesWithoutIncomingLinks.join(', ')}`,
+)
+assert(!hasIncomingLink('/sc024-no-incoming-link'), 'incoming-link negative control was accepted')
+
 for (const path of productionFiles) {
   assert(!/to=["'{`]\/services(?:\/|["'}`])/.test(read(path)), `legacy /services target in ${path}`)
 }

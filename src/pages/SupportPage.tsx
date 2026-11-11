@@ -102,17 +102,11 @@ const SupportPage = () => {
           'support:seo.description',
           'Haben Sie Probleme mit Ihrem Igloo Reader oder Testkits? Senden Sie uns eine Support-Anfrage.',
         )}
-        keywords={[
-          'PolarisDX Support',
-          'Igloo Reader Support',
-          'Testkit Support',
-          'POC Diagnostik Hilfe',
-        ]}
         structuredData={[
           createBreadcrumbSchema(
             [
-              { name: 'Home', url: '/' },
-              { name: 'Support', url: '/support' },
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('common:nav.support'), url: '/support' },
             ],
             i18n.language,
           ),

@@ -371,10 +371,10 @@ function assertSourceEvidence(): void {
   if (
     !supportRoute ||
     supportRoute.indexability !== 'INDEX_FOLLOW' ||
-    supportRoute.sitemap !== false ||
+    supportRoute.sitemap === false ||
     supportSource.includes('noindex={true}')
   ) {
-    throw new Error('Support classification drifted from INDEXABLE_EXCLUDED_INTENTIONAL')
+    throw new Error('Support classification drifted from INDEX_FOLLOW with sitemap coverage')
   }
   if (getCanonicalRouteEntries().some((route) => !route.appRoute || !route.knownPath)) {
     throw new Error('Public Registry route is not App/Known-Path eligible')

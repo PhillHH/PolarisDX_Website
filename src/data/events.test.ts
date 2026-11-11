@@ -15,6 +15,7 @@ import {
   getEventPageProjection,
   getExternalEventLink,
   getEventStatus,
+  getNextHomeEvent,
   getUpcomingEventPresentation,
   parseIsoDate,
   pastEvents,
@@ -127,6 +128,15 @@ describe('sorting and highlight eligibility', () => {
     expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_IDS, '2026-11-29')).toBeUndefined()
     expect(getEligibleHighlight(events, HIGHLIGHT_EVENT_ID, '2026-11-20')).toBeUndefined()
     expect(getEligibleHighlight(events, 'missing', '2026-09-01')).toBeUndefined()
+  })
+
+  it.each([
+    ['2026-11-15', 'medica_2026'],
+    ['2026-11-20', 'dgi_jahreskongress'],
+    ['2026-11-27', 'dgi_jahreskongress'],
+    ['2026-11-29', undefined],
+  ])('waehlt den Home-Termin am %s aus der injizierten Systemzeit', (day, eventId) => {
+    expect(getNextHomeEvent(new Date(`${day}T12:00:00+01:00`))?.id).toBe(eventId)
   })
 
   it('projects the complete chronological list while featuring the same highlight record', () => {

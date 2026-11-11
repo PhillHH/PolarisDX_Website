@@ -64,18 +64,6 @@ const S3LeitliniePage = () => {
         title={t('s3_leitlinie.copy_028')}
         description={t('s3_leitlinie.copy_029')}
         ogType="article"
-        keywords={[
-          t('s3_leitlinie.copy_030'),
-          t('s3_leitlinie.copy_031'),
-          t('s3_leitlinie.copy_032'),
-          t('s3_leitlinie.copy_033'),
-          t('s3_leitlinie.copy_034'),
-          t('s3_leitlinie.copy_035'),
-          t('s3_leitlinie.copy_036'),
-          t('s3_leitlinie.copy_037'),
-          t('s3_leitlinie.copy_038'),
-          t('s3_leitlinie.copy_039'),
-        ]}
         article={{
           publishedTime: '2026-02-26',
           author: 'PolarisDX Redaktionsteam',
@@ -95,8 +83,9 @@ const S3LeitliniePage = () => {
           }),
           createBreadcrumbSchema(
             [
-              { name: t('s3_leitlinie.copy_042'), url: '/' },
-              { name: t('s3_leitlinie.copy_043'), url: '/articles' },
+              { name: t('common:nav.home'), url: '/' },
+              { name: t('common:nav.service'), url: '/diagnostics' },
+              { name: t('s3_leitlinie.copy_046'), url: '/diagnostics/dental' },
               { name: t('s3_leitlinie.copy_044'), url: '/s3_leitlinie' },
             ],
             i18n.language,
@@ -120,13 +109,25 @@ const S3LeitliniePage = () => {
                   <ol className="flex list-none items-center gap-1.5 p-0">
                     <li>
                       <Link to="/" className="hover:text-brand-secondary transition-colors">
-                        {t('s3_leitlinie.copy_042')}
+                        {t('common:nav.home')}
                       </Link>
                     </li>
                     <li className="flex items-center gap-1.5">
                       <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      <Link to="/articles" className="hover:text-brand-secondary transition-colors">
-                        {t('s3_leitlinie.copy_043')}
+                      <Link
+                        to="/diagnostics"
+                        className="hover:text-brand-secondary transition-colors"
+                      >
+                        {t('common:nav.service')}
+                      </Link>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      <Link
+                        to="/diagnostics/dental"
+                        className="hover:text-brand-secondary transition-colors"
+                      >
+                        {t('s3_leitlinie.copy_046')}
                       </Link>
                     </li>
                     <li className="flex items-center gap-1.5">

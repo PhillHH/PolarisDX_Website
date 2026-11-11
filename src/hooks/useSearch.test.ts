@@ -44,6 +44,17 @@ describe('search index', () => {
     }
   })
 
+  it('covers S3 and implantology with localized search metadata', () => {
+    expect(paths).toContain('/s3_leitlinie')
+    expect(paths).toContain('/vitamin-d3-implantologie')
+    expect(index.find((item) => item.id === 's3-guideline')?.title).toBe(
+      'specialty s3_leitlinie.copy_028',
+    )
+    expect(index.find((item) => item.id === 'implantology')?.description).toBe(
+      'specialty vitamin_d3_implantology.copy_011',
+    )
+  })
+
   it('contains no legacy services or future/backlog target', () => {
     expect([...paths].some((path) => path === '/services' || path.startsWith('/services/'))).toBe(
       false,

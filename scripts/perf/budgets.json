@@ -115,7 +115,7 @@
       },
       "service-detail": {
         "mobile": {
-          "htmlBytes": 31900,
+          "htmlBytes": 32050,
           "jsBytes": 175398,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -127,7 +127,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 31900,
+          "htmlBytes": 32050,
           "jsBytes": 175398,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -193,7 +193,7 @@
       },
       "epigenetics-deep": {
         "mobile": {
-          "htmlBytes": 29171,
+          "htmlBytes": 29321,
           "jsBytes": 176669,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -205,7 +205,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 29171,
+          "htmlBytes": 29321,
           "jsBytes": 176669,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -297,7 +297,7 @@
       },
       "events": {
         "mobile": {
-          "htmlBytes": 27600,
+          "htmlBytes": 27750,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -309,7 +309,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 27600,
+          "htmlBytes": 27750,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -323,7 +323,7 @@
       },
       "downloads": {
         "mobile": {
-          "htmlBytes": 30400,
+          "htmlBytes": 30550,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -335,7 +335,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 30400,
+          "htmlBytes": 30550,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,

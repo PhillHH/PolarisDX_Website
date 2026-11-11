@@ -151,7 +151,7 @@
     },
     "seo": {
       "title": "Privacy Policy – GDPR Compliant",
-      "description": "PolarisDX privacy policy under GDPR: what personal data is collected when you visit the site and use the contact form, who is responsible and how long it is stored."
+      "description": "PolarisDX privacy policy under GDPR: what personal data is collected on the site and via the contact form, and how it is processed."
     },
     "hero": {
       "gdprValue": "GDPR",
@@ -442,7 +442,7 @@
     ],
     "seo": {
       "title": "Terms & Conditions – Diagnostics & Software",
-      "description": "General terms and conditions of Polaris Diagnostics Europe GmbH for in-vitro diagnostics, medical devices and software/cloud services: contracts, pricing, liability."
+      "description": "General terms and conditions of Polaris Diagnostics Europe GmbH for in-vitro diagnostics, medical devices and software/cloud services."
     },
     "hero": {
       "paragraphsLabel": "Sections",

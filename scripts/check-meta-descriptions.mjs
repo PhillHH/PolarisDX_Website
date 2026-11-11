@@ -12,7 +12,7 @@ const placeholderPattern = /\b(?:lorem ipsum|tbd|placeholder|preview copy|coming
 const nonPublicHostPattern = /(?:preview\.polarisdx\.net|localhost|127\.0\.0\.1)(?=[:/]|$)/i
 
 function valueAtPath(value, path) {
-  return path.split('.').reduce((current, segment) => current?.[segment], value)
+  return value?.[path] ?? path.split('.').reduce((current, segment) => current?.[segment], value)
 }
 
 function discoverExplicitSeoRecords(value, path = [], records = []) {
@@ -44,6 +44,20 @@ function discoverExplicitSeoRecords(value, path = [], records = []) {
       descriptionPath: [...path, 'seo_description'].join('.'),
     })
   }
+  if (typeof value.overview_title === 'string' && typeof value.overview_description === 'string') {
+    records.push({
+      id: `${id}.overview`,
+      titlePath: [...path, 'overview_title'].join('.'),
+      descriptionPath: [...path, 'overview_description'].join('.'),
+    })
+  }
+  if (typeof value.excerpt === 'string' && typeof value.seo?.title === 'string') {
+    records.push({
+      id: `${id}.excerpt`,
+      titlePath: [...path, 'seo', 'title'].join('.'),
+      descriptionPath: [...path, 'excerpt'].join('.'),
+    })
+  }
 
   for (const [key, child] of Object.entries(value)) {
     discoverExplicitSeoRecords(child, [...path, key], records)
@@ -67,12 +81,25 @@ for (const filename of localeFiles) {
   referenceFiles.set(filename, value)
   for (const record of discoverExplicitSeoRecords(value)) definitions.push({ filename, ...record })
 }
+definitions.push(
+  {
+    filename: 'specialty.json',
+    id: 's3_leitlinie.seo',
+    titlePath: 's3_leitlinie.copy_028',
+    descriptionPath: 's3_leitlinie.copy_029',
+  },
+  {
+    filename: 'specialty.json',
+    id: 'vitamin_d3_implantology.seo',
+    titlePath: 'vitamin_d3_implantology.copy_010',
+    descriptionPath: 'vitamin_d3_implantology.copy_011',
+  },
+)
 
 let failures = 0
 let warnings = 0
 let checked = 0
 let shortWarnings = 0
-let longWarnings = 0
 
 for (const locale of locales) {
   const localizedFiles = new Map()
@@ -119,12 +146,8 @@ for (const locale of locales) {
       shortWarnings += 1
       console.warn(`  ⚠ ${label}: short description heuristic (${description.length})`)
     }
-    if (description.length > 500) {
-      failures += fail(`${label}: grotesquely long description (${description.length})`)
-    } else if (description.length > 200) {
-      warnings += 1
-      longWarnings += 1
-      console.warn(`  ⚠ ${label}: long description heuristic (${description.length})`)
+    if (description.length > 155) {
+      failures += fail(`${label}: description exceeds 155 characters (${description.length})`)
     }
 
     const reference = referenceFiles.get(definition.filename)
@@ -164,5 +187,5 @@ if (failures) {
 }
 
 console.log(
-  `Meta Quality Guard PASS: ${checked} explicit locale records checked; missing/empty/translation-key/placeholder/duplicate findings 0; ${warnings} length warnings (${shortWarnings} short, ${longWarnings} long). Dynamic and Consumer metadata remain covered by G3 SSR/source checks.`,
+  `Meta Quality Guard PASS: ${checked} explicit locale records checked; missing/empty/translation-key/placeholder/duplicate/over-155 findings 0; ${warnings} short-description warnings (${shortWarnings}). Dynamic and Consumer metadata remain covered by G3 SSR/source checks.`,
 )

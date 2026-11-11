@@ -83,7 +83,7 @@
     },
     "seo": {
       "title": "Ficha técnica — Polaris Diagnostics Europe GmbH",
-      "description": "Ficha técnica legal da PolarisDX: Polaris Diagnostics Europe GmbH (Hamburgo e Londres), representação da empresa, registo comercial, NIF e dados de contacto."
+      "description": "Ficha legal da PolarisDX: Polaris Diagnostics Europe GmbH (Hamburgo e Londres), representação, registo comercial, NIF e contactos."
     },
     "hero": {
       "hqCity": "Hamburg",
@@ -151,7 +151,7 @@
     },
     "seo": {
       "title": "Política de privacidade — conforme o RGPD",
-      "description": "Política de privacidade da PolarisDX ao abrigo do RGPD: que dados pessoais são recolhidos ao visitar o site e através do formulário de contacto, por quem e durante quanto tempo."
+      "description": "Política de privacidade da PolarisDX ao abrigo do RGPD: que dados pessoais são recolhidos no site e no formulário de contacto, e como são tratados."
     },
     "hero": {
       "gdprValue": "RGPD",
@@ -442,7 +442,7 @@
     ],
     "seo": {
       "title": "Condições gerais — diagnóstico, dispositivos médicos e software",
-      "description": "Condições gerais da Polaris Diagnostics Europe GmbH para diagnóstico in vitro, dispositivos médicos e software/cloud: celebração de contratos, preços, entrega e responsabilidade."
+      "description": "Condições gerais da Polaris Diagnostics Europe GmbH para diagnóstico in vitro, dispositivos médicos e software/cloud: contrato, preços e responsabilidade."
     },
     "hero": {
       "paragraphsLabel": "Cláusulas",

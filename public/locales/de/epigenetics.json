@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Epigenetik- und Genetik-Analysen für die Praxis",
-    "description": "Sechs Epigenetik- und Genetik-Analysen aus einem Tropfen Kapillarblut: was gemessen wird, für wen es sich eignet und was belegt ist. Alle Infoblätter als PDF."
+    "description": "Sechs Epigenetik- und Genetik-Analysen aus Kapillarblut: was gemessen wird, für wen es sich eignet und was belegt ist. Alle Infoblätter als PDF."
   },
   "breadcrumb": {
     "home": "Home",
@@ -707,11 +707,11 @@
       },
       "biologische-altersuhr": {
         "title": "Musterbefund Biologische Altersuhr: microRNA",
-        "description": "Beispielbefund Biologische Altersuhr: drei microRNA als exploratives Lebensstil-Signal, ausdrücklich keine Altersbestimmung. Beispieldaten, jeder Wert erklärt."
+        "description": "Beispielbefund Biologische Altersuhr: drei microRNA als exploratives Lebensstil-Signal, keine Altersbestimmung. Beispieldaten, jeder Wert erklärt."
       },
       "telomer-analyse": {
         "title": "Musterbefund Telomer-Analyse: Telomerlänge",
-        "description": "Beispielbefund Telomer-Analyse: die Telomerlänge in Kilobasenpaaren als Basiswert, mit Einordnung und Erklärung. Beispieldaten, keine echten Patientendaten."
+        "description": "Beispielbefund Telomer-Analyse: Telomerlänge in Kilobasenpaaren als Basiswert, mit Einordnung und Erklärung. Beispieldaten, keine echten Patientendaten."
       },
       "stress-monitor": {
         "title": "Musterbefund Stress Monitor: sechs microRNA",

@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Analyses épigénétiques et génétiques pour votre pratique",
-    "description": "Six analyses épigénétiques et génétiques à partir d’une goutte de sang capillaire : ce qui est mesuré, à qui cela s’adresse et ce que disent les preuves. Toutes les fiches au format PDF."
+    "description": "Six analyses épigénétiques et génétiques à partir d’une goutte de sang capillaire : contenu, public et preuves. Toutes les fiches en PDF."
   },
   "breadcrumb": {
     "home": "Accueil",
@@ -699,27 +699,27 @@
     "seo": {
       "metabolic-health": {
         "title": "Rapport d’échantillon Santé Métabolique : type de nutrition",
-        "description": "Rapport d’exemple Santé Métabolique : métabotype, type de sport et quatre valeurs modifiables sur la nutrition et le métabolisme, expliquées page par page. Données d’exemple."
+        "description": "Rapport d’exemple Santé Métabolique : métabotype, type de sport et quatre valeurs modifiables sur la nutrition et le métabolisme. Données d’exemple."
       },
       "healthy-aging": {
         "title": "Rapport d’échantillon Vieillissement Sain : âge biologique",
-        "description": "Rapport d’exemple Vieillissement Sain : quatre valeurs épigénétiques sur l’âge biologique, chacune avec le feu tricolore 1–9 et une explication. Données d’exemple, pas de données patient."
+        "description": "Rapport d’exemple Vieillissement Sain : quatre valeurs épigénétiques sur l’âge biologique avec feu tricolore 1–9 et explication. Données d’exemple."
       },
       "biologische-altersuhr": {
         "title": "Rapport d’échantillon Horloge d’Âge Biologique : microARN",
-        "description": "Rapport d’exemple Horloge d’Âge Biologique : trois microARN comme signal exploratoire du mode de vie, explicitement pas une détermination d’âge. Données d’exemple, chaque valeur expliquée."
+        "description": "Rapport d’exemple Horloge d’Âge Biologique : trois microARN comme signal exploratoire du mode de vie, pas une détermination d’âge. Données d’exemple."
       },
       "telomer-analyse": {
         "title": "Rapport d’échantillon Analyse des Télomères : longueur des télomères",
-        "description": "Rapport d’exemple Analyse des Télomères : longueur des télomères en kilobases comme valeur de référence, avec contexte et explication. Données d’exemple, pas de données patient."
+        "description": "Rapport d’exemple Analyse des Télomères : longueur des télomères en kilobases comme valeur de référence, avec contexte et explication. Données d’exemple."
       },
       "stress-monitor": {
         "title": "Rapport d’échantillon Moniteur de Stress : six microARN",
-        "description": "Rapport d’exemple Moniteur de Stress : six microARN répartis sur quatre domaines mettant la charge mesurée à côté de la charge perçue. Données d’exemple, chaque valeur expliquée."
+        "description": "Rapport d’exemple Moniteur de Stress : six microARN dans quatre domaines comparant la charge mesurée à la charge perçue. Données d’exemple."
       },
       "healthy-sport": {
         "title": "Rapport d’échantillon Sport Sain : valeurs d’entraînement",
-        "description": "Rapport d’exemple Sport Sain : huit microARN dans sept évaluations sur l’état actuel, plus quatre variants génétiques immuables. Données d’exemple, tout expliqué."
+        "description": "Rapport d’exemple Sport Sain : huit microARN dans sept évaluations de l’état actuel, plus quatre variants génétiques immuables. Données d’exemple."
       }
     },
     "notFoundTitle": "Ce rapport d’exemple n’existe pas",

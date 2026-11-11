@@ -40,6 +40,20 @@ describe('EventBand', () => {
     expect(screen.queryByText('event_band.days_label')).not.toBeInTheDocument()
   })
 
+  it.each([
+    ['2026-11-15', 'medica_2026'],
+    ['2026-11-20', 'dgi_jahreskongress'],
+    ['2026-11-27', 'dgi_jahreskongress'],
+    ['2026-11-29', undefined],
+  ])('schaltet am %s ohne eingefrorenen Build-Stand', (day, eventId) => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
+    const { container } = renderBand()
+    const band = container.querySelector('[data-event-band]')
+    if (eventId) expect(band).toHaveAttribute('data-event-band', eventId)
+    else expect(band).toBeNull()
+  })
+
   it('rendert als „strip" ohne Foto und Beschreibung, mit Countdown und Knopf (Startseite)', () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-11-02T12:00:00+01:00'))

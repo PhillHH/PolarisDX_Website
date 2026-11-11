@@ -707,7 +707,7 @@
       },
       "biologische-altersuhr": {
         "title": "Biological Age Clock sample report: microRNA",
-        "description": "Biological Age Clock example report: three microRNA as an exploratory lifestyle signal, explicitly not an age determination. Example data, each value explained."
+        "description": "Biological Age Clock example report: three microRNA as an exploratory lifestyle signal, not an age determination. Example data, each value explained."
       },
       "telomer-analyse": {
         "title": "Telomere Analysis sample report: telomere length",
@@ -719,7 +719,7 @@
       },
       "healthy-sport": {
         "title": "Healthy Sport sample report: training values",
-        "description": "Healthy Sport example report: eight microRNAs in seven assessments on current condition, plus four unchangeable genetic variants. Example data, everything explained."
+        "description": "Healthy Sport example report: eight microRNAs in seven assessments of current condition, plus four unchangeable genetic variants. Example data."
       }
     },
     "notFoundTitle": "This sample report does not exist",

@@ -707,7 +707,7 @@
       },
       "biologische-altersuhr": {
         "title": "Biological Age Clock eksempelrapport: microRNA",
-        "description": "Biological Age Clock eksempelrapport: tre microRNA som et udforskende livsstilssignal, udtrykkeligt ikke en aldersbestemmelse. Eksempeldata, hver værdi forklaret."
+        "description": "Biological Age Clock eksempelrapport: tre microRNA som udforskende livsstilssignal, ikke en aldersbestemmelse. Eksempeldata, hver værdi forklaret."
       },
       "telomer-analyse": {
         "title": "Telomere Analysis eksempelrapport: telomerlængde",
@@ -715,7 +715,7 @@
       },
       "stress-monitor": {
         "title": "Stress Monitor eksempelrapport: seks microRNA",
-        "description": "Stress Monitor eksempelrapport: seks microRNA på tværs af fire områder satte målt belastning ved siden af oplevet belastning. Eksempeldata, hver værdi forklaret."
+        "description": "Stress Monitor eksempelrapport: seks microRNA på fire områder sammenligner målt og oplevet belastning. Eksempeldata, hver værdi forklaret."
       },
       "healthy-sport": {
         "title": "Healthy Sport eksempelrapport: træningsværdier",

@@ -334,3 +334,13 @@ Inhaltsseiten behalten das volle Band.
 Nachtrag 5 (2026-11-03): die Startseiten-`TeamEventSection` ist fest an `dgi_jahreskongress` gebunden
 (Datum per `formatEventRange`, `location · partner`), rendert nach dem letzten Kongresstag `null`
 und rückt nicht auf den nächsten Termin nach (`HOMEPAGE-CONTRACT.md` §3.1).
+
+## Nachtrag SC-024 (2026-11-10) — Laufzeit- und SSR-Boundary-Matrix
+
+Auftrag der Claude-Werkstatt K-001 im Namen des Owners; Ausrollen nur auf die Preview.
+
+- `src/data/events.test.ts` prüft `getNextHomeEvent` mit fixierter Systemzeit am 15.11., 20.11., 27.11. und 29.11.2026: MEDICA → DGI → DGI → kein Home-Termin. Die Endtaggrenze bleibt inklusiv.
+- `Header.test.tsx`, `HeroSection.test.tsx`, `EventBand.test.tsx` und `EventPopup.test.tsx` decken dieselbe Matrix für Messe-Zeile, Hero-Folie 2, Band und Popup-Kandidat ab. `TeamEventSection.test.tsx` prüft zusätzlich den 28.11. als letzten sichtbaren Kongresstag.
+- `EventSsrSchedule.test.tsx` rendert Kopfzeile, EventBand und TeamEventSection mit `renderToString` bei allen vier Zeitpunkten erneut. Nach dem 28.11. bleiben Service-Navigation und Folgeinhalt erhalten; es entsteht keine leere Restfläche. Hero-Hauptfolie und CTA bleiben ebenfalls erhalten.
+- Gezieltes Ergebnis: **74/74 Tests PASS**, plus ein vorbestehender, unverändert übersprungener Header-Test. Keine Produktcodeänderung war erforderlich.
+- SSR bestätigt erneut den bestehenden Laufzeitvertrag: die Eventfunktionen lesen die Systemzeit beim Rendern in `Europe/Berlin`; `server.ts` rendert pro Request und sendet HTML mit `Cache-Control: no-store, no-cache, must-revalidate`. Kein Terminstand ist im Build oder in gecachtem HTML eingefroren. Hero-Folie 2 lädt weiterhin clientseitig nach 1,5 s und verwendet dort dieselbe Laufzeitlogik.

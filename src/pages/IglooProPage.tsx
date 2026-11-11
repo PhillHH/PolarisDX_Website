@@ -22,7 +22,6 @@ const IglooProPage: React.FC = () => {
         title={t('products:seo.title')}
         description={t('products:seo.description')}
         ogType="product"
-        keywords={['IglooPro', 'Point-of-Care Reader', 'Point-of-Care Workflow']}
         structuredData={[
           createProductSchema({
             name: 'IglooPro',
@@ -33,7 +32,7 @@ const IglooProPage: React.FC = () => {
           }),
           createBreadcrumbSchema(
             [
-              { name: 'Home', url: '/' },
+              { name: t('common:nav.home'), url: '/' },
               { name: 'IglooPro', url: '/igloo-pro' },
             ],
             i18n.language,

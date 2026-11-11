@@ -79,7 +79,7 @@
   },
   "home_care": {
     "title": "Les avantages des services professionnels de soins à domicile",
-    "excerpt": "Les équipes de soins à domicile peuvent faire le lien entre l’hôpital et la vie quotidienne — voici comment elles soutiennent les patients et leurs familles.",
+    "excerpt": "Les équipes de soins à domicile relient l’hôpital et la vie quotidienne en soutenant les patients et leurs familles.",
     "sections": [
       {
         "heading": "Des soins qui viennent à vous",
@@ -123,7 +123,7 @@
   },
   "seo": {
     "index_title": "Magazine : Perspectives sur le diagnostic au point de soin",
-    "index_description": "Articles d'experts sur le diagnostic au point de soin, les tests au fauteuil et les laboratoires en cabinet pour dentistes, médecins et personnel médical. Du retour sur investissement aux guides de pratique clinique."
+    "index_description": "Articles d’experts sur le diagnostic au point de soin, les tests chairside et le laboratoire en cabinet pour dentistes, médecins et personnel médical."
   },
   "detail": {
     "vc_readtime_label": "Temps de lecture",

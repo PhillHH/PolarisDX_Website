@@ -38,6 +38,16 @@ describe('EventPopup (SC-020)', () => {
     expect(eventPopupCandidate('/', new Date('2026-12-01T12:00:00+01:00'))).toBeUndefined()
   })
 
+  it.each([
+    ['2026-11-15', 'medica_2026'],
+    ['2026-11-20', 'dgi_jahreskongress'],
+    ['2026-11-27', 'dgi_jahreskongress'],
+    ['2026-11-29', undefined],
+  ])('waehlt am %s den aktuellen Termin oder kein Popup', (day, eventId) => {
+    vi.setSystemTime(new Date(`${day}T12:00:00+01:00`))
+    expect(eventPopupCandidate('/')?.id).toBe(eventId)
+  })
+
   it('erkennt einen anderen offenen Dialog', () => {
     expect(anotherDialogOpen()).toBe(false)
     const other = document.createElement('div')

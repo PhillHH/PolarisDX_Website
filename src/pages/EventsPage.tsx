@@ -129,10 +129,6 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
           'events:seo_description',
           'Meet PolarisDX at the 2026 trade shows and congresses — point-of-care diagnostics live.',
         )}
-        keywords={t('events:seo_keywords', 'PolarisDX events, Nobel Biocare, IglooPro')
-          .split(',')
-          .map((k) => k.trim())
-          .filter(Boolean)}
         structuredData={structuredData}
       />
 

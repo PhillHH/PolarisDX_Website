@@ -699,19 +699,19 @@
     "seo": {
       "metabolic-health": {
         "title": "Informe de muestra Metabolic Health: tipo de nutrición",
-        "description": "Informe de ejemplo Metabolic Health: metabotipo, tipo de deporte y cuatro valores modificables sobre nutrición y metabolismo, explicados página por página. Datos de ejemplo."
+        "description": "Informe de ejemplo Metabolic Health: metabotipo, tipo de deporte y cuatro valores modificables sobre nutrición y metabolismo. Datos de ejemplo."
       },
       "healthy-aging": {
         "title": "Informe de muestra Healthy Aging: edad biológica",
-        "description": "Informe de ejemplo Healthy Aging: cuatro valores epigenéticos sobre edad biológica, cada uno con el semáforo 1–9 y una explicación. Datos de ejemplo, no datos de pacientes."
+        "description": "Informe de ejemplo Healthy Aging: cuatro valores epigenéticos sobre edad biológica con semáforo 1–9 y explicación. Datos de ejemplo, no datos de pacientes."
       },
       "biologische-altersuhr": {
         "title": "Informe de muestra Biological Age Clock: microARN",
-        "description": "Informe de ejemplo Biological Age Clock: tres microARN como señal exploratoria del estilo de vida, explícitamente no una determinación de edad. Datos de ejemplo, cada valor explicado."
+        "description": "Informe de ejemplo Biological Age Clock: tres microARN como señal exploratoria del estilo de vida, no una determinación de edad. Datos de ejemplo."
       },
       "telomer-analyse": {
         "title": "Informe de muestra Telomere Analysis: longitud de telómeros",
-        "description": "Informe de ejemplo Telomere Analysis: longitud de telómeros en kilobases como valor basal, con contexto y explicación. Datos de ejemplo, no datos de pacientes."
+        "description": "Informe de ejemplo Telomere Analysis: longitud de telómeros en kilobases como valor basal con contexto y explicación. Datos de ejemplo."
       },
       "stress-monitor": {
         "title": "Informe de muestra Stress Monitor: seis microARN",
@@ -719,7 +719,7 @@
       },
       "healthy-sport": {
         "title": "Informe de muestra Healthy Sport: valores de entrenamiento",
-        "description": "Informe de ejemplo Healthy Sport: ocho microARN en siete evaluaciones sobre condición actual, más cuatro variantes genéticas inalterables. Datos de ejemplo, todo explicado."
+        "description": "Informe de ejemplo Healthy Sport: ocho microARN en siete evaluaciones de condición actual más cuatro variantes genéticas inalterables. Datos de ejemplo."
       }
     },
     "notFoundTitle": "Este informe de muestra no existe",

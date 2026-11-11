@@ -80,8 +80,6 @@ export interface SEOHeadProps {
     currency?: string
     availability?: 'InStock' | 'OutOfStock' | 'PreOrder'
   }
-  /** Keywords for meta keywords tag (optional, low SEO impact) */
-  keywords?: string[]
   /** Critical images to preload for LCP optimization */
   preloadImages?: string[]
 }
@@ -128,7 +126,6 @@ export function SEOHead({
   structuredData,
   article,
   product,
-  keywords,
 }: SEOHeadProps) {
   const { i18n } = useTranslation()
   const location = useLocation()
@@ -218,7 +215,6 @@ export function SEOHead({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      {keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
       <meta name="robots" content={robotsContent} />
       <meta name="googlebot" content={robotsContent} />
       {/* Read by server.ts to turn a rendered error page into a real 404

@@ -57,7 +57,6 @@ const ContactPage = () => {
           'contact:seo.description',
           'Vereinbaren Sie eine kostenlose IglooPro Demo. POC-Diagnostik live erleben — Beratung zu Integration, Abrechnung & Praxislabor. Schnelle Antwort.',
         )}
-        keywords={['PolarisDX Kontakt', 'IglooPro Demo', 'POC Beratung', 'Medizintechnik Anfrage']}
         structuredData={[
           organizationSchema,
           createBreadcrumbSchema(

@@ -50,13 +50,6 @@ const ArticlesIndexPage = () => {
           'articles:seo.index_description',
           'Expertenwissen zu POCT, Chairside Diagnostik und Praxislabor. Praxisnahe Artikel für Zahnärzte, Ärzte und medizinisches Fachpersonal.',
         )}
-        keywords={[
-          'POC Fachartikel',
-          'Diagnostik Wissen',
-          'Schnelltest Artikel',
-          'Medizintechnik Blog',
-          'POCT Fachbeiträge',
-        ]}
         structuredData={createBreadcrumbSchema(
           [
             { name: crumbHome, url: '/' },

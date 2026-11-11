@@ -103,6 +103,18 @@ export const SEARCH_PAGE_METADATA: Readonly<Record<string, SearchMetadata>> = {
     descriptionKey: 'vitd3spray:seo.description',
     priority: 70,
   },
+  implantology: {
+    type: 'resource',
+    titleKey: 'specialty:vitamin_d3_implantology.copy_010',
+    descriptionKey: 'specialty:vitamin_d3_implantology.copy_011',
+    priority: 71,
+  },
+  's3-guideline': {
+    type: 'resource',
+    titleKey: 'specialty:s3_leitlinie.copy_028',
+    descriptionKey: 'specialty:s3_leitlinie.copy_029',
+    priority: 69,
+  },
   ...Object.fromEntries(
     (['grundlagen', 'studienlage', 'unterlagen'] as const).map((slug, index) => [
       `epigenetics-${slug}`,
@@ -221,6 +233,7 @@ export const useSearch = (query: string) => {
     'downloads',
     'products',
     'vitd3spray',
+    'specialty',
     'epigenetics',
   ])
 

@@ -699,27 +699,27 @@
     "seo": {
       "metabolic-health": {
         "title": "Referto di esempio Metabolic Health: tipo di nutrizione",
-        "description": "Referto di esempio Metabolic Health: metabotipo, tipo di sport e quattro valori modificabili su nutrizione e metabolismo, spiegati pagina per pagina. Dati di esempio."
+        "description": "Referto di esempio Metabolic Health: metabotipo, tipo di sport e quattro valori modificabili su nutrizione e metabolismo. Dati di esempio."
       },
       "healthy-aging": {
         "title": "Referto di esempio Healthy Aging: età biologica",
-        "description": "Referto di esempio Healthy Aging: quattro valori epigenetici sull’età biologica, ciascuno con il semaforo 1–9 e una spiegazione. Dati di esempio, non dati di pazienti."
+        "description": "Referto di esempio Healthy Aging: quattro valori epigenetici sull’età biologica con semaforo 1–9 e spiegazione. Dati di esempio, non dati di pazienti."
       },
       "biologische-altersuhr": {
         "title": "Referto di esempio Biological Age Clock: microRNA",
-        "description": "Referto di esempio Biological Age Clock: tre microRNA come segnale esplorativo dello stile di vita, esplicitamente non una determinazione dell’età. Dati di esempio, ogni valore spiegato."
+        "description": "Referto di esempio Biological Age Clock: tre microRNA come segnale esplorativo dello stile di vita, non una determinazione dell’età. Dati di esempio."
       },
       "telomer-analyse": {
         "title": "Referto di esempio Telomere Analysis: lunghezza dei telomeri",
-        "description": "Referto di esempio Telomere Analysis: lunghezza dei telomeri in kilobasi come valore di base, con contesto e spiegazione. Dati di esempio, non dati di pazienti."
+        "description": "Referto di esempio Telomere Analysis: lunghezza dei telomeri in kilobasi come valore di base con contesto e spiegazione. Dati di esempio."
       },
       "stress-monitor": {
         "title": "Referto di esempio Stress Monitor: sei microRNA",
-        "description": "Referto di esempio Stress Monitor: sei microRNA in quattro aree che mettono a confronto lo stress misurato con quello percepito. Dati di esempio, ogni valore spiegato."
+        "description": "Referto di esempio Stress Monitor: sei microRNA in quattro aree che confrontano lo stress misurato con quello percepito. Dati di esempio."
       },
       "healthy-sport": {
         "title": "Referto di esempio Healthy Sport: valori di allenamento",
-        "description": "Referto di esempio Healthy Sport: otto microRNA in sette valutazioni sulla condizione attuale, più quattro varianti genetiche immutabili. Dati di esempio, tutto spiegato."
+        "description": "Referto di esempio Healthy Sport: otto microRNA in sette valutazioni della condizione attuale più quattro varianti genetiche immutabili. Dati di esempio."
       }
     },
     "notFoundTitle": "Questo referto di esempio non esiste",

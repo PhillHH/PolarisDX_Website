@@ -99,14 +99,6 @@ const VitaminD3SprayPage = () => {
         title={t('vitd3spray:seo.title')}
         description={t('vitd3spray:seo.description')}
         ogImage="/og-vitd3-spray.jpg"
-        keywords={[
-          'Vitamin D3 K2 Spray',
-          'Vitamin D3 Praxis',
-          'Vitamin D Supplementierung',
-          'D3 K2 Sublingualspray',
-          'Tiny-Technologie',
-          'PolarisDX Vitamin D',
-        ]}
         structuredData={[
           createProductSchema({
             name: 'Vitamin D3+K2 Spray',

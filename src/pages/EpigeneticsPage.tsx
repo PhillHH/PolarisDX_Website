@@ -205,15 +205,6 @@ const EpigeneticsPage = () => {
         title={t('seo.title')}
         description={t('seo.description')}
         ogImage="/og-epigenetics.jpg"
-        keywords={[
-          'Epigenetik Analyse',
-          'Genetik Analyse Praxis',
-          'biologisches Alter',
-          'Telomerlänge',
-          'Trockenblutkarte',
-          'microRNA',
-          'PolarisDX',
-        ]}
         structuredData={[
           createBreadcrumbSchema(
             [
