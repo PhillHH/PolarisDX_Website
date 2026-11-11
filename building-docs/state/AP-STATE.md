@@ -10,6 +10,22 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-11 (SC-024 / K-001, nur Preview):** Zeitmatrix für alle fünf Terminflächen und SSR ergänzt
+(MEDICA bis 19.11., DGI ab 20.11., TeamEventSection bis 28.11.; danach keine leeren Restbereiche; `no-store`,
+kein Datum im Build eingefroren). P1/P3: 500 Meta-Datensätze in zehn Sprachen höchstens 155 Zeichen inklusive
+der im ersten Preview-Check entdeckten Consumer-Lücke, Meta-Keywords entfernt, lokalisierte Breadcrumbs mit
+Diagnostik/Dental für S3 und Implantologie, `/support` in der Sitemap (40 Familien/400 URLs), S3 und
+Implantologie in der B2B-Suche (37 Ziele ×10), S3/Implantologie/B2B-Spray und drei Consumer-Produkte im Footer;
+registry-basierter Inlink-Guard. Footer-Klassen ohne sichtbare Änderung gekürzt; vier `htmlBytes`-Budgets um je
+150 B per Owner-Go vom 11.11.2026 (`PERFORMANCE-CONTRACT` §25). Gates: Typecheck, ESLint, Prettier, Guards,
+Claims, Meta 500/500, SEO-Regression 82/82, Event-/SSR 74/74, Navigation/Hero 43/43, Axe 27/27, Performance
+852/852 (nach Consumer-Fix erneut), Baselines 22/22 (nur `search-dialog-open-desktop` wegen gekürztem
+Home-Suchtext aktualisiert und im DS-CHANGELOG begründet). Vitest 1162 PASS, 2 übersprungen, ausschließlich
+zwölf ROI-Altfehler (`home.roi.form` und die bereits auf HEAD fehlende `RoiCalculatorSection.tsx`). Code
+`d124aaf` + `c2dfc88`; **Preview-Release `c2dfc887b07a`**, beide Dienste healthy/identisch, Smoke grün.
+Preview-HTTP DE/EN: 24 Seiten 200, Footer-Ziele, sichtbare und JSON-LD-Breadcrumbs, Beschreibungen ≤155,
+keine Keywords, `no-store`, Support in Sitemap mit 400 URLs PASS. **Produktion unverändert `db34fab2216b`.**
+
 **Stand 2026-11-03 (SC-021 Nachtrag 3, Preview):** MEDICA-Folie mit Messehalle (Owner-Motiv per Gemini
 auf Düsseldorf korrigiert, PolarisDX-Stand „Halle 15 · Stand E13“). Code `ff0eb68`, Preview-Release
 `ff0eb6822b7f`, nach Owner-Go („Ja, veröffentlichen", 2026-11-03) **Produktion `ff0eb6822b7f`** (vorher
