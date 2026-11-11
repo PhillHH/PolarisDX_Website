@@ -94,6 +94,24 @@ definitions.push(
     titlePath: 'vitamin_d3_implantology.copy_010',
     descriptionPath: 'vitamin_d3_implantology.copy_011',
   },
+  {
+    filename: 'consumer.json',
+    id: 'spray.seo',
+    titlePath: 'spray.copy_046',
+    descriptionPath: 'spray.copy_047',
+  },
+  {
+    filename: 'consumer.json',
+    id: 'mask.seo',
+    titlePath: 'mask.copy_031',
+    descriptionPath: 'mask.copy_032',
+  },
+  {
+    filename: 'consumer.json',
+    id: 'duo.seo',
+    titlePath: 'duo.copy_015',
+    descriptionPath: 'duo.seo_description',
+  },
 )
 
 let failures = 0
@@ -187,5 +205,5 @@ if (failures) {
 }
 
 console.log(
-  `Meta Quality Guard PASS: ${checked} explicit locale records checked; missing/empty/translation-key/placeholder/duplicate/over-155 findings 0; ${warnings} short-description warnings (${shortWarnings}). Dynamic and Consumer metadata remain covered by G3 SSR/source checks.`,
+  `Meta Quality Guard PASS: ${checked} explicit locale records checked; missing/empty/translation-key/placeholder/duplicate/over-155 findings 0; ${warnings} short-description warnings (${shortWarnings}). Dynamic route metadata remain covered by G3 SSR/source checks.`,
 )

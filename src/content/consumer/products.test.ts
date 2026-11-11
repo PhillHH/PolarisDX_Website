@@ -74,6 +74,20 @@ const jpegSize = (file: string): { width: number; height: number } => {
   return { width: 0, height: 0 }
 }
 
+describe('SC-024 Consumer-SEO', () => {
+  it('haelt alle Meta-Beschreibungen in zehn Sprachen bei hoechstens 155 Zeichen', () => {
+    for (const locale of SUPPORTED_LANGUAGES) {
+      for (const product of Object.values(CONSUMER_PRODUCTS)) {
+        const description = text(locale, product.seoDescriptionKey).trim()
+        expect(description.length, `${locale}: ${product.seoDescriptionKey}`).toBeGreaterThan(0)
+        expect(description.length, `${locale}: ${product.seoDescriptionKey}`).toBeLessThanOrEqual(
+          155,
+        )
+      }
+    }
+  })
+})
+
 describe('PT21.2 Vitamin-D3-Spray — Inhalt', () => {
   it('kennt alle Produktschluessel in allen zehn Locales, nicht leer', () => {
     for (const locale of SUPPORTED_LANGUAGES) {
