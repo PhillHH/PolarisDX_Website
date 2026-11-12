@@ -27,6 +27,15 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-12 — SC-025 Nachtrag 1 · Lichtfilm-Bühne
+
+- **Ursache:** Owner am 12.11.2026 zum Werkstatt-Entwurf „Lichtfilm" (Mischung aus Lichtring und Produktfilm): „Lichtfilm finde ich heftig geil"; Umsetzung und Korrekturen durch die Claude-Werkstatt.
+- **Design-Delta:** Die Bühne der Startseite ist eine angeheftete Szene (`.sc025-film`, 330svh, Pin 100svh). Beim Scrollen wechselt der IglooPro durch drei Ansichten (Front · Display · Kassette mit Ergebnis), links wechseln Schritt, Schlagwort und Satz, darunter füllt sich ein Messbalken. Ein Lichtstrahl in `accent.line` läuft auf Höhe des Lichtrings über die volle Breite; die Signet-Linie entspringt am Ende der Szene dem Gerät. Satzteilanimation, Fortschrittsstriche und Pause-Knopf entfallen.
+- **Tokens:** keine neuen Farben; Strahl und Schein nutzen `accent.line`, `accent.on-dark` und Weiß mit Alpha.
+- **Bewegung:** nur Scroll-gekoppelt plus ein laufender Lichtimpuls (4,2 s); bei „Bewegung reduzieren" stehen alle drei Phasen statisch untereinander, ohne Strahl und ohne Anheften.
+- **Bilder:** neue freigestellte Render `igloo-front-*` und `igloo-top-*` (AVIF/WebP, 480w + 800w/650w); nur die erste Ansicht lädt mit Vorrang.
+- **Betroffene Screenshots (Visual):** sieben Baselines mit sichtbarer Startseiten-Bühne im gepinnten Playwright-Image neu aufgenommen und geprüft: `home-desktop`, `home-mobile`, `event-popup-desktop`, `site-menu-open-desktop`, `search-dialog-open-desktop`, `cookie-banner-desktop`, `navigation-open-mobile`. Alle anderen 15 unverändert; Gesamtlauf 22/22.
+
 ### 2026-11-12 — SC-025 · Startseite mit Nachtflächen und Signet-Linie
 
 - **Ursache:** Owner-Wunsch vom 12.11.2026, die Navbit-inspirierte Werkstattvorlage mit unserem Header und unserer Brandsprache auf die Preview zu bringen.

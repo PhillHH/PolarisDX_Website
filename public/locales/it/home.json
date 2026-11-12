@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pausa",
-      "play": "Riprendi"
+      "steps": [
+        {
+          "title": "Campione",
+          "text": "Una goccia di sangue capillare."
+        },
+        {
+          "title": "Misurazione",
+          "text": "IglooPro legge il test rapido."
+        },
+        {
+          "title": "Risultato",
+          "text": "Il valore è pronto mentre il paziente è ancora sulla poltrona."
+        }
+      ],
+      "hint": "Scorri per misurare"
     },
     "products": {
       "lead": "Campione. Misurazione. Risultato. Nello stesso appuntamento.",

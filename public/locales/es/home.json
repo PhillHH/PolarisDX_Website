@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pausa",
-      "play": "Continuar"
+      "steps": [
+        {
+          "title": "Muestra",
+          "text": "Una gota de sangre capilar."
+        },
+        {
+          "title": "Medición",
+          "text": "IglooPro lee el test rápido."
+        },
+        {
+          "title": "Resultado",
+          "text": "El valor está listo mientras el paciente sigue en el sillón."
+        }
+      ],
+      "hint": "Desplácese para medir"
     },
     "products": {
       "lead": "Muestra. Medición. Resultado. En la misma cita.",

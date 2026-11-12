@@ -54,7 +54,24 @@ const LuminousTrace = () => {
       const gutter = Math.max(14, (width - 1240) / 2 - 26)
       const left = gutter
       const right = width - gutter
+      const views = document.querySelector<HTMLElement>('[data-home-film-views]')
+      const film = views?.closest<HTMLElement>('[data-home-hero]')
+      const pin = views?.closest<HTMLElement>('.sc025-film-pin')
       const points: Array<[number, number]> = [[width * 0.84, 0]]
+      if (views && film && pin) {
+        // Lichtfilm: Die Linie entspringt dem Lichtring des Geräts in der letzten Ansicht.
+        const viewBounds = views.getBoundingClientRect()
+        const pinBounds = pin.getBoundingClientRect()
+        const filmTop = film.getBoundingClientRect().top + window.scrollY
+        points[0] = [
+          viewBounds.left + viewBounds.width * 0.5,
+          filmTop +
+            film.offsetHeight -
+            pin.offsetHeight +
+            (viewBounds.top - pinBounds.top) +
+            viewBounds.height * 0.57,
+        ]
+      }
       const sections = Array.from(
         document.querySelectorAll<HTMLElement>('[data-home-section], footer, .sc025-footer-mark'),
       )
@@ -62,6 +79,11 @@ const LuminousTrace = () => {
       sections.forEach((section, index) => {
         const bounds = section.getBoundingClientRect()
         const top = bounds.top + window.scrollY
+        if (index === 0 && views) {
+          points.push([width * 0.14, top + bounds.height + 40])
+          side = 0
+          return
+        }
         if (index === 0) {
           points.push([right + (width > 900 ? 20 : 0), top + bounds.height * 0.42])
           points.push([width * 0.18, top + bounds.height + 40])

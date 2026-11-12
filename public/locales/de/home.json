@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pause",
-      "play": "Weiter"
+      "steps": [
+        {
+          "title": "Probe",
+          "text": "Ein Tropfen Kapillarblut."
+        },
+        {
+          "title": "Messung",
+          "text": "IglooPro liest den Schnelltest."
+        },
+        {
+          "title": "Ergebnis",
+          "text": "Der Wert liegt vor, der Patient ist noch im Stuhl."
+        }
+      ],
+      "hint": "Scrollen, um zu messen"
     },
     "products": {
       "lead": "Probe. Messung. Ergebnis. Im selben Termin.",

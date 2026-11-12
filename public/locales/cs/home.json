@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pauza",
-      "play": "Pokračovat"
+      "steps": [
+        {
+          "title": "Vzorek",
+          "text": "Jedna kapka kapilární krve."
+        },
+        {
+          "title": "Měření",
+          "text": "IglooPro přečte rychlotest."
+        },
+        {
+          "title": "Výsledek",
+          "text": "Hodnota je k dispozici, pacient je stále v křesle."
+        }
+      ],
+      "hint": "Posouvejte a měřte"
     },
     "products": {
       "lead": "Vzorek. Měření. Výsledek. Při stejné návštěvě.",

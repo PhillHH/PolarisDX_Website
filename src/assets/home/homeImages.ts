@@ -58,6 +58,14 @@ import reader480Avif from './igloo-reader-480w.avif'
 import reader480Webp from './igloo-reader-480w.webp'
 import reader800Avif from './igloo-reader-800w.avif'
 import reader800Webp from './igloo-reader-800w.webp'
+import front480Avif from './igloo-front-480w.avif'
+import front480Webp from './igloo-front-480w.webp'
+import front800Avif from './igloo-front-800w.avif'
+import front800Webp from './igloo-front-800w.webp'
+import top480Avif from './igloo-top-480w.avif'
+import top480Webp from './igloo-top-480w.webp'
+import top650Avif from './igloo-top-650w.avif'
+import top650Webp from './igloo-top-650w.webp'
 
 /**
  * Fotokarte der Startseiten-Bühne (SC-021, Kopfzeile 13A-4 — Owner 2026-11-02).
@@ -175,5 +183,30 @@ export const PILLAR_SAMPLE_IMAGE: ArticleImageAsset = {
     { width: 480, avif: sample480Avif, webp: sample480Webp },
     { width: 800, avif: sample800Avif, webp: sample800Webp },
     { width: 1280, avif: sample1280Avif, webp: sample1280Webp },
+  ],
+}
+
+/**
+ * SC-025 Nachtrag „Lichtfilm" (Owner 2026-11-12): drei Ansichten des IglooPro für die
+ * angeheftete Bühne — Front (Probe), Display (Messung), Kassette mit Ergebnis (PILLAR_READER_IMAGE).
+ * Freigestellte Produkt-Render, bis ~500 px CSS (480w DPR 1 / 800w bzw. 650w DPR 2).
+ */
+export const FILM_SIZES = '(min-width: 900px) 500px, 70vw'
+export const FILM_FRONT_IMAGE: ArticleImageAsset = {
+  src: front800Webp,
+  width: 800,
+  height: 800,
+  variants: [
+    { width: 480, avif: front480Avif, webp: front480Webp },
+    { width: 800, avif: front800Avif, webp: front800Webp },
+  ],
+}
+export const FILM_TOP_IMAGE: ArticleImageAsset = {
+  src: top650Webp,
+  width: 650,
+  height: 650,
+  variants: [
+    { width: 480, avif: top480Avif, webp: top480Webp },
+    { width: 650, avif: top650Avif, webp: top650Webp },
   ],
 }

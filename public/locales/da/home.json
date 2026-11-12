@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pause",
-      "play": "Fortsæt"
+      "steps": [
+        {
+          "title": "Prøve",
+          "text": "En dråbe kapillærblod."
+        },
+        {
+          "title": "Måling",
+          "text": "IglooPro aflæser hurtigtesten."
+        },
+        {
+          "title": "Resultat",
+          "text": "Værdien foreligger, mens patienten stadig sidder i stolen."
+        }
+      ],
+      "hint": "Scroll for at måle"
     },
     "products": {
       "lead": "Prøve. Måling. Resultat. I samme konsultation.",

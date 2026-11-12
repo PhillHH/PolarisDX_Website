@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pauza",
-      "play": "Wznów"
+      "steps": [
+        {
+          "title": "Próbka",
+          "text": "Jedna kropla krwi włośniczkowej."
+        },
+        {
+          "title": "Pomiar",
+          "text": "IglooPro odczytuje szybki test."
+        },
+        {
+          "title": "Wynik",
+          "text": "Wynik jest gotowy, a pacjent wciąż siedzi na fotelu."
+        }
+      ],
+      "hint": "Przewiń, aby zmierzyć"
     },
     "products": {
       "lead": "Próbka. Pomiar. Wynik. Podczas tej samej wizyty.",

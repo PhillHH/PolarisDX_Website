@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pause",
-      "play": "Play"
+      "steps": [
+        {
+          "title": "Sample",
+          "text": "One drop of capillary blood."
+        },
+        {
+          "title": "Measurement",
+          "text": "IglooPro reads the rapid test."
+        },
+        {
+          "title": "Result",
+          "text": "The value is in while the patient is still in the chair."
+        }
+      ],
+      "hint": "Scroll to measure"
     },
     "products": {
       "lead": "Sample. Measurement. Result. In the same appointment.",

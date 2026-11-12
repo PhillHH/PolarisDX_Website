@@ -36,15 +36,16 @@ und 6,56:1 auf `night.panel`; `night.ghost` erreicht mindestens 12,20:1. Cyan bl
 
 ## 3. Bühne und LCP
 
-- Genau eine H1 enthält den vollständigen Locale-Text `hero.title` in einem `sr-only`-Span. Die sichtbaren
-  Satzteile sind `aria-hidden`; der zugängliche Name ist deshalb in jeder Sprache vollständig und nicht von
-  der Animation abhängig.
-- Nach dem ersten Rendern erscheinen die Satzteile nacheinander mit Weichzeichner/Deckkraft. Drei
-  Fortschrittsstriche und ein Pause-/Weiter-Knopf (`aria-pressed`, mindestens 44 px) steuern den Ablauf.
-  Pause zeigt den vollständigen Titel und hält Timer an; Weiter setzt ihn fort.
-- `prefers-reduced-motion: reduce` zeigt alle Satzteile und alle Striche sofort und startet keinen Timer.
-- `hero.description` und `hero.cta_secondary` bleiben erhalten. Der einzige Hero-Link ist das heutige Ziel
-  `contact` ohne `GENERAL_SALES`-Attribution.
+- Genau eine H1 enthält den vollständigen Locale-Text `hero.title` (`sr-only`). Die sichtbaren Schlagworte
+  der drei Phasen sind `aria-hidden`; der zugängliche Name ist in jeder Sprache vollständig.
+- Lichtfilm (SC-025 Nachtrag 1): Die Bühne ist eine angeheftete Szene. Beim Scrollen wechselt der IglooPro
+  durch drei Ansichten (Front · Display · Kassette mit Ergebnis); links wechseln Schritt, Schlagwort und Satz
+  aus `sc025.hero.steps`, ein Messbalken füllt sich, ein Lichtstrahl folgt dem Lichtring. Es gibt keinen Timer
+  und keinen Pause-Knopf mehr; die Bewegung ist ausschließlich an das Scrollen gekoppelt.
+- `prefers-reduced-motion: reduce` zeigt alle drei Phasen statisch untereinander, ohne Anheften und ohne Strahl.
+- `hero.cta_secondary` bleibt in jeder Phase sichtbar. Der einzige Hero-Link ist das heutige Ziel
+  `contact` ohne `GENERAL_SALES`-Attribution. `hero.description` steht im weißen Auftakt.
+- Nur die erste Geräteansicht lädt mit Vorrang (`eager`, `fetchpriority="high"`); sie ist mobil das LCP-Bild.
 - Es gibt kein Hero-Foto und keinen Bild-LCP-Trick. Die H1 ist LCP-Kandidat. Produktbilder und Porträts
   liegen unter dem Falz, sind dimensioniert und `loading="lazy"`; `fetchpriority="high"` wird nicht gesetzt.
 
@@ -160,11 +161,11 @@ muss zuerst HTML/CSS/JS reduziert werden; danach ist mit einer exakten Budgettab
 
 ## 12. Verifikationsvertrag
 
-- Komponenten-/SSR-Tests in `src/components/home/` und `EventSsrSchedule.test.tsx` prüfen H1, Pause,
+- Komponenten-/SSR-Tests in `src/components/home/` und `EventSsrSchedule.test.tsx` prüfen H1, Lichtfilm-Phasen,
   Registry-Ziele, Tabellen, alle vier Stimmen, FAQ/Blog und die Eventmatrix 15./20./27./29.11.2026.
 - `e2e/sc025.config.ts` führt sechs `home-*.spec.ts`-Suiten gegen einen frischen Produktionsbuild:
   zehn Sprachen, echte Links, native FAQ, Schema-Parität, Reduced Motion, Trace, Tastatur, 44-px-Ziele,
   Axe im Main und horizontaler Überlauf bei mehreren Viewports.
-- PT24.6 prüft den dynamischen Zustand „Bühnen-Pause“; das alte Hero-Slider-Bild entfällt.
+- PT24.6 prüft den dynamischen Zustand „Bühne Ergebnis-Phase“; das alte Hero-Slider-Bild entfällt.
 - PT27.6 aktualisiert ausschließlich beabsichtigte Startseiten-Baselines im gepinnten Playwright-Image,
   danach muss ein zweiter Lauf ohne Update grün sein. Änderungen stehen im DESIGN-SYSTEM-CHANGELOG.

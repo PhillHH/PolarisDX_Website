@@ -178,11 +178,14 @@ const ZUSTAENDE: {
   ...(getNextHomeEvent()
     ? [
         {
-          name: 'Buehnen-Pause',
+          name: 'Buehne Ergebnis-Phase',
           viewport: { width: 1280, height: 900 },
           oeffnen: async (p: Page) => {
             await seedConsent(p, '/de/')
-            await p.locator('[data-home-hero-pause]').click()
+            await p.evaluate(() => {
+              const film = document.querySelector<HTMLElement>('[data-home-hero]')!
+              window.scrollTo(0, film.offsetTop + film.offsetHeight - window.innerHeight - 10)
+            })
             await p.waitForTimeout(400)
           },
         },

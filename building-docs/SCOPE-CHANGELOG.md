@@ -136,6 +136,8 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 - **Auswirkung auf Gates:** 17 neue Komponenten-/SSR-Tests und 72 Browserfälle grün. Vollständige Quality-, Performance-, Axe- und Visual-Gates werden in AP-STATE und im K-004-Ergebnis protokolliert. Keine Budget- oder Kontrastgrenze wird geändert.
 - **Aktualisierte kanonische Dokumente:** `building-docs/HOMEPAGE-CONTRACT.md`, `building-docs/DESIGN-SYSTEM-CONTRACT.md`, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
 
+- **Nachtrag 1 (2026-11-12, Lichtfilm-Bühne):** Owner wörtlich zu den Werkstatt-Artifacts: „Okay, ich möchte eine Mischung aus Lichting und Produktfilm bitte", dann „Lichtfilm finde ich heftig geil" und „Danach übernimmst du die Anpassunf auf Lichtfilm und sämtliche Korrekturen". Die Bühne wird zur angehefteten Szene mit drei IglooPro-Ansichten, Lichtstrahl am Lichtring und Messbalken; Satzteilanimation und Pause entfallen. Neue Strings `home.sc025.hero.steps`/`hint` ×10 (die Schritt-Texte sind die früheren `hero.steps`), `sc025.hero.pause`/`play` entfallen. Keine Budgetänderung. Vorlage: `polarisdx-werkstatt/entwuerfe/navbit-stil/polarisdx-lichtfilm.html`. Ausrollen nur auf die Preview.
+
 ### SC-024 — Zeitfeste Termine, schnelle SEO-Korrekturen (P1) und verwaiste Seiten anbinden (P3)
 
 - **Datum:** 2026-11-10

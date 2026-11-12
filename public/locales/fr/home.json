@@ -272,8 +272,21 @@
   },
   "sc025": {
     "hero": {
-      "pause": "Pause",
-      "play": "Reprendre"
+      "steps": [
+        {
+          "title": "Prélèvement",
+          "text": "Une goutte de sang capillaire."
+        },
+        {
+          "title": "Mesure",
+          "text": "IglooPro lit le test rapide."
+        },
+        {
+          "title": "Résultat",
+          "text": "La valeur est disponible, le patient est encore au fauteuil."
+        }
+      ],
+      "hint": "Faites défiler pour mesurer"
     },
     "products": {
       "lead": "Prélèvement. Mesure. Résultat. Lors du même rendez-vous.",

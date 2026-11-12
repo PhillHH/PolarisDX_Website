@@ -155,15 +155,15 @@ test('PT11.6 page-level accessibility and performance structure stay regression-
   await expect(page.locator('footer')).toHaveCount(1)
   await expect(page.locator('main img:not([alt])')).toHaveCount(0)
   // SC-025: the H1 is the LCP candidate; all product and portrait media are lazy and dimensioned.
-  await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(0)
-  await expect(page.locator('[data-home-hero] img')).toHaveCount(0)
-  await expect(page.locator('main img[loading="eager"]')).toHaveCount(0)
+  await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(1)
+  await expect(page.locator('[data-home-hero] img')).toHaveCount(3)
+  await expect(page.locator('main img[loading="eager"]')).toHaveCount(1)
   await expect(page.locator('main img:not([width]), main img:not([height])')).toHaveCount(0)
   await expect(page.locator('style[data-inline-stylesheet]')).toHaveCount(1)
   await expect(page.locator('link[rel="stylesheet"]')).toHaveCount(0)
   expect(
     await page.locator('style[data-inline-stylesheet]').evaluate((style) => style.textContent),
-  ).toContain('.sc025-hero')
+  ).toContain('.sc025-film')
   await expect(page.locator('.sc025-footer-mark')).toHaveText('polarisdx')
 
   const firstQuestion = page.locator('#faq button').first()
