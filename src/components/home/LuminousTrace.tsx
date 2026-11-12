@@ -69,7 +69,7 @@ const LuminousTrace = () => {
             film.offsetHeight -
             pin.offsetHeight +
             (viewBounds.top - pinBounds.top) +
-            viewBounds.height * 0.61,
+            viewBounds.height * 0.57,
         ]
       }
       const sections = Array.from(

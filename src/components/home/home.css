@@ -215,8 +215,8 @@
   font-size: 16px;
 }
 .sc025-film-views {
-  /* Der Lichtstrahl läuft in jeder Ansicht mittig durch den Testeinschub (gemessene Bildhöhe). */
-  --ring: 65.7%;
+  /* Strahl auf Höhe des Lichtrings; der Testeinschub bleibt ausgespart (Owner 12.11.2026). */
+  --ring: 64.3%;
   --glow-left: 19%;
   --glow-right: 21%;
   --glow-top: 62.6%;
@@ -225,13 +225,13 @@
   isolation: isolate;
 }
 .sc025-film-views[data-phase='1'] {
-  --ring: 74.3%;
+  --ring: 71.6%;
   --glow-left: 9%;
   --glow-right: 9%;
   --glow-top: 69.6%;
 }
 .sc025-film-views[data-phase='2'] {
-  --ring: 61%;
+  --ring: 57%;
 }
 .sc025-film-views img {
   position: absolute;
@@ -297,6 +297,8 @@
   border-radius: 50%;
   background: radial-gradient(ellipse at center, #fff, #02a6e38c 45%, #02a6e300 72%);
   filter: blur(3px);
+  /* Der Schein spart die Öffnung des Testeinschubs aus. */
+  mask-image: linear-gradient(90deg, #000 0 19%, #0000 23% 75%, #000 79%);
   mix-blend-mode: screen;
   pointer-events: none;
   transition:
@@ -1029,7 +1031,7 @@
   height: auto;
 }
 .sc025-rig .sc025-film-beam {
-  top: 88.8%;
+  top: 86.9%;
 }
 footer {
   background: #041a2e !important;
