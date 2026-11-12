@@ -64,6 +64,7 @@
   align-items: center;
   gap: 10px;
   padding-inline: 20px;
+  border-radius: 0;
   background: #1b67b1;
   color: #fff;
   font-size: 14.5px;
@@ -761,8 +762,14 @@
   overflow-wrap: anywhere;
 }
 @media (max-width: 900px) {
+  [data-home-events] .sc025-table,
+  [data-home-events] .sc025-table tbody {
+    display: block;
+    width: 100%;
+  }
   [data-home-events] .sc025-table tbody tr {
     display: grid;
+    width: 100%;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: 12px;
   }
