@@ -6,7 +6,8 @@ import { formatEventRange } from '../../lib/eventDates'
 import { panelsUrl, shopUrl } from '../../lib/shop'
 import { CORE_SERVICES, HOME_TARGETS } from './homeTargets'
 import { Card } from '../ui/Card'
-import Eyebrow from '../ui/Eyebrow'
+import { ResponsivePicture } from '../ui/ResponsivePicture'
+import { FILM_FRONT_IMAGE, FILM_SIZES } from '../../assets/home/homeImages'
 
 const HomeContact = () => {
   const { t, i18n } = useTranslation(['home', 'common', 'events'])
@@ -21,12 +22,11 @@ const HomeContact = () => {
       className="sc025-contact sc025-dark"
     >
       <div className="sc025-inner">
-        <Eyebrow tone="dark" className="sc025-label">
-          {t('sc025.contact.eyebrow')}
-        </Eyebrow>
-        <h2 id="home-contact-title" className="sc025-contact-lead">
-          {t('sc025.contact.lead')}
+        <span className="sc025-kicker">{t('sc025.contact.eyebrow')}</span>
+        <h2 id="home-contact-title" className="sc025-fin">
+          {t('final_cta.title')}
         </h2>
+        <p className="sc025-contact-lead">{t('sc025.contact.lead')}</p>
         <div className="sc025-four">
           {CORE_SERVICES.map(({ sourceId, routeId }) => (
             <Card
@@ -34,7 +34,7 @@ const HomeContact = () => {
               to={HOME_TARGETS.contact}
               data-core-service={sourceId}
               data-route-id={routeId}
-              className="sc025-pick bg-transparent"
+              className="sc025-pick"
             >
               <h3>{t(`segments.${sourceId}.title`)}</h3>
               <p>{t(`segments.${sourceId}.bio`)}</p>
@@ -50,7 +50,7 @@ const HomeContact = () => {
             <Card
               to={HOME_TARGETS.contact}
               data-home-event-card={nextEvent.id}
-              className="sc025-pick bg-transparent"
+              className="sc025-pick"
             >
               <h3>{t('sc025.contact.visitor')}</h3>
               <p>
@@ -88,6 +88,10 @@ const HomeContact = () => {
             {t('shop_teaser.cta_panels')}
           </a>
         </p>
+        <div className="sc025-rig" aria-hidden="true">
+          <div className="sc025-film-beam" />
+          <ResponsivePicture image={FILM_FRONT_IMAGE} alt="" sizes={FILM_SIZES} />
+        </div>
       </div>
     </section>
   )

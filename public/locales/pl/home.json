@@ -94,7 +94,9 @@
       "eyebrow": "Wybrane zastosowania",
       "title": "Bezpośrednie wejścia według specjalizacji",
       "intro": "Dental, Beauty i Longevity prowadzą do trzech opublikowanych obszarów diagnostycznych. Pełne portfolio pozostaje dostępne w centrum Diagnostyki."
-    }
+    },
+    "eyebrow": "Trzy filary działalności",
+    "title": "Trzy ścieżki do diagnostyki i zastosowań profesjonalnych"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Następna opinia",
     "slide": "Opinia {{n}} z {{total}}",
     "q_open": "„",
-    "q_close": "”"
+    "q_close": "”",
+    "caption": "REFERENCJE Z GABINETÓW",
+    "title": "Doświadczenie z codziennej pracy z IglooPro"
   },
   "blog": {
     "caption": "Blog i aktualności",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Gabinet stomatologiczny",
       "bio": "Witamina D · CRP · HbA1c",
-      "cta": "Zobacz diagnostykę Dental"
+      "cta": "Zobacz diagnostykę Dental",
+      "benefit": "Oceniaj stan zapalny, parametry życiowe i metabolizm bezpośrednio przy fotelu zabiegowym — i uzasadnij terapię podczas tej samej wizyty."
     },
     "beauty": {
       "title": "Estetyka i Beauty",
       "bio": "Hormony · Mikroelementy",
-      "cta": "Zobacz diagnostykę Beauty"
+      "cta": "Zobacz diagnostykę Beauty",
+      "benefit": "Status hormonalny i odżywczy jako podstawa zabiegów na skórę, włosy i anti-aging — mierzalny zamiast szacowanego."
     },
     "longevity": {
       "title": "Longevity i profilaktyka",
       "bio": "HbA1c · Lipidy · D-Dimer",
-      "cta": "Zobacz diagnostykę Longevity"
+      "cta": "Zobacz diagnostykę Longevity",
+      "benefit": "Markery metaboliczne, sercowo-naczyniowe i ryzyka dla opartych na danych programów profilaktyki i longevity."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "Odpowiedzialna osoba ocenia wartość w indywidualnym kontekście i w razie potrzeby omawia zasadne kolejne kroki."
       }
     },
-    "safety_note": "Pomiary dostarczają dodatkowych informacji. Profesjonalna ocena i wynikające z niej kolejne kroki pozostają w gestii odpowiedzialnej osoby."
+    "safety_note": "Pomiary dostarczają dodatkowych informacji. Profesjonalna ocena i wynikające z niej kolejne kroki pozostają w gestii odpowiedzialnej osoby.",
+    "title": "Od wykonania do profesjonalnej interpretacji"
   },
   "shop_teaser": {
     "badge": "Nowość",

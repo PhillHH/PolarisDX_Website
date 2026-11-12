@@ -13,6 +13,8 @@ import HomeProducts from '../components/home/HomeProducts'
 import HomeInformation from '../components/home/HomeInformation'
 import HomeContact from '../components/home/HomeContact'
 import HomeMore from '../components/home/HomeMore'
+import { ResponsivePicture } from '../components/ui/ResponsivePicture'
+import { PILLAR_DIAGNOSTICS_IMAGE } from '../assets/home/homeImages'
 import homeStylesheet from '../components/home/home.css?url'
 
 const LuminousTrace = lazy(() => import('../components/home/LuminousTrace'))
@@ -52,21 +54,33 @@ const HomePage = () => {
       />
       <div id="home-page" className="sc025" data-home-stylesheet={homeStylesheet}>
         <HomeHero />
-        <section aria-labelledby="home-intro-title" data-home-section className="sc025-intro">
+        <section aria-labelledby="home-intro-title" data-home-section className="sc025-s">
           <div className="sc025-inner">
-            <h2 id="home-intro-title" className="sc025-big">
+            <span className="sc025-kicker">{t('business_pillars.pillars.igloo.title')}</span>
+            <h2 id="home-intro-title" className="sc025-lit" data-home-lit>
               {t('business_pillars.pillars.igloo.headline')}
             </h2>
-            <p>{t('hero.description')}</p>
-            <div className="sc025-mark" aria-hidden="true">
-              polarisdx
-            </div>
+            <p className="sc025-lead">{t('hero.description')}</p>
+            <dl className="sc025-kpi">
+              <div>
+                <dt>{t('hero.stat2.value')}</dt>
+                <dd>{t('hero.stat2.label')}</dd>
+              </div>
+              <div>
+                <dt>{t('hero.stat1.value')}</dt>
+                <dd>{t('hero.stat1.label')}</dd>
+              </div>
+            </dl>
           </div>
         </section>
         <HomeProducts />
+        <div className="sc025-band" data-home-band>
+          <ResponsivePicture image={PILLAR_DIAGNOSTICS_IMAGE} alt="" sizes="100vw" />
+          <p className="sc025-inner">{t('sc025.products.diagnostics_visual')}</p>
+        </div>
         <HomeInformation />
-        <HomeContact />
         <HomeMore />
+        <HomeContact />
         {faqJsonLd && (
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
         )}

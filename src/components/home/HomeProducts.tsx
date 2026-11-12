@@ -30,78 +30,103 @@ const resetTilt = (event: PointerEvent<HTMLDivElement>) => {
 
 const HomeProducts = () => {
   const { t } = useTranslation('home')
+  const pillar = (id: 'igloo' | 'diagnostics' | 'epigenetics') => (
+    <div className="sc025-panel-body">
+      <div>
+        <span className="sc025-label">{t(`business_pillars.pillars.${id}.title`)}</span>
+        <h3 className="sc025-mid">{t(`business_pillars.pillars.${id}.headline`)}</h3>
+      </div>
+      <div>
+        <p className="sc025-text">{t(`business_pillars.pillars.${id}.text`)}</p>
+        <span className="sc025-underlink">
+          <span>{t(`business_pillars.pillars.${id}.cta`)}</span>
+          <ArrowRight aria-hidden="true" />
+        </span>
+      </div>
+    </div>
+  )
 
   return (
-    <section
-      id="produkte"
-      aria-labelledby="home-products-title"
-      data-home-business-pillars
-      data-home-section
-      className="sc025-products sc025-dark"
-    >
-      <div className="sc025-inner">
-        <p id="home-products-title" className="sc025-product-lead">
-          {t('sc025.products.lead')}
-        </p>
-        <div className="sc025-duo">
-          <Card
-            to={HOME_TARGETS.igloo}
-            data-business-pillar="igloo"
-            data-route-id="igloo-pro"
-            className="sc025-card bg-transparent"
-          >
-            <div
-              className="sc025-visual sc025-device"
-              onPointerMove={tilt}
-              onPointerLeave={resetTilt}
+    <>
+      <section
+        id="produkte"
+        aria-labelledby="home-products-title"
+        data-home-business-pillars
+        data-home-section
+        data-home-hz
+        className="sc025-hz sc025-dark"
+      >
+        <div className="sc025-hz-pin">
+          <div className="sc025-inner sc025-hz-head">
+            <div>
+              <span className="sc025-kicker">{t('business_pillars.eyebrow')}</span>
+              <h2 id="home-products-title" className="sc025-h2">
+                {t('business_pillars.title')}
+              </h2>
+            </div>
+            <span className="sc025-hz-count" aria-hidden="true">
+              <b data-home-hz-count>01</b> / 03
+            </span>
+          </div>
+          <div className="sc025-hz-track" data-home-hz-track>
+            <Card
+              to={HOME_TARGETS.igloo}
+              data-business-pillar="igloo"
+              data-route-id="igloo-pro"
+              className="sc025-panel"
             >
-              <ResponsivePicture image={PILLAR_READER_IMAGE} alt="" sizes={PILLAR_READER.sizes} />
-              <span className="sc025-cap">{t('sc025.products.tilt')}</span>
+              <div
+                className="sc025-visual sc025-device"
+                onPointerMove={tilt}
+                onPointerLeave={resetTilt}
+              >
+                <ResponsivePicture image={PILLAR_READER_IMAGE} alt="" sizes={PILLAR_READER.sizes} />
+                <span className="sc025-cap">{t('sc025.products.tilt')}</span>
+              </div>
+              {pillar('igloo')}
+            </Card>
+            <Card
+              to={HOME_TARGETS.diagnostics}
+              data-business-pillar="diagnostics"
+              data-route-id="diagnostics"
+              className="sc025-panel"
+            >
+              <div className="sc025-visual">
+                <ResponsivePicture
+                  image={PILLAR_DIAGNOSTICS_IMAGE}
+                  alt=""
+                  sizes={PILLAR_PRAXIS.sizes}
+                />
+              </div>
+              {pillar('diagnostics')}
+            </Card>
+            <Card
+              to={HOME_TARGETS.epigenetics}
+              data-business-pillar="epigenetics"
+              data-route-id="epigenetics"
+              className="sc025-panel"
+            >
+              <div className="sc025-visual">
+                <ResponsivePicture image={PILLAR_SAMPLE_IMAGE} alt="" sizes={PILLAR_SAMPLE.sizes} />
+              </div>
+              {pillar('epigenetics')}
+            </Card>
+          </div>
+          <div className="sc025-inner">
+            <div className="sc025-hz-bar" aria-hidden="true">
+              <i data-home-hz-bar />
             </div>
-            <div className="sc025-card-body">
-              <span className="sc025-label">
-                {t('business_pillars.pillars.igloo.title')} · Point of Care
-              </span>
-              <h3 className="sc025-mid">{t('business_pillars.pillars.igloo.headline')}</h3>
-              <p className="sc025-text">{t('business_pillars.pillars.igloo.text')}</p>
-              <span className="sc025-underlink">
-                <span>{t('business_pillars.pillars.igloo.cta')}</span>
-                <ArrowRight aria-hidden="true" />
-              </span>
-            </div>
-          </Card>
-          <Card
-            to={HOME_TARGETS.diagnostics}
-            data-business-pillar="diagnostics"
-            data-route-id="diagnostics"
-            className="sc025-card bg-transparent"
-          >
-            <div className="sc025-visual">
-              <ResponsivePicture
-                image={PILLAR_DIAGNOSTICS_IMAGE}
-                alt=""
-                sizes={PILLAR_PRAXIS.sizes}
-                className="sc025-photo"
-              />
-              <span className="sc025-cap">{t('sc025.products.diagnostics_visual')}</span>
-            </div>
-            <div className="sc025-card-body">
-              <span className="sc025-label">{t('business_pillars.pillars.diagnostics.title')}</span>
-              <h3 className="sc025-mid">{t('business_pillars.pillars.diagnostics.headline')}</h3>
-              <p className="sc025-text">{t('business_pillars.pillars.diagnostics.text')}</p>
-              <span className="sc025-underlink">
-                <span>{t('business_pillars.pillars.diagnostics.cta')}</span>
-                <ArrowRight aria-hidden="true" />
-              </span>
-            </div>
-          </Card>
+          </div>
         </div>
-
-        <div className="sc025-wide">
-          <div className="sc025-wide-copy">
-            <span className="sc025-label">{t('sc025.products.metrics_label')}</span>
-            <h3 className="sc025-mid">{t('sc025.products.fit_title')}</h3>
-            <p className="sc025-text">{t('business_pillars.core.intro')}</p>
+      </section>
+      <section aria-labelledby="home-fit-title" data-home-fit data-home-section className="sc025-s">
+        <div className="sc025-inner">
+          <div className="sc025-head">
+            <span className="sc025-kicker">{t('sc025.products.metrics_label')}</span>
+            <h2 id="home-fit-title" className="sc025-h2">
+              {t('sc025.products.fit_title')}
+            </h2>
+            <p>{t('business_pillars.core.intro')}</p>
           </div>
           <table className="sc025-numbers">
             <caption className="sr-only">{t('sc025.products.metrics_caption')}</caption>
@@ -128,34 +153,15 @@ const HomeProducts = () => {
               {CORE_SERVICES.map(({ sourceId }) => (
                 <tr key={sourceId}>
                   <th scope="row">{t(`segments.${sourceId}.title`)}</th>
-                  <td className="sc025-value" colSpan={2}>
-                    {t(`segments.${sourceId}.bio`)}
-                  </td>
+                  <td className="sc025-value">{t(`segments.${sourceId}.bio`)}</td>
+                  <td className="sc025-detail">{t(`segments.${sourceId}.benefit`)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
-        <Card
-          to={HOME_TARGETS.epigenetics}
-          data-business-pillar="epigenetics"
-          data-route-id="epigenetics"
-          className="sc025-wide sc025-epigenetics bg-transparent"
-        >
-          <div className="sc025-epigenetics-copy">
-            <span className="sc025-label">{t('business_pillars.pillars.epigenetics.title')}</span>
-            <h3 className="sc025-mid">{t('business_pillars.pillars.epigenetics.headline')}</h3>
-            <p className="sc025-text">{t('business_pillars.pillars.epigenetics.text')}</p>
-            <span className="sc025-underlink">
-              <span>{t('business_pillars.pillars.epigenetics.cta')}</span>
-              <ArrowRight aria-hidden="true" />
-            </span>
-          </div>
-          <ResponsivePicture image={PILLAR_SAMPLE_IMAGE} alt="" sizes={PILLAR_SAMPLE.sizes} />
-        </Card>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 

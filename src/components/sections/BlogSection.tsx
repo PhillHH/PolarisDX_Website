@@ -28,7 +28,8 @@ const BlogSection = ({ variant = 'featured' }: { variant?: 'featured' | 'list' }
   if (variant === 'list') {
     return (
       <div id="blog">
-        <h2 className="sc025-mid">{t('blog.caption')}</h2>
+        <span className="sc025-kicker">{t('blog.caption')}</span>
+        <h2 className="sc025-mid">{t('blog.title')}</h2>
         {blogPosts.slice(0, 3).map((post) => (
           <article key={post.id} className="sc025-post">
             <Link to={requireHomeTarget(`article-detail:${post.id}`)}>

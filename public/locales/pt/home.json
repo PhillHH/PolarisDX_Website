@@ -94,7 +94,9 @@
       "eyebrow": "Aplicações selecionadas",
       "title": "Acessos diretos por especialidade",
       "intro": "Dental, Beauty e Longevity conduzem a três áreas de diagnóstico já publicadas. O portefólio completo permanece disponível no hub de Diagnóstico."
-    }
+    },
+    "eyebrow": "Três pilares de negócio",
+    "title": "Três caminhos para o diagnóstico e a utilização profissional"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Testemunho seguinte",
     "slide": "Testemunho {{n}} de {{total}}",
     "q_open": "«",
-    "q_close": "»"
+    "q_close": "»",
+    "caption": "REFERÊNCIAS PROFISSIONAIS",
+    "title": "Uma experiência do trabalho diário com o IglooPro"
   },
   "blog": {
     "caption": "Blog e notícias",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Clínica dentária",
       "bio": "Vitamin D · CRP · HbA1c",
-      "cta": "Ver diagnóstico Dental"
+      "cta": "Ver diagnóstico Dental",
+      "benefit": "Avalie a inflamação, o estado vital e o metabolismo diretamente na cadeira de tratamento — e fundamente a terapia na mesma consulta."
     },
     "beauty": {
       "title": "Estética e Beauty",
       "bio": "Hormonas · Micronutrientes",
-      "cta": "Ver diagnóstico Beauty"
+      "cta": "Ver diagnóstico Beauty",
+      "benefit": "Estado hormonal e nutricional como base para tratamentos da pele, do cabelo e antienvelhecimento — medível em vez de estimado."
     },
     "longevity": {
       "title": "Longevity e Prevenção",
       "bio": "HbA1c · Lípidos · Dímero D",
-      "cta": "Ver diagnóstico Longevity"
+      "cta": "Ver diagnóstico Longevity",
+      "benefit": "Marcadores metabólicos, cardiovasculares e de risco para programas de prevenção e longevity baseados em dados."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "O profissional responsável avalia o valor no seu contexto individual e, quando adequado, discute os próximos passos pertinentes."
       }
     },
-    "safety_note": "As medições fornecem informação adicional. A avaliação profissional e os passos dela decorrentes continuam a ser responsabilidade do profissional competente."
+    "safety_note": "As medições fornecem informação adicional. A avaliação profissional e os passos dela decorrentes continuam a ser responsabilidade do profissional competente.",
+    "title": "Da aplicação à interpretação profissional"
   },
   "shop_teaser": {
     "badge": "Novo",

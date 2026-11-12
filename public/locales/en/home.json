@@ -94,7 +94,9 @@
       "eyebrow": "Selected applications",
       "title": "Direct routes by specialty",
       "intro": "Dental, Beauty and Longevity lead to three published diagnostics areas. The complete portfolio remains available in the Diagnostics hub."
-    }
+    },
+    "eyebrow": "Three business pillars",
+    "title": "Three routes into diagnostics and professional application"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Next testimonial",
     "slide": "Testimonial {{n}} of {{total}}",
     "q_open": "“",
-    "q_close": "”"
+    "q_close": "”",
+    "caption": "PRACTICE REFERENCES",
+    "title": "Experience from everyday practice with IglooPro"
   },
   "blog": {
     "caption": "Blog & News",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Dental practice",
       "bio": "Vitamin D · CRP · HbA1c",
-      "cta": "View dental diagnostics"
+      "cta": "View dental diagnostics",
+      "benefit": "Assess inflammation, vital status and metabolism right at the chairside — and substantiate treatment within the same appointment."
     },
     "beauty": {
       "title": "Aesthetics & Beauty",
       "bio": "Hormones · Micronutrients",
-      "cta": "View beauty diagnostics"
+      "cta": "View beauty diagnostics",
+      "benefit": "Hormone and nutrient status as the basis for skin, hair and anti-ageing treatments — measured, not estimated."
     },
     "longevity": {
       "title": "Longevity & Prevention",
       "bio": "HbA1c · Lipids · D-Dimer",
-      "cta": "View longevity diagnostics"
+      "cta": "View longevity diagnostics",
+      "benefit": "Metabolic, cardiovascular and risk markers for data-driven prevention and longevity programmes."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "The responsible professional assesses the value in its individual context and, where appropriate, discusses sensible next steps."
       }
     },
-    "safety_note": "Measurements provide additional information. Professional assessment and any resulting next steps remain the responsibility of the responsible professional."
+    "safety_note": "Measurements provide additional information. Professional assessment and any resulting next steps remain the responsibility of the responsible professional.",
+    "title": "From application to professional interpretation"
   },
   "shop_teaser": {
     "badge": "New",

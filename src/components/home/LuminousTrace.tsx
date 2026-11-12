@@ -90,7 +90,11 @@ const LuminousTrace = () => {
           side = 0
           return
         }
-        points.push([side ? left : right, top + bounds.height * 0.5])
+        // Die Linie bleibt je Abschnitt im Rand und wechselt die Seite nur an den Abschnittsgrenzen.
+        const x = side ? left : right
+        const pad = Math.min(90, bounds.height * 0.2)
+        points.push([x, top + pad])
+        points.push([x, top + bounds.height - pad])
         side = 1 - side
       })
       points.push([width * 0.5, height - 30])
@@ -132,6 +136,134 @@ const LuminousTrace = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const page = document.getElementById('home-page')
+    const svg = svgRef.current
+    if (!page || !svg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const cleanups: Array<() => void> = []
+    const on = <K extends keyof WindowEventMap>(type: K, handler: () => void) => {
+      window.addEventListener(type, handler, { passive: true })
+      cleanups.push(() => window.removeEventListener(type, handler))
+    }
+    page.classList.add('sc025-fx')
+    cleanups.push(() => page.classList.remove('sc025-fx'))
+
+    // Einblenden beim Scrollen: nur Elemente, die beim Start noch unterhalb des Bildschirms liegen.
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-in')
+          observer.unobserve(entry.target)
+        }),
+      { rootMargin: '0px 0px -6% 0px' },
+    )
+    cleanups.push(() => observer.disconnect())
+    page
+      .querySelectorAll<HTMLElement>(
+        '.sc025-s .sc025-inner > *, .sc025-cols3 > div, .sc025-numbers tbody tr, .sc025-band, .sc025-proc',
+      )
+      .forEach((element) => {
+        const isBand = element.matches('.sc025-band, .sc025-proc')
+        if (!isBand) element.classList.add('sc025-rv')
+        if (element.getBoundingClientRect().top < window.innerHeight) element.classList.add('is-in')
+        else observer.observe(element)
+      })
+
+    // Der Satz im Auftakt färbt sich Wort für Wort ein.
+    const lit = page.querySelector<HTMLElement>('[data-home-lit]')
+    const words: HTMLElement[] = []
+    if (lit && lit.children.length === 0) {
+      const text = lit.textContent ?? ''
+      const firstStop = text.indexOf('. ')
+      let offset = 0
+      lit.textContent = ''
+      text.split(/(\s+)/).forEach((part) => {
+        if (part.trim()) {
+          const span = document.createElement('span')
+          span.textContent = part
+          if (firstStop >= 0 && offset > firstStop) span.className = 'is-accent'
+          lit.append(span)
+          words.push(span)
+        } else lit.append(part)
+        offset += part.length
+      })
+    }
+
+    const hz = page.querySelector<HTMLElement>('[data-home-hz]')
+    const track = page.querySelector<HTMLElement>('[data-home-hz-track]')
+    const bar = page.querySelector<HTMLElement>('[data-home-hz-bar]')
+    const count = page.querySelector<HTMLElement>('[data-home-hz-count]')
+    const bandImage = page.querySelector<HTMLElement>('[data-home-band] img')
+    let frame = 0
+    const update = () => {
+      frame = 0
+      if (lit && words.length) {
+        const bounds = lit.getBoundingClientRect()
+        const progress =
+          (window.innerHeight * 0.88 - bounds.top) / (bounds.height + window.innerHeight * 0.38)
+        const lit_count = Math.round(Math.max(0, Math.min(1, progress)) * words.length)
+        words.forEach((word, index) => word.classList.toggle('is-on', index < lit_count))
+      }
+      if (hz && track && window.innerWidth > 900) {
+        const range = Math.max(1, hz.offsetHeight - window.innerHeight)
+        const top = hz.getBoundingClientRect().top
+        const progress = Math.max(0, Math.min(1, -top / range))
+        track.style.transform = `translate3d(${-(track.scrollWidth - window.innerWidth) * progress}px,0,0)`
+        if (bar) bar.style.transform = `scaleX(${progress})`
+        if (count) count.textContent = `0${Math.min(3, Math.floor(progress * 3) + 1)}`
+      } else if (track) track.style.transform = ''
+      if (bandImage) {
+        const bounds = bandImage.parentElement!.getBoundingClientRect()
+        const shift = (bounds.top + bounds.height / 2 - window.innerHeight / 2) / window.innerHeight
+        bandImage.style.transform = `translateY(${shift * -40}px)`
+      }
+    }
+    const request = () => {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+    on('scroll', request)
+    on('resize', request)
+    request()
+    cleanups.push(() => window.cancelAnimationFrame(frame))
+
+    // Lichtkegel in dunklen Flächen und leicht mitziehender Hauptknopf (nur mit Maus).
+    const spot = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return
+      const dark = (event.target as HTMLElement).closest<HTMLElement>('.sc025-dark')
+      if (!dark) return
+      const bounds = dark.getBoundingClientRect()
+      dark.style.setProperty('--mx', `${event.clientX - bounds.left}px`)
+      dark.style.setProperty('--my', `${event.clientY - bounds.top}px`)
+    }
+    page.addEventListener('pointermove', spot)
+    cleanups.push(() => page.removeEventListener('pointermove', spot))
+
+    // Lichtimpuls auf dem zuletzt gezeichneten Stück der Linie.
+    const path = svg.querySelector<SVGPathElement>('[data-trace-path]')
+    const pulse = svg.querySelector<SVGPathElement>('[data-trace-pulse]')
+    let pulseFrame = 0
+    if (path && pulse) {
+      const start = performance.now()
+      const tick = (now: number) => {
+        const definition = path.getAttribute('d') ?? ''
+        if (pulse.getAttribute('d') !== definition) pulse.setAttribute('d', definition)
+        const total = definition ? path.getTotalLength() : 0
+        const drawn = total - parseFloat(path.style.strokeDashoffset || `${total}`)
+        const phase = ((now - start) % 4200) / 4200
+        pulse.style.strokeDasharray = `46 ${total + 100}`
+        pulse.style.strokeDashoffset = `${-(Math.max(0, drawn - 900) + Math.min(900, drawn) * phase)}`
+        pulse.style.opacity = drawn > 60 ? `${0.9 * Math.sin(phase * Math.PI)}` : '0'
+        pulseFrame = window.requestAnimationFrame(tick)
+      }
+      pulseFrame = window.requestAnimationFrame(tick)
+      cleanups.push(() => window.cancelAnimationFrame(pulseFrame))
+    }
+
+    return () => cleanups.forEach((cleanup) => cleanup())
+  }, [])
+
   return createPortal(
     <svg ref={svgRef} className="sc025-trace" aria-hidden="true" focusable="false">
       <defs>
@@ -164,6 +296,14 @@ const LuminousTrace = () => {
         strokeWidth="1.6"
         strokeLinecap="round"
         filter="url(#sc025-glow)"
+      />
+      <path
+        data-trace-pulse
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        style={{ opacity: 0 }}
       />
       <circle
         data-trace-dot

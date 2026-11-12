@@ -94,7 +94,9 @@
       "eyebrow": "Vybrané aplikace",
       "title": "Přímé vstupy podle odbornosti",
       "intro": "Dental, Beauty a Longevity vedou do tří již publikovaných diagnostických oblastí. Kompletní portfolio zůstává dostupné v centru Diagnostiky."
-    }
+    },
+    "eyebrow": "Tři obchodní pilíře",
+    "title": "Tři cesty k diagnostice a profesionálnímu využití"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Další ohlas",
     "slide": "Ohlas {{n}} z {{total}}",
     "q_open": "„",
-    "q_close": "“"
+    "q_close": "“",
+    "caption": "REFERENCE Z ORDINACÍ",
+    "title": "Zkušenost z každodenní praxe s IglooPro"
   },
   "blog": {
     "caption": "Blog a novinky",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Zubní ordinace",
       "bio": "Vitamin D · CRP · HbA1c",
-      "cta": "Zobrazit Dental diagnostiku"
+      "cta": "Zobrazit Dental diagnostiku",
+      "benefit": "Zánět, vitální stav a metabolismus vyhodnotíte přímo u křesla — a terapii zdůvodníte ještě během téže návštěvy."
     },
     "beauty": {
       "title": "Estetika a Beauty",
       "bio": "Hormony · Mikroživiny",
-      "cta": "Zobrazit Beauty diagnostiku"
+      "cta": "Zobrazit Beauty diagnostiku",
+      "benefit": "Hormonální a nutriční stav jako základ pro péči o pleť, vlasy a anti-aging — měřitelně místo odhadem."
     },
     "longevity": {
       "title": "Longevity a prevence",
       "bio": "HbA1c · Lipidy · D-Dimer",
-      "cta": "Zobrazit Longevity diagnostiku"
+      "cta": "Zobrazit Longevity diagnostiku",
+      "benefit": "Metabolické, kardiovaskulární a rizikové markery pro datově podložené preventivní a longevity programy."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "Odpovědný odborník posoudí hodnotu v individuálním kontextu a případně probere vhodné další kroky."
       }
     },
-    "safety_note": "Měření poskytují doplňující informace. Odborné posouzení a další kroky z něj vyplývající zůstávají odpovědností příslušného odborníka."
+    "safety_note": "Měření poskytují doplňující informace. Odborné posouzení a další kroky z něj vyplývající zůstávají odpovědností příslušného odborníka.",
+    "title": "Od použití k odborné interpretaci"
   },
   "shop_teaser": {
     "badge": "Novinka",

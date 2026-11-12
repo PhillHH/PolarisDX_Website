@@ -14,7 +14,7 @@ const renderSection = () =>
 describe('SC-025 homepage products', () => {
   it('renders the three independent pillars with registry-backed targets', () => {
     renderSection()
-    const section = screen.getByRole('region', { name: 'sc025.products.lead' })
+    const section = screen.getByRole('region', { name: 'business_pillars.title' })
     expect(section.querySelectorAll('[data-business-pillar]')).toHaveLength(3)
     const expected = {
       diagnostics: { routeId: 'diagnostics', href: '/diagnostics' },

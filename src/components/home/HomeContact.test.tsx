@@ -17,7 +17,7 @@ describe('SC-025 contact choices', () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-11-12T12:00:00+01:00'))
     renderSection()
-    const section = screen.getByRole('region', { name: 'sc025.contact.lead' })
+    const section = screen.getByRole('region', { name: 'final_cta.title' })
     expect(section.querySelectorAll('[data-core-service]')).toHaveLength(3)
     for (const link of section.querySelectorAll('[data-core-service]')) {
       expect(link).toHaveAttribute('href', '/contact')

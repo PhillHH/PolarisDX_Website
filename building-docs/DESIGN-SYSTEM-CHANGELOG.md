@@ -27,6 +27,15 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-12 — SC-025 Nachtrag 2 · Premium Maximal (ein System für die ganze Startseite)
+
+- **Ursache:** Owner am 12.11.2026 zur Preview: „Schon gut aber noch nicht konsistent. Und nicht premiummäßig genug aufgelockert", zum Artifact „Premium Maximal": „Okay, das ist krass, das nehmen wir".
+- **Design-Delta:** Alle Abschnitte teilen ein Kopfmuster (`.sc025-head`: Etikett mit Strich, dünne große Überschrift, Einleitung rechts) und ein Abstandsmaß (`.sc025-s`). Auftakt mit Satz, der sich beim Scrollen Wort für Wort einfärbt, und zwei Kennzahlen. Die drei Säulen laufen als angeheftete, seitlich scrollende Galerie mit Zähler und Fortschrittslinie. Fachbereiche und Kennzahlen stehen als große Tabellenzeilen auf Weiß, danach ein vollbreites Foto mit leichtem Versatz. Prozess als drei Spalten mit sich zeichnender Linie. Praxisstimmen groß mit Porträt und Termine auf Nacht-Navy. FAQ und Blog flach mit Haarlinien statt Karte. Schluss mit sehr großer Frage, Gerät und Lichtstrahl. Fußzeile und Wortmarke der Startseite auf `night`.
+- **Signet-Linie:** bleibt je Abschnitt im Rand und kreuzt nur an Abschnittsgrenzen; ein Lichtimpuls läuft das zuletzt gezeichnete Stück entlang.
+- **Bewegung:** alles im nachgeladenen Trace-Chunk, an das Scrollen gekoppelt; Lichtkegel in dunklen Flächen nur mit Maus. Das Einblenden nutzt nur Versatz, keine Deckkraft (Kontrast bleibt jederzeit erfüllt). „Bewegung reduzieren": keine Effekte, Galerie als normale seitliche Liste.
+- **Tokens:** keine neuen Farben.
+- **Betroffene Screenshots (Visual):** `home-mobile` neu aufgenommen und geprüft (Fußzeilen-/Flächenfarbe); alle anderen 21 unverändert; Gesamtlauf 22/22.
+
 ### 2026-11-12 — SC-025 Nachtrag 1 · Lichtfilm-Bühne
 
 - **Ursache:** Owner am 12.11.2026 zum Werkstatt-Entwurf „Lichtfilm" (Mischung aus Lichtring und Produktfilm): „Lichtfilm finde ich heftig geil"; Umsetzung und Korrekturen durch die Claude-Werkstatt.

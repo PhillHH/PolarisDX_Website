@@ -14,7 +14,7 @@ const HomeMore = ({ items }: { items?: FaqEntry[] }) => {
       aria-label={t('sc025.more.label')}
       data-home-more
       data-home-section
-      className="sc025-more"
+      className="sc025-s sc025-more"
     >
       <div className="sc025-inner sc025-more-columns">
         <FAQSection

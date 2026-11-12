@@ -94,7 +94,9 @@
       "eyebrow": "Udvalgte anvendelser",
       "title": "Direkte indgange efter speciale",
       "intro": "Dental, Beauty og Longevity fører til tre allerede publicerede diagnostikområder. Hele porteføljen findes fortsat i Diagnostik-hubben."
-    }
+    },
+    "eyebrow": "Tre forretningssøjler",
+    "title": "Tre veje til diagnostik og professionel anvendelse"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Næste udtalelse",
     "slide": "Udtalelse {{n}} af {{total}}",
     "q_open": "»",
-    "q_close": "«"
+    "q_close": "«",
+    "caption": "KLINIKREFERENCER",
+    "title": "En erfaring fra hverdagen med IglooPro"
   },
   "blog": {
     "caption": "Blog & nyheder",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Tandlægeklinik",
       "bio": "D-vitamin · CRP · HbA1c",
-      "cta": "Se dental-diagnostik"
+      "cta": "Se dental-diagnostik",
+      "benefit": "Vurder inflammation, vitalstatus og stofskifte direkte ved behandlingsstolen — og begrund behandlingen i samme konsultation."
     },
     "beauty": {
       "title": "Æstetik & Beauty",
       "bio": "Hormoner · Mikronæringsstoffer",
-      "cta": "Se beauty-diagnostik"
+      "cta": "Se beauty-diagnostik",
+      "benefit": "Hormon- og næringsstofstatus som grundlag for hud-, hår- og anti-aging-behandlinger — målbart i stedet for gættet."
     },
     "longevity": {
       "title": "Longevity & forebyggelse",
       "bio": "HbA1c · Lipider · D-Dimer",
-      "cta": "Se longevity-diagnostik"
+      "cta": "Se longevity-diagnostik",
+      "benefit": "Stofskifte-, hjerte-kar- og risikomarkører til datadrevne forebyggelses- og longevity-programmer."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "Den ansvarlige fagperson vurderer værdien i dens individuelle kontekst og drøfter om nødvendigt relevante næste skridt."
       }
     },
-    "safety_note": "Målinger giver yderligere information. Den faglige vurdering og de næste skridt, der følger heraf, er fortsat den ansvarlige fagpersons opgave."
+    "safety_note": "Målinger giver yderligere information. Den faglige vurdering og de næste skridt, der følger heraf, er fortsat den ansvarlige fagpersons opgave.",
+    "title": "Fra anvendelse til faglig fortolkning"
   },
   "shop_teaser": {
     "badge": "Ny",

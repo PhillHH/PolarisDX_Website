@@ -36,7 +36,7 @@ for (const locale of SUPPORTED_LANGUAGES) {
       )
       expect((await page.request.get(`/${locale}${path}`)).status()).toBe(200)
     }
-    const table = section.getByRole('table')
+    const table = page.locator('[data-home-fit]').getByRole('table')
     await expect(table.locator('thead th')).toHaveCount(3)
     await expect(table.locator('tbody th[scope="row"]')).toHaveCount(5)
     await expect(table).toContainText('CV < 2 %')

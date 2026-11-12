@@ -94,7 +94,9 @@
       "eyebrow": "Geselecteerde toepassingen",
       "title": "Directe ingangen per vakgebied",
       "intro": "Dental, Beauty en Longevity leiden naar drie reeds gepubliceerde diagnostiekgebieden. Het volledige portfolio blijft beschikbaar in de Diagnostiek-hub."
-    }
+    },
+    "eyebrow": "Drie bedrijfspijlers",
+    "title": "Drie routes naar diagnostiek en professioneel gebruik"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Volgende ervaring",
     "slide": "Ervaring {{n}} van {{total}}",
     "q_open": "“",
-    "q_close": "”"
+    "q_close": "”",
+    "caption": "PRAKTIJKREFERENTIES",
+    "title": "Een ervaring uit de dagelijkse praktijk met IglooPro"
   },
   "blog": {
     "caption": "Blog & nieuws",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Tandartspraktijk",
       "bio": "Vitamine D · CRP · HbA1c",
-      "cta": "Dental-diagnostiek bekijken"
+      "cta": "Dental-diagnostiek bekijken",
+      "benefit": "Beoordeel ontsteking, vitaalstatus en stofwisseling direct aan de behandelstoel — en onderbouw de therapie tijdens dezelfde afspraak."
     },
     "beauty": {
       "title": "Esthetiek & Beauty",
       "bio": "Hormonen · Micronutriënten",
-      "cta": "Beauty-diagnostiek bekijken"
+      "cta": "Beauty-diagnostiek bekijken",
+      "benefit": "Hormoon- en voedingsstatus als basis voor huid-, haar- en anti-agingbehandelingen — meetbaar in plaats van geschat."
     },
     "longevity": {
       "title": "Longevity & preventie",
       "bio": "HbA1c · Lipiden · D-Dimer",
-      "cta": "Longevity-diagnostiek bekijken"
+      "cta": "Longevity-diagnostiek bekijken",
+      "benefit": "Stofwisselings-, cardiovasculaire en risicomarkers voor datagedreven preventie- en longevityprogramma's."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "De verantwoordelijke professional beoordeelt de waarde in de individuele context en bespreekt waar passend zinvolle vervolgstappen."
       }
     },
-    "safety_note": "Metingen bieden aanvullende informatie. De professionele beoordeling en de daaruit voortvloeiende vervolgstappen blijven de verantwoordelijkheid van de bevoegde professional."
+    "safety_note": "Metingen bieden aanvullende informatie. De professionele beoordeling en de daaruit voortvloeiende vervolgstappen blijven de verantwoordelijkheid van de bevoegde professional.",
+    "title": "Van toepassing tot professionele interpretatie"
   },
   "shop_teaser": {
     "badge": "Nieuw",

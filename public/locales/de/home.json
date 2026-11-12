@@ -94,7 +94,9 @@
       "eyebrow": "Ausgewählte Anwendungen",
       "title": "Direkte Einstiege nach Fachbereich",
       "intro": "Dental, Beauty und Longevity führen zu drei bereits veröffentlichten Diagnostikbereichen. Das vollständige Portfolio bleibt im Diagnostik-Hub."
-    }
+    },
+    "eyebrow": "Drei Geschäftssäulen",
+    "title": "Drei Wege für Diagnostik und professionelle Anwendung"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Nächste Stimme",
     "slide": "Stimme {{n}} von {{total}}",
     "q_open": "„",
-    "q_close": "“"
+    "q_close": "“",
+    "caption": "PRAXISREFERENZEN",
+    "title": "Erfahrung aus dem Praxisalltag mit IglooPro"
   },
   "blog": {
     "caption": "Blog & News",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Zahnarztpraxis",
       "bio": "Vitamin D · CRP · HbA1c",
-      "cta": "Dental-Diagnostik ansehen"
+      "cta": "Dental-Diagnostik ansehen",
+      "benefit": "Entzündung, Vitalstatus und Stoffwechsel direkt am Behandlungsstuhl bewerten — und die Therapie im selben Termin begründen."
     },
     "beauty": {
       "title": "Ästhetik & Beauty",
       "bio": "Hormone · Mikronährstoffe",
-      "cta": "Beauty-Diagnostik ansehen"
+      "cta": "Beauty-Diagnostik ansehen",
+      "benefit": "Hormon- und Nährstoffstatus als Grundlage für Haut-, Haar- und Anti-Aging-Behandlungen — messbar statt geschätzt."
     },
     "longevity": {
       "title": "Longevity & Prävention",
       "bio": "HbA1c · Lipide · D-Dimer",
-      "cta": "Longevity-Diagnostik ansehen"
+      "cta": "Longevity-Diagnostik ansehen",
+      "benefit": "Stoffwechsel-, Herz-Kreislauf- und Risikomarker für datenbasierte Präventions- und Longevity-Programme."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "Die verantwortliche Fachperson bewertet den Wert im individuellen Kontext und bespricht gegebenenfalls sinnvolle nächste Schritte."
       }
     },
-    "safety_note": "Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson."
+    "safety_note": "Messwerte liefern zusätzliche Informationen. Die fachliche Bewertung und alle daraus abgeleiteten nächsten Schritte bleiben Aufgabe der verantwortlichen Fachperson.",
+    "title": "Von der Anwendung zur fachlichen Einordnung"
   },
   "shop_teaser": {
     "badge": "Neu",

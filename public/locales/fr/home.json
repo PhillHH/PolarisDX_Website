@@ -94,7 +94,9 @@
       "eyebrow": "Applications sélectionnées",
       "title": "Accès directs par spécialité",
       "intro": "Dental, Beauty et Longevity mènent à trois domaines de diagnostic déjà publiés. Le portefeuille complet reste disponible dans le hub Diagnostic."
-    }
+    },
+    "eyebrow": "Trois piliers d’activité",
+    "title": "Trois voies vers le diagnostic et l’usage professionnel"
   },
   "testimonials": {
     "richard_pollock": {
@@ -146,7 +148,9 @@
     "next": "Témoignage suivant",
     "slide": "Témoignage {{n}} sur {{total}}",
     "q_open": "« ",
-    "q_close": " »"
+    "q_close": " »",
+    "caption": "RÉFÉRENCES CABINETS",
+    "title": "Une expérience du quotidien avec IglooPro"
   },
   "blog": {
     "caption": "Blog & Actualités",
@@ -226,17 +230,20 @@
     "dental": {
       "title": "Cabinet dentaire",
       "bio": "Vitamin D · CRP · HbA1c",
-      "cta": "Voir le diagnostic Dental"
+      "cta": "Voir le diagnostic Dental",
+      "benefit": "Évaluer l'inflammation, le statut vital et le métabolisme directement au fauteuil — et justifier le traitement lors du même rendez-vous."
     },
     "beauty": {
       "title": "Esthétique & Beauty",
       "bio": "Hormones · Micronutriments",
-      "cta": "Voir le diagnostic Beauty"
+      "cta": "Voir le diagnostic Beauty",
+      "benefit": "Le statut hormonal et nutritionnel comme base des soins de la peau, des cheveux et anti-âge — mesuré plutôt qu'estimé."
     },
     "longevity": {
       "title": "Longevity & Prévention",
       "bio": "HbA1c · Lipides · D-dimères",
-      "cta": "Voir le diagnostic Longevity"
+      "cta": "Voir le diagnostic Longevity",
+      "benefit": "Marqueurs métaboliques, cardiovasculaires et de risque pour des programmes de prévention et de Longevity fondés sur les données."
     }
   },
   "steps": {
@@ -256,7 +263,8 @@
         "text": "Le professionnel responsable évalue la valeur dans son contexte individuel et discute, le cas échéant, des prochaines étapes pertinentes."
       }
     },
-    "safety_note": "Les mesures fournissent des informations supplémentaires. L'évaluation professionnelle et les étapes qui en découlent restent sous la responsabilité du professionnel compétent."
+    "safety_note": "Les mesures fournissent des informations supplémentaires. L'évaluation professionnelle et les étapes qui en découlent restent sous la responsabilité du professionnel compétent.",
+    "title": "De l'application à l'interprétation professionnelle"
   },
   "shop_teaser": {
     "badge": "Nouveau",
