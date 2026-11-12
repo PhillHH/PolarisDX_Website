@@ -45,39 +45,39 @@ const FinalCtaSection = ({
     >
       <div className="brand-ring mx-auto max-w-container rounded-band bg-brand-deep px-6 py-20 text-center sm:px-12 lg:py-24">
         <div className="rv relative">
-          <p className="t-eyebrow-dark">{t('final_cta.caption', 'Bereit loszulegen')}</p>
+          <p className="t-eyebrow-dark">{t('final_cta.caption')}</p>
           <h2 className="mx-auto mt-4 max-w-3xl text-balance font-semibold tracking-[-0.035em] text-white text-[clamp(30px,5vw,52px)] leading-[1.05]">
-            {t('final_cta.title', 'Bereit für laborgenaue Diagnostik in Ihrer Praxis?')}
+            {t('final_cta.title')}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-            {t(
-              'final_cta.subtitle',
-              'Sprechen Sie mit unserem Team über eine passende Point-of-Care-Lösung für Ihre Praxis.',
-            )}
+            {t('final_cta.subtitle')}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button to={primaryTarget} variant="light" {...homepageAttribution}>
-              {t('final_cta.cta_primary', 'Angebot anfragen')}
+              {t('final_cta.cta_primary')}
             </Button>
           </div>
           <div className="mt-8 hidden flex-wrap justify-center gap-3 sm:flex">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              <Check size={13} className="text-accent-on-dark" aria-hidden />
-              {t('final_cta.chips.free', 'Unverbindliche Anfrage')}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              <Check size={13} className="text-accent-on-dark" aria-hidden />
-              {t('final_cta.chips.reply', 'Persönliche Beratung')}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15">
-              <Check size={13} className="text-accent-on-dark" aria-hidden />
-              {t('final_cta.chips.delivery', 'In 10 Sprachen verfügbar')}
-            </span>
+            {(['free', 'reply', 'delivery'] as const).map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15"
+              >
+                <Check size={13} className="text-accent-on-dark" aria-hidden />
+                {t(`final_cta.chips.${chip}`)}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </section>
   )
 }
+
+export const InfoCallLink = ({ to, label }: { to: string; label: string }) => (
+  <Button to={to} variant="ghost" className="sc025-direct-link">
+    {label}
+  </Button>
+)
 
 export default FinalCtaSection

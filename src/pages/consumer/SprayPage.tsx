@@ -51,27 +51,28 @@ const getNAV = (t: TFunction) => [
 ]
 
 const ICON_CLASS = 'h-6 w-6'
+const ICON_PROPS = { className: ICON_CLASS, strokeWidth: 1.75 } as const
 
 const getBENEFITS = (t: TFunction): { title: string; body: string; icon: ReactNode }[] => [
   {
     title: t('spray.copy_005'),
     body: t('spray.copy_006'),
-    icon: <Zap className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Zap {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_007'),
     body: t('spray.copy_008'),
-    icon: <Share2 className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Share2 {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_009'),
     body: t('spray.copy_010'),
-    icon: <Package className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Package {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_011'),
     body: t('spray.copy_012'),
-    icon: <Repeat className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Repeat {...ICON_PROPS} />,
   },
 ]
 
@@ -82,25 +83,25 @@ const getAUDIENCES = (
     title: t('spray.copy_013'),
     body: t('spray.copy_014'),
     cta: t('spray.copy_015'),
-    icon: <Building2 className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Building2 {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_016'),
     body: t('spray.copy_017'),
     cta: t('spray.copy_018'),
-    icon: <Home className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Home {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_002'),
     body: t('spray.copy_019'),
     cta: t('spray.copy_020'),
-    icon: <Users className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Users {...ICON_PROPS} />,
   },
   {
     title: t('spray.copy_021'),
     body: t('spray.copy_022'),
     cta: t('spray.copy_023'),
-    icon: <Dumbbell className={ICON_CLASS} strokeWidth={1.75} />,
+    icon: <Dumbbell {...ICON_PROPS} />,
   },
 ]
 

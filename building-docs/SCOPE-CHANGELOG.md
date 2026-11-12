@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-025 — Startseite nach Navbit-Vorlage mit Signet-Linie (Preview)
+
+- **Datum:** 2026-11-12
+- **Status:** ACCEPTED (Owner-Auftrag); Ausrollen nur auf die Preview
+- **Betroffene IDs:** AP05 (Nachtflächen/Motion), AP06 (nur Wortmarke nach dem Footer), AP08 (`home.sc025.*` ×10), AP11 (Startseite), AP18 (Termine), AP24 (Pause/Kontrast/Tabellen), AP25 (route-spezifisches CSS), AP27 (Tests/Baselines), HOMEPAGE-CONTRACT, DESIGN-SYSTEM-CONTRACT
+- **Vorheriger Zustand:** Startseite mit hellem Hero-Slider und Praxisfoto, EventBand und TeamEventSection, Papier-Komposition aus Säulen, Fachbereichskarten, Nutzen/Prozess, vier Praxisstimmen, Blog, FAQ und FinalCta. Keine durchgehend gezeichnete Signet-Linie.
+- **Neuer Zustand:** Bestehender Header und Footer bleiben; nur auf der Startseite folgt dem Footer eine angeschnittene `polarisdx`-Wortmarke. Dazwischen stehen dunkle Bühne mit Satzteilanimation/Fortschritt/Pause, weißer Auftakt, dunkler Produktteil mit Cursor-Drehung und Kennzahlen, weißer Sachteil mit POC-Prozess/Terminen/vier Praxisstimmen, dunkler Kontaktblock sowie FAQ/Blog. Ein bibliotheksfreier, nachgeladener SVG-Trace zeichnet sich rAF-gedrosselt durch die Seite und respektiert Reduced Motion. Termine, Artikel, Praxisstimmen und FAQ-Schema kommen aus den bestehenden Datenquellen; neue kurze UI-Texte stehen in allen zehn Sprachen. Route-spezifisches CSS wird nur in das Inline-HTML der Startseite eingefügt. Keine Budgeterhöhung.
+- **Begründung:** Owner wörtlich am 12.11.2026 zu https://navbit.com/: „ich will das SO WIE DIE SEITE; ABER AUCH mit der Animation, in unserer Brandsprache, das finde ich stark“, danach zum Werkstatt-Entwurf: „Bringe das mal mit unseren Header auf preview bitte“. Verbindliche Vorlage: `polarisdx-werkstatt/entwuerfe/navbit-stil/template.html`, Auftrag K-004.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-12; Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Nur die Startseite in zehn Sprachen und ihr Präsentations-/Motion-Vertrag. Keine neue Route, kein neuer Anbieter, kein Consent-/Tracking-Eingriff, kein Live-Deploy. Alte Startseiten-spezifische Sektionen und Strings entfallen; geteilte Komponenten bleiben.
+- **Auswirkung auf Abhängigkeiten:** Keine neue Bibliothek. `ResizeObserver`, `requestAnimationFrame` und lazy React-Chunks aus dem bestehenden Stack. Termine behalten die Berliner Date-only-Logik; Header/Footer, Popup, Consent und Shop-Ziele bleiben unverändert.
+- **Auswirkung auf Gates:** 17 neue Komponenten-/SSR-Tests und 72 Browserfälle grün. Vollständige Quality-, Performance-, Axe- und Visual-Gates werden in AP-STATE und im K-004-Ergebnis protokolliert. Keine Budget- oder Kontrastgrenze wird geändert.
+- **Aktualisierte kanonische Dokumente:** `building-docs/HOMEPAGE-CONTRACT.md`, `building-docs/DESIGN-SYSTEM-CONTRACT.md`, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `building-docs/state/AP-STATE.md`.
+
 ### SC-024 — Zeitfeste Termine, schnelle SEO-Korrekturen (P1) und verwaiste Seiten anbinden (P3)
 
 - **Datum:** 2026-11-10

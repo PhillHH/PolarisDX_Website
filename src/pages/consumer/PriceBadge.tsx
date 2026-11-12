@@ -19,26 +19,13 @@
  *   - The Mask variant carries NO € figure — just product facts.
  */
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from 'react'
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Info } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 
 import type { ConsumerOrderProduct } from '../../api/consumerOrder'
 import { formatCurrency } from '../../lib/localeFormat'
-
-const subscribeNever = () => () => {}
-const clientSnapshot = () => true
-const serverSnapshot = () => false
 
 // =============================================================================
 // PER-PRODUCT COPY
@@ -78,59 +65,65 @@ interface BadgeCopy {
 const getBadgeCopy = (
   t: TFunction,
   language: string | undefined,
-): Record<ConsumerOrderProduct, BadgeCopy> => ({
-  spray: {
-    intro: t('price_badge.copy_001'),
-    highlight: `< ${formatCurrency(1, language)}`,
-    trigger: t('price_badge.copy_002'),
-    popoverEyebrow: t('price_badge.copy_003'),
-    derivation: [
-      t('price_badge.spray_line_1'),
-      t('price_badge.spray_line_2'),
-      t('price_badge.spray_line_3'),
-    ],
-    resultLabel: t('price_badge.copy_004'),
-    resultValue: `< ${formatCurrency(1, language)}`,
-    footnote: t('price_badge.copy_005'),
-    ariaShow: t('price_badge.copy_006'),
-    ariaHide: t('price_badge.copy_007'),
-    dialogLabel: t('price_badge.copy_008'),
-  },
-  masks: {
-    intro: t('price_badge.copy_009'),
-    highlight: t('price_badge.copy_013'),
-    trigger: t('price_badge.copy_010'),
-    popoverEyebrow: t('price_badge.copy_011'),
-    derivation: [
-      t('price_badge.mask_line_1'),
-      t('price_badge.mask_line_2'),
-      t('price_badge.mask_line_3'),
-    ],
-    resultLabel: t('price_badge.copy_012'),
-    resultValue: t('price_badge.copy_013'),
-    footnote: t('price_badge.copy_014'),
-    ariaShow: t('price_badge.copy_015'),
-    ariaHide: t('price_badge.copy_016'),
-    dialogLabel: t('price_badge.copy_017'),
-  },
-  duo: {
-    intro: t('price_badge.copy_018'),
-    highlight: `< ${formatCurrency(2, language)}`,
-    trigger: t('price_badge.copy_019'),
-    popoverEyebrow: t('price_badge.copy_003'),
-    derivation: [
-      t('price_badge.duo_line_1'),
-      t('price_badge.duo_line_2'),
-      t('price_badge.duo_line_3'),
-    ],
-    resultLabel: t('price_badge.copy_020'),
-    resultValue: `< ${formatCurrency(2, language)}`,
-    footnote: t('price_badge.copy_021'),
-    ariaShow: t('price_badge.copy_022'),
-    ariaHide: t('price_badge.copy_023'),
-    dialogLabel: t('price_badge.copy_024'),
-  },
-})
+): Record<ConsumerOrderProduct, BadgeCopy> => {
+  const sprayValue = `< ${formatCurrency(1, language)}`
+  const duoValue = `< ${formatCurrency(2, language)}`
+  const popoverEyebrow = t('price_badge.copy_003')
+  const masksValue = t('price_badge.copy_013')
+  return {
+    spray: {
+      intro: t('price_badge.copy_001'),
+      highlight: sprayValue,
+      trigger: t('price_badge.copy_002'),
+      popoverEyebrow,
+      derivation: [
+        t('price_badge.spray_line_1'),
+        t('price_badge.spray_line_2'),
+        t('price_badge.spray_line_3'),
+      ],
+      resultLabel: t('price_badge.copy_004'),
+      resultValue: sprayValue,
+      footnote: t('price_badge.copy_005'),
+      ariaShow: t('price_badge.copy_006'),
+      ariaHide: t('price_badge.copy_007'),
+      dialogLabel: t('price_badge.copy_008'),
+    },
+    masks: {
+      intro: t('price_badge.copy_009'),
+      highlight: masksValue,
+      trigger: t('price_badge.copy_010'),
+      popoverEyebrow: t('price_badge.copy_011'),
+      derivation: [
+        t('price_badge.mask_line_1'),
+        t('price_badge.mask_line_2'),
+        t('price_badge.mask_line_3'),
+      ],
+      resultLabel: t('price_badge.copy_012'),
+      resultValue: masksValue,
+      footnote: t('price_badge.copy_014'),
+      ariaShow: t('price_badge.copy_015'),
+      ariaHide: t('price_badge.copy_016'),
+      dialogLabel: t('price_badge.copy_017'),
+    },
+    duo: {
+      intro: t('price_badge.copy_018'),
+      highlight: duoValue,
+      trigger: t('price_badge.copy_019'),
+      popoverEyebrow,
+      derivation: [
+        t('price_badge.duo_line_1'),
+        t('price_badge.duo_line_2'),
+        t('price_badge.duo_line_3'),
+      ],
+      resultLabel: t('price_badge.copy_020'),
+      resultValue: duoValue,
+      footnote: t('price_badge.copy_021'),
+      ariaShow: t('price_badge.copy_022'),
+      ariaHide: t('price_badge.copy_023'),
+      dialogLabel: t('price_badge.copy_024'),
+    },
+  }
+}
 
 // =============================================================================
 // POSITIONING HELPERS
@@ -166,8 +159,6 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
 
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState<PopoverPosition | null>(null)
-  // Portal erst nach Hydration: Server-Snapshot false, Client-Snapshot true.
-  const mounted = useSyncExternalStore(subscribeNever, clientSnapshot, serverSnapshot)
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const popoverRef = useRef<HTMLDivElement | null>(null)
   const popoverId = useId()
@@ -248,12 +239,24 @@ export function PriceBadge({ product }: { product: ConsumerOrderProduct }) {
             className="group inline-flex items-baseline gap-1 rounded-sm align-baseline text-gray-700 transition-colors hover:text-brand-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             <span className="border-b border-dotted border-current">{copy.trigger}</span>
-            <Info className="h-3.5 w-3.5 translate-y-[1px] text-accent-strong" aria-hidden />
+            <svg
+              aria-hidden
+              className="h-3.5 w-3.5 translate-y-[1px] text-accent-strong"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
           </button>
         </span>
       </span>
 
-      {mounted && open && pos
+      {open && pos
         ? createPortal(
             <div
               ref={popoverRef}

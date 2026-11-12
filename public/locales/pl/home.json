@@ -5,7 +5,6 @@
     "social_image_alt": "Czytnik point-of-care IglooPro firmy PolarisDX"
   },
   "hero": {
-    "caption": "Dla gabinetów stomatologicznych, beauty i longevity",
     "title": "Wyniki laboratoryjne. W kilka minut. W Twoim gabinecie.",
     "description": "IglooPro odczytuje szybkie testy wielu producentów i pokazuje wynik, gdy pacjent pozostaje na fotelu.",
     "cta": "Poproś o ofertę",
@@ -54,12 +53,6 @@
       "delivery": "Gotowy do pracy w 3–5 dni roboczych",
       "compat": "Kompatybilny niezależnie od producenta"
     },
-    "aria": {
-      "carousel": "Najważniejsze cechy IglooPro",
-      "go_to_slide": "Przejdź do slajdu {{n}}",
-      "pause": "Wstrzymaj automatyczną zmianę",
-      "play": "Wznów automatyczną zmianę"
-    },
     "stats": {
       "margin": {
         "value": "Ø 980 €",
@@ -74,27 +67,9 @@
         "label": "Walidowane i gotowe do pracy"
       }
     },
-    "stats_disclaimer": "* Wartość przykładowa – zależna od danych Twojego gabinetu.",
-    "steps": [
-      {
-        "title": "Próbka",
-        "text": "Jedna kropla krwi włośniczkowej."
-      },
-      {
-        "title": "Pomiar",
-        "text": "IglooPro odczytuje szybki test."
-      },
-      {
-        "title": "Wynik",
-        "text": "Wynik jest gotowy, a pacjent wciąż siedzi na fotelu."
-      }
-    ],
-    "steps_aria": "Tak to wygląda w gabinecie"
+    "stats_disclaimer": "* Wartość przykładowa – zależna od danych Twojego gabinetu."
   },
   "business_pillars": {
-    "eyebrow": "Trzy filary działalności",
-    "title": "Trzy ścieżki do diagnostyki i zastosowań profesjonalnych",
-    "intro": "PolarisDX łączy diagnostykę point-of-care, czytnik IglooPro i epigenetykę w wyraźnie oddzielonych obszarach.",
     "pillars": {
       "diagnostics": {
         "title": "Diagnostyka",
@@ -121,88 +96,7 @@
       "intro": "Dental, Beauty i Longevity prowadzą do trzech opublikowanych obszarów diagnostycznych. Pełne portfolio pozostaje dostępne w centrum Diagnostyki."
     }
   },
-  "about": {
-    "caption": "TWOJA GWARANCJA WYDAJNOŚCI",
-    "title": "Konfiguracja wydajności IglooPro: zwalidowana diagnostyka POC od pierwszego dnia.",
-    "cta": "Przejdź do systemu IglooPro",
-    "company_link": "Więcej o PolarisDX",
-    "lede": "IglooPro to urządzenie klasy premium — jednak prawdziwie premium wydajność powstaje dopiero dzięki dopracowanemu, bezryzykownemu wdrożeniu. Bierzemy odpowiedzialność za rezultat, aby Państwa proces POC działał bez zarzutu od pierwszego dnia.",
-    "cv_chip": "CV < 2 %",
-    "pillar1": {
-      "title": "Walidacja od pierwszego dnia",
-      "text": "Uruchamiamy Państwa IglooPro zgodnie z wytycznymi CLSI i potwierdzamy precyzję pomiaru, zanim przebadają Państwo pierwszego pacjenta."
-    },
-    "pillar2": {
-      "title": "Skonfigurowane i gotowe do pracy",
-      "text": "Urządzenie, oprogramowanie i profile testów są dopasowane do przebiegu pracy w Państwa gabinecie — bez konieczności konfiguracji po Państwa stronie."
-    },
-    "pillar3": {
-      "title": "Wsparcie na starcie",
-      "text": "Przeszkolenie Państwa zespołu oraz bezpośredni opiekun sprawiają, że diagnostyczna doskonałość jest dostępna od razu."
-    },
-    "device_alt": "Czytnik POC IglooPro"
-  },
-  "doctors": {
-    "caption": "FOKUS NA DIAGNOSTYKĘ",
-    "title": "Precyzyjna diagnostyka z IglooPro: natychmiastowe wyniki w miejscu opieki (point-of-care).",
-    "description": "Odkryj dzięki systemom takim jak Igloo Pro od DX365, jak zoptymalizować opiekę nad pacjentem i stawiać ważne diagnozy bezpośrednio w miejscu leczenia – z wynikami o dokładności laboratoryjnej w kilka minut.",
-    "cta": "Przejdź do systemu Igloo Pro"
-  },
-  "igloo_widget": {
-    "title": "Jaki gabinet prowadzisz?",
-    "dental": "Dental",
-    "beauty": "Beauty",
-    "longevity": "Longevity",
-    "all_services": "Odkryj wszystkie usługi diagnostyczne",
-    "subtitle": "Wybierz swój obszar – pokażemy odpowiednie panele biomarkerów i zastosowania dla Twojej specjalizacji.",
-    "eyebrow": "Państwa specjalizacja",
-    "help_title": "Nie wiesz, który panel pasuje do Twojego gabinetu?",
-    "help_text": "15 minut ze specjalistą POC – konkretna rekomendacja dla Twojej specjalizacji, bez pokazu sprzedażowego.",
-    "help_cta": "Poproś o ofertę"
-  },
-  "services": {
-    "caption": "FOKUS NA DIAGNOSTYKĘ",
-    "title": "Kluczowe obszary diagnostyki profilaktycznej",
-    "poc_systemloesungen": {
-      "title": "Rozwiązania systemowe POC",
-      "description": "Twoje centrum sterowania diagnostyką. Mobilne analizatory dostarczające wyniki o dokładności laboratoryjnej w kilka minut bezpośrednio w miejscu leczenia (np. Igloo Pro)."
-    },
-    "praeventions_checks": {
-      "title": "Profilaktyczne badania zdrowotne",
-      "description": "Profilaktyka na nowo. Szybkie oznaczanie ważnych biomarkerów (np. Vitamin D, CRP, HbA1c) w celu wczesnego rozpoznawania ryzyka i indywidualnego poradnictwa zdrowotnego."
-    },
-    "infektion_entzuendung": {
-      "title": "Markery infekcji i stanów zapalnych",
-      "description": "Szybkie odpowiedzi w sytuacjach krytycznych. Natychmiastowa analiza wskaźników stanu zapalnego (CRP, PCT, IL-6) i chorób zakaźnych – niezbędna w opiece doraźnej i triażu."
-    },
-    "stoffwechsel_herz": {
-      "title": "Metabolizm i zdrowie serca",
-      "description": "Ważne wskaźniki pod kontrolą. Precyzyjny pomiar HbA1c, profili cholesterolu i markerów sercowych (np. D-Dimer) do monitorowania chorób przewlekłych."
-    },
-    "hormon_tests": {
-      "title": "Testy hormonalne i endokrynologiczne",
-      "description": "Diagnostyka specjalistyczna w prosty sposób. Szerokie spektrum testów hormonów tarczycy i hormonów rozrodczych (TSH, AMH) dla gabinetów specjalistycznych i aptek."
-    },
-    "kompatibilitaet_integration": {
-      "title": "Kompatybilność niezależna od producenta",
-      "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia odczytują 90 % wszystkich dostępnych na rynku testów lateral-flow. Bezpieczeństwo inwestycji dzięki otwartości."
-    },
-    "dental": {
-      "title": "Dental",
-      "description": "Zoptymalizowana implantologia. Natychmiastowa analiza Vitamin D dla lepszego gojenia ran oraz markerów stanu zapalnego w celu minimalizacji ryzyka bezpośrednio przy fotelu."
-    },
-    "beauty": {
-      "title": "Beauty i estetyka",
-      "description": "Piękno od wewnątrz. Estetyka oparta na nauce dzięki analizie zdrowia skóry, gospodarki hormonalnej i mikroskładników odżywczych dla widocznych efektów."
-    },
-    "longevity": {
-      "title": "Longevity",
-      "description": "Proaktywne zarządzanie procesem starzenia. Monitorowanie kluczowych biomarkerów, takich jak HbA1c, lipidy i wskaźniki stanu zapalnego, dla dłuższego i zdrowszego życia."
-    }
-  },
   "testimonials": {
-    "caption": "REFERENCJE Z GABINETÓW",
-    "title": "Doświadczenie z codziennej pracy z IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Stomatolog biologiczny i chirurg implantolog / Chelsea Dental Clinic",
@@ -242,9 +136,6 @@
       "practice": "",
       "proof_text": "Igloo Pro pozwala mi podejmować szybkie i precyzyjne decyzje diagnostyczne dokładnie tam, gdzie są potrzebne: przy fotelu."
     },
-    "goTo": "Pokaż opinię {{n}}",
-    "cta": "Przekonaj się sam",
-    "photo_placeholder": "Zdjęcie klienta",
     "aria": {
       "carousel": "Opinie z gabinetów",
       "dots": "Wybierz opinię",
@@ -318,18 +209,6 @@
         "title": "Podstawa rozmowy",
         "text": "Dostępne wartości mogą wspierać profesjonalną konsultację i wspólne omówienie odpowiednich kolejnych kroków."
       }
-    },
-    "benefits": {
-      "practice": {
-        "label": "Korzyść dla gabinetu",
-        "title": "Uporządkowane w toku pracy",
-        "text": "Dodatkowe wyniki są dostępne w procesie Point of Care i można je uwzględnić w konsultacji oraz opiece."
-      },
-      "patient": {
-        "label": "Korzyść dla pacjentek i pacjentów",
-        "title": "Zrozumiałe omówienie wyników",
-        "text": "Dostępne wartości można wyjaśnić w kontekście opieki. Test uzupełnia profesjonalną ocenę; nie zastępuje diagnozy ani leczenia."
-      }
     }
   },
   "final_cta": {
@@ -346,27 +225,22 @@
   "segments": {
     "dental": {
       "title": "Gabinet stomatologiczny",
-      "benefit": "Oceniaj stan zapalny, parametry życiowe i metabolizm bezpośrednio przy fotelu zabiegowym — i uzasadnij terapię podczas tej samej wizyty.",
       "bio": "Witamina D · CRP · HbA1c",
       "cta": "Zobacz diagnostykę Dental"
     },
     "beauty": {
       "title": "Estetyka i Beauty",
-      "benefit": "Status hormonalny i odżywczy jako podstawa zabiegów na skórę, włosy i anti-aging — mierzalny zamiast szacowanego.",
       "bio": "Hormony · Mikroelementy",
       "cta": "Zobacz diagnostykę Beauty"
     },
     "longevity": {
       "title": "Longevity i profilaktyka",
-      "benefit": "Markery metaboliczne, sercowo-naczyniowe i ryzyka dla opartych na danych programów profilaktyki i longevity.",
       "bio": "HbA1c · Lipidy · D-Dimer",
       "cta": "Zobacz diagnostykę Longevity"
     }
   },
   "steps": {
     "caption": "PROCES POC",
-    "title": "Od wykonania do profesjonalnej interpretacji",
-    "intro": "Przejrzysty proces pozwala wykorzystać informacje pomiarowe w codziennej pracy, pozostawiając odpowiedzialność medyczną po stronie personelu prowadzącego.",
     "aria_label": "Proces Point of Care w trzech krokach",
     "items": {
       "application": {
@@ -396,36 +270,93 @@
     "promo_text": "Sześć analiz z krwi włośniczkowej – do zamówienia bezpośrednio w sklepie epigenetycznym.",
     "note_short": "Sklep dla profesjonalistów · ceny netto plus VAT"
   },
-  "aktuell": {
-    "title": "Aktualności",
-    "event_eyebrow": "Teraz · Wydarzenie",
-    "event_cta": "Zobacz wydarzenie"
+  "sc025": {
+    "hero": {
+      "pause": "Pauza",
+      "play": "Wznów"
+    },
+    "products": {
+      "lead": "Próbka. Pomiar. Wynik. Podczas tej samej wizyty.",
+      "tilt": "Porusz kursorem, aby obrócić IglooPro",
+      "diagnostics_visual": "Diagnostyka w codziennej praktyce",
+      "metrics_label": "Wskaźniki · Specjalizacje",
+      "fit_title": "Które wartości pasują do Twojej praktyki?",
+      "metrics_caption": "Wskaźniki i specjalizacje IglooPro",
+      "precision_label": "Precyzja",
+      "precision_detail": "w całym zakresie pomiarowym",
+      "delivery_label": "Dostępność"
+    },
+    "table": {
+      "metric": "Wskaźnik",
+      "value": "Wartość",
+      "detail": "Uwaga",
+      "step": "Krok",
+      "action": "Co się dzieje"
+    },
+    "events": {
+      "caption": "Nadchodzące wydarzenia",
+      "event": "Wydarzenie",
+      "date": "Data",
+      "place": "Miejsce",
+      "action": "Umów spotkanie"
+    },
+    "contact": {
+      "eyebrow": "Skontaktuj się",
+      "lead": "Powiedz nam, kim jesteś. Pokażemy odpowiedni punkt startowy.",
+      "visitor": "Odwiedzający targi",
+      "live": "IglooPro na żywo",
+      "direct": "Lub bezpośrednio:"
+    },
+    "more": {
+      "label": "Więcej informacji"
+    },
+    "process": {
+      "title": "Proces POC"
+    }
   },
-  "hero_slides": {
-    "aria": "Aktualne tematy",
-    "prev": "Poprzedni slajd",
-    "next": "Następny slajd",
-    "pause": "Zatrzymaj automatyczne przewijanie",
-    "play": "Wznów automatyczne przewijanie",
-    "slide": "Slajd {{n}} z {{total}}",
-    "meet": "Umów spotkanie na naszym stoisku",
-    "event_invite": "Zapraszamy na stoisko.",
-    "photo": "Obraz {{n}} z {{total}}"
+  "igloo_widget": {
+    "help_title": "Nie wiesz, który panel pasuje do Twojego gabinetu?",
+    "help_text": "15 minut ze specjalistą POC – konkretna rekomendacja dla Twojej specjalizacji, bez pokazu sprzedażowego.",
+    "help_cta": "Poproś o ofertę"
   },
-  "team": {
-    "eyebrow": "Spotkajmy się",
-    "title": "Nasz zespół z Hamburga",
-    "accent": "na kongresie rocznym DGI.",
-    "when_text": "Dwa dni kongresu, pokazy po umówieniu",
-    "where_text": "Największy kongres implantologiczny w krajach niemieckojęzycznych",
-    "what": "IglooPro na żywo",
-    "what_text": "Wyniki laboratoryjne w kilka minut — wypróbuj na stoisku",
-    "cta": "Zarezerwuj pokaz",
-    "cta_secondary": "Do wydarzenia",
-    "caption": "PolarisDX · Hamburg",
-    "countdown_days": "dni do kongresu",
-    "countdown_day": "dzień do kongresu",
-    "ticket_when": "Kiedy",
-    "ticket_where": "Gdzie"
+  "services": {
+    "caption": "FOKUS NA DIAGNOSTYKĘ",
+    "title": "Kluczowe obszary diagnostyki profilaktycznej",
+    "poc_systemloesungen": {
+      "title": "Rozwiązania systemowe POC",
+      "description": "Twoje centrum sterowania diagnostyką. Mobilne analizatory dostarczające wyniki o dokładności laboratoryjnej w kilka minut bezpośrednio w miejscu leczenia (np. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Profilaktyczne badania zdrowotne",
+      "description": "Profilaktyka na nowo. Szybkie oznaczanie ważnych biomarkerów (np. Vitamin D, CRP, HbA1c) w celu wczesnego rozpoznawania ryzyka i indywidualnego poradnictwa zdrowotnego."
+    },
+    "infektion_entzuendung": {
+      "title": "Markery infekcji i stanów zapalnych",
+      "description": "Szybkie odpowiedzi w sytuacjach krytycznych. Natychmiastowa analiza wskaźników stanu zapalnego (CRP, PCT, IL-6) i chorób zakaźnych – niezbędna w opiece doraźnej i triażu."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolizm i zdrowie serca",
+      "description": "Ważne wskaźniki pod kontrolą. Precyzyjny pomiar HbA1c, profili cholesterolu i markerów sercowych (np. D-Dimer) do monitorowania chorób przewlekłych."
+    },
+    "hormon_tests": {
+      "title": "Testy hormonalne i endokrynologiczne",
+      "description": "Diagnostyka specjalistyczna w prosty sposób. Szerokie spektrum testów hormonów tarczycy i hormonów rozrodczych (TSH, AMH) dla gabinetów specjalistycznych i aptek."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Kompatybilność niezależna od producenta",
+      "description": "Maksymalna elastyczność. Dzięki uniwersalnej technologii nasze urządzenia odczytują 90 % wszystkich dostępnych na rynku testów lateral-flow. Bezpieczeństwo inwestycji dzięki otwartości."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Zoptymalizowana implantologia. Natychmiastowa analiza Vitamin D dla lepszego gojenia ran oraz markerów stanu zapalnego w celu minimalizacji ryzyka bezpośrednio przy fotelu."
+    },
+    "beauty": {
+      "title": "Beauty i estetyka",
+      "description": "Piękno od wewnątrz. Estetyka oparta na nauce dzięki analizie zdrowia skóry, gospodarki hormonalnej i mikroskładników odżywczych dla widocznych efektów."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proaktywne zarządzanie procesem starzenia. Monitorowanie kluczowych biomarkerów, takich jak HbA1c, lipidy i wskaźniki stanu zapalnego, dla dłuższego i zdrowszego życia."
+    }
   }
 }

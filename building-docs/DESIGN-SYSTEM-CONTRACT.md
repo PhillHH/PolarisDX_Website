@@ -76,6 +76,14 @@ einführen will, verletzt `DEC-RL-003`. Das ist kein Design-, sondern ein Scope-
 | `brand.secondary`        | `#2f6fa0` | Helles Blau: Gradient-Start, Link-Hover.                                                                          |
 | `brand.soft`             | `#e8eef5` | Navy-Tönung als Dekorfläche (SC-021): Praxis-Shop-Zelle und Hover im Kopfzeilenraster; `heading` darauf ≈ 10,6:1. |
 
+**SC-025 (2026-11-12) — Nachtflächen der Startseite:** Die Startseite verwendet abwechselnd Weiß und tiefe
+Navy-Flächen. Das sind Einzelflächen im Light Theme (§2), kein Theme-Modus und keine `dark:`-Klasse.
+`night` `#041a2e` ist Bühne und große dunkle Abschnitte, `night.raised` `#072640` deren Karten,
+`night.panel` `#0a2f4e` Hover und Verlauf, `night.dim` `#9fb6cc` sekundärer Text und `night.ghost`
+`#eef2f6` primäre Lead- und Wortmarkenfläche. Kontraste: `night.dim` 8,42:1 auf `night`, 7,38:1 auf
+`night.raised`, 6,56:1 auf `night.panel`; `night.ghost` mindestens 12,20:1. `accent.line` bleibt Dekor.
+Die Linie nutzt ausschließlich `accent.on-dark`, `accent.line` und `accent`.
+
 **Relaunch SC-001 (2026-10-15) — warme Neutralfläche:** `paper` `#f5f3ee` ist die Seitenfläche,
 `paper.deep` `#ecebe4` die abgesetzte Füllung, `paper.line` `#e3e0d7` die Dekor-Trennlinie. Sie
 ersetzen `slate-50/100/200` außerhalb der Musterbefund-Seiten. Dekor, nie Bedienelement-Begrenzung
@@ -1001,3 +1009,31 @@ Color-Lint-Implementierung wird nicht angelegt.
 | Teststrategie/Gates gesamt                              | **AP27**                               |
 
 PT05.1 hat **keine** dieser späteren Zuständigkeiten vorgezogen.
+
+---
+
+## 13. SC-025 — Startseite mit Luminous Trace (2026-11-12)
+
+SC-025 ergänzt die Startseite um eine Navbit-inspirierte Komposition, ohne die Shell oder den Light-Theme-
+Lock zu verändern. Die Abschnittsfolge, Datenquellen und Claims stehen im HOMEPAGE-CONTRACT.
+
+- **Flächen:** `night` für Bühne/Produkt/Kontakt, `night.raised` für Karten, `night.panel` für Hover und
+  Verläufe, `night.dim` für Sekundärtext, `night.ghost` für Lead und Wortmarke. Rollen und Kontraste stehen
+  in §3.1. Die Palette und `PALETTE_HEX` wurden gemeinsam erweitert; das SURFACE-Verzeichnis ist aktuell.
+- **Bühne:** Die H1 behält ihren vollständigen Text für Assistenztechnik. Nur die `aria-hidden`-Satzteile
+  animieren. Pause/Weiter hat mindestens 44 px und `aria-pressed`. Bei Reduced Motion sind Text und
+  Fortschrittsstriche sofort vollständig, kein Timer startet. Es gibt kein Hero-Foto mehr; Text ist LCP.
+- **Luminous Trace:** Ein eigener, erst nach dem ersten Rendern geladener Chunk zeichnet eine dekorative
+  SVG-Linie mit `accent.on-dark`/`accent.line`/`accent`. Er ist bibliotheksfrei, rAF-gedrosselt, wird bei
+  Resize neu berechnet und ist `aria-hidden` sowie `pointer-events:none`. Reduced Motion zeigt die fertige
+  Linie ohne Punkt oder Scrollanimation. Kein Klick wird abgefangen.
+- **CSS:** Das Startseiten-CSS liegt in `src/components/home/home.css` und wird vom Server ausschließlich
+  in das eine Inline-Stylesheet der Startseite eingefügt. Es entstehen weder neue globale Utilities noch
+  zusätzliche Stylesheet-Links oder Hydration-Umbauten. Fremde Seiten bleiben bytegleich; Budgets werden
+  nicht erhöht.
+- **A11y:** Native Tabellen haben `caption`, Spalten- und Zeilen-`th`; FAQ nutzt die bestehende
+  Akkordeon-Komponente mit `aria-expanded`/`aria-controls`.
+  Pause und Stimmen-Knöpfe haben 44 px, Fokus bleibt sichtbar. Mobil gibt es kein horizontales Scrollen;
+  Terminzeilen wechseln auf ein zweispaltiges Leseraster.
+- **Footer:** Der bestehende Footer bleibt unverändert. Nur auf der Startseite folgt danach eine dekorative,
+  angeschnittene `polarisdx`-Wortmarke in `night.ghost`.

@@ -6,6 +6,7 @@ import { ResponsivePicture } from '../ui/ResponsivePicture'
 import { blogPosts } from '../../data/blogPosts'
 import { getArticleImageAsset } from '../../assets/articleImages'
 import { getCanonicalRouteEntries } from '../../routing'
+import { HOME_TARGETS, requireHomeTarget } from '../home/homeTargets'
 
 const registryEntries = getCanonicalRouteEntries()
 
@@ -17,20 +18,37 @@ function requireArticleTarget(routeId: string): string {
 
 const articlesTarget = requireArticleTarget('articles')
 
-/**
- * Knowledge teasers from the real Article source (PT11.5).
- *
- * SC-005 (2026-10-16): one featured article carries the photograph, the two
- * following articles are a numbered reading list. Three photos of the same
- * size in a row were the loudest repetition on the page; one strong picture
- * and a list read faster and cost less HTML than three cards.
- */
-const BlogSection = () => {
+const BlogSection = ({ variant = 'featured' }: { variant?: 'featured' | 'list' }) => {
   const { t } = useTranslation(['home', 'articles'])
   const [featured, ...more] = blogPosts.slice(0, 3)
   if (!featured) return null
   const featuredImage = getArticleImageAsset(featured.image)
   const readMore = t('articles:ui.readMore')
+
+  if (variant === 'list') {
+    return (
+      <div id="blog">
+        <h2 className="sc025-mid">{t('blog.caption')}</h2>
+        {blogPosts.slice(0, 3).map((post) => (
+          <article key={post.id} className="sc025-post">
+            <Link to={requireHomeTarget(`article-detail:${post.id}`)}>
+              <h3>{t(`articles:${post.id}.title`)}</h3>
+              <p className="sc025-text">{t(`articles:${post.id}.excerpt`)}</p>
+            </Link>
+          </article>
+        ))}
+        <Link
+          to={HOME_TARGETS.articles}
+          data-home-secondary-conversion="knowledge"
+          data-route-id="articles"
+          className="sc025-underlink sc025-all-articles"
+        >
+          <span>{t('blog.all_articles')}</span>
+          <ArrowRight aria-hidden="true" />
+        </Link>
+      </div>
+    )
+  }
 
   return (
     <section id="blog" aria-labelledby="homepage-knowledge-title">
@@ -111,8 +129,6 @@ const BlogSection = () => {
               </li>
             ))}
           </ol>
-          {/* SC-006: der Handlungslink schliesst die Leseliste ab statt allein unter dem Raster
-              zu schweben — dieselbe Linkrolle wie "Weiterlesen" in der Karte. */}
           <Link
             to={articlesTarget}
             data-home-secondary-conversion="knowledge"

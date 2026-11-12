@@ -2643,3 +2643,23 @@ Closure-Pruefung: `ci` **852/852** (Node 22.23.2), `lab` **888/888** (Node 18.20
 - **Testpflege:** `e2e/search-modal.spec.ts` „Leerzustand" kollidiert mit der `RouteAnnouncer`-Live-Region (strict mode, vorbestehend seit PT25.1-Build).
 - **Wiederholungsansicht:** Inline-CSS + Render-Marke kosten mobil +0,17–0,25 s FCP bei warmem Cache (§28.7); nicht budgetiert (Gate misst kalt).
 - **Visuell:** keine sichtbare Aenderung aus AP25 (PSNR-Nachweise §27.6, §28.8).
+
+---
+
+## 31. SC-025 — Startseiten-CSS ohne Fremdseitenkosten (2026-11-12)
+
+Die Startseite verwendet `src/components/home/home.css` ausschließlich über einen referenzierten
+Vite-`?url`-Assetpfad. Der Produktions-Server liest den gehashten Dateinamen und fügt das CSS nur bei
+`/{locale}/` in das bereits vorhandene Inline-Stylesheet ein. Der CSP-Hash wird aus dem kombinierten
+Inhalt neu berechnet. Andere Routen laden weder Datei noch Regeln; ihr HTML und CSS bleiben unverändert.
+
+Der Ansatz hält die bisherigen Strukturbudgets ein: genau ein Inline-Stylesheet, null externe
+Stylesheet-Links, kein zusätzlicher Request und kein React-Float-/Hydration-Umbau. Der Luminous Trace ist
+ein separater, erst nach dem ersten Rendern geladener Chunk. Die H1 ist LCP-Kandidat; die Seite setzt
+kein `fetchpriority="high"` und lädt Produkt-/Porträtmedien lazy. Kein Budgetwert wird durch SC-025
+angehoben. Die abschließenden CI-Messungen werden in AP-STATE und im K-004-Ergebnis festgehalten.
+
+**Gemessen 2026-11-12:** statisch 24/24, vollständiges CI-Profil **852/852 PASS**. Initial-JS 155,6 KB gzip,
+Initial-CSS 85,8 KB roh / 16,0 KB gzip. Startseite mobil: HTML 31,8 KB, JS 157,4 KB, LCP 832 ms,
+FCP 832 ms, TTFB 25 ms, CLS 0,0033. Desktop: LCP/FCP 168 ms, TTFB 25 ms, CLS 0,0000. Alle Bild-,
+Font-, Route-JS-, Hydration- und Fremdrequest-Grenzen bleiben eingehalten; kein Budgetwert geändert.

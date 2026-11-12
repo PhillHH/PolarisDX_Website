@@ -27,6 +27,15 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-12 — SC-025 · Startseite mit Nachtflächen und Signet-Linie
+
+- **Ursache:** Owner-Wunsch vom 12.11.2026, die Navbit-inspirierte Werkstattvorlage mit unserem Header und unserer Brandsprache auf die Preview zu bringen.
+- **Neue Tokens (SURFACE:colors):** `night` `#041a2e`, `night.raised` `#072640`, `night.panel` `#0a2f4e`, `night.dim` `#9fb6cc`, `night.ghost` `#eef2f6`. Dunkle Einzelflächen im Light Theme, kein Dark Mode. Kontraste und Rollen stehen im Vertrag; `PALETTE_HEX` wurde im selben Change ergänzt.
+- **Komposition:** Bühne mit Satzteilanimation und Pause/Weiter → weißer Auftakt → Produktkarten und Kennzahlen → Sachteil/Prozess/Termine/Praxisstimmen → Kontakt → FAQ/Blog. Bestehender Header und Footer bleiben; nur die dekorative Wortmarke folgt auf der Startseite dem Footer.
+- **Luminous Trace:** nachgeladener bibliotheksfreier SVG-Chunk mit Cyan/Royal-Verlauf, rAF, ResizeObserver, Reduced-Motion-Endzustand und `pointer-events:none`.
+- **CSS:** `src/components/home/home.css` wird ausschließlich serverseitig in das eine Inline-Stylesheet der Startseite eingefügt; fremde Seiten und deren CSS-Bytes ändern sich nicht. Keine neuen Tailwind-Arbitrary-Utilities und keine Budgeterhöhung.
+- **Visual:** 14 geprüfte Baselines im gepinnten Playwright-Image aktualisiert: sechs Startseiten-Zustände (`home-desktop`, `home-mobile`, `event-popup-desktop`, `site-menu-open-desktop`, `search-dialog-open-desktop`, `cookie-banner-desktop`) sowie `diagnostics-hub`, `service-detail`, `igloo-pro`, `epigenetics-hub`, `resource-center`, `contact`, `support`, `legal-privacy`, `epigenetics-panel` und `resource-gate-open`. Die übrigen acht bleiben unverändert. Fremdseiten sind nach Alt-/Neu-Review strukturell und inhaltlich unverändert; ihre kleinen Build-/Raster- und Scrollpositionsdeltas wurden nicht als Designänderung gewertet. `prepare()` setzt Reduced Motion jetzt ausdrücklich pro Seite, weil die Config-Option hier nicht zuverlässig greift; die erste Aufnahme hatte deshalb nur das erste Satzteilwort gezeigt. Finaler Lauf ohne Update 22/22. Reviewer: Kimi, Diff-Bilder und Vergleich mit der Werkstattvorlage auf 1440 und 390 px.
+
 ### 2026-11-10 — SC-024 · Fußzeile für Fachseiten und dezente Consumer-Einstiege
 
 - **Ursache:** Auftrag der Claude-Werkstatt K-001 im Namen des Owners; Ausrollen nur auf die Preview.
@@ -836,6 +845,7 @@ Diese Blöcke werden vom Gate gelesen. **Nicht von Hand kürzen** — sie sind d
 `befund.green.ink` · `befund.green.soft` · `befund.red` · `befund.red.ink` · `befund.red.soft` ·
 `brand.blue` · `brand.blue-bright` · `brand.deep` · `brand.navy` · `brand.navy-hover` ·
 `brand.navy-mid` · `brand.primary` · `brand.secondary` · `brand.soft` · `gray-100` · `gray-500` · `heading` ·
+`night` · `night.dim` · `night.ghost` · `night.panel` · `night.raised` ·
 `paper` · `paper.deep` · `paper.line` · `social.linkedin` · `success` · `success.soft` · `success.strong` · `ui.border` ·
 `ui.border-hover` · `ui.field` · `ui.text-muted` · `warning` · `warning.soft` · `warning.strong`
 

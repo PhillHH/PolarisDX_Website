@@ -40,6 +40,11 @@ const PALETTE_HEX = new Set([
   '#15589a', // accent.strong
   '#02a6e3', // accent.line — Signet-Cyan
   '#8fd8fb', // accent.on-dark — Akzent auf Navy
+  '#041a2e', // night — SC-025 Startseiten-Buehne
+  '#072640', // night.raised — SC-025 Karten auf Nacht-Navy
+  '#0a2f4e', // night.panel — SC-025 Hover/Verlauf
+  '#9fb6cc', // night.dim — SC-025 Text auf Nacht-Navy
+  '#eef2f6', // night.ghost — SC-025 Wortmarke/Lead
   '#b9e4f7', // accent.border
   // Befund-Ampel (aus den Quell-PDFs gemessen, nur Musterbefund-Seiten)
   '#c8553d', // befund.red

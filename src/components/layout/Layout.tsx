@@ -74,6 +74,11 @@ const Layout = ({ children }: LayoutProps) => {
         <AreaShellProvider>{children}</AreaShellProvider>
       </main>
       <Footer />
+      {pathname === '/' && (
+        <div className="sc025-footer-mark" aria-hidden="true">
+          polarisdx
+        </div>
+      )}
       {popupEvent && (
         <Suspense fallback={null}>
           <EventPopup event={popupEvent} onClose={closePopup} />

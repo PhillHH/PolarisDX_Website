@@ -115,6 +115,14 @@ export default {
         // Der frühere Alias "gray-900" (#203864) wurde entfernt — es gibt
         // seitenweit nur noch #083358 (identisch mit brand.deep / brand.navy).
         heading: '#083358',
+        // SC-025 (2026-11-12) — dunkle Einzelflaechen der Startseite im Light Theme.
+        night: {
+          DEFAULT: '#041a2e',
+          raised: '#072640',
+          panel: '#0a2f4e',
+          dim: '#9fb6cc',
+          ghost: '#eef2f6',
+        },
         // Accent scale — Logo-Blauspektrum (AP34 / SC-002, 2026-10-15).
         // Bis SC-002 war der Akzent Teal (#0d9488 ff.). Der Owner hat das
         // Blauspektrum des PolarisDX-Signets als Markenakzent festgelegt; die

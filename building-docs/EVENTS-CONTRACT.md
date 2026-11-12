@@ -344,3 +344,13 @@ Auftrag der Claude-Werkstatt K-001 im Namen des Owners; Ausrollen nur auf die Pr
 - `EventSsrSchedule.test.tsx` rendert Kopfzeile, EventBand und TeamEventSection mit `renderToString` bei allen vier Zeitpunkten erneut. Nach dem 28.11. bleiben Service-Navigation und Folgeinhalt erhalten; es entsteht keine leere Restfläche. Hero-Hauptfolie und CTA bleiben ebenfalls erhalten.
 - Gezieltes Ergebnis: **74/74 Tests PASS**, plus ein vorbestehender, unverändert übersprungener Header-Test. Keine Produktcodeänderung war erforderlich.
 - SSR bestätigt erneut den bestehenden Laufzeitvertrag: die Eventfunktionen lesen die Systemzeit beim Rendern in `Europe/Berlin`; `server.ts` rendert pro Request und sendet HTML mit `Cache-Control: no-store, no-cache, must-revalidate`. Kein Terminstand ist im Build oder in gecachtem HTML eingefroren. Hero-Folie 2 lädt weiterhin clientseitig nach 1,5 s und verwendet dort dieselbe Laufzeitlogik.
+
+## Nachtrag SC-025 (2026-11-12) — Startseiten-Termin-Tabelle und Messekarte
+
+- `HomeInformation` verwendet `splitEventsByDate(events, new Date()).upcoming` und zeigt alle kommenden
+  Termine mit `events:items.<id>.title`, `formatEventRange`, Ort und `short`. Nach dem letzten Tag
+  verschwinden Überschrift und gesamte Tabelle; kein Phantom-Ersatz wird erzeugt.
+- `HomeContact` verwendet `getNextHomeEvent()` für genau eine Messebesucher-Karte. Ohne Termin entfällt
+  die Karte, die drei Praxis-Einstiege bleiben erhalten.
+- `EventSsrSchedule.test.tsx` prüft Header, EventBand, neue Tabelle und Messekarte gemeinsam am 15., 20., 27. und 29.11.2026. Die alte TeamEventSection ist aus der Startseite entfernt.
+- Die Event- und Zeitquellen bleiben unverändert; SSR rendert weiterhin pro Request mit `no-store`.

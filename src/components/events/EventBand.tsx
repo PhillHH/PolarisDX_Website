@@ -155,3 +155,52 @@ const EventBand = ({ variant = 'full' }: { variant?: 'full' | 'strip' }) => {
 }
 
 export default EventBand
+
+import type { EventEntry } from '../../data/events'
+import { HOME_TARGETS } from '../home/homeTargets'
+
+export const HomeEventTable = ({ upcoming }: { upcoming: readonly EventEntry[] }) => {
+  const { t, i18n } = useTranslation(['home', 'common', 'events'])
+  if (upcoming.length === 0) return null
+  return (
+    <div data-home-events>
+      <h3 className="sc025-subheading">{t('common:nav.events')}</h3>
+      <table className="sc025-table">
+        <caption className="sr-only">{t('home:sc025.events.caption')}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{t('home:sc025.events.event')}</th>
+            <th scope="col">{t('home:sc025.events.date')}</th>
+            <th scope="col" className="sc025-event-place">
+              {t('home:sc025.events.place')}
+            </th>
+            <th scope="col">
+              <span className="sr-only">{t('home:sc025.events.action')}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {upcoming.map((event) => (
+            <tr key={event.id} data-home-event={event.id}>
+              <th scope="row">{t(`events:items.${event.id}.title`)}</th>
+              <td>
+                <time dateTime={event.date}>
+                  {formatEventRange(i18n.language, event.date, event.endDate)}
+                </time>
+              </td>
+              <td className="sc025-event-place">
+                {event.location} · {t(`events:items.${event.id}.short`, '')}
+              </td>
+              <td>
+                <Link to={HOME_TARGETS.contact} className="sc025-underlink">
+                  <span>{t('common:event_popup.meet')}</span>
+                  <ArrowRight aria-hidden="true" />
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}

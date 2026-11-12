@@ -5,7 +5,6 @@
     "social_image_alt": "IglooPro point-of-care-reader van PolarisDX"
   },
   "hero": {
-    "caption": "Voor tandarts-, beauty- en longevity-praktijken",
     "title": "Labwaarden. In minuten. In uw praktijk.",
     "description": "IglooPro leest sneltests van veel fabrikanten en toont de waarde terwijl de patiënt in de stoel blijft.",
     "cta": "Offerte aanvragen",
@@ -54,12 +53,6 @@
       "delivery": "Klaar voor gebruik in 3–5 werkdagen",
       "compat": "Fabrikantonafhankelijk compatibel"
     },
-    "aria": {
-      "carousel": "IglooPro-hoogtepunten",
-      "go_to_slide": "Ga naar slide {{n}}",
-      "pause": "Automatisch wisselen pauzeren",
-      "play": "Automatisch wisselen hervatten"
-    },
     "stats": {
       "margin": {
         "value": "Ø 980 €",
@@ -74,27 +67,9 @@
         "label": "Gevalideerd & gebruiksklaar"
       }
     },
-    "stats_disclaimer": "* Voorbeeldwaarde – afhankelijk van uw praktijkcijfers.",
-    "steps": [
-      {
-        "title": "Monster",
-        "text": "Eén druppel capillair bloed."
-      },
-      {
-        "title": "Meting",
-        "text": "IglooPro leest de sneltest."
-      },
-      {
-        "title": "Resultaat",
-        "text": "De waarde is er terwijl de patiënt nog in de stoel zit."
-      }
-    ],
-    "steps_aria": "Zo gaat het in de praktijk"
+    "stats_disclaimer": "* Voorbeeldwaarde – afhankelijk van uw praktijkcijfers."
   },
   "business_pillars": {
-    "eyebrow": "Drie bedrijfspijlers",
-    "title": "Drie routes naar diagnostiek en professioneel gebruik",
-    "intro": "PolarisDX brengt point-of-care-diagnostiek, de IglooPro-reader en epigenetica samen in duidelijk gescheiden gebieden.",
     "pillars": {
       "diagnostics": {
         "title": "Diagnostiek",
@@ -121,88 +96,7 @@
       "intro": "Dental, Beauty en Longevity leiden naar drie reeds gepubliceerde diagnostiekgebieden. Het volledige portfolio blijft beschikbaar in de Diagnostiek-hub."
     }
   },
-  "about": {
-    "caption": "UW PRESTATIEGARANTIE",
-    "title": "De IglooPro prestatie-setup: gevalideerde POC-diagnostiek vanaf dag 1.",
-    "cta": "Naar het IglooPro-systeem",
-    "company_link": "Meer over PolarisDX",
-    "lede": "De IglooPro is een premiumapparaat — maar echte premiumprestaties ontstaan pas door een geperfectioneerde, risicovrije ingebruikname. Wij nemen de verantwoordelijkheid voor het resultaat, zodat uw POC-workflow vanaf dag één feilloos verloopt.",
-    "cv_chip": "CV < 2 %",
-    "pillar1": {
-      "title": "Gevalideerd vanaf dag 1",
-      "text": "Wij nemen uw IglooPro in gebruik volgens de CLSI-richtlijnen en tonen de meetprecisie aan voordat u de eerste patiënt test."
-    },
-    "pillar2": {
-      "title": "Workflow-klaar ingericht",
-      "text": "Apparaat, software en assay-profielen zijn afgestemd op uw praktijkproces — geen configuratiewerk aan uw kant."
-    },
-    "pillar3": {
-      "title": "Begeleide start",
-      "text": "Een instructie voor uw team en een vast aanspreekpunt zorgen ervoor dat de diagnostische excellentie direct inzetbaar is."
-    },
-    "device_alt": "IglooPro POC-reader"
-  },
-  "doctors": {
-    "caption": "DIAGNOSTIEKFOCUS",
-    "title": "Precieze diagnostiek met de IglooPro: directe resultaten op het point-of-care.",
-    "description": "Ontdek met systemen zoals de Igloo Pro van DX365 hoe u uw patiëntenzorg optimaliseert en belangrijke diagnoses direct op de behandelplek stelt – met labnauwkeurige resultaten binnen enkele minuten.",
-    "cta": "Naar het Igloo Pro-systeem"
-  },
-  "igloo_widget": {
-    "title": "Welke praktijk runt u?",
-    "dental": "Dental",
-    "beauty": "Beauty",
-    "longevity": "Longevity",
-    "all_services": "Alle diagnostiekdiensten ontdekken",
-    "subtitle": "Kies uw gebied – wij tonen de passende biomarkerpanels en toepassingen voor uw vakgebied.",
-    "eyebrow": "Uw vakgebied",
-    "help_title": "Niet zeker welk panel bij uw praktijk past?",
-    "help_text": "15 minuten met een POC-specialist – een concreet advies voor uw vakgebied, geen verkooppraatje.",
-    "help_cta": "Offerte aanvragen"
-  },
-  "services": {
-    "caption": "DIAGNOSTIEKFOCUS",
-    "title": "Kerngebieden van de preventieve diagnostiek",
-    "poc_systemloesungen": {
-      "title": "POC-systeemoplossingen",
-      "description": "Uw zenuwcentrum voor diagnostiek. Mobiele analyseapparaten die labnauwkeurige resultaten binnen enkele minuten direct op de behandelplek leveren (bijv. Igloo Pro)."
-    },
-    "praeventions_checks": {
-      "title": "Preventieve gezondheidschecks",
-      "description": "Preventie opnieuw bedacht. Snelle bepaling van belangrijke biomarkers (bijv. Vitamine D, CRP, HbA1c) voor vroegtijdige risicoherkenning en persoonlijk gezondheidsadvies."
-    },
-    "infektion_entzuendung": {
-      "title": "Infectie- & ontstekingsmarkers",
-      "description": "Snelle antwoorden in kritieke gevallen. Directe analyse van ontstekingswaarden (CRP, PCT, IL-6) en infectieziekten – essentieel voor acute zorg en triage."
-    },
-    "stoffwechsel_herz": {
-      "title": "Stofwisseling & hartgezondheid",
-      "description": "Belangrijke indicatoren in beeld. Precieze meting van HbA1c, cholesterolprofielen en cardiale markers (bijv. D-Dimer) voor de monitoring van chronische aandoeningen."
-    },
-    "hormon_tests": {
-      "title": "Hormoon- & endocrinologietests",
-      "description": "Speciale diagnostiek eenvoudig gemaakt. Breed scala aan tests voor schildklier- en voortplantingshormonen (TSH, AMH) voor gespecialiseerde praktijken en apotheken."
-    },
-    "kompatibilitaet_integration": {
-      "title": "Fabrikantonafhankelijke compatibiliteit",
-      "description": "Maximale flexibiliteit. Dankzij universele technologie lezen onze apparaten 90% van alle lateral-flowtests op de markt uit. Investeringszekerheid door openheid."
-    },
-    "dental": {
-      "title": "Dental",
-      "description": "Geoptimaliseerde implantologie. Directe analyse van Vitamine D voor betere wondgenezing en van ontstekingsmarkers voor risicominimalisatie, direct aan de behandelstoel."
-    },
-    "beauty": {
-      "title": "Beauty & esthetiek",
-      "description": "Schoonheid van binnenuit. Wetenschappelijk onderbouwde esthetiek door analyse van huidgezondheid, hormoonstatus en micronutriënten voor zichtbare resultaten."
-    },
-    "longevity": {
-      "title": "Longevity",
-      "description": "Proactief verouderingsmanagement. Monitoring van essentiële biomarkers zoals HbA1c, lipiden en ontstekingswaarden voor een langer en gezonder leven."
-    }
-  },
   "testimonials": {
-    "caption": "PRAKTIJKREFERENTIES",
-    "title": "Een ervaring uit de dagelijkse praktijk met IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
@@ -242,9 +136,6 @@
       "practice": "",
       "proof_text": "De Igloo Pro stelt mij in staat snel en precies diagnostische beslissingen te nemen – precies daar waar ze nodig zijn: aan de behandelstoel."
     },
-    "goTo": "Beoordeling {{n}} weergeven",
-    "cta": "Overtuig uzelf nu",
-    "photo_placeholder": "Klantfoto",
     "aria": {
       "carousel": "Stemmen uit de praktijk",
       "dots": "Beoordeling selecteren",
@@ -318,18 +209,6 @@
         "title": "Basis voor het gesprek",
         "text": "Beschikbare waarden kunnen professionele advisering en het gezamenlijk bespreken van passende vervolgstappen ondersteunen."
       }
-    },
-    "benefits": {
-      "practice": {
-        "label": "Voordeel voor de praktijk",
-        "title": "Gestructureerd in de workflow",
-        "text": "Aanvullende metingen zijn beschikbaar binnen het Point-of-Care-proces en kunnen bij advies en zorg worden betrokken."
-      },
-      "patient": {
-        "label": "Voordeel voor patiënten",
-        "title": "Resultaten helder bespreken",
-        "text": "Beschikbare waarden kunnen binnen de zorgcontext worden uitgelegd. De test vult de professionele beoordeling aan; hij vervangt diagnose noch behandeling."
-      }
     }
   },
   "final_cta": {
@@ -346,27 +225,22 @@
   "segments": {
     "dental": {
       "title": "Tandartspraktijk",
-      "benefit": "Beoordeel ontsteking, vitaalstatus en stofwisseling direct aan de behandelstoel — en onderbouw de therapie tijdens dezelfde afspraak.",
       "bio": "Vitamine D · CRP · HbA1c",
       "cta": "Dental-diagnostiek bekijken"
     },
     "beauty": {
       "title": "Esthetiek & Beauty",
-      "benefit": "Hormoon- en voedingsstatus als basis voor huid-, haar- en anti-agingbehandelingen — meetbaar in plaats van geschat.",
       "bio": "Hormonen · Micronutriënten",
       "cta": "Beauty-diagnostiek bekijken"
     },
     "longevity": {
       "title": "Longevity & preventie",
-      "benefit": "Stofwisselings-, cardiovasculaire en risicomarkers voor datagedreven preventie- en longevityprogramma's.",
       "bio": "HbA1c · Lipiden · D-Dimer",
       "cta": "Longevity-diagnostiek bekijken"
     }
   },
   "steps": {
     "caption": "HET POC-PROCES",
-    "title": "Van toepassing tot professionele interpretatie",
-    "intro": "Een helder proces maakt meetinformatie bruikbaar in de dagelijkse praktijk en laat de medische verantwoordelijkheid bij de behandelende professionals.",
     "aria_label": "Point-of-Care-proces in drie stappen",
     "items": {
       "application": {
@@ -396,36 +270,93 @@
     "promo_text": "Zes analyses uit capillair bloed – direct te bestellen in de Epigenetica-shop.",
     "note_short": "Shop voor professionals · nettoprijzen excl. btw"
   },
-  "aktuell": {
-    "title": "Actueel",
-    "event_eyebrow": "Nu · Evenement",
-    "event_cta": "Naar het evenement"
+  "sc025": {
+    "hero": {
+      "pause": "Pauze",
+      "play": "Doorgaan"
+    },
+    "products": {
+      "lead": "Monster. Meting. Resultaat. In dezelfde afspraak.",
+      "tilt": "Beweeg de cursor om IglooPro te draaien",
+      "diagnostics_visual": "Diagnostiek in de dagelijkse praktijk",
+      "metrics_label": "Kengetallen · Vakgebieden",
+      "fit_title": "Welke waarden passen bij uw praktijk?",
+      "metrics_caption": "IglooPro-kengetallen en vakgebieden",
+      "precision_label": "Nauwkeurigheid",
+      "precision_detail": "over het gehele meetbereik",
+      "delivery_label": "Beschikbaarheid"
+    },
+    "table": {
+      "metric": "Kengetal",
+      "value": "Waarde",
+      "detail": "Toelichting",
+      "step": "Stap",
+      "action": "Wat er gebeurt"
+    },
+    "events": {
+      "caption": "Aankomende afspraken",
+      "event": "Evenement",
+      "date": "Datum",
+      "place": "Locatie",
+      "action": "Maak een afspraak"
+    },
+    "contact": {
+      "eyebrow": "Neem contact op",
+      "lead": "Vertel ons wie u bent. Wij wijzen u de juiste ingang.",
+      "visitor": "Beursbezoekers",
+      "live": "IglooPro live",
+      "direct": "Of direct:"
+    },
+    "more": {
+      "label": "Meer informatie"
+    },
+    "process": {
+      "title": "Het POC-proces"
+    }
   },
-  "hero_slides": {
-    "aria": "Actuele onderwerpen",
-    "prev": "Vorige dia",
-    "next": "Volgende dia",
-    "pause": "Automatisch wisselen stoppen",
-    "play": "Automatisch wisselen hervatten",
-    "slide": "Dia {{n}} van {{total}}",
-    "meet": "Afspraak op onze stand maken",
-    "event_invite": "Kom langs.",
-    "photo": "Afbeelding {{n}} van {{total}}"
+  "igloo_widget": {
+    "help_title": "Niet zeker welk panel bij uw praktijk past?",
+    "help_text": "15 minuten met een POC-specialist – een concreet advies voor uw vakgebied, geen verkooppraatje.",
+    "help_cta": "Offerte aanvragen"
   },
-  "team": {
-    "eyebrow": "Ontmoet ons",
-    "title": "Ons team uit Hamburg",
-    "accent": "op het DGI-jaarcongres.",
-    "when_text": "Twee congresdagen, demo-slots op afspraak",
-    "where_text": "Het grootste implantologiecongres in het Duitstalige gebied",
-    "what": "IglooPro live",
-    "what_text": "Laboratoriumwaarden in minuten — probeer het op de stand",
-    "cta": "Demo-slot boeken",
-    "cta_secondary": "Naar het evenement",
-    "caption": "PolarisDX · Hamburg",
-    "countdown_days": "dagen tot het congres",
-    "countdown_day": "dag tot het congres",
-    "ticket_when": "Wanneer",
-    "ticket_where": "Waar"
+  "services": {
+    "caption": "DIAGNOSTIEKFOCUS",
+    "title": "Kerngebieden van de preventieve diagnostiek",
+    "poc_systemloesungen": {
+      "title": "POC-systeemoplossingen",
+      "description": "Uw zenuwcentrum voor diagnostiek. Mobiele analyseapparaten die labnauwkeurige resultaten binnen enkele minuten direct op de behandelplek leveren (bijv. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventieve gezondheidschecks",
+      "description": "Preventie opnieuw bedacht. Snelle bepaling van belangrijke biomarkers (bijv. Vitamine D, CRP, HbA1c) voor vroegtijdige risicoherkenning en persoonlijk gezondheidsadvies."
+    },
+    "infektion_entzuendung": {
+      "title": "Infectie- & ontstekingsmarkers",
+      "description": "Snelle antwoorden in kritieke gevallen. Directe analyse van ontstekingswaarden (CRP, PCT, IL-6) en infectieziekten – essentieel voor acute zorg en triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Stofwisseling & hartgezondheid",
+      "description": "Belangrijke indicatoren in beeld. Precieze meting van HbA1c, cholesterolprofielen en cardiale markers (bijv. D-Dimer) voor de monitoring van chronische aandoeningen."
+    },
+    "hormon_tests": {
+      "title": "Hormoon- & endocrinologietests",
+      "description": "Speciale diagnostiek eenvoudig gemaakt. Breed scala aan tests voor schildklier- en voortplantingshormonen (TSH, AMH) voor gespecialiseerde praktijken en apotheken."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Fabrikantonafhankelijke compatibiliteit",
+      "description": "Maximale flexibiliteit. Dankzij universele technologie lezen onze apparaten 90% van alle lateral-flowtests op de markt uit. Investeringszekerheid door openheid."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Geoptimaliseerde implantologie. Directe analyse van Vitamine D voor betere wondgenezing en van ontstekingsmarkers voor risicominimalisatie, direct aan de behandelstoel."
+    },
+    "beauty": {
+      "title": "Beauty & esthetiek",
+      "description": "Schoonheid van binnenuit. Wetenschappelijk onderbouwde esthetiek door analyse van huidgezondheid, hormoonstatus en micronutriënten voor zichtbare resultaten."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proactief verouderingsmanagement. Monitoring van essentiële biomarkers zoals HbA1c, lipiden en ontstekingswaarden voor een langer en gezonder leven."
+    }
   }
 }

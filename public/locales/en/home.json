@@ -5,7 +5,6 @@
     "social_image_alt": "IglooPro point-of-care reader by PolarisDX"
   },
   "hero": {
-    "caption": "For dental, beauty and longevity practices",
     "title": "Lab values. In minutes. In your practice.",
     "description": "IglooPro reads rapid tests from many manufacturers and shows the value while the patient stays in the chair.",
     "cta": "Request a quote",
@@ -54,12 +53,6 @@
       "delivery": "Ready for use in 3–5 business days",
       "compat": "Cross-manufacturer compatible"
     },
-    "aria": {
-      "carousel": "IglooPro highlights",
-      "go_to_slide": "Go to slide {{n}}",
-      "pause": "Pause automatic rotation",
-      "play": "Resume automatic rotation"
-    },
     "stats": {
       "margin": {
         "value": "Ø €980",
@@ -74,27 +67,9 @@
         "label": "Validated & ready to use"
       }
     },
-    "stats_disclaimer": "* Example value — depends on your practice figures.",
-    "steps": [
-      {
-        "title": "Sample",
-        "text": "One drop of capillary blood."
-      },
-      {
-        "title": "Measurement",
-        "text": "IglooPro reads the rapid test."
-      },
-      {
-        "title": "Result",
-        "text": "The value is in while the patient is still in the chair."
-      }
-    ],
-    "steps_aria": "How it works in the practice"
+    "stats_disclaimer": "* Example value — depends on your practice figures."
   },
   "business_pillars": {
-    "eyebrow": "Three business pillars",
-    "title": "Three routes into diagnostics and professional application",
-    "intro": "PolarisDX brings point-of-care diagnostics, the IglooPro reader and epigenetics together in clearly separated areas.",
     "pillars": {
       "diagnostics": {
         "title": "Diagnostics",
@@ -121,88 +96,7 @@
       "intro": "Dental, Beauty and Longevity lead to three published diagnostics areas. The complete portfolio remains available in the Diagnostics hub."
     }
   },
-  "about": {
-    "caption": "YOUR PERFORMANCE GUARANTEE",
-    "title": "The IglooPro performance setup: validated POC diagnostics from day one.",
-    "cta": "To the IglooPro system",
-    "company_link": "More about PolarisDX",
-    "lede": "The IglooPro is a premium device — but true premium performance only comes from a perfected, risk-free commissioning. We take ownership of the outcome, so your POC workflow runs flawlessly from day one.",
-    "cv_chip": "CV < 2 %",
-    "pillar1": {
-      "title": "Validated from day one",
-      "text": "We commission your IglooPro to CLSI specifications and verify measurement precision before you test your first patient."
-    },
-    "pillar2": {
-      "title": "Set up workflow-ready",
-      "text": "Device, software and assay profiles are aligned with your practice workflow — with no configuration effort on your side."
-    },
-    "pillar3": {
-      "title": "Guided start",
-      "text": "Training for your team and a dedicated point of contact ensure that diagnostic excellence is ready to use straight away."
-    },
-    "device_alt": "IglooPro point-of-care reader"
-  },
-  "doctors": {
-    "caption": "DIAGNOSTICS FOCUS",
-    "title": "Precise diagnostics with the IglooPro: immediate results at the point of care.",
-    "description": "Discover with systems like the Igloo Pro from DX365 how to optimise your patient care and make important diagnoses directly at the point of treatment – with lab-accurate results in minutes.",
-    "cta": "To the Igloo Pro system"
-  },
-  "igloo_widget": {
-    "title": "What kind of practice do you run?",
-    "dental": "Dental",
-    "beauty": "Beauty",
-    "longevity": "Longevity",
-    "all_services": "Discover all diagnostics services",
-    "subtitle": "Choose your area – we'll show the matching biomarker panels and applications for your specialty.",
-    "eyebrow": "Your specialty",
-    "help_title": "Not sure which panel fits your practice?",
-    "help_text": "15 minutes with a POC specialist — a concrete recommendation for your specialty, no sales show.",
-    "help_cta": "Request a quote"
-  },
-  "services": {
-    "caption": "DIAGNOSTICS FOCUS",
-    "title": "Key areas of preventive diagnostics",
-    "poc_systemloesungen": {
-      "title": "POC system solutions",
-      "description": "Your control centre for diagnostics. Mobile analysers that deliver lab-accurate results within minutes directly at the point of treatment (e.g. Igloo Pro)."
-    },
-    "praeventions_checks": {
-      "title": "Preventive health checks",
-      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g. Vitamin D, CRP, HbA1c) for early risk detection and individual health advice."
-    },
-    "infektion_entzuendung": {
-      "title": "Infection & inflammation markers",
-      "description": "Fast answers in critical cases. Immediate analysis of inflammation values (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
-    },
-    "stoffwechsel_herz": {
-      "title": "Metabolism & heart health",
-      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles and cardiac markers (e.g. D-Dimer) for monitoring chronic diseases."
-    },
-    "hormon_tests": {
-      "title": "Hormone & endocrinology tests",
-      "description": "Specialist diagnostics made easy. A broad range of tests for thyroid and reproductive hormones (TSH, AMH) for specialised practices and pharmacies."
-    },
-    "kompatibilitaet_integration": {
-      "title": "Cross-manufacturer compatibility",
-      "description": "Maximum flexibility. Thanks to universal technology, our devices read 90% of all lateral flow tests on the market. Investment security through openness."
-    },
-    "dental": {
-      "title": "Dental",
-      "description": "Optimised implantology. Immediate analysis of Vitamin D for better wound healing and of inflammation markers to minimise risk, right at the chair."
-    },
-    "beauty": {
-      "title": "Beauty & Aesthetics",
-      "description": "Beauty from within. Scientifically grounded aesthetics through analysis of skin health, hormone status and micronutrients for visible results."
-    },
-    "longevity": {
-      "title": "Longevity",
-      "description": "Proactive ageing management. Monitoring of essential biomarkers such as HbA1c, lipids and inflammation values for a longer, healthier life."
-    }
-  },
   "testimonials": {
-    "caption": "PRACTICE REFERENCES",
-    "title": "Experience from everyday practice with IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biological Dentist and Implant Surgeon / Chelsea Dental Clinic",
@@ -242,9 +136,6 @@
       "practice": "",
       "proof_text": "The Igloo Pro enables me to make fast, precise diagnostic decisions exactly where they are needed: at the chair."
     },
-    "goTo": "Show review {{n}}",
-    "cta": "See for yourself",
-    "photo_placeholder": "Customer photo",
     "aria": {
       "carousel": "Practice voices",
       "dots": "Choose a review",
@@ -318,18 +209,6 @@
         "title": "A basis for discussion",
         "text": "Available values can support professional consultation and a shared discussion of appropriate next steps."
       }
-    },
-    "benefits": {
-      "practice": {
-        "label": "Benefit for the practice",
-        "title": "Structured within the workflow",
-        "text": "Additional measurements are available in the point-of-care process and can be considered in consultation and care."
-      },
-      "patient": {
-        "label": "Benefit for patients",
-        "title": "Discuss results clearly",
-        "text": "Available values can be explained in the care context. The test complements professional assessment; it replaces neither diagnosis nor treatment."
-      }
     }
   },
   "final_cta": {
@@ -346,27 +225,22 @@
   "segments": {
     "dental": {
       "title": "Dental practice",
-      "benefit": "Assess inflammation, vital status and metabolism right at the chairside — and substantiate treatment within the same appointment.",
       "bio": "Vitamin D · CRP · HbA1c",
       "cta": "View dental diagnostics"
     },
     "beauty": {
       "title": "Aesthetics & Beauty",
-      "benefit": "Hormone and nutrient status as the basis for skin, hair and anti-ageing treatments — measured, not estimated.",
       "bio": "Hormones · Micronutrients",
       "cta": "View beauty diagnostics"
     },
     "longevity": {
       "title": "Longevity & Prevention",
-      "benefit": "Metabolic, cardiovascular and risk markers for data-driven prevention and longevity programmes.",
       "bio": "HbA1c · Lipids · D-Dimer",
       "cta": "View longevity diagnostics"
     }
   },
   "steps": {
     "caption": "THE POC PROCESS",
-    "title": "From application to professional interpretation",
-    "intro": "A clear process makes measurement information useful in everyday practice while keeping medical responsibility with the treating professionals.",
     "aria_label": "Point-of-care process in three steps",
     "items": {
       "application": {
@@ -396,36 +270,93 @@
     "promo_text": "Six analyses from capillary blood – available to order directly in the epigenetics shop.",
     "note_short": "For professionals · net prices plus VAT"
   },
-  "aktuell": {
-    "title": "What's on",
-    "event_eyebrow": "Now · Event",
-    "event_cta": "See the event"
+  "sc025": {
+    "hero": {
+      "pause": "Pause",
+      "play": "Play"
+    },
+    "products": {
+      "lead": "Sample. Measurement. Result. In the same appointment.",
+      "tilt": "Move the cursor to rotate IglooPro",
+      "diagnostics_visual": "Diagnostics in everyday practice",
+      "metrics_label": "Metrics · Specialties",
+      "fit_title": "Which measurements fit your practice?",
+      "metrics_caption": "IglooPro metrics and specialties",
+      "precision_label": "Precision",
+      "precision_detail": "across the entire measuring range",
+      "delivery_label": "Availability"
+    },
+    "table": {
+      "metric": "Metric",
+      "value": "Value",
+      "detail": "Note",
+      "step": "Step",
+      "action": "What happens"
+    },
+    "events": {
+      "caption": "Upcoming events",
+      "event": "Event",
+      "date": "Date",
+      "place": "Location",
+      "action": "Book an appointment"
+    },
+    "contact": {
+      "eyebrow": "Get in touch",
+      "lead": "Tell us who you are. We'll show you the right place to start.",
+      "visitor": "Trade fair visitors",
+      "live": "IglooPro live",
+      "direct": "Or directly:"
+    },
+    "more": {
+      "label": "More information"
+    },
+    "process": {
+      "title": "The POC process"
+    }
   },
-  "hero_slides": {
-    "aria": "Current topics",
-    "prev": "Previous slide",
-    "next": "Next slide",
-    "pause": "Pause automatic rotation",
-    "play": "Resume automatic rotation",
-    "slide": "Slide {{n}} of {{total}}",
-    "meet": "Book a meeting at our stand",
-    "event_invite": "Come and see us.",
-    "photo": "Image {{n}} of {{total}}"
+  "igloo_widget": {
+    "help_title": "Not sure which panel fits your practice?",
+    "help_text": "15 minutes with a POC specialist — a concrete recommendation for your specialty, no sales show.",
+    "help_cta": "Request a quote"
   },
-  "team": {
-    "eyebrow": "Meet us",
-    "title": "Our Hamburg team",
-    "accent": "at the DGI annual congress.",
-    "when_text": "Two congress days, demo slots by appointment",
-    "where_text": "The largest implantology congress in the German-speaking world",
-    "what": "IglooPro live",
-    "what_text": "Lab values in minutes — try it at the stand",
-    "cta": "Book a demo slot",
-    "cta_secondary": "See the event",
-    "caption": "PolarisDX · Hamburg",
-    "countdown_days": "days to the congress",
-    "countdown_day": "day to the congress",
-    "ticket_when": "When",
-    "ticket_where": "Where"
+  "services": {
+    "caption": "DIAGNOSTICS FOCUS",
+    "title": "Key areas of preventive diagnostics",
+    "poc_systemloesungen": {
+      "title": "POC system solutions",
+      "description": "Your control centre for diagnostics. Mobile analysers that deliver lab-accurate results within minutes directly at the point of treatment (e.g. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventive health checks",
+      "description": "Prevention reimagined. Rapid determination of key biomarkers (e.g. Vitamin D, CRP, HbA1c) for early risk detection and individual health advice."
+    },
+    "infektion_entzuendung": {
+      "title": "Infection & inflammation markers",
+      "description": "Fast answers in critical cases. Immediate analysis of inflammation values (CRP, PCT, IL-6) and infectious diseases – essential for acute care and triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolism & heart health",
+      "description": "Key indicators at a glance. Precise measurement of HbA1c, cholesterol profiles and cardiac markers (e.g. D-Dimer) for monitoring chronic diseases."
+    },
+    "hormon_tests": {
+      "title": "Hormone & endocrinology tests",
+      "description": "Specialist diagnostics made easy. A broad range of tests for thyroid and reproductive hormones (TSH, AMH) for specialised practices and pharmacies."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Cross-manufacturer compatibility",
+      "description": "Maximum flexibility. Thanks to universal technology, our devices read 90% of all lateral flow tests on the market. Investment security through openness."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimised implantology. Immediate analysis of Vitamin D for better wound healing and of inflammation markers to minimise risk, right at the chair."
+    },
+    "beauty": {
+      "title": "Beauty & Aesthetics",
+      "description": "Beauty from within. Scientifically grounded aesthetics through analysis of skin health, hormone status and micronutrients for visible results."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proactive ageing management. Monitoring of essential biomarkers such as HbA1c, lipids and inflammation values for a longer, healthier life."
+    }
   }
 }

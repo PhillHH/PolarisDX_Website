@@ -175,6 +175,72 @@ function inlineStylesheet(template: string): { html: string; styleHashes: string
   }
 }
 
+const routeStylesheetCache = new Map<string, string>()
+let homeStylesheetHref: string | undefined
+
+/** SC-025: route-spezifisches CSS nur in dessen SSR-HTML und CSP-Hash aufnehmen. */
+function inlineRouteStylesheet(
+  html: string,
+  styleHashes: string[],
+  isHome: boolean,
+): { html: string; styleHashes: string[] } {
+  if (isHome && !isProduction) {
+    return {
+      html: html.replace(
+        '</head>',
+        '<link rel="stylesheet" href="/src/components/home/home.css" data-home-stylesheet></head>',
+      ),
+      styleHashes,
+    }
+  }
+  const link = html.match(/<link\b(?=[^>]*\bdata-home-stylesheet\b)[^>]*>/i)
+  let href = link?.[0].match(/href="(\/assets\/[^"]+\.css)"/i)?.[1]
+  if (!href && isHome) {
+    if (!homeStylesheetHref) {
+      const file = fs
+        .readdirSync(path.resolve(CLIENT_DIST_DIR, 'assets'))
+        .find((name) => /^home-[^/]+\.css$/.test(name))
+      if (file) homeStylesheetHref = `/assets/${file}`
+    }
+    href = homeStylesheetHref
+  }
+  if (!href) return { html, styleHashes }
+  try {
+    let css = routeStylesheetCache.get(href)
+    if (css === undefined) {
+      css = fs
+        .readFileSync(path.resolve(CLIENT_DIST_DIR, href.slice(1)), 'utf-8')
+        .replace(/<\/style/gi, '<\\/style')
+      routeStylesheetCache.set(href, css)
+    }
+    const withoutLink = link ? html.replace(link[0], '') : html
+    const inline = withoutLink.match(/<style\b[^>]*data-inline-stylesheet[^>]*>/i)
+    if (inline) {
+      const start = inline.index! + inline[0].length
+      const combined = withoutLink.slice(start).replace(/<\/style>/i, (end) => `${css}${end}`)
+      const finalHtml = withoutLink.slice(0, start) + combined
+      const mainCss = finalHtml.match(
+        /<style\b[^>]*data-inline-stylesheet[^>]*>([\s\S]*?)<\/style>/i,
+      )?.[1]
+      if (!mainCss) return { html, styleHashes }
+      return {
+        html: finalHtml,
+        styleHashes: [createHash('sha256').update(mainCss, 'utf8').digest('base64')],
+      }
+    }
+    const hash = createHash('sha256').update(css, 'utf8').digest('base64')
+    return {
+      html: withoutLink.replace(
+        '</head>',
+        `<style data-inline-stylesheet="${href}">${css}</style></head>`,
+      ),
+      styleHashes: [...styleHashes, hash],
+    }
+  } catch {
+    return { html, styleHashes }
+  }
+}
+
 // =============================================================================
 // SSR-WARM-UP (AP25 PT25.2)
 // =============================================================================
@@ -701,13 +767,16 @@ async function createServer() {
           .replace(/<meta\s+name="robots"[\s\S]*?>\s*/i, '')
           .replace(/<meta\s+name="googlebot"[^>]*>\s*/i, '')
       }
-      const finalHtml = prepared
+      const renderedHtml = prepared
         .replace('<!--ssr-outlet-->', cleanAppHtml)
         .replace('<!--helmet-head-->', helmetTags)
         .replace('<html lang="de">', `<html lang="${lang}">`)
         // AP25 PT25.2: i18n-Zustand ans Ende des Kopfes. Funktionsersatz statt
         // Ersatzstring, damit `$` in Uebersetzungen nie als Muster wirkt.
         .replace('</head>', () => `${RUNTIME_APP_ENV_TAG}${i18nHeadTags(i18nState)}</head>`)
+      const routeStyles = inlineRouteStylesheet(renderedHtml, styleHashes, pathWithoutLang === '/')
+      const finalHtml = routeStyles.html
+      styleHashes = routeStyles.styleHashes
 
       // HTML NIE cachen: die Seite referenziert content-gehashte Assets, die sich
       // bei jedem Deploy ändern. Ohne no-store zeigen Browser (heuristisch gecachte)

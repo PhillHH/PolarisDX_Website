@@ -114,10 +114,14 @@ for (const locale of SUPPORTED_LANGUAGES) {
     for (const [index, item] of resources[locale].faq.items.entries()) {
       const question = questions.nth(index)
       await expect(question).toHaveText(item.question)
-      await expect(question).toHaveAttribute('aria-expanded', 'false')
+      await expect(question).toHaveAttribute('aria-expanded', index === 0 ? 'true' : 'false')
+      const answerId = await question.getAttribute('aria-controls')
+      expect(answerId).toBeTruthy()
+      await expect(faq.locator(`#${answerId}`)).toHaveText(item.answer)
       await question.click()
-      await expect(question).toHaveAttribute('aria-expanded', 'true')
-      await expect(faq.getByRole('region', { name: item.question })).toHaveText(item.answer)
+      await expect(question).toHaveAttribute('aria-expanded', index === 0 ? 'false' : 'true')
+      await question.click()
+      await expect(question).toHaveAttribute('aria-expanded', index === 0 ? 'true' : 'false')
     }
 
     const schema = (await faqSchema(page)) as {
@@ -150,23 +154,17 @@ test('PT11.6 page-level accessibility and performance structure stay regression-
   await expect(page.locator('main')).toHaveCount(1)
   await expect(page.locator('footer')).toHaveCount(1)
   await expect(page.locator('main img:not([alt])')).toHaveCount(0)
-  // SC-021: the stage is one decorative 16:10 photo card (alt="", eager, the page's only
-  // high-priority image, dimensioned, AVIF with WebP fallback) after both CTAs.
-  const heroPhoto = page.locator('[data-home-hero] picture[data-home-hero-photo] img')
-  await expect(heroPhoto).toHaveCount(1)
-  await expect(heroPhoto).toHaveAttribute('alt', '')
-  await expect(heroPhoto).toHaveAttribute('loading', 'eager')
-  await expect(heroPhoto).toHaveAttribute('fetchpriority', 'high')
-  await expect(heroPhoto).toHaveAttribute('width', '1280')
-  await expect(heroPhoto).toHaveAttribute('height', '800')
+  // SC-025: the H1 is the LCP candidate; all product and portrait media are lazy and dimensioned.
+  await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(0)
+  await expect(page.locator('[data-home-hero] img')).toHaveCount(0)
+  await expect(page.locator('main img[loading="eager"]')).toHaveCount(0)
+  await expect(page.locator('main img:not([width]), main img:not([height])')).toHaveCount(0)
+  await expect(page.locator('style[data-inline-stylesheet]')).toHaveCount(1)
+  await expect(page.locator('link[rel="stylesheet"]')).toHaveCount(0)
   expect(
-    await page
-      .locator('[data-home-hero] picture[data-home-hero-photo] source')
-      .evaluateAll((sources) => sources.map((s) => s.getAttribute('type'))),
-  ).toEqual(['image/avif'])
-  await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(1)
-  await expect(page.locator('[data-home-hero] img')).toHaveCount(1)
-  await expect(page.locator('main img[loading="eager"]')).toHaveCount(1)
+    await page.locator('style[data-inline-stylesheet]').evaluate((style) => style.textContent),
+  ).toContain('.sc025-hero')
+  await expect(page.locator('.sc025-footer-mark')).toHaveText('polarisdx')
 
   const firstQuestion = page.locator('#faq button').first()
   await firstQuestion.scrollIntoViewIfNeeded()

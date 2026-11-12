@@ -1,3 +1,5 @@
+import type { ArticleImageAsset } from '../articleImages'
+
 /**
  * Relaunch 2026-10-15 (SC-001) — Bildwelt der Startseite.
  *
@@ -143,3 +145,35 @@ export const HERO_CARD = {
   avif: `${heroCapillary480Avif} 480w, ${heroCapillary800Avif} 800w, ${heroCapillary1280Avif} 1280w`,
   webp: `${heroCapillary480Webp} 480w, ${heroCapillary800Webp} 800w, ${heroCapillary1280Webp} 1280w`,
 } as const
+
+export const PILLAR_READER_IMAGE: ArticleImageAsset = {
+  src: PILLAR_READER.src,
+  width: PILLAR_READER.width,
+  height: PILLAR_READER.height,
+  variants: [
+    { width: 480, avif: reader480Avif, webp: reader480Webp },
+    { width: 800, avif: reader800Avif, webp: reader800Webp },
+  ],
+}
+
+export const PILLAR_DIAGNOSTICS_IMAGE: ArticleImageAsset = {
+  src: heroDevice1280Webp,
+  width: 1280,
+  height: 800,
+  variants: [
+    { width: 480, avif: heroDevice480Avif, webp: heroDevice480Webp },
+    { width: 800, avif: heroDevice800Avif, webp: heroDevice800Webp },
+    { width: 1280, avif: heroDevice1280Avif, webp: heroDevice1280Webp },
+  ],
+}
+
+export const PILLAR_SAMPLE_IMAGE: ArticleImageAsset = {
+  src: PILLAR_SAMPLE.src,
+  width: PILLAR_SAMPLE.width,
+  height: PILLAR_SAMPLE.height,
+  variants: [
+    { width: 480, avif: sample480Avif, webp: sample480Webp },
+    { width: 800, avif: sample800Avif, webp: sample800Webp },
+    { width: 1280, avif: sample1280Avif, webp: sample1280Webp },
+  ],
+}

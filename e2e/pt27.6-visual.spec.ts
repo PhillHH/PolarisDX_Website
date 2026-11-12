@@ -27,6 +27,7 @@ const POPUP_KEY = popupStorageKey(getNextHomeEvent(FIXED_TIME)?.id ?? 'none')
 
 async function prepare(page: Page, { consentDecided = true, eventPopup = false } = {}) {
   await page.clock.setFixedTime(FIXED_TIME)
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   if (consentDecided) {
     await page.addInitScript(
       (value) => window.localStorage.setItem('cookie-consent', value),
@@ -43,9 +44,11 @@ async function prepare(page: Page, { consentDecided = true, eventPopup = false }
 /** Wartet auf Netzruhe, Schriften und alle im Viewport sichtbaren Bilder. */
 async function settle(page: Page) {
   await page.waitForLoadState('networkidle')
-  // SC-020/SC-021: Die Bedienung des Hero-Sliders kommt 1,5 s nach dem ersten Bild als eigener Chunk.
+  // SC-025: Die Wortanimation wird erst nach dem ersten Render aktiviert.
   if (await page.locator('[data-home-hero]').count()) {
-    await page.locator('[data-home-hero] [role="tablist"]').waitFor({ state: 'attached' })
+    await page
+      .locator('[data-home-hero][data-animation-ready="true"]')
+      .waitFor({ state: 'attached' })
   }
   await page.evaluate(() => document.fonts.ready)
   await page.evaluate(async () => {

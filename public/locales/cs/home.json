@@ -5,7 +5,6 @@
     "social_image_alt": "Point-of-care čtečka IglooPro od PolarisDX"
   },
   "hero": {
-    "caption": "Pro zubní, estetické a longevity ordinace",
     "title": "Laboratorní hodnoty. Během minut. Ve vaší ordinaci.",
     "description": "IglooPro čte rychlotesty mnoha výrobců a zobrazí hodnotu, zatímco pacient zůstává v křesle.",
     "cta": "Vyžádat nabídku",
@@ -54,12 +53,6 @@
       "delivery": "Připraveno k použití za 3–5 pracovních dnů",
       "compat": "Kompatibilní napříč výrobci"
     },
-    "aria": {
-      "carousel": "Přednosti IglooPro",
-      "go_to_slide": "Přejít na snímek {{n}}",
-      "pause": "Pozastavit automatické přepínání",
-      "play": "Obnovit automatické přepínání"
-    },
     "stats": {
       "margin": {
         "value": "Ø 980 €",
@@ -74,27 +67,9 @@
         "label": "Validováno a připraveno k použití"
       }
     },
-    "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace.",
-    "steps": [
-      {
-        "title": "Vzorek",
-        "text": "Jedna kapka kapilární krve."
-      },
-      {
-        "title": "Měření",
-        "text": "IglooPro přečte rychlotest."
-      },
-      {
-        "title": "Výsledek",
-        "text": "Hodnota je k dispozici, pacient je stále v křesle."
-      }
-    ],
-    "steps_aria": "Jak to probíhá v ordinaci"
+    "stats_disclaimer": "* Příkladová hodnota – závisí na hodnotách vaší ordinace."
   },
   "business_pillars": {
-    "eyebrow": "Tři obchodní pilíře",
-    "title": "Tři cesty k diagnostice a profesionálnímu využití",
-    "intro": "PolarisDX spojuje point-of-care diagnostiku, čtečku IglooPro a epigenetiku v jasně oddělených oblastech.",
     "pillars": {
       "diagnostics": {
         "title": "Diagnostika",
@@ -121,88 +96,7 @@
       "intro": "Dental, Beauty a Longevity vedou do tří již publikovaných diagnostických oblastí. Kompletní portfolio zůstává dostupné v centru Diagnostiky."
     }
   },
-  "about": {
-    "caption": "VÁŠ GARANT VÝKONU",
-    "title": "Výkonnostní nastavení IglooPro: validovaná POC diagnostika od prvního dne.",
-    "cta": "Na systém IglooPro",
-    "company_link": "Více o PolarisDX",
-    "lede": "IglooPro je prémiový přístroj — skutečně prémiový výkon však vzniká až díky dokonalému a bezrizikovému uvedení do provozu. Přebíráme odpovědnost za výsledek, aby váš POC workflow fungoval bezchybně už od prvního dne.",
-    "cv_chip": "CV < 2 %",
-    "pillar1": {
-      "title": "Validováno od prvního dne",
-      "text": "Vaše IglooPro uvedeme do provozu podle směrnic CLSI a doložíme přesnost měření dříve, než otestujete prvního pacienta."
-    },
-    "pillar2": {
-      "title": "Nastaveno pro váš workflow",
-      "text": "Přístroj, software i profily testů jsou sladěné s chodem vaší ordinace — na vaší straně žádné nastavování."
-    },
-    "pillar3": {
-      "title": "Doprovázený start",
-      "text": "Zaškolení vašeho týmu a přímý kontaktní partner zajistí, že diagnostickou špičkovost využijete okamžitě."
-    },
-    "device_alt": "POC analyzátor IglooPro"
-  },
-  "doctors": {
-    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
-    "title": "Přesná diagnostika s IglooPro: okamžité výsledky v místě péče.",
-    "description": "Objevte se systémy jako Igloo Pro od DX365, jak optimalizovat péči o pacienty a stanovit důležité diagnózy přímo v místě ošetření – s laboratorně přesnými výsledky během několika minut.",
-    "cta": "Na systém Igloo Pro"
-  },
-  "igloo_widget": {
-    "title": "Jakou ordinaci provozujete?",
-    "dental": "Dental",
-    "beauty": "Beauty",
-    "longevity": "Longevity",
-    "all_services": "Objevit všechny diagnostické služby",
-    "subtitle": "Zvolte svou oblast – ukážeme vám odpovídající panely biomarkerů a aplikace pro vaši specializaci.",
-    "eyebrow": "Váš obor",
-    "help_title": "Nejste si jisti, který panel se hodí pro vaši ordinaci?",
-    "help_text": "15 minut se specialistou na POC – konkrétní doporučení pro vaši odbornost, žádná prodejní show.",
-    "help_cta": "Vyžádat nabídku"
-  },
-  "services": {
-    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
-    "title": "Klíčové oblasti preventivní diagnostiky",
-    "poc_systemloesungen": {
-      "title": "Systémová řešení POC",
-      "description": "Vaše řídicí centrum pro diagnostiku. Mobilní analyzátory, které poskytují laboratorně přesné výsledky během několika minut přímo v místě ošetření (např. Igloo Pro)."
-    },
-    "praeventions_checks": {
-      "title": "Preventivní zdravotní prohlídky",
-      "description": "Prevence v novém pojetí. Rychlé stanovení důležitých biomarkerů (např. Vitamin D, CRP, HbA1c) pro včasné rozpoznání rizik a individuální zdravotní poradenství."
-    },
-    "infektion_entzuendung": {
-      "title": "Markery infekce a zánětu",
-      "description": "Rychlé odpovědi v kritických případech. Okamžitá analýza zánětlivých hodnot (CRP, PCT, IL-6) a infekčních onemocnění – zásadní pro akutní péči a triáž."
-    },
-    "stoffwechsel_herz": {
-      "title": "Metabolismus a zdraví srdce",
-      "description": "Důležité ukazatele pod kontrolou. Přesné měření HbA1c, profilů cholesterolu a srdečních markerů (např. D-Dimer) pro sledování chronických onemocnění."
-    },
-    "hormon_tests": {
-      "title": "Hormonální a endokrinologické testy",
-      "description": "Specializovaná diagnostika snadno. Široké spektrum testů hormonů štítné žlázy a reprodukčních hormonů (TSH, AMH) pro specializované ordinace a lékárny."
-    },
-    "kompatibilitaet_integration": {
-      "title": "Kompatibilita napříč výrobci",
-      "description": "Maximální flexibilita. Naše přístroje díky univerzální technologii vyhodnocují 90 % všech testů s laterálním tokem dostupných na trhu. Jistota investice díky otevřenosti."
-    },
-    "dental": {
-      "title": "Dental",
-      "description": "Optimalizovaná implantologie. Okamžitá analýza vitaminu D pro lepší hojení ran a zánětlivých markerů pro minimalizaci rizik přímo u křesla."
-    },
-    "beauty": {
-      "title": "Beauty a estetika",
-      "description": "Krása zevnitř. Vědecky podložená estetika díky analýze zdraví pokožky, hormonálního stavu a mikroživin pro viditelné výsledky."
-    },
-    "longevity": {
-      "title": "Longevity",
-      "description": "Proaktivní řízení stárnutí. Monitorování zásadních biomarkerů jako HbA1c, lipidy a zánětlivé hodnoty pro delší a zdravější život."
-    }
-  },
   "testimonials": {
-    "caption": "REFERENCE Z ORDINACÍ",
-    "title": "Zkušenost z každodenní praxe s IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologický zubní lékař a implantolog / Chelsea Dental Clinic",
@@ -242,9 +136,6 @@
       "practice": "",
       "proof_text": "Igloo Pro mi umožňuje činit rychlá a přesná diagnostická rozhodnutí – přesně tam, kde jsou potřeba: u zubařského křesla."
     },
-    "goTo": "Zobrazit hodnocení {{n}}",
-    "cta": "Přesvědčte se sami",
-    "photo_placeholder": "Fotografie zákazníka",
     "aria": {
       "carousel": "Hlasy z praxí",
       "dots": "Vybrat hodnocení",
@@ -318,18 +209,6 @@
         "title": "Podklad pro rozhovor",
         "text": "Dostupné hodnoty mohou podpořit odbornou konzultaci a společnou diskusi o vhodných dalších krocích."
       }
-    },
-    "benefits": {
-      "practice": {
-        "label": "Přínos pro ordinaci",
-        "title": "Strukturovaně v pracovním postupu",
-        "text": "Doplňující měření jsou dostupná v procesu Point of Care a lze je zohlednit při konzultaci a péči."
-      },
-      "patient": {
-        "label": "Přínos pro pacienty",
-        "title": "Srozumitelně probrat výsledky",
-        "text": "Dostupné hodnoty lze vysvětlit v kontextu péče. Test doplňuje odborné posouzení; nenahrazuje diagnózu ani léčbu."
-      }
     }
   },
   "final_cta": {
@@ -346,27 +225,22 @@
   "segments": {
     "dental": {
       "title": "Zubní ordinace",
-      "benefit": "Zánět, vitální stav a metabolismus vyhodnotíte přímo u křesla — a terapii zdůvodníte ještě během téže návštěvy.",
       "bio": "Vitamin D · CRP · HbA1c",
       "cta": "Zobrazit Dental diagnostiku"
     },
     "beauty": {
       "title": "Estetika a Beauty",
-      "benefit": "Hormonální a nutriční stav jako základ pro péči o pleť, vlasy a anti-aging — měřitelně místo odhadem.",
       "bio": "Hormony · Mikroživiny",
       "cta": "Zobrazit Beauty diagnostiku"
     },
     "longevity": {
       "title": "Longevity a prevence",
-      "benefit": "Metabolické, kardiovaskulární a rizikové markery pro datově podložené preventivní a longevity programy.",
       "bio": "HbA1c · Lipidy · D-Dimer",
       "cta": "Zobrazit Longevity diagnostiku"
     }
   },
   "steps": {
     "caption": "PROCES POC",
-    "title": "Od použití k odborné interpretaci",
-    "intro": "Jasný proces umožňuje využít informace z měření v každodenní praxi a ponechává zdravotní odpovědnost na ošetřujících odbornících.",
     "aria_label": "Proces Point of Care ve třech krocích",
     "items": {
       "application": {
@@ -396,36 +270,93 @@
     "promo_text": "Šest analýz z kapilární krve – k objednání přímo v epigenetickém e-shopu.",
     "note_short": "E-shop pro odborníky · ceny bez DPH"
   },
-  "aktuell": {
-    "title": "Aktuálně",
-    "event_eyebrow": "Nyní · Akce",
-    "event_cta": "Zobrazit akci"
+  "sc025": {
+    "hero": {
+      "pause": "Pauza",
+      "play": "Pokračovat"
+    },
+    "products": {
+      "lead": "Vzorek. Měření. Výsledek. Při stejné návštěvě.",
+      "tilt": "Pohybem kurzoru otočíte IglooPro",
+      "diagnostics_visual": "Diagnostika v každodenní praxi",
+      "metrics_label": "Ukazatele · Obory",
+      "fit_title": "Které hodnoty odpovídají vaší ordinaci?",
+      "metrics_caption": "Ukazatele a obory IglooPro",
+      "precision_label": "Přesnost",
+      "precision_detail": "v celém měřicím rozsahu",
+      "delivery_label": "Dostupnost"
+    },
+    "table": {
+      "metric": "Ukazatel",
+      "value": "Hodnota",
+      "detail": "Poznámka",
+      "step": "Krok",
+      "action": "Co se děje"
+    },
+    "events": {
+      "caption": "Nadcházející termíny",
+      "event": "Událost",
+      "date": "Datum",
+      "place": "Místo",
+      "action": "Domluvit termín"
+    },
+    "contact": {
+      "eyebrow": "Kontaktujte nás",
+      "lead": "Řekněte nám, kdo jste. Ukážeme vám vhodný začátek.",
+      "visitor": "Návštěvníci veletrhu",
+      "live": "IglooPro živě",
+      "direct": "Nebo přímo:"
+    },
+    "more": {
+      "label": "Další informace"
+    },
+    "process": {
+      "title": "Proces POC"
+    }
   },
-  "hero_slides": {
-    "aria": "Aktuální témata",
-    "prev": "Předchozí snímek",
-    "next": "Další snímek",
-    "pause": "Zastavit automatické přepínání",
-    "play": "Pokračovat v automatickém přepínání",
-    "slide": "Snímek {{n}} z {{total}}",
-    "meet": "Domluvit schůzku na našem stánku",
-    "event_invite": "Přijďte se podívat.",
-    "photo": "Obrázek {{n}} z {{total}}"
+  "igloo_widget": {
+    "help_title": "Nejste si jisti, který panel se hodí pro vaši ordinaci?",
+    "help_text": "15 minut se specialistou na POC – konkrétní doporučení pro vaši odbornost, žádná prodejní show.",
+    "help_cta": "Vyžádat nabídku"
   },
-  "team": {
-    "eyebrow": "Setkejte se s námi",
-    "title": "Náš hamburský tým",
-    "accent": "na výročním kongresu DGI.",
-    "when_text": "Dva kongresové dny, demo termíny po domluvě",
-    "where_text": "Největší implantologický kongres v německy mluvících zemích",
-    "what": "IglooPro naživo",
-    "what_text": "Laboratorní hodnoty během minut — vyzkoušejte na stánku",
-    "cta": "Rezervovat demo",
-    "cta_secondary": "K termínu",
-    "caption": "PolarisDX · Hamburk",
-    "countdown_days": "dní do kongresu",
-    "countdown_day": "den do kongresu",
-    "ticket_when": "Kdy",
-    "ticket_where": "Kde"
+  "services": {
+    "caption": "ZAMĚŘENÍ NA DIAGNOSTIKU",
+    "title": "Klíčové oblasti preventivní diagnostiky",
+    "poc_systemloesungen": {
+      "title": "Systémová řešení POC",
+      "description": "Vaše řídicí centrum pro diagnostiku. Mobilní analyzátory, které poskytují laboratorně přesné výsledky během několika minut přímo v místě ošetření (např. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Preventivní zdravotní prohlídky",
+      "description": "Prevence v novém pojetí. Rychlé stanovení důležitých biomarkerů (např. Vitamin D, CRP, HbA1c) pro včasné rozpoznání rizik a individuální zdravotní poradenství."
+    },
+    "infektion_entzuendung": {
+      "title": "Markery infekce a zánětu",
+      "description": "Rychlé odpovědi v kritických případech. Okamžitá analýza zánětlivých hodnot (CRP, PCT, IL-6) a infekčních onemocnění – zásadní pro akutní péči a triáž."
+    },
+    "stoffwechsel_herz": {
+      "title": "Metabolismus a zdraví srdce",
+      "description": "Důležité ukazatele pod kontrolou. Přesné měření HbA1c, profilů cholesterolu a srdečních markerů (např. D-Dimer) pro sledování chronických onemocnění."
+    },
+    "hormon_tests": {
+      "title": "Hormonální a endokrinologické testy",
+      "description": "Specializovaná diagnostika snadno. Široké spektrum testů hormonů štítné žlázy a reprodukčních hormonů (TSH, AMH) pro specializované ordinace a lékárny."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Kompatibilita napříč výrobci",
+      "description": "Maximální flexibilita. Naše přístroje díky univerzální technologii vyhodnocují 90 % všech testů s laterálním tokem dostupných na trhu. Jistota investice díky otevřenosti."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimalizovaná implantologie. Okamžitá analýza vitaminu D pro lepší hojení ran a zánětlivých markerů pro minimalizaci rizik přímo u křesla."
+    },
+    "beauty": {
+      "title": "Beauty a estetika",
+      "description": "Krása zevnitř. Vědecky podložená estetika díky analýze zdraví pokožky, hormonálního stavu a mikroživin pro viditelné výsledky."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proaktivní řízení stárnutí. Monitorování zásadních biomarkerů jako HbA1c, lipidy a zánětlivé hodnoty pro delší a zdravější život."
+    }
   }
 }

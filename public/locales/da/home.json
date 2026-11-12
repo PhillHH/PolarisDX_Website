@@ -5,7 +5,6 @@
     "social_image_alt": "IglooPro point-of-care-reader fra PolarisDX"
   },
   "hero": {
-    "caption": "Til tandlæge-, beauty- og longevity-praksisser",
     "title": "Laboratorieværdier. På få minutter. I din klinik.",
     "description": "IglooPro aflæser hurtigtests fra mange producenter og viser værdien, mens patienten bliver i stolen.",
     "cta": "Anmod om tilbud",
@@ -54,12 +53,6 @@
       "delivery": "Klar til brug på 3–5 hverdage",
       "compat": "Kompatibel på tværs af producenter"
     },
-    "aria": {
-      "carousel": "IglooPro-højdepunkter",
-      "go_to_slide": "Gå til slide {{n}}",
-      "pause": "Sæt automatisk skift på pause",
-      "play": "Genoptag automatisk skift"
-    },
     "stats": {
       "margin": {
         "value": "Ø 980 €",
@@ -74,27 +67,9 @@
         "label": "Valideret & driftsklar"
       }
     },
-    "stats_disclaimer": "* Eksempelværdi – afhænger af tallene i din klinik.",
-    "steps": [
-      {
-        "title": "Prøve",
-        "text": "En dråbe kapillærblod."
-      },
-      {
-        "title": "Måling",
-        "text": "IglooPro aflæser hurtigtesten."
-      },
-      {
-        "title": "Resultat",
-        "text": "Værdien foreligger, mens patienten stadig sidder i stolen."
-      }
-    ],
-    "steps_aria": "Sådan foregår det i praksis"
+    "stats_disclaimer": "* Eksempelværdi – afhænger af tallene i din klinik."
   },
   "business_pillars": {
-    "eyebrow": "Tre forretningssøjler",
-    "title": "Tre veje til diagnostik og professionel anvendelse",
-    "intro": "PolarisDX samler point-of-care-diagnostik, IglooPro-læseren og epigenetik i klart adskilte områder.",
     "pillars": {
       "diagnostics": {
         "title": "Diagnostik",
@@ -121,88 +96,7 @@
       "intro": "Dental, Beauty og Longevity fører til tre allerede publicerede diagnostikområder. Hele porteføljen findes fortsat i Diagnostik-hubben."
     }
   },
-  "about": {
-    "caption": "DIN YDEEVNEGARANT",
-    "title": "IglooPro præstations-setup: Valideret POC-diagnostik fra dag 1.",
-    "cta": "Til IglooPro-systemet",
-    "company_link": "Mere om PolarisDX",
-    "lede": "IglooPro er et premium-instrument — men ægte premium-ydelse opstår først gennem en perfektioneret, risikofri idriftsættelse. Vi tager ansvaret for resultatet, så jeres POC-workflow fungerer fejlfrit fra dag ét.",
-    "cv_chip": "CV < 2 %",
-    "pillar1": {
-      "title": "Valideret fra dag 1",
-      "text": "Vi idriftsætter jeres IglooPro efter CLSI-retningslinjerne og dokumenterer målepræcisionen, før I tester den første patient."
-    },
-    "pillar2": {
-      "title": "Workflow-klar opsætning",
-      "text": "Instrument, software og assay-profiler er tilpasset jeres kliniske arbejdsgang — uden konfigurationsarbejde fra jeres side."
-    },
-    "pillar3": {
-      "title": "Guidet opstart",
-      "text": "Oplæring af jeres team og en fast kontaktperson sikrer, at den diagnostiske topkvalitet kan udnyttes med det samme."
-    },
-    "device_alt": "IglooPro POC-læser"
-  },
-  "doctors": {
-    "caption": "DIAGNOSTIK-FOKUS",
-    "title": "Præcis diagnostik med IglooPro: Øjeblikkelige resultater ved point-of-care.",
-    "description": "Oplev med systemer som Igloo Pro fra DX365, hvordan du kan optimere din patientpleje og stille vigtige diagnoser direkte på behandlingsstedet – med laboratorienøjagtige resultater på få minutter.",
-    "cta": "Til Igloo Pro-systemet"
-  },
-  "igloo_widget": {
-    "title": "Hvilken klinik driver du?",
-    "dental": "Dental",
-    "beauty": "Beauty",
-    "longevity": "Longevity",
-    "all_services": "Oplev alle diagnostik-services",
-    "subtitle": "Vælg dit område – vi viser de passende biomarkør-paneler og anvendelser til dit speciale.",
-    "eyebrow": "Jeres speciale",
-    "help_title": "Er du i tvivl om, hvilket panel der passer til din klinik?",
-    "help_text": "15 minutter med en POC-specialist – en konkret anbefaling til dit speciale, ikke et salgsshow.",
-    "help_cta": "Anmod om tilbud"
-  },
-  "services": {
-    "caption": "DIAGNOSTIK-FOKUS",
-    "title": "Nøgleområder inden for forebyggende diagnostik",
-    "poc_systemloesungen": {
-      "title": "POC-systemløsninger",
-      "description": "Dit kontrolcenter for diagnostik. Mobile analyseapparater, der leverer laboratorienøjagtige resultater på få minutter direkte på behandlingsstedet (f.eks. Igloo Pro)."
-    },
-    "praeventions_checks": {
-      "title": "Forebyggende helbredstjek",
-      "description": "Forebyggelse gentænkt. Hurtig bestemmelse af vigtige biomarkører (f.eks. Vitamin D, CRP, HbA1c) til tidlig risikodetektion og individuel sundhedsrådgivning."
-    },
-    "infektion_entzuendung": {
-      "title": "Infektion & inflammationsmarkører",
-      "description": "Hurtige svar i kritiske tilfælde. Øjeblikkelig analyse af inflammationsværdier (CRP, PCT, IL-6) og infektionssygdomme – essentielt for akutbehandling og triage."
-    },
-    "stoffwechsel_herz": {
-      "title": "Stofskifte & hjertesundhed",
-      "description": "Vigtige indikatorer i fokus. Præcis måling af HbA1c, kolesterolprofiler og kardiale markører (f.eks. D-Dimer) til overvågning af kroniske sygdomme."
-    },
-    "hormon_tests": {
-      "title": "Hormon- & endokrinologitests",
-      "description": "Specialdiagnostik gjort nemt. Bredt udvalg af tests til skjoldbruskkirtel- og reproduktionshormoner (TSH, AMH) til specialiserede klinikker og apoteker."
-    },
-    "kompatibilitaet_integration": {
-      "title": "Kompatibilitet på tværs af producenter",
-      "description": "Maksimal fleksibilitet. Takket være universel teknologi aflæser vores apparater 90 % af alle lateral flow-tests på markedet. Investeringssikkerhed gennem åbenhed."
-    },
-    "dental": {
-      "title": "Dental",
-      "description": "Optimeret implantologi. Øjeblikkelig analyse af Vitamin D for bedre sårheling og inflammationsmarkører til risikominimering direkte ved behandlingsstolen."
-    },
-    "beauty": {
-      "title": "Beauty & æstetik",
-      "description": "Skønhed indefra. Videnskabeligt funderet æstetik gennem analyse af hudsundhed, hormonstatus og mikronæringsstoffer for synlige resultater."
-    },
-    "longevity": {
-      "title": "Longevity",
-      "description": "Proaktiv aldringshåndtering. Monitorering af essentielle biomarkører som HbA1c, lipider og inflammationsværdier for et længere, sundere liv."
-    }
-  },
   "testimonials": {
-    "caption": "KLINIKREFERENCER",
-    "title": "En erfaring fra hverdagen med IglooPro",
     "richard_pollock": {
       "role": "Biological Dentist & Implant Surgeon",
       "title": "Biologisk tandlæge og implantatkirurg / Chelsea Dental Clinic",
@@ -242,9 +136,6 @@
       "practice": "",
       "proof_text": "Igloo Pro giver mig mulighed for at træffe hurtige og præcise diagnostiske beslutninger – netop dér, hvor der er brug for dem: ved behandlingsstolen."
     },
-    "goTo": "Vis anmeldelse {{n}}",
-    "cta": "Bliv selv overbevist",
-    "photo_placeholder": "Kundebillede",
     "aria": {
       "carousel": "Stemmer fra praksis",
       "dots": "Vælg anmeldelse",
@@ -318,18 +209,6 @@
         "title": "Et grundlag for samtalen",
         "text": "Tilgængelige værdier kan understøtte faglig rådgivning og en fælles drøftelse af relevante næste skridt."
       }
-    },
-    "benefits": {
-      "practice": {
-        "label": "Fordel for klinikken",
-        "title": "Struktureret i arbejdsgangen",
-        "text": "Yderligere målinger er tilgængelige i Point-of-Care-processen og kan indgå i rådgivning og behandling."
-      },
-      "patient": {
-        "label": "Fordel for patienter",
-        "title": "Forklar resultaterne tydeligt",
-        "text": "Tilgængelige værdier kan forklares i behandlingskonteksten. Testen supplerer den faglige vurdering; den erstatter hverken diagnose eller behandling."
-      }
     }
   },
   "final_cta": {
@@ -346,27 +225,22 @@
   "segments": {
     "dental": {
       "title": "Tandlægeklinik",
-      "benefit": "Vurder inflammation, vitalstatus og stofskifte direkte ved behandlingsstolen — og begrund behandlingen i samme konsultation.",
       "bio": "D-vitamin · CRP · HbA1c",
       "cta": "Se dental-diagnostik"
     },
     "beauty": {
       "title": "Æstetik & Beauty",
-      "benefit": "Hormon- og næringsstofstatus som grundlag for hud-, hår- og anti-aging-behandlinger — målbart i stedet for gættet.",
       "bio": "Hormoner · Mikronæringsstoffer",
       "cta": "Se beauty-diagnostik"
     },
     "longevity": {
       "title": "Longevity & forebyggelse",
-      "benefit": "Stofskifte-, hjerte-kar- og risikomarkører til datadrevne forebyggelses- og longevity-programmer.",
       "bio": "HbA1c · Lipider · D-Dimer",
       "cta": "Se longevity-diagnostik"
     }
   },
   "steps": {
     "caption": "POC-PROCESSEN",
-    "title": "Fra anvendelse til faglig fortolkning",
-    "intro": "En klar proces gør måleinformation anvendelig i hverdagen og lader det medicinske ansvar blive hos de behandlende fagpersoner.",
     "aria_label": "Point-of-Care-proces i tre trin",
     "items": {
       "application": {
@@ -396,36 +270,93 @@
     "promo_text": "Seks analyser fra kapillærblod – kan bestilles direkte i Epigenetik-shoppen.",
     "note_short": "Klinikshop til fagfolk · nettopriser ekskl. moms"
   },
-  "aktuell": {
-    "title": "Aktuelt",
-    "event_eyebrow": "Nu · Arrangement",
-    "event_cta": "Se arrangementet"
+  "sc025": {
+    "hero": {
+      "pause": "Pause",
+      "play": "Fortsæt"
+    },
+    "products": {
+      "lead": "Prøve. Måling. Resultat. I samme konsultation.",
+      "tilt": "Bevæg markøren for at dreje IglooPro",
+      "diagnostics_visual": "Diagnostik i klinikhverdagen",
+      "metrics_label": "Nøgletal · Fagområder",
+      "fit_title": "Hvilke værdier passer til din klinik?",
+      "metrics_caption": "IglooPro-nøgletal og fagområder",
+      "precision_label": "Præcision",
+      "precision_detail": "over hele måleområdet",
+      "delivery_label": "Tilgængelighed"
+    },
+    "table": {
+      "metric": "Nøgletal",
+      "value": "Værdi",
+      "detail": "Bemærkning",
+      "step": "Trin",
+      "action": "Hvad sker der"
+    },
+    "events": {
+      "caption": "Kommende arrangementer",
+      "event": "Arrangement",
+      "date": "Dato",
+      "place": "Sted",
+      "action": "Book en tid"
+    },
+    "contact": {
+      "eyebrow": "Kontakt os",
+      "lead": "Fortæl os, hvem du er. Vi viser dig det rette udgangspunkt.",
+      "visitor": "Messebesøgende",
+      "live": "IglooPro live",
+      "direct": "Eller direkte:"
+    },
+    "more": {
+      "label": "Flere oplysninger"
+    },
+    "process": {
+      "title": "POC-processen"
+    }
   },
-  "hero_slides": {
-    "aria": "Aktuelle emner",
-    "prev": "Forrige slide",
-    "next": "Næste slide",
-    "pause": "Stop automatisk skift",
-    "play": "Genoptag automatisk skift",
-    "slide": "Slide {{n}} af {{total}}",
-    "meet": "Book et møde på vores stand",
-    "event_invite": "Kom forbi.",
-    "photo": "Billede {{n}} af {{total}}"
+  "igloo_widget": {
+    "help_title": "Er du i tvivl om, hvilket panel der passer til din klinik?",
+    "help_text": "15 minutter med en POC-specialist – en konkret anbefaling til dit speciale, ikke et salgsshow.",
+    "help_cta": "Anmod om tilbud"
   },
-  "team": {
-    "eyebrow": "Mød os",
-    "title": "Vores Hamburg-team",
-    "accent": "på DGI-årskongressen.",
-    "when_text": "To kongresdage, demo-slots efter aftale",
-    "where_text": "Den største implantologiske fagkongres i det tysksprogede område",
-    "what": "IglooPro live",
-    "what_text": "Laboratorieværdier på få minutter — prøv det på standen",
-    "cta": "Book et demo-slot",
-    "cta_secondary": "Til begivenheden",
-    "caption": "PolarisDX · Hamburg",
-    "countdown_days": "dage til kongressen",
-    "countdown_day": "dag til kongressen",
-    "ticket_when": "Hvornår",
-    "ticket_where": "Hvor"
+  "services": {
+    "caption": "DIAGNOSTIK-FOKUS",
+    "title": "Nøgleområder inden for forebyggende diagnostik",
+    "poc_systemloesungen": {
+      "title": "POC-systemløsninger",
+      "description": "Dit kontrolcenter for diagnostik. Mobile analyseapparater, der leverer laboratorienøjagtige resultater på få minutter direkte på behandlingsstedet (f.eks. Igloo Pro)."
+    },
+    "praeventions_checks": {
+      "title": "Forebyggende helbredstjek",
+      "description": "Forebyggelse gentænkt. Hurtig bestemmelse af vigtige biomarkører (f.eks. Vitamin D, CRP, HbA1c) til tidlig risikodetektion og individuel sundhedsrådgivning."
+    },
+    "infektion_entzuendung": {
+      "title": "Infektion & inflammationsmarkører",
+      "description": "Hurtige svar i kritiske tilfælde. Øjeblikkelig analyse af inflammationsværdier (CRP, PCT, IL-6) og infektionssygdomme – essentielt for akutbehandling og triage."
+    },
+    "stoffwechsel_herz": {
+      "title": "Stofskifte & hjertesundhed",
+      "description": "Vigtige indikatorer i fokus. Præcis måling af HbA1c, kolesterolprofiler og kardiale markører (f.eks. D-Dimer) til overvågning af kroniske sygdomme."
+    },
+    "hormon_tests": {
+      "title": "Hormon- & endokrinologitests",
+      "description": "Specialdiagnostik gjort nemt. Bredt udvalg af tests til skjoldbruskkirtel- og reproduktionshormoner (TSH, AMH) til specialiserede klinikker og apoteker."
+    },
+    "kompatibilitaet_integration": {
+      "title": "Kompatibilitet på tværs af producenter",
+      "description": "Maksimal fleksibilitet. Takket være universel teknologi aflæser vores apparater 90 % af alle lateral flow-tests på markedet. Investeringssikkerhed gennem åbenhed."
+    },
+    "dental": {
+      "title": "Dental",
+      "description": "Optimeret implantologi. Øjeblikkelig analyse af Vitamin D for bedre sårheling og inflammationsmarkører til risikominimering direkte ved behandlingsstolen."
+    },
+    "beauty": {
+      "title": "Beauty & æstetik",
+      "description": "Skønhed indefra. Videnskabeligt funderet æstetik gennem analyse af hudsundhed, hormonstatus og mikronæringsstoffer for synlige resultater."
+    },
+    "longevity": {
+      "title": "Longevity",
+      "description": "Proaktiv aldringshåndtering. Monitorering af essentielle biomarkører som HbA1c, lipider og inflammationsværdier for et længere, sundere liv."
+    }
   }
 }

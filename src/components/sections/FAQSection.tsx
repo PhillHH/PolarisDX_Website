@@ -22,6 +22,8 @@ interface FAQSectionProps {
   showFooter?: boolean
   /** Pass FAQ items directly, bypassing i18n lookup */
   items?: FAQItem[]
+  /** SC-025: the template opens the first answer on initial render. */
+  initialOpenIndex?: number | null
 }
 
 const FOOTER_LINK =
@@ -53,9 +55,10 @@ const FAQSection = ({
   title,
   showFooter = true,
   items,
+  initialOpenIndex = null,
 }: FAQSectionProps) => {
   const { t } = useTranslation(namespace)
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(initialOpenIndex)
   const idPrefix = useId().replace(/:/g, '')
 
   // Use direct items when provided, otherwise load from i18n

@@ -178,11 +178,11 @@ const ZUSTAENDE: {
   ...(getNextHomeEvent()
     ? [
         {
-          name: 'Hero-Slider, Folie 2',
+          name: 'Buehnen-Pause',
           viewport: { width: 1280, height: 900 },
           oeffnen: async (p: Page) => {
             await seedConsent(p, '/de/')
-            await p.locator('[data-home-hero] [role="tab"]').nth(1).click()
+            await p.locator('[data-home-hero-pause]').click()
             await p.waitForTimeout(400)
           },
         },
@@ -474,7 +474,8 @@ test('PT24.6 — der axe-Lauf findet einen eingebauten Fehler (Gegenprobe)', asy
     p.style.backgroundColor = '#ffffff'
     p.style.fontSize = '12px'
     p.id = 'pt246-gegenprobe'
-    document.querySelector('main')?.appendChild(p)
+    document.querySelector('.sc025-more .sc025-inner')?.appendChild(p)
+    p.scrollIntoView({ block: 'center' })
   })
   const vs = await axeLauf(page)
   expect(

@@ -10,6 +10,20 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-12 (SC-025 / K-004, Umsetzung vor Preview-Deploy):** Startseite nach der Owner-Vorlage mit
+bestehendem Header/Footer, Nacht-Navy-Flächen, Wortanimation und bibliotheksfreiem, nachgeladenem Signet-Trace.
+Neue `night`-Tokens und `home.sc025.*` ×10; Termine/Artikel/Praxisstimmen/FAQ-Schema bleiben datengetrieben.
+Route-CSS wird serverseitig ausschließlich in das eine Inline-Stylesheet der Startseite eingefügt, CSP-Hash
+inklusive; fremde Seiten erhalten keine SC-025-CSS-Bytes. Alte Startseiten-Sektionen und deren Strings/Tests
+sind entfernt oder ersetzt. Typecheck, ESLint, Prettier, Guards, Claims und G4 i18n PASS; 17/17 neue
+Komponenten-/SSR-Tests und 72/72 Browserfälle auf frischem Produktionsbuild PASS. Vitest 1148 PASS, 2 übersprungen,
+ausschließlich die zwölf bereits auf HEAD bekannten ROI-Altfehler. Performance statisch 24/24 und CI 852/852
+(Startseite mobil 31,8 KB HTML, 157,4 KB JS, LCP 832 ms, CLS 0,0033; Desktop-LCP 168 ms). Axe 27/27
+(26 Fälle im Gesamtlauf plus korrigierte Gegenprobe). 14 geprüfte Baselines im gepinnten Image erneuert,
+Bestätigung 22/22. Sichtprüfung DE/FR auf 1440/390 px mit mehreren Scrollpositionen; keine horizontalen Überläufe.
+Commit und Preview-Release folgen.
+**Produktion unverändert `db34fab2216b`.**
+
 **Stand 2026-11-11 (SC-024 / K-001, nur Preview):** Zeitmatrix für alle fünf Terminflächen und SSR ergänzt
 (MEDICA bis 19.11., DGI ab 20.11., TeamEventSection bis 28.11.; danach keine leeren Restbereiche; `no-store`,
 kein Datum im Build eingefroren). P1/P3: 500 Meta-Datensätze in zehn Sprachen höchstens 155 Zeichen inklusive
