@@ -10,7 +10,7 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
-**Stand 2026-11-12 (SC-025 / K-004, Umsetzung vor Preview-Deploy):** Startseite nach der Owner-Vorlage mit
+**Stand 2026-11-12 (SC-025 / K-004, Preview abgeschlossen):** Startseite nach der Owner-Vorlage mit
 bestehendem Header/Footer, Nacht-Navy-Flächen, Wortanimation und bibliotheksfreiem, nachgeladenem Signet-Trace.
 Neue `night`-Tokens und `home.sc025.*` ×10; Termine/Artikel/Praxisstimmen/FAQ-Schema bleiben datengetrieben.
 Route-CSS wird serverseitig ausschließlich in das eine Inline-Stylesheet der Startseite eingefügt, CSP-Hash
@@ -20,8 +20,9 @@ Komponenten-/SSR-Tests und 72/72 Browserfälle auf frischem Produktionsbuild PAS
 ausschließlich die zwölf bereits auf HEAD bekannten ROI-Altfehler. Performance statisch 24/24 und CI 852/852
 (Startseite mobil 31,8 KB HTML, 157,4 KB JS, LCP 832 ms, CLS 0,0033; Desktop-LCP 168 ms). Axe 27/27
 (26 Fälle im Gesamtlauf plus korrigierte Gegenprobe). 14 geprüfte Baselines im gepinnten Image erneuert,
-Bestätigung 22/22. Sichtprüfung DE/FR auf 1440/390 px mit mehreren Scrollpositionen; keine horizontalen Überläufe.
-Commit und Preview-Release folgen.
+Bestätigung 22/22. Sichtprüfung DE/EN/FR auf 1440/390 px mit mehreren Scrollpositionen; keine horizontalen
+Überläufe. Code `31dd6b3` + `b1748be`; **Preview-Release `b1748bed6448`**, beide Dienste healthy/identisch,
+Smoke grün. Mobile Termin-Tabelle nach Preview-Sichtprüfung auf volle Breite korrigiert, Royal-Hero-Button eckig.
 **Produktion unverändert `db34fab2216b`.**
 
 **Stand 2026-11-11 (SC-024 / K-001, nur Preview):** Zeitmatrix für alle fünf Terminflächen und SSR ergänzt
