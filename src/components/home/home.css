@@ -215,7 +215,8 @@
   font-size: 16px;
 }
 .sc025-film-views {
-  --ring: 64.3%;
+  /* Der Lichtstrahl läuft in jeder Ansicht mittig durch den Testeinschub (gemessene Bildhöhe). */
+  --ring: 65.7%;
   --glow-left: 19%;
   --glow-right: 21%;
   --glow-top: 62.6%;
@@ -224,13 +225,13 @@
   isolation: isolate;
 }
 .sc025-film-views[data-phase='1'] {
-  --ring: 71.6%;
+  --ring: 74.3%;
   --glow-left: 9%;
   --glow-right: 9%;
   --glow-top: 69.6%;
 }
 .sc025-film-views[data-phase='2'] {
-  --ring: 57%;
+  --ring: 61%;
 }
 .sc025-film-views img {
   position: absolute;
@@ -302,9 +303,6 @@
     left 0.9s,
     right 0.9s,
     top 0.9s;
-}
-.sc025-film-views[data-phase='2'] .sc025-film-beam {
-  opacity: 0.5;
 }
 .sc025-film-views[data-phase='2'] .sc025-film-glow {
   display: none;
@@ -1031,7 +1029,7 @@
   height: auto;
 }
 .sc025-rig .sc025-film-beam {
-  top: 86.9%;
+  top: 88.8%;
 }
 footer {
   background: #041a2e !important;
