@@ -111,7 +111,6 @@
 }
 .sc025-film-grid {
   display: grid;
-  flex: 1 1 auto;
   align-items: center;
   gap: 28px;
   grid-template-columns: 1fr minmax(0, 500px) 1fr;
