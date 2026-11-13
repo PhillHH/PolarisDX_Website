@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import Eyebrow from '../ui/Eyebrow'
+import SubHead from '../sub/SubHead'
 
+/** SC-028: Kopf mit Einleitung, die beiden Felder als Spalten mit Linie, der Begriff als Randnotiz. */
 const DiagnosticsLandscapeSection = () => {
   const { t } = useTranslation('services')
 
@@ -8,31 +9,27 @@ const DiagnosticsLandscapeSection = () => {
     <section
       aria-labelledby="diagnostics-landscape-title"
       data-diagnostics-landscape
-      className="bg-paper py-20 lg:py-24"
+      data-sub-section
+      className="sc025-s sc025-tint"
     >
-      <div className="mx-auto max-w-container px-4 lg:px-0">
-        <div className="max-w-3xl">
-          <Eyebrow>{t('overview.ia.eyebrow')}</Eyebrow>
-          <h2 id="diagnostics-landscape-title" className="mt-3 t-h2">
-            {t('overview.ia.title')}
-          </h2>
-          <p className="mt-4 text-base leading-7 text-gray-700">{t('overview.ia.intro')}</p>
-        </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="rounded-card border border-paper-line bg-white p-7">
-            <h3 className="text-xl font-medium text-heading">{t('overview.ia.poc.title')}</h3>
-            <p className="mt-3 text-base leading-7 text-gray-700">{t('overview.ia.poc.text')}</p>
+      <div className="sc025-inner">
+        <SubHead
+          kicker={t('overview.ia.eyebrow')}
+          title={t('overview.ia.title')}
+          titleId="diagnostics-landscape-title"
+          lead={t('overview.ia.intro')}
+        />
+        <div className="sc028-cols grid gap-12 lg:grid-cols-2">
+          <article>
+            <h3>{t('overview.ia.poc.title')}</h3>
+            <p className="sc025-text">{t('overview.ia.poc.text')}</p>
           </article>
-          <article className="rounded-card border border-paper-line bg-white p-7">
-            <h3 className="text-xl font-medium text-heading">{t('overview.ia.extended.title')}</h3>
-            <p className="mt-3 text-base leading-7 text-gray-700">
-              {t('overview.ia.extended.text')}
-            </p>
+          <article>
+            <h3>{t('overview.ia.extended.title')}</h3>
+            <p className="sc025-text">{t('overview.ia.extended.text')}</p>
           </article>
         </div>
-
-        <p className="mt-6 max-w-4xl rounded-lg border-l-4 border-accent bg-white px-5 py-4 text-sm leading-6 text-gray-700">
+        <p className="sc025-note">
           <strong className="font-semibold text-heading">{t('overview.ia.term.label')}</strong>{' '}
           {t('overview.ia.term.text')}
         </p>

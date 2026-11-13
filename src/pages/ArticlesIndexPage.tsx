@@ -1,13 +1,13 @@
 import EventBand from '../components/events/EventBand'
 import type { LucideIcon } from 'lucide-react'
-import { Card } from '../components/ui/Card'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Newspaper, Leaf, Radio, TrendingUp, Activity, FileText, ArrowRight } from 'lucide-react'
+import { Leaf, Radio, TrendingUp, Activity, FileText, ArrowRight } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import Eyebrow from '../components/ui/Eyebrow'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import SubpageHero from '../components/sections/SubpageHero'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import { articles } from '../data/articles'
 import { articleDateIso, formatArticleDate, parseReadMinutes } from '../lib/articleMeta'
@@ -59,110 +59,114 @@ const ArticlesIndexPage = () => {
         )}
       />
 
-      <SubpageHero
-        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbArticles }]}
-        eyebrow={t('articles:index.eyebrow', 'Fachwissen')}
-        title={t('articles:index.title', 'Our Magazine')}
-        subtitle={t(
-          'articles:index.subtitle',
-          'Insights, news, and expert knowledge on modern diagnostics and health.',
-        )}
-        primaryCta={{
-          label: t('articles:index.hero_primary_cta', 'Fachartikel lesen'),
-          href: '#article-list',
-        }}
-        secondaryCta={{
-          label: t('articles:index.hero_secondary_cta', 'Diagnostik entdecken'),
-          to: '/diagnostics',
-        }}
-        stats={[
-          {
-            value: `${articleCount}`,
-            label: t('articles:index.stat_articles_label', 'Fachbeiträge'),
-          },
-          {
-            value: `${categories.length}`,
-            label: t('articles:index.stat_topics_label', 'Themenfelder'),
-          },
-          { value: '10', label: t('articles:index.stat_languages_label', 'Sprachen') },
-        ]}
-        icon={<Newspaper />}
-        valueChips={[
-          { value: 'CRP · TSH', label: t('articles:index.vc_biomarker_label', 'Biomarker') },
-          { value: '3–15 Min', label: t('articles:index.vc_time_label', 'bis Ergebnis') },
-        ]}
-      />
+      <SubPage page="articles">
+        {/* Bühne: drei Kennzahlen des Magazins als Eckdaten, die beiden Beispielwerte rechts */}
+        <SubStage
+          breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbArticles }]}
+          eyebrow={t('articles:index.eyebrow', 'Fachwissen')}
+          title={t('articles:index.title', 'Our Magazine')}
+          lead={
+            <p>
+              {t(
+                'articles:index.subtitle',
+                'Insights, news, and expert knowledge on modern diagnostics and health.',
+              )}
+            </p>
+          }
+          fold
+          actions={
+            <>
+              <a href="#article-list" className="sc025-button">
+                {t('articles:index.hero_primary_cta', 'Fachartikel lesen')}
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <Link to="/diagnostics" className="sc025-underlink">
+                <span>{t('articles:index.hero_secondary_cta', 'Diagnostik entdecken')}</span>
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </>
+          }
+          aside={
+            <dl className="sc028-aside-list">
+              <div>
+                <dt>{t('articles:index.vc_biomarker_label', 'Biomarker')}</dt>
+                <dd>CRP · TSH</dd>
+              </div>
+              <div>
+                <dt>{t('articles:index.vc_time_label', 'bis Ergebnis')}</dt>
+                <dd>3–15 Min</dd>
+              </div>
+            </dl>
+          }
+          facts={[
+            {
+              label: t('articles:index.stat_articles_label', 'Fachbeiträge'),
+              value: `${articleCount}`,
+            },
+            {
+              label: t('articles:index.stat_topics_label', 'Themenfelder'),
+              value: `${categories.length}`,
+            },
+            { label: t('articles:index.stat_languages_label', 'Sprachen'), value: '10' },
+          ]}
+        />
 
-      <div className="bg-paper">
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          <Reveal width="100%">
-            {/* SC-006: Kopf wie auf der Startseite (Eyebrow + t-display) statt SectionHeader — der
-                Baustein haengt sonst als eigener Chunk an dieser Route (routeJsGzip). */}
-            <Eyebrow>{t('articles:index.caption', 'Latest Posts')}</Eyebrow>
-            <h2 className="mt-3 t-display">
-              {t('articles:index.heading', 'Explore Our Articles')}
-            </h2>
+        <div className="sc025-s sc025-tint" data-sub-section>
+          <div className="sc025-inner">
+            <Reveal width="100%">
+              <div className="sc025-head">
+                <span className="sc025-kicker">{t('articles:index.caption', 'Latest Posts')}</span>
+                <h2 className="sc025-h2">{t('articles:index.heading', 'Explore Our Articles')}</h2>
+              </div>
 
-            {/* Topics covered — visual legend */}
-            <div className="mt-6 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-xs font-medium text-gray-700">
-                {t('articles:index.browse_caption', 'Themen im Magazin')}
-              </span>
-              {categories.map((category) => (
-                <span
-                  key={category}
-                  className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong"
-                >
-                  {t(`common:category.${category}`, category)}
-                </span>
-              ))}
-            </div>
+              {/* Themen im Magazin — Legende, keine Filter */}
+              <div className="sc028-topics">
+                <span>{t('articles:index.browse_caption', 'Themen im Magazin')}</span>
+                <ul className="sc028-chips sc028-chips-light">
+                  {categories.map((category) => (
+                    <li key={category}>{t(`common:category.${category}`, category)}</li>
+                  ))}
+                </ul>
+              </div>
 
-            <div
-              id="article-list"
-              className="mt-10 scroll-mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {articles.map((post) => {
-                const Icon = categoryIcon[post.category] ?? FileText
-                const image = getArticleImageAsset(post.sections[0]?.image)
-                const title = t(`articles:${post.id}.title`)
-                return (
-                  <article key={post.id} data-article-card={post.slug}>
-                    <Card to={`/articles/${post.slug}`} padding="none" aria-label={title}>
-                      {image ? (
-                        /* AP24 PT24.5: leeres `alt` ist richtig — die Karte
-                           traegt ihren Namen ueber `aria-label={title}`, und
-                           der Titel steht darunter noch einmal als Text. */
-                        /* AP25 PT25.3 (PERF-B04/B10): die erste Karte ist ab 768 px das gemessene
-                           LCP-Element und bei 390 px 29 px unter dem Falz — nur sie mit Vorrang,
-                           alle weiteren lazy. `sizes` aus der gemessenen Kartenbreite
-                           (377 / 350 / 356 px bei 1440 / 768 / 390). */
-                        <ResponsivePicture
-                          image={image}
-                          alt=""
-                          sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
-                          className="aspect-video w-full rounded-t-xl object-cover"
-                          // SC-021 Nachtrag: mit der hoeheren Kopfzeile liegt auch das erste Bild unter dem Falz
-                          // (Desktop top ~943 px) — nicht mehr eager, sonst meldet das Budget eagerBelowFold.
-                          priority={false}
-                        />
-                      ) : (
-                        <div
-                          aria-hidden="true"
-                          className="flex aspect-video w-full items-center justify-center rounded-t-xl bg-brand-deep text-accent-on-dark"
-                        >
-                          <Icon className="h-12 w-12" />
-                        </div>
-                      )}
-                      <div className="flex flex-1 flex-col p-7">
-                        <span className="inline-flex w-fit rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent-strong">
+              <div
+                id="article-list"
+                className="scroll-mt-24 grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3"
+              >
+                {articles.map((post) => {
+                  const Icon = categoryIcon[post.category] ?? FileText
+                  const image = getArticleImageAsset(post.sections[0]?.image)
+                  const title = t(`articles:${post.id}.title`)
+                  return (
+                    <article key={post.id} data-article-card={post.slug}>
+                      <Link
+                        to={`/articles/${post.slug}`}
+                        aria-label={title}
+                        className="sc028-mag focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                      >
+                        {image ? (
+                          /* AP24 PT24.5: leeres `alt` ist richtig — die Karte
+                             traegt ihren Namen ueber `aria-label={title}`, und
+                             der Titel steht darunter noch einmal als Text. */
+                          /* AP25 PT25.3 / SC-021 Nachtrag: alle Kartenbilder liegen unter dem Falz
+                             und laden lazy. `sizes` aus der gemessenen Kartenbreite. */
+                          <ResponsivePicture
+                            image={image}
+                            alt=""
+                            sizes="(min-width: 1024px) 380px, (min-width: 768px) 46vw, calc(100vw - 2rem)"
+                            priority={false}
+                          />
+                        ) : (
+                          <div aria-hidden="true" className="sc028-mag-blank">
+                            <Icon />
+                          </div>
+                        )}
+                        <span className="sc028-label">
                           {t(`common:category.${post.category}`, post.category)}
                         </span>
-                        <h2 className="mt-5 text-lg font-medium text-heading transition-colors group-hover:text-accent">
-                          {title}
-                        </h2>
-                        <p className="mt-2 t-small">{t(`articles:${post.id}.excerpt`)}</p>
-                        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-700">
+                        <h2>{title}</h2>
+                        <p className="sc025-text">{t(`articles:${post.id}.excerpt`)}</p>
+                        <div className="sc028-mag-meta">
                           <span>{post.author}</span>
                           <span aria-hidden="true">·</span>
                           <time dateTime={articleDateIso(post.datePublished)}>
@@ -171,23 +175,23 @@ const ArticlesIndexPage = () => {
                           <span aria-hidden="true">·</span>
                           <span>{readTimeLabel(post.readTime)}</span>
                         </div>
-                        <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent-strong transition-all group-hover:gap-2 group-hover:text-brand-deep">
-                          {t('articles:ui.readMore')}
-                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        <span className="sc025-underlink">
+                          <span>{t('articles:ui.readMore')}</span>
+                          <ArrowRight aria-hidden="true" />
                         </span>
-                      </div>
-                    </Card>
-                  </article>
-                )
-              })}
-            </div>
-          </Reveal>
+                      </Link>
+                    </article>
+                  )
+                })}
+              </div>
+            </Reveal>
+          </div>
         </div>
-      </div>
 
-      {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
-      <EventBand />
-      <FinalCtaSection />
+        {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
+        <EventBand />
+        <FinalCtaSection />
+      </SubPage>
     </PageTransition>
   )
 }

@@ -26,18 +26,6 @@
 .sc028 button {
   border-radius: 0;
 }
-.sc028 dl,
-.sc028 dd,
-.sc028 ol,
-.sc028 ul,
-.sc028 figure {
-  margin: 0;
-  padding: 0;
-}
-.sc028 ul,
-.sc028 ol {
-  list-style: none;
-}
 .sc028-links {
   display: flex;
   flex-wrap: wrap;
@@ -107,6 +95,13 @@
    Ebenen bleibt. Sprungmarken, Suche im Dokument und Vorlesen erreichen den Inhalt weiter. */
 .sc028 [data-sub-section] > .sc025-inner {
   contain-intrinsic-size: auto 640px;
+  content-visibility: auto;
+}
+/* Dasselbe für die Blöcke am Seitenende: „Weiter im Bereich", Abschluss und Fuß. */
+.sc028 [data-area-next],
+.sc028 #los-gehts,
+footer {
+  contain-intrinsic-size: auto 600px;
   content-visibility: auto;
 }
 /* ---------- Bühne ---------- */
@@ -564,7 +559,8 @@
 .sc028 [data-area-next] :is(.rounded-card, .rounded-full),
 .sc028 [data-mobile-action-bar] .rounded-full,
 .sc028 [data-gate-trigger] :is(.rounded, .rounded-lg, .rounded-xl),
-.sc028-form :is(.rounded-md, .rounded-lg, .rounded-xl, .rounded-card) {
+.sc028-form :is(.rounded-md, .rounded-lg, .rounded-xl, .rounded-card),
+.sc028-form button.rounded-full {
   border-radius: 0;
 }
 .sc028 [data-home-trustbar] .shadow-card,
@@ -716,6 +712,290 @@
   font-size: 17px;
 }
 
+/* ---------- Allgemeine Bausteine der Abschnitte ---------- */
+.sc028 .sc025-cols3 > :is(li, article) {
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid #9fb6cc;
+}
+.sc028-lead {
+  max-width: 68ch;
+  color: #5e6a78;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.sc028-label {
+  margin-top: 22px;
+  color: #083358;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sc028-coltitle {
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+}
+.sc028 .sc028-cols2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.sc028-side-h2 {
+  margin: 22px 0;
+}
+/* Spalten mit Linie; die Spaltenzahl kommt von den Rasterklassen am Element (ihre Umbrüche
+   sind je Seite geprüft). Ein Link als Spalte ist ganz anklickbar, seine Aktion steht unten. */
+.sc028-cols > * {
+  display: block;
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid #9fb6cc;
+}
+.sc025-dark .sc028-cols > * {
+  border-color: #ffffff38;
+}
+.sc028-cols > a,
+.sc028-cols > article {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.sc028-cols h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+.sc028-cols .sc025-underlink {
+  margin-top: auto;
+  padding-top: 10px;
+}
+.sc028-cols svg:not(.sc025-underlink svg) {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 14px;
+  color: #1b67b1;
+}
+.sc025-dark .sc028-cols svg:not(.sc025-underlink svg) {
+  color: #8fd8fb;
+}
+.sc028-cols > [data-hub-priority='PRIMARY'] {
+  padding-top: 17px;
+  border-top: 2px solid #1b67b1;
+}
+/* Verweis-Raster und dunkle Leiste mit einer Aktion */
+.sc028-rel {
+  display: grid;
+  gap: 0 48px;
+  grid-template-columns: 1fr 1fr;
+}
+.sc028-rel a {
+  display: block;
+  padding: 18px 0;
+  border-top: 1px solid #9fb6cc;
+  font-weight: 500;
+}
+.sc028-rel a span {
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+}
+.sc028-sales {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(64px, 9vw, 112px);
+  padding: clamp(30px, 4vw, 52px);
+  background: #041a2e;
+  color: #fff;
+  gap: 28px 48px;
+}
+.sc028-sales :is(h2, b) {
+  color: #fff;
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+.sc028-sales p {
+  max-width: 52ch;
+  margin-top: 10px !important;
+  color: #9fb6cc;
+  font-size: 16.5px;
+}
+/* Bühne: Hinweis unter den Aktionen, Gerät mit Bildunterschrift */
+.sc028-stage-note {
+  max-width: 56ch;
+  margin-top: 22px;
+  color: #9fb6cc;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.sc028-stage-note ul {
+  display: grid;
+  margin-top: 10px;
+  gap: 6px;
+}
+.sc028-stage-note li {
+  position: relative;
+  padding-left: 22px;
+}
+.sc028-stage-note li::before {
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 12px;
+  height: 1px;
+  background: #8fd8fb;
+  content: '';
+}
+.sc028-stage-note b {
+  color: #fff;
+  font-weight: 500;
+}
+.sc028-device {
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+}
+.sc028-device img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-inline: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.sc028-device figcaption:not(.sr-only) {
+  padding-top: 16px;
+  border-top: 1px solid #ffffff38;
+}
+.sc028-device figcaption b {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+.sc028-device figcaption .sc025-text {
+  margin-top: 6px;
+}
+/* Abschluss einer Seite: eine Aufforderung, mittig auf Nacht-Navy */
+.sc028-final {
+  text-align: center;
+}
+.sc028-final .sc025-kicker {
+  justify-content: center;
+}
+.sc028-final .sc025-h2 {
+  max-width: 18em;
+  margin: 18px auto 0;
+}
+.sc028-final .sc025-text {
+  max-width: 52ch;
+  margin: 22px auto 0;
+  font-size: 17px;
+}
+.sc028-final .sc028-actions,
+.sc028-final .sc028-chips {
+  justify-content: center;
+}
+/* Artikelkarten: Bild oben, dünner Titel, Meta-Zeile */
+.sc028-mag {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.sc028-mag img,
+.sc028-mag-blank {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #072640;
+  object-fit: cover;
+}
+.sc028-mag h2,
+.sc028-mag h3 {
+  margin-top: 12px;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.sc028-mag .sc025-text {
+  margin-top: 10px;
+}
+.sc028-mag-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  color: #5e6a78;
+  font-size: 12.5px;
+  gap: 2px 8px;
+}
+.sc028-mag .sc028-label {
+  margin-top: 20px;
+  color: #1b67b1;
+}
+.sc028-mag .sc025-underlink {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* Kontakt: Begleitspalte links, Formular rechts; Kanäle als Zeilen; Standorte */
+.sc028 .sc028-form-grid-wide {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+}
+.sc028-points {
+  margin-top: 28px;
+}
+.sc028-channels {
+  margin-top: 36px;
+  border-top: 1px solid #083358;
+}
+.sc028-channels a {
+  display: block;
+  padding: 16px 0 18px;
+  border-bottom: 1px solid #cbd5e1;
+}
+.sc028-channels .sc028-label {
+  display: block;
+  margin: 0;
+  color: #5e6a78;
+}
+.sc028-channels b {
+  display: block;
+  margin: 6px 0 4px;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.sc028-office address {
+  display: grid;
+  margin: 18px 0 6px;
+  color: #9fb6cc;
+  font-size: 15.5px;
+  font-style: normal;
+  gap: 2px;
+  line-height: 1.55;
+}
+.sc028-office address b {
+  color: #fff;
+  font-weight: 500;
+}
+.sc028-office .sc025-mid {
+  margin-top: 8px;
+}
+.sc028-final-light .sc025-kicker {
+  color: #1b67b1;
+}
+.sc028 .sc028-chips-light > * {
+  border-color: #94a3b8;
+  color: #083358;
+}
+
 /* ---------- Fragen auf Dunkel (Support) ---------- */
 .sc028-qas {
   display: grid;
@@ -810,8 +1090,15 @@
   .sc028-two,
   .sc028-tiles,
   .sc028-form-grid,
-  .sc028-qas {
+  .sc028 .sc028-form-grid-wide,
+  .sc028-qas,
+  .sc028-rel,
+  .sc028 .sc028-cols2 {
     grid-template-columns: 1fr;
+  }
+  .sc028-sales {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .sc028-trace {
     opacity: 0.75;

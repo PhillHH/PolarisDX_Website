@@ -1,0 +1,151 @@
+/* SC-028: Magazin (/articles) und Artikel (/articles/<slug>) im Raster der Startseite — nur diese
+   Seiten laden das Blatt (SubPage `page`). Nur Palettenfarben. */
+:root {
+  --sc028-articles: 1;
+}
+/* Übersicht: Themenlegende, Platzhalter ohne Bild */
+.sc028-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: -28px 0 52px;
+  color: #5e6a78;
+  font-size: 13.5px;
+  gap: 10px 18px;
+}
+.sc028-topics .sc028-chips {
+  margin-top: 0;
+}
+.sc028-mag-blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8fd8fb;
+}
+.sc028-mag-blank svg {
+  width: 44px;
+  height: 44px;
+}
+/* Artikel: kompakte Bühne, damit das Bild darunter im ersten Bildschirm steht */
+.sc028-stage-article .sc028-stage-grid {
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+.sc028-stage-article .sc028-h1 {
+  max-width: 20em;
+  font-size: clamp(28px, 3.4vw, 48px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+.sc028-stage-article .sc028-mag-meta {
+  margin-top: 0;
+  color: #9fb6cc;
+  font-size: 13.5px;
+}
+/* Lesespalte */
+.sc028-read-wrap {
+  padding-block: clamp(32px, 4vw, 56px) clamp(88px, 13vw, 168px);
+}
+.sc028 .sc028-read {
+  width: min(840px, 100%);
+}
+.sc028-read-cover img {
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #eef2f6;
+}
+.sc028-read-cover figcaption,
+.sc028-read-body figcaption {
+  margin-top: 12px;
+  color: #5e6a78;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.sc028-read-lead {
+  margin-top: clamp(32px, 4vw, 52px);
+  font-size: clamp(20px, 2.1vw, 26px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+}
+.sc028-keystats {
+  display: grid;
+  margin-top: 44px;
+  border-top: 1px solid #083358;
+  grid-template-columns: repeat(3, 1fr);
+}
+.sc028-keystats > div {
+  padding: 18px 20px 0 0;
+}
+.sc028-keystats > div + div {
+  padding-left: 20px;
+  border-left: 1px solid #cbd5e1;
+}
+.sc028-keystats b {
+  display: block;
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+.sc028-keystats span {
+  display: block;
+  margin-top: 6px;
+  color: #5e6a78;
+  font-size: 13px;
+}
+/* Abschnitte des Artikels unter dem ersten Bildschirm rechnet der Browser erst, wenn sie in die
+   Nähe kommen (wie die Abschnitte der übrigen Unterseiten, siehe sub.css). */
+.sc028-read-body > section,
+.sc028-read-block {
+  contain-intrinsic-size: auto 420px;
+  content-visibility: auto;
+}
+/* Abschnitte des Artikels (Vorlage unverändert): Überschriften dünn, Flächen eckig */
+.sc028-read h2 {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.sc028-read-body :is(.rounded-2xl, .rounded-xl) {
+  border-radius: 0;
+}
+.sc028-read-body .rounded-xl {
+  padding: 18px 0 0;
+  border: 0;
+  border-top: 1px solid #9fb6cc;
+}
+.sc028-read-block {
+  margin-top: clamp(56px, 7vw, 88px);
+  padding-top: 26px;
+  border-top: 1px solid #083358;
+}
+.sc028-read-block h2 {
+  margin-bottom: 22px;
+}
+.sc028-sources {
+  display: grid;
+  padding-left: 22px;
+  color: #5e6a78;
+  gap: 12px;
+  list-style: decimal;
+}
+.sc028-rel-go {
+  color: #1b67b1;
+  font-size: 14px;
+  font-weight: 500 !important;
+}
+@media (max-width: 900px) {
+  .sc028-topics {
+    margin-top: -12px;
+  }
+  .sc028-keystats {
+    grid-template-columns: 1fr;
+  }
+  .sc028-keystats > div + div {
+    padding-left: 0;
+    border-top: 1px solid #cbd5e1;
+    border-left: 0;
+    margin-top: 18px;
+  }
+}

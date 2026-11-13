@@ -1,10 +1,11 @@
-import type { ReactNode } from 'react'
-import { Mail, Phone, MapPin, Calendar, Check, MessageSquare } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, organizationSchema, createBreadcrumbSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
-import SubpageHero from '../components/sections/SubpageHero'
+import Reveal from '../components/ui/Reveal'
+import SubHead from '../components/sub/SubHead'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import TrustBar from '../components/sections/TrustBar'
 import { ContactForm } from '../components/sections/ContactForm'
 
@@ -14,7 +15,6 @@ const FORM_ANCHOR = '#kontaktformular'
 
 type Channel = {
   key: string
-  icon: ReactNode
   href: string
   external?: boolean
 }
@@ -27,9 +27,9 @@ const ContactPage = () => {
   const crumbContact = t('contact.hero.breadcrumb')
 
   const channels: Channel[] = [
-    { key: 'email', icon: <Mail />, href: EMAIL_HREF, external: true },
-    { key: 'phone', icon: <Phone />, href: PHONE_HREF, external: true },
-    { key: 'demo', icon: <Calendar />, href: FORM_ANCHOR },
+    { key: 'email', href: EMAIL_HREF, external: true },
+    { key: 'phone', href: PHONE_HREF, external: true },
+    { key: 'demo', href: FORM_ANCHOR },
   ]
 
   const offices = [
@@ -69,243 +69,162 @@ const ContactPage = () => {
         ]}
       />
 
-      <SubpageHero
-        breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbContact }]}
-        eyebrow={t('contact.hero.kicker')}
-        title={t('contact.hero.title')}
-        subtitle={t('contact.hero.subtitle')}
-        primaryCta={{ label: t('contact.hero.cta_primary'), href: FORM_ANCHOR }}
-        secondaryCta={{ label: t('contact.hero.cta_secondary'), href: PHONE_HREF }}
-        chips={[
-          t('contact.hero.chips.free'),
-          t('contact.hero.chips.fast'),
-          t('contact.hero.chips.time'),
-        ]}
-        icon={<MessageSquare />}
-        valueChips={[
-          {
-            value: t('contact.hero.value.answer_value'),
-            label: t('contact.hero.value.answer_label'),
-          },
-          {
-            value: t('contact.hero.value.conform_value'),
-            label: t('contact.hero.value.conform_label'),
-          },
-          {
-            value: t('contact.hero.value.locations_value'),
-            label: t('contact.hero.value.locations_label'),
-          },
-        ]}
-      />
+      <SubPage>
+        {/* Bühne: eine Aufgabe (zum Formular), die drei Zusagen als Eckdaten */}
+        <SubStage
+          breadcrumbs={[{ label: crumbHome, href: '/' }, { label: crumbContact }]}
+          eyebrow={t('contact.hero.kicker')}
+          title={t('contact.hero.title')}
+          lead={<p>{t('contact.hero.subtitle')}</p>}
+          fold
+          chips={[
+            t('contact.hero.chips.free'),
+            t('contact.hero.chips.fast'),
+            t('contact.hero.chips.time'),
+          ]}
+          actions={
+            <>
+              <a href={FORM_ANCHOR} className="sc025-button">
+                {t('contact.hero.cta_primary')}
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <a href={PHONE_HREF} className="sc025-underlink">
+                <span>{t('contact.hero.cta_secondary')}</span>
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </>
+          }
+          facts={(['answer', 'conform', 'locations'] as const).map((key) => ({
+            label: t(`contact.hero.value.${key}_label`),
+            value: t(`contact.hero.value.${key}_value`),
+          }))}
+        />
 
-      <TrustBar />
+        <TrustBar />
 
-      {/* Form + aside */}
-      <section className="bg-paper">
-        <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)] lg:items-start lg:gap-8">
-            {/* Aside */}
+        {/* Begleitspalte + Formular */}
+        <div className="sc025-s sc025-tint" data-sub-section>
+          <div className="sc025-inner sc028-form-grid sc028-form-grid-wide">
             <Reveal width="100%">
-              <div className="space-y-8 lg:sticky lg:top-28">
-                <div>
-                  <p className="t-eyebrow">{t('contact.form_aside.caption')}</p>
-                  <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading">
-                    {t('contact.form_aside.title')}
-                  </h2>
-                  <p className="mt-4 leading-relaxed text-gray-700">
-                    {t('contact.form_aside.subtitle')}
-                  </p>
-                </div>
+              <span className="sc025-kicker">{t('contact.form_aside.caption')}</span>
+              <h2 className="sc025-h2 sc028-side-h2">{t('contact.form_aside.title')}</h2>
+              <p className="sc028-lead">{t('contact.form_aside.subtitle')}</p>
 
-                <ul className="space-y-3">
-                  {['one', 'two', 'three'].map((p) => (
-                    <li key={p} className="flex items-start gap-3 text-gray-700">
-                      <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" aria-hidden />
-                      <span>{t(`contact.form_aside.points.${p}`)}</span>
-                    </li>
-                  ))}
-                </ul>
+              <ul className="sc028-flat sc028-flat-sm sc028-points">
+                {['one', 'two', 'three'].map((p) => (
+                  <li key={p}>{t(`contact.form_aside.points.${p}`)}</li>
+                ))}
+              </ul>
 
-                <div className="space-y-3">
-                  {channels.map(({ key, icon, href, external }) => (
-                    <a
-                      key={key}
-                      href={href}
-                      className="group flex items-start gap-4 rounded-xl border border-paper-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                      {...(external ? {} : { 'aria-label': t(`contact.channels.${key}.label`) })}
-                    >
-                      <span
-                        className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent [&>svg]:h-5 [&>svg]:w-5"
-                        aria-hidden
-                      >
-                        {icon}
-                      </span>
-                      <span className="min-w-0">
-                        <span className="block text-sm font-semibold text-heading">
-                          {t(`contact.channels.${key}.label`)}
-                        </span>
-                        <span className="block truncate text-sm font-medium text-accent-strong group-hover:underline">
-                          {t(`contact.channels.${key}.value`)}
-                        </span>
-                        <span className="mt-0.5 block text-xs leading-relaxed text-gray-500">
-                          {t(`contact.channels.${key}.desc`)}
-                        </span>
-                      </span>
-                    </a>
-                  ))}
-                </div>
+              <div className="sc028-channels">
+                {channels.map(({ key, href, external }) => (
+                  <a
+                    key={key}
+                    href={href}
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    {...(external ? {} : { 'aria-label': t(`contact.channels.${key}.label`) })}
+                  >
+                    <span className="sc028-label">{t(`contact.channels.${key}.label`)}</span>
+                    <b>{t(`contact.channels.${key}.value`)}</b>
+                    <span className="sc025-text">{t(`contact.channels.${key}.desc`)}</span>
+                  </a>
+                ))}
               </div>
             </Reveal>
 
-            {/* Form panel — the conversion */}
+            {/* Formular — die Konversion der Seite */}
             <Reveal width="100%">
               <section
                 id="kontaktformular"
                 aria-label={t('contact.form_aside.title')}
-                className="scroll-mt-28 overflow-hidden rounded-2xl border border-paper-line bg-white"
+                className="sc028-form scroll-mt-28"
               >
-                <div className="h-1.5 w-full bg-accent" aria-hidden />
-                <div className="p-6 sm:p-8 lg:p-10">
-                  <ContactForm />
-                </div>
+                <ContactForm />
               </section>
             </Reveal>
           </div>
         </div>
-      </section>
 
-      {/* Response process — reassurance about what happens after submitting */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
-          <div className="mb-12 max-w-2xl">
-            <p className="t-eyebrow">{t('contact.process.caption')}</p>
-            <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-              {t('contact.process.title')}
-            </h2>
-            <p className="mt-4 leading-relaxed text-gray-700">{t('contact.process.subtitle')}</p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {['one', 'two', 'three'].map((step, i) => (
-              <Reveal key={step} width="100%" delay={i * REVEAL_STAGGER}>
-                <div className="relative flex h-full flex-col rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
-                  {/* AP24 PT24.4: 18px/600 zaehlt NICHT als grosser Text
-                      (dafuer braucht es 18,66px UND fett oder 24px). Auf der
-                      Akzent-Tintflaeche lag `text-accent` bei 3,32:1.
-                      `accent-strong` bringt dort 4,85:1. */}
-                  <span
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-soft text-lg font-semibold text-accent-strong"
-                    aria-hidden
-                  >
-                    {i + 1}
+        {/* So geht es nach dem Absenden weiter */}
+        <section className="sc025-s" data-sub-section>
+          <div className="sc025-inner">
+            <SubHead
+              kicker={t('contact.process.caption')}
+              title={t('contact.process.title')}
+              lead={t('contact.process.subtitle')}
+            />
+            <div className="sc028-cols grid gap-12 md:grid-cols-3">
+              {['one', 'two', 'three'].map((step, i) => (
+                <div key={step} className="rv">
+                  <span className="sc028-n" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-5 text-lg font-medium text-heading">
-                    {t(`contact.process.steps.${step}.title`)}
-                  </h3>
-                  <p className="mt-2 t-small">{t(`contact.process.steps.${step}.desc`)}</p>
+                  <h3>{t(`contact.process.steps.${step}.title`)}</h3>
+                  <p className="sc025-text">{t(`contact.process.steps.${step}.desc`)}</p>
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Locations */}
-      <section className="bg-paper">
-        <div className="mx-auto max-w-container px-4 lg:px-0 py-16 lg:py-24">
-          <div className="mb-12">
-            <p className="t-eyebrow">{t('contact.locations.caption')}</p>
-            <h2 className="mt-3 t-h2">{t('contact.locations.title')}</h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {offices.map((office) => (
-              <Reveal key={office.key} width="100%">
-                <div className="flex h-full flex-col rounded-card border border-paper-line bg-white p-7 transition hover:-translate-y-1">
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                      aria-hidden
-                    >
-                      <MapPin className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-medium text-heading">{office.city}</h3>
-                      <p className="text-sm text-accent-strong">{office.role}</p>
-                    </div>
-                  </div>
-                  <address className="mt-5 space-y-1 text-sm not-italic leading-relaxed text-gray-700">
-                    <span className="block font-semibold text-heading">{office.lines[0]}</span>
+        {/* Standorte */}
+        <section className="sc025-s sc025-dark" data-sub-section>
+          <div className="sc025-inner">
+            <SubHead kicker={t('contact.locations.caption')} title={t('contact.locations.title')} />
+            <div className="sc028-cols grid gap-12 md:grid-cols-2">
+              {offices.map((office) => (
+                <div key={office.key} className="rv sc028-office">
+                  <p className="sc025-label">{office.role}</p>
+                  <h3 className="sc025-mid">{office.city}</h3>
+                  <address>
+                    <b>{office.lines[0]}</b>
                     {office.lines.slice(1).map((line) => (
-                      <span key={line} className="block">
-                        {line}
-                      </span>
+                      <span key={line}>{line}</span>
                     ))}
                   </address>
-                  <div className="mt-6 flex flex-col gap-2 border-t border-paper-line pt-5 text-sm">
-                    <a
-                      href={`tel:${office.phone.replace(/\s/g, '')}`}
-                      className="inline-flex items-center gap-2 font-medium text-accent-strong hover:underline"
-                    >
-                      <Phone className="h-4 w-4" aria-hidden />
-                      {office.phone}
+                  <div className="sc028-links sc028-links-col">
+                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="sc025-underlink">
+                      <span>{office.phone}</span>
                     </a>
-                    <a
-                      href={EMAIL_HREF}
-                      className="inline-flex items-center gap-2 font-medium text-accent-strong hover:underline"
-                    >
-                      <Mail className="h-4 w-4" aria-hidden />
-                      contact@polarisdx.net
+                    <a href={EMAIL_HREF} className="sc025-underlink">
+                      <span>contact@polarisdx.net</span>
                     </a>
                   </div>
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Abschlussblock. Vorher endete die Seite mit zwei gleichgewichteten
-          Standort-Spalten, die beide denselben Textlink "Formular ausfuellen"
-          trugen; die letzte gefuellte Aktion lag bei top=1437 und damit 1450px
-          ueber dem Footer (gemessen auf preview, 1440x900). Jetzt steht am Ende
-          genau EINE gefuellte Aktion — zurueck zum Formular, der Konversion
-          dieser Seite — plus die Vertrauens-Chips aus dem Hero. Alle Texte
-          stammen aus bereits vorhandenen Keys (in allen zehn Sprachen belegt). */}
-      <section className="bg-brand-deep text-white">
-        <div className="mx-auto max-w-container px-4 py-16 text-center lg:px-0 lg:py-24">
-          <p className="t-eyebrow-dark">{t('contact.form_aside.caption')}</p>
-          <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-medium tracking-tight text-white lg:text-[38px]">
-            {t('contact.form_aside.title')}
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/80">
-            {t('contact.form.microcopy')}
-          </p>
-          <div className="mt-10 flex justify-center">
-            <a
-              href={FORM_ANCHOR}
-              className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 font-medium text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-            >
-              {t('contact.hero.cta_primary')}
-            </a>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {[
-              t('contact.hero.chips.free'),
-              t('contact.hero.chips.fast'),
-              t('contact.hero.chips.time'),
-            ].map((chip) => (
-              <span
-                key={chip}
-                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/15"
+        {/* Abschlussblock: genau EINE gefüllte Aktion — zurück zum Formular, der Konversion dieser
+            Seite — plus die Vertrauens-Chips aus der Bühne. Alle Texte stammen aus bereits
+            vorhandenen Keys (in allen zehn Sprachen belegt). */}
+        <section className="sc025-s sc025-tint sc028-final sc028-final-light">
+          <div className="sc025-inner">
+            <span className="sc025-kicker">{t('contact.form_aside.caption')}</span>
+            <h2 className="sc025-h2">{t('contact.form_aside.title')}</h2>
+            <p className="sc025-text">{t('contact.form.microcopy')}</p>
+            <div className="sc028-actions">
+              <a
+                href={FORM_ANCHOR}
+                className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                <Check className="h-3.5 w-3.5 text-accent-line" aria-hidden />
-                {chip}
-              </span>
-            ))}
+                {t('contact.hero.cta_primary')}
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </div>
+            <ul className="sc028-chips sc028-chips-light">
+              {[
+                t('contact.hero.chips.free'),
+                t('contact.hero.chips.fast'),
+                t('contact.hero.chips.time'),
+              ].map((chip) => (
+                <li key={chip}>{chip}</li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
+      </SubPage>
     </PageTransition>
   )
 }

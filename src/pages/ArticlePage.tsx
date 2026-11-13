@@ -2,9 +2,9 @@ import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from '../components/seo'
 import { Button } from '../components/ui/Button'
-import { Breadcrumbs } from '../components/ui/Breadcrumbs'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal from '../components/ui/Reveal'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import { useArticles } from '../hooks/useArticles'
 import { articleDateIso, calculateArticleReadMinutes, formatArticleDate } from '../lib/articleMeta'
 import { LoadingSpinner } from '../components/ui/LoadingSpinner'
@@ -313,94 +313,78 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
         ]}
       />
 
-      <article data-article-template={article.slug}>
-        {/* ===================== HERO (Navy, zentriert) ===================== */}
-        <section className="relative overflow-hidden bg-brand-deep text-white">
-          <div className="mx-auto max-w-3xl px-4 pt-page-top pb-16 text-center xl:pt-page-top-xl">
-            <div className="mb-6 flex justify-center">
-              <Breadcrumbs
-                variant="dark"
-                items={[
-                  { label: crumbHome, href: '/' },
-                  { label: crumbArticles, href: '/articles' },
-                  { label: title },
-                ]}
-              />
-            </div>
-            <span className="t-eyebrow-dark">
-              {category} · {t('articles:detail.longread', 'Long-Read')}
-            </span>
-            <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-medium tracking-tight lg:text-[42px] lg:leading-[1.15]">
-              {title}
-            </h1>
-            <div
-              className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-white/80"
-              aria-label={t('articles:detail.vc_date_label', 'Veröffentlicht')}
-            >
-              <span>{article.author}</span>
-              <span aria-hidden>·</span>
-              <time dateTime={publishedIso}>
-                {formatArticleDate(article.datePublished, i18n.language)}
-              </time>
-              <span aria-hidden>·</span>
-              <span data-reading-minutes={readMinutes}>{readTimeLabel}</span>
-            </div>
-          </div>
-        </section>
+      <SubPage page="articles">
+        <article data-article-template={article.slug}>
+          {/* Bühne: kompakt, damit das Artikelbild direkt darunter im ersten Bildschirm steht
+              (gemessenes LCP-Element, PT25.3). */}
+          <SubStage
+            className="sc028-stage-article"
+            breadcrumbs={[
+              { label: crumbHome, href: '/' },
+              { label: crumbArticles, href: '/articles' },
+              { label: title },
+            ]}
+            eyebrow={`${category} · ${t('articles:detail.longread', 'Long-Read')}`}
+            title={title}
+            note={
+              <div
+                className="sc028-mag-meta"
+                aria-label={t('articles:detail.vc_date_label', 'Veröffentlicht')}
+              >
+                <span>{article.author}</span>
+                <span aria-hidden>·</span>
+                <time dateTime={publishedIso}>
+                  {formatArticleDate(article.datePublished, i18n.language)}
+                </time>
+                <span aria-hidden>·</span>
+                <span data-reading-minutes={readMinutes}>{readTimeLabel}</span>
+              </div>
+            }
+          />
 
-        {/* ===================== BODY (zentriert, ohne Sidebar) ===================== */}
-        <div className="bg-white">
-          <div className="mx-auto max-w-[68ch] px-4 py-14 lg:py-24">
-            <Reveal width="100%">
-              {/* Lead */}
-              <p className="text-xl font-medium leading-[1.7] text-gray-800">{excerpt}</p>
-
+          {/* Lesespalte */}
+          <div className="sc028-read-wrap">
+            <div className="sc025-inner sc028-read">
               {articleImage ? (
-                <figure className="mt-10 space-y-3">
+                <figure className="sc028-read-cover">
                   {/* Leeres `alt` bewusst — siehe `renderSectionImage`. */}
                   {/* AP25 PT25.3 (PERF-B04): gemessenes LCP-Element bei 390, 768 und 1440 px —
                       daher nicht lazy, sondern mit Vorrang. Nur dieses eine Bild der Seite. */}
                   <ResponsivePicture
                     image={articleImage}
                     alt={article.imageAlt ?? ''}
-                    sizes="(min-width: 768px) 68ch, calc(100vw - 2rem)"
-                    className="h-auto w-full rounded-2xl object-cover"
+                    sizes="(min-width: 900px) 800px, calc(100vw - 2.5rem)"
+                    className="h-auto w-full object-cover"
                     priority
                   />
-                  {article.imageCaption ? (
-                    <figcaption className="text-sm leading-relaxed text-gray-700">
-                      {article.imageCaption}
-                    </figcaption>
-                  ) : null}
+                  {article.imageCaption ? <figcaption>{article.imageCaption}</figcaption> : null}
                 </figure>
               ) : null}
 
-              {/* Key-Stat-Karten (falls vorhanden) */}
+              {/* Lead */}
+              <p className="sc028-read-lead">{excerpt}</p>
+
+              {/* Kennzahlen (falls vorhanden) */}
               {keyStats.length > 0 && (
-                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                <div className="sc028-keystats">
                   {keyStats.slice(0, 3).map((s) => (
-                    <div
-                      key={s.label}
-                      className="rounded-2xl bg-brand-deep p-7 text-center text-white"
-                    >
-                      <div className="text-2xl font-semibold">{s.value}</div>
-                      <div className="mt-1 text-xs text-white/80">{s.label}</div>
+                    <div key={s.label}>
+                      <b>{s.value}</b>
+                      <span>{s.label}</span>
                     </div>
                   ))}
                 </div>
               )}
 
               {/* Fließtext-Sektionen */}
-              <div className="mt-12 space-y-8">
+              <div className="sc028-read-body mt-12 space-y-8">
                 {Array.isArray(translatedSections) && translatedSections.map(renderSection)}
               </div>
 
               {article.sources?.length ? (
-                <section className="mt-14 border-t border-paper-line pt-10">
-                  <h2 className="text-2xl font-medium tracking-tight text-heading">
-                    {t('articles:detail.sources')}
-                  </h2>
-                  <ol className="mt-5 list-decimal space-y-3 pl-5 text-gray-700">
+                <section className="sc028-read-block">
+                  <h2>{t('articles:detail.sources')}</h2>
+                  <ol className="sc028-sources">
                     {article.sources.map((source) => (
                       <li key={`${source.title}:${source.url ?? ''}`}>
                         {source.url ? (
@@ -422,26 +406,18 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               ) : null}
 
               {relatedArticles.length > 0 && (
-                <section className="mt-14 border-t border-paper-line pt-10">
-                  <h2 className="text-2xl font-medium tracking-tight text-heading">
-                    {t('articles:ui.articles')}
-                  </h2>
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <section className="sc028-read-block">
+                  <h2>{t('articles:ui.articles')}</h2>
+                  <div className="sc028-rel">
                     {relatedArticles.map((related) => (
                       <Link
                         key={related.id}
                         to={`/articles/${related.slug}`}
-                        className="group rounded-xl border border-paper-line bg-paper p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                       >
-                        <span className="font-medium text-heading group-hover:text-accent-strong">
-                          {t(`articles:${related.id}.title`)}
-                        </span>
-                        <span className="mt-2 block text-sm leading-relaxed text-gray-700">
-                          {t(`articles:${related.id}.excerpt`)}
-                        </span>
-                        <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
-                          {t('articles:ui.readMore')} →
-                        </span>
+                        {t(`articles:${related.id}.title`)}
+                        <span className="sc025-text">{t(`articles:${related.id}.excerpt`)}</span>
+                        <span className="sc028-rel-go">{t('articles:ui.readMore')} →</span>
                       </Link>
                     ))}
                   </div>
@@ -449,24 +425,20 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               )}
 
               {relatedServices.length > 0 && (
-                <section className="mt-14 border-t border-paper-line pt-10">
-                  <h2 className="text-2xl font-medium tracking-tight text-heading">
-                    {t('articles:detail.related_services', 'Passende Diagnostik')}
-                  </h2>
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <section className="sc028-read-block">
+                  <h2>{t('articles:detail.related_services', 'Passende Diagnostik')}</h2>
+                  <div className="sc028-rel">
                     {relatedServices.map(({ service, route }) => (
                       <Link
                         key={service.id}
                         to={route.path}
-                        className="group rounded-xl border border-paper-line bg-paper p-5 transition-colors hover:border-accent/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                       >
-                        <span className="font-medium text-heading group-hover:text-accent-strong">
-                          {t(`home:services.${service.translationKey}.title`, service.title)}
-                        </span>
-                        <span className="mt-2 block text-sm leading-relaxed text-gray-600">
+                        {t(`home:services.${service.translationKey}.title`, service.title)}
+                        <span className="sc025-text">
                           {t(`home:services.${service.translationKey}.description`, '')}
                         </span>
-                        <span className="mt-4 inline-flex text-sm font-semibold text-accent-strong">
+                        <span className="sc028-rel-go">
                           {t('articles:detail.primary_cta', 'Passende Leistung ansehen')} →
                         </span>
                       </Link>
@@ -476,47 +448,47 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               )}
 
               {relatedEpigeneticsRoute ? (
-                <section className="mt-10 rounded-2xl border border-accent-border bg-accent-soft p-7">
-                  <h2 className="text-2xl font-medium tracking-tight text-heading">
-                    {t('common:nav.epigenetics')}
-                  </h2>
-                  <p className="mt-2 text-gray-700">
+                <section className="sc028-read-block">
+                  <h2>{t('common:nav.epigenetics')}</h2>
+                  <p className="sc028-lead">
                     {t('home:business_pillars.pillars.epigenetics.text')}
                   </p>
-                  <Link
-                    to={relatedEpigeneticsRoute.path}
-                    className="mt-5 inline-flex min-h-11 items-center rounded-md font-semibold text-accent-strong underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                  >
-                    {t('home:business_pillars.pillars.epigenetics.cta')}
-                  </Link>
+                  <div className="sc028-links">
+                    <Link
+                      to={relatedEpigeneticsRoute.path}
+                      className="sc025-underlink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                    >
+                      <span>{t('home:business_pillars.pillars.epigenetics.cta')}</span>
+                    </Link>
+                  </div>
                 </section>
               ) : null}
 
-              {/* Navy Schluss-CTA-Karte */}
-              <div className="mt-14 rounded-2xl bg-brand-deep p-7 text-center text-white lg:p-7">
-                <h2 className="text-2xl font-medium tracking-tight">
-                  {t('articles:detail.cta_title', 'Lassen Sie uns über Ihre Praxis sprechen.')}
-                </h2>
-                <p className="mx-auto mt-2 max-w-md text-white/75">
-                  {t(
-                    'articles:detail.cta_subtitle',
-                    'Persönliche Beratung — in unter einer Minute angefragt.',
-                  )}
-                </p>
-                <div className="mt-6 flex flex-wrap justify-center gap-3">
-                  <Link
-                    to={serviceDetailGeneralSalesTarget}
-                    className="inline-flex items-center justify-center rounded-md bg-accent-strong px-6 py-3 text-sm font-medium text-white transition hover:brightness-110"
-                  >
-                    {t('common:nav.cta_quote', 'Angebot anfragen')}
-                  </Link>
-                  {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Link entfernt. */}
+              {/* Schluss: eine Aufforderung auf Nacht-Navy */}
+              <div className="sc028-sales">
+                <div>
+                  <h2>
+                    {t('articles:detail.cta_title', 'Lassen Sie uns über Ihre Praxis sprechen.')}
+                  </h2>
+                  <p>
+                    {t(
+                      'articles:detail.cta_subtitle',
+                      'Persönliche Beratung — in unter einer Minute angefragt.',
+                    )}
+                  </p>
                 </div>
+                <Link
+                  to={serviceDetailGeneralSalesTarget}
+                  className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+                >
+                  {t('common:nav.cta_quote', 'Angebot anfragen')}
+                </Link>
+                {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Link entfernt. */}
               </div>
-            </Reveal>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </SubPage>
     </PageTransition>
   )
 }

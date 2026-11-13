@@ -155,22 +155,6 @@
 .sc028-related {
   padding-block: 0;
 }
-.sc028-rel {
-  display: grid;
-  gap: 0 48px;
-  grid-template-columns: 1fr 1fr;
-}
-.sc028-rel a {
-  display: block;
-  padding: 18px 0;
-  border-top: 1px solid #9fb6cc;
-  font-weight: 500;
-}
-.sc028-rel a span {
-  display: block;
-  margin-top: 4px;
-  font-weight: 400;
-}
 .sc028-after .sc028-sales {
   margin-top: 0;
 }
@@ -204,41 +188,10 @@
   letter-spacing: -0.045em;
   line-height: 1;
 }
-.sc028-sales {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: clamp(64px, 9vw, 112px);
-  padding: clamp(30px, 4vw, 52px);
-  background: #041a2e;
-  color: #fff;
-  gap: 28px 48px;
-}
-.sc028-sales h2 {
-  color: #fff;
-  font-size: clamp(26px, 3.2vw, 42px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-}
-.sc028-sales p {
-  max-width: 52ch;
-  margin-top: 10px !important;
-  color: #9fb6cc;
-  font-size: 16.5px;
-}
 @media (max-width: 900px) {
   .sc028-frame {
     max-width: none;
     margin-left: 0;
     aspect-ratio: 16 / 11;
-  }
-  .sc028-rel {
-    grid-template-columns: 1fr;
-  }
-  .sc028-sales {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

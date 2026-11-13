@@ -11,6 +11,7 @@ import DiagnosticsRelatedArticlesSection from '../components/sections/Diagnostic
 import FinalCtaSection from '../components/sections/FinalCtaSection'
 import IglooProImage from '../assets/Igloo-pro-frontal.webp'
 import EventBand from '../components/events/EventBand'
+import SubPage from '../components/sub/SubPage'
 
 const ServicesOverviewPage = () => {
   const { t, i18n } = useTranslation(['common', 'home', 'services'])
@@ -39,7 +40,7 @@ const ServicesOverviewPage = () => {
           i18n.language,
         )}
       />
-      <div>
+      <SubPage page="diagnostics">
         <DiagnosticsHero />
         <AreaNav label={t('nav.service')} items={diagnosticsAreaItems(t)} currentKey="overview" />
         <EventBand />
@@ -57,7 +58,7 @@ const ServicesOverviewPage = () => {
           }}
         />
         <FinalCtaSection />
-      </div>
+      </SubPage>
     </PageTransition>
   )
 }

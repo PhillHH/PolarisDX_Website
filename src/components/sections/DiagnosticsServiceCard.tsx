@@ -3,17 +3,12 @@ import { useTranslation } from 'react-i18next'
 import type { DiagnosticsHubService } from '../../data/diagnosticsHub'
 import { Card } from '../ui/Card'
 
-// SC-006 (Editorial Motion): dieselbe Hover-Antwort wie die Startseitenkarten —
-// Lift (Card mit `to`), Akzentrand, Kartenschatten, der Pfeil rutscht; Eintritt per `rv`.
+// SC-006 (Editorial Motion): Lift (Card mit `to`), der Pfeil rutscht; Eintritt per `rv`.
+// SC-028: die Karte bleibt ein `Card`-Link mit ihrer Akzentlinie oben (Klassen sind im Vertrag
+// geprüft); Rahmen, Rundung, Fläche und Schatten nimmt sub.css auf den Unterseiten zurück.
 const priorityStyles = {
-  PRIMARY: {
-    card: 'border-t-accent hover:border-accent-border hover:shadow-card',
-    badge: 'bg-accent-soft text-accent-strong',
-  },
-  STANDARD: {
-    card: 'border-t-slate-300 hover:border-accent-border hover:shadow-card',
-    badge: 'bg-paper-deep text-gray-700',
-  },
+  PRIMARY: { card: 'border-t-accent' },
+  STANDARD: { card: 'border-t-slate-300' },
 } as const
 
 export const DiagnosticsServiceCard = ({
@@ -40,25 +35,15 @@ export const DiagnosticsServiceCard = ({
       data-card-category={service.hubCategory}
       className={`rv min-h-[280px] border-t-4 p-7 ${styles.card}`}
     >
-      <span
-        className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent-strong [&>svg]:h-6 [&>svg]:w-6"
-        aria-hidden="true"
-      >
+      <span className="sc028-tile-icon" aria-hidden="true">
         {service.icon}
       </span>
-      <span className={`mt-5 w-fit rounded-full px-3 py-1 text-xs font-semibold ${styles.badge}`}>
-        {categoryLabel}
-      </span>
-      <h3 className="mt-4 text-xl font-medium leading-snug text-heading">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-gray-700">
-        {t(`services:overview.ia.cards.${service.translationKey}`)}
-      </p>
-      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
-        {cta}
-        <ArrowRight
-          className="h-4 w-4 transition-transform group-hover:translate-x-1"
-          aria-hidden="true"
-        />
+      <span className="sc028-label">{categoryLabel}</span>
+      <h3>{title}</h3>
+      <p className="sc025-text">{t(`services:overview.ia.cards.${service.translationKey}`)}</p>
+      <span className="sc025-underlink">
+        <span>{cta}</span>
+        <ArrowRight aria-hidden="true" />
       </span>
     </Card>
   )
@@ -71,7 +56,10 @@ export const DiagnosticsServiceGrid = ({
   entries: DiagnosticsHubService[]
   categoryLabel: string
 }) => (
-  <div data-diagnostics-card-grid className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <div
+    data-diagnostics-card-grid
+    className="sc028-cards grid gap-x-12 gap-y-14 md:grid-cols-2 lg:grid-cols-3"
+  >
     {entries.map((entry) => (
       <DiagnosticsServiceCard key={entry.service.id} entry={entry} categoryLabel={categoryLabel} />
     ))}

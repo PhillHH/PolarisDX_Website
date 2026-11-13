@@ -1,6 +1,8 @@
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
 
+/** SC-028: Abschluss der Produktseite — eine Aufforderung, mittig auf Nacht-Navy. */
 export default function IglooProductFinalCta() {
   const { t } = useTranslation('products')
 
@@ -8,21 +10,22 @@ export default function IglooProductFinalCta() {
     <section
       aria-labelledby="igloo-final-cta-title"
       data-igloo-final-cta
-      className="brand-ring relative bg-brand-deep text-white"
+      className="sc025-s sc025-dark sc028-final"
     >
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24 text-center">
-        <h2
-          id="igloo-final-cta-title"
-          className="mx-auto max-w-3xl font-semibold tracking-[-0.02em] text-[clamp(28px,5vw,48px)] leading-[clamp(34px,5.6vw,56px)]"
-        >
+      <div className="sc025-inner">
+        <h2 id="igloo-final-cta-title" className="sc025-h2">
           {t('cta_bottom.title', 'Bereit, den IglooPro in Ihre Praxis zu holen?')}
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl t-body-on-dark">{t('cta_bottom.description')}</p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button to="/contact" variant="light" size="sm" data-cta-intent="GENERAL_SALES">
+        <p className="sc025-text">{t('cta_bottom.description')}</p>
+        <div className="sc028-actions">
+          <Link
+            to="/contact"
+            data-cta-intent="GENERAL_SALES"
+            className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+          >
             {t('cta_bottom.button', 'Angebot anfragen')}
-          </Button>
+            <ArrowRight aria-hidden="true" />
+          </Link>
           {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Knopf entfernt. */}
         </div>
       </div>

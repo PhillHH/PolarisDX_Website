@@ -11,7 +11,13 @@ type SubStageProps = {
   titleId?: string
   lead?: ReactNode
   actions?: ReactNode
+  /** Unter den Aktionen, noch in der Textspalte (Hinweiszeile, Vertrauenssignale, Artikeldaten). */
+  note?: ReactNode
   chips?: string[]
+  /** Beschriftung der Pfadnavigation, wenn die Seite eine eigene vorgibt. */
+  breadcrumbLabel?: string
+  /** `data-*`-Attribute der Sektion (Testanker der Seite). */
+  data?: Record<`data-${string}`, string | true>
   /** Eckdaten unter der Lichtlinie der Bühne. */
   facts?: SubStageFact[]
   factsLabel?: string
@@ -44,7 +50,10 @@ const SubStage = ({
   titleId,
   lead,
   actions,
+  note,
   chips,
+  breadcrumbLabel,
+  data,
   facts,
   factsLabel,
   plainFacts = false,
@@ -55,6 +64,7 @@ const SubStage = ({
   <section
     aria-labelledby={titleId}
     data-sub-stage
+    {...data}
     className={`sc025-dark sc028-stage ${className}`}
   >
     <div className="sc025-inner pt-page-top xl:pt-page-top-xl">
@@ -65,7 +75,7 @@ const SubStage = ({
       >
         <div>
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <Breadcrumbs variant="dark" items={breadcrumbs} />
+            <Breadcrumbs variant="dark" items={breadcrumbs} ariaLabel={breadcrumbLabel} />
           )}
           {eyebrow && <p className="sc025-kicker">{eyebrow}</p>}
           <h1 id={titleId} className="sc028-h1">
@@ -80,6 +90,7 @@ const SubStage = ({
             </ul>
           )}
           {actions && <div className="sc028-actions">{actions}</div>}
+          {note && <div className="sc028-stage-note">{note}</div>}
         </div>
         {aside}
       </div>

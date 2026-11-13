@@ -38,11 +38,6 @@
   transform: translate(19%, -8%) rotate(7deg);
 }
 
-.sc028 .sc025-cols3 > li {
-  display: block;
-  padding-top: 18px;
-  border-top: 1px solid #9fb6cc;
-}
 .sc028 .sc028-s-top {
   padding-bottom: clamp(40px, 5vw, 64px);
 }
@@ -72,13 +67,6 @@
   border-color: #0d527f;
   background: #0d527f;
 }
-.sc028-lead {
-  max-width: 68ch;
-  color: #5e6a78;
-  font-size: 17px;
-  line-height: 1.6;
-}
-.sc028-label,
 .sc028-panel-label {
   margin-top: 22px;
   color: #083358;
@@ -86,14 +74,6 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-.sc028-coltitle {
-  margin-bottom: 10px;
-  font-size: 20px;
-  letter-spacing: -0.015em;
-}
-.sc028 .sc028-cols2 {
-  grid-template-columns: repeat(2, 1fr);
 }
 /* Wegweiser: vier nummerierte Spalten, der aktuelle Schritt trägt die Akzentlinie */
 .sc028-journey {
@@ -591,9 +571,6 @@
   content: '';
 }
 /* Fragen: natives <details>, flach */
-.sc028-side-h2 {
-  margin: 22px 0;
-}
 .sc028-card.sc028-ask {
   margin-top: 40px;
 }
@@ -685,8 +662,7 @@
   .sc028-scales,
   .sc028-practice ul,
   .sc028-flow,
-  .sc028-evidence,
-  .sc028 .sc028-cols2 {
+  .sc028-evidence {
     grid-template-columns: 1fr;
   }
   .sc028-journey {

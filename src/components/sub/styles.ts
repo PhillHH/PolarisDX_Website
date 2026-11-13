@@ -1,5 +1,7 @@
 import frame from './sub.css?url'
 import epigenetics from './pages/epigenetics.css?url'
+import articles from './pages/articles.css?url'
+import diagnostics from './pages/diagnostics.css?url'
 import events from './pages/events.css?url'
 import service from './pages/service.css?url'
 
@@ -12,6 +14,8 @@ import service from './pages/service.css?url'
 export const SUB_STYLES = {
   frame: { href: frame, mark: '--sc028-css' },
   epigenetics: { href: epigenetics, mark: '--sc028-epigenetics' },
+  articles: { href: articles, mark: '--sc028-articles' },
+  diagnostics: { href: diagnostics, mark: '--sc028-diagnostics' },
   events: { href: events, mark: '--sc028-events' },
   service: { href: service, mark: '--sc028-service' },
 } as const

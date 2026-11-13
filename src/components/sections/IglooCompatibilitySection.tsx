@@ -1,8 +1,7 @@
-import { ArrowRight, Cable, FileText, Headphones, ListChecks, Workflow } from 'lucide-react'
+import { Cable, Headphones, ListChecks, Workflow } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getCanonicalRouteEntries } from '../../routing/routeRegistry'
-import Eyebrow from '../ui/Eyebrow'
 
 const compatibilityItems = [
   { key: 'portfolio', icon: ListChecks },
@@ -29,6 +28,8 @@ const relatedRoutes = relatedRouteIds.map((item) => {
 /**
  * Compatibility is presented as a validation checklist. No interface, test,
  * SLA or maintenance capability is inferred from legacy marketing copy.
+ *
+ * SC-028: Kopf links, die vier Prüfpunkte rechts als Zeilen; die Verweise als Raster darunter.
  */
 export default function IglooCompatibilitySection() {
   const { t } = useTranslation('products')
@@ -37,58 +38,42 @@ export default function IglooCompatibilitySection() {
     <section
       aria-labelledby="igloo-compatibility-title"
       data-igloo-compatibility
-      className="bg-white"
+      data-sub-section
+      className="sc025-s"
     >
-      <div className="mx-auto max-w-container px-4 py-24 lg:px-0">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-          <div className="max-w-xl">
-            <Eyebrow>{t('compatibility.eyebrow')}</Eyebrow>
-            <h2 id="igloo-compatibility-title" className="mt-3 t-h2">
+      <div className="sc025-inner">
+        <div className="sc028-two">
+          <div>
+            <span className="sc025-kicker">{t('compatibility.eyebrow')}</span>
+            <h2 id="igloo-compatibility-title" className="sc025-h2 sc028-side-h2">
               {t('compatibility.title')}
             </h2>
-            <p className="mt-4 text-gray-700">{t('compatibility.description')}</p>
-            <p className="mt-6 rounded-lg bg-paper px-5 py-4 text-sm leading-relaxed text-gray-700">
-              {t('compatibility.boundary')}
-            </p>
+            <p className="sc028-lead">{t('compatibility.description')}</p>
+            <p className="sc025-note">{t('compatibility.boundary')}</p>
           </div>
 
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="sc028-cols grid gap-x-12 gap-y-10 sm:grid-cols-2">
             {compatibilityItems.map(({ key, icon: Icon }) => (
-              <li
-                key={key}
-                data-compatibility-check={key}
-                className="rounded-xl border border-paper-line bg-paper p-6"
-              >
-                <Icon className="h-5 w-5 text-accent-strong" aria-hidden="true" />
-                <h3 className="mt-4 text-base font-medium text-heading">
-                  {t(`compatibility.items.${key}.title`)}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">
-                  {t(`compatibility.items.${key}.text`)}
-                </p>
+              <li key={key} data-compatibility-check={key} className="rv">
+                <Icon aria-hidden="true" />
+                <h3>{t(`compatibility.items.${key}.title`)}</h3>
+                <p className="sc025-text">{t(`compatibility.items.${key}.text`)}</p>
               </li>
             ))}
           </ul>
         </div>
 
-        <nav aria-label={t('compatibility.links_label')} className="mt-14 border-t pt-10">
-          <h3 className="text-lg font-medium text-heading">{t('compatibility.links_title')}</h3>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <nav aria-label={t('compatibility.links_label')}>
+          <h3 className="sc028-h3">{t('compatibility.links_title')}</h3>
+          <ul className="sc028-rel">
             {relatedRoutes.map(({ key, routeId, path }) => (
               <li key={routeId}>
                 <Link
                   to={path}
                   data-related-route-id={routeId}
-                  className="group flex min-h-[52px] h-full items-center justify-between gap-3 rounded-lg border border-paper-line px-4 py-3 text-sm font-medium text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 motion-reduce:transition-none"
+                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                 >
-                  <span className="flex items-center gap-2">
-                    {key === 'downloads' && <FileText className="h-4 w-4" aria-hidden="true" />}
-                    {t(`compatibility.links.${key}`)}
-                  </span>
-                  <ArrowRight
-                    className="h-4 w-4 shrink-0 text-accent-strong transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-                    aria-hidden="true"
-                  />
+                  {t(`compatibility.links.${key}`)}
                 </Link>
               </li>
             ))}

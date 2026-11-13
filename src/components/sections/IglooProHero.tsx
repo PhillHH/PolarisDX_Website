@@ -1,8 +1,8 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import IglooProImage from '../../assets/Igloo-pro-frontal.webp'
-import { Button } from '../ui/Button'
-import { Breadcrumbs } from '../ui/Breadcrumbs'
+import SubStage from '../sub/SubStage'
 
 /**
  * Claim-safe, SSR-first IglooPro product entry.
@@ -11,70 +11,36 @@ import { Breadcrumbs } from '../ui/Breadcrumbs'
  * real reader cutout is the only eager medium; intrinsic dimensions reserve
  * its layout on every viewport. Technical proof remains in the serial AP14
  * tasks that own its source verification.
+ *
+ * SC-028: Bühne im Stil der Startseite (SubStage). Das Gerät bleibt das einzige Vorrang-Bild
+ * (LCP, 650×650) und steht am Telefon direkt unter dem Text im ersten Bildschirm — deshalb hier
+ * ohne `fold` und ohne das Bildpaar von StageImage.
  */
 export default function IglooProHero() {
   const { t } = useTranslation(['products', 'common'])
 
-  // AP34 PT34.2e (SC-003): Produkt-Buehne auf Navy — das Geraet mit Halo ist
-  // das einzige Vorrang-Bild (LCP, 650×650), Text steht davor.
-  // SC-006 (Editorial Motion): `aurora` auf der Section, `enter` staffelt die
-  // Textspalte (Pfad ohne Eintritt); Geraet und Halo bleiben ruhig (LCP-Bild).
   return (
-    <section
-      aria-labelledby="igloo-hero-title"
-      data-igloo-hero
-      className="aurora bg-brand-deep text-white"
-    >
-      <div className="mx-auto grid max-w-container gap-10 px-4 pb-16 pt-page-top sm:px-6 lg:min-h-[680px] lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-0 lg:pb-20 xl:pt-page-top-xl">
-        <div className="flex min-w-0 flex-col items-start">
-          <Breadcrumbs
-            variant="dark"
-            className="mb-8"
-            items={[{ label: t('common:nav.home'), href: '/' }, { label: 'IglooPro' }]}
-          />
-
-          <p className="enter inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold ring-1 ring-inset ring-white/25">
-            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent-line" />
-            {t('products:hero.caption')}
-          </p>
-          <h1 id="igloo-hero-title" className="enter mt-6 max-w-4xl t-stage-h1">
-            {t('products:hero.title')}
-          </h1>
-          <p className="enter mt-6 max-w-[60ch] text-pretty text-lg leading-relaxed text-white/85">
-            {t('products:hero.description')}
-          </p>
-
-          <div className="enter mt-9 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5">
-            <Button
-              to="/contact"
-              variant="light"
-              data-cta-intent="GENERAL_SALES"
-              className="group w-full justify-between !py-2.5 !pl-7 !pr-2.5 shadow-card sm:w-auto"
-            >
-              {t('products:hero.cta_order')}
-              <span
-                aria-hidden="true"
-                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white transition group-hover:translate-x-1"
-              >
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Button>
-            {/* SC-023 (Owner 2026-11-03): ROI-Rechner-Knopf entfernt. */}
-          </div>
-
-          <p className="enter mt-5 max-w-xl text-sm leading-relaxed text-white/70">
-            {t('products:hero.subline')}
-          </p>
-        </div>
-
-        <figure
-          data-igloo-hero-visual
-          className="relative order-last mx-auto aspect-square w-full max-w-[520px] self-center"
+    <SubStage
+      titleId="igloo-hero-title"
+      data={{ 'data-igloo-hero': true }}
+      breadcrumbs={[{ label: t('common:nav.home'), href: '/' }, { label: 'IglooPro' }]}
+      eyebrow={t('products:hero.caption')}
+      title={t('products:hero.title')}
+      lead={<p>{t('products:hero.description')}</p>}
+      actions={
+        <Link
+          to="/contact"
+          data-cta-intent="GENERAL_SALES"
+          className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
         >
-          <div
-            aria-hidden="true"
-            className="absolute inset-[8%] rounded-full bg-white/5 ring-1 ring-white/15"
-          />
+          {t('products:hero.cta_order')}
+          <ArrowRight aria-hidden="true" />
+        </Link>
+      }
+      /* SC-023 (Owner 2026-11-03): ROI-Rechner-Knopf entfernt. */
+      note={<p>{t('products:hero.subline')}</p>}
+      aside={
+        <figure data-igloo-hero-visual className="sc028-device">
           <img
             src={IglooProImage}
             alt={t('products:hero.visual.device_alt')}
@@ -83,11 +49,10 @@ export default function IglooProHero() {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="relative h-full w-full object-contain"
           />
           <figcaption className="sr-only">{t('products:hero.visual.context')}</figcaption>
         </figure>
-      </div>
-    </section>
+      }
+    />
   )
 }

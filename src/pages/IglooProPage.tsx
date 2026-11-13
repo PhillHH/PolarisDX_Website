@@ -10,6 +10,7 @@ import IglooCompatibilitySection from '../components/sections/IglooCompatibility
 import IglooProductFinalCta from '../components/sections/IglooProductFinalCta'
 import { useAreaShell } from '../components/area/areaShell'
 import EventBand from '../components/events/EventBand'
+import SubPage from '../components/sub/SubPage'
 
 const IglooProPage: React.FC = () => {
   const { t, i18n } = useTranslation(['products', 'services', 'common'])
@@ -17,7 +18,7 @@ const IglooProPage: React.FC = () => {
   const { AreaNav, NextSteps, diagnosticsAreaItems } = useAreaShell()
 
   return (
-    <div>
+    <SubPage>
       <SEOHead
         title={t('products:seo.title')}
         description={t('products:seo.description')}
@@ -66,7 +67,7 @@ const IglooProPage: React.FC = () => {
         }}
       />
       <IglooProductFinalCta />
-    </div>
+    </SubPage>
   )
 }
 

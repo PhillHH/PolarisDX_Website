@@ -1,7 +1,5 @@
-import type { ReactNode } from 'react'
-import { Building2, MessagesSquare, ScanLine } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import Eyebrow from '../ui/Eyebrow'
+import SubHead from '../sub/SubHead'
 
 /**
  * Evidence-bounded product characteristics.
@@ -10,51 +8,36 @@ import Eyebrow from '../ui/Eyebrow'
  * deliberately absent until their later AP14 evidence owners have verified
  * them. This section describes only the current product, audience and real
  * enquiry path established by PT14.1/PT14.2.
+ *
+ * SC-028: Zeilen mit dünner Überschrift auf Nacht-Navy statt Karten mit Symbolkachel.
  */
-type FeatureCard = {
-  icon: ReactNode
-  k: string
-}
+const characteristics = ['reader', 'context', 'scope'] as const
 
 const IglooFeaturesSection = () => {
   const { t } = useTranslation('products')
 
-  const cards: FeatureCard[] = [
-    { icon: <ScanLine />, k: 'reader' },
-    { icon: <Building2 />, k: 'context' },
-    { icon: <MessagesSquare />, k: 'scope' },
-  ]
-
   return (
-    <section aria-labelledby="igloo-features-title" data-igloo-features className="bg-white">
-      <div className="mx-auto max-w-container px-4 lg:px-0 py-24 lg:py-24">
-        <div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
-          <div>
-            <Eyebrow>{t('product_story.eyebrow')}</Eyebrow>
-            <h2 id="igloo-features-title" className="mt-3 t-h2">
-              {t('product_story.title')}
-            </h2>
-          </div>
-          <p className="text-lg leading-relaxed text-gray-600">{t('product_story.description')}</p>
-        </div>
-
-        <ul className="grid gap-8 md:grid-cols-3">
-          {cards.map(({ icon, k }) => (
-            <li
-              key={k}
-              data-product-characteristic={k}
-              className="rounded-xl border border-paper-line bg-white p-7 flex flex-col"
-            >
-              <span
-                aria-hidden="true"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent"
-              >
-                <span className="h-5 w-5 [&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+    <section
+      aria-labelledby="igloo-features-title"
+      data-igloo-features
+      data-sub-section
+      className="sc025-s sc025-dark"
+    >
+      <div className="sc025-inner">
+        <SubHead
+          kicker={t('product_story.eyebrow')}
+          title={t('product_story.title')}
+          titleId="igloo-features-title"
+          lead={t('product_story.description')}
+        />
+        <ul className="sc028-cols grid gap-12 md:grid-cols-3">
+          {characteristics.map((k, index) => (
+            <li key={k} data-product-characteristic={k} className="rv">
+              <span className="sc028-n" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="mt-5 text-lg font-medium text-heading">
-                {t(`product_story.items.${k}.title`)}
-              </h3>
-              <p className="mt-2 t-small">{t(`product_story.items.${k}.text`)}</p>
+              <h3>{t(`product_story.items.${k}.title`)}</h3>
+              <p className="sc025-text">{t(`product_story.items.${k}.text`)}</p>
             </li>
           ))}
         </ul>
