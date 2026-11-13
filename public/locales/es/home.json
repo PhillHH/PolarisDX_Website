@@ -294,7 +294,14 @@
           "text": "El valor está listo mientras el paciente sigue en el sillón."
         }
       ],
-      "hint": "Desplácese para medir"
+      "hint": "Desplácese para medir",
+      "device": {
+        "start": "Nueva medición",
+        "running": "Análisis en curso",
+        "analyte": "Vitamina D3",
+        "verdict": "Óptimo",
+        "range": "Rango de referencia"
+      }
     },
     "products": {
       "lead": "Muestra. Medición. Resultado. En la misma cita.",

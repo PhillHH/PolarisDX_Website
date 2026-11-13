@@ -37,4 +37,16 @@ describe('SC-025 Lichtfilm homepage hero', () => {
     expect(container.querySelectorAll('[data-home-film-phases] > div')).toHaveLength(3)
     expect(container.querySelector('.sc025-film-beam')).toHaveAttribute('aria-hidden', 'true')
   })
+
+  it('keeps the 3D stage as a decorative canvas and stays on the images where WebGL is missing', () => {
+    const { container } = renderHero()
+    const canvas = container.querySelector('[data-home-film-gl]')
+    expect(canvas?.tagName).toBe('CANVAS')
+    expect(canvas).toHaveAttribute('aria-hidden', 'true')
+    expect(container.querySelector('[data-home-hero]')).not.toHaveAttribute('data-gl')
+    expect(container.querySelector('[data-home-film-views] img')).toHaveAttribute(
+      'alt',
+      'business_pillars.pillars.igloo.title',
+    )
+  })
 })

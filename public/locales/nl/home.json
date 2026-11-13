@@ -294,7 +294,14 @@
           "text": "De waarde is er terwijl de patiënt nog in de stoel zit."
         }
       ],
-      "hint": "Scroll om te meten"
+      "hint": "Scroll om te meten",
+      "device": {
+        "start": "Nieuwe meting",
+        "running": "Analyse loopt",
+        "analyte": "Vitamine D3",
+        "verdict": "Optimaal",
+        "range": "Referentiebereik"
+      }
     },
     "products": {
       "lead": "Monster. Meting. Resultaat. In dezelfde afspraak.",

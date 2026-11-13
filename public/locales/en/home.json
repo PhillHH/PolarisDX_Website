@@ -294,7 +294,14 @@
           "text": "The value is in while the patient is still in the chair."
         }
       ],
-      "hint": "Scroll to measure"
+      "hint": "Scroll to measure",
+      "device": {
+        "start": "New measurement",
+        "running": "Analysis running",
+        "analyte": "Vitamin D3",
+        "verdict": "Optimal",
+        "range": "Reference range"
+      }
     },
     "products": {
       "lead": "Sample. Measurement. Result. In the same appointment.",

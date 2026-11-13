@@ -378,6 +378,47 @@
 .sc025-film[data-started='true'] .sc025-film-hint {
   opacity: 0;
 }
+/* SC-026: 3D-Gerät. Die Zeichenfläche liegt hinter dem Inhalt und blendet über die Bilder,
+   sobald die Szene steht; verschoben wird nur per Transformation (kein Layoutsprung). */
+.sc025-film-gl {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s;
+}
+.sc025-film-pin > .sc025-film-grid {
+  position: relative;
+  z-index: 1;
+}
+.sc025-film[data-gl='on'] .sc025-film-gl {
+  opacity: 1;
+}
+.sc025-film[data-gl='on'] .sc025-film-views img,
+.sc025-film[data-gl='on'] .sc025-film-beam,
+.sc025-film[data-gl='on'] .sc025-film-glow {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.sc025-film[data-gl='on'] .sc025-film-progress {
+  transform: translateY(30px);
+}
+@media (min-width: 901px) {
+  .sc025-film[data-gl='on'] .sc025-film-copy {
+    transform: translateY(var(--sc025-copy-shift, 0px));
+    transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .sc025-film[data-gl='on'] .sc025-film-phases > div {
+    transform: translateY(calc(18px + var(--sc025-phase-shift, 0px)));
+  }
+  .sc025-film[data-gl='on'] .sc025-film-phases > div.is-on {
+    transform: translateY(var(--sc025-phase-shift, 0px));
+  }
+}
 @keyframes sc025-run {
   0% {
     left: -10%;
@@ -458,7 +499,8 @@
   .sc025-film-beam,
   .sc025-film-glow,
   .sc025-film-progress,
-  .sc025-film-hint {
+  .sc025-film-hint,
+  .sc025-film-gl {
     display: none;
   }
 }

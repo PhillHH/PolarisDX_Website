@@ -294,7 +294,14 @@
           "text": "Der Wert liegt vor, der Patient ist noch im Stuhl."
         }
       ],
-      "hint": "Scrollen, um zu messen"
+      "hint": "Scrollen, um zu messen",
+      "device": {
+        "start": "Neue Messung",
+        "running": "Auswertung läuft",
+        "analyte": "Vitamin D3",
+        "verdict": "Optimal",
+        "range": "Referenzbereich"
+      }
     },
     "products": {
       "lead": "Probe. Messung. Ergebnis. Im selben Termin.",

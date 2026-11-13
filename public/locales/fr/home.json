@@ -294,7 +294,14 @@
           "text": "La valeur est disponible, le patient est encore au fauteuil."
         }
       ],
-      "hint": "Faites défiler pour mesurer"
+      "hint": "Faites défiler pour mesurer",
+      "device": {
+        "start": "Nouvelle mesure",
+        "running": "Analyse en cours",
+        "analyte": "Vitamine D3",
+        "verdict": "Optimal",
+        "range": "Plage de référence"
+      }
     },
     "products": {
       "lead": "Prélèvement. Mesure. Résultat. Lors du même rendez-vous.",

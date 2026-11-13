@@ -294,7 +294,14 @@
           "text": "Wynik jest gotowy, a pacjent wciąż siedzi na fotelu."
         }
       ],
-      "hint": "Przewiń, aby zmierzyć"
+      "hint": "Przewiń, aby zmierzyć",
+      "device": {
+        "start": "Nowy pomiar",
+        "running": "Analiza w toku",
+        "analyte": "Witamina D3",
+        "verdict": "Optymalny",
+        "range": "Zakres referencyjny"
+      }
     },
     "products": {
       "lead": "Próbka. Pomiar. Wynik. Podczas tej samej wizyty.",

@@ -294,7 +294,14 @@
           "text": "Værdien foreligger, mens patienten stadig sidder i stolen."
         }
       ],
-      "hint": "Scroll for at måle"
+      "hint": "Scroll for at måle",
+      "device": {
+        "start": "Ny måling",
+        "running": "Analyse i gang",
+        "analyte": "Vitamin D3",
+        "verdict": "Optimal",
+        "range": "Referenceområde"
+      }
     },
     "products": {
       "lead": "Prøve. Måling. Resultat. I samme konsultation.",

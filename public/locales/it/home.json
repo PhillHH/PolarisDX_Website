@@ -294,7 +294,14 @@
           "text": "Il valore è pronto mentre il paziente è ancora sulla poltrona."
         }
       ],
-      "hint": "Scorri per misurare"
+      "hint": "Scorri per misurare",
+      "device": {
+        "start": "Nuova misurazione",
+        "running": "Analisi in corso",
+        "analyte": "Vitamina D3",
+        "verdict": "Ottimale",
+        "range": "Intervallo di riferimento"
+      }
     },
     "products": {
       "lead": "Campione. Misurazione. Risultato. Nello stesso appuntamento.",

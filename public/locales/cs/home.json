@@ -294,7 +294,14 @@
           "text": "Hodnota je k dispozici, pacient je stále v křesle."
         }
       ],
-      "hint": "Posouvejte a měřte"
+      "hint": "Posouvejte a měřte",
+      "device": {
+        "start": "Nové měření",
+        "running": "Probíhá vyhodnocení",
+        "analyte": "Vitamin D3",
+        "verdict": "Optimální",
+        "range": "Referenční rozmezí"
+      }
     },
     "products": {
       "lead": "Vzorek. Měření. Výsledek. Při stejné návštěvě.",

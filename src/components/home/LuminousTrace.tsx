@@ -34,7 +34,9 @@ const LuminousTrace = () => {
       const point = path.getPointAtLength(length)
       dot.setAttribute('cx', `${point.x}`)
       dot.setAttribute('cy', `${point.y}`)
-      dot.style.display = motion.matches ? 'none' : ''
+      // Der Lichtpunkt erscheint erst, wenn die Linie zu laufen beginnt — vorher läge er über
+      // der Bühne des Lichtfilms.
+      dot.style.display = motion.matches || length < 1 ? 'none' : ''
     }
 
     const requestDraw = () => {
@@ -59,7 +61,9 @@ const LuminousTrace = () => {
       const pin = views?.closest<HTMLElement>('.sc025-film-pin')
       const points: Array<[number, number]> = [[width * 0.84, 0]]
       if (views && film && pin) {
-        // Lichtfilm: Die Linie entspringt dem Lichtring des Geräts in der letzten Ansicht.
+        // Lichtfilm: Die Linie entspringt dem Lichtring des Geräts in der letzten Ansicht. Läuft
+        // das 3D-Gerät (SC-026), meldet es die Höhe seines Lichtrings im Bildfeld.
+        const ringLine = Number(views.dataset.ringLine) || 0.57
         const viewBounds = views.getBoundingClientRect()
         const pinBounds = pin.getBoundingClientRect()
         const filmTop = film.getBoundingClientRect().top + window.scrollY
@@ -69,7 +73,7 @@ const LuminousTrace = () => {
             film.offsetHeight -
             pin.offsetHeight +
             (viewBounds.top - pinBounds.top) +
-            viewBounds.height * 0.57,
+            viewBounds.height * ringLine,
         ]
       }
       const sections = Array.from(

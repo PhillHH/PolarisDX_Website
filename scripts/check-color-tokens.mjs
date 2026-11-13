@@ -23,6 +23,7 @@
  *   - `red-*`  : semantische Fehler-/Validierungszustaende (kein Akzent).
  *   - Neutrale Familien gray/slate/zinc/neutral/stone.
  *   - FlagIcon.tsx: Laenderflaggen sind vorgegebene Fremdfarben.
+ *   - home/igloo3d/iglooScene.ts: das 3D-Modell malt das Geraet in seinen Produktfarben.
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
@@ -129,6 +130,8 @@ const NEUTRAL_HEX = new Set([
 /** Dateien mit legitimen Fremdfarben (mit Begruendung). */
 const HEX_ALLOWED_FILES = new Set([
   'src/components/ui/FlagIcon.tsx', // Laenderflaggen
+  // SC-026: 3D-Modell des IglooPro — Geraeteanzeige, Adapter und Testkassette in Produktfarben
+  'src/components/home/igloo3d/iglooScene.ts',
   'public/polarisdx-mark.svg', // Firmenlogo — eigener Markenverlauf
 ])
 
