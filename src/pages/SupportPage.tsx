@@ -7,6 +7,8 @@ import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
 import SubHead from '../components/sub/SubHead'
 import SubPage from '../components/sub/SubPage'
 import SubStage from '../components/sub/SubStage'
+import StageImage from '../components/sub/StageImage'
+import { FILM_FRONT_IMAGE } from '../assets/home/homeImages'
 import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
@@ -131,16 +133,23 @@ const SupportPage = () => {
               </a>
             </>
           }
+          /* Das Gerät mit seinem Lichtstrahl; die drei Zusagen stehen darunter als Eckdaten. */
           aside={
-            <dl className="sc028-aside-list">
-              {(['response', 'channels', 'attach'] as const).map((key) => (
-                <div key={key}>
-                  <dt>{t(`support.hero.value.${key}_label`)}</dt>
-                  <dd>{t(`support.hero.value.${key}_value`)}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="sc028-rig" aria-hidden="true">
+              <div className="sc025-film-beam" />
+              <StageImage
+                image={FILM_FRONT_IMAGE}
+                desktopSizes="400px"
+                mobileSizes="(min-width: 406px) 300px, 74vw"
+              />
+            </div>
           }
+          facts={(['response', 'channels', 'attach'] as const).map((key) => ({
+            label: t(`support.hero.value.${key}_label`),
+            value: t(`support.hero.value.${key}_value`),
+          }))}
+          plainFacts
+          fold
         />
         <TrustBar />
         <EventBand />

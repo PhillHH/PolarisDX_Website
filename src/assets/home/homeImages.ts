@@ -210,3 +210,30 @@ export const FILM_TOP_IMAGE: ArticleImageAsset = {
     { width: 650, avif: top650Avif, webp: top650Webp },
   ],
 }
+
+/**
+ * SC-028 (Owner 2026-11-13 „Bilder rein"): die Praxisfotos der Startseite als Bühnenbilder der
+ * Leistungs-Detailseiten — dieselben Dateien, keine neuen Motive. Im 4:5-Rahmen der Bühne deckt
+ * das 16:10-Foto die Höhe (550 px → 880 px Breite), deshalb wählt `sizes` dort die 800w-Stufe.
+ */
+export const STAGE_PRAXIS_IMAGE: ArticleImageAsset = {
+  src: heroCard1280Webp,
+  width: 1280,
+  height: 800,
+  variants: [
+    { width: 480, avif: heroCard480Avif, webp: heroCard480Webp },
+    { width: 800, avif: heroCard800Avif, webp: heroCard800Webp },
+    { width: 1280, avif: heroCard1280Avif, webp: heroCard1280Webp },
+  ],
+}
+
+export const STAGE_CAPILLARY_IMAGE: ArticleImageAsset = {
+  src: heroCapillary1280Webp,
+  width: 1280,
+  height: 800,
+  variants: [
+    { width: 480, avif: heroCapillary480Avif, webp: heroCapillary480Webp },
+    { width: 800, avif: heroCapillary800Avif, webp: heroCapillary800Webp },
+    { width: 1280, avif: heroCapillary1280Avif, webp: heroCapillary1280Webp },
+  ],
+}

@@ -1,0 +1,187 @@
+/* SC-028: Termine (/events) im Raster der Startseite — nur diese Seite lädt das Blatt
+   (SubPage `styles`). Nur Palettenfarben. */
+:root {
+  --sc028-events: 1;
+}
+.sc028-highlight {
+  display: grid;
+  margin-bottom: clamp(56px, 8vw, 96px);
+  background: #041a2e;
+  color: #fff;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+.sc028-highlight > div {
+  padding: clamp(28px, 4vw, 56px);
+}
+.sc028-highlight h3 {
+  margin-top: 16px;
+  color: #fff;
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.sc028-when {
+  margin-top: 10px !important;
+  color: #8fd8fb;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.sc028-highlight .sc025-text {
+  max-width: 46ch;
+  margin-top: 22px;
+  color: #9fb6cc;
+  font-size: 16.5px;
+}
+.sc028-highlight dl {
+  margin-top: 30px;
+  border-top: 1px solid #ffffff38;
+}
+.sc028-highlight dl > div {
+  display: grid;
+  padding: 15px 0;
+  border-bottom: 1px solid #ffffff38;
+  font-size: 15px;
+  gap: 16px;
+  grid-template-columns: 120px 1fr;
+}
+.sc028-highlight dt {
+  padding-top: 3px;
+  color: #9fb6cc;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sc028-highlight .sc025-kicker {
+  color: #8fd8fb;
+}
+.sc028-highlight figure {
+  margin: 0;
+  padding: clamp(28px, 4vw, 56px);
+  border: 0;
+  border-radius: 0;
+  background: #072640;
+}
+.sc028-highlight figure ol {
+  list-style: decimal;
+}
+.sc028-highlight > div:only-child {
+  grid-column: 1 / -1;
+}
+.sc028-running {
+  display: inline-block;
+  margin-top: 14px !important;
+  padding: 4px 10px;
+  background: #fff;
+  color: #083358;
+  font-size: 12px;
+  font-weight: 600;
+}
+.sc028-cal .sc028-running {
+  background: #083358;
+  color: #fff;
+}
+.sc028-partner {
+  margin-top: 8px !important;
+  color: #eef2f6;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sc028-external {
+  margin-top: 32px;
+}
+.sc028-empty {
+  max-width: 44rem;
+  padding-top: 18px;
+  border-top: 1px solid #083358;
+}
+.sc028-empty .sc025-text {
+  margin: 12px 0 28px;
+}
+.sc028-past {
+  border-bottom: 1px solid #ffffff38;
+}
+.sc028-past article {
+  display: grid;
+  align-items: baseline;
+  padding: 20px 0;
+  border-top: 1px solid #ffffff38;
+  gap: 6px 32px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.4fr);
+}
+.sc028-past h3 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.sc028-past time {
+  font-size: 15px;
+}
+.sc028-past p {
+  color: #9fb6cc;
+  font-size: 15px;
+}
+.sc028-cal {
+  border-top: 1px solid #e2e8f0;
+}
+.sc028-cal > li {
+  display: grid;
+  align-items: start;
+  padding: 34px 0;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 20px 40px;
+  grid-template-columns: 110px minmax(0, 1fr) auto;
+}
+.sc028-cal-day span {
+  display: block;
+  color: #1b67b1;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.sc028-cal-day b {
+  display: block;
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.sc028-cal h3 {
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+.sc028-meta {
+  margin: 8px 0 10px !important;
+  color: #1b67b1;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.sc028-range {
+  padding-top: 10px;
+  color: #5e6a78;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .sc028-highlight {
+    grid-template-columns: 1fr;
+  }
+  .sc028-cal > li {
+    gap: 12px 18px;
+    grid-template-columns: 76px 1fr;
+  }
+  .sc028-range {
+    padding-top: 0;
+    grid-column: 2;
+  }
+  .sc028-past article {
+    grid-template-columns: 1fr;
+  }
+  .sc028-highlight dl > div {
+    gap: 4px;
+    grid-template-columns: 1fr;
+  }
+}

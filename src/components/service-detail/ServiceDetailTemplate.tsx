@@ -34,7 +34,7 @@ export function ServiceDetailTemplate({ model }: { model: ServiceDetailViewModel
         ogImageAlt={content.seo.imageAlt || content.hero.title}
         structuredData={createServiceDetailStructuredData(model, i18n.language)}
       />
-      <SubPage>
+      <SubPage page="service">
         <ServiceDetailHero model={model} />
         <TrustBar />
         <EventBand />
@@ -60,11 +60,10 @@ export function ServiceDetailTemplate({ model }: { model: ServiceDetailViewModel
               </div>
             </div>
           </article>
-          {/* Die Inhalte der früheren Randspalte stehen als eigener Abschnitt unter dem Artikel. */}
+          {/* Die Inhalte der früheren Randspalte stehen als eigener Abschnitt unter dem Artikel.
+              Die Randspalte bleibt Enkel des Vorlagen-Rahmens (`> div > aside`, e2e service-detail-closure). */}
           <div className="sc025-s sc025-tint sc028-more" data-sub-section>
-            <div className="sc025-inner">
-              <PageSidebar widgets={model.sidebarWidgets} />
-            </div>
+            <PageSidebar widgets={model.sidebarWidgets} />
           </div>
         </div>
         <NextSteps label={tCommon('area.nextLabel')} {...neighbours} />

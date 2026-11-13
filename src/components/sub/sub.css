@@ -1,10 +1,18 @@
 /* SC-028 (Owner 2026-11-13: „Auch alle Unterseiten sollen in diesem Stil sein durchgängig"):
    Unterseiten in der Formensprache der Startseite — dunkle Bühne mit Lichtlinie, Wechsel aus
    Nacht-Navy und Weiß, dünne große Schrift, eckige Flächen, Tabellen statt Karten.
-   Die gemeinsamen Bausteine (sc025-*) kommen aus dem Stylesheet der Startseite; es wird hier
-   eingebunden, weil es nur auf der Startseite ausgeliefert wird. Nur Palettenfarben. */
-@import '../home/home.css';
+   Die gemeinsamen Bausteine (sc025-*) kommen als wortgleiche Auswahl aus dem Stylesheet der
+   Startseite (base.css). Dieses Blatt trägt den Rahmen aller Unterseiten — Bühne, Raster,
+   geteilte Bausteine; was nur eine Seitenart braucht, steht in pages/*.css und wird nur dort
+   ausgeliefert (SubPage `styles`). Regeln, die eine Tailwind- oder Grundregel am selben Element
+   überstimmen, tragen dafür Gewicht (`.sc028 …`) statt Reihenfolge: beim Seitenwechsel im
+   Browser lädt React die Blätter VOR das Inline-CSS. Nur Palettenfarben. */
+@import './base.css';
 
+/* Kennung für SubPage.tsx: dieses Stylesheet ist im Dokument (inline vom Server oder nachgeladen). */
+:root {
+  --sc028-css: 1;
+}
 .sc028 {
   position: relative;
   overflow: clip;
@@ -66,10 +74,6 @@
 .sc028 .sc025-cols3 .sc025-underlink {
   margin-top: 10px;
 }
-.sc028-cols4 {
-  gap: 36px !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-}
 .sc028-h3 {
   max-width: 20em;
   margin: clamp(64px, 9vw, 112px) 0 28px !important;
@@ -96,6 +100,15 @@
   font-size: 14.5px;
 }
 
+/* Abschnitte unter dem ersten Bildschirm rechnet der Browser erst, wenn sie in die Nähe kommen:
+   ohne das kosten Stil und Layout der ganzen Seite gedrosselt rund 100 ms bis zum ersten Bild
+   (gemessen gegen den Stand vor SC-028). Es trifft den Inhalt (`.sc025-inner`), nicht den
+   Abschnitt — der Inhalt ist ohnehin eine eigene Ebene über der Lichtlinie, die Reihenfolge der
+   Ebenen bleibt. Sprungmarken, Suche im Dokument und Vorlesen erreichen den Inhalt weiter. */
+.sc028 [data-sub-section] > .sc025-inner {
+  contain-intrinsic-size: auto 640px;
+  content-visibility: auto;
+}
 /* ---------- Bühne ---------- */
 .sc028-stage {
   overflow: hidden;
@@ -152,10 +165,6 @@
   margin-top: 30px;
   gap: 8px;
 }
-.sc028-chips-center {
-  justify-content: center;
-  margin-top: 34px;
-}
 .sc028-chips > * {
   display: inline-flex;
   min-height: 34px;
@@ -194,17 +203,39 @@
   content: '';
   transform: translateX(-50%);
 }
+/* Das laufende Licht der Linie bewegt sich nur über transform und opacity (Compositor). Der
+   Lichtfilm der Startseite animiert dafür `left` — das rechnet in jedem Bild das Layout neu und
+   bremst gedrosselt das erste Bild; deshalb hier eine eigene Bewegung: das Element ist so breit
+   wie die Linie, das Licht sitzt als 160-px-Verlauf an seinem linken Rand. */
+@keyframes sc028-run {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
 .sc028-line::after,
-.sc028-facts::after {
+.sc028-facts::after,
+.sc028-rig .sc025-film-beam::after {
   position: absolute;
   top: -2px;
   left: 0;
-  width: 160px;
+  width: 100%;
   height: 4px;
-  animation: sc025-run 4.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  background: linear-gradient(90deg, #fff0, #fff, #fff0);
+  animation: sc028-run 4.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  background: linear-gradient(90deg, #fff0, #fff, #fff0) no-repeat;
+  background-size: 160px 100%;
   content: '';
-  filter: blur(1px);
+}
+.sc028-rig .sc025-film-beam::after {
+  top: -1px;
 }
 .sc028-facts > * {
   min-width: 0;
@@ -278,6 +309,35 @@
   flex-direction: column-reverse;
 }
 
+/* ---------- Bühnenbilder (StageImage: Desktop-Bild eager, Telefon-Bild lazy) ---------- */
+.sc028-mob {
+  display: none;
+}
+.sc028-facts-plain::before {
+  top: 0;
+  height: 1px;
+  background: #ffffff1f;
+  box-shadow: none;
+}
+.sc028-facts-plain::after {
+  display: none;
+}
+/* Gerät mit Lichtstrahl (Support) */
+.sc028-rig {
+  position: relative;
+  width: min(400px, 84%);
+  margin: 0 auto;
+  isolation: isolate;
+}
+.sc028-rig img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+}
+.sc028-rig .sc025-film-beam {
+  top: 64.3%;
+}
 /* ---------- Geteilte Bausteine im neuen Raster (bis sie selbst umgestellt sind) ---------- */
 /* Vertrauensleiste: flache Zeile auf Nacht-Navy direkt unter der Bühne */
 .sc028 [data-home-trustbar] {
@@ -492,20 +552,24 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-/* Bereichsnavigation, „Weiter im Bereich" und Formularfelder */
-.sc028
-  :is(
-    .rounded-full,
-    .rounded-card,
-    .rounded-band,
-    .rounded-2xl,
-    .rounded-xl,
-    .rounded-lg,
-    .rounded-md
-  ) {
+/* Geteilte Bausteine eckig und flach — gezielt je Baustein statt pauschal über alle Rundungs-
+   und Schattenklassen: Kreise (Statuspunkte, Skalen, Auswahlknöpfe) bleiben rund, und was neu in
+   eine Seite kommt, wird nicht ungefragt umgeformt. */
+.sc028 [data-area-nav] a > span,
+.sc028 [data-home-trustbar] > div,
+.sc028 [data-event-band] :is(.rounded-band, .rounded-card),
+.sc028 #los-gehts :is(.rounded-band, .rounded-full),
+.sc028 #faq .rounded-card,
+.sc028-more aside :is(.rounded-2xl, .rounded-xl, .rounded-lg),
+.sc028 [data-area-next] :is(.rounded-card, .rounded-full),
+.sc028 [data-mobile-action-bar] .rounded-full,
+.sc028 [data-gate-trigger] :is(.rounded, .rounded-lg, .rounded-xl),
+.sc028-form :is(.rounded-md, .rounded-lg, .rounded-xl, .rounded-card) {
   border-radius: 0;
 }
-.sc028 :is(.shadow-card, .shadow-sm, .shadow-md, .shadow-lg) {
+.sc028 [data-home-trustbar] .shadow-card,
+.sc028 [data-event-band] .shadow-card,
+.sc028 #faq .shadow-card {
   box-shadow: none;
 }
 .sc028-form form {
@@ -671,378 +735,6 @@
   line-height: 1.14;
 }
 
-/* ---------- Termine ---------- */
-.sc028-highlight {
-  display: grid;
-  margin-bottom: clamp(56px, 8vw, 96px);
-  background: #041a2e;
-  color: #fff;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-}
-.sc028-highlight > div {
-  padding: clamp(28px, 4vw, 56px);
-}
-.sc028-highlight h3 {
-  margin-top: 16px;
-  color: #fff;
-  font-size: clamp(40px, 6vw, 84px);
-  font-weight: 300;
-  letter-spacing: -0.045em;
-  line-height: 1;
-}
-.sc028-when {
-  margin-top: 10px !important;
-  color: #8fd8fb;
-  font-size: clamp(20px, 2.2vw, 28px);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-.sc028-highlight .sc025-text {
-  max-width: 46ch;
-  margin-top: 22px;
-  color: #9fb6cc;
-  font-size: 16.5px;
-}
-.sc028-highlight dl {
-  margin-top: 30px;
-  border-top: 1px solid #ffffff38;
-}
-.sc028-highlight dl > div {
-  display: grid;
-  padding: 15px 0;
-  border-bottom: 1px solid #ffffff38;
-  font-size: 15px;
-  gap: 16px;
-  grid-template-columns: 120px 1fr;
-}
-.sc028-highlight dt {
-  padding-top: 3px;
-  color: #9fb6cc;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.sc028-highlight figure {
-  margin: 0;
-  padding: clamp(28px, 4vw, 56px);
-  border: 0;
-  background: #072640;
-}
-.sc028-highlight figure ol {
-  list-style: decimal;
-}
-.sc028-highlight > div:only-child {
-  grid-column: 1 / -1;
-}
-.sc028-running {
-  display: inline-block;
-  margin-top: 14px !important;
-  padding: 4px 10px;
-  background: #fff;
-  color: #083358;
-  font-size: 12px;
-  font-weight: 600;
-}
-.sc028-cal .sc028-running {
-  background: #083358;
-  color: #fff;
-}
-.sc028-partner {
-  margin-top: 8px !important;
-  color: #eef2f6;
-  font-size: 14px;
-  font-weight: 500;
-}
-.sc028-external {
-  margin-top: 32px;
-}
-.sc028-empty {
-  max-width: 44rem;
-  padding-top: 18px;
-  border-top: 1px solid #083358;
-}
-.sc028-empty .sc025-text {
-  margin: 12px 0 28px;
-}
-.sc028-past {
-  border-bottom: 1px solid #ffffff38;
-}
-.sc028-past article {
-  display: grid;
-  align-items: baseline;
-  padding: 20px 0;
-  border-top: 1px solid #ffffff38;
-  gap: 6px 32px;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1.4fr);
-}
-.sc028-past h3 {
-  font-size: 17px;
-  font-weight: 500;
-}
-.sc028-past time {
-  font-size: 15px;
-}
-.sc028-past p {
-  color: #9fb6cc;
-  font-size: 15px;
-}
-.sc028-cal {
-  border-top: 1px solid #e2e8f0;
-}
-.sc028-cal > li {
-  display: grid;
-  align-items: start;
-  padding: 34px 0;
-  border-bottom: 1px solid #e2e8f0;
-  gap: 20px 40px;
-  grid-template-columns: 110px minmax(0, 1fr) auto;
-}
-.sc028-cal-day span {
-  display: block;
-  color: #1b67b1;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.sc028-cal-day b {
-  display: block;
-  font-size: clamp(44px, 5vw, 68px);
-  font-weight: 300;
-  letter-spacing: -0.05em;
-  line-height: 1;
-}
-.sc028-cal h3 {
-  font-size: clamp(24px, 2.8vw, 38px);
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-}
-.sc028-meta {
-  margin: 8px 0 10px !important;
-  color: #1b67b1;
-  font-size: 13.5px;
-  font-weight: 500;
-}
-.sc028-range {
-  padding-top: 10px;
-  color: #5e6a78;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-/* ---------- Leistungs-Detail ---------- */
-.sc028-h2s {
-  margin-bottom: 18px !important;
-  font-size: clamp(24px, 2.8vw, 36px);
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  text-wrap: balance;
-}
-.sc028-prose {
-  max-width: 68ch;
-  color: #5e6a78;
-  font-size: 17px;
-  line-height: 1.6;
-}
-.sc028-prose p + p {
-  margin-top: 1em;
-}
-.sc025-head .sc028-prose {
-  max-width: 48ch;
-  justify-self: end;
-}
-.sc025-dark .sc028-prose {
-  margin-bottom: 36px;
-  color: #9fb6cc;
-}
-.sc028-stack > * + * {
-  margin-top: clamp(56px, 7vw, 96px);
-}
-.sc028-two + .sc028-stats,
-.sc025-head + .sc028-stats {
-  margin-top: clamp(56px, 8vw, 104px);
-}
-.sc028-stats {
-  display: grid;
-  border-top: 1px solid #9fb6cc;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-}
-.sc028-stats li {
-  padding: 26px 28px 0 0;
-}
-.sc028-stats li + li {
-  padding-left: 28px;
-  border-left: 1px solid #9fb6cc;
-}
-.sc028-stats strong {
-  display: block;
-  font-size: clamp(28px, 3.6vw, 48px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-.sc028-stats span {
-  display: block;
-  margin-top: 6px;
-  color: #5e6a78;
-  font-size: 13.5px;
-}
-.sc028-steps {
-  display: grid;
-  gap: 48px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-.sc028-steps li {
-  padding-top: 18px;
-  border-top: 1px solid #1b67b1;
-}
-.sc028-steps h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-.sc028-proof {
-  display: grid;
-  gap: 40px 48px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-.sc028-proof li {
-  padding-top: 18px;
-  border-top: 1px solid #9fb6cc;
-}
-.sc028-proof strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: clamp(28px, 3.4vw, 44px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-.sc028-proof span {
-  font-weight: 500;
-}
-.sc028-notebox {
-  max-width: 76ch;
-  margin-top: 44px;
-  padding-left: 18px;
-  border-left: 1px solid #1b67b1;
-}
-.sc028-notebox .sc028-h2s {
-  margin-bottom: 6px !important;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-.sc028-notebox .sc028-prose {
-  font-size: 13.5px;
-}
-.sc028-related {
-  padding-block: 0;
-}
-.sc028-rel {
-  display: grid;
-  gap: 0 48px;
-  grid-template-columns: 1fr 1fr;
-}
-.sc028-rel a {
-  display: block;
-  padding: 18px 0;
-  border-top: 1px solid #9fb6cc;
-  font-weight: 500;
-}
-.sc028-rel a span {
-  display: block;
-  margin-top: 4px;
-  font-weight: 400;
-}
-.sc028-after .sc028-sales {
-  margin-top: 0;
-}
-.sc028-after #faq {
-  margin-top: clamp(64px, 9vw, 112px);
-}
-/* Frühere Randspalte: drei Spalten unter dem Artikel */
-.sc028-more aside {
-  position: static;
-  display: grid;
-  align-items: start;
-  gap: 40px 48px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-.sc028-more aside > * {
-  margin: 0;
-}
-.sc028-prows {
-  border-top: 1px solid #ffffff38;
-}
-.sc028-prows li {
-  padding: clamp(18px, 2.4vw, 30px) 0;
-  border-bottom: 1px solid #ffffff38;
-  font-size: clamp(34px, 5.6vw, 84px);
-  font-weight: 300;
-  letter-spacing: -0.045em;
-  line-height: 1;
-}
-.sc028-sales {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: clamp(64px, 9vw, 112px);
-  padding: clamp(30px, 4vw, 52px);
-  background: #041a2e;
-  color: #fff;
-  gap: 28px 48px;
-}
-.sc028-sales h2 {
-  color: #fff;
-  font-size: clamp(26px, 3.2vw, 42px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-}
-.sc028-sales p {
-  max-width: 52ch;
-  margin-top: 10px !important;
-  color: #9fb6cc;
-  font-size: 16.5px;
-}
-.sc028-grid4 {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(4, 1fr);
-}
-.sc028-grid4 a {
-  display: flex;
-  min-height: 128px;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 26px 22px;
-  background: #072640;
-  color: #fff;
-  font-size: 17px;
-  gap: 14px;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  transition: background 0.3s;
-}
-.sc028-grid4 a:hover {
-  background: #0a2f4e;
-}
-.sc028-grid4 svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
-  color: #8fd8fb;
-}
-
-/* ---------- „Weiter im Bereich" ---------- */
-.sc028-next {
-  padding-block: clamp(72px, 9vw, 120px);
-}
-
 /* ---------- Lichtlinie durch die Seite ---------- */
 .sc028-trace {
   position: absolute;
@@ -1053,21 +745,39 @@
   pointer-events: none;
 }
 
-@media (max-width: 1100px) {
-  .sc028-cols4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  .sc028-grid4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media (max-width: 900px) {
   .sc028-stage-grid {
     gap: 44px;
     grid-template-columns: 1fr;
   }
+  /* Bühne am Telefon (SubStage `fold`): der Text füllt den ersten Bildschirm, was auf die
+     Einleitung folgt (Chips, Aktionen) steht an dessen Fuß; die rechte Spalte beginnt darunter.
+     So bleibt das größte Element im ersten Bildschirm Text (LCP = erstes Bild), ein Bild rechts
+     kann `lazy` laden, und der freie Raum fängt den Zeilenumbruch der Einleitung beim
+     Schriftwechsel ab. 130 px = Kopfzeilen-Abstand (`pt-page-top`), dazu der obere Abstand des
+     Rasters. */
+  .sc028-stage-fold > :first-child {
+    display: flex;
+    min-height: calc(100vh - 130px - clamp(20px, 5vh, 64px));
+    min-height: calc(100svh - 130px - clamp(20px, 5vh, 64px));
+    flex-direction: column;
+    padding-bottom: 28px;
+  }
+  .sc028-stage-fold .sc028-stage-lead + * {
+    margin-top: auto;
+    padding-top: 38px;
+  }
   .sc028-aside-card {
     margin-left: 0;
+  }
+  .sc028-desk {
+    display: none;
+  }
+  .sc028-mob {
+    display: block;
+  }
+  .sc028-rig {
+    width: min(300px, 74%);
   }
   .sc028-facts {
     grid-template-columns: 1fr 1fr;
@@ -1098,49 +808,19 @@
     border-top: 1px solid #ffffff1f;
   }
   .sc028-two,
-  .sc028-rel,
   .sc028-tiles,
   .sc028-form-grid,
-  .sc028-qas,
-  .sc028-highlight,
-  .sc028-cols4 {
-    grid-template-columns: 1fr !important;
-  }
-  .sc028-cal > li {
-    gap: 12px 18px;
-    grid-template-columns: 76px 1fr;
-  }
-  .sc028-range {
-    padding-top: 0;
-    grid-column: 2;
-  }
-  .sc028-past article {
+  .sc028-qas {
     grid-template-columns: 1fr;
-  }
-  .sc028-highlight dl > div {
-    gap: 4px;
-    grid-template-columns: 1fr;
-  }
-  .sc028-grid4 a {
-    min-height: 0;
-    padding: 22px 20px;
-  }
-  .sc028-sales {
-    flex-direction: column;
-    align-items: flex-start;
   }
   .sc028-trace {
     opacity: 0.75;
   }
 }
-@media (max-width: 520px) {
-  .sc028-grid4 {
-    grid-template-columns: 1fr;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .sc028-line::after,
-  .sc028-facts::after {
+  .sc028-facts::after,
+  .sc028-rig .sc025-film-beam::after {
     display: none;
   }
 }

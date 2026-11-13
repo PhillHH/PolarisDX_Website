@@ -38,7 +38,7 @@ const Kicker = ({ children }: { children: ReactNode }) => (
 )
 
 const NextSteps = ({ label, previous, next, cta }: NextStepsProps) => (
-  <section aria-label={label} className="border-t border-paper-line bg-white">
+  <section aria-label={label} data-area-next className="border-t border-paper-line bg-white">
     <div className="mx-auto max-w-container px-4 py-14 sm:px-6 lg:px-0 lg:py-16">
       <p className="inline-flex items-center gap-2.5 t-eyebrow">
         <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-line" />

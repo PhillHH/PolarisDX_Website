@@ -1,0 +1,215 @@
+/* SC-028: die Grundbausteine der Startseite (sc025-*), die auch die Unterseiten tragen — Inhalt,
+   dunkle Fläche, Abschnittskopf, Kennzeile, Schaltflächen, Spalten, Hinweis, Lichtstrahl (ohne dessen laufendes Licht), Fuß.
+   WORTGLEICHE Kopien aus src/components/home/home.css (dort ist die Quelle): die Unterseiten
+   binden nur diese Auswahl ein statt des ganzen Startseiten-Stylesheets, weil ihr CSS inline im
+   HTML steht und jedes Kilobyte das erste Bild verzögert. base.test.ts prüft Regel für Regel,
+   dass die Kopie der Quelle entspricht — wer home.css an diesen Regeln ändert, zieht hier nach. */
+.sc025-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, 100%);
+  margin-inline: auto;
+  padding-inline: max(20px, env(safe-area-inset-left, 0px))
+    max(20px, env(safe-area-inset-right, 0px));
+}
+.sc025-dark {
+  position: relative;
+  background: #041a2e;
+  color: #fff;
+  isolation: isolate;
+}
+.sc025-dark::before {
+  position: absolute;
+  z-index: 0;
+  background: radial-gradient(
+    520px circle at var(--mx, 50%) var(--my, -40%),
+    #1b67b157,
+    #1b67b100 70%
+  );
+  content: '';
+  inset: 0;
+  pointer-events: none;
+}
+.sc025-s {
+  padding-block: clamp(88px, 13vw, 168px);
+}
+.sc025-tint {
+  background: #eef2f6;
+}
+.sc025-head {
+  display: grid;
+  align-items: end;
+  margin-bottom: clamp(44px, 6vw, 80px);
+  gap: 24px 64px;
+  grid-template-columns: 1.1fr 1fr;
+}
+.sc025-kicker {
+  display: flex;
+  align-items: center;
+  color: #1b67b1;
+  font-size: 11px;
+  font-weight: 500;
+  gap: 14px;
+  grid-column: 1 / -1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sc025-kicker::before {
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  content: '';
+}
+.sc025-dark .sc025-kicker {
+  color: #8fd8fb;
+}
+.sc025-h2,
+.sc025 #faq h2,
+.sc025 #blog h2,
+[data-home-events] .sc025-subheading {
+  color: inherit;
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 300;
+  letter-spacing: -0.038em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+.sc025-head > p {
+  max-width: 44ch;
+  color: #5e6a78;
+  font-size: 17px;
+  justify-self: end;
+  line-height: 1.6;
+}
+.sc025-dark .sc025-head > p {
+  color: #9fb6cc;
+}
+.sc025-mid {
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.sc025-text {
+  color: #5e6a78;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+.sc025-dark .sc025-text {
+  color: #9fb6cc;
+}
+.sc025-label {
+  color: #9fb6cc;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sc025-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 20px;
+  border-radius: 0;
+  background: #1b67b1;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  transition:
+    transform 0.2s ease-out,
+    background 0.25s;
+}
+.sc025-button:hover {
+  background: #0d527f;
+}
+.sc025-button svg,
+.sc025-underlink svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s;
+}
+.sc025-underlink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+}
+.sc025-underlink > span {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.sc025-underlink:hover svg {
+  transform: translateX(4px);
+}
+.sc025-film-beam {
+  position: absolute;
+  z-index: 1;
+  top: var(--ring);
+  left: 50%;
+  width: 100vw;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #02a6e300,
+    #02a6e38c 22%,
+    #8fd8fb 50%,
+    #02a6e38c 78%,
+    #02a6e300
+  );
+  box-shadow: 0 0 18px 2px #02a6e38c;
+  transform: translateX(-50%);
+  transition:
+    top 0.9s,
+    opacity 0.7s;
+}
+.sc025-cols3,
+.sc025-proc tbody {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.sc025-cols3 > div,
+.sc025-proc tr {
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid #9fb6cc;
+}
+.sc025-cols3 h3,
+.sc025-proc th {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  text-align: left;
+}
+.sc025-note {
+  max-width: 76ch;
+  margin-top: 44px !important;
+  padding-left: 18px;
+  border-left: 1px solid #1b67b1;
+  color: #5e6a78;
+  font-size: 13px;
+}
+footer {
+  background: #041a2e !important;
+  border-top: 1px solid #ffffff38;
+}
+@media (max-width: 900px) {
+  .sc025-head,
+  .sc025-more-columns,
+  .sc025-quote {
+    grid-template-columns: 1fr;
+  }
+  .sc025-head > p {
+    justify-self: start;
+  }
+  .sc025-cols3,
+  .sc025-proc tbody,
+  .sc025-kpi {
+    grid-template-columns: 1fr;
+  }
+}

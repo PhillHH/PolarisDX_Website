@@ -178,7 +178,13 @@ function inlineStylesheet(template: string): { html: string; styleHashes: string
 const routeStylesheetCache = new Map<string, string>()
 let homeStylesheetHref: string | undefined
 
-/** SC-025: route-spezifisches CSS nur in dessen SSR-HTML und CSP-Hash aufnehmen. */
+/**
+ * SC-025: route-spezifisches CSS nur in dessen SSR-HTML und CSP-Hash aufnehmen.
+ * SC-028: die Unterseiten im Stil der Startseite nennen ihre Stylesheets am Rahmen
+ * (`data-sub-stylesheet`, SubPage.tsx: Rahmen-Blatt und das Blatt der Seitenart); sie werden
+ * genauso inline ausgeliefert — ein `<link>` im Kopf kostete eine eigene Rundreise vor dem ersten
+ * Bild (PT25.4) und verletzt `stylesheetLinks`.
+ */
 function inlineRouteStylesheet(
   html: string,
   styleHashes: string[],
@@ -193,26 +199,46 @@ function inlineRouteStylesheet(
       styleHashes,
     }
   }
+  const subSheets = isHome ? undefined : html.match(/\bdata-sub-stylesheet="([^"]+)"/)?.[1]
+  if (!isProduction && subSheets) {
+    const links = subSheets
+      .split(' ')
+      .filter((href) => /^\/src\/components\/sub\/[\w/-]+\.css$/.test(href))
+      .map((href) => `<link rel="stylesheet" href="${href}" data-sub-stylesheet>`)
+      .join('')
+    return { html: html.replace('</head>', `${links}</head>`), styleHashes }
+  }
   const link = html.match(/<link\b(?=[^>]*\bdata-home-stylesheet\b)[^>]*>/i)
-  let href = link?.[0].match(/href="(\/assets\/[^"]+\.css)"/i)?.[1]
-  if (!href && isHome) {
+  const hrefs: string[] = []
+  const linked = link?.[0].match(/href="(\/assets\/[^"]+\.css)"/i)?.[1]
+  if (linked) hrefs.push(linked)
+  else if (isHome) {
     if (!homeStylesheetHref) {
       const file = fs
         .readdirSync(path.resolve(CLIENT_DIST_DIR, 'assets'))
         .find((name) => /^home-[^/]+\.css$/.test(name))
       if (file) homeStylesheetHref = `/assets/${file}`
     }
-    href = homeStylesheetHref
+    if (homeStylesheetHref) hrefs.push(homeStylesheetHref)
+  } else if (subSheets) {
+    // Nur gebaute Blätter aus /assets/ — der Wert kommt aus dem eigenen Render, wird aber nicht
+    // ungeprüft als Dateipfad benutzt.
+    hrefs.push(...subSheets.split(' ').filter((href) => /^\/assets\/[\w-]+\.css$/.test(href)))
   }
-  if (!href) return { html, styleHashes }
+  if (hrefs.length === 0) return { html, styleHashes }
   try {
-    let css = routeStylesheetCache.get(href)
-    if (css === undefined) {
-      css = fs
-        .readFileSync(path.resolve(CLIENT_DIST_DIR, href.slice(1)), 'utf-8')
-        .replace(/<\/style/gi, '<\\/style')
-      routeStylesheetCache.set(href, css)
-    }
+    const css = hrefs
+      .map((href) => {
+        let sheet = routeStylesheetCache.get(href)
+        if (sheet === undefined) {
+          sheet = fs
+            .readFileSync(path.resolve(CLIENT_DIST_DIR, href.slice(1)), 'utf-8')
+            .replace(/<\/style/gi, '<\\/style')
+          routeStylesheetCache.set(href, sheet)
+        }
+        return sheet
+      })
+      .join('')
     const withoutLink = link ? html.replace(link[0], '') : html
     const inline = withoutLink.match(/<style\b[^>]*data-inline-stylesheet[^>]*>/i)
     if (inline) {
@@ -232,7 +258,7 @@ function inlineRouteStylesheet(
     return {
       html: withoutLink.replace(
         '</head>',
-        `<style data-inline-stylesheet="${href}">${css}</style></head>`,
+        `<style data-inline-stylesheet="${hrefs[0]}">${css}</style></head>`,
       ),
       styleHashes: [...styleHashes, hash],
     }

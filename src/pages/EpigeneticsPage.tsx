@@ -13,34 +13,24 @@
  * - Die Evidenz-Sektion trennt bewusst Gesichertes von Vorlaeufigem. Das ist
  *   Absicht: vor Fachpublikum traegt die Seite nur mit offengelegten Grenzen.
  *
- * TYPOGRAFIE: Fliesstext laeuft auf text-base und ab lg auf 17px/2rem. Das ist
- * bewusst groesser als der Rest der Site — die Seite ist eine Lesestrecke fuer
- * Fachpublikum, keine Uebersichtsseite.
+ * SC-028 (Owner 2026-11-13): die Seite steht im Raster der Startseite (sub.css) — dunkle Bühne
+ * mit Musterbefund-Fächer, Abschnittsköpfe mit Kennzeile, Spalten und Zeilen statt Karten.
+ * Texte, Reihenfolge, Anker, Filter, Merkliste und Formular sind unverändert.
  */
 
 import EventBand from '../components/events/EventBand'
 import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  ChevronDown,
-  Download,
-  FileText,
-  Minus,
-} from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ChevronDown, Download } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import type { FAQItem } from '../components/seo'
-import SectionHeader from '../components/ui/SectionHeader'
 import EpigeneticsPanels from '../components/sections/EpigeneticsPanels'
 import PageTransition from '../components/ui/PageTransition'
-import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
+import Reveal from '../components/ui/Reveal'
 import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
-import { Button } from '../components/ui/Button'
 import { resourceLanguageFromPath } from '../lib/resourceLanguage'
-import ConsultSteps from '../components/befund/ConsultSteps'
+import { CONSULT_ID } from '../components/befund/ConsultSteps'
 import { ScaleRamp } from '../components/befund/ScaleRamp'
 import { useScrollDepth } from '../lib/useScrollDepth'
 // Die Schnittstelle beschrieb `quote_request` als "der Weg Angebot anfragen
@@ -50,6 +40,8 @@ import { track } from '../lib/tracking'
 import { panelsUrl } from '../lib/shop'
 import { useMerkliste } from '../lib/merkliste'
 import EpigeneticsInquiryForm from '../components/epigenetics/EpigeneticsInquiryForm'
+import { BEFUND_IMAGES, BEFUND_IMAGE_SIZE } from '../assets/epigenetics/befundImages'
+import SubHead from '../components/sub/SubHead'
 import SubPage from '../components/sub/SubPage'
 import SubStage from '../components/sub/SubStage'
 import { useAreaShell } from '../components/area/areaShell'
@@ -72,15 +64,8 @@ const ASSET_BASE = '/downloads/epigenetics/'
 // dazu, faellt sie auf die neutrale Rampe zurueck statt auf eine falsche.
 const SCALE_KINDS = ['traffic', 'percent', 'deviation']
 
-// Reveal rendert zwei verschachtelte divs; damit Grid-Karten auf Reihenhoehe
-// wachsen, muss h-full auf beide.
-const STRETCH = 'h-full [&>div]:h-full'
-
-// Fliesstext, Lead und Kleinlabel — an einer Stelle definiert, damit die
-// Lesegroesse ueber alle Sektionen identisch bleibt.
-const BODY = 'text-base leading-7 lg:text-[17px] lg:leading-8'
-const LEAD = 'text-lg leading-relaxed text-gray-600 lg:text-xl lg:leading-relaxed'
-const LABEL = 'text-xs font-medium text-gray-600'
+// Die drei Deckblätter im Fächer der Bühne (Schmuck; alle sechs stehen bei den Analysen).
+const STAGE_COVERS = ['healthy-aging', 'stress-monitor', 'metabolic-health']
 
 interface Fact {
   k: string
@@ -134,13 +119,6 @@ const WORKFLOW_GROUPS = [
 // neun (plus Parameteruebersicht und "Werte verstehen") fuehrt die
 // Unterlagen-Seite.
 const HUB_SHEETS = ['00', '07', '08']
-
-const chip = (on: boolean) =>
-  `inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold ${
-    on
-      ? 'border-brand-deep bg-brand-deep text-white'
-      : 'border-slate-300 bg-white text-heading hover:border-accent'
-  }`
 
 const EpigeneticsPage = () => {
   const { t, i18n } = useTranslation(['epigenetics', 'common', 'downloads'])
@@ -212,7 +190,7 @@ const EpigeneticsPage = () => {
         ]}
       />
 
-      <SubPage>
+      <SubPage page="epigenetics">
         <div data-epigenetics-hub="true" data-route-id="epigenetics">
           {/* ================================================================
             BUEHNE (AP34 PT34.2b, SC-003)
@@ -260,6 +238,28 @@ const EpigeneticsPage = () => {
                 </a>
               </>
             }
+            /* Drei Musterbefund-Deckblätter als Fächer — Schmuck, die Blätter stehen mit
+               Alternativtext bei den sechs Analysen. Kleiner als die Überschrift, also nie LCP. */
+            aside={
+              <div className="sc028-fan" aria-hidden="true">
+                {STAGE_COVERS.map((slug) =>
+                  BEFUND_IMAGES[slug] ? (
+                    <img
+                      key={slug}
+                      src={BEFUND_IMAGES[slug].src}
+                      srcSet={`${BEFUND_IMAGES[slug].src} 640w, ${BEFUND_IMAGES[slug].src2x} 1200w`}
+                      sizes="(min-width: 901px) 325px, 240px"
+                      width={BEFUND_IMAGE_SIZE.width}
+                      height={BEFUND_IMAGE_SIZE.height}
+                      loading="lazy"
+                      decoding="async"
+                      alt=""
+                    />
+                  ) : null,
+                )}
+              </div>
+            }
+            fold
             /* Die vier Eckdaten des Programms aus hero.chips. */
             facts={chips.slice(0, 4).map((chip) => ({ label: chip.label, value: chip.value }))}
             factsLabel={tCommon('area.factsLabel')}
@@ -274,10 +274,7 @@ const EpigeneticsPage = () => {
               actions={
                 <>
                   {gemerkt.length > 0 ? (
-                    <a
-                      href="#merkliste"
-                      className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-heading hover:border-accent"
-                    >
+                    <a href="#merkliste" className="sc028-navbtn">
                       {tCommon('area.saved', { count: gemerkt.length })}
                     </a>
                   ) : null}
@@ -286,7 +283,7 @@ const EpigeneticsPage = () => {
                     data-cta-role="EPIGENETICS_INQUIRY"
                     data-cta-source="epigenetics"
                     data-cta-section="area-nav"
-                    className="inline-flex h-10 items-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-white hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                    className="sc028-navbtn sc028-navbtn-solid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   >
                     {t('hero.ctaQuote')}
                   </a>
@@ -298,21 +295,15 @@ const EpigeneticsPage = () => {
           {/* ================================================================
             WEGWEISER — vier Schritte zur Entscheidung
         ================================================================ */}
-          <section
-            data-sub-section
-            className="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-0 lg:py-20"
-          >
-            <Reveal width="100%">
-              <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
-                <SectionHeader
-                  caption={t('journey.caption')}
+          <section data-sub-section className="sc025-s">
+            <div className="sc025-inner">
+              <Reveal width="100%">
+                <SubHead
+                  kicker={t('journey.caption')}
                   title={t('journey.title')}
-                  align="left"
+                  lead={t('journey.lead')}
                 />
-                <p className={LEAD}>{t('journey.lead')}</p>
-              </div>
-            </Reveal>
-            <div className="mt-10">
+              </Reveal>
               <JourneySteps
                 label={tCommon('area.journeyLabel')}
                 steps={epigeneticsJourney(t)}
@@ -329,7 +320,7 @@ const EpigeneticsPage = () => {
           <section
             id="analysen"
             data-sub-section
-            className="sc025-tint scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-tint sc028-s-top scroll-mt-[var(--chapterbar-offset,148px)]"
           >
             <span id="musterbefunde" className="block scroll-mt-[var(--chapterbar-offset,148px)]" />
             <EpigeneticsPanels
@@ -338,19 +329,16 @@ const EpigeneticsPage = () => {
               groups={compareGroups}
               title={t('hero.chooseTitle')}
               filter={
-                <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
-                  <p className="shrink-0 text-base font-semibold text-heading">
-                    {t('compare.filter.label')}
-                  </p>
-                  <ul className="flex flex-wrap gap-2">
+                <div className="sc028-filter">
+                  <p>{t('compare.filter.label')}</p>
+                  <ul>
                     <li>
                       <Link
                         to={epigeneticsHubHref({ panel: context.panel }, 'analysen')}
                         aria-current={panelGroup === null ? 'true' : undefined}
-                        className={chip(panelGroup === null)}
                       >
                         {t('compare.filter.all')}
-                        <span className="text-xs font-medium opacity-70">{compareRows.length}</span>
+                        <span>{compareRows.length}</span>
                       </Link>
                     </li>
                     {EPIGENETICS_FOCUS_KEYS.map((key) => (
@@ -358,10 +346,9 @@ const EpigeneticsPage = () => {
                         <Link
                           to={epigeneticsHubHref({ panel: context.panel, focus: key }, 'analysen')}
                           aria-current={panelGroup === key ? 'true' : undefined}
-                          className={chip(panelGroup === key)}
                         >
                           {t(`compare.filter.options.${key}`)}
-                          <span className="text-xs font-medium opacity-70">{groupCount(key)}</span>
+                          <span>{groupCount(key)}</span>
                         </Link>
                       </li>
                     ))}
@@ -381,43 +368,34 @@ const EpigeneticsPage = () => {
           <section
             id="vergleich"
             data-sub-section
-            className="sc025-tint scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-tint sc028-s-bottom scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="mx-auto max-w-container px-4 pb-16 sm:px-6 lg:px-0 lg:pb-24">
+            <div className="sc025-inner">
               <details
                 ref={vergleichRef}
                 open={panelGroup !== null || undefined}
-                className="group rounded-card border border-paper-line bg-paper"
+                className="sc028-compare"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 lg:p-7 [&::-webkit-details-marker]:hidden">
+                <summary className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
                   <span>
-                    <span className="block t-eyebrow">{t('compare.caption')}</span>
-                    <span className="mt-1 block text-xl font-semibold tracking-tight text-heading">
-                      {t('compare.title')}
-                    </span>
+                    <span className="sc025-kicker">{t('compare.caption')}</span>
+                    <span className="sc025-mid">{t('compare.title')}</span>
                   </span>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-deep text-white"
-                  >
-                    <ChevronDown className="h-5 w-5 motion-safe:transition-transform group-open:rotate-180" />
-                  </span>
+                  <ChevronDown aria-hidden="true" />
                 </summary>
-                <div className="border-t border-paper-line p-4 sm:p-6 lg:p-7">
-                  <p className={`max-w-[68ch] ${LEAD}`}>{t('compare.lead')}</p>
+                <div className="sc028-compare-body">
+                  <p className="sc028-lead">{t('compare.lead')}</p>
                   {panelGroup ? (
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
-                      <p className="text-base text-gray-600">
+                    <div className="sc028-filter-state">
+                      <p>
                         {t('compare.filter.label')}{' '}
-                        <span className="font-semibold text-brand-deep">
-                          {t(`compare.filter.options.${panelGroup}`)}
-                        </span>
+                        <b>{t(`compare.filter.options.${panelGroup}`)}</b>
                       </p>
                       <Link
                         to={epigeneticsHubHref({ panel: context.panel }, 'vergleich')}
-                        className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-brand-deep transition-colors hover:border-brand-primary"
+                        className="sc025-underlink"
                       >
-                        {t('compare.filter.all')}
+                        <span>{t('compare.filter.all')}</span>
                       </Link>
                     </div>
                   ) : null}
@@ -430,33 +408,24 @@ const EpigeneticsPage = () => {
                     // keyboard focus; the generic lint rule cannot infer that.
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                     tabIndex={0}
-                    className="mt-6 overflow-x-auto rounded-2xl border border-paper-line bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                    className="sc028-table-wrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                   >
-                    <table className="w-full min-w-[54rem] border-collapse text-left">
+                    <table className="sc028-table">
                       <caption className="sr-only">{t('compare.title')}</caption>
                       <thead>
-                        <tr className="bg-brand-deep text-white">
+                        <tr>
                           {compareCols.map((col) => (
-                            <th key={col} scope="col" className="px-5 py-4 text-sm font-semibold">
+                            <th key={col} scope="col">
                               {col}
                             </th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
-                        {visibleRows.map((row, rowIndex) => (
-                          <tr key={row[0]} className={rowIndex % 2 === 1 ? 'bg-paper' : 'bg-white'}>
+                        {visibleRows.map((row) => (
+                          <tr key={row[0]}>
                             {row.map((cell, cellIndex) => (
-                              <td
-                                key={`${row[0]}-${cellIndex}`}
-                                className={
-                                  cellIndex === 0
-                                    ? 'px-5 py-4 text-base font-semibold text-heading'
-                                    : 'px-5 py-4 text-base text-gray-700'
-                                }
-                              >
-                                {cell}
-                              </td>
+                              <td key={`${row[0]}-${cellIndex}`}>{cell}</td>
                             ))}
                           </tr>
                         ))}
@@ -464,33 +433,31 @@ const EpigeneticsPage = () => {
                     </table>
                   </div>
                   {visibleRows.length === 0 ? (
-                    <p className="mt-4 text-base text-gray-600">{t('compare.filter.empty')}</p>
+                    <p className="sc028-lead">{t('compare.filter.empty')}</p>
                   ) : null}
-                  <p className="mt-3 text-sm text-gray-600 lg:hidden">{t('compare.scrollHint')}</p>
+                  <p className="sc028-hint lg:hidden">{t('compare.scrollHint')}</p>
 
-                  <div className="mt-6 rounded-2xl border border-paper-line bg-white p-6">
-                    <p className={LABEL}>{t('basics.scaleTitle')}</p>
-                    <dl className="mt-4 grid gap-5 lg:grid-cols-3">
-                      {scales.map((scale, scaleIndex) => (
-                        <div key={`vergleich-${scale.k}`}>
-                          <dt className="text-base font-semibold text-heading">{scale.k}</dt>
-                          <dd className="mt-2">
-                            <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
-                            <p className={`mt-2 text-gray-700 ${BODY}`}>{scale.v}</p>
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </div>
+                  <p className="sc028-label">{t('basics.scaleTitle')}</p>
+                  <dl className="sc028-scales">
+                    {scales.map((scale, scaleIndex) => (
+                      <div key={`vergleich-${scale.k}`}>
+                        <dt>{scale.k}</dt>
+                        <dd>
+                          <ScaleRamp kind={SCALE_KINDS[scaleIndex] ?? 'deviation'} />
+                          <p className="sc025-text">{scale.v}</p>
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
 
-                  <div className="mt-6 grid gap-5 lg:grid-cols-3">
-                    {compareShared.map((item) => (
-                      <div
-                        key={item.title}
-                        className="h-full rounded-2xl border border-paper-line bg-white p-6"
-                      >
-                        <p className="text-lg font-semibold text-heading">{item.title}</p>
-                        <p className={`mt-2 text-gray-700 ${BODY}`}>{item.text}</p>
+                  <div className="sc025-cols3 sc028-shared">
+                    {compareShared.map((item, index) => (
+                      <div key={item.title}>
+                        <span className="sc028-n" aria-hidden="true">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <p className="sc028-coltitle">{item.title}</p>
+                        <p className="sc025-text">{item.text}</p>
                       </div>
                     ))}
                   </div>
@@ -499,24 +466,16 @@ const EpigeneticsPage = () => {
 
               {/* Methodische Grenzen und GenDG: immer sichtbar, nie im
                 Kleingedruckten — vor Fachpublikum ein Vertrauensargument. */}
-              <div className="mt-6 grid gap-5 lg:grid-cols-2">
-                <div className="rounded-card border border-accent-border bg-accent-soft p-7">
-                  <p className="text-sm font-semibold text-accent-strong">
-                    {t('compare.caveatTitle')}
-                  </p>
-                  <div className="mt-4 grid gap-5 md:grid-cols-2">
-                    {compareCaveats.map((item) => (
-                      <div key={item.title}>
-                        <p className="text-base font-semibold text-heading">{item.title}</p>
-                        <p className={`mt-1.5 text-gray-700 ${BODY}`}>{item.text}</p>
-                      </div>
-                    ))}
+              <p className="sc028-h3">{t('compare.caveatTitle')}</p>
+              <div className="sc025-cols3 sc028-cols2">
+                {compareCaveats.map((item) => (
+                  <div key={item.title}>
+                    <p className="sc028-coltitle">{item.title}</p>
+                    <p className="sc025-text">{item.text}</p>
                   </div>
-                </div>
-                <div className="rounded-card border border-paper-line bg-paper p-7">
-                  <p className={`text-gray-700 ${BODY}`}>{t('compare.gendg')}</p>
-                </div>
+                ))}
               </div>
+              <p className="sc025-note">{t('compare.gendg')}</p>
             </div>
           </section>
 
@@ -526,61 +485,42 @@ const EpigeneticsPage = () => {
           <section
             id="prinzip"
             data-sub-section
-            className="sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="sc025-inner py-16 lg:py-24">
+            <div className="sc025-inner">
               <Reveal width="100%">
-                <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
-                  <SectionHeader
-                    caption={t('principle.caption')}
-                    title={t('principle.title')}
-                    align="left"
-                  />
-                  <p className={LEAD}>{t('principle.lead')}</p>
-                </div>
+                <SubHead
+                  kicker={t('principle.caption')}
+                  title={t('principle.title')}
+                  lead={t('principle.lead')}
+                />
               </Reveal>
-              <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              <div className="sc025-cols3">
                 {principleCards.map((card, index) => (
-                  <Reveal
-                    key={card.title}
-                    width="100%"
-                    delay={index * REVEAL_STAGGER}
-                    className={STRETCH}
-                  >
-                    <div className="h-full rounded-card border border-paper-line bg-white p-7">
-                      <h3 className="text-xl font-semibold tracking-tight text-heading">
-                        {card.title}
-                      </h3>
-                      <p className={`mt-3 text-gray-600 ${BODY}`}>{card.text}</p>
-                    </div>
-                  </Reveal>
+                  <div key={card.title} className="rv">
+                    <span className="sc028-n" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3>{card.title}</h3>
+                    <p className="sc025-text">{card.text}</p>
+                  </div>
                 ))}
               </div>
-              <div className="mt-5 rounded-card border border-paper-line bg-white p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-600">
-                  {t('principle.practice.title')}
-                </p>
-                <ul className="mt-4 grid gap-3 lg:grid-cols-3">
+              <div className="sc028-practice">
+                <p className="sc025-label">{t('principle.practice.title')}</p>
+                <ul>
                   {practiceItems.map((item) => (
-                    <li key={item} className={`flex gap-3 text-gray-700 ${BODY}`}>
-                      <Check className="mt-1.5 h-5 w-5 shrink-0 text-accent-strong" />
-                      <span>{item}</span>
-                    </li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
               {/* Der Kernsatz aus dem Beratungsabschnitt — bewusst OHNE Monatszahl:
               die Untergrenze ist nur fuer die Methylierungspanels belegt. */}
-              <figure className="mt-5 flex flex-col gap-5 rounded-card border border-accent-border bg-accent-soft p-7 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-                <blockquote className="text-lg font-semibold leading-relaxed tracking-tight text-heading lg:text-xl">
-                  {t('hero.consultLine')}
-                </blockquote>
-                <Link
-                  to="/epigenetics/grundlagen"
-                  className="inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
-                >
-                  {t('journey.basicsLink')}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <figure className="sc028-pull">
+                <blockquote>{t('hero.consultLine')}</blockquote>
+                <Link to="/epigenetics/grundlagen" className="sc025-underlink">
+                  <span>{t('journey.basicsLink')}</span>
+                  <ArrowRight aria-hidden="true" />
                 </Link>
               </figure>
             </div>
@@ -593,44 +533,31 @@ const EpigeneticsPage = () => {
           <section
             id="werte-verstehen"
             data-sub-section
-            className="scroll-mt-[var(--chapterbar-offset,148px)] bg-white"
+            className="sc025-s scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="mx-auto grid max-w-container gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-0 lg:py-16">
-              <div>
-                <SectionHeader
-                  caption={t('basics.caption')}
+            <div className="sc025-inner">
+              <Reveal width="100%">
+                <SubHead
+                  kicker={t('basics.caption')}
                   title={t('basics.title')}
-                  align="left"
+                  lead={t('basics.lead')}
                 />
-                <p className={`mt-4 ${LEAD}`}>{t('basics.lead')}</p>
-                <Link
-                  to="/epigenetics/grundlagen#werte-verstehen"
-                  className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
-                >
-                  {t('journey.basicsLink')}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </div>
-              <ol className="grid gap-3 sm:grid-cols-2">
+              </Reveal>
+              <ol className="sc028-concepts">
                 {concepts.map((item) => (
-                  <li
-                    key={item.num}
-                    className="flex items-start gap-4 rounded-2xl border border-paper-line bg-paper p-5"
-                  >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-semibold text-accent-strong ring-1 ring-inset ring-accent-border">
-                      {item.num}
-                    </span>
-                    <span>
-                      <span className="block text-base font-semibold text-heading">
-                        {item.title}
-                      </span>
-                      <span className="mt-1 block text-[15px] leading-relaxed text-gray-600">
-                        {item.key}
-                      </span>
-                    </span>
+                  <li key={item.num} className="rv">
+                    <span className="sc028-n">{item.num}</span>
+                    <span className="sc028-concept-title">{item.title}</span>
+                    <span className="sc025-text">{item.key}</span>
                   </li>
                 ))}
               </ol>
+              <div className="sc028-links">
+                <Link to="/epigenetics/grundlagen#werte-verstehen" className="sc025-underlink">
+                  <span>{t('journey.basicsLink')}</span>
+                  <ArrowRight aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </section>
 
@@ -640,56 +567,30 @@ const EpigeneticsPage = () => {
           <section
             id="ablauf"
             data-sub-section
-            className="sc025-tint scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-tint scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="sc025-inner py-16 lg:py-24">
+            <div className="sc025-inner">
               <Reveal width="100%">
-                <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
-                  <SectionHeader
-                    caption={t('workflow.caption')}
-                    title={t('workflow.title')}
-                    align="left"
-                  />
-                  <p className={LEAD}>{t('workflow.lead')}</p>
-                </div>
+                <SubHead
+                  kicker={t('workflow.caption')}
+                  title={t('workflow.title')}
+                  lead={t('workflow.lead')}
+                />
               </Reveal>
-              <div className="mt-10 grid gap-6 lg:grid-cols-[3fr_2fr_1fr] lg:gap-4">
+              <div className="sc028-flow">
                 {WORKFLOW_GROUPS.map((group) => (
-                  <div key={group.key}>
-                    <p
-                      className={`border-t-2 pt-3 text-xs font-semibold uppercase tracking-[0.16em] ${
-                        group.lab
-                          ? 'border-accent text-accent-strong'
-                          : 'border-accent text-accent-strong'
-                      }`}
-                    >
-                      {t(`journey.${group.key}`)}
-                    </p>
+                  <div key={group.key} className="rv" data-lab={group.lab ? 'true' : undefined}>
+                    <p className="sc025-kicker">{t(`journey.${group.key}`)}</p>
                     <ol
                       start={group.from + 1}
-                      className={`mt-4 grid gap-3 ${
-                        group.to - group.from === 3
-                          ? 'lg:grid-cols-3'
-                          : group.to - group.from === 2
-                            ? 'lg:grid-cols-2'
-                            : ''
-                      }`}
+                      style={{ ['--sc028-n' as string]: group.to - group.from }}
                     >
                       {steps.slice(group.from, group.to).map((step, index) => (
-                        <li
-                          key={group.from + index}
-                          className={`flex gap-4 rounded-2xl border p-5 lg:block ${
-                            group.lab
-                              ? 'border-accent-border bg-accent-soft'
-                              : 'border-paper-line bg-white'
-                          }`}
-                        >
-                          <span className="text-2xl font-semibold tracking-tight text-accent-strong">
+                        <li key={group.from + index}>
+                          <span aria-hidden="true">
                             {String(group.from + index + 1).padStart(2, '0')}
                           </span>
-                          <p className="text-[15px] leading-relaxed text-gray-700 lg:mt-2">
-                            {step}
-                          </p>
+                          <p>{step}</p>
                         </li>
                       ))}
                     </ol>
@@ -699,8 +600,34 @@ const EpigeneticsPage = () => {
             </div>
           </section>
 
-          {/* SO WIRD DARAUS EINE BERATUNG — allgemeine Fassung ohne Monatszahl. */}
-          <ConsultSteps />
+          {/* SO WIRD DARAUS EINE BERATUNG — allgemeine Fassung ohne Monatszahl; dieselben Texte
+              wie ConsultSteps (Musterbefund-Seiten), hier im Raster der Seite. */}
+          <section
+            id={CONSULT_ID}
+            data-sub-section
+            className="sc025-s scroll-mt-[var(--chapterbar-offset,148px)]"
+          >
+            <div className="sc025-inner">
+              <Reveal width="100%">
+                <SubHead kicker={t('consult.caption')} title={t('consult.title')} />
+              </Reveal>
+              <ol className="sc025-cols3 sc028-consult">
+                {[
+                  { title: t('consult.before.title'), text: t('consult.before.text') },
+                  { title: t('consult.during.title'), text: t('consult.during.general') },
+                  { title: t('consult.after.title'), text: t('consult.after.general') },
+                ].map((step, index) => (
+                  <li key={step.title} className="rv">
+                    <span className="sc028-n" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3>{step.title}</h3>
+                    <p className="sc025-text">{step.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
 
           {/* ================================================================
             STUDIENLAGE — Kurzfassung; Texte und Quellen auf /studienlage
@@ -708,84 +635,45 @@ const EpigeneticsPage = () => {
           <section
             id="studienlage"
             data-sub-section
-            className="sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="sc025-inner py-16 lg:py-24">
+            <div className="sc025-inner">
               <Reveal width="100%">
-                <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-14">
-                  <SectionHeader
-                    caption={t('evidence.caption')}
-                    title={t('evidence.title')}
-                    align="left"
-                  />
-                  <p className={LEAD}>{t('evidence.lead')}</p>
-                </div>
+                <SubHead
+                  kicker={t('evidence.caption')}
+                  title={t('evidence.title')}
+                  lead={t('evidence.lead')}
+                />
               </Reveal>
-              <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              <div className="sc028-evidence">
                 {[
-                  {
-                    title: t('evidence.establishedTitle'),
-                    items: established,
-                    Icon: Check,
-                    ok: true,
-                  },
-                  {
-                    title: t('evidence.preliminaryTitle'),
-                    items: preliminary,
-                    Icon: Minus,
-                    ok: false,
-                  },
-                ].map(({ title, items, Icon, ok }) => (
-                  <div
-                    key={title}
-                    className={`rounded-card border p-7 ${
-                      ok ? 'border-accent-border bg-white' : 'border-paper-line bg-white'
-                    }`}
-                  >
-                    <h3 className="flex items-center gap-3 text-lg font-semibold text-heading">
-                      <span
-                        className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
-                          ok ? 'bg-accent-soft text-accent-strong' : 'bg-paper-deep text-gray-700'
-                        }`}
-                      >
-                        <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                        {items.length}
-                      </span>
+                  { title: t('evidence.establishedTitle'), items: established, ok: true },
+                  { title: t('evidence.preliminaryTitle'), items: preliminary, ok: false },
+                ].map(({ title, items, ok }) => (
+                  <div key={title} className="rv" data-ok={ok ? 'true' : undefined}>
+                    <h3>
+                      <b>{items.length}</b>
                       {title}
                     </h3>
-                    <ul className="mt-4 divide-y divide-paper-line border-t border-paper-line">
+                    <ul>
                       {items.map((item) => (
-                        <li
-                          key={item.title}
-                          className="py-3.5 text-base font-semibold text-heading"
-                        >
-                          {item.title}
-                        </li>
+                        <li key={item.title}>{item.title}</li>
                       ))}
                     </ul>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <Button
-                  to="/epigenetics/studienlage"
-                  variant="secondary"
-                  className="!py-2.5 !pl-7 !pr-2.5"
-                >
-                  {t('journey.evidenceLink')}
-                  <span
-                    aria-hidden="true"
-                    className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent-line text-white"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Button>
-                <p className="text-sm text-gray-600">
-                  {t('hero.trustEvidence', {
-                    established: established.length,
-                    preliminary: preliminary.length,
-                  })}
-                </p>
+              <p className="sc025-note">
+                {t('hero.trustEvidence', {
+                  established: established.length,
+                  preliminary: preliminary.length,
+                })}
+              </p>
+              <div className="sc028-links">
+                <Link to="/epigenetics/studienlage" className="sc025-underlink">
+                  <span>{t('journey.evidenceLink')}</span>
+                  <ArrowRight aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </section>
@@ -796,36 +684,30 @@ const EpigeneticsPage = () => {
           <section
             id="fragen"
             data-sub-section
-            className="scroll-mt-[var(--chapterbar-offset,148px)] bg-white"
+            className="sc025-s scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="mx-auto grid max-w-container gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
+            <div className="sc025-inner sc028-two">
               <Reveal width="100%">
-                <SectionHeader caption={t('faq.caption')} title={t('faq.title')} align="left" />
-                <p className={`mt-4 ${LEAD}`}>{t('faq.lead')}</p>
-                <div className="brand-ring relative mt-8 hidden rounded-card bg-brand-deep p-7 text-white lg:block">
-                  <p className="text-lg font-semibold tracking-tight">{t('journey.askTitle')}</p>
-                  <p className="mt-2 text-[15px] leading-relaxed text-white/80">
-                    {t('journey.askText')}
-                  </p>
-                  <Button href="#inquiry" variant="light" size="sm" className="mt-5">
-                    {t('journey.askCta')}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Button>
+                <span className="sc025-kicker">{t('faq.caption')}</span>
+                <h2 className="sc025-h2 sc028-side-h2">{t('faq.title')}</h2>
+                <p className="sc028-lead">{t('faq.lead')}</p>
+                <div className="sc028-card sc028-ask">
+                  <h3>{t('journey.askTitle')}</h3>
+                  <p className="sc025-text">{t('journey.askText')}</p>
+                  <a href="#inquiry" className="sc025-underlink">
+                    <span>{t('journey.askCta')}</span>
+                    <ArrowRight aria-hidden="true" />
+                  </a>
                 </div>
               </Reveal>
-              <div className="divide-y divide-paper-line border-y border-paper-line">
+              <div className="sc028-details">
                 {faq.map((item) => (
-                  <details key={item.q} className="group">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-lg font-semibold text-heading [&::-webkit-details-marker]:hidden">
+                  <details key={item.q}>
+                    <summary className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
                       <span>{item.q}</span>
-                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-300 text-accent-strong">
-                        <ChevronDown
-                          className="h-4 w-4 motion-safe:transition-transform group-open:rotate-180"
-                          aria-hidden="true"
-                        />
-                      </span>
+                      <ChevronDown aria-hidden="true" />
                     </summary>
-                    <div className={`max-w-[68ch] pb-6 text-gray-600 ${BODY}`}>{item.a}</div>
+                    <div>{item.a}</div>
                   </details>
                 ))}
               </div>
@@ -838,69 +720,61 @@ const EpigeneticsPage = () => {
           <section
             id="downloads"
             data-sub-section
-            className="sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
+            className="sc025-s sc025-dark scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="sc025-inner py-16 lg:py-20">
-              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <SectionHeader
-                    caption={t('downloads.caption')}
-                    title={t('downloads.title')}
-                    align="left"
-                  />
-                  <p className={`mt-3 max-w-[60ch] ${LEAD}`}>{t('downloads.sub')}</p>
-                </div>
-                <a
-                  href={zipHref}
-                  download
-                  hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-deep px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-deep/90"
-                >
-                  <Download className="h-4 w-4" />
-                  {t('downloads.zipLabel')}
-                  <ResourceLanguageBadge
-                    language={resourceLanguageFromPath(t('downloads.zipFile'))}
-                    format="zip"
-                    className="text-white/80"
-                  />
-                </a>
-              </div>
-              <ul className="mt-8 grid gap-3 md:grid-cols-3">
+            <div className="sc025-inner">
+              <Reveal width="100%">
+                <SubHead
+                  kicker={t('downloads.caption')}
+                  title={t('downloads.title')}
+                  lead={t('downloads.sub')}
+                />
+              </Reveal>
+              <ul className="sc028-docs">
                 {hubSheets.map((sheet) => (
-                  <li key={sheet.num}>
+                  <li key={sheet.num} className="rv">
                     <a
                       href={`${ASSET_BASE}${sheet.file}`}
                       download
                       hrefLang={resourceLanguageFromPath(sheet.file)}
-                      className="group flex h-full items-center gap-4 rounded-2xl border border-paper-line bg-white p-5 transition-colors hover:border-accent"
+                      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark"
                     >
-                      <span className="inline-flex h-12 w-10 shrink-0 items-center justify-center rounded-lg border border-paper-line bg-paper text-accent-strong">
-                        <FileText className="h-5 w-5" aria-hidden="true" />
+                      <span className="sc028-n" aria-hidden="true">
+                        {sheet.num}
                       </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-base font-semibold text-heading">
-                          {sheet.title}
-                        </span>
-                        <span className="block text-sm text-gray-600">
-                          {sheet.meta} ·{' '}
-                          <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
-                        </span>
+                      <b>{sheet.title}</b>
+                      <span className="sc025-text">{sheet.desc}</span>
+                      <span className="sc028-docs-meta">
+                        {sheet.meta} ·{' '}
+                        <ResourceLanguageBadge language={resourceLanguageFromPath(sheet.file)} />
                       </span>
-                      <Download
-                        className="h-5 w-5 shrink-0 text-accent-strong"
-                        aria-label={t('downloads.btn')}
-                      />
+                      <span className="sc028-docs-go">
+                        {t('downloads.btn')}
+                        <Download aria-hidden="true" />
+                      </span>
                     </a>
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/epigenetics/unterlagen"
-                className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-accent-strong"
-              >
-                {t('journey.docsLink')}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              <div className="sc028-links">
+                <a
+                  href={zipHref}
+                  download
+                  hrefLang={resourceLanguageFromPath(t('downloads.zipFile'))}
+                  className="sc025-underlink"
+                >
+                  <span>{t('downloads.zipLabel')}</span>
+                  <ResourceLanguageBadge
+                    language={resourceLanguageFromPath(t('downloads.zipFile'))}
+                    format="zip"
+                  />
+                  <Download aria-hidden="true" />
+                </a>
+                <Link to="/epigenetics/unterlagen" className="sc025-underlink">
+                  <span>{t('journey.docsLink')}</span>
+                  <ArrowRight aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </section>
 
@@ -910,73 +784,58 @@ const EpigeneticsPage = () => {
           <section
             id="inquiry"
             data-sub-section
-            className="scroll-mt-[var(--chapterbar-offset,148px)] bg-white"
+            className="sc025-s scroll-mt-[var(--chapterbar-offset,148px)]"
           >
-            <div className="mx-auto grid max-w-container gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-0 lg:py-24">
-              <div>
-                <SectionHeader
-                  caption={t('contact.caption')}
-                  title={t('contact.title')}
-                  align="left"
-                />
-                <p className={`mt-4 ${LEAD}`}>{t('contact.sub')}</p>
-                {/* Die beiden direkten Kontaktwege; eine Nummer fuer die ganze
+            <div className="sc025-inner">
+              <SubHead
+                kicker={t('contact.caption')}
+                title={t('contact.title')}
+                lead={t('contact.sub')}
+              />
+              <div className="sc028-form-grid">
+                <div className="sc028-form">
+                  <EpigeneticsInquiryForm />
+                </div>
+                <div>
+                  {/* Die beiden direkten Kontaktwege; eine Nummer fuer die ganze
                   Website (Owner-Entscheidung 2026-10-16, wie main@475fefd). */}
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="mailto:contact@polarisdx.net"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    contact@polarisdx.net
-                  </a>
-                  <a
-                    href="tel:+4915175011699"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-primary"
-                  >
-                    +49 151 75011699
-                  </a>
+                  <div className="sc028-direct">
+                    <a href="mailto:contact@polarisdx.net">contact@polarisdx.net</a>
+                    <a href="tel:+4915175011699">+49 151 75011699</a>
+                  </div>
+                  {/* Bezugsweg fuer Einzelpersonen (main@41e158b, Owner-Entscheidung
+                  2026-10-16). Leiser als die Angebotsanfrage: die bleibt die lauteste
+                  Aufforderung des Kapitels. Klicks zaehlt useOutboundTracking ueber
+                  OUTBOUND_DOMAINS. */}
+                  <div className="sc028-card">
+                    <p className="sc025-label">{t('contact.partnerCaption')}</p>
+                    <h3>{t('contact.partnerTitle')}</h3>
+                    <p className="sc025-text">{t('contact.partnerText')}</p>
+                    <p className="sc028-fine">{t('contact.partnerMeta')}</p>
+                    <a
+                      href="https://www.nduclinic.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sc025-underlink"
+                    >
+                      <span>{t('contact.partnerCta')}</span>
+                      <ArrowUpRight aria-hidden="true" />
+                      <span className="sr-only">{t('contact.partnerNewTab')}</span>
+                    </a>
+                  </div>
+                  <p className="sc028-legal">{t('contact.note')}</p>
+                  <p className="sc028-legal">{t('contact.lab')}</p>
+                  <div className="sc028-links">
+                    <Link to="/diagnostics/longevity" className="sc025-underlink">
+                      <span>{t('links.longevity')}</span>
+                      <ArrowRight aria-hidden="true" />
+                    </Link>
+                    <Link to="/downloads" className="sc025-underlink">
+                      <span>{t('links.downloads')}</span>
+                      <ArrowRight aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
-                {/* Bezugsweg fuer Einzelpersonen (main@41e158b, Owner-Entscheidung
-                  2026-10-16). Umrissknopf statt primaer: die Angebotsanfrage
-                  bleibt die lauteste Aufforderung des Kapitels. Klicks zaehlt
-                  useOutboundTracking ueber OUTBOUND_DOMAINS. */}
-                <div className="mt-8 rounded-card border border-accent-border bg-accent-soft p-6 sm:p-7">
-                  <p className={LABEL}>{t('contact.partnerCaption')}</p>
-                  <h3 className="mt-2 text-xl font-semibold tracking-tight text-text-heading">
-                    {t('contact.partnerTitle')}
-                  </h3>
-                  <p className={`mt-3 text-gray-700 ${BODY}`}>{t('contact.partnerText')}</p>
-                  <p className="mt-3 text-sm text-gray-600">{t('contact.partnerMeta')}</p>
-                  <a
-                    href="https://www.nduclinic.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-brand-primary bg-white px-5 py-3 text-base font-semibold text-brand-deep transition-colors hover:border-brand-deep hover:text-brand-primary"
-                  >
-                    {t('contact.partnerCta')}
-                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    <span className="sr-only">{t('contact.partnerNewTab')}</span>
-                  </a>
-                </div>
-                <p className="mt-8 t-small">{t('contact.note')}</p>
-                <p className="mt-3 text-sm text-gray-600">{t('contact.lab')}</p>
-                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-base">
-                  <Link
-                    to="/diagnostics/longevity"
-                    className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-                  >
-                    {t('links.longevity')} →
-                  </Link>
-                  <Link
-                    to="/downloads"
-                    className="font-semibold text-brand-primary transition-colors hover:text-brand-deep"
-                  >
-                    {t('links.downloads')} →
-                  </Link>
-                </div>
-              </div>
-              <div className="rounded-card border border-paper-line bg-white p-6 shadow-card sm:p-8">
-                <EpigeneticsInquiryForm />
               </div>
             </div>
           </section>
@@ -1004,7 +863,7 @@ const EpigeneticsPage = () => {
                         href={`${ASSET_BASE}${portfolio.file}`}
                         download
                         hrefLang={resourceLanguageFromPath(portfolio.file)}
-                        className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-brand-deep transition hover:bg-accent-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+                        className="inline-flex min-h-[44px] items-center gap-2 bg-white px-5 text-sm font-semibold text-brand-deep transition hover:bg-accent-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
                       >
                         <Download className="h-4 w-4" aria-hidden="true" />
                         {t('downloads.btn')}
@@ -1031,7 +890,7 @@ const EpigeneticsPage = () => {
                 data-cta-role="EPIGENETICS_INQUIRY"
                 data-cta-source="epigenetics"
                 data-cta-section="mobile-bar"
-                className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-brand-deep"
+                className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 bg-white px-4 text-sm font-semibold text-brand-deep"
               >
                 {t('hero.ctaQuote')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

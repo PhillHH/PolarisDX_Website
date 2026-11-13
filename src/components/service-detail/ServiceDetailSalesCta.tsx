@@ -17,7 +17,7 @@ export function ServiceDetailSalesCta({ model }: { model: ServiceDetailViewModel
         data-cta-journey="general_sales"
         data-cta-section="context"
         data-service-family={model.entry.service.id}
-        className="sc025-button"
+        className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       >
         {model.labels.primaryCta}
         <ArrowRight aria-hidden="true" />

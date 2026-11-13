@@ -134,7 +134,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
         structuredData={structuredData}
       />
 
-      <SubPage>
+      <SubPage page="events">
         {/* Bühne: nächster Flaggschiff-Termin als Datumskarte, die anstehenden Termine als Eckdaten */}
         <SubStage
           breadcrumbs={[
@@ -143,6 +143,7 @@ export function EventsPage({ now = new Date() }: EventsPageProps = {}) {
           ]}
           title={t('events:hero.title', 'Meet us in 2026')}
           lead={<p>{t('events:hero.subtitle')}</p>}
+          fold
           chips={
             upcoming.length > 0
               ? [
