@@ -1,21 +1,12 @@
-import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Card } from '../components/ui/Card'
 import { useTranslation } from 'react-i18next'
-import {
-  LifeBuoy,
-  Mail,
-  Phone,
-  Download,
-  Package,
-  ArrowRight,
-  Check,
-  HelpCircle,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SEOHead, createBreadcrumbSchema, createFAQSchema } from '../components/seo'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal, { REVEAL_STAGGER } from '../components/ui/Reveal'
-import SubpageHero from '../components/sections/SubpageHero'
+import SubHead from '../components/sub/SubHead'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import TrustBar from '../components/sections/TrustBar'
 import { SupportForm } from '../components/sections/SupportForm'
 import FinalCtaSection from '../components/sections/FinalCtaSection'
@@ -26,7 +17,6 @@ const PHONE_HREF = 'tel:+4915175011699'
 const PHONE_LABEL = '+49 151 75011699'
 
 type SupportChannel = {
-  icon: ReactNode
   title: string
   desc: string
   action: string
@@ -40,7 +30,6 @@ const SupportPage = () => {
 
   const channels: SupportChannel[] = [
     {
-      icon: <Mail className="h-6 w-6" />,
       title: t('support.channels.email.title'),
       desc: t('support.channels.email.desc'),
       action: t('support.channels.email.action'),
@@ -48,7 +37,6 @@ const SupportPage = () => {
       href: `mailto:${EMAIL}`,
     },
     {
-      icon: <Phone className="h-6 w-6" />,
       title: t('support.channels.phone.title'),
       desc: t('support.channels.phone.desc'),
       action: t('support.channels.phone.action'),
@@ -56,7 +44,6 @@ const SupportPage = () => {
       href: PHONE_HREF,
     },
     {
-      icon: <Download className="h-6 w-6" />,
       title: t('support.channels.docs.title'),
       desc: t('support.channels.docs.desc'),
       action: t('support.channels.docs.action'),
@@ -68,17 +55,14 @@ const SupportPage = () => {
     {
       to: '/downloads',
       label: t('support.sidebar_links.downloads', 'Downloads & Dokumentation'),
-      icon: <Download className="h-5 w-5" />,
     },
     {
       to: '/contact',
       label: t('support.sidebar_links.contact', 'Allgemeine Kontaktanfrage'),
-      icon: <Mail className="h-5 w-5" />,
     },
     {
       to: '/igloo-pro',
       label: t('support.sidebar_links.igloo', 'IglooPro System'),
-      icon: <Package className="h-5 w-5" />,
     },
   ]
 
@@ -121,237 +105,153 @@ const SupportPage = () => {
         ]}
       />
 
-      <SubpageHero
-        breadcrumbs={[
-          { label: t('common:nav.home', 'Home'), href: '/' },
-          { label: t('support.hero.title') },
-        ]}
-        eyebrow={t('support.hero.kicker')}
-        title={t('support.hero.title')}
-        subtitle={t('support.hero.subtitle')}
-        primaryCta={{ label: t('support.hero.cta_primary'), href: '#support-form' }}
-        secondaryCta={{ label: t('support.hero.cta_secondary'), href: PHONE_HREF }}
-        chips={[
-          t('support.hero.chips.response'),
-          t('support.hero.chips.channels'),
-          t('support.hero.chips.attach'),
-        ]}
-        valueChips={[
-          {
-            value: t('support.hero.value.response_value'),
-            label: t('support.hero.value.response_label'),
-          },
-          {
-            value: t('support.hero.value.channels_value'),
-            label: t('support.hero.value.channels_label'),
-          },
-          {
-            value: t('support.hero.value.attach_value'),
-            label: t('support.hero.value.attach_label'),
-          },
-        ]}
-        icon={<LifeBuoy />}
-      />
+      <SubPage>
+        <SubStage
+          breadcrumbs={[
+            { label: t('common:nav.home', 'Home'), href: '/' },
+            { label: t('support.hero.title') },
+          ]}
+          eyebrow={t('support.hero.kicker')}
+          title={t('support.hero.title')}
+          lead={<p>{t('support.hero.subtitle')}</p>}
+          chips={[
+            t('support.hero.chips.response'),
+            t('support.hero.chips.channels'),
+            t('support.hero.chips.attach'),
+          ]}
+          actions={
+            <>
+              <a href="#support-form" className="sc025-button">
+                {t('support.hero.cta_primary')}
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <a href={PHONE_HREF} className="sc025-underlink">
+                <span>{t('support.hero.cta_secondary')}</span>
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </>
+          }
+          aside={
+            <dl className="sc028-aside-list">
+              {(['response', 'channels', 'attach'] as const).map((key) => (
+                <div key={key}>
+                  <dt>{t(`support.hero.value.${key}_label`)}</dt>
+                  <dd>{t(`support.hero.value.${key}_value`)}</dd>
+                </div>
+              ))}
+            </dl>
+          }
+        />
+        <TrustBar />
+        <EventBand />
 
-      <TrustBar />
-      <EventBand />
-
-      {/* Support channels — three rich, teal-tint cards */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          <Reveal width="100%">
-            <div className="max-w-2xl">
-              <p className="t-eyebrow">{t('support.channels.caption')}</p>
-              <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-                {t('support.channels.title')}
-              </h2>
-              <p className="mt-4 t-body">{t('support.channels.subtitle')}</p>
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {channels.map((c, i) => {
-              const body = (
-                <>
-                  <span
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                    aria-hidden
-                  >
-                    {c.icon}
-                  </span>
-                  <h3 className="mt-5 text-lg font-medium text-heading">{c.title}</h3>
-                  <p className="mt-2 t-small">{c.desc}</p>
-                  {c.value && (
-                    <span className="mt-4 block text-sm font-medium text-heading">{c.value}</span>
-                  )}
-                  {/* AP24 PT24.4: `text-accent` liegt auf Weiss bei 3,74:1 —
-                      das reicht fuer grossen Text, und 14px/600 ist keiner.
-                      `accent-strong` bringt 5,47:1; der Hover geht weiter in
-                      dieselbe Richtung (dunkler) statt zurueck. */}
-                  <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-semibold text-accent-strong group-hover:text-brand-deep">
-                    {c.action}
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden
-                    />
-                  </span>
-                </>
-              )
-              return (
-                <Reveal key={c.title} width="100%" delay={i * REVEAL_STAGGER}>
-                  {/* `Card` waehlt selbst zwischen <Link> und <a>. */}
-                  <Card to={c.to} href={c.href}>
-                    {body}
-                  </Card>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <div className="bg-paper">
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] lg:items-start lg:gap-8">
-            {/* Form panel — the page's single, clear conversion */}
+        {/* Support-Kanäle */}
+        <section className="sc025-s" data-sub-section>
+          <div className="sc025-inner">
             <Reveal width="100%">
-              <section
-                id="support-form"
-                className="scroll-mt-28 rounded-2xl border border-paper-line bg-white p-7 sm:p-7 lg:p-7"
-              >
-                <p className="t-eyebrow">{t('support.form_panel.caption')}</p>
-                <h2 className="mt-3 text-2xl font-medium tracking-tight text-heading">
-                  {t('support.form_panel.title')}
-                </h2>
-                <p className="mt-3 t-body">{t('support.intro')}</p>
+              <SubHead
+                kicker={t('support.channels.caption')}
+                title={t('support.channels.title')}
+                lead={t('support.channels.subtitle')}
+              />
+            </Reveal>
+            <div className="sc028-tiles">
+              {channels.map((c, i) => {
+                const body = (
+                  <>
+                    <h3>{c.title}</h3>
+                    <p className="sc025-text">{c.desc}</p>
+                    {c.value && <span className="sc028-big">{c.value}</span>}
+                    <span className="sc025-underlink">
+                      <span>{c.action}</span>
+                      <ArrowRight aria-hidden="true" />
+                    </span>
+                  </>
+                )
+                return (
+                  <Reveal key={c.title} width="100%" delay={i * REVEAL_STAGGER}>
+                    {c.to ? <Link to={c.to}>{body}</Link> : <a href={c.href}>{body}</a>}
+                  </Reveal>
+                )
+              })}
+            </div>
+          </div>
+        </section>
 
+        {/* Formular und Begleitspalte */}
+        <div className="sc025-s sc025-tint" data-sub-section>
+          <div className="sc025-inner sc028-form-grid">
+            <Reveal width="100%">
+              <section id="support-form" className="sc028-form scroll-mt-28">
+                <span className="sc025-kicker">{t('support.form_panel.caption')}</span>
+                <h2 className="sc025-h2">{t('support.form_panel.title')}</h2>
+                <p className="sc025-text">{t('support.intro')}</p>
                 <SupportForm />
               </section>
             </Reveal>
-
-            {/* Sidebar */}
-            <aside className="lg:sticky lg:top-32">
+            <aside>
               <Reveal width="100%" delay={REVEAL_STAGGER}>
-                {/* What to have ready — teal check-list */}
-                <section className="rounded-xl border border-accent/20 bg-accent/5 p-7">
-                  <h2 className="text-lg font-medium tracking-tight text-heading">
-                    {t('support.prepare.title')}
-                  </h2>
-                  <p className="mt-2 t-small">{t('support.prepare.subtitle')}</p>
-                  <ul className="mt-4 space-y-2.5">
+                <section className="sc028-block">
+                  <h2>{t('support.prepare.title')}</h2>
+                  <p className="sc025-text">{t('support.prepare.subtitle')}</p>
+                  <ul className="sc028-flat sc028-flat-sm">
                     {prepareItems.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm leading-relaxed text-gray-700">
-                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" aria-hidden />
-                        <span>{item}</span>
-                      </li>
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </section>
-
-                {/* Helpful links */}
-                <section className="mt-6 rounded-xl border border-paper-line bg-white p-7">
-                  <h2 id="support-helpful-links" className="text-xs font-medium text-gray-500">
+                <section className="sc028-block">
+                  <h2 id="support-helpful-links">
                     {t('support.sidebar_links.title', 'Hilfreiche Links')}
                   </h2>
-                  <nav aria-labelledby="support-helpful-links" className="mt-4 space-y-2.5">
+                  <nav
+                    aria-labelledby="support-helpful-links"
+                    className="sc028-links sc028-links-col"
+                  >
                     {helpfulLinks.map((link) => (
-                      <Link
-                        key={link.to}
-                        to={link.to}
-                        className="group flex items-center gap-3 rounded-lg border border-paper-line p-3 transition hover:border-accent/40 hover:bg-accent/5"
-                      >
-                        <span
-                          className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                          aria-hidden
-                        >
-                          {link.icon}
-                        </span>
-                        <span className="flex-1 text-sm font-medium text-heading">
-                          {link.label}
-                        </span>
-                        <ArrowRight
-                          className="h-4 w-4 flex-shrink-0 text-accent transition-transform group-hover:translate-x-0.5"
-                          aria-hidden
-                        />
+                      <Link key={link.to} to={link.to} className="sc025-underlink">
+                        <span>{link.label}</span>
+                        <ArrowRight aria-hidden="true" />
                       </Link>
                     ))}
                   </nav>
                 </section>
-
-                {/* Support info */}
-                <section className="mt-6 rounded-xl border border-paper-line bg-white p-7">
-                  <h3 className="text-lg font-medium tracking-tight text-heading">
-                    {t('support.info.title')}
-                  </h3>
-                  <p className="mt-2 t-small">{t('support.info.text')}</p>
-                  <div className="mt-4 space-y-3">
-                    <a
-                      href={`mailto:${EMAIL}`}
-                      className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
-                    >
-                      <span
-                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                        aria-hidden
-                      >
-                        <Mail className="h-4 w-4" />
-                      </span>
-                      {EMAIL}
-                    </a>
-                    <a
-                      href={PHONE_HREF}
-                      className="flex items-center gap-3 text-sm font-medium text-heading hover:text-accent-strong"
-                    >
-                      <span
-                        className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                        aria-hidden
-                      >
-                        <Phone className="h-4 w-4" />
-                      </span>
-                      {PHONE_LABEL}
-                    </a>
+                <section className="sc028-card">
+                  <h3>{t('support.info.title')}</h3>
+                  <p className="sc025-text">{t('support.info.text')}</p>
+                  <div className="sc028-direct">
+                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                    <a href={PHONE_HREF}>{PHONE_LABEL}</a>
                   </div>
                 </section>
               </Reveal>
             </aside>
           </div>
         </div>
-      </div>
 
-      {/* FAQ — quick answers before submitting */}
-      {faqItems.length > 0 && (
-        <section className="bg-white">
-          <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-            <Reveal width="100%">
-              <div className="max-w-2xl">
-                <p className="t-eyebrow">{t('support.faq.caption')}</p>
-                <h2 className="mt-3 text-3xl font-medium tracking-tight text-heading lg:text-[38px]">
-                  {t('support.faq.title')}
-                </h2>
-              </div>
-            </Reveal>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {faqItems.map((item, i) => (
-                <Reveal key={item.q} width="100%" delay={(i % 2) * REVEAL_STAGGER}>
-                  <div className="flex h-full gap-4 rounded-xl border border-paper-line bg-white p-7 transition hover:-translate-y-1">
-                    <span
-                      className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent"
-                      aria-hidden
-                    >
-                      <HelpCircle className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-medium text-heading">{item.q}</h3>
-                      <p className="mt-2 t-small">{item.a}</p>
+        {/* Häufige Fragen */}
+        {faqItems.length > 0 && (
+          <section className="sc025-s sc025-dark" data-sub-section>
+            <div className="sc025-inner">
+              <Reveal width="100%">
+                <SubHead kicker={t('support.faq.caption')} title={t('support.faq.title')} />
+              </Reveal>
+              <div className="sc028-qas">
+                {faqItems.map((item, i) => (
+                  <Reveal key={item.q} width="100%" delay={(i % 2) * REVEAL_STAGGER}>
+                    <div className="sc028-qa">
+                      <h3>{item.q}</h3>
+                      <p className="sc025-text">{item.a}</p>
                     </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
-      <FinalCtaSection />
+          </section>
+        )}
+
+        <FinalCtaSection />
+      </SubPage>
     </PageTransition>
   )
 }

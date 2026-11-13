@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Check } from 'lucide-react'
 import Reveal, { REVEAL_STAGGER } from '../ui/Reveal'
 // SC-009: eigenes Stylesheet statt Inline-App-CSS auf jeder Seite (siehe Dateikopf).
 import richContentHref from '../../styles/rich-content.css?url'
@@ -37,47 +36,61 @@ function renderServiceText(text: string): ReactNode {
 
 const stripLeadingNumber = (heading: string) => heading.replace(/^\s*\d+\s*[.)]\s*/, '')
 
-function TextSection({ section, index }: { section: ServiceDetailTextSection; index?: number }) {
+/**
+ * SC-028: Abschnitte im Raster der Startseite. Jeder Textblock bleibt eine eigene <section> mit
+ * H2; `lead` setzt Überschrift und Fließtext nebeneinander (Auftakt), `rows` zeigt die Punkte in
+ * großer Schrift (Parameter auf Nacht-Navy).
+ */
+function TextSection({
+  section,
+  index,
+  variant,
+}: {
+  section: ServiceDetailTextSection
+  index?: number
+  variant?: 'lead' | 'rows' | 'note'
+}) {
   const paragraphs = section.paragraphs || (section.content ? [section.content] : [])
+  const heading = section.heading && (
+    <h2
+      id={`${section.id}-title`}
+      className={variant === 'lead' || variant === 'rows' ? 'sc025-h2' : 'sc028-h2s'}
+    >
+      {typeof index === 'number' && (
+        <span className="sc028-n" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      )}
+      {stripLeadingNumber(section.heading)}
+    </h2>
+  )
+  const text = paragraphs.length > 0 && (
+    <div className="sc028-prose">
+      {paragraphs.map((paragraph, paragraphIndex) => (
+        <p key={paragraphIndex}>{renderServiceText(paragraph)}</p>
+      ))}
+    </div>
+  )
   return (
     <section
       aria-labelledby={section.heading ? `${section.id}-title` : undefined}
-      className="rounded-xl border border-paper-line bg-white p-7"
+      className={variant === 'note' ? 'sc028-notebox' : undefined}
     >
-      {section.heading && (
-        <div className="flex items-start gap-4">
-          {typeof index === 'number' && (
-            <span
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-base font-semibold text-accent"
-              aria-hidden="true"
-            >
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          )}
-          <h2
-            id={`${section.id}-title`}
-            className="mt-1 text-xl font-medium tracking-tight text-heading lg:text-2xl"
-          >
-            {stripLeadingNumber(section.heading)}
-          </h2>
+      {variant === 'lead' ? (
+        <div className="sc025-head">
+          {heading}
+          {text}
         </div>
-      )}
-      {paragraphs.length > 0 && (
-        <div className="mt-4 space-y-4">
-          {paragraphs.map((paragraph, paragraphIndex) => (
-            <p key={paragraphIndex} className="leading-relaxed text-gray-700">
-              {renderServiceText(paragraph)}
-            </p>
-          ))}
-        </div>
+      ) : (
+        <>
+          {heading}
+          {text}
+        </>
       )}
       {section.items && section.items.length > 0 && (
-        <ul className="mt-5 space-y-3">
+        <ul className={variant === 'rows' ? 'sc028-prows' : 'sc028-flat'}>
           {section.items.map((item) => (
-            <li key={item} className="flex gap-3 leading-relaxed text-gray-700">
-              <Check className="mt-1 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>{renderServiceText(item)}</span>
-            </li>
+            <li key={item}>{renderServiceText(item)}</li>
           ))}
         </ul>
       )}
@@ -87,28 +100,21 @@ function TextSection({ section, index }: { section: ServiceDetailTextSection; in
 
 function WorkflowSection({ workflow }: { workflow: ServiceDetailWorkflow }) {
   return (
-    <section
-      aria-labelledby="service-workflow-title"
-      className="rounded-xl border border-paper-line bg-white p-7"
-    >
-      <h2
-        id="service-workflow-title"
-        className="text-xl font-medium tracking-tight text-heading lg:text-2xl"
-      >
-        {workflow.heading}
-      </h2>
-      <ol className="mt-5 space-y-4">
+    <section aria-labelledby="service-workflow-title">
+      <div className="sc025-head">
+        <h2 id="service-workflow-title" className="sc025-h2">
+          {workflow.heading}
+        </h2>
+      </div>
+      <ol className="sc028-steps">
         {workflow.steps.map((step, index) => (
-          <li key={`${index}-${step.title}`} className="grid grid-cols-[2.75rem_1fr] gap-4">
-            <span
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 font-semibold text-accent"
-              aria-hidden="true"
-            >
-              {index + 1}
+          <li key={`${index}-${step.title}`}>
+            <span className="sc028-n" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
             </span>
             <div>
-              <h3 className="font-semibold text-heading">{step.title}</h3>
-              {step.text && <p className="mt-1 leading-relaxed text-gray-700">{step.text}</p>}
+              <h3>{step.title}</h3>
+              {step.text && <p className="sc025-text">{step.text}</p>}
             </div>
           </li>
         ))}
@@ -119,23 +125,19 @@ function WorkflowSection({ workflow }: { workflow: ServiceDetailWorkflow }) {
 
 function ProofSection({ proof }: { proof: ServiceDetailProof }) {
   return (
-    <section
-      aria-labelledby="service-proof-title"
-      className="rounded-xl border border-accent/20 bg-accent/5 p-7"
-    >
-      <h2
-        id="service-proof-title"
-        className="text-xl font-medium tracking-tight text-heading lg:text-2xl"
-      >
-        {proof.heading}
-      </h2>
-      {proof.intro && <p className="mt-3 leading-relaxed text-gray-700">{proof.intro}</p>}
-      <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+    <section aria-labelledby="service-proof-title">
+      <div className="sc025-head">
+        <h2 id="service-proof-title" className="sc025-h2">
+          {proof.heading}
+        </h2>
+        {proof.intro && <p>{proof.intro}</p>}
+      </div>
+      <ul className="sc028-proof">
         {proof.items.map((item) => (
-          <li key={`${item.value || ''}-${item.label}`} className="rounded-lg bg-white p-4">
-            {item.value && <strong className="block text-xl text-heading">{item.value}</strong>}
-            <span className="font-medium text-heading">{item.label}</span>
-            {item.text && <p className="mt-1 text-sm leading-relaxed text-gray-700">{item.text}</p>}
+          <li key={`${item.value || ''}-${item.label}`}>
+            {item.value && <strong>{item.value}</strong>}
+            <span>{item.label}</span>
+            {item.text && <p className="sc025-text">{item.text}</p>}
           </li>
         ))}
       </ul>
@@ -145,82 +147,113 @@ function ProofSection({ proof }: { proof: ServiceDetailProof }) {
 
 export function ServiceDetailSections({ model }: { model: ServiceDetailViewModel }) {
   const { content, labels, stats } = model
-  const namedSections = [
-    content.problem,
-    content.audiences,
-    content.questions,
-    content.parameters,
-  ].filter((section): section is ServiceDetailTextSection => Boolean(section))
+  const lists = [content.audiences, content.questions].filter(
+    (section): section is ServiceDetailTextSection => Boolean(section),
+  )
+  const details = content.detailSections || []
+  const notes = [content.conclusion, content.disclaimer].filter(
+    (section): section is ServiceDetailTextSection => Boolean(section),
+  )
+  const links = [...(content.related || []), ...(content.crosslinks || [])]
+  const hasMiddle = details.length > 0 || Boolean(content.workflow)
+  // Fazit und Fachhinweis schließen den letzten vorhandenen Inhaltsabschnitt ab (Reihenfolge wie bisher).
+  const notesAt = content.proof ? 'proof' : hasMiddle ? 'middle' : 'intro'
+  const noteBlocks = notes.map((section) => (
+    <TextSection key={section.id} section={section} variant="note" />
+  ))
 
   return (
-    <div className="space-y-8" data-service-detail-sections>
+    <div data-service-detail-sections>
       {content.legacyRichContent ? (
         // Altinhalt-Rueckfall (SC-009): keine der 90 Dienstseiten rendert ihn derzeit, alle
         // haben strukturierte Inhalte. Das Stylesheet steht direkt davor (ohne `precedence`,
         // routeJsGzip-Budget); der Browser zeichnet den folgenden Inhalt erst, wenn es geladen
         // ist. Ohne Reveal aus demselben Grund.
-        <div>
-          <link rel="stylesheet" href={richContentHref} />
-          <div
-            className="rich-content"
-            dangerouslySetInnerHTML={{ __html: content.legacyRichContent }}
-          />
+        <div className="sc025-s" data-sub-section>
+          <div className="sc025-inner">
+            <link rel="stylesheet" href={richContentHref} />
+            <div
+              className="rich-content"
+              dangerouslySetInnerHTML={{ __html: content.legacyRichContent }}
+            />
+          </div>
         </div>
       ) : (
         <>
-          {namedSections.map((section) => (
-            <Reveal key={section.id} width="100%">
-              <TextSection section={section} />
-            </Reveal>
-          ))}
-
-          {stats.length > 0 && (
-            <ul
-              className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-paper-line bg-paper-line sm:grid-cols-4"
-              aria-label={labels.introEyebrow}
-            >
-              {stats.map((stat) => (
-                <li key={stat.label} className="bg-white p-5 text-center">
-                  <strong className="block text-2xl font-medium tracking-tight text-heading lg:text-3xl">
-                    {stat.value}
-                  </strong>
-                  <span className="mt-1 block text-xs leading-snug text-gray-600">
-                    {stat.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
+          {(content.problem || lists.length > 0 || stats.length > 0 || notesAt === 'intro') && (
+            <div className="sc025-s" data-sub-section>
+              <div className="sc025-inner">
+                {content.problem && (
+                  <Reveal width="100%">
+                    <TextSection section={content.problem} variant="lead" />
+                  </Reveal>
+                )}
+                {lists.length > 0 && (
+                  <div className="sc028-two">
+                    {lists.map((section, index) => (
+                      <Reveal key={section.id} width="100%" delay={index * REVEAL_STAGGER}>
+                        <TextSection section={section} />
+                      </Reveal>
+                    ))}
+                  </div>
+                )}
+                {stats.length > 0 && (
+                  <ul className="sc028-stats" aria-label={labels.introEyebrow}>
+                    {stats.map((stat) => (
+                      <li key={stat.label}>
+                        <strong>{stat.value}</strong>
+                        <span>{stat.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {notesAt === 'intro' && noteBlocks}
+              </div>
+            </div>
           )}
-
-          {content.detailSections?.map((section, index) => (
-            <Reveal key={section.id} width="100%" delay={index * REVEAL_STAGGER}>
-              <TextSection section={section} index={index} />
-            </Reveal>
-          ))}
-          {content.workflow && <WorkflowSection workflow={content.workflow} />}
-          {content.proof && <ProofSection proof={content.proof} />}
-          {content.conclusion && <TextSection section={content.conclusion} />}
-          {content.disclaimer && <TextSection section={content.disclaimer} />}
+          {content.parameters && (
+            <div className="sc025-s sc025-dark" data-sub-section>
+              <div className="sc025-inner">
+                <Reveal width="100%">
+                  <TextSection section={content.parameters} variant="rows" />
+                </Reveal>
+              </div>
+            </div>
+          )}
+          {hasMiddle && (
+            <div className="sc025-s sc025-tint" data-sub-section>
+              <div className="sc025-inner sc028-stack">
+                {details.map((section, index) => (
+                  <Reveal key={section.id} width="100%" delay={index * REVEAL_STAGGER}>
+                    <TextSection section={section} index={index} />
+                  </Reveal>
+                ))}
+                {content.workflow && <WorkflowSection workflow={content.workflow} />}
+                {notesAt === 'middle' && noteBlocks}
+              </div>
+            </div>
+          )}
+          {content.proof && (
+            <div className="sc025-s" data-sub-section>
+              <div className="sc025-inner">
+                <ProofSection proof={content.proof} />
+                {noteBlocks}
+              </div>
+            </div>
+          )}
         </>
       )}
-
-      {Boolean(content.related?.length || content.crosslinks?.length) && (
-        <nav aria-label={labels.detailEyebrow} className="grid gap-4 sm:grid-cols-2">
-          {[...(content.related || []), ...(content.crosslinks || [])].map((link) => (
-            <Link
-              key={link.id}
-              to={link.to}
-              className="rounded-xl border border-paper-line bg-white p-5 font-semibold text-heading transition hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-            >
-              {link.label}
-              {link.description && (
-                <span className="mt-2 block text-sm font-normal leading-relaxed text-gray-700">
-                  {link.description}
-                </span>
-              )}
-            </Link>
-          ))}
-        </nav>
+      {links.length > 0 && (
+        <div className="sc025-s sc028-related" data-sub-section>
+          <nav aria-label={labels.detailEyebrow} className="sc025-inner sc028-rel">
+            {links.map((link) => (
+              <Link key={link.id} to={link.to}>
+                {link.label}
+                {link.description && <span className="sc025-text">{link.description}</span>}
+              </Link>
+            ))}
+          </nav>
+        </div>
       )}
     </div>
   )
