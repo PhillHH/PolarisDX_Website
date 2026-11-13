@@ -996,6 +996,64 @@ footer {
   color: #083358;
 }
 
+/* Inhalte, die ihre bisherige Auszeichnung behalten (Lesestrecken der Epigenetik, Rechtstexte,
+   Download-Karten, Team): nur eckig und flach. Bewusst je Bereich eingeschaltet (`sc028-body`),
+   keine Regel über die ganze Seite. */
+.sc028-body :is(.rounded-card, .rounded-3xl, .rounded-2xl, .rounded-xl, .rounded-lg, .rounded-md) {
+  border-radius: 0;
+}
+.sc028-body :is(.shadow-card, .shadow-sm) {
+  box-shadow: none;
+}
+.sc028 .sc028-narrow {
+  width: min(800px, 100%);
+}
+.sc028-meta-top {
+  margin: 0 0 32px;
+  color: #1b67b1;
+}
+.sc028-group-title {
+  margin-bottom: 26px;
+}
+.sc028-gap-top {
+  margin-top: 16px;
+}
+/* 404: die Zahl als rechte Spalte der Bühne */
+.sc028-aside-big {
+  color: #8fd8fb;
+  font-size: clamp(120px, 17vw, 250px);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  text-align: right;
+}
+/* Kennzahlen als Zeile mit Linie (Über uns) */
+.sc028-figures {
+  display: grid;
+  border-top: 1px solid #083358;
+  grid-template-columns: repeat(4, 1fr);
+}
+.sc028-figures > div {
+  padding: 22px 24px 0 0;
+}
+.sc028-figures > div + div {
+  padding-left: 24px;
+  border-left: 1px solid #cbd5e1;
+}
+.sc028-figures b {
+  display: block;
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.sc028-figures span {
+  display: block;
+  margin-top: 10px;
+  color: #5e6a78;
+  font-size: 13.5px;
+}
+
 /* ---------- Fragen auf Dunkel (Support) ---------- */
 .sc028-qas {
   display: grid;
@@ -1099,6 +1157,26 @@ footer {
   .sc028-sales {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .sc028-aside-big {
+    text-align: left;
+  }
+  .sc028-figures {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sc028-figures > div {
+    padding-bottom: 22px;
+  }
+  .sc028-figures > div + div {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .sc028-figures > :nth-child(even) {
+    padding-left: 16px;
+    border-left: 1px solid #cbd5e1;
+  }
+  .sc028-figures > :nth-child(n + 3) {
+    border-top: 1px solid #cbd5e1;
   }
   .sc028-trace {
     opacity: 0.75;

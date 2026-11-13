@@ -3,10 +3,11 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SEOHead, createBreadcrumbSchema } from '../components/seo'
-import { Download, FileArchive, FileText, Lock, Unlock } from 'lucide-react'
+import { ArrowRight, Download, FileArchive, FileText, Lock, Unlock } from 'lucide-react'
 import PageTransition from '../components/ui/PageTransition'
 import Reveal from '../components/ui/Reveal'
-import SubpageHero from '../components/sections/SubpageHero'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import ResourceLanguageBadge from '../components/ui/ResourceLanguageBadge'
 import { formatDate } from '../lib/localeFormat'
 import ResourceGateForm from '../components/resources/ResourceGateForm'
@@ -182,70 +183,73 @@ const DownloadsPage = () => {
         ]}
       />
 
-      <SubpageHero
-        breadcrumbs={[
-          { label: t('downloads:home', 'Home'), href: '/' },
-          { label: t('downloads:title') },
-        ]}
-        eyebrow={t('downloads:subtitle')}
-        title={t('downloads:title')}
-        subtitle={t('downloads:introText')}
-        primaryCta={{ label: t('downloads:hero_cta', 'Beratung anfragen'), to: '/contact' }}
-        chips={[
-          t('downloads:chip_free', 'Kostenlos & ohne Anmeldung'),
-          t('downloads:chip_pdf', 'PDF-Format'),
-          t('downloads:chip_updated', 'Sofort verfügbar'),
-        ]}
-        icon={<Download />}
-        valueChips={[
-          {
-            value: String(LAUNCH_VISIBLE_RESOURCES.length),
-            label: t('downloads:vc_docs_label', 'Dokumente'),
-          },
-          { value: String(groups.length), label: t('downloads:vc_groups_label') },
-          {
-            value: t('downloads:vc_free_value', 'Kostenlos'),
-            label: t('downloads:vc_free_label', 'Download'),
-          },
-        ]}
-      />
-      <div className="bg-paper">
-        <div className="mx-auto max-w-container px-4 py-16 lg:px-0 lg:py-24">
-          <div className="space-y-14">
-            {/* `buildResourceCenter` liefert ausschliesslich nicht-leere
-                Gruppen — eine leere Ueberschrift kann hier nicht entstehen. */}
-            {groups.map((group) => (
-              <section
-                key={group.id}
-                data-resource-group={group.id}
-                aria-labelledby={`resource-group-${group.id}`}
-                className="mb-0"
-              >
-                <h2
-                  id={`resource-group-${group.id}`}
-                  className="mb-6 text-2xl font-medium tracking-tight text-heading"
+      <SubPage>
+        <SubStage
+          breadcrumbs={[
+            { label: t('downloads:home', 'Home'), href: '/' },
+            { label: t('downloads:title') },
+          ]}
+          eyebrow={t('downloads:subtitle')}
+          title={t('downloads:title')}
+          lead={<p>{t('downloads:introText')}</p>}
+          fold
+          chips={[
+            t('downloads:chip_free', 'Kostenlos & ohne Anmeldung'),
+            t('downloads:chip_pdf', 'PDF-Format'),
+            t('downloads:chip_updated', 'Sofort verfügbar'),
+          ]}
+          actions={
+            <Link
+              to="/contact"
+              className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+            >
+              {t('downloads:hero_cta', 'Beratung anfragen')}
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          }
+          facts={[
+            {
+              label: t('downloads:vc_docs_label', 'Dokumente'),
+              value: String(LAUNCH_VISIBLE_RESOURCES.length),
+            },
+            { label: t('downloads:vc_groups_label'), value: String(groups.length) },
+            {
+              label: t('downloads:vc_free_label', 'Download'),
+              value: t('downloads:vc_free_value', 'Kostenlos'),
+            },
+          ]}
+        />
+        <div className="sc025-s sc025-tint" data-sub-section>
+          <div className="sc025-inner sc028-body">
+            <div className="space-y-14">
+              {/* `buildResourceCenter` liefert ausschliesslich nicht-leere
+                  Gruppen — eine leere Ueberschrift kann hier nicht entstehen. */}
+              {groups.map((group) => (
+                <section
+                  key={group.id}
+                  data-resource-group={group.id}
+                  aria-labelledby={`resource-group-${group.id}`}
+                  className="mb-0"
                 >
-                  {t(group.labelKey)}
-                </h2>
-                <Reveal width="100%">
-                  <ul className="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
-                    {group.cards.map((card) => (
-                      <ResourceCardView key={card.resource.id} card={card} />
-                    ))}
-                  </ul>
-                </Reveal>
-              </section>
-            ))}
-          </div>
+                  <h2 id={`resource-group-${group.id}`} className="sc025-mid sc028-group-title">
+                    {t(group.labelKey)}
+                  </h2>
+                  <Reveal width="100%">
+                    <ul className="grid list-none gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+                      {group.cards.map((card) => (
+                        <ResourceCardView key={card.resource.id} card={card} />
+                      ))}
+                    </ul>
+                  </Reveal>
+                </section>
+              ))}
+            </div>
 
-          {/* Dezente Schluss-CTA (Teal-Band) */}
-          <Reveal width="100%">
-            <div className="mt-14 flex flex-col gap-4 rounded-2xl bg-accent-strong p-7 text-white md:flex-row md:items-center md:justify-between lg:p-7">
+            {/* Schluss: eine Aufforderung auf Nacht-Navy */}
+            <div className="sc028-sales">
               <div>
-                <p className="text-lg font-medium">
-                  {t('downloads:cta_title', 'Unterlage nicht gefunden?')}
-                </p>
-                <p className="mt-1 text-sm text-white">
+                <b>{t('downloads:cta_title', 'Unterlage nicht gefunden?')}</b>
+                <p>
                   {t(
                     'downloads:cta_text',
                     'Unser Team stellt Ihnen weitere Datenblätter, Zertifikate oder eine individuelle Produktberatung bereit.',
@@ -254,49 +258,36 @@ const DownloadsPage = () => {
               </div>
               <Link
                 to="/contact"
-                className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-md bg-white px-5 py-3 font-medium text-brand-deep transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+                className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
               >
                 {t('downloads:cta_button', 'Beratung anfragen')}
+                <ArrowRight aria-hidden="true" />
               </Link>
             </div>
-          </Reveal>
 
-          {/* Quick-Links — `text-accent` auf `bg-paper` misst 3,57:1 und
-              faellt bei 14px durch. Die Reihenfolge folgt jetzt der
-              Link-Rezeptur aus `index.css`: `accent-strong` ruhend,
-              `accent` beim Hover. */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-            <Link
-              to="/igloo-pro"
-              className="font-semibold text-accent-strong transition-colors hover:text-accent"
-            >
-              {t('downloads:link_igloo', 'Zum IglooPro System')} →
-            </Link>
-            <Link
-              to="/diagnostics"
-              className="font-semibold text-accent-strong transition-colors hover:text-accent"
-            >
-              {t('downloads:link_services', 'Diagnostik-Services')} →
-            </Link>
-            <Link
-              to="/epigenetics"
-              className="font-semibold text-accent-strong transition-colors hover:text-accent"
-            >
-              {t('downloads:link_epigenetics', 'Epigenetik und Genetik')} →
-            </Link>
-            <Link
-              to="/vitamin-d3-spray"
-              className="font-semibold text-accent-strong transition-colors hover:text-accent"
-            >
-              {t('vitd3spray:hero.title', 'Vitamin D3+K2 Spray')} →
-            </Link>
+            <div className="sc028-links">
+              <Link to="/igloo-pro" className="sc025-underlink">
+                <span>{t('downloads:link_igloo', 'Zum IglooPro System')}</span>
+                <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link to="/diagnostics" className="sc025-underlink">
+                <span>{t('downloads:link_services', 'Diagnostik-Services')}</span>
+                <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link to="/epigenetics" className="sc025-underlink">
+                <span>{t('downloads:link_epigenetics', 'Epigenetik und Genetik')}</span>
+                <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link to="/vitamin-d3-spray" className="sc025-underlink">
+                <span>{t('vitd3spray:hero.title', 'Vitamin D3+K2 Spray')}</span>
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
-      <div className="pb-16 lg:pb-24">
+        {/* SC-021 Nachtrag: am Seitenende — direkt unter der Buehne wurde das Band-Foto zum LCP-Bild. */}
         <EventBand />
-      </div>
+      </SubPage>
     </PageTransition>
   )
 }

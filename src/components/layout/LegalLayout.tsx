@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import { FileText } from 'lucide-react'
 import type { BreadcrumbItem } from '../ui/Breadcrumbs'
-import SubpageHero, { type HeroValueChip } from '../sections/SubpageHero'
-import Reveal from '../ui/Reveal'
+import type { HeroValueChip } from '../sections/SubpageHero'
+import SubPage from '../sub/SubPage'
+import SubStage from '../sub/SubStage'
 
 /**
  * LegalLayout — geteilte Hülle für reine Rechts-/Utility-Seiten (Impressum,
@@ -19,14 +19,14 @@ import Reveal from '../ui/Reveal'
 export type LegalLayoutProps = {
   breadcrumbs: BreadcrumbItem[]
   eyebrow?: string
-  /** Wird von SubpageHero als einzige <h1> der Seite gerendert. */
+  /** Wird von der Bühne als einzige <h1> der Seite gerendert. */
   title: string
   subtitle?: string
   /** Optionaler Meta-Hinweis über dem Text (z. B. „Stand: Dezember 2025"). */
   meta?: string
-  /** Hero-Visual-Icon (default FileText). */
+  /** Früheres Hero-Symbol; die Bühne zeigt keines mehr (Angabe bleibt erlaubt). */
   icon?: ReactNode
-  /** Optionale schwebende Live-Wert-Karten am Hero-Visual. */
+  /** Kennwerte der Seite — stehen als Eckdaten unter der Lichtlinie der Bühne. */
   valueChips?: HeroValueChip[]
   children: ReactNode
 }
@@ -37,37 +37,29 @@ export function LegalLayout({
   title,
   subtitle,
   meta,
-  icon,
   valueChips,
   children,
 }: LegalLayoutProps) {
   return (
-    <>
-      {/* Hook fuer die Silbentrennung der H1 (siehe .legal-hero in index.css).
-          Die H1 selbst gehoert zu SubpageHero und wird hier nicht angefasst. */}
-      <div className="legal-hero">
-        <SubpageHero
-          breadcrumbs={breadcrumbs}
-          eyebrow={eyebrow}
-          title={title}
-          subtitle={subtitle}
-          icon={icon ?? <FileText />}
-          valueChips={valueChips}
-        />
-      </div>
-      <div className="bg-white">
-        <div className="mx-auto max-w-[61ch] px-4 py-16 lg:px-0 lg:py-24">
-          <Reveal width="100%">
-            {meta && (
-              <p className="mb-8 inline-flex items-center rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent-strong">
-                {meta}
-              </p>
-            )}
-            <div className="space-y-8 leading-relaxed text-gray-700">{children}</div>
-          </Reveal>
+    <SubPage>
+      {/* SC-028: Rechtstexte bekommen nur Rahmen und Typografie — Bühne im Stil der Startseite,
+          darunter die Lesespalte mit unverändertem Inhalt. `.legal-hero` bleibt der Haken für die
+          Silbentrennung der H1 (index.css). */}
+      <SubStage
+        className="legal-hero"
+        breadcrumbs={breadcrumbs}
+        eyebrow={eyebrow}
+        title={title}
+        lead={subtitle ? <p>{subtitle}</p> : undefined}
+        facts={valueChips?.map((chip) => ({ label: chip.label, value: chip.value }))}
+      />
+      <div className="sc025-s" data-sub-section>
+        <div className="sc025-inner sc028-narrow sc028-body">
+          {meta && <p className="sc028-label sc028-meta-top">{meta}</p>}
+          <div className="space-y-8 leading-relaxed text-gray-700">{children}</div>
         </div>
       </div>
-    </>
+    </SubPage>
   )
 }
 

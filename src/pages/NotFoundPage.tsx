@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Home, Microscope, Activity, Mail } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SEOHead } from '../components/seo'
-import { Button } from '../components/ui/Button'
+import SubPage from '../components/sub/SubPage'
+import SubStage from '../components/sub/SubStage'
 import PageTransition from '../components/ui/PageTransition'
 
 const NotFoundPage = () => {
   const { t } = useTranslation('common')
 
   const popularPages = [
-    { name: t('notFound.links.home', 'Startseite'), path: '/', icon: Home },
-    { name: t('notFound.links.iglooPro', 'IglooPro'), path: '/igloo-pro', icon: Microscope },
-    { name: t('notFound.links.services', 'Services'), path: '/diagnostics', icon: Activity },
-    { name: t('notFound.links.contact', 'Kontakt'), path: '/contact', icon: Mail },
+    { name: t('notFound.links.home', 'Startseite'), path: '/' },
+    { name: t('notFound.links.iglooPro', 'IglooPro'), path: '/igloo-pro' },
+    { name: t('notFound.links.services', 'Services'), path: '/diagnostics' },
+    { name: t('notFound.links.contact', 'Kontakt'), path: '/contact' },
   ]
 
   return (
@@ -31,59 +32,51 @@ const NotFoundPage = () => {
         notFound
       />
 
-      <div className="flex min-h-[80vh] items-center justify-center bg-brand-deep text-white">
-        <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-          <div className="rv">
-            {/* 404 Number */}
-            <span className="block text-[8rem] font-medium leading-none tracking-tight text-accent-on-dark sm:text-[10rem]">
-              404
-            </span>
-
-            {/* Eyebrow */}
-            <p className="mt-6 t-eyebrow-dark">{t('notFound.badge', 'Seite nicht gefunden')}</p>
-
-            {/* Title */}
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t('notFound.title', 'Oops! Diese Seite existiert nicht')}
-            </h1>
-
-            {/* Description */}
-            <p className="mx-auto mt-5 max-w-lg t-lead-on-dark">
+      <SubPage>
+        {/* SC-028: dieselbe Bühne wie die übrigen Unterseiten; die Zahl steht rechts, die
+            beliebten Seiten als Verweise unter der Aktion. */}
+        <SubStage
+          className="sc028-stage-404"
+          eyebrow={t('notFound.badge', 'Seite nicht gefunden')}
+          title={t('notFound.title', 'Oops! Diese Seite existiert nicht')}
+          lead={
+            <p>
               {t(
                 'notFound.description',
                 'Die von Ihnen gesuchte Seite wurde möglicherweise verschoben, gelöscht oder existiert nicht mehr.',
               )}
             </p>
-
-            {/* Primary CTA */}
-            <div className="mt-10">
-              <Button to="/" variant="light">
-                <Home className="h-5 w-5" />
-                {t('notFound.backHome', 'Zurück zur Startseite')}
-              </Button>
-            </div>
-          </div>
-
-          {/* Popular Pages */}
-          <div className="rv">
-            <div className="mt-16 border-t border-white/15 pt-10">
-              <p className="mb-6 t-eyebrow-dark">{t('notFound.popularPages', 'Beliebte Seiten')}</p>
-              <div className="flex flex-wrap justify-center gap-3">
+          }
+          actions={
+            <Link
+              to="/"
+              className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
+            >
+              {t('notFound.backHome', 'Zurück zur Startseite')}
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          }
+          note={
+            <>
+              <p>
+                <b>{t('notFound.popularPages', 'Beliebte Seiten')}</b>
+              </p>
+              <div className="sc028-links">
                 {popularPages.map((page) => (
-                  <Link
-                    key={page.path}
-                    to={page.path}
-                    className="group inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 ring-1 ring-white/15 transition-colors hover:bg-white/20 hover:text-white"
-                  >
-                    <page.icon className="h-4 w-4 text-accent-line" aria-hidden />
-                    {page.name}
+                  <Link key={page.path} to={page.path} className="sc025-underlink">
+                    <span>{page.name}</span>
                   </Link>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </>
+          }
+          aside={
+            <p className="sc028-aside-big" aria-hidden="true">
+              404
+            </p>
+          }
+        />
+      </SubPage>
     </PageTransition>
   )
 }

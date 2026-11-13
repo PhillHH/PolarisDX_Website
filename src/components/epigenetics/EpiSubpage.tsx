@@ -28,7 +28,8 @@ import { getVertiefung, metaDescription, type VertiefungKey } from './tokens'
 import { useScrollDepth } from '../../lib/useScrollDepth'
 import { useMerkliste } from '../../lib/merkliste'
 import { epigeneticsInquiryHref } from '../../lib/epigeneticsContext'
-import AreaStage from '../area/AreaStage'
+import SubPage from '../sub/SubPage'
+import SubStage from '../sub/SubStage'
 import { useAreaShell } from '../area/areaShell'
 import type { StepLink } from '../area/NextSteps'
 import MobileActionBar from '../area/MobileActionBar'
@@ -150,108 +151,115 @@ const EpiSubpage = ({
         ]}
       />
 
-      <div
-        className="bg-paper text-heading"
-        data-epigenetics-subpage={source}
-        data-route-id={vertiefung.routeId}
-      >
-        {/* AP34 PT34.2c (SC-003): Lese-Buehne ohne Bild (LCP-Bildbudget der
+      <SubPage>
+        <div
+          className="bg-paper text-heading sc028-body"
+          data-epigenetics-subpage={source}
+          data-route-id={vertiefung.routeId}
+        >
+          {/* SC-028: Bühne im Stil der Startseite (SubStage); der Inhalt der drei Vertiefungen
+            behält seine Auszeichnung und wird nur eckig und flach (`sc028-body`).
+            AP34 PT34.2c (SC-003): Lese-Buehne ohne Bild (LCP-Bildbudget der
             Vertiefungen ist 0 Byte), Bereichsleiste statt Kapitel-Chips,
             Inhaltsverzeichnis in der linken Spalte, am Ende „Naechster
             Schritt". Die Grundlagen sind Schritt 1 der Strecke und zeigen
             die Schrittanzeige. */}
-        <AreaStage
-          breadcrumbs={[
-            { label: t('breadcrumb.home'), href: '/' },
-            { label: t('breadcrumb.current'), href: '/epigenetics' },
-            { label: seoTitle },
-          ]}
-          // Die Grundlagen sind Schritt 1 der Strecke; der Kicker sagt es, der
-          // Weg zu Schritt 2 steht in „Naechster Schritt" am Seitenende.
-          eyebrow={source === 'grundlagen' ? `${stepKicker(1)} · ${t(caption)}` : t(caption)}
-          title={seoTitle}
-          lead={<p>{rawDescription}</p>}
-          actions={
-            <Link
-              to={inquiryHref}
-              className="inline-flex min-h-[44px] items-center justify-center rounded-full px-6 font-semibold ring-1 ring-inset ring-white/25 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            >
-              {t('hero.ctaQuote')}
-            </Link>
-          }
-        />
-
-        <AreaNav
-          label={tCommon('nav.epigenetics')}
-          items={epigeneticsAreaItems(tCommon)}
-          currentKey={source}
-          actions={
-            <>
-              {gemerkt.length > 0 ? (
-                <span className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-heading">
-                  {tCommon('area.saved', { count: gemerkt.length })}
-                </span>
-              ) : null}
+          <SubStage
+            titleId="area-stage-title"
+            breadcrumbs={[
+              { label: t('breadcrumb.home'), href: '/' },
+              { label: t('breadcrumb.current'), href: '/epigenetics' },
+              { label: seoTitle },
+            ]}
+            // Die Grundlagen sind Schritt 1 der Strecke; der Kicker sagt es, der
+            // Weg zu Schritt 2 steht in „Naechster Schritt" am Seitenende.
+            eyebrow={source === 'grundlagen' ? `${stepKicker(1)} · ${t(caption)}` : t(caption)}
+            title={seoTitle}
+            lead={<p>{rawDescription}</p>}
+            fold
+            actions={
               <Link
-                to={inquiryFrom('leiste')}
-                data-cta-section="area-nav"
-                data-cta-source="epigenetics"
-                className="inline-flex h-10 items-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-white hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                to={inquiryHref}
+                className="sc025-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-on-dark focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
               >
                 {t('hero.ctaQuote')}
+                <ArrowRight aria-hidden="true" />
               </Link>
-            </>
-          }
-        />
+            }
+          />
 
-        <div className="mx-auto max-w-container px-4 pt-10 sm:px-6 lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 lg:px-0">
-          <aside className="lg:pt-16">
-            <PageToc chapters={chapters} label={tCommon('area.onThisPage')} />
-          </aside>
-          <div className="min-w-0">
-            <PageTocMobile chapters={chapters} label={tCommon('area.onThisPage')} />
-            {children}
+          <AreaNav
+            label={tCommon('nav.epigenetics')}
+            items={epigeneticsAreaItems(tCommon)}
+            currentKey={source}
+            actions={
+              <>
+                {gemerkt.length > 0 ? (
+                  <span className="sc028-navbtn">
+                    {tCommon('area.saved', { count: gemerkt.length })}
+                  </span>
+                ) : null}
+                <Link
+                  to={inquiryFrom('leiste')}
+                  data-cta-section="area-nav"
+                  data-cta-source="epigenetics"
+                  className="sc028-navbtn sc028-navbtn-solid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  {t('hero.ctaQuote')}
+                </Link>
+              </>
+            }
+          />
+
+          <div className="mx-auto max-w-container px-4 pt-10 sm:px-6 lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 lg:px-0">
+            <aside className="lg:pt-16">
+              <PageToc chapters={chapters} label={tCommon('area.onThisPage')} />
+            </aside>
+            <div className="min-w-0">
+              <PageTocMobile chapters={chapters} label={tCommon('area.onThisPage')} />
+              {children}
+            </div>
           </div>
-        </div>
 
-        <NextSteps
-          label={tCommon('area.nextLabel')}
-          previous={neighbours.previous}
-          next={neighbours.next}
-          cta={{
-            title: t('contact.title'),
-            text: t('contact.sub'),
-            action: (
+          <NextSteps
+            label={tCommon('area.nextLabel')}
+            previous={neighbours.previous}
+            next={neighbours.next}
+            cta={{
+              title: t('contact.title'),
+              text: t('contact.sub'),
+              action: (
+                <Link
+                  to={inquiryFrom('ende')}
+                  className="inline-flex min-h-[44px] items-center gap-1.5 bg-white px-5 text-sm font-semibold text-brand-deep hover:bg-accent-soft"
+                >
+                  {t('hero.ctaQuote')}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              ),
+            }}
+          />
+
+          <MobileActionBar
+            label={
+              gemerkt.length > 0
+                ? tCommon('area.saved', { count: gemerkt.length })
+                : source === 'grundlagen'
+                  ? stepKicker(1)
+                  : seoTitle
+            }
+            action={
               <Link
-                to={inquiryFrom('ende')}
-                className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-white px-5 text-sm font-semibold text-brand-deep hover:bg-accent-soft"
+                to={inquiryFrom('mobil')}
+                className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 bg-white px-4 text-sm font-semibold text-brand-deep"
               >
                 {t('hero.ctaQuote')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-            ),
-          }}
-        />
-
-        <MobileActionBar
-          label={
-            gemerkt.length > 0
-              ? tCommon('area.saved', { count: gemerkt.length })
-              : source === 'grundlagen'
-                ? stepKicker(1)
-                : seoTitle
-          }
-          action={
-            <Link
-              to={inquiryFrom('mobil')}
-              className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-brand-deep"
-            >
-              {t('hero.ctaQuote')}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          }
-        />
-      </div>
+            }
+          />
+        </div>
+      </SubPage>
     </PageTransition>
   )
 }
