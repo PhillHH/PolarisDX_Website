@@ -1117,7 +1117,7 @@ footer {
 @media (min-width: 1280px) {
   .sc025-film-pin,
   .sc025-hz-pin {
-    padding-top: calc(2.75rem + 5.25rem + 1px);
+    padding-top: calc(2.75rem + 4.5rem + 1px);
   }
 }
 @media (max-width: 900px), (prefers-reduced-motion: reduce) {

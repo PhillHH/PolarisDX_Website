@@ -75,7 +75,7 @@ interface ChapterNavProps {
 }
 
 /** Kopfhoehe der Seite; die Leiste sitzt buendig darunter. */
-const TOP = 'top-[68px] lg:top-[88px]'
+const TOP = 'top-header-stuck xl:top-header-stuck-xl'
 
 /**
  * Totzone um die Stufengrenzen, in Prozentpunkten.

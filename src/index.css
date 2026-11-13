@@ -207,6 +207,44 @@
     @apply rounded-sm text-sm font-semibold text-accent-strong hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2;
   }
 
+  /* --- SC-027: Kopfzeile „Service oben“ ---
+     Drei Bausteine als Regel statt als Utility-Ketten: das gesamte CSS steht im SSR-HTML jeder
+     Route (htmlBytes-Budget), jede eingesparte Utility zaehlt auf allen Seiten. */
+  /* Logo weiss auf Nacht-Navy — Filter auf der farbigen Datei, keine zweite Bilddatei. */
+  .hdr-logo {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Lichtmarke unter einem Hauptpunkt: aktiver Bereich oder offenes Panel. */
+  .hdr-mark::after {
+    content: '';
+    @apply pointer-events-none absolute inset-x-3 bottom-0 opacity-0;
+    height: 2px;
+    background: theme('colors.accent.on-dark');
+  }
+
+  .hdr-mark[data-active]::after,
+  .hdr-mark[data-open]::after {
+    opacity: 1;
+  }
+
+  /* Lichtlinie mit Lesefortschritt (Unterkante der Kopfzeile); die Breite setzt Header.tsx. */
+  .hdr-progress {
+    @apply pointer-events-none absolute inset-x-0;
+    bottom: -1px;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(90deg, theme('colors.accent.DEFAULT'), theme('colors.accent.line'));
+    box-shadow: 0 0 12px theme(colors.accent.line / 70%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hdr-progress {
+      display: none;
+    }
+  }
+
   /* --- Relaunch SC-001: wiederkehrende Startseiten-Bausteine ---
      Einmal definiert statt viermal im HTML: das SSR-HTML der Startseite liegt
      am `htmlBytes`-Budget (PT25.5), jede Wiederholung einer Klassenkette zaehlt. */

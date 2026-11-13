@@ -130,6 +130,11 @@ Logo und löst die Navy-Kopfzeile aus SC-002 ab (Owner-Entscheidung nach fünf E
 Marke in CTA-Zelle, Shop-Pille, Fußzeile und den Navy-Bühnen der Unterseiten. Die SC-004-Regeln zum
 achten Eintrag sind damit Geschichte: beide Shops sind Zellen des Rasters.
 
+**SC-027 (2026-11-13) — Kopfzeile „Service oben":** Die Kopfzeile steht in **Nacht-Navy** (`night`)
+mit weißem Logo und löst das weiße Raster aus SC-021 ab (Owner-Entscheidung nach zwei Entwurfsrunden,
+Werkstatt-Artifacts „PolarisDX Topbar" und „PolarisDX Lichtleiste"). Aufbau, Tokens und Maße stehen in
+§6.11. `brand.soft` und `ui.border` tragen in der Kopfzeile keine Rolle mehr.
+
 ### 3.2 Akzent — genau einer
 
 **AP34 / SC-002 (2026-10-15):** Der Akzent ist das **Blauspektrum des PolarisDX-Signets** und ersetzt
@@ -680,23 +685,28 @@ nutzen `Card`.
 anderer Radius, andere Grauskala, andere Rolle (kompakte Listenkacheln). Es gibt keine
 erzwungene Universal-Card.
 
-### 6.11 Kopfzeile „Raster" (SC-021, 2026-11-02)
+### 6.11 Kopfzeile „Service oben" (SC-027, 2026-11-13)
 
-Fixierte weiße Kopfzeile (`Header.tsx`), vollständig aus Tokens — keine losen Hex-Werte:
+Fixierte Kopfzeile in Nacht-Navy (`Header.tsx`), vollständig aus Tokens — keine losen Hex-Werte. Sie
+löst das weiße Raster 13A-4 (SC-021) ab; Verhalten und Test-Selektoren bleiben.
 
-| Teil                 | Maß / Token                                                                                                                                                                                                   | Regel                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Messe-/Service-Zeile | `h-header-strip` (44 px, jede Zeile eine Trefferfläche nach WCAG 2.5.5); `bg-accent-soft`, `border-b` `ui.border`                                                                                             | nächster belegter Termin (`getNextHomeEvent`) mit Link `/events` und „Termin am Stand vereinbaren" → `/contact`; rechts Blog · Support · Kontakt (ab `xl`) und der Sprachumschalter; bleibt auch gescrollt stehen (Sprache und Standtermin jederzeit erreichbar)                                                                                                                                                                                                                                                                          |
-| Raster               | `h-header-bar` (84 px) ab `xl`, gescrollt `h-header-bar-compact` (62 px), darunter `h-header-bar-sm` (60 px)                                                                                                  | Zellen `border-r` `ui.border`, `shrink-0`; aktiver Punkt 3-px-Oberkante `accent.line` und semibold; Hover `brand.soft`; Logo farbig (`polarisdx_logo-272w.webp`). `xl`–`2xl` enge Zellen (gemessen 1 144–1 275 px Bedarf bei 1 280 px), ab `2xl` großzügig mit „Menü" als Wort (bis 1 508 px bei 1 536)                                                                                                                                                                                                                                   |
-| Shops                | Zellen `brand.soft` (Shop, bis SC-021 Nachtrag 5 „Praxis-Shop“; Epigenetik-Shop, bis Nachtrag 13 „Epigenetik-Tests“) und `accent.soft` (Epigenetik-Tests), Abzeichen 24 px in `brand.deep` bzw. `accent.line` | externe `<a data-shop>`; in der Inhaltsübersicht als Pillen (Navy / `accent.soft`) mit Unterzeile „Für Praxen" / „Für Privatpersonen"                                                                                                                                                                                                                                                                                                                                                                                                     |
-| CTA                  | Zelle `brand.deep`, Hover `brand.navy-hover`, Fokusring weiß (inset)                                                                                                                                          | `data-cta-role="GENERAL_SALES"`, ab `md`; unter `md` in der Fußzeile der Übersicht                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Inhaltsübersicht     | `bg-white/95 backdrop-blur-md shadow-dialog` unter dem Raster, Seite dahinter `bg-brand-deep/40 backdrop-blur-sm`                                                                                             | Gesamtübersicht per Menü-Knopf (`data-submenu-trigger="menu"`, alle Breiten); ab `xl` zusätzlich je Hauptpunkt ein Panel beim Hovern oder per Aufklapper-Knopf (`data-submenu-trigger="<label>"`, `aria-expanded`) — Diagnostik (drei Spalten, Querverweis, Gerätekarte), Epigenetik (Bereichsleiste, Shop-Pille, Musterbefund), IglooPro (Gerät, Downloads, Support, Shop-Pille, Gerätekarte), Termine (nächster Termin, Service-Links); nicht modal; Escape, Fokus-Verlust, Zeiger-Verlassen (Hover-Panels) und Seitenwechsel schließen |
+| Teil          | Maß / Token                                                                                                                                     | Regel                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Service-Zeile | `h-header-strip` (44 px, jede Zeile eine Trefferfläche nach WCAG 2.5.5) plus Haarlinie `white/10`; Text 13 px, unter `sm` 12 px                 | `data-event-strip`. Ab `xl`: nächster belegter Termin (`getNextHomeEvent`) mit Link `/events` und „Termin am Stand vereinbaren" → `/contact`; rechts Blog · Support · Kontakt und der Sprachumschalter. Unter `xl`: beide Shops (Abzeichen 20 px und Name) links, Sprachumschalter rechts. Ab `xl` klappt die Zeile gescrollt ein (`-mt-header-strip-row`, `invisible`); unter `xl` bleibt sie stehen. Ohne anstehenden Termin bleibt die Zeile mit Service-Links und Sprache. |
+| Hauptleiste   | `h-header-bar` (72 px) ab `xl`, gescrollt `h-header-bar-compact` (62 px), darunter `h-header-bar-sm` (60 px)                                    | Logo weiß (`.hdr-logo`: Filter auf `polarisdx_logo-272w.webp`, keine zweite Datei). Vier Hauptpunkte als Link plus eigener Aufklapper (`data-submenu-scope`, `data-submenu-trigger`, AP06/AP24); Lichtmarke `.hdr-mark` (2 px `accent.on-dark`) unter aktivem Bereich und offenem Panel. Suche; Menü-Knopf auf allen Breiten („Menü" als Wort ab `2xl`). Bemessen für die längste der zehn Sprachen bei 1 280 px.                                                              |
+| Shops         | Pillen 40 px: Rahmen `accent.on-dark/30`, Fläche `white/5`; Abzeichen 24 px in Weiß (Shop) bzw. `accent.line` (Epigenetik-Shop), Symbol `night` | externe `<a data-shop target="_blank">`. Ab `xl` in der Leiste; gescrollt nur das Abzeichen (Name als `aria-label`), damit die Sprachwahl Platz hat. Unter `xl` in der Service-Zeile. In der Übersicht als Pillen mit Unterzeile „Für Praxen" / „Für Privatpersonen".                                                                                                                                                                                                          |
+| Hauptknopf    | `bg-accent`, Hover `accent.strong`, eckig, 44 px, `max-w-[11rem]` (lange Sprachen brechen auf zwei Zeilen), Pfeil ab `2xl`                      | „Infotermin buchen" (`nav.cta_appointment`, Wortlaut je Sprache gleich `home:hero.cta_secondary`) → `/contact`, `data-header-cta`, **ohne** `data-cta-role`: derselbe schlichte Kontaktweg wie der Bühnenknopf der Startseite (SC-023). „Angebot anfragen" bleibt aus der Kopfzeile. Ab `xl` in der Leiste, darunter am Ende der Übersicht.                                                                                                                                    |
+| Sprachwahl    | `LanguageSwitcher compact`                                                                                                                      | In der Service-Zeile; ab `xl` gescrollt zusätzlich in der Leiste — die Sprache ist jederzeit erreichbar (AP12).                                                                                                                                                                                                                                                                                                                                                                |
+| Menüfläche    | `bg-night` (ab `xl` `night/95` mit `backdrop-blur-md`), `shadow-dialog`; Seite dahinter `bg-night/60 backdrop-blur-sm`                          | Wie SC-021: Gesamtübersicht per Menü-Knopf (`data-submenu-trigger="menu"`, `#site-menu`), ab `xl` je Hauptpunkt ein Panel beim Hovern oder per Aufklapper. Spaltenköpfe `night.dim`, Links Weiß/90 mit Hover `accent.on-dark`, Karten `night.raised` mit Hover `night.panel`. Unter `xl` zeigt die Übersicht zusätzlich die Messe-Karte und den Hauptknopf. Nicht modal, keine Fokusfalle.                                                                                     |
+| Unterkante    | Haarlinie `white/10`, darauf `.hdr-progress` (2 px, Verlauf `accent` → `accent.line` mit Schein)                                                | Lesefortschritt der Seite: Breite per `transform`, an das Scrollen gekoppelt, dekorativ (`aria-hidden`). Bei „Bewegung reduzieren" ausgeblendet; das Einklappen der Service-Zeile geschieht dann ohne Übergang.                                                                                                                                                                                                                                                                |
 
-Fokusringe in den Zellen `focus-visible:ring-2 ring-inset ring-brand-primary`. Jede Seitenbühne
-(`HeroSection`, `AreaStage`, `SubpageHero`, `DiagnosticsHero`, `IglooProHero`, Artikel-, Termin-,
-Musterbefund- und S3-Seite) räumt die Kopfzeile mit `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile
-plus 24 px bzw. 48 px Luft); Kapitelanker `scroll-mt-28`. Die Maße stehen als `spacing.header-*`
-und `spacing.page-top*` in `tailwind.config.js` (§7.1).
+Fokusringe `focus-visible:ring-2 ring-inset ring-accent-on-dark`. Jede Seitenbühne (`HeroSection`,
+`AreaStage`, `SubpageHero`, `DiagnosticsHero`, `IglooProHero`, Artikel-, Termin-, Musterbefund- und
+S3-Seite) räumt die Kopfzeile mit `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile plus 24 px bzw.
+48 px Luft); Kapitelanker `scroll-mt-28`. Klebende Leisten unter der Kopfzeile (`AreaNav`,
+`ChapterNav`) sitzen mit `top-header-stuck xl:top-header-stuck-xl` bündig unter der gescrollten
+Kopfzeile. Die Maße stehen als `spacing.header-*` und `spacing.page-top*` in `tailwind.config.js`
+(§7.1). Die drei Regeln `.hdr-logo`, `.hdr-mark` und `.hdr-progress` stehen in `src/index.css`.
 
 ## 7. Spacing, Radius, Shadow
 
@@ -709,11 +719,13 @@ ergänzen die Skala, sie ersetzen sie nicht.
 
 Breiten: `maxWidth.container` `1200px` (44 Dateien), `maxWidth.page` `1440px`.
 
-**SC-021 (2026-11-02) — Kopfzeile:** `spacing.header-strip` `2.75rem` (44 px), `header-bar`
-`5.25rem` (84 px), `header-bar-compact` `3.875rem` (62 px), `header-bar-sm` `3.75rem` (60 px) — die
-Maße der fixierten Kopfzeile (§6.11); `page-top` = Kopfzeile unter `xl` + 24 px (130 px) und
-`page-top-xl` = Kopfzeile ab `xl` + 48 px (178 px) als `calc()` aus denselben Werten — der einzige
-Seitenabstand unter der Kopfzeile. Additiv zur Skala.
+**SC-027 (2026-11-13) — Kopfzeile:** `spacing.header-strip` `2.75rem` (44 px), `header-strip-row`
+44 px + 1 px Haarlinie (Einklapp-Versatz), `header-bar` `4.5rem` (72 px, bis SC-027 84 px),
+`header-bar-compact` `3.875rem` (62 px), `header-bar-sm` `3.75rem` (60 px) — die Maße der fixierten
+Kopfzeile (§6.11); `page-top` = Kopfzeile unter `xl` + 24 px (130 px, unverändert) und `page-top-xl`
+= Kopfzeile ab `xl` + 48 px (165 px, bis SC-027 178 px) als `calc()` aus denselben Werten — der
+einzige Seitenabstand unter der Kopfzeile. `header-stuck` (105 px, unter `xl`) und `header-stuck-xl`
+(62 px) sind die Höhe der gescrollten Kopfzeile für klebende Leisten. Additiv zur Skala.
 
 ### 7.2 Radius
 

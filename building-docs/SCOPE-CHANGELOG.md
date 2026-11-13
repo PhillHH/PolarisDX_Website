@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-027 — Kopfzeile „Service oben" in Nacht-Navy (Preview)
+
+- **Datum:** 2026-11-13
+- **Status:** ACCEPTED (Owner-Auftrag); Ausrollen nur auf die Preview
+- **Betroffene IDs:** AP05 (Kopfzeile, Spacing-Tokens), AP06 (Header/Navigation), AP08 (`common:nav.cta_appointment` ×10), AP12 (Sprachwahl nach dem Scrollen), AP24 (Tastatur/Kontrast), AP25 (HTML-/CSS-Bytes), AP27 (Tests/Baselines), DESIGN-SYSTEM-CONTRACT §3.1/§6.11/§7.1; berührt SC-021 (weißes Raster) und SC-023 (Kopfzeilen-Knopf)
+- **Vorheriger Zustand:** Weiße Raster-Kopfzeile 13A-4 (SC-021): heller Messe-Streifen, darunter Zellen mit Haarlinien, zwei getönte Shop-Zellen, Suche, Menü-Knopf; kein Knopf in der Kopfzeile (SC-023); Streifen bleibt gescrollt stehen. Die klebenden Leisten `AreaNav`/`ChapterNav` saßen mit festen 68/88 px teilweise unter der Kopfzeile.
+- **Neuer Zustand:** Kopfzeile in Nacht-Navy nach dem Werkstatt-Entwurf „Lichtleiste · Service oben": schmale Service-Zeile (ab `xl` Messe-Hinweis, Blog, Support, Kontakt, Sprachwahl; unter `xl` beide Shops und Sprachwahl), darunter die Hauptleiste mit Logo, vier Hauptpunkten (Link + Aufklapper), beiden Shops als Pillen, Suche, „Infotermin buchen" und Menü-Knopf. Ab `xl` klappt die Service-Zeile beim Scrollen ein, die Sprachwahl steht dann in der Leiste. Dunkle Menüfläche; Unterkante als Lichtlinie mit Lesefortschritt. Hauptleiste ab `xl` 72 statt 84 px, Seitenabstand `page-top-xl` 165 statt 178 px. `AreaNav`/`ChapterNav` sitzen bündig unter der gescrollten Kopfzeile (`header-stuck*`).
+- **Begründung:** Owner wörtlich am 13.11.2026: „das Menü die Topbar sieht noch nicht maximal gut aus", zur ersten Entwurfsrunde: „Wir nehmen Lichtleiste, aber die Shops müssen da sichtbar sein: Bitte mache die auch doppelleistig wenn möglich", zur zweiten Runde: „Service Oben bitte implementieren". Vorlage: `polarisdx-werkstatt/entwuerfe/navbit-stil/polarisdx-lichtleiste.html`, Entwurf 1.
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-13, Werkstatt-Sitzung; Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Kopfzeile aller Seiten der Hauptanwendung in zehn Sprachen. Informationsarchitektur, Ziele, Panels und Test-Selektoren bleiben. Neu ist „Infotermin buchen" in der Kopfzeile: derselbe schlichte Kontaktweg wie der Bühnenknopf der Startseite (SC-023: → `/contact`, ohne Verkaufs-Attribution); „Angebot anfragen" bleibt aus der Kopfzeile. Consumer-Seiten behalten ihre eigene Kopfzeile.
+- **Auswirkung auf Abhängigkeiten:** Keine neue Bibliothek, keine neue Bilddatei, keine neuen Farb-Tokens.
+- **Auswirkung auf Gates:** siehe `DESIGN-SYSTEM-CHANGELOG.md` (Baselines) und das Werkstatt-Protokoll; Budget-, Kontrast- und Farb-Guards unverändert.
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CONTRACT.md` §3.1/§6.11/§7.1, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`.
+
 ### SC-025 — Startseite nach Navbit-Vorlage mit Signet-Linie (Preview)
 
 - **Datum:** 2026-11-12

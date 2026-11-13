@@ -218,15 +218,20 @@ export default {
       spacing: {
         section: '6rem',
         'section-lg': '7rem',
-        // SC-021 (2026-11-02) — Masse der fixierten Kopfzeile (Raster 13A-4). Seiten raeumen
-        // oben `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile + Luft); Kapitelanker `scroll-mt-28`.
-        'header-strip': '2.75rem', // 44 px — Messe-/Service-Zeile (Trefferflaeche WCAG 2.5.5)
-        'header-bar': '5.25rem', // 84 px — Kopfzeilenraster ab xl
-        'header-bar-compact': '3.875rem', // 62 px — Raster gescrollt (ab xl)
+        // SC-027 (2026-11-13) — Masse der fixierten Kopfzeile („Service oben“, vorher Raster SC-021).
+        // Seiten raeumen oben `pt-page-top xl:pt-page-top-xl` frei (Kopfzeile + Luft); Kapitelanker
+        // `scroll-mt-28`. Ab xl klappt die Service-Zeile beim Scrollen ein, unter xl bleibt sie stehen.
+        'header-strip': '2.75rem', // 44 px — Service-Zeile (Trefferflaeche WCAG 2.5.5)
+        'header-strip-row': 'calc(2.75rem + 1px)', // 45 px — Service-Zeile samt Haarlinie (Einklapp-Versatz)
+        'header-bar': '4.5rem', // 72 px — Hauptleiste ab xl
+        'header-bar-compact': '3.875rem', // 62 px — Hauptleiste gescrollt (ab xl)
         'header-bar-sm': '3.75rem', // 60 px — Leiste unter xl
-        // Kopfzeile unter xl (44 + 60 + 1 px Haarlinie) + 24 px Luft, ab xl (44 + 84 + 1) + 48 px.
+        // Hoehe der Kopfzeile im gescrollten Zustand — Abstand fuer klebende Leisten darunter.
+        'header-stuck': 'calc(2.75rem + 3.75rem + 1px)', // 105 px — unter xl (zwei Zeilen)
+        'header-stuck-xl': '3.875rem', // 62 px — ab xl (eine Zeile)
+        // Kopfzeile unter xl (44 + 60 + 1 px Haarlinie) + 24 px Luft, ab xl (44 + 72 + 1) + 48 px.
         'page-top': 'calc(2.75rem + 3.75rem + 1px + 1.5rem)', // 130 px
-        'page-top-xl': 'calc(2.75rem + 5.25rem + 1px + 3rem)', // 178 px
+        'page-top-xl': 'calc(2.75rem + 4.5rem + 1px + 3rem)', // 165 px
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'Inter Fallback', 'system-ui', 'sans-serif'],

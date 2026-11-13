@@ -1,12 +1,12 @@
 import { afterEach, describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent, within } from '@testing-library/react'
+import { act, render, screen, fireEvent, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Header from './Header'
 import { services } from '../../data/services'
 
 /**
- * Header-Vertrag (AP06 PT06.1, Raster-Kopfzeile seit SC-021).
+ * Header-Vertrag (AP06 PT06.1; Raster-Kopfzeile SC-021, seit SC-027 „Service oben“ in Nacht-Navy).
  *
  * Die Tests pruefen Rollen, Ziele und Zustaende — nicht Tailwind-Klassen.
  * `src/test/setup.ts` mockt `react-i18next` so, dass `t(key)` den Key
@@ -166,6 +166,82 @@ describe('Header — General Sales CTA', () => {
   it('der Kontakt-Link ist ein Service-Link, kein CTA', () => {
     renderHeader()
     expect(screen.getByRole('link', { name: 'nav.contact' })).not.toHaveAttribute('data-cta-role')
+  })
+})
+
+describe('Header — „Infotermin buchen“ (SC-027)', () => {
+  it('fuehrt wie die Startseiten-Buehne schlicht zur Kontaktseite, ohne Verkaufs-Attribution', () => {
+    renderHeader()
+    const cta = within(mainNav()).getByRole('link', { name: 'nav.cta_appointment' })
+    expect(cta).toHaveAttribute('href', '/contact')
+    expect(cta).toHaveAttribute('data-header-cta')
+    expect(cta).not.toHaveAttribute('data-cta-role')
+  })
+
+  it('steht unter xl in der Uebersicht, weil die Leiste ihn dort nicht traegt', () => {
+    openMenu()
+    const ctas = within(mainNav()).getAllByRole('link', { name: 'nav.cta_appointment' })
+    expect(ctas).toHaveLength(2)
+    for (const cta of ctas) expect(cta).toHaveAttribute('href', '/contact')
+  })
+})
+
+describe('Header — „Service oben“ (SC-027)', () => {
+  afterEach(() => {
+    Object.defineProperty(window, 'scrollY', { value: 0, configurable: true })
+  })
+
+  const scrollTo = (y: number) =>
+    act(() => {
+      Object.defineProperty(window, 'scrollY', { value: y, configurable: true })
+      window.dispatchEvent(new Event('scroll'))
+    })
+
+  it('traegt beide Shops in der Service-Zeile (unter xl) und in der Leiste (ab xl)', () => {
+    const { container } = renderHeader()
+    const strip = container.querySelector('[data-event-strip]') as HTMLElement
+    for (const [key, shop] of [
+      ['nav.shop_practice', 'practice'],
+      ['nav.shop_epigenetics', 'panels'],
+    ]) {
+      expect(within(strip).getByRole('link', { name: key })).toHaveAttribute('data-shop', shop)
+      expect(within(mainNav()).getByRole('link', { name: key })).toHaveAttribute('data-shop', shop)
+    }
+  })
+
+  it('haelt die Sprachwahl nach dem Scrollen in der Leiste erreichbar (AP12)', () => {
+    renderHeader()
+    const inBar = () =>
+      within(mainNav()).queryAllByRole('button', { name: 'a11y.select_language' }).length
+    expect(inBar()).toBe(0)
+    scrollTo(400)
+    expect(inBar()).toBe(1)
+    // Die Shops behalten gescrollt ihren Namen, auch wenn die Pille nur das Abzeichen zeigt.
+    expect(within(mainNav()).getByRole('link', { name: 'nav.shop_practice' })).toHaveAttribute(
+      'data-shop',
+      'practice',
+    )
+    scrollTo(0)
+    expect(inBar()).toBe(0)
+  })
+
+  it('zeigt den Lesefortschritt als dekorative Lichtlinie', () => {
+    const { container } = renderHeader()
+    expect(container.querySelector('.hdr-progress')).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  it('fuehrt den Messe-Hinweis unter xl in der Uebersicht', () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-11-15T12:00:00+01:00'))
+    try {
+      openMenu()
+      expect(within(mainNav()).getByRole('link', { name: 'event_popup.meet' })).toHaveAttribute(
+        'href',
+        '/contact',
+      )
+    } finally {
+      vi.useRealTimers()
+    }
   })
 })
 

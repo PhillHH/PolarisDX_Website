@@ -27,6 +27,16 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-13 — SC-027 · Kopfzeile „Service oben" in Nacht-Navy
+
+- **Ursache:** Owner am 13.11.2026: „das Menü die Topbar sieht noch nicht maximal gut aus", nach zwei Entwurfsrunden in der Werkstatt („Wir nehmen Lichtleiste, aber die Shops müssen da sichtbar sein: Bitte mache die auch doppelleistig wenn möglich") die Entscheidung „Service Oben bitte implementieren".
+- **Design-Delta:** Die weiße Raster-Kopfzeile (SC-021) wird zur Kopfzeile in Nacht-Navy mit weißem Logo. Oben eine schmale Service-Zeile (ab `xl` Messe-Hinweis, Blog, Support, Kontakt, Sprachwahl; unter `xl` beide Shops und Sprachwahl), darunter die Hauptleiste mit vier Hauptpunkten (Link + Aufklapper), beiden Shops als Pillen, „Infotermin buchen", Suche und Menü-Knopf. Ab `xl` klappt die Service-Zeile beim Scrollen ein; die Sprachwahl steht dann in der Leiste, die Shop-Pillen zeigen nur ihr Abzeichen. Die Menüfläche ist dunkel; die Unterkante ist eine Lichtlinie mit Lesefortschritt. Hauptleiste ab `xl` 72 statt 84 px, Seitenabstand ab `xl` 165 statt 178 px — alle Seiten rücken ab `xl` um 13 px nach oben. `AreaNav` und `ChapterNav` sitzen bündig unter der gescrollten Kopfzeile statt teilweise darunter.
+- **Tokens:** keine neuen Farben und keine neuen Typo-Rollen. Neue Spacing-Werte `header-strip-row`, `header-stuck`, `header-stuck-xl`; `header-bar` 5.25rem → 4.5rem, `page-top-xl` 178 → 165 px. Drei Bausteinregeln in `src/index.css`: `.hdr-logo`, `.hdr-mark`, `.hdr-progress` (als Regel statt als Utility-Ketten, weil das gesamte CSS im SSR-HTML jeder Route steht).
+- **Bewegung:** Einklappen der Service-Zeile 300 ms; Lichtlinie an das Scrollen gekoppelt. Bei „Bewegung reduzieren" kein Übergang und keine Lichtlinie.
+- **Neuer Text:** `common:nav.cta_appointment` in zehn Sprachen, Wortlaut je Sprache gleich `home:hero.cta_secondary`.
+- **Betroffene Screenshots (Visual):** 20 der 22 Baselines im gepinnten Playwright-Image neu aufgenommen und im Alt-/Neu-Vergleich geprüft, weil die Kopfzeile in jedem dieser Bilder steht: `home-desktop`, `home-mobile`, `diagnostics-hub`, `service-detail`, `igloo-pro`, `epigenetics-hub`, `musterbefund`, `article`, `resource-center`, `contact`, `support`, `legal-privacy`, `not-found`, `epigenetics-panel`, `resource-gate-open`, `event-popup-desktop`, `site-menu-open-desktop`, `search-dialog-open-desktop`, `cookie-banner-desktop`, `navigation-open-mobile`. Unverändert: `consumer-spray-desktop`, `consumer-spray-mobile` (eigene Kopfzeile). Zweiter Lauf ohne Update 22/22.
+- **Reviewer:** Claude-Werkstatt (Alt-/Neu-Vergleich je Bild); Owner-Sichtprüfung auf der Preview steht aus.
+
 ### 2026-11-12 — SC-025 Nachtrag 2 · Premium Maximal (ein System für die ganze Startseite)
 
 - **Ursache:** Owner am 12.11.2026 zur Preview: „Schon gut aber noch nicht konsistent. Und nicht premiummäßig genug aufgelockert", zum Artifact „Premium Maximal": „Okay, das ist krass, das nehmen wir".
