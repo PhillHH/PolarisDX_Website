@@ -708,6 +708,44 @@ S3-Seite) räumt die Kopfzeile mit `pt-page-top xl:pt-page-top-xl` frei (Kopfzei
 Kopfzeile. Die Maße stehen als `spacing.header-*` und `spacing.page-top*` in `tailwind.config.js`
 (§7.1). Die drei Regeln `.hdr-logo`, `.hdr-mark` und `.hdr-progress` stehen in `src/index.css`.
 
+### 6.12 Unterseiten im Stil der Startseite (SC-028, 2026-11-13)
+
+Die Unterseiten der Hauptanwendung tragen die Formensprache der Startseite (§13): dunkle Bühne mit
+Lichtlinie, Wechsel aus Nacht-Navy, Weiß und kühlem Grau, dünne große Schrift, eckige Flächen,
+Spalten und Zeilen mit Linie statt Karten. Der Rahmen liegt in `src/components/sub/`.
+
+| Baustein      | Aufgabe                                                                                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `SubPage`     | Wrapper `.sc028` einer umgestellten Seite; nennt ihre Stylesheets (`data-sub-stylesheet`) und hängt die Lichtlinie ein (`SubTrace`).                                                       |
+| `SubStage`    | Bühne mit Pfad, Kennzeile, der einzigen H1, Einleitung, Chips, Aktionen, Hinweis, rechter Spalte und Eckdaten unter der Lichtlinie; Abstand nach oben aus `pt-page-top xl:pt-page-top-xl`. |
+| `SubHead`     | Abschnittskopf: Kennzeile mit Strich, dünne H2, Einleitung rechts.                                                                                                                         |
+| `StageImage`  | Bild in der Bühne: ab 901 px `eager` mit Vorrang (LCP), darunter ein eigenes `lazy`-Bild; je Breite wird genau ein Bild geladen.                                                           |
+| `sub.css`     | Rahmen aller Unterseiten; `base.css` ist eine wortgleiche Auswahl aus `home.css` (`base.test.ts` hält sie an der Quelle).                                                                  |
+| `pages/*.css` | Je Seitenart ein Blatt (`epigenetics`, `events`, `service`, `diagnostics`, `articles`), über `SubPage page="…"` nur dort ausgeliefert.                                                     |
+
+Verbindlich:
+
+- **Auslieferung:** Der Server liefert die Blätter einer Unterseite inline (`server.ts`
+  `inlineRouteStylesheet`), kein `<link>` im Kopf. Beim Seitenwechsel im Browser lädt `SubPage` nur
+  fehlende Blätter nach; React lädt sie dann VOR das Inline-CSS — Regeln, die eine Tailwind- oder
+  Grundregel am selben Element überstimmen, tragen deshalb Gewicht (`.sc028 …`) statt Reihenfolge.
+- **Keine Pauschalregeln:** Geteilte Bausteine werden gezielt je Baustein eckig und flach; Inhalte,
+  die ihre bisherige Auszeichnung behalten (Lesestrecken, Rechtstexte, Download-Karten), schaltet
+  `sc028-body` je Bereich ein. Kreise (Statuspunkte, Skalen, Auswahlknöpfe) bleiben rund.
+- **Erstes Bild:** Am Telefon füllt der Text der Bühne den ersten Bildschirm (`SubStage fold`),
+  Chips und Aktionen stehen an dessen Fuß; ein Bühnenbild beginnt darunter. Bis die Skripte laufen,
+  rechnet der Browser Seitenende und Fuß und — nur am Telefon — die Abschnittsinhalte
+  (`[data-sub-section] > .sc025-inner`) nicht mit (`content-visibility: auto`); `entry-client.tsx`
+  setzt dann `data-sub-ready` an `<html>` (vor `load`), danach wird alles normal gerechnet —
+  ausgelassener Inhalt hat keine Geometrie und fehlt in `innerText`. Das laufende Licht der Linie
+  bewegt sich nur über `transform`/`opacity`; keine Filter in der Bühne.
+- **Raster mit geprüften Umbrüchen** (Leistungskarten, Schwerpunkte, Artikel) behalten ihre
+  Tailwind-Rasterklassen; die Linie oben kommt aus `sc028-cols`.
+- **Farben:** nur die Palette (§3, Farb-Guard). **Texte:** keine neuen Schlüssel.
+
+Nicht umgestellt: Musterbefund-Seiten (Befundlayout folgt dem PDF), Vitamin-D3-Implantologie,
+S3-Leitlinie, Vitamin-D3-Spray und die Consumer-Seiten.
+
 ## 7. Spacing, Radius, Shadow
 
 ### 7.1 Spacing

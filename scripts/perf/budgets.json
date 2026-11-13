@@ -26,23 +26,23 @@
     "initialJsGzip": 164778,
     "initialCssGzip": 17858,
     "initialCssRaw": 99490,
-    "maxRouteJsGzip": 36711,
+    "maxRouteJsGzip": 39100,
     "routeJsGzip": {
       "home": 0,
-      "diagnostics-hub": 5909,
-      "service-detail": 10800,
-      "igloo-pro": 5217,
+      "diagnostics-hub": 7800,
+      "service-detail": 12700,
+      "igloo-pro": 6300,
       "epigenetics-hub": 30222,
       "epigenetics-deep": 11315,
       "musterbefund": 25196,
-      "articles-index": 6232,
-      "article-detail": 36711,
-      "events": 6615,
-      "downloads": 13500,
+      "articles-index": 7400,
+      "article-detail": 39100,
+      "events": 7100,
+      "downloads": 15100,
       "contact": 13000,
       "consumer-d3": 15166,
       "consumer-duo": 13884,
-      "not-found": 2300
+      "not-found": 4800
     },
     "interFontFaces": 7,
     "fallbackFaces": 2,
@@ -89,7 +89,7 @@
       },
       "diagnostics-hub": {
         "mobile": {
-          "htmlBytes": 33300,
+          "htmlBytes": 37400,
           "jsBytes": 171260,
           "imageBytes": 89249,
           "lcpImageBytes": 0,
@@ -101,7 +101,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 33300,
+          "htmlBytes": 37400,
           "jsBytes": 171260,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -115,7 +115,7 @@
       },
       "service-detail": {
         "mobile": {
-          "htmlBytes": 32050,
+          "htmlBytes": 37000,
           "jsBytes": 175398,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -127,10 +127,10 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 32050,
+          "htmlBytes": 37000,
           "jsBytes": 175398,
           "imageBytes": 69812,
-          "lcpImageBytes": 0,
+          "lcpImageBytes": 9500,
           "fontRequests": 1,
           "fontBytes": 50669,
           "lcpMs": 220,
@@ -141,7 +141,7 @@
       },
       "igloo-pro": {
         "mobile": {
-          "htmlBytes": 30800,
+          "htmlBytes": 33500,
           "jsBytes": 170407,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -153,7 +153,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 30800,
+          "htmlBytes": 33500,
           "jsBytes": 170407,
           "imageBytes": 89249,
           "lcpImageBytes": 19438,
@@ -167,9 +167,9 @@
       },
       "epigenetics-hub": {
         "mobile": {
-          "htmlBytes": 43096,
+          "htmlBytes": 46500,
           "jsBytes": 195918,
-          "imageBytes": 69812,
+          "imageBytes": 74500,
           "lcpImageBytes": 0,
           "fontRequests": 1,
           "fontBytes": 50669,
@@ -179,7 +179,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 43096,
+          "htmlBytes": 46500,
           "jsBytes": 195918,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -193,7 +193,7 @@
       },
       "epigenetics-deep": {
         "mobile": {
-          "htmlBytes": 29321,
+          "htmlBytes": 34000,
           "jsBytes": 176669,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -205,7 +205,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 29321,
+          "htmlBytes": 34000,
           "jsBytes": 176669,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -245,7 +245,7 @@
       },
       "articles-index": {
         "mobile": {
-          "htmlBytes": 29100,
+          "htmlBytes": 33500,
           "jsBytes": 172062,
           "imageBytes": 161477,
           "lcpImageBytes": 0,
@@ -257,7 +257,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 29100,
+          "htmlBytes": 33500,
           "jsBytes": 172062,
           "imageBytes": 123509,
           "lcpImageBytes": 11139,
@@ -271,7 +271,7 @@
       },
       "article-detail": {
         "mobile": {
-          "htmlBytes": 30459,
+          "htmlBytes": 35000,
           "jsBytes": 203191,
           "imageBytes": 91749,
           "lcpImageBytes": 21938,
@@ -283,7 +283,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 30459,
+          "htmlBytes": 35000,
           "jsBytes": 203191,
           "imageBytes": 91749,
           "lcpImageBytes": 21938,
@@ -297,7 +297,7 @@
       },
       "events": {
         "mobile": {
-          "htmlBytes": 27750,
+          "htmlBytes": 32400,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -309,7 +309,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 27750,
+          "htmlBytes": 32400,
           "jsBytes": 172113,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -323,7 +323,7 @@
       },
       "downloads": {
         "mobile": {
-          "htmlBytes": 30550,
+          "htmlBytes": 34700,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -335,7 +335,7 @@
           "cls": 0.011
         },
         "desktop": {
-          "htmlBytes": 30550,
+          "htmlBytes": 34700,
           "jsBytes": 178884,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -349,7 +349,7 @@
       },
       "contact": {
         "mobile": {
-          "htmlBytes": 30090,
+          "htmlBytes": 33400,
           "jsBytes": 177268,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -361,7 +361,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 30090,
+          "htmlBytes": 33400,
           "jsBytes": 177268,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -427,7 +427,7 @@
       },
       "not-found": {
         "mobile": {
-          "htmlBytes": 25225,
+          "htmlBytes": 29300,
           "jsBytes": 167520,
           "imageBytes": 69812,
           "lcpImageBytes": 0,
@@ -439,7 +439,7 @@
           "cls": 0.01
         },
         "desktop": {
-          "htmlBytes": 25225,
+          "htmlBytes": 29300,
           "jsBytes": 167520,
           "imageBytes": 69812,
           "lcpImageBytes": 0,

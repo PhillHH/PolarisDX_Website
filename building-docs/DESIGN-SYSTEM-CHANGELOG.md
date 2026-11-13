@@ -27,6 +27,16 @@ Das ist **AP27** und wird nicht vorweggenommen.
 
 ## 1. Change Notes
 
+### 2026-11-13 — SC-028 · Unterseiten im Stil der Startseite
+
+- **Ursache:** Owner am 13.11.2026: „Auch alle Unterseiten sollen in diesem Stil sein durchgängug mache dafür auch mal ein paar Artifacte"; nach den Werkstatt-Entwürfen die Entscheidung „Vollständig umsetzen bitte in preview inkl. Lichtleiste, Unterseiten etc.", dazu die Freigaben „Neu festsetzen (Empfehlung)" (Byte-Budgets) und „Bilder rein (Empfehlung)" (Bühnenbilder).
+- **Design-Delta:** Diagnostik-Übersicht, Leistungs-Detail, IglooPro, Epigenetik-Übersicht und -Vertiefungen, Magazin und Artikel, Termine, Downloads, Über uns, Kontakt, Support, Rechtstexte und 404 stehen im Raster der Startseite: dunkle Bühne mit Lichtlinie und Eckdaten, Abschnittsköpfe mit Kennzeile und dünner H2, Spalten und Zeilen mit Linie statt Karten, eckige Flächen, Wechsel aus Weiß, kühlem Grau und Nacht-Navy, Lichtlinie durch die Seite, Fuß in Nacht-Navy. Bühnenbilder aus vorhandenen Motiven (Epigenetik: Fächer aus drei Musterbefund-Deckblättern; Support: IglooPro mit Lichtstrahl; Leistungs-Detail: Praxisfoto im Hochformat-Rahmen, wo ein Motiv passt). Texte, Reihenfolge, Formulare, Filter, Merkliste und Test-Selektoren unverändert.
+- **Tokens:** keine neuen Farben, keine neuen Typo-Rollen, keine neuen Spacing-Werte. Der Rahmen liegt in `src/components/sub/` (`SubPage`, `SubStage`, `SubHead`, `StageImage`, `SubTrace`, `sub.css`, `base.css`, `pages/*.css`) — siehe `DESIGN-SYSTEM-CONTRACT.md` §6.12.
+- **Bewegung:** Lichtlinie der Bühne und der Seite wie auf der Startseite; das laufende Licht nur über `transform`/`opacity`. Bei „Bewegung reduzieren" steht die Linie fertig da, das laufende Licht entfällt.
+- **Neuer Text:** keiner.
+- **Betroffene Screenshots (Visual):** 12 der 22 Baselines im gepinnten Playwright-Image neu aufgenommen, weil diese Seiten umgebaut sind (erster Bildschirm 1280×800): `diagnostics-hub`, `service-detail`, `igloo-pro`, `epigenetics-hub`, `epigenetics-panel`, `article`, `resource-center`, `resource-gate-open`, `contact`, `support`, `legal-privacy`, `not-found`. Unverändert und im Kontrolllauf grün: `home-desktop`, `home-mobile`, `musterbefund`, `consumer-spray` (Desktop und mobil), `event-popup`, `site-menu-open`, `search-dialog-open`, `cookie-banner`, `navigation-open-mobile`.
+- **Reviewer:** Claude-Werkstatt (Alt-/Neu-Vergleich je Bild gegen die Werkstatt-Entwürfe); Owner-Sichtprüfung auf der Preview steht aus.
+
 ### 2026-11-13 — SC-027 · Kopfzeile „Service oben" in Nacht-Navy
 
 - **Ursache:** Owner am 13.11.2026: „das Menü die Topbar sieht noch nicht maximal gut aus", nach zwei Entwurfsrunden in der Werkstatt („Wir nehmen Lichtleiste, aber die Shops müssen da sichtbar sein: Bitte mache die auch doppelleistig wenn möglich") die Entscheidung „Service Oben bitte implementieren".

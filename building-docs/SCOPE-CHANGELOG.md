@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-028 — Unterseiten im Stil der Startseite (Preview)
+
+- **Datum:** 2026-11-13
+- **Status:** ACCEPTED (Owner-Auftrag); Ausrollen nur auf die Preview
+- **Betroffene IDs:** AP05 (Sektionsmuster), AP11–AP20 (Unterseiten: Diagnostik-Übersicht, Leistungs-Detail, IglooPro, Epigenetik-Übersicht und -Vertiefungen, Artikel, Termine, Downloads, Über uns, Kontakt, Support, Rechtstexte, 404), AP24 (Kontrast/Tastatur), AP25 (Bytes, erstes Bild), AP27 (Tests/Baselines), DESIGN-SYSTEM-CONTRACT §6.12
+- **Vorheriger Zustand:** Unterseiten im hellen Kartenraster mit Navy-Bühne (`SubpageHero`, `AreaStage`, eigene Bühnen je Seite); nur die Startseite trug die Formensprache aus SC-025/SC-026.
+- **Neuer Zustand:** Die genannten Unterseiten stehen im Raster der Startseite: dunkle Bühne mit Lichtlinie und Eckdaten, Abschnittsköpfe mit Kennzeile, Spalten und Zeilen mit Linie statt Karten, Lichtlinie durch die Seite. Bühnenbilder aus vorhandenen Motiven (Epigenetik: Musterbefund-Deckblätter, Support: IglooPro, Leistungs-Detail: Praxisfotos, wo ein Motiv passt). Texte, Reihenfolge, Formulare, Filter, Merkliste, SEO/Schema und Test-Selektoren unverändert.
+- **Begründung:** Owner wörtlich am 13.11.2026: „Auch alle Unterseiten sollen in diesem Stil sein durchgängug mache dafür auch mal ein paar Artifacte"; nach den Entwürfen: „Vollständig umsetzen bitte in preview inkl. Lichtleiste, Unterseiten etc."
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-13, Werkstatt-Sitzung; dazu die Freigaben „Neu festsetzen (Empfehlung)" (Byte-Budgets der umgebauten Seiten auf Messwert + 5 %) und „Bilder rein (Empfehlung)" (Bühnenbilder, Bild-Bytes). Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Darstellung der genannten Unterseiten in zehn Sprachen. Nicht umgestellt: Musterbefund-Seiten, Vitamin-D3-Implantologie, S3-Leitlinie, Vitamin-D3-Spray, Consumer-Seiten.
+- **Auswirkung auf Abhängigkeiten:** Keine neue Bibliothek, keine neue Bilddatei, keine neuen Texte, keine neuen Farb-Tokens. `server.ts` liefert die Stylesheets der Unterseiten inline.
+- **Auswirkung auf Gates:** Byte-Budgets der umgebauten Routen neu festgesetzt (HTML, Skript, Bild), Zeitbudgets, Zählwerte und Strukturregeln unverändert; Visual-Baselines der umgebauten Seiten neu — siehe `DESIGN-SYSTEM-CHANGELOG.md`.
+- **Aktualisierte kanonische Dokumente:** `building-docs/DESIGN-SYSTEM-CONTRACT.md` §6.12, `building-docs/DESIGN-SYSTEM-CHANGELOG.md`, `scripts/perf/budgets.json`.
+
 ### SC-027 — Kopfzeile „Service oben" in Nacht-Navy (Preview)
 
 - **Datum:** 2026-11-13
