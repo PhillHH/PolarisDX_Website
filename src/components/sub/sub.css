@@ -88,19 +88,21 @@
   font-size: 14.5px;
 }
 
-/* Abschnitte unter dem ersten Bildschirm rechnet der Browser erst, wenn sie in die Nähe kommen:
-   ohne das kosten Stil und Layout der ganzen Seite gedrosselt rund 100 ms bis zum ersten Bild
-   (gemessen gegen den Stand vor SC-028). Es trifft den Inhalt (`.sc025-inner`), nicht den
-   Abschnitt — der Inhalt ist ohnehin eine eigene Ebene über der Lichtlinie, die Reihenfolge der
-   Ebenen bleibt. Sprungmarken, Suche im Dokument und Vorlesen erreichen den Inhalt weiter. */
-.sc028 [data-sub-section] > .sc025-inner {
-  contain-intrinsic-size: auto 640px;
-  content-visibility: auto;
+/* Erstes Bild: Was unter dem ersten Bildschirm liegt, rechnet der Browser nicht mit, bis die
+   Skripte laufen (`content-visibility`) — ohne das kosten Stil und Layout der ganzen Seite
+   gedrosselt rund 100 ms bis zum ersten Bild (gemessen gegen den Stand vor SC-028). Dann setzt
+   entry-client.tsx `data-sub-ready` an <html> (vor `load`) und alles wird normal gerechnet: ausgelassener
+   Inhalt hat keine Geometrie und fehlt in `innerText`, das verfälscht Prüfungen (Axe-Kontrast,
+   Trefferflächen) und Textabfragen. Abschnittsinhalte nur am Telefon (dort ist die CPU gedrosselt
+   das Nadelöhr), Seitenende und Fuß auf allen Breiten. Es trifft den Inhalt (`.sc025-inner`),
+   nicht den Abschnitt — der Inhalt ist ohnehin eine eigene Ebene über der Lichtlinie. */
+@media (max-width: 900px) {
+  html:not([data-sub-ready]) .sc028 [data-sub-section] > .sc025-inner {
+    contain-intrinsic-size: auto 640px;
+    content-visibility: auto;
+  }
 }
-/* Dasselbe für die Blöcke am Seitenende: „Weiter im Bereich", Abschluss und Fuß. */
-.sc028 [data-area-next],
-.sc028 #los-gehts,
-footer {
+html:not([data-sub-ready]) :is(.sc028 [data-area-next], .sc028 #los-gehts, footer) {
   contain-intrinsic-size: auto 600px;
   content-visibility: auto;
 }

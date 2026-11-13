@@ -93,12 +93,13 @@
   color: #5e6a78;
   font-size: 13px;
 }
-/* Abschnitte des Artikels unter dem ersten Bildschirm rechnet der Browser erst, wenn sie in die
-   Nähe kommen (wie die Abschnitte der übrigen Unterseiten, siehe sub.css). */
-.sc028-read-body > section,
-.sc028-read-block {
-  contain-intrinsic-size: auto 420px;
-  content-visibility: auto;
+/* Abschnitte des Artikels unter dem ersten Bildschirm: am Telefon nicht mitrechnen, bis die
+   Skripte laufen (wie die Abschnitte der übrigen Unterseiten, siehe sub.css). */
+@media (max-width: 900px) {
+  html:not([data-sub-ready]) :is(.sc028-read-body > section, .sc028-read-block) {
+    contain-intrinsic-size: auto 420px;
+    content-visibility: auto;
+  }
 }
 /* Abschnitte des Artikels (Vorlage unverändert): Überschriften dünn, Flächen eckig */
 .sc028-read h2 {

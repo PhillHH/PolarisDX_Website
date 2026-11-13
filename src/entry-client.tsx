@@ -36,6 +36,12 @@ import App from './App'
 // unberührt — sie läuft über SEOHead notFound und NOT_FOUND_MARKER.
 import { RootErrorBoundary } from './routing'
 
+// SC-028: Sobald die Skripte laufen, rechnet der Browser auch, was sub.css für das erste Bild
+// unter dem Falz auslässt (`content-visibility`). Das passiert hier und nicht erst nach der
+// Hydration: Modul-Skripte laufen vor `load`, Prüfungen und Textabfragen nach dem Laden sehen
+// also immer die ganze Seite (ausgelassener Inhalt hat keine Geometrie und fehlt in `innerText`).
+document.documentElement.setAttribute('data-sub-ready', '')
+
 // =============================================================================
 // LANGUAGE FROM URL
 // =============================================================================
