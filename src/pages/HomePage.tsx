@@ -8,7 +8,7 @@ import {
   serializeStructuredData,
   type FAQItem,
 } from '../components/seo'
-import HomeHero from '../components/home/HomeHero'
+import PolarisOneStage from '../components/home/PolarisOneStage'
 import HomeProducts from '../components/home/HomeProducts'
 import HomeInformation from '../components/home/HomeInformation'
 import HomeContact from '../components/home/HomeContact'
@@ -53,7 +53,7 @@ const HomePage = () => {
         structuredData={structuredData}
       />
       <div id="home-page" className="sc025" data-home-stylesheet={homeStylesheet}>
-        <HomeHero />
+        <PolarisOneStage />
         <section aria-labelledby="home-intro-title" data-home-section className="sc025-s">
           <div className="sc025-inner">
             <span className="sc025-kicker">{t('business_pillars.pillars.igloo.title')}</span>

@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proaktywne zarządzanie procesem starzenia. Monitorowanie kluczowych biomarkerów, takich jak HbA1c, lipidy i wskaźniki stanu zapalnego, dla dłuższego i zdrowszego życia."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Nowość · W przygotowaniu",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One mierzy dwa testy w jednym przebiegu",
+    "cuts": [
+      "Jedna kropla.",
+      "Wybierz testy.",
+      "Dwie kasety.",
+      "Jeden przebieg.",
+      "Dwa wyniki."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "plus VAT",
+      "deposit": "495 € zaliczki",
+      "deposit_note": "przy zamówieniu przedpremierowym · dostawa od II kw. 2027",
+      "short": "Early Bird 990 € plus VAT · 495 € zaliczki · od II kw. 2027"
+    },
+    "start": "Odtwórz film z dźwiękiem",
+    "preorder": "Zamów przedpremierowo",
+    "dev_note": "W przygotowaniu · film pokazuje prototyp",
+    "chapters": [
+      {
+        "label": "Próbka",
+        "title": "Jedna kropla.",
+        "text": "Próbka trafia na kasetę testową."
+      },
+      {
+        "label": "Wybór",
+        "title": "Wybierz testy.",
+        "text": "Na ekranie wybierasz testy dla tego pacjenta."
+      },
+      {
+        "label": "Wkładanie",
+        "title": "Dwie kasety.",
+        "text": "Urządzenie wskazuje właściwy adapter, szuflada się wsuwa."
+      },
+      {
+        "label": "Pomiar",
+        "title": "Jeden przebieg.",
+        "text": "Oba testy przebiegają równolegle."
+      },
+      {
+        "label": "Wynik",
+        "title": "Dwa wyniki.",
+        "text": "Wyniki pojawiają się na ekranie. Wartości w filmie są przykładowe."
+      }
+    ],
+    "log": [
+      {
+        "title": "Próbka naniesiona",
+        "text": "Krew włośniczkowa na kasecie"
+      },
+      {
+        "title": "Wybrano test",
+        "text": "Witamina D"
+      },
+      {
+        "title": "Wybrano test",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Wymagany adapter",
+        "text": "B3 na dwie kasety"
+      },
+      {
+        "title": "Adapter rozpoznany",
+        "text": "2 kasety zablokowane"
+      },
+      {
+        "title": "Pomiar w toku",
+        "text": "Oba testy równolegle"
+      },
+      {
+        "title": "Wynik gotowy · wartości przykładowe",
+        "text": "Witamina D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Odtwórz film",
+      "pause": "Zatrzymaj film",
+      "timeline": "Oś czasu",
+      "sound_on": "Włącz dźwięk",
+      "sound_off": "Wyłącz dźwięk"
+    },
+    "end": {
+      "eyebrow": "Przedsprzedaż · od II kw. 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "przy zamówieniu przedpremierowym",
+      "again": "Obejrzyj ponownie"
+    },
+    "hotspots": [
+      {
+        "title": "Ekran dotykowy",
+        "text": "Wybór testów i odczyt wyników bezpośrednio na urządzeniu."
+      },
+      {
+        "title": "Dwa wyniki",
+        "text": "Obie wartości są widoczne jedna pod drugą. Wartości w filmie są przykładowe."
+      },
+      {
+        "title": "Szuflada z adapterem",
+        "text": "Dwie kasety wsuwają się razem."
+      }
+    ]
   }
 }

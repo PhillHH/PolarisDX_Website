@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proactive ageing management. Monitoring of essential biomarkers such as HbA1c, lipids and inflammation values for a longer, healthier life."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "New · In development",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One measures two tests in one run",
+    "cuts": [
+      "One drop.",
+      "Tap the tests.",
+      "Two cassettes.",
+      "One run.",
+      "Two values."
+    ],
+    "price": {
+      "amount": "€990",
+      "label": "Early Bird",
+      "vat": "plus VAT",
+      "deposit": "€495 deposit",
+      "deposit_note": "with your pre-order · delivery from Q2 2027",
+      "short": "Early Bird €990 plus VAT · €495 deposit · from Q2 2027"
+    },
+    "start": "Play film with sound",
+    "preorder": "Pre-order now",
+    "dev_note": "In development · film shows prototype",
+    "chapters": [
+      {
+        "label": "Sample",
+        "title": "One drop.",
+        "text": "The sample goes onto the test cassette."
+      },
+      {
+        "label": "Selection",
+        "title": "Tap the tests.",
+        "text": "Choose the tests for this patient on the screen."
+      },
+      {
+        "label": "Loading",
+        "title": "Two cassettes.",
+        "text": "The device names the matching adapter and the drawer slides in."
+      },
+      {
+        "label": "Measurement",
+        "title": "One run.",
+        "text": "Both tests run side by side."
+      },
+      {
+        "label": "Result",
+        "title": "Two values.",
+        "text": "The results appear on the screen. Values in the film are demo values."
+      }
+    ],
+    "log": [
+      {
+        "title": "Sample applied",
+        "text": "Capillary blood on the cassette"
+      },
+      {
+        "title": "Test selected",
+        "text": "Vitamin D"
+      },
+      {
+        "title": "Test selected",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adapter requested",
+        "text": "B3 for two cassettes"
+      },
+      {
+        "title": "Adapter detected",
+        "text": "2 cassettes locked"
+      },
+      {
+        "title": "Measurement running",
+        "text": "Both tests side by side"
+      },
+      {
+        "title": "Result available · demo values",
+        "text": "Vitamin D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Play film",
+      "pause": "Pause film",
+      "timeline": "Timeline",
+      "sound_on": "Sound on",
+      "sound_off": "Sound off"
+    },
+    "end": {
+      "eyebrow": "Pre-order · from Q2 2027",
+      "title": "Early Bird €990.",
+      "deposit_note": "with your pre-order",
+      "again": "Watch again"
+    },
+    "hotspots": [
+      {
+        "title": "Touchscreen",
+        "text": "Select tests and read results directly on the device."
+      },
+      {
+        "title": "Two results",
+        "text": "Both values are shown one below the other. The values in the film are demo values."
+      },
+      {
+        "title": "Drawer with adapter",
+        "text": "Two cassettes slide in together."
+      }
+    ]
   }
 }

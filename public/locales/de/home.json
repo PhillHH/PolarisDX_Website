@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proaktives Alternsmanagement. Monitoring essenzieller Biomarker wie HbA1c, Lipide und Entzündungswerte für ein längeres, gesünderes Leben."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Neu · In Entwicklung",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One misst zwei Tests in einem Durchgang",
+    "cuts": [
+      "Ein Tropfen.",
+      "Tests antippen.",
+      "Zwei Kassetten.",
+      "Ein Durchgang.",
+      "Zwei Werte."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "zzgl. USt.",
+      "deposit": "495 € Anzahlung",
+      "deposit_note": "bei Vorbestellung · Auslieferung ab Q2 2027",
+      "short": "Early Bird 990 € zzgl. USt. · 495 € Anzahlung · ab Q2 2027"
+    },
+    "start": "Film mit Ton starten",
+    "preorder": "Jetzt vorbestellen",
+    "dev_note": "In Entwicklung · Film zeigt Prototyp",
+    "chapters": [
+      {
+        "label": "Probe",
+        "title": "Ein Tropfen.",
+        "text": "Die Probe kommt auf die Testkassette."
+      },
+      {
+        "label": "Auswahl",
+        "title": "Tests antippen.",
+        "text": "Am Bildschirm wählen Sie die Tests für diesen Patienten."
+      },
+      {
+        "label": "Einlegen",
+        "title": "Zwei Kassetten.",
+        "text": "Das Gerät nennt den passenden Adapter, die Schublade fährt ein."
+      },
+      {
+        "label": "Messung",
+        "title": "Ein Durchgang.",
+        "text": "Beide Tests laufen nebeneinander."
+      },
+      {
+        "label": "Ergebnis",
+        "title": "Zwei Werte.",
+        "text": "Die Ergebnisse stehen auf dem Bildschirm. Werte im Film sind Demo-Werte."
+      }
+    ],
+    "log": [
+      {
+        "title": "Probe aufgetragen",
+        "text": "Kapillarblut auf der Kassette"
+      },
+      {
+        "title": "Test gewählt",
+        "text": "Vitamin D"
+      },
+      {
+        "title": "Test gewählt",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adapter angefordert",
+        "text": "B3 für zwei Kassetten"
+      },
+      {
+        "title": "Adapter erkannt",
+        "text": "2 Kassetten verriegelt"
+      },
+      {
+        "title": "Messung läuft",
+        "text": "Beide Tests nebeneinander"
+      },
+      {
+        "title": "Ergebnis liegt vor · Demo-Werte",
+        "text": "Vitamin D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Film abspielen",
+      "pause": "Film anhalten",
+      "timeline": "Zeitleiste",
+      "sound_on": "Ton an",
+      "sound_off": "Ton aus"
+    },
+    "end": {
+      "eyebrow": "Vorbestellung · ab Q2 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "bei Vorbestellung",
+      "again": "Nochmal ansehen"
+    },
+    "hotspots": [
+      {
+        "title": "Touchscreen",
+        "text": "Tests auswählen und Ergebnisse ablesen, direkt am Gerät."
+      },
+      {
+        "title": "Zwei Ergebnisse",
+        "text": "Beide Werte stehen untereinander. Die Werte im Film sind Demo-Werte."
+      },
+      {
+        "title": "Schublade mit Adapter",
+        "text": "Zwei Kassetten fahren gemeinsam ein."
+      }
+    ]
   }
 }

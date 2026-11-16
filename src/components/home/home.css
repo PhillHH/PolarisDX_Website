@@ -1229,3 +1229,248 @@ footer {
     transform: none;
   }
 }
+
+/* SC-030 „Trailer": Bühne des Polaris One. Der Film füllt die Bühne unter der Kopfzeile, davor
+   liegt bis zum Start ein Zusammenschnitt mit Überschrift, Preis und Knöpfen. */
+.p1s {
+  --p1s-head: calc(2.75rem + 3.75rem + 1px);
+  --p1s-pad: clamp(16px, 3.4vw, 48px);
+  --p1s-bar: 7%;
+  height: 100svh;
+  min-height: 560px;
+  max-height: 980px;
+  overflow: hidden;
+  user-select: none;
+}
+.p1s [hidden] {
+  display: none !important;
+}
+.p1s p {
+  margin: 0;
+}
+.p1s-frame,
+.p1s-shade,
+.p1s-gate {
+  position: absolute;
+  inset: var(--p1s-head) 0 0;
+}
+.p1s-frame {
+  z-index: 1;
+  overflow: hidden;
+  background: #000;
+}
+.p1s-frame img,
+.p1s-frame video {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+}
+.p1s-frame::before,
+.p1s-frame::after {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  height: var(--p1s-bar);
+  background: #000;
+  content: '';
+}
+.p1s-frame::before {
+  top: 0;
+}
+.p1s-frame::after {
+  bottom: 0;
+}
+.p1s-shade {
+  z-index: 2;
+  background:
+    linear-gradient(0deg, #041a2ef2, #041a2e80 22%, #041a2e00 40%),
+    linear-gradient(180deg, #041a2ec7, #041a2e00 22%);
+  pointer-events: none;
+}
+.p1s[data-mode='gate'] .p1s-shade {
+  background: linear-gradient(0deg, #041a2ef5, #041a2e40 44%, #041a2e26 72%, #041a2ecc);
+}
+.p1s-eye {
+  display: flex;
+  align-items: center;
+  color: #8fd8fb;
+  font-size: 11px;
+  font-weight: 500;
+  gap: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.p1s-eye::before {
+  width: 32px;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  content: '';
+}
+/* Vor dem Start */
+.p1s-gate {
+  z-index: 4;
+}
+.p1s-gate-head {
+  position: absolute;
+  top: calc(var(--p1s-bar) + 18px);
+  left: var(--p1s-pad);
+}
+.p1s-name {
+  margin-top: 8px !important;
+  font-size: clamp(30px, 3.6vw, 54px);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+.p1s-cut {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  padding-inline: 12px;
+  pointer-events: none;
+  text-align: center;
+  transform: translateY(-58%);
+}
+.p1s-cut b {
+  display: inline-block;
+  animation: p1s-cut 1.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  font-size: clamp(44px, 11.5vw, 180px);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  text-shadow: 0 0 70px #041a2ef2;
+}
+@keyframes p1s-cut {
+  0% {
+    filter: blur(16px);
+    opacity: 0;
+    transform: scale(1.28);
+  }
+  16% {
+    filter: none;
+    opacity: 1;
+  }
+  84% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.p1s-gate-foot {
+  position: absolute;
+  right: var(--p1s-pad);
+  bottom: calc(var(--p1s-bar) + 22px);
+  left: var(--p1s-pad);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 24px;
+}
+.p1s-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-size: clamp(28px, 3.1vw, 44px);
+  font-weight: 300;
+  gap: 10px;
+  letter-spacing: -0.03em;
+}
+.p1s-price em {
+  align-self: center;
+  padding: 3px 8px;
+  border: 1px solid #8fd8fb73;
+  color: #8fd8fb;
+  font-size: 12px;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.p1s-price small {
+  color: #eef2f6;
+  font-size: 13.5px;
+  letter-spacing: 0;
+}
+.p1s-deposit {
+  margin-top: 8px !important;
+  color: #eef2f6;
+  font-size: 14.5px;
+}
+.p1s-deposit b {
+  color: #fff;
+  font-weight: 500;
+}
+.p1s-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.p1s-btn {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+  font-size: 14.5px;
+  font-weight: 500;
+  gap: 10px;
+  padding-inline: 20px;
+  white-space: nowrap;
+}
+.p1s-btn-light {
+  background: #fff;
+  color: #083358;
+}
+.p1s-btn-light:hover {
+  background: #eef2f6;
+}
+.p1s :focus-visible {
+  outline: 2px solid #8fd8fb;
+  outline-offset: 2px;
+}
+.p1s-ticks {
+  position: absolute;
+  right: var(--p1s-pad);
+  bottom: calc(var(--p1s-bar) + 8px);
+  left: var(--p1s-pad);
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(5, 1fr);
+}
+.p1s-ticks i {
+  height: 2px;
+  background: #8fd8fb40;
+}
+.p1s-ticks i.is-on {
+  background: #8fd8fb;
+  box-shadow: 0 0 10px #8fd8fb;
+}
+@media (max-width: 900px) {
+  .p1s-deposit {
+    margin-top: 4px !important;
+    font-size: 13px;
+  }
+  .p1s-gate-foot .p1s-actions {
+    width: 100%;
+  }
+  .p1s-gate-foot .p1s-actions > * {
+    flex: 1;
+    padding-inline: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p1s-cut b {
+    animation: none;
+  }
+}

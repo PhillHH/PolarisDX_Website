@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proactief verouderingsmanagement. Monitoring van essentiële biomarkers zoals HbA1c, lipiden en ontstekingswaarden voor een langer en gezonder leven."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Nieuw · In ontwikkeling",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One meet twee tests in één run",
+    "cuts": [
+      "Eén druppel.",
+      "Tests aantikken.",
+      "Twee cassettes.",
+      "Eén run.",
+      "Twee waarden."
+    ],
+    "price": {
+      "amount": "€ 990",
+      "label": "Early Bird",
+      "vat": "excl. btw",
+      "deposit": "€ 495 aanbetaling",
+      "deposit_note": "bij voorbestelling · levering vanaf Q2 2027",
+      "short": "Early Bird € 990 excl. btw · € 495 aanbetaling · vanaf Q2 2027"
+    },
+    "start": "Film met geluid starten",
+    "preorder": "Nu voorbestellen",
+    "dev_note": "In ontwikkeling · film toont prototype",
+    "chapters": [
+      {
+        "label": "Monster",
+        "title": "Eén druppel.",
+        "text": "Het monster komt op de testcassette."
+      },
+      {
+        "label": "Keuze",
+        "title": "Tests aantikken.",
+        "text": "Op het scherm kiest u de tests voor deze patiënt."
+      },
+      {
+        "label": "Plaatsen",
+        "title": "Twee cassettes.",
+        "text": "Het apparaat noemt de juiste adapter, de lade schuift naar binnen."
+      },
+      {
+        "label": "Meting",
+        "title": "Eén run.",
+        "text": "Beide tests lopen naast elkaar."
+      },
+      {
+        "label": "Resultaat",
+        "title": "Twee waarden.",
+        "text": "De resultaten staan op het scherm. Waarden in de film zijn demowaarden."
+      }
+    ],
+    "log": [
+      {
+        "title": "Monster aangebracht",
+        "text": "Capillair bloed op de cassette"
+      },
+      {
+        "title": "Test gekozen",
+        "text": "Vitamine D"
+      },
+      {
+        "title": "Test gekozen",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adapter gevraagd",
+        "text": "B3 voor twee cassettes"
+      },
+      {
+        "title": "Adapter herkend",
+        "text": "2 cassettes vergrendeld"
+      },
+      {
+        "title": "Meting loopt",
+        "text": "Beide tests naast elkaar"
+      },
+      {
+        "title": "Resultaat beschikbaar · demowaarden",
+        "text": "Vitamine D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Film afspelen",
+      "pause": "Film pauzeren",
+      "timeline": "Tijdlijn",
+      "sound_on": "Geluid aan",
+      "sound_off": "Geluid uit"
+    },
+    "end": {
+      "eyebrow": "Voorbestelling · vanaf Q2 2027",
+      "title": "Early Bird € 990.",
+      "deposit_note": "bij voorbestelling",
+      "again": "Nogmaals bekijken"
+    },
+    "hotspots": [
+      {
+        "title": "Touchscreen",
+        "text": "Tests kiezen en resultaten aflezen, direct op het apparaat."
+      },
+      {
+        "title": "Twee resultaten",
+        "text": "Beide waarden staan onder elkaar. De waarden in de film zijn demowaarden."
+      },
+      {
+        "title": "Lade met adapter",
+        "text": "Twee cassettes schuiven samen naar binnen."
+      }
+    ]
   }
 }

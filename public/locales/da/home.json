@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proaktiv aldringshåndtering. Monitorering af essentielle biomarkører som HbA1c, lipider og inflammationsværdier for et længere, sundere liv."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Nyhed · Under udvikling",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One måler to tests i én kørsel",
+    "cuts": [
+      "Én dråbe.",
+      "Vælg tests.",
+      "To kassetter.",
+      "Én kørsel.",
+      "To værdier."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "ekskl. moms",
+      "deposit": "495 € i depositum",
+      "deposit_note": "ved forudbestilling · levering fra 2. kvartal 2027",
+      "short": "Early Bird 990 € ekskl. moms · 495 € i depositum · fra 2. kvartal 2027"
+    },
+    "start": "Afspil filmen med lyd",
+    "preorder": "Forudbestil nu",
+    "dev_note": "Under udvikling · filmen viser en prototype",
+    "chapters": [
+      {
+        "label": "Prøve",
+        "title": "Én dråbe.",
+        "text": "Prøven kommer på testkassetten."
+      },
+      {
+        "label": "Valg",
+        "title": "Vælg tests.",
+        "text": "På skærmen vælger du tests til denne patient."
+      },
+      {
+        "label": "Isætning",
+        "title": "To kassetter.",
+        "text": "Apparatet angiver den rette adapter, og skuffen kører ind."
+      },
+      {
+        "label": "Måling",
+        "title": "Én kørsel.",
+        "text": "Begge tests kører side om side."
+      },
+      {
+        "label": "Resultat",
+        "title": "To værdier.",
+        "text": "Resultaterne står på skærmen. Værdierne i filmen er demoværdier."
+      }
+    ],
+    "log": [
+      {
+        "title": "Prøve påført",
+        "text": "Kapillærblod på kassetten"
+      },
+      {
+        "title": "Test valgt",
+        "text": "D-vitamin"
+      },
+      {
+        "title": "Test valgt",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adapter efterspurgt",
+        "text": "B3 til to kassetter"
+      },
+      {
+        "title": "Adapter genkendt",
+        "text": "2 kassetter låst"
+      },
+      {
+        "title": "Måling i gang",
+        "text": "Begge tests side om side"
+      },
+      {
+        "title": "Resultat klar · demoværdier",
+        "text": "D-vitamin 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Afspil filmen",
+      "pause": "Sæt filmen på pause",
+      "timeline": "Tidslinje",
+      "sound_on": "Lyd til",
+      "sound_off": "Lyd fra"
+    },
+    "end": {
+      "eyebrow": "Forudbestilling · fra 2. kvartal 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "ved forudbestilling",
+      "again": "Se igen"
+    },
+    "hotspots": [
+      {
+        "title": "Touchskærm",
+        "text": "Vælg tests og aflæs resultater direkte på apparatet."
+      },
+      {
+        "title": "To resultater",
+        "text": "Begge værdier står under hinanden. Værdierne i filmen er demoværdier."
+      },
+      {
+        "title": "Skuffe med adapter",
+        "text": "To kassetter kører ind sammen."
+      }
+    ]
   }
 }

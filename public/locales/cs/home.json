@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Proaktivní řízení stárnutí. Monitorování zásadních biomarkerů jako HbA1c, lipidy a zánětlivé hodnoty pro delší a zdravější život."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Novinka · Ve vývoji",
+    "name": "Polaris One.",
+    "film_label": "Film: Polaris One měří dva testy v jednom běhu",
+    "cuts": [
+      "Jedna kapka.",
+      "Vyberte testy.",
+      "Dvě kazety.",
+      "Jeden běh.",
+      "Dvě hodnoty."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "bez DPH",
+      "deposit": "Záloha 495 €",
+      "deposit_note": "při předobjednávce · dodání od 2. čtvrtletí 2027",
+      "short": "Early Bird 990 € bez DPH · záloha 495 € · od 2. čtvrtletí 2027"
+    },
+    "start": "Přehrát film se zvukem",
+    "preorder": "Předobjednat",
+    "dev_note": "Ve vývoji · film ukazuje prototyp",
+    "chapters": [
+      {
+        "label": "Vzorek",
+        "title": "Jedna kapka.",
+        "text": "Vzorek se nanese na testovací kazetu."
+      },
+      {
+        "label": "Výběr",
+        "title": "Vyberte testy.",
+        "text": "Na displeji vyberete testy pro tohoto pacienta."
+      },
+      {
+        "label": "Vložení",
+        "title": "Dvě kazety.",
+        "text": "Přístroj určí vhodný adaptér a zásuvka zajede."
+      },
+      {
+        "label": "Měření",
+        "title": "Jeden běh.",
+        "text": "Oba testy probíhají vedle sebe."
+      },
+      {
+        "label": "Výsledek",
+        "title": "Dvě hodnoty.",
+        "text": "Výsledky jsou na displeji. Hodnoty ve filmu jsou ukázkové."
+      }
+    ],
+    "log": [
+      {
+        "title": "Vzorek nanesen",
+        "text": "Kapilární krev na kazetě"
+      },
+      {
+        "title": "Test vybrán",
+        "text": "Vitamin D"
+      },
+      {
+        "title": "Test vybrán",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Vyžádán adaptér",
+        "text": "B3 pro dvě kazety"
+      },
+      {
+        "title": "Adaptér rozpoznán",
+        "text": "2 kazety zajištěny"
+      },
+      {
+        "title": "Měření probíhá",
+        "text": "Oba testy vedle sebe"
+      },
+      {
+        "title": "Výsledek k dispozici · ukázkové hodnoty",
+        "text": "Vitamin D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Přehrát film",
+      "pause": "Pozastavit film",
+      "timeline": "Časová osa",
+      "sound_on": "Zapnout zvuk",
+      "sound_off": "Vypnout zvuk"
+    },
+    "end": {
+      "eyebrow": "Předobjednávka · od 2. čtvrtletí 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "při předobjednávce",
+      "again": "Přehrát znovu"
+    },
+    "hotspots": [
+      {
+        "title": "Dotykový displej",
+        "text": "Výběr testů a odečet výsledků přímo na přístroji."
+      },
+      {
+        "title": "Dva výsledky",
+        "text": "Obě hodnoty jsou pod sebou. Hodnoty ve filmu jsou ukázkové."
+      },
+      {
+        "title": "Zásuvka s adaptérem",
+        "text": "Dvě kazety zajedou společně."
+      }
+    ]
   }
 }

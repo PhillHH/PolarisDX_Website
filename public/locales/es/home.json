@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Gestión proactiva del envejecimiento. Monitorización de biomarcadores esenciales como HbA1c, lípidos y valores de inflamación para una vida más larga y saludable."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Nuevo · En desarrollo",
+    "name": "Polaris One.",
+    "film_label": "Vídeo: Polaris One mide dos pruebas en una sola pasada",
+    "cuts": [
+      "Una gota.",
+      "Elija las pruebas.",
+      "Dos casetes.",
+      "Una pasada.",
+      "Dos valores."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "más IVA",
+      "deposit": "495 € de anticipo",
+      "deposit_note": "con la reserva · entrega a partir del 2.º trimestre de 2027",
+      "short": "Early Bird 990 € más IVA · 495 € de anticipo · desde el 2.º trimestre de 2027"
+    },
+    "start": "Reproducir el vídeo con sonido",
+    "preorder": "Reservar ahora",
+    "dev_note": "En desarrollo · el vídeo muestra un prototipo",
+    "chapters": [
+      {
+        "label": "Muestra",
+        "title": "Una gota.",
+        "text": "La muestra se deposita en el casete de prueba."
+      },
+      {
+        "label": "Selección",
+        "title": "Elija las pruebas.",
+        "text": "En la pantalla elige las pruebas para este paciente."
+      },
+      {
+        "label": "Carga",
+        "title": "Dos casetes.",
+        "text": "El dispositivo indica el adaptador adecuado y la bandeja se cierra."
+      },
+      {
+        "label": "Medición",
+        "title": "Una pasada.",
+        "text": "Las dos pruebas se realizan en paralelo."
+      },
+      {
+        "label": "Resultado",
+        "title": "Dos valores.",
+        "text": "Los resultados aparecen en la pantalla. Los valores del vídeo son de demostración."
+      }
+    ],
+    "log": [
+      {
+        "title": "Muestra aplicada",
+        "text": "Sangre capilar en el casete"
+      },
+      {
+        "title": "Prueba seleccionada",
+        "text": "Vitamina D"
+      },
+      {
+        "title": "Prueba seleccionada",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adaptador solicitado",
+        "text": "B3 para dos casetes"
+      },
+      {
+        "title": "Adaptador detectado",
+        "text": "2 casetes bloqueados"
+      },
+      {
+        "title": "Medición en curso",
+        "text": "Las dos pruebas en paralelo"
+      },
+      {
+        "title": "Resultado disponible · valores de demostración",
+        "text": "Vitamina D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Reproducir el vídeo",
+      "pause": "Pausar el vídeo",
+      "timeline": "Línea de tiempo",
+      "sound_on": "Activar sonido",
+      "sound_off": "Desactivar sonido"
+    },
+    "end": {
+      "eyebrow": "Reserva · desde el 2.º trimestre de 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "con la reserva",
+      "again": "Ver de nuevo"
+    },
+    "hotspots": [
+      {
+        "title": "Pantalla táctil",
+        "text": "Elegir las pruebas y leer los resultados directamente en el dispositivo."
+      },
+      {
+        "title": "Dos resultados",
+        "text": "Los dos valores aparecen uno debajo del otro. Los valores del vídeo son de demostración."
+      },
+      {
+        "title": "Bandeja con adaptador",
+        "text": "Dos casetes entran juntos."
+      }
+    ]
   }
 }

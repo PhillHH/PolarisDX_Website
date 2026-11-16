@@ -386,5 +386,112 @@
       "title": "Longevity",
       "description": "Une gestion proactive du vieillissement. Surveillance de biomarqueurs essentiels tels que l'HbA1c, les lipides et les marqueurs inflammatoires pour une vie plus longue et en meilleure santé."
     }
+  },
+  "polaris_one": {
+    "eyebrow": "Nouveau · En développement",
+    "name": "Polaris One.",
+    "film_label": "Film : Polaris One mesure deux tests en un seul passage",
+    "cuts": [
+      "Une goutte.",
+      "Choisir les tests.",
+      "Deux cassettes.",
+      "Un passage.",
+      "Deux valeurs."
+    ],
+    "price": {
+      "amount": "990 €",
+      "label": "Early Bird",
+      "vat": "hors TVA",
+      "deposit": "495 € d’acompte",
+      "deposit_note": "à la précommande · livraison à partir du T2 2027",
+      "short": "Early Bird 990 € hors TVA · 495 € d’acompte · dès le T2 2027"
+    },
+    "start": "Lancer le film avec le son",
+    "preorder": "Précommander",
+    "dev_note": "En développement · le film montre un prototype",
+    "chapters": [
+      {
+        "label": "Échantillon",
+        "title": "Une goutte.",
+        "text": "L’échantillon est déposé sur la cassette de test."
+      },
+      {
+        "label": "Sélection",
+        "title": "Choisir les tests.",
+        "text": "Vous choisissez à l’écran les tests pour ce patient."
+      },
+      {
+        "label": "Insertion",
+        "title": "Deux cassettes.",
+        "text": "L’appareil indique l’adaptateur adapté, le tiroir se referme."
+      },
+      {
+        "label": "Mesure",
+        "title": "Un passage.",
+        "text": "Les deux tests se déroulent côte à côte."
+      },
+      {
+        "label": "Résultat",
+        "title": "Deux valeurs.",
+        "text": "Les résultats s’affichent à l’écran. Les valeurs du film sont des valeurs de démonstration."
+      }
+    ],
+    "log": [
+      {
+        "title": "Échantillon déposé",
+        "text": "Sang capillaire sur la cassette"
+      },
+      {
+        "title": "Test choisi",
+        "text": "Vitamine D"
+      },
+      {
+        "title": "Test choisi",
+        "text": "aMMP-8 Dental Check"
+      },
+      {
+        "title": "Adaptateur demandé",
+        "text": "B3 pour deux cassettes"
+      },
+      {
+        "title": "Adaptateur reconnu",
+        "text": "2 cassettes verrouillées"
+      },
+      {
+        "title": "Mesure en cours",
+        "text": "Les deux tests côte à côte"
+      },
+      {
+        "title": "Résultat disponible · valeurs de démonstration",
+        "text": "Vitamine D 32 ng/mL · aMMP-8 14 ng/mL"
+      }
+    ],
+    "controls": {
+      "play": "Lire le film",
+      "pause": "Mettre le film en pause",
+      "timeline": "Chronologie",
+      "sound_on": "Activer le son",
+      "sound_off": "Couper le son"
+    },
+    "end": {
+      "eyebrow": "Précommande · dès le T2 2027",
+      "title": "Early Bird 990 €.",
+      "deposit_note": "à la précommande",
+      "again": "Revoir le film"
+    },
+    "hotspots": [
+      {
+        "title": "Écran tactile",
+        "text": "Choisir les tests et lire les résultats directement sur l’appareil."
+      },
+      {
+        "title": "Deux résultats",
+        "text": "Les deux valeurs s’affichent l’une sous l’autre. Les valeurs du film sont des valeurs de démonstration."
+      },
+      {
+        "title": "Tiroir avec adaptateur",
+        "text": "Deux cassettes entrent ensemble."
+      }
+    ]
   }
 }

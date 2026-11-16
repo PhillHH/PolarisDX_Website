@@ -37,7 +37,9 @@ test('SC-026 every language carries the labels of the device display', () => {
   }
 })
 
-test('SC-026 the 3D device takes over the stage and keeps text above and button below the light line', async ({
+// SC-030 (2026-11-16): Die Startseiten-Bühne zeigt den Polaris-One-Film; die IglooPro-3D-Bühne
+// (HomeHero) ist nicht mehr eingebunden. Die Browser-Prüfungen ruhen, bis sie wieder eine Seite hat.
+test.skip('SC-026 the 3D device takes over the stage and keeps text above and button below the light line', async ({
   page,
 }) => {
   const problems = collectProblems(page)
@@ -82,7 +84,7 @@ test('SC-026 the 3D device takes over the stage and keeps text above and button 
   expect(problems).toEqual([])
 })
 
-test('SC-026 on a phone the 3D device runs without sideways scrolling or shifted text', async ({
+test.skip('SC-026 on a phone the 3D device runs without sideways scrolling or shifted text', async ({
   page,
 }) => {
   const problems = collectProblems(page)
@@ -103,7 +105,7 @@ test('SC-026 on a phone the 3D device runs without sideways scrolling or shifted
   expect(problems).toEqual([])
 })
 
-test('SC-026 without motion the 3D module is never requested', async ({ page }) => {
+test.skip('SC-026 without motion the 3D module is never requested', async ({ page }) => {
   const requested: string[] = []
   page.on('request', (request) => {
     if (/iglooScene/.test(request.url())) requested.push(request.url())
