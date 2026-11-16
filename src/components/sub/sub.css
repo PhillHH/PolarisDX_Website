@@ -1191,3 +1191,26 @@ html:not([data-sub-ready]) :is(.sc028 [data-area-next], .sc028 #los-gehts, foote
     display: none;
   }
 }
+
+/* SC-029 „Blende" (Handy): die Überschrift fährt hinter einer Kante hoch, die Einleitung folgt.
+   Nur Bewegung und Beschnitt, keine Deckkraft. Greift erst, wenn SubTrace `sc029-fx` setzt. */
+@media (max-width: 900px) {
+  .sc029-fx .sc029-rv .sc025-h2 {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(26px);
+    transition:
+      transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+      clip-path 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .sc029-fx .sc029-rv > p {
+    transform: translateY(18px);
+    transition: transform 0.8s 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .sc029-fx .sc029-rv.is-in .sc025-h2 {
+    clip-path: inset(-10% 0);
+    transform: none;
+  }
+  .sc029-fx .sc029-rv.is-in > p {
+    transform: none;
+  }
+}

@@ -1,61 +1,47 @@
-import { useState } from 'react'
-import { Phone, X } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { Link, useLocation } from 'react-router-dom'
 
+/**
+ * SC-029: feste Aktionsleiste am unteren Rand (unter lg) — die Hauptaktion der Seite und der
+ * Anruf am Daumen. Sie ersetzt den schwebenden Telefonknopf. Auf der Kontaktseite steht nur der
+ * Anruf, weil die Seite selbst das Formular ist.
+ *
+ * `--cookie-banner-height` setzt der CookieBanner, solange er sichtbar ist (sonst 0px): die Leiste
+ * rückt dann über ihn. Den Platz am Seitenende hält `body:has([data-mobile-dock])` in index.css
+ * frei; die Leiste steht schon im Server-HTML, es verschiebt sich nichts.
+ */
 const MobileCallButton = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const { t } = useTranslation('contact')
+  const { t } = useTranslation(['contact', 'common'])
+  const { pathname } = useLocation()
   const phoneNumber = '+49 151 75011699'
-  const phoneNumberClean = phoneNumber.replace(/\s/g, '')
+  const onContact = /\/contact\/?$/.test(pathname)
 
   return (
-    // --cookie-banner-height wird vom CookieBanner gesetzt, solange dieser sichtbar
-    // ist (sonst 0px). Ohne das liegt der Anruf-Button beim Erstbesuch komplett
-    // hinter dem Banner (Banner z-[70] > z-50) und ist nicht erreichbar.
     <div
-      className="fixed bottom-6 right-0 z-50 flex flex-col items-end transition-[bottom] duration-300 lg:hidden"
-      style={{
-        bottom: 'calc(1.5rem + var(--cookie-banner-height, 0px) + var(--action-bar-height, 0px))',
-      }}
+      data-mobile-dock
+      className="fixed inset-x-0 z-50 flex gap-2 border-t border-ui-border bg-white px-3 py-2 transition-[bottom] duration-300 motion-reduce:transition-none lg:hidden"
+      style={{ bottom: 'var(--cookie-banner-height, 0px)' }}
     >
-      <div
-        className={`flex items-center overflow-hidden rounded-l-full shadow-card ring-1 ring-white/25 transition-all duration-300 ease-in-out ${
-          isExpanded
-            ? 'translate-x-0 bg-white pl-3 pr-2 py-2'
-            : '-translate-x-2 bg-brand-primary pr-1 pl-3 py-3'
+      {!onContact && (
+        <Link
+          to="/contact"
+          data-cta-section="mobile-dock"
+          className="flex min-h-[48px] flex-1 items-center justify-center bg-brand-primary px-4 text-sm font-semibold text-white"
+        >
+          {t('common:nav.cta_quote')}
+        </Link>
+      )}
+      <a
+        href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+        aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
+        className={`flex min-h-[48px] items-center justify-center gap-2 border border-brand-primary text-sm font-semibold text-brand-primary ${
+          onContact ? 'flex-1 px-4' : 'w-12 shrink-0'
         }`}
       >
-        <button
-          onClick={() => setIsExpanded((prev) => !prev)}
-          className={`flex items-center justify-center rounded-full transition-colors ${
-            isExpanded
-              ? 'h-11 w-11 bg-gray-50 text-brand-primary'
-              : 'h-11 w-11 bg-brand-deep text-white'
-          }`}
-          aria-label={t('contact.call_us_button', 'Rufen Sie uns an')}
-        >
-          <Phone className="h-5 w-5" />
-        </button>
-
-        {isExpanded && (
-          <>
-            <a
-              href={`tel:${phoneNumberClean}`}
-              onClick={() => setIsExpanded(false)}
-              className="ml-3 mr-1 flex min-h-[44px] items-center whitespace-nowrap text-sm font-semibold text-heading"
-            >
-              {t('contact.call_us_text', 'Rufen Sie uns an')}
-            </a>
-            <button
-              onClick={() => setIsExpanded(false)}
-              aria-label={t('contact.collapse_button', 'Schließen')}
-              className="ml-2 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </>
-        )}
-      </div>
+        <Phone className="h-5 w-5" aria-hidden="true" />
+        {onContact && phoneNumber}
+      </a>
     </div>
   )
 }

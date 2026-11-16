@@ -682,3 +682,14 @@
     display: block !important;
   }
 }
+
+/* SC-029: die feste Aktionsleiste am Handy (MobileCallButton) verdeckt das Seitenende nicht;
+   die schwebende Leiste der Bereichsseiten rückt über sie. */
+@media (max-width: 1023px) {
+  body:has([data-mobile-dock]) {
+    padding-bottom: 65px;
+  }
+  body:has([data-mobile-dock]) [data-mobile-action-bar] {
+    bottom: calc(65px + 0.75rem);
+  }
+}

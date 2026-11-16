@@ -127,10 +127,13 @@ describe('MobileCallButton', () => {
         <MobileCallButton />
       </MemoryRouter>,
     )
-    expect(screen.getByRole('button', { name: 'contact.call_us_button' })).toBeInTheDocument()
-    // Der Quelltext haelt die Nummer; im eingeklappten Zustand ist der
-    // tel:-Link noch nicht gerendert.
-    expect(src('src/components/ui/MobileCallButton.tsx')).toContain('tel:')
+    const call = screen.getByRole('link', { name: 'contact.call_us_button' })
+    expect(call.getAttribute('href')).toMatch(/^tel:\+\d+$/)
+    // SC-029: daneben steht die Hauptaktion der Seite.
+    expect(screen.getByRole('link', { name: 'common:nav.cta_quote' })).toHaveAttribute(
+      'href',
+      '/contact',
+    )
     expect(container.querySelector('[style*="cookie-banner-height"]')).not.toBeNull()
   })
 

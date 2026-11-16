@@ -106,6 +106,24 @@ const SubTrace = () => {
       dark.style.setProperty('--mx', `${event.clientX - darkBounds.left}px`)
       dark.style.setProperty('--my', `${event.clientY - darkBounds.top}px`)
     }
+    // SC-029 „Blende": Abschnittsköpfe unterhalb des Bildschirms fahren beim Erreichen hoch.
+    const heads = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-in')
+          heads.unobserve(entry.target)
+        }),
+      { rootMargin: '0px 0px -6% 0px' },
+    )
+    if (!motion.matches) {
+      root.classList.add('sc029-fx')
+      root.querySelectorAll<HTMLElement>('.sc025-head').forEach((head) => {
+        if (head.getBoundingClientRect().top < window.innerHeight) return
+        head.classList.add('sc029-rv')
+        heads.observe(head)
+      })
+    }
     const observer = new ResizeObserver(requestBuild)
     observer.observe(root)
     window.addEventListener('scroll', requestDraw, { passive: true })
@@ -117,6 +135,8 @@ const SubTrace = () => {
     build()
     return () => {
       observer.disconnect()
+      heads.disconnect()
+      root.classList.remove('sc029-fx')
       window.removeEventListener('scroll', requestDraw)
       window.removeEventListener('resize', requestBuild)
       window.removeEventListener('load', requestBuild)
