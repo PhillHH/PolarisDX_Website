@@ -211,3 +211,12 @@ Regeln (durchgesetzt von `scripts/check-meta-descriptions.mjs` und `SEOHead`):
    `vite.config.ts` nimmt deshalb `src/assets/home/` und `src/assets/article-hero-*` aus. Liegt ein
    neues kleines Bild woanders, die Ausnahme dort erweitern — nach Messung.
 5. Budget messen, nie lockern: `npm run perf:budget:build && npm run check:perf-budget`.
+
+## Nicht gelistete Direkt-Downloads (`/d/…`)
+
+Für Unterlagen, die nur per Link oder QR-Code weitergegeben werden: Datei nach
+`public/d/<zufällige Kennung>/<Dateiname>.pdf` legen (Kennung mit mindestens 16 zufälligen Zeichen,
+Dateirechte `644`, sonst antwortet der Server mit Fehler 500). Die Datei wird nirgends verlinkt,
+steht nicht in der Sitemap und wird mit `X-Robots-Tag: noindex` ausgeliefert (server.ts). Das ist
+kein Zugriffsschutz: Wer den Link kennt, kann die Datei laden und weitergeben. Zum Zurückziehen die
+Datei löschen und neu veröffentlichen.
