@@ -479,6 +479,14 @@ async function createServer() {
         // directory are still served normally with this disabled.
         redirect: false,
         maxAge: '1h', // Kürzeres Caching für nicht-gehashte Assets
+        // Nicht gelistete Direkt-Downloads (`public/d/<Kennung>/…`): nur per Link erreichbar,
+        // nirgends verlinkt, nicht in der Sitemap — und für Suchmaschinen ausdrücklich gesperrt.
+        setHeaders: (res, filePath) => {
+          if (filePath.startsWith(path.resolve(CLIENT_DIST_DIR, 'd') + path.sep)) {
+            res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')
+            res.setHeader('Cache-Control', 'private, no-store')
+          }
+        },
       }),
     )
   }
