@@ -132,79 +132,81 @@ const PolarisOneStage = () => {
       <h1 id="home-hero-title" className="sr-only">
         {t('hero.title')}
       </h1>
-      <div ref={frameRef} className="p1s-frame">
-        <img
-          src={`${MEDIA}/polaris-one-poster-960.webp`}
-          srcSet={`${MEDIA}/polaris-one-poster-640.webp 640w, ${MEDIA}/polaris-one-poster-960.webp 960w, ${MEDIA}/polaris-one-poster-1280.webp 1280w`}
-          sizes="100vw"
-          width={1280}
-          height={720}
-          alt=""
-          decoding="async"
-          loading="eager"
-          fetchPriority="high"
-        />
-        <video
-          ref={videoRef}
-          playsInline
-          muted
-          preload="none"
-          aria-label={t('polaris_one.film_label')}
-        />
-      </div>
-      <div className="p1s-shade" aria-hidden="true" />
-      {mode === 'gate' ? (
-        <div className="p1s-gate" data-polaris-gate>
-          <div className="p1s-gate-head">
-            <span className="p1s-eye">{t('polaris_one.eyebrow')}</span>
-            <p className="p1s-name">{t('polaris_one.name')}</p>
-          </div>
-          <div className="p1s-cut" aria-hidden="true">
-            {cut >= 0 && <b key={cut}>{cuts[cut]}</b>}
-          </div>
-          <div className="p1s-gate-foot">
-            <div>
-              <div className="p1s-price">
-                {t('polaris_one.price.amount')}
-                <em>{t('polaris_one.price.label')}</em>
-                <small>{t('polaris_one.price.vat')}</small>
-              </div>
-              <p className="p1s-deposit">
-                <b>{t('polaris_one.price.deposit')}</b> {t('polaris_one.price.deposit_note')}
-              </p>
-            </div>
-            <div className="p1s-actions">
-              <button type="button" className="p1s-btn p1s-btn-light" onClick={startFilm}>
-                <span aria-hidden="true">▶</span>
-                {t('polaris_one.start')}
-              </button>
-              <Button
-                to={HOME_TARGETS.contact}
-                variant="secondary"
-                data-home-hero-cta
-                className="sc025-button"
-              >
-                {t('polaris_one.preorder')}
-                <ArrowRight aria-hidden="true" />
-              </Button>
-            </div>
-          </div>
-          <div className="p1s-ticks" aria-hidden="true">
-            {Array.from({ length: CUT_COUNT }, (_, index) => (
-              <i key={index} className={index === cut ? 'is-on' : undefined} />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <Suspense fallback={null}>
-          <PolarisOnePlayer
-            videoRef={videoRef}
-            frameRef={frameRef}
-            mode={mode}
-            onMode={changeMode}
+      <div className="p1s-box">
+        <div ref={frameRef} className="p1s-frame">
+          <img
+            src={`${MEDIA}/polaris-one-poster-960.webp`}
+            srcSet={`${MEDIA}/polaris-one-poster-640.webp 640w, ${MEDIA}/polaris-one-poster-960.webp 960w, ${MEDIA}/polaris-one-poster-1280.webp 1280w`}
+            sizes="100vw"
+            width={1280}
+            height={720}
+            alt=""
+            decoding="async"
+            loading="eager"
+            fetchPriority="high"
           />
-        </Suspense>
-      )}
+          <video
+            ref={videoRef}
+            playsInline
+            muted
+            preload="none"
+            aria-label={t('polaris_one.film_label')}
+          />
+        </div>
+        <div className="p1s-shade" aria-hidden="true" />
+        {mode === 'gate' ? (
+          <div className="p1s-gate" data-polaris-gate>
+            <div className="p1s-gate-head">
+              <span className="p1s-eye">{t('polaris_one.eyebrow')}</span>
+              <p className="p1s-name">{t('polaris_one.name')}</p>
+            </div>
+            <div className="p1s-cut" aria-hidden="true">
+              {cut >= 0 && <b key={cut}>{cuts[cut]}</b>}
+            </div>
+            <div className="p1s-gate-foot">
+              <div>
+                <div className="p1s-price">
+                  {t('polaris_one.price.amount')}
+                  <em>{t('polaris_one.price.label')}</em>
+                  <small>{t('polaris_one.price.vat')}</small>
+                </div>
+                <p className="p1s-deposit">
+                  <b>{t('polaris_one.price.deposit')}</b> {t('polaris_one.price.deposit_note')}
+                </p>
+              </div>
+              <div className="p1s-actions">
+                <button type="button" className="p1s-btn p1s-btn-light" onClick={startFilm}>
+                  <span aria-hidden="true">▶</span>
+                  {t('polaris_one.start')}
+                </button>
+                <Button
+                  to={HOME_TARGETS.contact}
+                  variant="secondary"
+                  data-home-hero-cta
+                  className="sc025-button"
+                >
+                  {t('polaris_one.preorder')}
+                  <ArrowRight aria-hidden="true" />
+                </Button>
+              </div>
+            </div>
+            <div className="p1s-ticks" aria-hidden="true">
+              {Array.from({ length: CUT_COUNT }, (_, index) => (
+                <i key={index} className={index === cut ? 'is-on' : undefined} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <Suspense fallback={null}>
+            <PolarisOnePlayer
+              videoRef={videoRef}
+              frameRef={frameRef}
+              mode={mode}
+              onMode={changeMode}
+            />
+          </Suspense>
+        )}
+      </div>
     </section>
   )
 }

@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { HOME_TARGETS } from './homeTargets'
 import type { PolarisOneMode } from './PolarisOneStage'
-// Als Text eingebettet: ein nachgeladenes Stylesheet wäre ein zusätzlicher blockierender Abruf.
-import playerStyles from './polarisOnePlayer.css?inline'
 
 type Chapter = { label: string; title: string; text: string }
 type Note = { title: string; text: string }
@@ -216,6 +214,8 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
       if (!frameBox || !card) return
       const frameBounds = frameBox.getBoundingClientRect()
       const cardBounds = card.getBoundingClientRect()
+      // Die Punkte hängen an der Abschlussfläche; am Handy liegt sie unter dem Film.
+      const endBounds = (card.parentElement ?? frameBox).getBoundingClientRect()
       const { width, height } = frameBounds
       const scale = Math.max(width / 1920, height / 1080)
       const left = (width - 1920 * scale) / 2
@@ -232,9 +232,9 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
           pageX < cardBounds.right + 24 &&
           pageY > cardBounds.top - 24 &&
           pageY < cardBounds.bottom + 24
-        const outside = x < 24 || x > width - 24 || y < 24 || y > height - 24
-        spot.style.left = `${x}px`
-        spot.style.top = `${y}px`
+        const outside = x < 16 || x > width - 16 || y < 16 || y > height - 16
+        spot.style.left = `${x + frameBounds.left - endBounds.left}px`
+        spot.style.top = `${y + frameBounds.top - endBounds.top}px`
         spot.hidden = covered || outside
         spot.dataset.side = x > width * 0.6 ? 'left' : 'right'
       })
@@ -249,7 +249,6 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
 
   return (
     <>
-      <style>{playerStyles}</style>
       {blackout && <i className="p1s-blackout" aria-hidden="true" />}
       <div className="p1s-top">
         <strong>{t('polaris_one.name')}</strong>

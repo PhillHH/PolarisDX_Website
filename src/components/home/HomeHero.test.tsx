@@ -10,23 +10,22 @@ const renderHero = () =>
     </MemoryRouter>,
   )
 
-describe('SC-025 Lichtfilm homepage hero', () => {
-  it('keeps the complete H1 in the accessibility tree and one real info-call target', () => {
+describe('SC-025 Lichtfilm (IglooPro page since SC-030)', () => {
+  it('keeps the complete heading in the accessibility tree and one real info-call target', () => {
     renderHero()
-    const headings = screen.getAllByRole('heading', { level: 1 })
+    const headings = screen.getAllByRole('heading', { level: 2 })
     expect(headings).toHaveLength(1)
     expect(headings[0]).toHaveTextContent('hero.title')
 
     const action = screen.getByRole('link', { name: 'hero.cta_secondary' })
     expect(action).toHaveAttribute('href', '/contact')
-    expect(action).toHaveAttribute('data-home-hero-cta')
     expect(action).not.toHaveAttribute('data-cta-intent')
     expect(screen.getAllByRole('link')).toHaveLength(1)
   })
 
   it('renders three device views, starts in the first phase and prioritises only the first image', () => {
     const { container } = renderHero()
-    const hero = container.querySelector('[data-home-hero]')
+    const hero = container.querySelector('[data-igloo-film]')
     expect(hero).toHaveAttribute('data-phase', '0')
     const images = container.querySelectorAll('[data-home-film-views] img')
     expect(images).toHaveLength(3)
@@ -43,7 +42,7 @@ describe('SC-025 Lichtfilm homepage hero', () => {
     const canvas = container.querySelector('[data-home-film-gl]')
     expect(canvas?.tagName).toBe('CANVAS')
     expect(canvas).toHaveAttribute('aria-hidden', 'true')
-    expect(container.querySelector('[data-home-hero]')).not.toHaveAttribute('data-gl')
+    expect(container.querySelector('[data-igloo-film]')).not.toHaveAttribute('data-gl')
     expect(container.querySelector('[data-home-film-views] img')).toHaveAttribute(
       'alt',
       'business_pillars.pillars.igloo.title',

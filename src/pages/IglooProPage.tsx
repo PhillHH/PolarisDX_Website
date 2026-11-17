@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SEOHead, createProductSchema, createBreadcrumbSchema } from '../components/seo'
 import iglooProImage from '../assets/Igloo-pro-frontal.webp'
 import IglooProHero from '../components/sections/IglooProHero'
+import IglooFilmSlot from '../components/sections/IglooFilmSlot'
 import IglooProductProof from '../components/sections/IglooProductProof'
 import IglooFeaturesSection from '../components/sections/IglooFeaturesSection'
 import IglooWorkflowSection from '../components/sections/IglooWorkflowSection'
@@ -49,6 +50,8 @@ const IglooProPage: React.FC = () => {
       />
       <EventBand />
       <IglooProductProof />
+      {/* SC-030 (Owner 2026-11-16): der Lichtfilm der früheren Startseiten-Bühne. */}
+      <IglooFilmSlot />
       <IglooFeaturesSection />
       <IglooWorkflowSection />
       <IglooCompatibilitySection />

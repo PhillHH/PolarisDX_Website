@@ -12,6 +12,8 @@ import { ResponsivePicture } from '../ui/ResponsivePicture'
 import { HOME_TARGETS } from './homeTargets'
 import type { IglooScene } from './igloo3d/iglooScene'
 import { prefersReducedMotion } from './motion'
+// Das Blatt hängt am nachgeladenen Lichtfilm und kommt als eigene Datei mit ihm.
+import './lichtfilm.css'
 
 type FilmStep = { title: string; text: string }
 
@@ -44,6 +46,9 @@ function headlineLines(title: string): string[] {
  *
  * SC-026 (Owner 2026-11-13, Lichtstimmung „Dramatisch"): Nach dem Laden der Seite wird der
  * IglooPro als 3D-Modell mit Adapter und Testkassette nachgeladen und blendet über die Bilder.
+ *
+ * SC-030 (Owner 2026-11-16): Die Startseiten-Bühne gehört dem Polaris One; der Lichtfilm steht
+ * als Abschnitt auf der IglooPro-Seite (`IglooFilmSlot`), dort mit einer H2 statt der H1.
  */
 const HomeHero = () => {
   const { t } = useTranslation('home')
@@ -161,10 +166,8 @@ const HomeHero = () => {
   return (
     <section
       ref={sectionRef}
-      id="hero"
-      aria-labelledby="home-hero-title"
-      data-home-hero
-      data-home-section
+      aria-labelledby="igloo-film-title"
+      data-igloo-film
       data-phase={phase}
       data-animation-ready={ready ? 'true' : undefined}
       data-started={started ? 'true' : 'false'}
@@ -181,9 +184,9 @@ const HomeHero = () => {
         />
         <div className="sc025-inner sc025-film-grid">
           <div className="sc025-film-copy">
-            <h1 id="home-hero-title" className="sr-only">
+            <h2 id="igloo-film-title" className="sr-only">
               {title}
-            </h1>
+            </h2>
             <div ref={phasesRef} className="sc025-film-phases" data-home-film-phases>
               {VIEWS.map((_, index) => (
                 <div key={index} className={index === phase ? 'is-on' : undefined}>
@@ -197,12 +200,7 @@ const HomeHero = () => {
                 </div>
               ))}
             </div>
-            <Button
-              to={HOME_TARGETS.contact}
-              variant="secondary"
-              data-home-hero-cta
-              className="sc025-button"
-            >
+            <Button to={HOME_TARGETS.contact} variant="secondary" className="sc025-button">
               {t('hero.cta_secondary')}
               <ArrowRight aria-hidden="true" />
             </Button>
