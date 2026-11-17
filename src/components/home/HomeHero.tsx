@@ -214,7 +214,6 @@ const HomeHero = () => {
                 image={image}
                 alt={index === 0 ? t('business_pillars.pillars.igloo.title') : ''}
                 sizes={FILM_SIZES}
-                priority={index === 0}
                 className={index === phase ? 'is-on' : index < phase ? 'is-past' : undefined}
               />
             ))}

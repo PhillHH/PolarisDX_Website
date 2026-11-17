@@ -1030,30 +1030,11 @@ footer {
 }
 .p1s-cut b {
   display: inline-block;
-  animation: p1s-cut 1.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   font-size: clamp(44px, 11.5vw, 180px);
   font-weight: 200;
   letter-spacing: -0.05em;
   line-height: 0.95;
   text-shadow: 0 0 70px #041a2ef2;
-}
-@keyframes p1s-cut {
-  0% {
-    filter: blur(16px);
-    opacity: 0;
-    transform: scale(1.28);
-  }
-  16% {
-    filter: none;
-    opacity: 1;
-  }
-  84% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
 }
 .p1s-gate-foot {
   position: absolute;
@@ -1200,11 +1181,6 @@ footer {
   }
   .p1s-gate-foot .p1s-actions > * {
     flex: 1 1 100%;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .p1s-cut b {
-    animation: none;
   }
 }
 

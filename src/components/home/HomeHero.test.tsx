@@ -23,14 +23,14 @@ describe('SC-025 Lichtfilm (IglooPro page since SC-030)', () => {
     expect(screen.getAllByRole('link')).toHaveLength(1)
   })
 
-  it('renders three device views, starts in the first phase and prioritises only the first image', () => {
+  it('renders three device views, starts in the first phase and loads no image with priority', () => {
     const { container } = renderHero()
     const hero = container.querySelector('[data-igloo-film]')
     expect(hero).toHaveAttribute('data-phase', '0')
     const images = container.querySelectorAll('[data-home-film-views] img')
     expect(images).toHaveLength(3)
     expect(images[0]).toHaveClass('is-on')
-    expect(images[0]).toHaveAttribute('loading', 'eager')
+    expect(images[0]).toHaveAttribute('loading', 'lazy')
     expect(images[1]).toHaveAttribute('loading', 'lazy')
     expect(images[2]).toHaveAttribute('loading', 'lazy')
     expect(container.querySelectorAll('[data-home-film-phases] > div')).toHaveLength(3)

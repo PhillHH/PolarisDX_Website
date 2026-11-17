@@ -35,7 +35,10 @@ const PolarisOneStage = () => {
   const modeRef = useRef<PolarisOneMode>('gate')
   const [ready, setReady] = useState(false)
   const [mode, setMode] = useState<PolarisOneMode>('gate')
-  const [cut, setCut] = useState(-1)
+  // Das erste Wort steht schon im ausgelieferten HTML und passt zum Standbild. Das Element
+  // bleibt dasselbe, nur sein Text wechselt – so zählt kein späteres Wort als neuer Hauptinhalt.
+  const cutRef = useRef<HTMLElement>(null)
+  const [cut, setCut] = useState(0)
 
   const changeMode = (next: PolarisOneMode) => {
     modeRef.current = next
@@ -69,9 +72,22 @@ const PolarisOneStage = () => {
     let resume = false
     let timer = 0
 
+    let shown = -1
     const onTime = () => {
       if (modeRef.current !== 'gate') return
-      setCut(Math.min(CUT_COUNT - 1, Math.floor(video.currentTime / CUT_SECONDS)))
+      const next = Math.min(CUT_COUNT - 1, Math.floor(video.currentTime / CUT_SECONDS))
+      if (next === shown) return
+      shown = next
+      setCut(next)
+      cutRef.current?.animate?.(
+        [
+          { opacity: 0, transform: 'scale(1.28)', filter: 'blur(16px)' },
+          { opacity: 1, transform: 'scale(1.23)', filter: 'blur(0)', offset: 0.16 },
+          { opacity: 1, transform: 'scale(1.04)', filter: 'blur(0)', offset: 0.84 },
+          { opacity: 0, transform: 'scale(1)', filter: 'blur(0)' },
+        ],
+        { duration: 1850, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)', fill: 'forwards' },
+      )
     }
     video.addEventListener('timeupdate', onTime)
 
@@ -161,7 +177,7 @@ const PolarisOneStage = () => {
               <p className="p1s-name">{t('polaris_one.name')}</p>
             </div>
             <div className="p1s-cut" aria-hidden="true">
-              {cut >= 0 && <b key={cut}>{cuts[cut]}</b>}
+              <b ref={cutRef}>{cuts[cut]}</b>
             </div>
             <div className="p1s-gate-foot">
               <div>
