@@ -10,6 +10,24 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-18 (SC-031, nur Preview):** Interaktiver Artikel „Was ist Epigenetik?"
+(`/articles/was-ist-epigenetik`, zehn Sprachen) mit eigenem Seitenaufbau nach dem Owner-Entwurf „Reise
+ins Innere": Zoom-Bühne, Textbänder, Labor-Bänder mit elf Bausteinen zum Ausprobieren
+(`src/components/explainer/*`; Texte in `src/content/articles/was-ist-epigenetik/`, je Sprache ein
+eigener Chunk). Siebter Inventar-Eintrag; Zählwerte nachgezogen (410 Sitemap-URLs, 38 Suchziele,
+33 Weiterleitungen). Die PT17.4-Prüfung der Artikel-Metadaten läuft jetzt beim Serverstart
+(`entry-server.tsx`), im Routen-Guard und im Test statt in jedem Browser. Gates: tsc, eslint, prettier,
+`test:guards`, `check:claims`, Vitest unit+component 696/696, Artikel-E2E 27/27 (neu:
+`articles-explainer.spec.ts`), PT27.5-SEO-Regression 83/83, Byte-Budget 851/852 (rot wie zuvor nur
+`igloo-pro routeJsGzip`, 6417 → 6456 bei 6300; Owner-Entscheidung offen). Nicht gelaufen: Vitest-Projekt
+`server` und Core-E2E (auf diesem Host passt `better-sqlite3` nicht zur Node-Version — vorbestehend),
+Visual-Baselines, a11y-Gate pt24.6, echte Geräte/Safari. Commit `56d121d`; Preview-Release
+`56d121d7cc8c` (Health, Identität, Smoke grün; https://preview.polarisdx.net/de/articles/was-ist-epigenetik
+— zehn Sprachen HTTP 200, Test-Browser 1440/390 px ohne Fehler). Produktion unverändert `ec33a2398f2e`
+(SC-030). Offen beim Owner: Freigabe für polarisdx.net, fachliche Durchsicht der vereinfachten Texte und
+der neun Übersetzungen, Titelbild für die Magazin-Karte, Veröffentlichungsdatum beim Livegang.
+Details: `SCOPE-CHANGELOG.md` SC-031, `ARTICLES-CONTRACT.md` „SC-031 addendum".
+
 **Stand 2026-11-12 (SC-025 / K-004, Preview abgeschlossen):** Startseite nach der Owner-Vorlage mit
 bestehendem Header/Footer, Nacht-Navy-Flächen, Wortanimation und bibliotheksfreiem, nachgeladenem Signet-Trace.
 Neue `night`-Tokens und `home.sc025.*` ×10; Termine/Artikel/Praxisstimmen/FAQ-Schema bleiben datengetrieben.
