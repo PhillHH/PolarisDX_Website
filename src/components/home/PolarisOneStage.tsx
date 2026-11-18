@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import type { CSSProperties } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useHref } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -17,10 +18,10 @@ const CUT_SECONDS = 1.9
 const wide = () => innerWidth > 900
 const run = (video: HTMLVideoElement) => video.play()?.catch(() => 0)
 const CUT_FRAMES = [
-  { opacity: 0, transform: 'scale(1.28)', filter: 'blur(16px)' },
-  { opacity: 1, transform: 'scale(1.23)', filter: 'none', offset: 0.16 },
-  { opacity: 1, transform: 'scale(1.04)', offset: 0.84 },
-  { opacity: 0, transform: 'none' },
+  { opacity: 0, transform: 'translateY(8px)' },
+  { opacity: 1, transform: 'none', offset: 0.16 },
+  { opacity: 1, offset: 0.86 },
+  { opacity: 0 },
 ]
 const CUT_TIMING = {
   duration: 1850,
@@ -31,9 +32,10 @@ const CUT_TIMING = {
 /**
  * SC-030 (Owner 2026-11-16, Entwurf „Trailer"): Die Startseiten-Bühne zeigt den Polaris One.
  * Hinter Überschrift und Preis läuft stumm ein Zusammenschnitt aus fünf Szenen, zu jeder steht
- * ein großes Wort im Bild. Owner 2026-11-18 („volle Regie"): dazu Sucherecken, Lichtlinie, Zähler,
+ * ein Wort im Bild. Owner 2026-11-18 („volle Regie"): dazu Sucherecken, Lichtlinie, Zähler,
  * der Schritt mit einem Satz und eine beschriftete Leiste, die den Film am gewählten Schritt
- * startet. Vorbestellt wird per E-Mail. „Film mit Ton starten" holt den ganzen Film; Steuerung, Einblendungen
+ * startet. Owner 2026-11-18 („wandernd"): Wort und Satz stehen klein über dem aktiven Schritt der
+ * Leiste und wandern mit; die Bildmitte bleibt frei, damit möglichst viel vom Film zu sehen ist. Vorbestellt wird per E-Mail. „Film mit Ton starten" holt den ganzen Film; Steuerung, Einblendungen
  * und Standbild liegen in `PolarisOnePlayer` und werden erst nach dem Seitenaufbau geladen.
  *
  * Der Trailer wird erst nach dem Laden der Seite geholt, nie im Datensparmodus und nie bei
@@ -53,6 +55,8 @@ const PolarisOneStage = () => {
   // bleibt dasselbe, nur sein Text wechselt – so zählt kein späteres Wort als neuer Hauptinhalt.
   const cutRef = useRef<HTMLElement>(null)
   const [cut, setCut] = useState(0)
+  // Der Satz zum Wort wird nachgeladen und in denselben Block gesetzt.
+  const [cutBox, setCutBox] = useState<HTMLDivElement | null>(null)
 
   // Vorbestellt wird per E-Mail. Adressen und Mailtext kommen mit den Regie-Einblendungen nach dem
   // Seitenaufbau; bis dahin – und ohne JavaScript – führt der Knopf zum Kontaktformular.
@@ -182,7 +186,12 @@ const PolarisOneStage = () => {
               <span className="p1s-eye">{t('polaris_one.eyebrow')}</span>
               <p className="p1s-name">{t('polaris_one.name')}</p>
             </div>
-            <div className="p1s-cut" aria-hidden="true">
+            <div
+              ref={setCutBox}
+              className="p1s-cut"
+              aria-hidden="true"
+              style={{ '--n': cut } as CSSProperties}
+            >
               <b ref={cutRef}>{cuts[cut]}</b>
             </div>
             <div className="p1s-gate-foot">
@@ -222,6 +231,7 @@ const PolarisOneStage = () => {
               mode={mode}
               onMode={changeMode}
               cut={cut}
+              slot={cutBox}
               onStart={startFilm}
               onOrder={setOrderHref}
             />
