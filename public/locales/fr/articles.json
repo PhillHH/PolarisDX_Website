@@ -121,6 +121,13 @@
       "title": "La formule de performance pour le diagnostic au point de soin"
     }
   },
+  "what_is_epigenetics": {
+    "title": "Qu’est-ce que l’épigénétique ?",
+    "excerpt": "Les gènes sont relativement stables, leur activité non. Aperçu interactif : comment environnement, mode de vie et exercice influencent leur régulation.",
+    "seo": {
+      "title": "Qu’est-ce que l’épigénétique ? Une explication simple"
+    }
+  },
   "seo": {
     "index_title": "Magazine : Perspectives sur le diagnostic au point de soin",
     "index_description": "Articles d’experts sur le diagnostic au point de soin, les tests chairside et le laboratoire en cabinet pour dentistes, médecins et personnel médical."

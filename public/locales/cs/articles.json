@@ -121,6 +121,13 @@
       "title": "Formule výkonu v POC diagnostice"
     }
   },
+  "what_is_epigenetics": {
+    "title": "Co je epigenetika?",
+    "excerpt": "Geny jsou relativně stabilní, jejich aktivita ne. Interaktivní přehled: jak prostředí, životní styl a pohyb ovlivňují regulaci genů.",
+    "seo": {
+      "title": "Co je epigenetika? Srozumitelně vysvětleno"
+    }
+  },
   "seo": {
     "index_title": "Odborný magazín: POC diagnostika a znalosti praxe",
     "index_description": "Odborné články o diagnostice point-of-care, testech chairside a laboratoři v ordinaci – pro zubní lékaře, lékaře a odborný personál. Od ROI po praxi."

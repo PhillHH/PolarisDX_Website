@@ -10,10 +10,11 @@ const entries = getSitemapUrlEntries(families)
 const xml = generateSitemapXml(entries)
 
 describe('PT09.2 sitemap contract', () => {
-  it('emits 40 real route families as 400 unique public URLs', () => {
-    expect(families).toHaveLength(40)
-    expect(entries).toHaveLength(400)
-    expect(new Set(entries.map((entry) => entry.loc)).size).toBe(400)
+  // 41 seit SC-031 (siebter Artikel „Was ist Epigenetik?").
+  it('emits 41 real route families as 410 unique public URLs', () => {
+    expect(families).toHaveLength(41)
+    expect(entries).toHaveLength(410)
+    expect(new Set(entries.map((entry) => entry.loc)).size).toBe(410)
     expect(entries.every((entry) => entry.loc.startsWith('https://polarisdx.net/'))).toBe(true)
   })
 
@@ -82,22 +83,31 @@ describe('PT09.2 sitemap contract', () => {
   it('uses article publication metadata and omits lastmod without a trustworthy date', () => {
     const articleEntries = entries.filter((entry) => entry.family.kind === 'article')
     const nonArticleEntries = entries.filter((entry) => entry.family.kind !== 'article')
-    expect(articleEntries).toHaveLength(60)
-    expect(
-      articleEntries.every((entry) => /^2025-\d{2}-\d{2}$/.test(entry.family.lastmod ?? '')),
-    ).toBe(true)
+    expect(articleEntries).toHaveLength(articles.length * SEO_ROUTE_SOURCE.locales.length)
+    const published = new Map(
+      articles.map((article) => [`/articles/${article.slug}`, article.datePublished]),
+    )
+    for (const entry of articleEntries) {
+      expect(entry.family.lastmod, entry.loc).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+      expect(entry.family.lastmod, entry.loc).toBe(published.get(entry.family.path))
+    }
     expect(nonArticleEntries.every((entry) => entry.family.lastmod === undefined)).toBe(true)
-    expect(xml).not.toContain(new Date().toISOString().slice(0, 10))
+    // Kein Build-Datum als lastmod: Das heutige Datum darf nur vorkommen, wenn ein Artikel
+    // tatsächlich heute erschienen ist.
+    const today = new Date().toISOString().slice(0, 10)
+    if (!articles.some((article) => article.datePublished === today)) {
+      expect(xml).not.toContain(today)
+    }
   })
 
   it('produces namespace-correct, parseable XML accepted by G3', () => {
     expect(xml).toContain('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
     expect(xml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"')
     expect(validateSitemapArtifact(xml, families)).toEqual({
-      routeFamilyCount: 40,
-      urlCount: 400,
-      uniqueUrlCount: 400,
-      lastmodCount: 60,
+      routeFamilyCount: 41,
+      urlCount: 410,
+      uniqueUrlCount: 410,
+      lastmodCount: 70,
     })
   })
 

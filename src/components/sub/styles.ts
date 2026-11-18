@@ -21,3 +21,10 @@ export const SUB_STYLES = {
 } as const
 
 export type SubPageStyle = Exclude<keyof typeof SUB_STYLES, 'frame'>
+
+/**
+ * Stylesheet einer einzelnen Seite, das sie selbst mitbringt (`SubPage sheet`), statt hier zu
+ * stehen: Diese Liste liegt im Rahmen-Chunk jeder Unterseite, jeder Eintrag kostet alle Seiten
+ * Bytes. Für Seitenarten bleibt die Liste, für Einzelstücke (SC-031) ist das der Weg.
+ */
+export type SubSheet = { href: string; mark: string }

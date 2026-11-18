@@ -84,6 +84,30 @@ export const articleInventory: Article[] = [
     sections: [{ image: 'article-precision.webp', paragraphs: [] }],
     relatedServiceIds: ['praeventions-checks', 'infektion-entzuendung'],
   },
+  {
+    // SC-031 (Owner 2026-11-18): interaktiver Artikel mit eigenem Seitenaufbau
+    // (components/explainer/ExplainerArticle.tsx). Ohne Titelbild: die Zeichnung der Seite
+    // entsteht erst im Browser, ein erfundenes Foto gibt es nicht.
+    id: 'what_is_epigenetics',
+    slug: 'was-ist-epigenetik',
+    status: 'PUBLISHED_LAUNCH',
+    category: 'Health Article',
+    author: 'PolarisDX Team',
+    datePublished: '2026-11-18',
+    readTime: '7 min read',
+    sources: [
+      {
+        title:
+          'Jan Treur (ed.): How Environment and Epigenetics Lead to Reduced Self-Regulation and the Development of Related Mental Disorders. Springer Nature, 2026.',
+      },
+      {
+        title:
+          'Feng Gao & Xing Zhang (eds.): Exercise, Epigenetics and Human Health. Springer Nature, 2026.',
+      },
+    ],
+    sections: [{ paragraphs: [] }],
+    relatedServiceIds: ['longevity'],
+  },
 ]
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
@@ -97,6 +121,11 @@ function validIsoDate(value: string): boolean {
 /**
  * PT17.4 launch-metadata guard. It validates source truth without manufacturing
  * optional reviewer, modification or source records merely to fill schema.
+ *
+ * SC-031: nicht mehr beim Laden dieses Moduls aufgerufen. Das Modul liegt im Start-Skript jeder
+ * Seite; die Prüfung samt Fehlertexten ging so an jeden Browser, obwohl die Daten statisch sind.
+ * Sie läuft jetzt dort, wo sie etwas verhindern kann: beim Start des Servers (entry-server.tsx),
+ * im Routen-Guard (scripts/check-route-registry.ts) und in articles.test.ts.
  */
 export function validateArticleMetadata(records: readonly Article[]): void {
   for (const article of records) {
@@ -131,8 +160,6 @@ export function validateArticleMetadata(records: readonly Article[]): void {
     }
   }
 }
-
-validateArticleMetadata(articleInventory)
 
 /** Published-only launch source consumed by Registry, Search, Sitemap and UI. */
 export const articles = articleInventory.filter(

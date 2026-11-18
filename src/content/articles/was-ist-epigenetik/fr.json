@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Chapitre",
+    "lab": "Labo",
+    "labHint": "à essayer vous-même",
+    "labAria": "Labo du chapitre {{n}}",
+    "tryout": "À essayer",
+    "more": "Lire en détail",
+    "next": "Suivant",
+    "back": "Étape précédente",
+    "restart": "Recommencer"
+  },
+  "stage": {
+    "label": "Voyage vers l’intérieur en six étapes",
+    "eyebrow": "Épigénétique · Les bases",
+    "intro": "Un voyage vers l’intérieur : du corps jusqu’à une seule marque sur l’ADN.",
+    "hint": "Faites défiler pour zoomer",
+    "skip": "Passer à l’article",
+    "steps": [
+      {
+        "tick": "Corps",
+        "word": "Votre corps.",
+        "text": "Il réagit en permanence à son environnement : à l’exercice, à l’alimentation, au sommeil et au stress."
+      },
+      {
+        "tick": "Cellule",
+        "word": "La cellule.",
+        "text": "Dans les cellules, une régulation continue détermine quels gènes sont lus plus fortement ou plus faiblement."
+      },
+      {
+        "tick": "Noyau",
+        "word": "Le noyau.",
+        "text": "L’ADN se trouve dans le noyau de la cellule. Il est enroulé autour de protéines, les histones."
+      },
+      {
+        "tick": "Emballage",
+        "word": "L’emballage.",
+        "text": "Avec un emballage lâche, l’ADN se lit bien. Avec un emballage serré, il se lit moins bien."
+      },
+      {
+        "tick": "ADN",
+        "word": "L’ADN.",
+        "text": "La suite de ses lettres reste relativement stable pendant une grande partie de la vie."
+      },
+      {
+        "tick": "Marque",
+        "word": "La marque.",
+        "text": "De petits groupes chimiques sur l’ADN : selon leur position, un gène peut être moins actif ou plus actif."
+      }
+    ],
+    "canvas": {
+      "cell": "Une cellule",
+      "nucleus": "Noyau",
+      "dna": "ADN, enroulé",
+      "methyl": "Groupes méthyle",
+      "loose": "lâche · bien lisible",
+      "dense": "serré · difficile à lire"
+    }
+  },
+  "intro": {
+    "eyebrow": "Vous y êtes",
+    "title": "C’est là, sur l’ADN, qu’intervient l’épigénétique.",
+    "lead": "Les gènes sont relativement stables. Leur activité ne l’est pas. L’épigénétique décrit une partie de la régulation biologique par laquelle les cellules réagissent au développement, à l’âge, à l’environnement et au mode de vie.",
+    "steps": [
+      {
+        "title": "L’ADN reste.",
+        "text": "La séquence d’une personne est relativement stable pendant une grande partie de la vie."
+      },
+      {
+        "title": "L’activité varie.",
+        "text": "Les cellules régulent en continu quels gènes sont lus plus fortement ou plus faiblement."
+      },
+      {
+        "title": "Le parcours compte.",
+        "text": "Certains profils épigénétiques peuvent changer au cours de la vie."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Principe",
+      "question": "Qu’est-ce que l’épigénétique ?",
+      "answer": "Vos gènes restent en grande partie les mêmes. Leur degré d’activité, lui, change. L’épigénétique décrit comment les cellules régulent l’activité des gènes sans modifier l’ADN lui-même.",
+      "points": [
+        "La séquence d’ADN est relativement stable pendant une grande partie de la vie.",
+        "Les cellules régulent en continu quels gènes sont lus plus fortement ou plus faiblement.",
+        "Certains profils épigénétiques peuvent changer au cours de la vie."
+      ],
+      "long": [
+        "Quand on parle de génétique, beaucoup pensent à un plan directeur immuable. De fait, la séquence d’ADN d’une personne est relativement stable pendant une grande partie de la vie. Mais les gènes ne sont pas toujours actifs au même degré : les cellules régulent en continu quels gènes sont lus plus fortement ou plus faiblement, à quel moment certaines protéines sont produites et comment les tissus s’adaptent aux contraintes.",
+        "C’est précisément ici qu’intervient l’épigénétique. Elle étudie des mécanismes qui influencent l’activité des gènes sans modifier la séquence d’ADN. Elle aide ainsi à expliquer comment la prédisposition et le milieu de vie agissent ensemble.",
+        "Pour la prévention, la médecine du sport, le Healthy Aging et le conseil en santé, ce niveau est particulièrement intéressant : le patrimoine génétique de base reste en grande partie constant, tandis que certains profils épigénétiques peuvent changer au cours de la vie."
+      ]
+    },
+    {
+      "nav": "Mécanismes",
+      "question": "Comment monte ou baisse le volume d’un gène ?",
+      "answer": "Par trois mécanismes qui travaillent ensemble : des marques sur l’ADN, l’emballage de l’ADN et de petites molécules d’ARN.",
+      "points": [
+        "Méthylation : de petits groupes chimiques se trouvent à certains emplacements de l’ADN.",
+        "Histones : l’ADN est enroulé autour de protéines, tantôt plus lâche, tantôt plus serré.",
+        "ARN : de petites molécules d’ARN peuvent influencer la façon dont la copie d’un gène est utilisée."
+      ],
+      "long": [
+        "L’épigénétique n’est pas un interrupteur unique. Plusieurs mécanismes s’imbriquent et influencent à quel point l’information génétique est accessible et à quel point elle est utilisée.",
+        "Méthylation de l’ADN : de petits groupes chimiques sont ajoutés à certains emplacements de l’ADN. Selon la position, cela peut être associé à une activité des gènes plus faible ou plus forte. La méthylation de l’ADN fait partie des mécanismes épigénétiques les plus fréquemment étudiés.",
+        "Modifications des histones : dans le noyau de la cellule, l’ADN est enroulé autour de protéines histones. Des modifications chimiques de ces protéines peuvent relâcher ou resserrer l’emballage et ainsi influencer la facilité avec laquelle certaines régions peuvent être lues.",
+        "Régulation par l’ARN : les microARN et d’autres ARN non codants peuvent influencer la façon dont l’information génétique est traitée et utilisée après la transcription. Ils sont considérés comme un niveau supplémentaire important de la régulation des gènes."
+      ]
+    },
+    {
+      "nav": "Environnement",
+      "question": "Quel rapport avec mon quotidien ?",
+      "answer": "Le corps réagit en permanence à son environnement. Une partie de ces réactions peut passer par la régulation épigénétique ou être accompagnée par elle.",
+      "points": [
+        "Cela inclut l’exercice, l’alimentation, le sommeil, le stress, les inflammations et le vieillissement.",
+        "Les polluants, les médicaments et les influences sociales en font aussi partie.",
+        "Important : une modification épigénétique n’est pas automatiquement la cause d’une maladie."
+      ],
+      "long": [
+        "L’organisme humain réagit continuellement à son environnement. Cela inclut l’activité physique, l’alimentation, le sommeil, la charge psychique, les processus inflammatoires, les polluants, les médicaments, les influences sociales et les processus de vieillissement. Une partie de ces réactions peut passer par la régulation épigénétique ou être accompagnée par elle.",
+        "Une modification épigénétique n’est pas automatiquement la cause d’une maladie. Souvent, les études montrent d’abord des liens. Il faut examiner séparément si un marqueur est une cause, une conséquence ou un phénomène associé."
+      ]
+    },
+    {
+      "nav": "Stress",
+      "question": "Que se passe-t-il quand le stress atteint le cerveau ?",
+      "answer": "Les modèles actuels voient la santé mentale comme l’interaction de plusieurs niveaux : prédisposition, environnement, régulation biologique, cerveau et autorégulation.",
+      "points": [
+        "Cela est étudié, entre autres, dans le cas des troubles anxieux, de la dépression, du TDAH et du stress chronique.",
+        "L’autorégulation, c’est adapter ses émotions, son attention, ses impulsions et son comportement aux exigences.",
+        "La recherche à ce sujet est en mouvement. Pour beaucoup de choses, il s’agit d’abord de liens."
+      ],
+      "long": [
+        "La recherche est particulièrement passionnante là où les contraintes de l’environnement rencontrent le cerveau et le comportement. Les modèles modernes considèrent de plus en plus la santé mentale comme une interaction dynamique de plusieurs niveaux : prédisposition génétique, environnement, régulation biologique, fonction cérébrale et autorégulation psychologique.",
+        "De tels liens sont étudiés, entre autres, dans le cas des troubles anxieux, de la dépression, du TDAH, du trouble de stress post-traumatique et des états de stress chronique.",
+        "Un concept central est l’autorégulation : la capacité d’adapter aux exigences ses émotions, son attention, ses impulsions, ses réactions au stress et son comportement."
+      ]
+    },
+    {
+      "nav": "Exercice",
+      "question": "Quel effet l’exercice a-t-il sur le corps ?",
+      "answer": "L’entraînement envoie des signaux, le corps répond en s’adaptant. L’exercice régulier modifie le métabolisme, les vaisseaux, le muscle, le système immunitaire et le cerveau.",
+      "points": [
+        "Après l’entraînement, des études décrivent aussi des modifications épigénétiques.",
+        "Un muscle déjà entraîné peut, après une pause, reconstruire plus vite certaines adaptations.",
+        "Une partie de ces recherches provient jusqu’ici de modèles animaux. Pour une personne en particulier, la prudence s’impose."
+      ],
+      "long": [
+        "L’environnement n’agit pas seulement comme une contrainte. L’activité physique est un exemple particulièrement parlant de la capacité d’adaptation des systèmes biologiques. L’exercice régulier modifie le métabolisme, la fonction vasculaire, le muscle, le système immunitaire et le cerveau. Il est aussi de plus en plus mis en relation avec des modifications épigénétiques.",
+        "Après l’entraînement, des études décrivent entre autres des modifications touchant la méthylation de l’ADN, les marques d’histones et les ARN régulateurs. Elles peuvent être liées à des adaptations du métabolisme, à la fonction mitochondriale, à la régulation de l’inflammation et à la réparation des tissus.",
+        "L’entraînement produit des signaux mécaniques, métaboliques et hormonaux. Le corps y réagit en s’adaptant.",
+        "Pour le muscle, on parle souvent de « Muscle Memory » (« mémoire musculaire ») : un muscle déjà entraîné peut, après une pause d’entraînement, reconstruire plus vite certaines adaptations. Outre des mécanismes neuromusculaires et structuraux, des explications épigénétiques sont aussi étudiées.",
+        "Des questions similaires se posent pour le métabolisme, la régulation de l’inflammation, le système cardiovasculaire et le cerveau. L’exercice précoce, surtout, pourrait laisser des effets biologiques à plus long terme. Une partie de ces données provient jusqu’ici de modèles animaux. C’est pourquoi les affirmations concernant une personne en particulier doivent être formulées avec prudence."
+      ]
+    },
+    {
+      "nav": "Vieillissement",
+      "question": "Que mesure une horloge épigénétique ?",
+      "answer": "Elle tente de déduire une tendance de vieillissement à partir de données moléculaires. Elle n’est pas une mesure exacte du « véritable âge biologique ».",
+      "points": [
+        "Avec l’âge, des profils typiques de la régulation des gènes changent.",
+        "Les résultats dépendent du modèle, du tissu, du groupe de comparaison et de la méthode de mesure.",
+        "Regarder l’évolution peut être particulièrement pertinent : comment un marqueur change-t-il au fil du temps ?"
+      ],
+      "long": [
+        "Avec l’avancée en âge, des profils caractéristiques de la régulation des gènes changent. À partir de profils de méthylation de l’ADN, on a développé ce que l’on appelle des horloges épigénétiques. Elles tentent de déduire une tendance de vieillissement à partir de données moléculaires.",
+        "De telles méthodes sont scientifiquement intéressantes, mais elles ne sont pas identiques à une mesure exacte du « véritable âge biologique ». Les résultats dépendent du modèle, du tissu, de la population de référence et de la méthode de mesure. C’est pourquoi l’observation de l’évolution peut être particulièrement pertinente : comment un marqueur change-t-il au fil du temps et dans le contexte d’interventions documentées sur le mode de vie ?"
+      ]
+    },
+    {
+      "nav": "Exerkines",
+      "question": "Comment les organes se parlent-ils pendant l’exercice ?",
+      "answer": "Par des messagers chimiques, les exerkines. Elles peuvent provenir du muscle, du tissu adipeux, du foie et d’autres organes.",
+      "points": [
+        "Elles agissent sur le métabolisme, les vaisseaux, le système immunitaire et peut-être sur le cerveau.",
+        "Le BDNF, le FGF21, l’irisine et certaines interleukines, entre autres, sont étudiés intensivement.",
+        "On comprend ainsi pourquoi l’exercice agit bien au-delà du muscle entraîné."
+      ],
+      "long": [
+        "L’activité physique déclenche la libération de nombreuses molécules de signalisation. Ces messagers chimiques dépendants de l’exercice sont appelés exerkines. Parmi les candidats étudiés intensivement figurent, entre autres, le BDNF, le FGF21, l’irisine et certaines interleukines.",
+        "La régulation épigénétique peut à son tour influencer la façon dont ces molécules de signalisation sont produites. Cela montre clairement pourquoi l’exercice agit bien au-delà du muscle entraîné."
+      ]
+    },
+    {
+      "nav": "Tests",
+      "question": "Qu’apportent les tests épigénétiques – et que n’apportent-ils pas ?",
+      "answer": "Ce qui est pertinent : observer dans leur contexte l’évolution de marqueurs sélectionnés. Ce qui ne l’est pas : un diagnostic à partir d’une seule valeur.",
+      "points": [
+        "Les tests peuvent être une base de discussion supplémentaire pour la prévention et le conseil.",
+        "Un marqueur n’est pas automatiquement une cause certaine.",
+        "La méthode de mesure, le tissu, l’âge, le sexe, les médicaments et les maladies font toujours partie de l’interprétation."
+      ],
+      "long": [
+        "Pertinent : observer l’évolution de biomarqueurs sélectionnés ; situer les changements biologiques dans le contexte du mode de vie et de l’entraînement ; créer une base de discussion supplémentaire pour la prévention et le conseil.",
+        "Non pertinent : déduire un diagnostic d’une valeur unique ; interpréter un marqueur comme une cause certaine ; affirmer que les gènes se laisseraient « reprogrammer » de façon ciblée et à volonté.",
+        "Particulièrement important : tenir compte de la méthode de mesure, du tissu, de l’âge, du sexe, des médicaments, des maladies et du contexte temporel. Les résultats devraient toujours être replacés dans un tableau clinique ou préventif plus large."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Exercice", "Nutrition", "Stress", "Sommeil", "Inflammation", "Âge"],
+      "full": [
+        "Exercice et stimuli d’entraînement",
+        "Signaux nutritionnels et métaboliques",
+        "Stress et charge psychosociale",
+        "Sommeil et rythmes circadiens",
+        "Processus inflammatoires et immunitaires",
+        "Processus de vieillissement et stress cellulaire"
+      ]
+    },
+    "pult": {
+      "title": "La table de mixage des gènes",
+      "how": "Activez un stimulus et observez les curseurs.",
+      "legendActivity": "Curseurs : activité des gènes",
+      "legendSequence": "Lettres : séquence de l’ADN",
+      "sayIdle": "Aucun stimulus n’est encore actif. Les curseurs sont dans leur position de départ.",
+      "sayActive": "Stimuli actifs : {{n}} sur 6. Curseurs qui ont bougé : {{m}} sur 16. Les lettres de la séquence sont restées les mêmes.",
+      "sayNone": "Plus aucun stimulus n’est actif. Les curseurs sont revenus à leur position de départ.",
+      "cap": "Schéma · montre le principe, sans données de mesure ni sens de l’effet"
+    },
+    "methyl": {
+      "tab": "Méthylation",
+      "title": "Méthylation : poser des marques",
+      "how": "Appuyez sur un emplacement de l’ADN pour y ajouter un groupe méthyle.",
+      "group": "Huit emplacements sur l’ADN",
+      "site": "Emplacement {{n}}",
+      "meter": "Activité du gène",
+      "lower": "faible",
+      "higher": "forte",
+      "sayIdle": "Aucune marque n’est encore posée. L’activité du gène est au milieu.",
+      "saySetLower": "Marque posée à l’emplacement {{n}} : l’activité du gène est devenue plus faible. Essayez un autre emplacement : selon la position, cela peut être l’inverse.",
+      "saySetHigher": "Marque posée à l’emplacement {{n}} : l’activité du gène est devenue plus forte. Essayez un autre emplacement : selon la position, cela peut être l’inverse.",
+      "sayRemoved": "Marque retirée de l’emplacement {{n}}. L’activité du gène revient vers sa position de départ.",
+      "cap": "Schéma · l’effet de chaque emplacement est ici choisi librement"
+    },
+    "histone": {
+      "tab": "Histones",
+      "title": "Histones : l’emballage",
+      "how": "Faites glisser le curseur de lâche à serré.",
+      "loose": "lâche",
+      "dense": "serré",
+      "aria": "Emballage de l’ADN, de lâche à serré",
+      "stateLoose": "lâche · bien lisible",
+      "stateDense": "serré · difficile à lire",
+      "sayLoose": "Emballage lâche : l’ADN est dégagé et peut être bien lu.",
+      "sayDense": "Emballage serré : l’ADN est difficile d’accès. Ici, la lecture n’avance plus.",
+      "cap": "Schéma · le point représente la lecture de l’ADN"
+    },
+    "rna": {
+      "tab": "ARN",
+      "title": "ARN : le réglage fin",
+      "how": "Appuyez sur le bouton et laissez un microARN se fixer.",
+      "dock": "Fixer un microARN",
+      "undock": "Détacher le microARN",
+      "mrna": "ARNm · copie d’un gène",
+      "mirna": "microARN",
+      "sayIdle": "L’ARNm est la copie d’un gène. Aucun microARN n’y est encore fixé.",
+      "sayDocked": "Le microARN s’est fixé. Il peut influencer la façon dont la copie est ensuite traitée et utilisée.",
+      "sayFree": "Le microARN s’est détaché. L’ARNm est de nouveau libre.",
+      "cap": "Schéma"
+    },
+    "ring": {
+      "title": "Six influences, un seul système de régulation",
+      "how": "Appuyez sur une influence.",
+      "aria": "Six influences sur la régulation des gènes",
+      "core": ["Régulation", "des gènes"],
+      "sayIdle": "Le corps réagit en permanence à son environnement. Appuyez sur l’une des six influences.",
+      "sayPick": "« {{name}} » : l’une des six influences auxquelles le corps réagit. Une partie de ces réactions peut passer par la régulation épigénétique ou être accompagnée par elle.",
+      "cap": "Schéma"
+    },
+    "cause": {
+      "title": "Un lien n’est pas une cause",
+      "how": "Essayez tour à tour les trois possibilités.",
+      "aria": "Trois possibilités",
+      "options": ["Cause", "Conséquence", "Phénomène associé"],
+      "marker": ["Marqueur", "épigénétique"],
+      "disease": "Maladie",
+      "together": "apparaissent ensemble",
+      "say": [
+        "Possibilité 1 : le marqueur est la cause de la maladie.",
+        "Possibilité 2 : le marqueur est une conséquence de la maladie.",
+        "Possibilité 3 : le marqueur et la maladie apparaissent ensemble, sans que l’un déclenche l’autre."
+      ],
+      "tail": "Il faut examiner séparément laquelle des trois possibilités s’applique."
+    },
+    "chainPsy": {
+      "title": "De l’environnement au comportement",
+      "how": "Parcourez les cinq niveaux étape par étape.",
+      "steps": [
+        {
+          "label": "Environnement",
+          "text": "Des contraintes et des influences extérieures atteignent le corps."
+        },
+        {
+          "label": "Régulation épigénétique",
+          "text": "Une partie de la réaction peut passer par la régulation épigénétique."
+        },
+        {
+          "label": "Expression des gènes",
+          "text": "Cela peut modifier quels gènes sont lus plus fortement ou plus faiblement."
+        },
+        {
+          "label": "Cerveau & corps",
+          "text": "Cela peut concerner la fonction cérébrale et le corps."
+        },
+        {
+          "label": "Comportement & autorégulation",
+          "text": "L’autorégulation est la capacité d’adapter aux exigences ses émotions, son attention, ses impulsions et ses réactions au stress."
+        }
+      ],
+      "cap": "Tel que le décrivent les modèles actuels · simplifié"
+    },
+    "chainTrain": {
+      "title": "Ce que l’entraînement déclenche",
+      "how": "Parcourez la chaîne étape par étape.",
+      "steps": [
+        {
+          "label": "Entraînement",
+          "text": "L’entraînement produit des signaux mécaniques, métaboliques et hormonaux."
+        },
+        {
+          "label": "Stimulus cellulaire",
+          "text": "Les signaux arrivent dans les cellules."
+        },
+        {
+          "label": "Adaptation épigénétique",
+          "text": "Après l’entraînement, des études décrivent des modifications touchant la méthylation de l’ADN, les marques d’histones et les ARN régulateurs."
+        },
+        {
+          "label": "Activité des gènes modifiée",
+          "text": "Les gènes sont lus autrement qu’avant."
+        },
+        {
+          "label": "Adaptation à long terme",
+          "text": "Cela peut être lié à des adaptations du métabolisme, de la régulation de l’inflammation et de la réparation des tissus."
+        }
+      ],
+      "cap": "Représentation simplifiée"
+    },
+    "muscle": {
+      "title": "Muscle Memory : le muscle se souvient-il ?",
+      "how": "Appuyez sur les trois boutons, l’un après l’autre.",
+      "aria": "Schéma : adaptation lors du premier entraînement, pendant la pause et à la reprise",
+      "buttons": ["S’entraîner", "Pause", "Reprendre"],
+      "reset": "Réinitialiser",
+      "labels": ["Premier entraînement", "Pause", "Reprise"],
+      "axisTime": "Temps",
+      "axisLevel": "Adaptation",
+      "sayIdle": "Commencez par « S’entraîner ».",
+      "say": [
+        "Premier entraînement : l’adaptation se construit peu à peu.",
+        "Pause : une partie de l’adaptation régresse.",
+        "Reprise : un muscle déjà entraîné peut reconstruire plus vite certaines adaptations. La pente de la courbe est plus raide que la première fois."
+      ],
+      "sayReset": "Réinitialisé. Recommencez par « S’entraîner ».",
+      "cap": "Schéma à titre d’illustration · pas de données de mesure"
+    },
+    "trend": {
+      "title": "Valeur unique ou évolution ?",
+      "how": "Faites glisser le curseur et ajoutez des mesures.",
+      "aria": "Schéma : à chaque nouvelle mesure, les valeurs isolées dessinent une évolution",
+      "point": "Mesure {{n}}",
+      "count": "Mesures",
+      "countAria": "Nombre de mesures",
+      "sayOne": "Une seule valeur : on ne peut pas en déduire un diagnostic.",
+      "sayMany": "Nombre de mesures : {{n}}. Une évolution devient maintenant visible. La question est : comment un marqueur change-t-il au fil du temps et dans le contexte d’interventions documentées sur le mode de vie ?",
+      "cap": "Schéma · pas de données de mesure"
+    },
+    "exer": {
+      "title": "Exerkines : des messagers en route",
+      "how": "Appuyez sur un organe pour envoyer des messagers.",
+      "from": "Viennent de",
+      "to": "Agissent sur",
+      "sources": ["Muscle", "Tissu adipeux", "Foie", "Autres organes"],
+      "targets": ["Métabolisme", "Vaisseaux", "Système immunitaire", "Cerveau"],
+      "maybe": "peut-être",
+      "studied": "Étudiés intensivement :",
+      "molecules": ["BDNF", "FGF21", "Irisine", "Interleukines"],
+      "sayIdle": "Rien n’est encore en route. Appuyez sur « Muscle ».",
+      "saySent": "{{name}} : des messagers sont envoyés.",
+      "sayOther": "D’autres organes peuvent aussi envoyer des messagers.",
+      "sayTail": "Ces messagers agissent sur le métabolisme, les vaisseaux, le système immunitaire et peut-être sur le cerveau.",
+      "cap": "Schéma · quel organe produit quel messager n’est pas représenté ici"
+    },
+    "sort": {
+      "title": "Pertinent ou non ?",
+      "how": "Classez ce à quoi un test épigénétique est adapté.",
+      "useful": "Pertinent",
+      "notUseful": "Non pertinent",
+      "important": "Très important",
+      "usefulItems": [
+        "Observer l’évolution de biomarqueurs sélectionnés.",
+        "Situer les changements biologiques dans le contexte du mode de vie et de l’entraînement.",
+        "Créer une base de discussion supplémentaire pour la prévention et le conseil."
+      ],
+      "notUsefulItems": [
+        "Déduire un diagnostic d’une valeur unique.",
+        "Interpréter un marqueur comme une cause certaine.",
+        "Affirmer que les gènes se laisseraient « reprogrammer » de façon ciblée et à volonté."
+      ],
+      "importantItems": [
+        "Tenir compte de la méthode de mesure, du tissu, de l’âge, du sexe, des médicaments, des maladies et du contexte temporel.",
+        "Toujours replacer les résultats dans un tableau clinique ou préventif plus large."
+      ],
+      "sayIdle": "Six affirmations. Décidez pour chacune : pertinent ou non ?",
+      "right": "Exact.",
+      "wrong": "Pas tout à fait.",
+      "isUseful": "C’est considéré comme pertinent.",
+      "isNotUseful": "C’est considéré comme non pertinent.",
+      "result": "Réponses correctes : {{right}} sur {{total}}. La vue d’ensemble montre toutes les affirmations à leur place.",
+      "again": "Classer à nouveau"
+    }
+  },
+  "closing": {
+    "eyebrow": "Le principal enseignement",
+    "quote": "Nos gènes forment le cadre. La régulation épigénétique fait partie de la réponse dynamique du corps à la vie, à l’environnement et au comportement.",
+    "text": "Entre la prédisposition génétique et le résultat pour la santé se trouve un système de régulation complexe, qui réagit à l’environnement, au développement et au comportement. Ces réactions ne sont ni arbitraires ni entièrement contrôlables, mais elles sont biologiquement réelles et de plus en plus mesurables scientifiquement. L’épigénétique ne devrait être ni surestimée ni sous-estimée : sa plus grande valeur réside actuellement dans le fait de comprendre l’adaptation biologique de façon plus nuancée et de mieux situer les changements dans le temps."
+  },
+  "sources": {
+    "intro": "Le contenu de cet article s’appuie sur deux ouvrages spécialisés récents des éditions Springer.",
+    "note": "Remarque : cet article sert à l’information générale et ne remplace ni un diagnostic médical ni un conseil médical individuel."
+  }
+}

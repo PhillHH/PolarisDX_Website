@@ -66,6 +66,10 @@ const ArticleRapidSetup = lazy(
 const ArticlePrecision = lazy(
   () => import('./pages/articles/precision-in-point-of-care-the-key-to-patient-safety'),
 )
+// SC-031: interaktiver Artikel mit eigenem Seitenaufbau; lädt je Sprache nur die eigenen Texte.
+const ArticleEpigenetics = lazy(() =>
+  import('./pages/articles/was-ist-epigenetik').then((route) => route.loadRoute()),
+)
 
 // Services
 const ServicesOverviewPage = lazy(() => import('./pages/ServicesOverviewPage'))
@@ -198,6 +202,7 @@ const ARTICLE_ROUTE_ELEMENTS: Record<string, React.ReactNode> = {
   ecosystem_of_rapid_tests: lazyElement(<ArticleEcosystem />),
   rapid_setup_formula: lazyElement(<ArticleRapidSetup />),
   precision_point_of_care: lazyElement(<ArticlePrecision />),
+  what_is_epigenetics: lazyElement(<ArticleEpigenetics />),
 }
 
 /**

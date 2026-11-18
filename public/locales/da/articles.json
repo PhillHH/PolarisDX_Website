@@ -121,6 +121,13 @@
       "title": "Præstationsformlen for POC-diagnostik"
     }
   },
+  "what_is_epigenetics": {
+    "title": "Hvad er epigenetik?",
+    "excerpt": "Gener er relativt stabile, men det er deres aktivitet ikke. Et interaktivt overblik: hvordan miljø, livsstil og motion påvirker genreguleringen.",
+    "seo": {
+      "title": "Hvad er epigenetik? Enkelt forklaret"
+    }
+  },
   "seo": {
     "index_title": "Magasin: Point-of-Care Diagnostics Insights",
     "index_description": "Artikler om point-of-care diagnostik, chairside-test og laboratorium i praksis for tandlæger, læger og medicinsk personale. Fra ROI til klinisk praksis."

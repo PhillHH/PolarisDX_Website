@@ -23,8 +23,9 @@ test('G3 sitemap URLs are real 200 pages with self-canonical indexable output', 
 
   const xml = await sitemapResponse.text()
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
-  expect(locs).toHaveLength(400)
-  expect(new Set(locs).size).toBe(400)
+  // 410 seit SC-031 (41 Routenfamilien x 10 Sprachen; siebter Artikel).
+  expect(locs).toHaveLength(410)
+  expect(new Set(locs).size).toBe(410)
   const metadata: Array<{ locale: string; path: string; description: string }> = []
 
   const batchSize = 10

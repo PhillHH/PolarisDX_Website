@@ -121,6 +121,13 @@
       "title": "La formula della performance in diagnostica POC"
     }
   },
+  "what_is_epigenetics": {
+    "title": "Che cos’è l’epigenetica?",
+    "excerpt": "I geni sono relativamente stabili, la loro attività no. Panoramica interattiva: come ambiente, stile di vita e movimento influenzano la regolazione genica.",
+    "seo": {
+      "title": "Che cos’è l’epigenetica? Spiegata in modo semplice"
+    }
+  },
   "seo": {
     "index_title": "Magazine: diagnostica POC e know-how per il lab in studio",
     "index_description": "Articoli specialistici su diagnostica point-of-care, test chairside e laboratorio in studio per odontoiatri e personale sanitario. Dal ROI alla pratica."

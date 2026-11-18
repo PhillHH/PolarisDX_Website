@@ -121,6 +121,13 @@
       "title": "La fórmula del rendimiento en diagnóstico POC"
     }
   },
+  "what_is_epigenetics": {
+    "title": "¿Qué es la epigenética?",
+    "excerpt": "Los genes son relativamente estables; su actividad, no. Resumen interactivo: cómo entorno, estilo de vida y ejercicio influyen en la regulación génica.",
+    "seo": {
+      "title": "¿Qué es la epigenética? Una explicación sencilla"
+    }
+  },
   "seo": {
     "index_title": "Revista especializada: diagnóstico POC y laboratorio en consulta",
     "index_description": "Artículos sobre diagnóstico point-of-care, pruebas chairside y laboratorio en consulta para dentistas, médicos y personal sanitario. Del ROI a la práctica."

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import type { TFunction } from 'i18next'
 import { generateSitemapXml, getSitemapRouteFamilies } from '../src/components/seo/sitemap'
 import { validateSitemapArtifact } from '../src/components/seo/sitemapGuard'
+import { articleInventory, validateArticleMetadata } from '../src/data/articles'
 import { createSearchIndex } from '../src/hooks/useSearch'
 import {
   DYNAMIC_ROUTE_DEFINITIONS,
@@ -162,6 +163,13 @@ export function validateRouteRegistryParity(): string[] {
     }
     if (redirect.sourcePath === redirect.targetPath)
       errors.push(`redirect loop: ${redirect.sourcePath}`)
+  }
+
+  // 7a. PT17.4: Artikel-Metadaten (Autor, Datum, Quellen) sind belegt und wohlgeformt.
+  try {
+    validateArticleMetadata(articleInventory)
+  } catch (error) {
+    errors.push(`article metadata: ${error instanceof Error ? error.message : String(error)}`)
   }
 
   // 7. Dynamic records are source-backed and unique.

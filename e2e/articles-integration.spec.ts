@@ -39,7 +39,7 @@ function titleText(html: string): string | undefined {
   return decodeEntities(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1])
 }
 
-test('PT17.4 verifies the full 6x10 HTTP and SEO metadata matrix', async ({ request }) => {
+test('PT17.4 verifies the full article x10 HTTP and SEO metadata matrix', async ({ request }) => {
   test.setTimeout(120_000)
 
   for (const locale of SUPPORTED_LANGUAGES) {
@@ -82,7 +82,7 @@ test('PT17.4 verifies the full 6x10 HTTP and SEO metadata matrix', async ({ requ
   }
 })
 
-test('PT17.4 keeps Article schema equal to visible metadata across all 60 pages', async ({
+test('PT17.4 keeps Article schema equal to visible metadata across all article pages', async ({
   page,
 }) => {
   test.setTimeout(120_000)
@@ -120,7 +120,12 @@ test('PT17.4 keeps Article schema equal to visible metadata across all 60 pages'
         article.datePublished,
       )
       await expect(page.locator('article[data-article-template]')).toContainText(article.author)
-      await expect(page.locator('section', { hasText: /Quellen|Sources/u })).toHaveCount(0)
+      // Quellen nur, wo der Artikel welche nennt (SC-031: „Was ist Epigenetik?"); sonst keine.
+      const sourceItems = page.locator('article[data-article-template] [data-article-sources] li')
+      await expect(sourceItems).toHaveCount(article.sources?.length ?? 0)
+      if (!article.sources) {
+        await expect(page.locator('section', { hasText: /Quellen|Sources/u })).toHaveCount(0)
+      }
     }
   }
 })

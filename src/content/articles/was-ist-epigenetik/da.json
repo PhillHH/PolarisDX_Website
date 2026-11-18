@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Kapitel",
+    "lab": "Laboratorium",
+    "labHint": "prøv selv",
+    "labAria": "Laboratorium til kapitel {{n}}",
+    "tryout": "Prøv det af",
+    "more": "Læs i dybden",
+    "next": "Videre",
+    "back": "Trin tilbage",
+    "restart": "Forfra"
+  },
+  "stage": {
+    "label": "Rejse ind i det indre i seks trin",
+    "eyebrow": "Epigenetik · Det grundlæggende",
+    "intro": "En rejse ind i det indre: fra kroppen til den enkelte markering på DNA’et.",
+    "hint": "Scroll for at zoome ind",
+    "skip": "Direkte til artiklen",
+    "steps": [
+      {
+        "tick": "Krop",
+        "word": "Din krop.",
+        "text": "Den reagerer hele tiden på sine omgivelser: på motion, kost, søvn og stress."
+      },
+      {
+        "tick": "Celle",
+        "word": "Cellen.",
+        "text": "I cellerne reguleres det løbende, hvilke gener der aflæses stærkere eller svagere."
+      },
+      {
+        "tick": "Cellekerne",
+        "word": "Cellekernen.",
+        "text": "I cellekernen ligger DNA’et. Det er viklet omkring proteiner, histonerne."
+      },
+      {
+        "tick": "Pakning",
+        "word": "Pakningen.",
+        "text": "Løst pakket er DNA’et let at aflæse, tæt pakket sværere."
+      },
+      {
+        "tick": "DNA",
+        "word": "DNA’et.",
+        "text": "Rækkefølgen af dets bogstaver forbliver relativt stabil gennem store dele af livet."
+      },
+      {
+        "tick": "Markering",
+        "word": "Markeringen.",
+        "text": "Små kemiske grupper på DNA’et: Afhængigt af positionen kan et gen være mindre eller mere aktivt."
+      }
+    ],
+    "canvas": {
+      "cell": "En celle",
+      "nucleus": "Cellekerne",
+      "dna": "DNA, viklet op",
+      "methyl": "Methylgrupper",
+      "loose": "løst · let at aflæse",
+      "dense": "tæt · svært at aflæse"
+    }
+  },
+  "intro": {
+    "eyebrow": "Ankommet",
+    "title": "Dér, på DNA’et, sætter epigenetikken ind.",
+    "lead": "Gener er relativt stabile. Deres aktivitet er det ikke. Epigenetik beskriver en del af den biologiske regulering, som celler bruger til at reagere på udvikling, alder, miljø og livsstil.",
+    "steps": [
+      {
+        "title": "DNA’et består.",
+        "text": "Et menneskes DNA-sekvens er relativt stabil gennem store dele af livet."
+      },
+      {
+        "title": "Aktiviteten skifter.",
+        "text": "Celler regulerer løbende, hvilke gener der aflæses stærkere eller svagere."
+      },
+      {
+        "title": "Forløbet tæller.",
+        "text": "Bestemte epigenetiske mønstre kan ændre sig i løbet af livet."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Grundidé",
+      "question": "Hvad er epigenetik?",
+      "answer": "Dine gener forbliver stort set de samme. Hvor aktive de er, ændrer sig. Epigenetik beskriver, hvordan celler regulerer genernes aktivitet uden at ændre selve DNA’et.",
+      "points": [
+        "DNA-sekvensen er relativt stabil gennem store dele af livet.",
+        "Celler regulerer løbende, hvilke gener der aflæses stærkere eller svagere.",
+        "Bestemte epigenetiske mønstre kan ændre sig i løbet af livet."
+      ],
+      "long": [
+        "Når det handler om genetik, tænker mange på en uforanderlig arbejdstegning. Faktisk er et menneskes DNA-sekvens relativt stabil gennem store dele af livet. Men gener er ikke hele tiden lige aktive: Celler regulerer løbende, hvilke gener der aflæses stærkere eller svagere, hvornår bestemte proteiner produceres, og hvordan væv tilpasser sig belastninger.",
+        "Netop her sætter epigenetikken ind. Den undersøger mekanismer, som påvirker genernes aktivitet uden at ændre DNA-sekvensen. På den måde hjælper den med at forklare, hvordan arvelige anlæg og livsmiljø spiller sammen.",
+        "For forebyggelse, sportsmedicin, Healthy Aging og sundhedsrådgivning er dette niveau særlig interessant: Det genetiske grundlag forbliver stort set konstant, mens bestemte epigenetiske mønstre kan ændre sig i løbet af livet."
+      ]
+    },
+    {
+      "nav": "Mekanismer",
+      "question": "Hvordan bliver der skruet op eller ned for et gen?",
+      "answer": "Gennem tre mekanismer, der arbejder sammen: markeringer på DNA’et, DNA’ets pakning og små RNA-molekyler.",
+      "points": [
+        "Methylering: Små kemiske grupper sidder bestemte steder på DNA’et.",
+        "Histoner: DNA’et er viklet omkring proteiner, nogle gange løsere, andre gange tættere.",
+        "RNA: Små RNA-molekyler kan påvirke, hvordan en afskrift af et gen bliver brugt."
+      ],
+      "long": [
+        "Epigenetik er ikke en enkelt afbryder. Flere mekanismer griber ind i hinanden og påvirker, hvor tilgængelig den genetiske information er, og hvor meget den bliver brugt.",
+        "DNA-methylering: Små kemiske grupper bliver føjet til bestemte steder på DNA’et. Afhængigt af positionen kan det være forbundet med lavere eller højere genaktivitet. DNA-methylering hører til de hyppigst undersøgte epigenetiske mekanismer.",
+        "Histonmodifikationer: I cellekernen er DNA’et viklet omkring histonproteiner. Kemiske ændringer af disse proteiner kan gøre pakningen løsere eller tættere og dermed påvirke, hvor godt bestemte områder kan aflæses.",
+        "RNA-regulering: MikroRNA’er og andre ikke-kodende RNA’er kan påvirke, hvordan genetisk information bliver bearbejdet og brugt efter transskriptionen. De regnes for et vigtigt ekstra niveau i genreguleringen."
+      ]
+    },
+    {
+      "nav": "Miljø",
+      "question": "Hvad har min hverdag med det at gøre?",
+      "answer": "Kroppen reagerer hele tiden på sine omgivelser. En del af disse reaktioner kan formidles eller ledsages af epigenetisk regulering.",
+      "points": [
+        "Hertil hører motion, kost, søvn, stress, inflammation og aldring.",
+        "Også skadelige stoffer, medicin og sociale påvirkninger hører med.",
+        "Vigtigt: En epigenetisk ændring er ikke automatisk årsagen til en sygdom."
+      ],
+      "long": [
+        "Den menneskelige organisme reagerer kontinuerligt på sine omgivelser. Hertil hører fysisk aktivitet, kost, søvn, psykisk belastning, inflammationsprocesser, skadelige stoffer, medicin, sociale påvirkninger og aldringsprocesser. En del af disse reaktioner kan formidles eller ledsages af epigenetisk regulering.",
+        "En epigenetisk ændring er ikke automatisk årsagen til en sygdom. Ofte viser studier i første omgang sammenhænge. Om en markør er årsag, følge eller ledsagefænomen, skal undersøges særskilt."
+      ]
+    },
+    {
+      "nav": "Stress",
+      "question": "Hvad sker der, når stress møder hjernen?",
+      "answer": "Aktuelle modeller ser mental sundhed som et samspil mellem flere niveauer: arvelige anlæg, miljø, biologisk regulering, hjerne og selvregulering.",
+      "points": [
+        "Det undersøges blandt andet ved angstlidelser, depression, ADHD og kronisk stress.",
+        "Selvregulering betyder at tilpasse følelser, opmærksomhed, impulser og adfærd til de krav, der stilles.",
+        "Forskningen på området er i bevægelse, og meget er i første omgang sammenhænge."
+      ],
+      "long": [
+        "Forskningen er særlig spændende dér, hvor belastninger fra miljøet møder hjerne og adfærd. Moderne modeller betragter i stigende grad mental sundhed som et dynamisk samspil mellem flere niveauer: genetisk disposition, miljø, biologisk regulering, hjernefunktion og psykologisk selvregulering.",
+        "Sådanne sammenhænge undersøges blandt andet ved angstlidelser, depression, ADHD, posttraumatisk belastningsreaktion og kroniske stresstilstande.",
+        "Et centralt begreb er selvregulering: evnen til at tilpasse følelser, opmærksomhed, impulser, stressreaktioner og adfærd til de krav, der stilles."
+      ]
+    },
+    {
+      "nav": "Motion",
+      "question": "Hvad gør motion ved kroppen?",
+      "answer": "Træning sender signaler, og kroppen svarer med tilpasning. Regelmæssig motion ændrer stofskifte, blodkar, muskler, immunsystem og hjerne.",
+      "points": [
+        "Studier beskriver også epigenetiske ændringer efter træning.",
+        "Muskulatur, der allerede er trænet, kan efter en pause genopbygge bestemte tilpasninger hurtigere.",
+        "En del af denne forskning stammer indtil videre fra dyremodeller. Når det gælder det enkelte menneske, er forsigtighed nødvendig."
+      ],
+      "long": [
+        "Miljøet virker ikke kun som en belastning. Fysisk aktivitet er et særlig illustrativt eksempel på, hvor tilpasningsdygtige biologiske systemer er. Regelmæssig motion ændrer stofskifte, blodkarrenes funktion, muskler, immunsystem og hjerne og bliver i stigende grad også sat i forbindelse med epigenetiske ændringer.",
+        "Studier beskriver blandt andet ændringer i DNA-methylering, histonmarkeringer og regulatoriske RNA’er efter træning. Ændringerne kan hænge sammen med tilpasninger i stofskiftet, mitokondriernes funktion, regulering af inflammation og reparation af væv.",
+        "Træning skaber mekaniske, metaboliske og hormonelle signaler. Kroppen reagerer på dem med tilpasning.",
+        "Når det gælder musklerne, taler man ofte om »Muscle Memory« (muskelhukommelse): Muskulatur, der allerede er trænet, kan efter en træningspause genopbygge bestemte tilpasninger hurtigere. Ud over neuromuskulære og strukturelle mekanismer undersøges også epigenetiske forklaringer.",
+        "Lignende spørgsmål melder sig for stofskifte, regulering af inflammation, hjerte-kar-system og hjerne. Især tidlig motion kunne tænkes at efterlade længerevarende biologiske effekter. En del af denne evidens stammer indtil videre fra dyremodeller, og derfor skal udsagn om det enkelte menneske formuleres forsigtigt."
+      ]
+    },
+    {
+      "nav": "Aldring",
+      "question": "Hvad måler et epigenetisk aldersur?",
+      "answer": "Det forsøger at udlede en aldringstendens ud fra molekylære data. En eksakt måling af den »sande biologiske alder« er det ikke.",
+      "points": [
+        "Typiske mønstre i genreguleringen ændrer sig med alderen.",
+        "Resultaterne afhænger af model, væv, sammenligningsgruppe og målemetode.",
+        "Det kan være særlig fornuftigt at se på forløbet: Hvordan ændrer en markør sig over tid?"
+      ],
+      "long": [
+        "Karakteristiske mønstre i genreguleringen ændrer sig med stigende alder. Ud fra DNA-methyleringsmønstre er der udviklet såkaldte epigenetiske aldersure. De forsøger at udlede en aldringstendens ud fra molekylære data.",
+        "Sådanne metoder er videnskabeligt interessante, men de er ikke det samme som en eksakt måling af den »sande biologiske alder«. Resultaterne afhænger af model, væv, referencepopulation og målemetode. Derfor kan det være særlig fornuftigt at se på forløbet: Hvordan ændrer en markør sig over tid og i sammenhæng med dokumenterede livsstilstiltag?"
+      ]
+    },
+    {
+      "nav": "Exerkiner",
+      "question": "Hvordan taler organerne sammen under motion?",
+      "answer": "Gennem signalstoffer, exerkinerne. De kan stamme fra muskler, fedtvæv, lever og andre organer.",
+      "points": [
+        "De virker på stofskifte, blodkar, immunsystem og muligvis hjernen.",
+        "Blandt andet BDNF, FGF21, irisin og bestemte interleukiner bliver undersøgt intensivt.",
+        "Sådan bliver det forståeligt, hvorfor motion virker langt ud over den trænede muskel."
+      ],
+      "long": [
+        "Fysisk aktivitet udløser frigivelsen af talrige signalmolekyler. Sådanne motionsafhængige signalstoffer kaldes exerkiner. Til de intensivt undersøgte kandidater hører blandt andet BDNF, FGF21, irisin og bestemte interleukiner.",
+        "Epigenetisk regulering kan på sin side påvirke, hvordan sådanne signalmolekyler dannes. Det gør det tydeligt, hvorfor motion virker langt ud over den trænede muskel."
+      ]
+    },
+    {
+      "nav": "Tests",
+      "question": "Hvad kan epigenetiske tests – og hvad kan de ikke?",
+      "answer": "Det er fornuftigt at se på forløbet for udvalgte markører i sammenhæng. Det er ikke fornuftigt at stille en diagnose ud fra en enkelt værdi.",
+      "points": [
+        "Tests kan være et ekstra samtalegrundlag for forebyggelse og rådgivning.",
+        "En markør er ikke automatisk en entydig årsag.",
+        "Målemetode, væv, alder, køn, medicin og sygdomme hører altid med i fortolkningen."
+      ],
+      "long": [
+        "Fornuftigt: at følge forløbet for udvalgte biomarkører; at sætte biologiske ændringer i sammenhæng med livsstil og træning; at skabe et ekstra samtalegrundlag for forebyggelse og rådgivning.",
+        "Ikke fornuftigt: at udlede en diagnose af en enkeltværdi; at fortolke en markør som en entydig årsag; at påstå, at gener lader sig »omprogrammere« målrettet og efter behag.",
+        "Særlig vigtigt: at tage højde for målemetode, væv, alder, køn, medicin, sygdomme og tidsmæssig kontekst. Resultater bør altid sættes ind i et større klinisk eller forebyggelsesmæssigt billede."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Motion", "Kost", "Stress", "Søvn", "Inflammation", "Aldring"],
+      "full": [
+        "Motion og træningsstimuli",
+        "Kost- og stofskiftesignaler",
+        "Stress og psykosocial belastning",
+        "Søvn og døgnrytmer",
+        "Inflammations- og immunprocesser",
+        "Aldringsprocesser og cellestress"
+      ]
+    },
+    "pult": {
+      "title": "Genernes mixerpult",
+      "how": "Slå en påvirkning til, og hold øje med skyderne.",
+      "legendActivity": "Skydere: genernes aktivitet",
+      "legendSequence": "Bogstaver: DNA’ets sekvens",
+      "sayIdle": "Endnu er ingen påvirkning slået til. Skyderne står i deres udgangsposition.",
+      "sayActive": "{{n}} af 6 påvirkninger er slået til: {{m}} af 16 skydere har flyttet sig. Bogstaverne i sekvensen er forblevet de samme.",
+      "sayNone": "Ingen påvirkning er slået til længere. Skyderne står igen i deres udgangsposition.",
+      "cap": "Skematisk fremstilling · viser princippet, ikke måledata og ikke virkningens retning"
+    },
+    "methyl": {
+      "tab": "Methylering",
+      "title": "Methylering: at sætte mærker",
+      "how": "Tryk på et sted på DNA’et for at tilføje en methylgruppe.",
+      "group": "Otte steder på DNA’et",
+      "site": "Sted {{n}}",
+      "meter": "Genaktivitet",
+      "lower": "lavere",
+      "higher": "højere",
+      "sayIdle": "Endnu er der ikke sat noget mærke. Genaktiviteten står i midten.",
+      "saySetLower": "Mærke sat på sted {{n}}: Genaktiviteten er blevet lavere. Prøv et andet sted: Afhængigt af positionen kan det være omvendt.",
+      "saySetHigher": "Mærke sat på sted {{n}}: Genaktiviteten er blevet højere. Prøv et andet sted: Afhængigt af positionen kan det være omvendt.",
+      "sayRemoved": "Mærke fjernet fra sted {{n}}. Genaktiviteten går tilbage i retning af udgangspositionen.",
+      "cap": "Skematisk fremstilling · hvilket sted der virker hvordan, er frit valgt her"
+    },
+    "histone": {
+      "tab": "Histoner",
+      "title": "Histoner: pakningen",
+      "how": "Træk skyderen fra løst til tæt.",
+      "loose": "løst",
+      "dense": "tæt",
+      "aria": "DNA’ets pakning: fra løst til tæt pakket",
+      "stateLoose": "løst · let at aflæse",
+      "stateDense": "tæt · svært at aflæse",
+      "sayLoose": "Løst pakket: DNA’et ligger frit og kan let aflæses.",
+      "sayDense": "Tæt pakket: DNA’et er svært tilgængeligt. Her kommer aflæsningen ikke videre.",
+      "cap": "Skematisk fremstilling · prikken står for aflæsningen af DNA’et"
+    },
+    "rna": {
+      "tab": "RNA",
+      "title": "RNA: finjusteringen",
+      "how": "Tryk på knappen, og lad et mikroRNA koble sig på.",
+      "dock": "Kobl mikroRNA på",
+      "undock": "Kobl mikroRNA fra igen",
+      "mrna": "mRNA · afskrift af et gen",
+      "mirna": "mikroRNA",
+      "sayIdle": "mRNA’et er afskriften af et gen. Endnu er intet mikroRNA koblet på.",
+      "sayDocked": "MikroRNA’et har koblet sig på. Det kan påvirke, hvordan afskriften bliver bearbejdet videre og brugt.",
+      "sayFree": "MikroRNA’et er koblet fra. mRNA’et ligger frit igen.",
+      "cap": "Skematisk fremstilling"
+    },
+    "ring": {
+      "title": "Seks påvirkninger, ét reguleringssystem",
+      "how": "Tryk på en påvirkning.",
+      "aria": "Seks påvirkninger af genreguleringen",
+      "core": ["Gen-", "regulering"],
+      "sayIdle": "Kroppen reagerer hele tiden på sine omgivelser. Tryk på en af de seks påvirkninger.",
+      "sayPick": "»{{name}}« er en af seks påvirkninger, som kroppen reagerer på. En del af disse reaktioner kan formidles eller ledsages af epigenetisk regulering.",
+      "cap": "Skematisk fremstilling"
+    },
+    "cause": {
+      "title": "Sammenhæng er ikke årsag",
+      "how": "Tryk dig igennem de tre muligheder.",
+      "aria": "Tre muligheder",
+      "options": ["Årsag", "Følge", "Ledsagefænomen"],
+      "marker": ["Epigenetisk", "markør"],
+      "disease": "Sygdom",
+      "together": "optræder sammen",
+      "say": [
+        "Mulighed 1: Markøren er årsagen til sygdommen.",
+        "Mulighed 2: Markøren er en følge af sygdommen.",
+        "Mulighed 3: Markør og sygdom optræder sammen, uden at den ene udløser den anden."
+      ],
+      "tail": "Hvilken af de tre muligheder der gælder, skal undersøges særskilt."
+    },
+    "chainPsy": {
+      "title": "Fra miljø til adfærd",
+      "how": "Gå de fem niveauer igennem trin for trin.",
+      "steps": [
+        {
+          "label": "Miljø",
+          "text": "Belastninger og påvirkninger udefra møder kroppen."
+        },
+        {
+          "label": "Epigenetisk regulering",
+          "text": "En del af reaktionen kan formidles via epigenetisk regulering."
+        },
+        {
+          "label": "Genekspression",
+          "text": "Dermed kan det ændre sig, hvilke gener der aflæses stærkere eller svagere."
+        },
+        {
+          "label": "Hjerne & krop",
+          "text": "Det kan berøre hjernefunktion og krop."
+        },
+        {
+          "label": "Adfærd & selvregulering",
+          "text": "Selvregulering er evnen til at tilpasse følelser, opmærksomhed, impulser og stressreaktioner til de krav, der stilles."
+        }
+      ],
+      "cap": "Sådan beskriver aktuelle modeller det · forenklet"
+    },
+    "chainTrain": {
+      "title": "Hvad træning sætter i gang",
+      "how": "Gå kæden igennem trin for trin.",
+      "steps": [
+        {
+          "label": "Træning",
+          "text": "Træning skaber mekaniske, metaboliske og hormonelle signaler."
+        },
+        {
+          "label": "Cellulær påvirkning",
+          "text": "Signalerne når frem til cellerne."
+        },
+        {
+          "label": "Epigenetisk tilpasning",
+          "text": "Studier beskriver ændringer i DNA-methylering, histonmarkeringer og regulatoriske RNA’er efter træning."
+        },
+        {
+          "label": "Ændret genaktivitet",
+          "text": "Gener aflæses anderledes end før."
+        },
+        {
+          "label": "Langsigtet tilpasning",
+          "text": "Det kan hænge sammen med tilpasninger i stofskifte, regulering af inflammation og reparation af væv."
+        }
+      ],
+      "cap": "Forenklet fremstilling"
+    },
+    "muscle": {
+      "title": "Muscle Memory: Husker musklen?",
+      "how": "Tryk på de tre knapper i rækkefølge.",
+      "aria": "Skematisk fremstilling: tilpasning under første træning, i pausen og ved genoptagelsen",
+      "buttons": ["Træn", "Pause", "Genoptag"],
+      "reset": "Nulstil",
+      "labels": ["Første træning", "Pause", "Genoptagelse"],
+      "axisTime": "Tid",
+      "axisLevel": "Tilpasning",
+      "sayIdle": "Start med »Træn«.",
+      "say": [
+        "Første træning: Tilpasningen bygges op lidt efter lidt.",
+        "Pause: En del af tilpasningen går tilbage.",
+        "Genoptagelse: Muskulatur, der allerede er trænet, kan genopbygge bestemte tilpasninger hurtigere. Kurven stiger stejlere end første gang."
+      ],
+      "sayReset": "Nulstillet. Start igen med »Træn«.",
+      "cap": "Skematisk fremstilling til illustration · ingen måledata"
+    },
+    "trend": {
+      "title": "Enkeltværdi eller forløb?",
+      "how": "Træk i skyderen, og tilføj målinger.",
+      "aria": "Skematisk fremstilling: med hver ny måling bliver enkeltværdier til et forløb",
+      "point": "Måling {{n}}",
+      "count": "Målinger",
+      "countAria": "Antal målinger",
+      "sayOne": "En enkelt værdi: Ud fra den kan man ikke udlede en diagnose.",
+      "sayMany": "{{n}} målinger: Nu bliver et forløb synligt. Spørgsmålet lyder: Hvordan ændrer en markør sig over tid og i sammenhæng med dokumenterede livsstilstiltag?",
+      "cap": "Skematisk fremstilling · ingen måledata"
+    },
+    "exer": {
+      "title": "Exerkiner: signalstoffer på vej",
+      "how": "Tryk på et organ for at sende signalstoffer af sted.",
+      "from": "Stammer fra",
+      "to": "Virker på",
+      "sources": ["Muskel", "Fedtvæv", "Lever", "Andre organer"],
+      "targets": ["Stofskifte", "Blodkar", "Immunsystem", "Hjerne"],
+      "maybe": "muligvis",
+      "studied": "Intensivt undersøgt:",
+      "molecules": ["BDNF", "FGF21", "Irisin", "Interleukiner"],
+      "sayIdle": "Endnu er intet undervejs. Tryk på »Muskel«.",
+      "saySent": "{{name}} sender signalstoffer.",
+      "sayOther": "Også andre organer kan sende signalstoffer.",
+      "sayTail": "De virker på stofskifte, blodkar, immunsystem og muligvis hjernen.",
+      "cap": "Skematisk fremstilling · hvilket organ der danner hvilket signalstof, er ikke vist her"
+    },
+    "sort": {
+      "title": "Fornuftigt eller ej?",
+      "how": "Sortér efter, hvad en epigenetisk test egner sig til.",
+      "useful": "Fornuftigt",
+      "notUseful": "Ikke fornuftigt",
+      "important": "Særlig vigtigt",
+      "usefulItems": [
+        "At følge forløbet for udvalgte biomarkører.",
+        "At sætte biologiske ændringer i sammenhæng med livsstil og træning.",
+        "At skabe et ekstra samtalegrundlag for forebyggelse og rådgivning."
+      ],
+      "notUsefulItems": [
+        "At udlede en diagnose af en enkeltværdi.",
+        "At fortolke en markør som en entydig årsag.",
+        "At påstå, at gener lader sig »omprogrammere« målrettet og efter behag."
+      ],
+      "importantItems": [
+        "At tage højde for målemetode, væv, alder, køn, medicin, sygdomme og tidsmæssig kontekst.",
+        "Altid at sætte resultater ind i et større klinisk eller forebyggelsesmæssigt billede."
+      ],
+      "sayIdle": "Seks udsagn. Afgør for hvert enkelt: fornuftigt eller ej?",
+      "right": "Rigtigt.",
+      "wrong": "Ikke helt.",
+      "isUseful": "Det regnes for fornuftigt.",
+      "isNotUseful": "Det regnes ikke for fornuftigt.",
+      "result": "{{right}} af {{total}} sorteret rigtigt. Oversigten viser alle udsagn på deres plads.",
+      "again": "Sortér igen"
+    }
+  },
+  "closing": {
+    "eyebrow": "Den vigtigste indsigt",
+    "quote": "Vores gener danner rammen. Epigenetisk regulering er en del af kroppens dynamiske svar på liv, miljø og adfærd.",
+    "text": "Mellem genetisk disposition og det helbredsmæssige resultat ligger et komplekst reguleringssystem, som reagerer på miljø, udvikling og adfærd. Disse reaktioner er hverken vilkårlige eller fuldt kontrollerbare, men de er biologisk reelle og i stigende grad videnskabeligt målbare. Epigenetik bør hverken overvurderes eller undervurderes: Dens største værdi ligger i øjeblikket i at forstå biologisk tilpasning mere nuanceret og at fortolke ændringer over tid bedre."
+  },
+  "sources": {
+    "intro": "Denne artikel bygger indholdsmæssigt på to aktuelle fagbøger fra Springer.",
+    "note": "Bemærk: Artiklen tjener som generel information og erstatter hverken medicinsk diagnostik eller individuel lægelig rådgivning."
+  }
+}

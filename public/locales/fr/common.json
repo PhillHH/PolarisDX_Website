@@ -221,6 +221,10 @@
       "article-precision_point_of_care": {
         "title": "Précision au point d’intervention",
         "description": "Pourquoi la validation des tests rapides est essentielle à la sécurité des patients."
+      },
+      "article-what_is_epigenetics": {
+        "title": "Qu’est-ce que l’épigénétique ?",
+        "description": "Les gènes sont relativement stables, leur activité non. Aperçu interactif : comment environnement, mode de vie et exercice influencent leur régulation."
       }
     }
   },

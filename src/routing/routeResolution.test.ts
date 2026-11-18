@@ -158,10 +158,12 @@ describe('PT27.1 · Segmentmodell', () => {
 describe('PT27.1 · Redirect-Mapping', () => {
   const redirects = getRedirectRegistryEntries()
 
-  it('bleibt stabil: 32 permanente Quellen, Services-Migration vollstaendig', () => {
+  it('bleibt stabil: 33 permanente Quellen, Services-Migration vollstaendig', () => {
     // 32 = 30 (PT27.1) + Future-Forum-Seite, auf main 2026-10-07 entfernt (AP29 PT29.4)
     // + /blog/vitamin-d3-implantologie (AP29 Crawl-Befund F7).
-    expect(redirects).toHaveLength(32)
+    // 33 seit SC-031: der siebte Artikel („Was ist Epigenetik?") bringt wie jeder Artikel die
+    // Weiterleitung von seiner internen Kennung auf den Pfad mit.
+    expect(redirects).toHaveLength(33)
     expect(getRegistryRedirectTarget('/events/future-forum-berlin-2026')).toBe('/events')
     expect(getRegistryRedirectTarget('/services')).toBe('/diagnostics')
     for (const service of services) {

@@ -245,6 +245,10 @@
       "article-precision_point_of_care": {
         "title": "Precisão no point-of-care",
         "description": "Porque a validação dos testes rápidos é essencial para a segurança dos pacientes."
+      },
+      "article-what_is_epigenetics": {
+        "title": "O que é a epigenética?",
+        "description": "Os genes são relativamente estáveis; a sua atividade, não. Resumo interativo: como ambiente, estilo de vida e exercício influenciam a regulação dos genes."
       }
     }
   },

@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Chapter",
+    "lab": "Lab",
+    "labHint": "try it yourself",
+    "labAria": "Lab for chapter {{n}}",
+    "tryout": "Try it out",
+    "more": "Read in detail",
+    "next": "Next",
+    "back": "Previous step",
+    "restart": "Start again"
+  },
+  "stage": {
+    "label": "Journey inside in six steps",
+    "eyebrow": "Epigenetics · Basics",
+    "intro": "A journey inside: from the body down to the individual mark on the DNA.",
+    "hint": "Scroll to zoom in",
+    "skip": "Skip to the article",
+    "steps": [
+      {
+        "tick": "Body",
+        "word": "Your body.",
+        "text": "It constantly responds to its surroundings: to exercise, nutrition, sleep and stress."
+      },
+      {
+        "tick": "Cell",
+        "word": "The cell.",
+        "text": "The cells continuously regulate which genes are read more strongly or more weakly."
+      },
+      {
+        "tick": "Nucleus",
+        "word": "The nucleus.",
+        "text": "The DNA is located in the cell nucleus. It is wrapped around proteins called histones."
+      },
+      {
+        "tick": "Packaging",
+        "word": "The packaging.",
+        "text": "Loosely packed, the DNA can be read easily; tightly packed, less easily."
+      },
+      {
+        "tick": "DNA",
+        "word": "The DNA.",
+        "text": "The order of its letters remains relatively stable throughout much of life."
+      },
+      {
+        "tick": "Mark",
+        "word": "The mark.",
+        "text": "Small chemical groups on the DNA: depending on their position, a gene can be less or more active."
+      }
+    ],
+    "canvas": {
+      "cell": "A cell",
+      "nucleus": "Cell nucleus",
+      "dna": "DNA, coiled up",
+      "methyl": "Methyl groups",
+      "loose": "loose · easy to read",
+      "dense": "tight · hard to read"
+    }
+  },
+  "intro": {
+    "eyebrow": "Arrived",
+    "title": "There, at the DNA, is where epigenetics comes in.",
+    "lead": "Genes are relatively stable. Their activity is not. Epigenetics describes one part of the biological regulation through which cells respond to development, age, environment and lifestyle.",
+    "steps": [
+      {
+        "title": "The DNA stays.",
+        "text": "A person’s DNA sequence is relatively stable throughout much of life."
+      },
+      {
+        "title": "The activity changes.",
+        "text": "Cells continuously regulate which genes are read more strongly or more weakly."
+      },
+      {
+        "title": "The trend matters.",
+        "text": "Certain epigenetic patterns can change over the course of life."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Basic idea",
+      "question": "What is epigenetics?",
+      "answer": "Your genes stay largely the same. What changes is how active they are. Epigenetics describes how cells regulate the activity of genes without changing the DNA itself.",
+      "points": [
+        "The DNA sequence is relatively stable throughout much of life.",
+        "Cells continuously regulate which genes are read more strongly or more weakly.",
+        "Certain epigenetic patterns can change over the course of life."
+      ],
+      "long": [
+        "When it comes to genetics, many people think of an unchangeable blueprint. Indeed, a person’s DNA sequence is relatively stable throughout much of life. But genes are not equally active all the time: cells continuously regulate which genes are read more strongly or more weakly, when certain proteins are produced and how tissue adapts to strain.",
+        "This is exactly where epigenetics comes in. It studies mechanisms that influence the activity of genes without changing the DNA sequence. In this way, it helps to explain how predisposition and living environment interact.",
+        "This level is of particular interest for prevention, sports medicine, Healthy Aging and health advice: the basic genetic make-up remains largely constant, while certain epigenetic patterns can change over the course of life."
+      ]
+    },
+    {
+      "nav": "Mechanisms",
+      "question": "How is a gene turned up or down?",
+      "answer": "Through three mechanisms that work together: marks on the DNA, the packaging of the DNA and small RNA molecules.",
+      "points": [
+        "Methylation: small chemical groups sit at certain sites on the DNA.",
+        "Histones: the DNA is wrapped around proteins, sometimes more loosely, sometimes more tightly.",
+        "RNA: small RNA molecules can influence how a gene transcript is used."
+      ],
+      "long": [
+        "Epigenetics is not a single switch. Several mechanisms interlock and influence how accessible genetic information is and how strongly it is used.",
+        "DNA methylation: small chemical groups are attached to certain sites on the DNA. Depending on the position, this can be associated with lower or higher gene activity. It is among the most frequently studied epigenetic mechanisms.",
+        "Histone modifications: in the cell nucleus, the DNA is wrapped around histone proteins. Chemical changes to these proteins can loosen or tighten the packaging and thereby influence how well certain regions can be read.",
+        "RNA regulation: microRNAs and other non-coding RNAs can influence how genetic information is processed and used after transcription. They are regarded as an important additional level of gene regulation."
+      ]
+    },
+    {
+      "nav": "Environment",
+      "question": "What does my everyday life have to do with it?",
+      "answer": "The body constantly responds to its surroundings. Some of these responses can be mediated or accompanied by epigenetic regulation.",
+      "points": [
+        "This includes exercise, nutrition, sleep, stress, inflammation and ageing.",
+        "Pollutants, medication and social influences are also part of it.",
+        "Important: an epigenetic change is not automatically the cause of a disease."
+      ],
+      "long": [
+        "The human organism continuously responds to its surroundings. This includes physical activity, nutrition, sleep, mental strain, inflammatory processes, pollutants, medication, social influences and ageing processes. Some of these responses can be mediated or accompanied by epigenetic regulation.",
+        "An epigenetic change is not automatically the cause of a disease. Studies often show associations at first. Whether a marker is a cause, a consequence or a bystander must be investigated separately."
+      ]
+    },
+    {
+      "nav": "Stress",
+      "question": "What happens when stress meets the brain?",
+      "answer": "Current models see mental health as an interplay of several levels: predisposition, environment, biological regulation, the brain and self-regulation.",
+      "points": [
+        "This is being studied in anxiety disorders, depression, ADHD and chronic stress, among others.",
+        "Self-regulation means adapting feelings, attention, impulses and behaviour to demands.",
+        "Research on this is evolving; for now, many findings are associations."
+      ],
+      "long": [
+        "Research is particularly exciting where environmental stressors meet the brain and behaviour. Modern models increasingly view mental health as a dynamic interplay of several levels: genetic predisposition, environment, biological regulation, brain function and psychological self-regulation.",
+        "Such relationships are being studied in anxiety disorders, depression, ADHD, post-traumatic stress disorder and states of chronic stress, among others.",
+        "A central concept is self-regulation: the ability to adapt emotions, attention, impulses, stress responses and behaviour to demands."
+      ]
+    },
+    {
+      "nav": "Exercise",
+      "question": "What does exercise do to the body?",
+      "answer": "Training sends signals, and the body responds with adaptation. Regular exercise changes metabolism, blood vessels, muscle, the immune system and the brain.",
+      "points": [
+        "Studies also describe epigenetic changes after training.",
+        "Previously trained muscle can rebuild certain adaptations more quickly after a break.",
+        "So far, part of this research comes from animal models. Caution is needed when applying this to individual people."
+      ],
+      "long": [
+        "The environment does not act only as a stressor. Physical activity is a particularly clear example of how adaptable biological systems are. Regular exercise changes metabolism, vascular function, muscle, the immune system and the brain, and is increasingly also being linked to epigenetic changes.",
+        "After training, studies describe changes in DNA methylation, histone marks and regulatory RNAs, among others. These can be related to metabolic adaptations, mitochondrial function, regulation of inflammation and tissue repair.",
+        "Training generates mechanical, metabolic and hormonal signals. The body responds to them with adaptation.",
+        "In muscle, people often speak of “muscle memory”: previously trained muscle can rebuild certain adaptations more quickly after a break from training. Alongside neuromuscular and structural mechanisms, epigenetic explanations are also being studied.",
+        "Similar questions arise for metabolism, regulation of inflammation, the cardiovascular system and the brain. Above all, exercise early in life could leave longer-term biological effects. So far, part of this evidence comes from animal models, which is why statements about individual people must be worded cautiously."
+      ]
+    },
+    {
+      "nav": "Ageing",
+      "question": "What does an epigenetic age clock measure?",
+      "answer": "It attempts to derive an ageing tendency from molecular data. It is not an exact measurement of “true biological age”.",
+      "points": [
+        "Typical patterns of gene regulation change with age.",
+        "Results depend on the model, tissue, comparison group and measurement method.",
+        "Looking at the trend can be especially useful: how does a marker change over time?"
+      ],
+      "long": [
+        "With increasing age, characteristic patterns of gene regulation change. So-called epigenetic age clocks have been developed from DNA methylation patterns. They attempt to derive an ageing tendency from molecular data.",
+        "Such methods are scientifically interesting, but they are not identical to an exact measurement of “true biological age”. Results depend on the model, tissue, reference population and measurement method. Looking at the trend can therefore be especially useful: how does a marker change over time and in the context of documented lifestyle measures?"
+      ]
+    },
+    {
+      "nav": "Exerkines",
+      "question": "How do organs talk to each other during exercise?",
+      "answer": "Through messenger molecules called exerkines. They can come from muscle, fat tissue, the liver and other organs.",
+      "points": [
+        "They act on metabolism, blood vessels, the immune system and possibly the brain.",
+        "BDNF, FGF21, irisin and certain interleukins, among others, are being studied intensively.",
+        "This makes it understandable why exercise has effects far beyond the trained muscle."
+      ],
+      "long": [
+        "Physical activity triggers the release of numerous signalling molecules. Such exercise-dependent messenger molecules are called exerkines. The intensively studied candidates include, among others, BDNF, FGF21, irisin and certain interleukins.",
+        "Epigenetic regulation can in turn influence how such signalling molecules are formed. This makes clear why exercise has effects far beyond the trained muscle."
+      ]
+    },
+    {
+      "nav": "Tests",
+      "question": "What can epigenetic tests do – and what can they not?",
+      "answer": "It is useful to look at the trend of selected markers in context. A diagnosis based on a single value is not useful.",
+      "points": [
+        "Tests can be an additional basis for discussion in prevention and consultation.",
+        "A marker is not automatically a clear cause.",
+        "Measurement method, tissue, age, sex, medication and diseases always belong in the interpretation."
+      ],
+      "long": [
+        "Useful: observing the trend of selected biomarkers; placing biological changes in the context of lifestyle and training; creating an additional basis for discussion in prevention and consultation.",
+        "Not useful: deriving a diagnosis from a single value; interpreting a marker as a clear cause; claiming that genes can be “reprogrammed” in a targeted way and at will.",
+        "Very important: taking into account the measurement method, tissue, age, sex, medication, diseases and temporal context. Results should always be placed within a larger clinical or preventive picture."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Exercise", "Nutrition", "Stress", "Sleep", "Inflammation", "Ageing"],
+      "full": [
+        "Exercise and training stimuli",
+        "Nutritional and metabolic signals",
+        "Stress and psychosocial strain",
+        "Sleep and circadian rhythms",
+        "Inflammatory and immune processes",
+        "Ageing processes and cellular stress"
+      ]
+    },
+    "pult": {
+      "title": "The gene mixing desk",
+      "how": "Switch on a stimulus and watch the sliders.",
+      "legendActivity": "Sliders: gene activity",
+      "legendSequence": "Letters: DNA sequence",
+      "sayIdle": "No stimulus is active yet. The sliders are in their starting position.",
+      "sayActive": "{{n}} of 6 stimuli active: {{m}} of 16 sliders moved. The letters of the sequence stayed the same.",
+      "sayNone": "No stimulus is active any more. The sliders are back in their starting position.",
+      "cap": "Schematic · shows the principle, no measured data and no direction of effect"
+    },
+    "methyl": {
+      "tab": "Methylation",
+      "title": "Methylation: placing marks",
+      "how": "Tap a site on the DNA to attach a methyl group.",
+      "group": "Eight sites on the DNA",
+      "site": "Site {{n}}",
+      "meter": "Gene activity",
+      "lower": "lower",
+      "higher": "higher",
+      "sayIdle": "No mark has been placed yet. Gene activity is in the middle.",
+      "saySetLower": "Mark placed at site {{n}}: gene activity is now lower. Try another site: depending on the position, it can be the other way round.",
+      "saySetHigher": "Mark placed at site {{n}}: gene activity is now higher. Try another site: depending on the position, it can be the other way round.",
+      "sayRemoved": "Mark removed from site {{n}}. Gene activity moves back towards the starting position.",
+      "cap": "Schematic · which site has which effect is chosen arbitrarily here"
+    },
+    "histone": {
+      "tab": "Histones",
+      "title": "Histones: the packaging",
+      "how": "Drag the slider from loose to tight.",
+      "loose": "loose",
+      "dense": "tight",
+      "aria": "Packaging of the DNA from loose to tight",
+      "stateLoose": "loose · easy to read",
+      "stateDense": "tight · hard to read",
+      "sayLoose": "Loosely packed: the DNA is exposed and can be read easily.",
+      "sayDense": "Tightly packed: the DNA is hard to access. Reading gets stuck here.",
+      "cap": "Schematic · the dot stands for the reading of the DNA"
+    },
+    "rna": {
+      "tab": "RNA",
+      "title": "RNA: the fine-tuning",
+      "how": "Tap the button and let a microRNA dock.",
+      "dock": "Dock microRNA",
+      "undock": "Undock microRNA",
+      "mrna": "mRNA · transcript of a gene",
+      "mirna": "microRNA",
+      "sayIdle": "The mRNA is the transcript of a gene. No microRNA has docked yet.",
+      "sayDocked": "The microRNA has docked. It can influence how the transcript is processed further and used.",
+      "sayFree": "The microRNA has undocked. The mRNA is free again.",
+      "cap": "Schematic"
+    },
+    "ring": {
+      "title": "Six influences, one regulatory system",
+      "how": "Tap an influence.",
+      "aria": "Six influences on gene regulation",
+      "core": ["Gene", "regulation"],
+      "sayIdle": "The body constantly responds to its surroundings. Tap one of the six influences.",
+      "sayPick": "“{{name}}” is one of six influences the body responds to. Some of these responses can be mediated or accompanied by epigenetic regulation.",
+      "cap": "Schematic"
+    },
+    "cause": {
+      "title": "An association is not a cause",
+      "how": "Tap through the three possibilities.",
+      "aria": "Three possibilities",
+      "options": ["Cause", "Consequence", "Bystander"],
+      "marker": ["Epigenetic", "marker"],
+      "disease": "Disease",
+      "together": "occur together",
+      "say": [
+        "Possibility 1: the marker is the cause of the disease.",
+        "Possibility 2: the marker is a consequence of the disease.",
+        "Possibility 3: marker and disease occur together, without one triggering the other."
+      ],
+      "tail": "Which of the three possibilities applies must be investigated separately."
+    },
+    "chainPsy": {
+      "title": "From environment to behaviour",
+      "how": "Go through the five levels step by step.",
+      "steps": [
+        {
+          "label": "Environment",
+          "text": "Stressors and influences from outside meet the body."
+        },
+        {
+          "label": "Epigenetic regulation",
+          "text": "Part of the response can be mediated by epigenetic regulation."
+        },
+        {
+          "label": "Gene expression",
+          "text": "This can change which genes are read more strongly or more weakly."
+        },
+        {
+          "label": "Brain & body",
+          "text": "This can affect brain function and the body."
+        },
+        {
+          "label": "Behaviour & self-regulation",
+          "text": "Self-regulation is the ability to adapt feelings, attention, impulses and stress responses to demands."
+        }
+      ],
+      "cap": "As current models describe it · simplified"
+    },
+    "chainTrain": {
+      "title": "What training sets in motion",
+      "how": "Go through the chain step by step.",
+      "steps": [
+        {
+          "label": "Training",
+          "text": "Training generates mechanical, metabolic and hormonal signals."
+        },
+        {
+          "label": "Cellular stimulus",
+          "text": "The signals arrive in the cells."
+        },
+        {
+          "label": "Epigenetic adaptation",
+          "text": "After training, studies describe changes in DNA methylation, histone marks and regulatory RNAs."
+        },
+        {
+          "label": "Altered gene activity",
+          "text": "Genes are read differently from before."
+        },
+        {
+          "label": "Long-term adaptation",
+          "text": "This can be related to adaptations in metabolism, regulation of inflammation and tissue repair."
+        }
+      ],
+      "cap": "Simplified illustration"
+    },
+    "muscle": {
+      "title": "Muscle memory: does the muscle remember?",
+      "how": "Press the three buttons in order.",
+      "aria": "Schematic: adaptation during the first training, the break and the return to training",
+      "buttons": ["Train", "Take a break", "Train again"],
+      "reset": "Reset",
+      "labels": ["First training", "Break", "Return to training"],
+      "axisTime": "Time",
+      "axisLevel": "Adaptation",
+      "sayIdle": "Start with “Train”.",
+      "say": [
+        "First training: the adaptation builds up gradually.",
+        "Break: some of the adaptation is lost.",
+        "Return to training: previously trained muscle can rebuild certain adaptations more quickly. The curve rises more steeply than the first time."
+      ],
+      "sayReset": "Reset. Start again with “Train”.",
+      "cap": "Schematic for illustration · no measured data"
+    },
+    "trend": {
+      "title": "Single value or trend?",
+      "how": "Drag the slider and add measurements.",
+      "aria": "Schematic: with each additional measurement, single values become a trend",
+      "point": "Measurement {{n}}",
+      "count": "Measurements",
+      "countAria": "Number of measurements",
+      "sayOne": "A single value: no diagnosis can be derived from it.",
+      "sayMany": "{{n}} measurements: now a trend becomes visible. The question is: how does a marker change over time and in the context of documented lifestyle measures?",
+      "cap": "Schematic · no measured data"
+    },
+    "exer": {
+      "title": "Exerkines: messengers on their way",
+      "how": "Tap an organ to send out messengers.",
+      "from": "Come from",
+      "to": "Act on",
+      "sources": ["Muscle", "Fat tissue", "Liver", "Other organs"],
+      "targets": ["Metabolism", "Blood vessels", "Immune system", "Brain"],
+      "maybe": "possibly",
+      "studied": "Intensively studied:",
+      "molecules": ["BDNF", "FGF21", "Irisin", "Interleukins"],
+      "sayIdle": "Nothing is on its way yet. Tap “Muscle”.",
+      "saySent": "{{name}} sends out messengers.",
+      "sayOther": "Other organs can send out messengers too.",
+      "sayTail": "They act on metabolism, blood vessels, the immune system and possibly the brain.",
+      "cap": "Schematic · which organ produces which messenger is not shown here"
+    },
+    "sort": {
+      "title": "Useful or not?",
+      "how": "Sort out what an epigenetic test is good for.",
+      "useful": "Useful",
+      "notUseful": "Not useful",
+      "important": "Very important",
+      "usefulItems": [
+        "Observing the trend of selected biomarkers.",
+        "Placing biological changes in the context of lifestyle and training.",
+        "Creating an additional basis for discussion in prevention and consultation."
+      ],
+      "notUsefulItems": [
+        "Deriving a diagnosis from a single value.",
+        "Interpreting a marker as a clear cause.",
+        "Claiming that genes can be “reprogrammed” in a targeted way and at will."
+      ],
+      "importantItems": [
+        "Taking into account the measurement method, tissue, age, sex, medication, diseases and temporal context.",
+        "Always placing results within a larger clinical or preventive picture."
+      ],
+      "sayIdle": "Six statements. Decide for each one: useful or not?",
+      "right": "Correct.",
+      "wrong": "Not quite.",
+      "isUseful": "This is considered useful.",
+      "isNotUseful": "This is considered not useful.",
+      "result": "{{right}} of {{total}} sorted correctly. The overview shows all statements in their place.",
+      "again": "Sort again"
+    }
+  },
+  "closing": {
+    "eyebrow": "The most important insight",
+    "quote": "Our genes form the framework. Epigenetic regulation is one part of the body’s dynamic response to life, environment and behaviour.",
+    "text": "Between genetic predisposition and health outcome lies a complex regulatory system that responds to environment, development and behaviour. These responses are neither arbitrary nor fully controllable, but they are biologically real and increasingly measurable scientifically. Epigenetics should be neither overestimated nor underestimated: its greatest value at present lies in understanding biological adaptation in a more nuanced way and in better interpreting changes over time."
+  },
+  "sources": {
+    "intro": "The content of this article is based on two recent specialist volumes published by Springer.",
+    "note": "Note: this article is intended for general information and does not replace medical diagnostics or individual medical advice."
+  }
+}

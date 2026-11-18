@@ -245,6 +245,10 @@
       "article-precision_point_of_care": {
         "title": "Precisione nel Point-of-Care: La chiave per la sicurezza del paziente",
         "description": "Perché la validazione dei test a flusso laterale (LFT) va oltre le specifiche del produttore."
+      },
+      "article-what_is_epigenetics": {
+        "title": "Che cos’è l’epigenetica?",
+        "description": "I geni sono relativamente stabili, la loro attività no. Panoramica interattiva: come ambiente, stile di vita e movimento influenzano la regolazione genica."
       }
     }
   },

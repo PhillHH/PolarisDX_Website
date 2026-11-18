@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Rozdział",
+    "lab": "Laboratorium",
+    "labHint": "wypróbuj samodzielnie",
+    "labAria": "Laboratorium do rozdziału {{n}}",
+    "tryout": "Do wypróbowania",
+    "more": "Czytaj więcej",
+    "next": "Dalej",
+    "back": "Krok wstecz",
+    "restart": "Od początku"
+  },
+  "stage": {
+    "label": "Podróż do wnętrza w sześciu krokach",
+    "eyebrow": "Epigenetyka · Podstawy",
+    "intro": "Podróż do wnętrza: od ciała aż do pojedynczego znacznika na DNA.",
+    "hint": "Przewiń, aby przybliżyć",
+    "skip": "Przejdź do artykułu",
+    "steps": [
+      {
+        "tick": "Ciało",
+        "word": "Twoje ciało.",
+        "text": "Stale reaguje na swoje otoczenie: na ruch, odżywianie, sen i stres."
+      },
+      {
+        "tick": "Komórka",
+        "word": "Komórka.",
+        "text": "W komórkach na bieżąco reguluje się, które geny są odczytywane silniej, a które słabiej."
+      },
+      {
+        "tick": "Jądro",
+        "word": "Jądro komórkowe.",
+        "text": "W jądrze komórkowym znajduje się DNA. Jest nawinięte na białka zwane histonami."
+      },
+      {
+        "tick": "Upakowanie",
+        "word": "Upakowanie.",
+        "text": "Luźno upakowane DNA można dobrze odczytać, ciasno upakowane – gorzej."
+      },
+      {
+        "tick": "DNA",
+        "word": "DNA.",
+        "text": "Kolejność jego liter pozostaje przez znaczną część życia stosunkowo stabilna."
+      },
+      {
+        "tick": "Znacznik",
+        "word": "Znacznik.",
+        "text": "Małe grupy chemiczne na DNA: zależnie od położenia gen może być aktywny słabiej lub silniej."
+      }
+    ],
+    "canvas": {
+      "cell": "Jedna komórka",
+      "nucleus": "Jądro komórkowe",
+      "dna": "DNA, nawinięte",
+      "methyl": "Grupy metylowe",
+      "loose": "luźno · łatwo odczytać",
+      "dense": "ciasno · trudno odczytać"
+    }
+  },
+  "intro": {
+    "eyebrow": "U celu",
+    "title": "Tam, przy DNA, zaczyna się epigenetyka.",
+    "lead": "Geny są stosunkowo stabilne. Ich aktywność już nie. Epigenetyka opisuje część regulacji biologicznej, poprzez którą komórki reagują na rozwój, wiek, środowisko i styl życia.",
+    "steps": [
+      {
+        "title": "DNA pozostaje.",
+        "text": "Sekwencja DNA człowieka jest przez znaczną część życia stosunkowo stabilna."
+      },
+      {
+        "title": "Aktywność się zmienia.",
+        "text": "Komórki na bieżąco regulują, które geny są odczytywane silniej, a które słabiej."
+      },
+      {
+        "title": "Liczy się przebieg w czasie.",
+        "text": "Określone wzorce epigenetyczne mogą się zmieniać w ciągu życia."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Główna idea",
+      "question": "Czym jest epigenetyka?",
+      "answer": "Twoje geny pozostają w dużej mierze takie same. Zmienia się to, jak bardzo są aktywne. Epigenetyka opisuje, jak komórki regulują aktywność genów, nie zmieniając samego DNA.",
+      "points": [
+        "Sekwencja DNA jest przez znaczną część życia stosunkowo stabilna.",
+        "Komórki na bieżąco regulują, które geny są odczytywane silniej, a które słabiej.",
+        "Określone wzorce epigenetyczne mogą się zmieniać w ciągu życia."
+      ],
+      "long": [
+        "Genetyka kojarzy się wielu osobom z niezmiennym planem budowy. Rzeczywiście, sekwencja DNA człowieka jest przez znaczną część życia stosunkowo stabilna. Geny nie są jednak stale jednakowo aktywne: komórki na bieżąco regulują, które geny są odczytywane silniej, a które słabiej, kiedy wytwarzane są określone białka i jak tkanki dostosowują się do obciążeń.",
+        "Właśnie w tym miejscu zaczyna się epigenetyka. Bada ona mechanizmy, które wpływają na aktywność genów, nie zmieniając sekwencji DNA. W ten sposób pomaga wyjaśnić, jak współdziałają predyspozycje i środowisko życia.",
+        "Dla profilaktyki, medycyny sportowej, Healthy Aging i poradnictwa zdrowotnego ten poziom jest szczególnie interesujący: podstawowe wyposażenie genetyczne pozostaje w dużej mierze stałe, a określone wzorce epigenetyczne mogą się zmieniać w ciągu życia."
+      ]
+    },
+    {
+      "nav": "Mechanizmy",
+      "question": "Jak gen staje się głośniejszy lub cichszy?",
+      "answer": "Poprzez trzy mechanizmy, które ze sobą współpracują: znaczniki na DNA, upakowanie DNA i małe cząsteczki RNA.",
+      "points": [
+        "Metylacja: małe grupy chemiczne znajdują się w określonych miejscach DNA.",
+        "Histony: DNA jest nawinięte na białka, raz luźniej, raz ciaśniej.",
+        "RNA: małe cząsteczki RNA mogą wpływać na to, jak wykorzystywana jest kopia genu."
+      ],
+      "long": [
+        "Epigenetyka to nie pojedynczy przełącznik. Kilka mechanizmów zazębia się ze sobą i wpływa na to, jak dostępna jest informacja genetyczna i jak silnie jest wykorzystywana.",
+        "Metylacja DNA: małe grupy chemiczne są przyłączane do określonych miejsc DNA. Zależnie od położenia może się to wiązać ze słabszą albo silniejszą aktywnością genów. Metylacja DNA należy do najczęściej badanych mechanizmów epigenetycznych.",
+        "Modyfikacje histonów: w jądrze komórkowym DNA jest nawinięte na białka histonowe. Chemiczne zmiany tych białek mogą rozluźniać lub zacieśniać upakowanie i w ten sposób wpływać na to, jak dobrze można odczytać określone obszary.",
+        "Regulacja przez RNA: mikroRNA i inne niekodujące RNA mogą wpływać na to, jak informacja genetyczna jest przetwarzana i wykorzystywana po transkrypcji. Uważa się je za ważny dodatkowy poziom regulacji genów."
+      ]
+    },
+    {
+      "nav": "Środowisko",
+      "question": "Co moja codzienność ma z tym wspólnego?",
+      "answer": "Ciało stale reaguje na swoje otoczenie. W części tych reakcji regulacja epigenetyczna może pośredniczyć lub im towarzyszyć.",
+      "points": [
+        "Obejmuje to ruch, odżywianie, sen, stres, stany zapalne i starzenie się.",
+        "Zalicza się do tego także substancje szkodliwe, leki i wpływy społeczne.",
+        "Ważne: zmiana epigenetyczna nie jest automatycznie przyczyną choroby."
+      ],
+      "long": [
+        "Organizm człowieka nieustannie reaguje na swoje otoczenie. Obejmuje to aktywność fizyczną, odżywianie, sen, obciążenie psychiczne, procesy zapalne, substancje szkodliwe, leki, wpływy społeczne i procesy starzenia. W części tych reakcji regulacja epigenetyczna może pośredniczyć lub im towarzyszyć.",
+        "Zmiana epigenetyczna nie jest automatycznie przyczyną choroby. Badania często pokazują najpierw powiązania. To, czy marker jest przyczyną, skutkiem czy zjawiskiem towarzyszącym, trzeba zbadać osobno."
+      ]
+    },
+    {
+      "nav": "Stres",
+      "question": "Co się dzieje, gdy stres dociera do mózgu?",
+      "answer": "Aktualne modele postrzegają zdrowie psychiczne jako współdziałanie kilku poziomów: predyspozycji, środowiska, regulacji biologicznej, mózgu i samoregulacji.",
+      "points": [
+        "Bada się to między innymi w przypadku zaburzeń lękowych, depresji, ADHD i przewlekłego stresu.",
+        "Samoregulacja to dostosowywanie uczuć, uwagi, impulsów i zachowania do wymagań.",
+        "Badania w tym zakresie wciąż się rozwijają, wiele ustaleń to na razie powiązania."
+      ],
+      "long": [
+        "Szczególnie ciekawe są badania tam, gdzie obciążenia środowiskowe spotykają się z mózgiem i zachowaniem. Współczesne modele coraz częściej traktują zdrowie psychiczne jako dynamiczne współdziałanie kilku poziomów: predyspozycji genetycznych, środowiska, regulacji biologicznej, funkcjonowania mózgu i samoregulacji psychologicznej.",
+        "Takie powiązania bada się między innymi w przypadku zaburzeń lękowych, depresji, ADHD, zespołu stresu pourazowego i stanów przewlekłego stresu.",
+        "Kluczowym pojęciem jest samoregulacja: zdolność dostosowywania emocji, uwagi, impulsów, reakcji na stres i zachowania do wymagań."
+      ]
+    },
+    {
+      "nav": "Ruch",
+      "question": "Co ruch robi z ciałem?",
+      "answer": "Trening wysyła sygnały, ciało odpowiada adaptacją. Regularny ruch zmienia metabolizm, naczynia krwionośne, mięśnie, układ odpornościowy i mózg.",
+      "points": [
+        "Badania opisują także zmiany epigenetyczne po treningu.",
+        "Trenowane już wcześniej mięśnie mogą po przerwie szybciej odbudować określone adaptacje.",
+        "Część tych badań pochodzi dotychczas z modeli zwierzęcych. W odniesieniu do pojedynczych osób potrzebna jest ostrożność."
+      ],
+      "long": [
+        "Środowisko działa nie tylko jako obciążenie. Aktywność fizyczna jest szczególnie obrazowym przykładem tego, jak zdolne do adaptacji są systemy biologiczne. Regularny ruch zmienia metabolizm, funkcję naczyń krwionośnych, mięśnie, układ odpornościowy i mózg, a coraz częściej jest też łączony ze zmianami epigenetycznymi.",
+        "Badania opisują po treningu między innymi zmiany metylacji DNA, znaczników histonowych i regulatorowych RNA. Mogą się one wiązać z adaptacjami metabolicznymi, funkcją mitochondriów, regulacją stanu zapalnego i naprawą tkanek.",
+        "Trening wytwarza sygnały mechaniczne, metaboliczne i hormonalne. Ciało reaguje na nie adaptacją.",
+        "W przypadku mięśni często mówi się o „Muscle Memory” (pamięci mięśniowej): trenowane już wcześniej mięśnie mogą po przerwie w treningu szybciej odbudować określone adaptacje. Oprócz mechanizmów nerwowo-mięśniowych i strukturalnych bada się także wyjaśnienia epigenetyczne.",
+        "Podobne pytania pojawiają się w odniesieniu do metabolizmu, regulacji stanu zapalnego, układu sercowo-naczyniowego i mózgu. Zwłaszcza wczesna aktywność ruchowa mogłaby pozostawiać dłużej utrzymujące się efekty biologiczne. Część tych dowodów pochodzi dotychczas z modeli zwierzęcych, dlatego stwierdzenia dotyczące pojedynczych osób trzeba formułować ostrożnie."
+      ]
+    },
+    {
+      "nav": "Starzenie",
+      "question": "Co mierzy epigenetyczny zegar wieku?",
+      "answer": "Próbuje wywnioskować z danych molekularnych tendencję starzenia się. Nie jest dokładnym pomiarem „prawdziwego wieku biologicznego”.",
+      "points": [
+        "Z wiekiem zmieniają się typowe wzorce regulacji genów.",
+        "Wyniki zależą od modelu, tkanki, grupy porównawczej i metody pomiaru.",
+        "Szczególnie sensowne może być spojrzenie na trend: jak marker zmienia się w czasie?"
+      ],
+      "long": [
+        "Wraz z wiekiem zmieniają się charakterystyczne wzorce regulacji genów. Na podstawie wzorców metylacji DNA opracowano tak zwane epigenetyczne zegary wieku. Próbują one wywnioskować z danych molekularnych tendencję starzenia się.",
+        "Takie metody są naukowo interesujące, ale nie są tożsame z dokładnym pomiarem „prawdziwego wieku biologicznego”. Wyniki zależą od modelu, tkanki, populacji referencyjnej i metody pomiaru. Dlatego szczególnie sensowna może być obserwacja trendu: jak marker zmienia się w czasie i w kontekście udokumentowanych działań dotyczących stylu życia?"
+      ]
+    },
+    {
+      "nav": "Egzerkiny",
+      "question": "Jak narządy rozmawiają ze sobą podczas ruchu?",
+      "answer": "Za pomocą substancji sygnałowych zwanych egzerkinami. Mogą one pochodzić z mięśni, tkanki tłuszczowej, wątroby i innych narządów.",
+      "points": [
+        "Działają na metabolizm, naczynia krwionośne, układ odpornościowy i być może na mózg.",
+        "Intensywnie bada się między innymi BDNF, FGF21, iryzynę i określone interleukiny.",
+        "W ten sposób staje się zrozumiałe, dlaczego działanie ruchu sięga daleko poza trenowany mięsień."
+      ],
+      "long": [
+        "Aktywność fizyczna wywołuje uwalnianie licznych cząsteczek sygnałowych. Takie zależne od ruchu substancje sygnałowe nazywa się egzerkinami. Do intensywnie badanych kandydatów należą między innymi BDNF, FGF21, iryzyna i określone interleukiny.",
+        "Regulacja epigenetyczna może z kolei wpływać na to, jak takie cząsteczki sygnałowe są wytwarzane. To wyraźnie pokazuje, dlaczego działanie ruchu sięga daleko poza trenowany mięsień."
+      ]
+    },
+    {
+      "nav": "Testy",
+      "question": "Co potrafią testy epigenetyczne – a czego nie?",
+      "answer": "Ma sens rozpatrywanie trendu wybranych markerów w kontekście. Nie ma sensu diagnoza na podstawie pojedynczej wartości.",
+      "points": [
+        "Testy mogą być dodatkową podstawą rozmowy w profilaktyce i poradnictwie.",
+        "Marker nie jest automatycznie jednoznaczną przyczyną.",
+        "Przy interpretacji zawsze należy uwzględnić metodę pomiaru, tkankę, wiek, płeć, leki i choroby."
+      ],
+      "long": [
+        "Ma sens: obserwować trend wybranych biomarkerów; interpretować zmiany biologiczne w kontekście stylu życia i treningu; tworzyć dodatkową podstawę rozmowy w profilaktyce i poradnictwie.",
+        "Nie ma sensu: stawiać diagnozę na podstawie pojedynczej wartości; interpretować marker jako jednoznaczną przyczynę; twierdzić, że geny można celowo i dowolnie „przeprogramować”.",
+        "Szczególnie ważne: uwzględniać metodę pomiaru, tkankę, wiek, płeć, leki, choroby i kontekst czasowy. Wyniki zawsze powinny być wpisywane w szerszy obraz kliniczny lub profilaktyczny."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Ruch", "Odżywianie", "Stres", "Sen", "Stan zapalny", "Starzenie"],
+      "full": [
+        "Ruch i bodźce treningowe",
+        "Sygnały żywieniowe i metaboliczne",
+        "Stres i obciążenie psychospołeczne",
+        "Sen i rytmy okołodobowe",
+        "Procesy zapalne i immunologiczne",
+        "Procesy starzenia i stres komórkowy"
+      ]
+    },
+    "pult": {
+      "title": "Stół mikserski genów",
+      "how": "Włącz bodziec i obserwuj suwaki.",
+      "legendActivity": "Suwaki: aktywność genów",
+      "legendSequence": "Litery: sekwencja DNA",
+      "sayIdle": "Żaden bodziec nie jest jeszcze aktywny. Suwaki są w położeniu wyjściowym.",
+      "sayActive": "Aktywne bodźce: {{n}} z 6. Przesunięte suwaki: {{m}} z 16. Litery sekwencji pozostały takie same.",
+      "sayNone": "Żaden bodziec nie jest już aktywny. Suwaki znów są w położeniu wyjściowym.",
+      "cap": "Schemat · pokazuje zasadę, a nie dane pomiarowe ani kierunek działania"
+    },
+    "methyl": {
+      "tab": "Metylacja",
+      "title": "Metylacja: dodawanie znaczników",
+      "how": "Kliknij jedno z miejsc na DNA, aby przyłączyć grupę metylową.",
+      "group": "Osiem miejsc na DNA",
+      "site": "Miejsce {{n}}",
+      "meter": "Aktywność genu",
+      "lower": "słabsza",
+      "higher": "silniejsza",
+      "sayIdle": "Nie dodano jeszcze żadnego znacznika. Aktywność genu jest pośrodku.",
+      "saySetLower": "Dodano znacznik w miejscu {{n}}: aktywność genu stała się słabsza. Wypróbuj inne miejsce: zależnie od położenia może być odwrotnie.",
+      "saySetHigher": "Dodano znacznik w miejscu {{n}}: aktywność genu stała się silniejsza. Wypróbuj inne miejsce: zależnie od położenia może być odwrotnie.",
+      "sayRemoved": "Usunięto znacznik z miejsca {{n}}. Aktywność genu wraca w stronę poziomu wyjściowego.",
+      "cap": "Schemat · działanie poszczególnych miejsc wybrano tu dowolnie"
+    },
+    "histone": {
+      "tab": "Histony",
+      "title": "Histony: upakowanie",
+      "how": "Przesuń suwak od luźnego do ciasnego upakowania.",
+      "loose": "luźno",
+      "dense": "ciasno",
+      "aria": "Upakowanie DNA od luźnego do ciasnego",
+      "stateLoose": "luźno · łatwo odczytać",
+      "stateDense": "ciasno · trudno odczytać",
+      "sayLoose": "Luźno upakowane: DNA jest odsłonięte i można je dobrze odczytać.",
+      "sayDense": "Ciasno upakowane: DNA jest trudno dostępne. Odczytywanie nie posuwa się tu dalej.",
+      "cap": "Schemat · punkt oznacza odczytywanie DNA"
+    },
+    "rna": {
+      "tab": "RNA",
+      "title": "RNA: precyzyjne dostrajanie",
+      "how": "Kliknij przycisk i pozwól cząsteczce mikroRNA się przyłączyć.",
+      "dock": "Przyłącz mikroRNA",
+      "undock": "Odłącz mikroRNA",
+      "mrna": "mRNA · kopia genu",
+      "mirna": "mikroRNA",
+      "sayIdle": "mRNA to kopia genu. Żadna cząsteczka mikroRNA jeszcze się nie przyłączyła.",
+      "sayDocked": "Cząsteczka mikroRNA się przyłączyła. Może wpływać na to, jak ta kopia jest dalej przetwarzana i wykorzystywana.",
+      "sayFree": "Cząsteczka mikroRNA się odłączyła. mRNA jest znów wolne.",
+      "cap": "Schemat"
+    },
+    "ring": {
+      "title": "Sześć czynników, jeden system regulacji",
+      "how": "Kliknij jeden z czynników.",
+      "aria": "Sześć czynników wpływających na regulację genów",
+      "core": ["Regulacja", "genów"],
+      "sayIdle": "Ciało stale reaguje na swoje otoczenie. Kliknij jeden z sześciu czynników.",
+      "sayPick": "„{{name}}” to jeden z sześciu czynników, na które reaguje ciało. W części tych reakcji regulacja epigenetyczna może pośredniczyć lub im towarzyszyć.",
+      "cap": "Schemat"
+    },
+    "cause": {
+      "title": "Powiązanie to nie przyczyna",
+      "how": "Kliknij kolejno trzy możliwości.",
+      "aria": "Trzy możliwości",
+      "options": ["Przyczyna", "Skutek", "Zjawisko towarzyszące"],
+      "marker": ["Marker", "epigenetyczny"],
+      "disease": "Choroba",
+      "together": "występują razem",
+      "say": [
+        "Możliwość 1: marker jest przyczyną choroby.",
+        "Możliwość 2: marker jest skutkiem choroby.",
+        "Możliwość 3: marker i choroba występują razem, przy czym jedno nie wywołuje drugiego."
+      ],
+      "tail": "To, która z trzech możliwości jest prawdziwa, trzeba zbadać osobno."
+    },
+    "chainPsy": {
+      "title": "Od środowiska do zachowania",
+      "how": "Przejdź krok po kroku przez pięć poziomów.",
+      "steps": [
+        {
+          "label": "Środowisko",
+          "text": "Obciążenia i wpływy z zewnątrz docierają do ciała."
+        },
+        {
+          "label": "Regulacja epigenetyczna",
+          "text": "W części reakcji może pośredniczyć regulacja epigenetyczna."
+        },
+        {
+          "label": "Ekspresja genów",
+          "text": "W ten sposób może się zmieniać to, które geny są odczytywane silniej, a które słabiej."
+        },
+        {
+          "label": "Mózg i ciało",
+          "text": "Może to dotyczyć funkcjonowania mózgu i ciała."
+        },
+        {
+          "label": "Zachowanie i samoregulacja",
+          "text": "Samoregulacja to zdolność dostosowywania uczuć, uwagi, impulsów i reakcji na stres do wymagań."
+        }
+      ],
+      "cap": "Tak opisują to aktualne modele · w uproszczeniu"
+    },
+    "chainTrain": {
+      "title": "Co trening wprawia w ruch",
+      "how": "Przejdź łańcuch krok po kroku.",
+      "steps": [
+        {
+          "label": "Trening",
+          "text": "Trening wytwarza sygnały mechaniczne, metaboliczne i hormonalne."
+        },
+        {
+          "label": "Bodziec komórkowy",
+          "text": "Sygnały docierają do komórek."
+        },
+        {
+          "label": "Adaptacja epigenetyczna",
+          "text": "Badania opisują po treningu zmiany metylacji DNA, znaczników histonowych i regulatorowych RNA."
+        },
+        {
+          "label": "Zmieniona aktywność genów",
+          "text": "Geny są odczytywane inaczej niż wcześniej."
+        },
+        {
+          "label": "Adaptacja długoterminowa",
+          "text": "Może się to wiązać z adaptacjami w zakresie metabolizmu, regulacji stanu zapalnego i naprawy tkanek."
+        }
+      ],
+      "cap": "Przedstawienie uproszczone"
+    },
+    "muscle": {
+      "title": "Muscle Memory: czy mięsień pamięta?",
+      "how": "Naciśnij kolejno trzy przyciski.",
+      "aria": "Schemat: adaptacja podczas pierwszego treningu, w przerwie i po wznowieniu treningu",
+      "buttons": ["Trenuj", "Zrób przerwę", "Wznów trening"],
+      "reset": "Resetuj",
+      "labels": ["Pierwszy trening", "Przerwa", "Wznowienie treningu"],
+      "axisTime": "Czas",
+      "axisLevel": "Adaptacja",
+      "sayIdle": "Zacznij od „Trenuj”.",
+      "say": [
+        "Pierwszy trening: adaptacja narasta stopniowo.",
+        "Przerwa: część adaptacji się cofa.",
+        "Wznowienie treningu: trenowane już wcześniej mięśnie mogą szybciej odbudować określone adaptacje. Krzywa rośnie bardziej stromo niż za pierwszym razem."
+      ],
+      "sayReset": "Zresetowano. Zacznij ponownie od „Trenuj”.",
+      "cap": "Schemat poglądowy · nie są to dane pomiarowe"
+    },
+    "trend": {
+      "title": "Pojedyncza wartość czy trend?",
+      "how": "Przesuń suwak i dodaj pomiary.",
+      "aria": "Schemat: z każdym kolejnym pomiarem pojedyncze wartości układają się w trend",
+      "point": "Pomiar {{n}}",
+      "count": "Pomiary",
+      "countAria": "Liczba pomiarów",
+      "sayOne": "Pojedyncza wartość: na jej podstawie nie da się postawić diagnozy.",
+      "sayMany": "Liczba pomiarów: {{n}}. Teraz widać trend. Pytanie brzmi: jak marker zmienia się w czasie i w kontekście udokumentowanych działań dotyczących stylu życia?",
+      "cap": "Schemat · nie są to dane pomiarowe"
+    },
+    "exer": {
+      "title": "Egzerkiny: substancje sygnałowe w drodze",
+      "how": "Kliknij narząd, aby wysłać substancje sygnałowe.",
+      "from": "Skąd pochodzą",
+      "to": "Na co działają",
+      "sources": ["Mięsień", "Tkanka tłuszczowa", "Wątroba", "Inne narządy"],
+      "targets": ["Metabolizm", "Naczynia krwionośne", "Układ odpornościowy", "Mózg"],
+      "maybe": "być może",
+      "studied": "Intensywnie badane:",
+      "molecules": ["BDNF", "FGF21", "Iryzyna", "Interleukiny"],
+      "sayIdle": "Na razie nic nie jest w drodze. Kliknij „Mięsień”.",
+      "saySent": "{{name}} wysyła substancje sygnałowe.",
+      "sayOther": "Także inne narządy mogą wysyłać substancje sygnałowe.",
+      "sayTail": "Działają one na metabolizm, naczynia krwionośne, układ odpornościowy i być może na mózg.",
+      "cap": "Schemat · nie pokazano tu, który narząd wytwarza którą substancję sygnałową"
+    },
+    "sort": {
+      "title": "Ma sens czy nie?",
+      "how": "Oceń, do czego nadaje się test epigenetyczny.",
+      "useful": "Ma sens",
+      "notUseful": "Nie ma sensu",
+      "important": "Szczególnie ważne",
+      "usefulItems": [
+        "Obserwować trend wybranych biomarkerów.",
+        "Interpretować zmiany biologiczne w kontekście stylu życia i treningu.",
+        "Tworzyć dodatkową podstawę rozmowy w profilaktyce i poradnictwie."
+      ],
+      "notUsefulItems": [
+        "Stawiać diagnozę na podstawie pojedynczej wartości.",
+        "Interpretować marker jako jednoznaczną przyczynę.",
+        "Twierdzić, że geny można celowo i dowolnie „przeprogramować”."
+      ],
+      "importantItems": [
+        "Uwzględniać metodę pomiaru, tkankę, wiek, płeć, leki, choroby i kontekst czasowy.",
+        "Zawsze wpisywać wyniki w szerszy obraz kliniczny lub profilaktyczny."
+      ],
+      "sayIdle": "Sześć stwierdzeń. Przy każdym zdecyduj: ma sens czy nie?",
+      "right": "Dobrze.",
+      "wrong": "Nie do końca.",
+      "isUseful": "Uznaje się, że to ma sens.",
+      "isNotUseful": "Uznaje się, że to nie ma sensu.",
+      "result": "Poprawnie oceniono: {{right}} z {{total}}. Zestawienie pokazuje wszystkie stwierdzenia na swoim miejscu.",
+      "again": "Oceń jeszcze raz"
+    }
+  },
+  "closing": {
+    "eyebrow": "Najważniejszy wniosek",
+    "quote": "Nasze geny tworzą ramy. Regulacja epigenetyczna jest częścią dynamicznej odpowiedzi organizmu na życie, środowisko i zachowanie.",
+    "text": "Między predyspozycją genetyczną a wynikiem zdrowotnym znajduje się złożony system regulacji, który reaguje na środowisko, rozwój i zachowanie. Reakcje te nie są ani dowolne, ani w pełni możliwe do kontrolowania, ale są biologicznie realne i w coraz większym stopniu mierzalne naukowo. Epigenetyki nie należy ani przeceniać, ani niedoceniać: jej największa wartość polega obecnie na tym, że pozwala w bardziej zniuansowany sposób rozumieć adaptację biologiczną i lepiej interpretować zmiany w czasie."
+  },
+  "sources": {
+    "intro": "Ten artykuł opiera się merytorycznie na dwóch aktualnych książkach specjalistycznych wydawnictwa Springer.",
+    "note": "Uwaga: artykuł służy ogólnej informacji i nie zastępuje diagnostyki medycznej ani indywidualnej porady lekarskiej."
+  }
+}

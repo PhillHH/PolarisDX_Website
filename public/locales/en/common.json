@@ -220,6 +220,10 @@
       "article-precision_point_of_care": {
         "title": "Precision in Point-of-Care: The Key to Patient Safety",
         "description": "Why the validation of Lateral Flow Tests (LFT) goes beyond manufacturer specifications."
+      },
+      "article-what_is_epigenetics": {
+        "title": "What is epigenetics?",
+        "description": "Genes are relatively stable; their activity is not. An interactive overview: how environment, lifestyle and exercise influence gene regulation."
       }
     }
   },

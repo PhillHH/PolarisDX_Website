@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Hoofdstuk",
+    "lab": "Lab",
+    "labHint": "zelf uitproberen",
+    "labAria": "Lab bij hoofdstuk {{n}}",
+    "tryout": "Om uit te proberen",
+    "more": "Uitgebreid lezen",
+    "next": "Verder",
+    "back": "Stap terug",
+    "restart": "Opnieuw"
+  },
+  "stage": {
+    "label": "Reis naar binnen in zes stappen",
+    "eyebrow": "Epigenetica · De basis",
+    "intro": "Een reis naar binnen: van het lichaam tot de afzonderlijke markering op het DNA.",
+    "hint": "Scroll om in te zoomen",
+    "skip": "Direct naar het artikel",
+    "steps": [
+      {
+        "tick": "Lichaam",
+        "word": "Uw lichaam.",
+        "text": "Het reageert voortdurend op zijn omgeving: op beweging, voeding, slaap en stress."
+      },
+      {
+        "tick": "Cel",
+        "word": "De cel.",
+        "text": "In de cellen wordt doorlopend geregeld welke genen sterker of zwakker worden afgelezen."
+      },
+      {
+        "tick": "Celkern",
+        "word": "De celkern.",
+        "text": "In de celkern ligt het DNA. Het is om eiwitten gewikkeld, de histonen."
+      },
+      {
+        "tick": "Verpakking",
+        "word": "De verpakking.",
+        "text": "Los verpakt is het DNA goed af te lezen, strak verpakt minder goed."
+      },
+      {
+        "tick": "DNA",
+        "word": "Het DNA.",
+        "text": "De volgorde van zijn letters blijft gedurende grote delen van het leven relatief stabiel."
+      },
+      {
+        "tick": "Markering",
+        "word": "De markering.",
+        "text": "Kleine chemische groepen op het DNA: afhankelijk van de positie kan een gen zwakker of sterker actief zijn."
+      }
+    ],
+    "canvas": {
+      "cell": "Een cel",
+      "nucleus": "Celkern",
+      "dna": "DNA, opgewikkeld",
+      "methyl": "Methylgroepen",
+      "loose": "los · goed afleesbaar",
+      "dense": "strak · moeilijk afleesbaar"
+    }
+  },
+  "intro": {
+    "eyebrow": "Aangekomen",
+    "title": "Daar, bij het DNA, begint epigenetica.",
+    "lead": "Genen zijn relatief stabiel. Hun activiteit is dat niet. Epigenetica beschrijft een deel van de biologische regulatie waarmee cellen reageren op ontwikkeling, leeftijd, omgeving en leefstijl.",
+    "steps": [
+      {
+        "title": "Het DNA blijft.",
+        "text": "De sequentie van een mens is gedurende grote delen van het leven relatief stabiel."
+      },
+      {
+        "title": "De activiteit wisselt.",
+        "text": "Cellen regelen doorlopend welke genen sterker of zwakker worden afgelezen."
+      },
+      {
+        "title": "Het verloop telt.",
+        "text": "Bepaalde epigenetische patronen kunnen in de loop van het leven veranderen."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Basisidee",
+      "question": "Wat is epigenetica?",
+      "answer": "Uw genen blijven grotendeels hetzelfde. Hoe actief ze zijn, verandert. Epigenetica beschrijft hoe cellen de activiteit van genen regelen zonder het DNA zelf te veranderen.",
+      "points": [
+        "De DNA-sequentie is gedurende grote delen van het leven relatief stabiel.",
+        "Cellen regelen doorlopend welke genen sterker of zwakker worden afgelezen.",
+        "Bepaalde epigenetische patronen kunnen in de loop van het leven veranderen."
+      ],
+      "long": [
+        "Bij genetica denken veel mensen aan een onveranderlijk bouwplan. De DNA-sequentie van een mens is inderdaad gedurende grote delen van het leven relatief stabiel. Maar genen zijn niet voortdurend even actief: cellen reguleren doorlopend welke genen sterker of zwakker worden afgelezen, wanneer bepaalde eiwitten worden aangemaakt en hoe weefsel zich aan belasting aanpast.",
+        "Precies hier begint de epigenetica. Ze onderzoekt mechanismen die de activiteit van genen beïnvloeden zonder de DNA-sequentie te veranderen. Zo helpt ze te verklaren hoe aanleg en leefomgeving samenwerken.",
+        "Voor preventie, sportgeneeskunde, Healthy Aging en gezondheidsadvies is dit niveau bijzonder interessant: de genetische basisuitrusting blijft grotendeels constant, bepaalde epigenetische patronen kunnen in de loop van het leven veranderen."
+      ]
+    },
+    {
+      "nav": "Mechanismen",
+      "question": "Hoe wordt een gen luider of zachter?",
+      "answer": "Via drie mechanismen die samenwerken: markeringen op het DNA, de verpakking van het DNA en kleine RNA-moleculen.",
+      "points": [
+        "Methylatie: kleine chemische groepen zitten op bepaalde plaatsen van het DNA.",
+        "Histonen: het DNA is om eiwitten gewikkeld, soms losser, soms strakker.",
+        "RNA: kleine RNA-moleculen kunnen beïnvloeden hoe een afschrift van een gen wordt gebruikt."
+      ],
+      "long": [
+        "Epigenetica is niet één enkele schakelaar. Meerdere mechanismen grijpen in elkaar en beïnvloeden hoe toegankelijk genetische informatie is en hoe sterk ze wordt gebruikt.",
+        "DNA-methylatie: kleine chemische groepen worden op bepaalde plaatsen aan het DNA toegevoegd. Afhankelijk van de positie kan dat gepaard gaan met een lagere of sterkere genactiviteit. DNA-methylatie behoort tot de meest onderzochte epigenetische mechanismen.",
+        "Histonmodificaties: in de celkern is het DNA om histoneiwitten gewikkeld. Chemische veranderingen aan deze eiwitten kunnen de verpakking losser of strakker maken en zo beïnvloeden hoe goed bepaalde gebieden kunnen worden afgelezen.",
+        "RNA-regulatie: microRNA’s en andere niet-coderende RNA’s kunnen beïnvloeden hoe genetische informatie na de transcriptie wordt verwerkt en gebruikt. Ze gelden als een belangrijk extra niveau van de genregulatie."
+      ]
+    },
+    {
+      "nav": "Omgeving",
+      "question": "Wat heeft mijn dagelijks leven daarmee te maken?",
+      "answer": "Het lichaam reageert voortdurend op zijn omgeving. Een deel van deze reacties kan via epigenetische regulatie verlopen of ermee gepaard gaan.",
+      "points": [
+        "Daarbij horen beweging, voeding, slaap, stress, ontstekingen en het ouder worden.",
+        "Ook schadelijke stoffen, medicijnen en sociale invloeden horen daarbij.",
+        "Belangrijk: een epigenetische verandering is niet automatisch de oorzaak van een aandoening."
+      ],
+      "long": [
+        "Het menselijk organisme reageert continu op zijn omgeving. Daarbij horen lichamelijke activiteit, voeding, slaap, psychische belasting, ontstekingsprocessen, schadelijke stoffen, medicijnen, sociale invloeden en verouderingsprocessen. Een deel van deze reacties kan via epigenetische regulatie verlopen of ermee gepaard gaan.",
+        "Een epigenetische verandering is niet automatisch de oorzaak van een aandoening. Vaak laten studies in eerste instantie verbanden zien. Of een marker oorzaak, gevolg of bijverschijnsel is, moet afzonderlijk worden onderzocht."
+      ]
+    },
+    {
+      "nav": "Stress",
+      "question": "Wat gebeurt er als stress de hersenen raakt?",
+      "answer": "Huidige modellen zien psychische gezondheid als een samenspel van meerdere niveaus: aanleg, omgeving, biologische regulatie, hersenen en zelfregulatie.",
+      "points": [
+        "Dit wordt onder andere onderzocht bij angststoornissen, depressie, ADHD en chronische stress.",
+        "Zelfregulatie betekent: gevoelens, aandacht, impulsen en gedrag aanpassen aan de eisen die worden gesteld.",
+        "Het onderzoek hiernaar is in beweging; veel bevindingen zijn in eerste instantie verbanden."
+      ],
+      "long": [
+        "Bijzonder boeiend is het onderzoek daar waar belasting uit de omgeving de hersenen en het gedrag raakt. Moderne modellen beschouwen psychische gezondheid steeds meer als een dynamisch samenspel van meerdere niveaus: genetische aanleg, omgeving, biologische regulatie, hersenfunctie en psychologische zelfregulatie.",
+        "Zulke verbanden worden onder andere onderzocht bij angststoornissen, depressie, ADHD, posttraumatische stressstoornis en chronische stresstoestanden.",
+        "Een centraal begrip is zelfregulatie: het vermogen om emoties, aandacht, impulsen, stressreacties en gedrag aan te passen aan de eisen die worden gesteld."
+      ]
+    },
+    {
+      "nav": "Beweging",
+      "question": "Wat doet beweging met het lichaam?",
+      "answer": "Training zendt signalen uit, het lichaam antwoordt met aanpassing. Regelmatige beweging verandert de stofwisseling, de bloedvaten, de spieren, het immuunsysteem en de hersenen.",
+      "points": [
+        "Studies beschrijven na training ook epigenetische veranderingen.",
+        "Eerder getrainde spieren kunnen na een pauze bepaalde aanpassingen sneller weer opbouwen.",
+        "Een deel van dit onderzoek komt tot nu toe uit diermodellen. Voor individuele mensen is voorzichtigheid nodig."
+      ],
+      "long": [
+        "De omgeving werkt niet alleen als belasting. Lichamelijke activiteit is een bijzonder sprekend voorbeeld van hoe goed biologische systemen zich kunnen aanpassen. Regelmatige beweging verandert de stofwisseling, de vaatfunctie, de spieren, het immuunsysteem en de hersenen en wordt steeds vaker ook in verband gebracht met epigenetische veranderingen.",
+        "Studies beschrijven na training onder andere veranderingen in DNA-methylatie, histonmarkeringen en regulerende RNA’s. Ze kunnen samenhangen met stofwisselingsaanpassingen, mitochondriale functie, ontstekingsregulatie en weefselherstel.",
+        "Training wekt mechanische, metabole en hormonale signalen op. Het lichaam reageert daarop met aanpassing.",
+        "Bij spieren wordt vaak gesproken van “Muscle Memory” (spiergeheugen): eerder getrainde spieren kunnen na een trainingspauze bepaalde aanpassingen sneller weer opbouwen. Naast neuromusculaire en structurele mechanismen worden ook epigenetische verklaringen onderzocht.",
+        "Vergelijkbare vragen spelen bij stofwisseling, ontstekingsregulatie, hart- en vaatstelsel en hersenen. Vooral vroege beweging zou biologische effecten op langere termijn kunnen achterlaten. Een deel van dit bewijs komt tot nu toe uit diermodellen. Daarom moeten uitspraken over individuele mensen voorzichtig worden geformuleerd."
+      ]
+    },
+    {
+      "nav": "Veroudering",
+      "question": "Wat meet een epigenetische leeftijdsklok?",
+      "answer": "Ze probeert uit moleculaire gegevens een verouderingstendens af te leiden. Een exacte meting van de “ware biologische leeftijd” is ze niet.",
+      "points": [
+        "Met het ouder worden veranderen typische patronen van de genregulatie.",
+        "De resultaten hangen af van het model, het weefsel, de vergelijkingsgroep en de meetmethode.",
+        "Bijzonder zinvol kan het zijn om naar het verloop te kijken: hoe verandert een marker in de loop van de tijd?"
+      ],
+      "long": [
+        "Naarmate de leeftijd toeneemt, veranderen kenmerkende patronen van de genregulatie. Uit DNA-methylatiepatronen zijn zogeheten epigenetische leeftijdsklokken ontwikkeld. Ze proberen uit moleculaire gegevens een verouderingstendens af te leiden.",
+        "Zulke methoden zijn wetenschappelijk interessant, maar niet hetzelfde als een exacte meting van de “ware biologische leeftijd”. De resultaten hangen af van het model, het weefsel, de referentiepopulatie en de meetmethode. Bijzonder zinvol kan het daarom zijn om naar het verloop te kijken: hoe verandert een marker in de loop van de tijd en in de context van gedocumenteerde leefstijlmaatregelen?"
+      ]
+    },
+    {
+      "nav": "Exerkines",
+      "question": "Hoe praten organen met elkaar bij beweging?",
+      "answer": "Via boodschapperstoffen, de exerkines. Ze kunnen afkomstig zijn uit spieren, vetweefsel, de lever en andere organen.",
+      "points": [
+        "Ze werken in op de stofwisseling, de bloedvaten, het immuunsysteem en mogelijk de hersenen.",
+        "Onder andere BDNF, FGF21, irisine en bepaalde interleukinen worden intensief onderzocht.",
+        "Zo wordt begrijpelijk waarom beweging veel verder doorwerkt dan alleen in de getrainde spier."
+      ],
+      "long": [
+        "Lichamelijke activiteit zet het vrijkomen van talrijke signaalmoleculen in gang. Zulke van beweging afhankelijke boodschapperstoffen worden exerkines genoemd. Tot de intensief onderzochte kandidaten behoren onder andere BDNF, FGF21, irisine en bepaalde interleukinen.",
+        "Epigenetische regulatie kan op haar beurt beïnvloeden hoe zulke signaalmoleculen worden gevormd. Dat maakt duidelijk waarom beweging veel verder doorwerkt dan alleen in de getrainde spier."
+      ]
+    },
+    {
+      "nav": "Tests",
+      "question": "Wat kunnen epigenetische tests – en wat niet?",
+      "answer": "Zinvol is het om het verloop van geselecteerde markers in samenhang te bekijken. Niet zinvol is een diagnose op basis van één enkele waarde.",
+      "points": [
+        "Tests kunnen een aanvullende basis voor het gesprek zijn bij preventie en advies.",
+        "Een marker is niet automatisch een eenduidige oorzaak.",
+        "Meetmethode, weefsel, leeftijd, geslacht, medicijnen en aandoeningen horen altijd bij de interpretatie."
+      ],
+      "long": [
+        "Zinvol: het verloop van geselecteerde biomarkers volgen; biologische veranderingen in de context van leefstijl en training plaatsen; een aanvullende basis leggen voor het gesprek bij preventie en advies.",
+        "Niet zinvol: uit één enkele waarde een diagnose afleiden; een marker als eenduidige oorzaak interpreteren; beweren dat genen zich gericht en naar believen laten “herprogrammeren”.",
+        "Extra belangrijk: rekening houden met meetmethode, weefsel, leeftijd, geslacht, medicijnen, aandoeningen en tijdscontext. Resultaten zouden altijd in een groter klinisch of preventief beeld moeten worden geplaatst."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Beweging", "Voeding", "Stress", "Slaap", "Ontsteking", "Veroudering"],
+      "full": [
+        "Beweging en trainingsprikkels",
+        "Voedings- en stofwisselingssignalen",
+        "Stress en psychosociale belasting",
+        "Slaap en circadiane ritmes",
+        "Ontstekings- en immuunprocessen",
+        "Verouderingsprocessen en celstress"
+      ]
+    },
+    "pult": {
+      "title": "Het mengpaneel van de genen",
+      "how": "Schakel een prikkel in en kijk naar de regelaars.",
+      "legendActivity": "Regelaars: activiteit van de genen",
+      "legendSequence": "Letters: sequentie van het DNA",
+      "sayIdle": "Er is nog geen prikkel actief. De regelaars staan in hun beginstand.",
+      "sayActive": "{{n}} van de 6 prikkels actief: {{m}} van de 16 regelaars verschoven. De letters van de sequentie zijn hetzelfde gebleven.",
+      "sayNone": "Er is geen prikkel meer actief. De regelaars staan weer in hun beginstand.",
+      "cap": "Schema · toont het principe, geen meetgegevens en geen richting van het effect"
+    },
+    "methyl": {
+      "tab": "Methylatie",
+      "title": "Methylatie: markeringen aanbrengen",
+      "how": "Tik op een plaats op het DNA om een methylgroep toe te voegen.",
+      "group": "Acht plaatsen op het DNA",
+      "site": "Plaats {{n}}",
+      "meter": "Genactiviteit",
+      "lower": "lager",
+      "higher": "sterker",
+      "sayIdle": "Er is nog geen markering aangebracht. De genactiviteit staat in het midden.",
+      "saySetLower": "Markering op plaats {{n}} aangebracht: de genactiviteit is lager geworden. Probeer een andere plaats: afhankelijk van de positie kan het omgekeerd zijn.",
+      "saySetHigher": "Markering op plaats {{n}} aangebracht: de genactiviteit is sterker geworden. Probeer een andere plaats: afhankelijk van de positie kan het omgekeerd zijn.",
+      "sayRemoved": "Markering op plaats {{n}} verwijderd. De genactiviteit gaat terug in de richting van de beginstand.",
+      "cap": "Schema · welke plaats welk effect heeft, is hier vrij gekozen"
+    },
+    "histone": {
+      "tab": "Histonen",
+      "title": "Histonen: de verpakking",
+      "how": "Sleep de regelaar van los naar strak.",
+      "loose": "los",
+      "dense": "strak",
+      "aria": "Verpakking van het DNA van los tot strak",
+      "stateLoose": "los · goed afleesbaar",
+      "stateDense": "strak · moeilijk afleesbaar",
+      "sayLoose": "Los verpakt: het DNA ligt vrij en kan goed worden afgelezen.",
+      "sayDense": "Strak verpakt: het DNA is moeilijk toegankelijk. Het aflezen komt hier niet verder.",
+      "cap": "Schema · de stip staat voor het aflezen van het DNA"
+    },
+    "rna": {
+      "tab": "RNA",
+      "title": "RNA: de fijnafstemming",
+      "how": "Tik op de knop en laat een microRNA aankoppelen.",
+      "dock": "microRNA aankoppelen",
+      "undock": "microRNA weer loskoppelen",
+      "mrna": "mRNA · afschrift van een gen",
+      "mirna": "microRNA",
+      "sayIdle": "Het mRNA is het afschrift van een gen. Er is nog geen microRNA aangekoppeld.",
+      "sayDocked": "Het microRNA is aangekoppeld. Het kan beïnvloeden hoe het afschrift verder wordt verwerkt en gebruikt.",
+      "sayFree": "Het microRNA is losgekoppeld. Het mRNA ligt weer vrij.",
+      "cap": "Schema"
+    },
+    "ring": {
+      "title": "Zes invloeden, één regelsysteem",
+      "how": "Tik op een invloed.",
+      "aria": "Zes invloeden op de genregulatie",
+      "core": ["Gen-", "regulatie"],
+      "sayIdle": "Het lichaam reageert voortdurend op zijn omgeving. Tik op een van de zes invloeden.",
+      "sayPick": "“{{name}}” is een van zes invloeden waarop het lichaam reageert. Een deel van deze reacties kan via epigenetische regulatie verlopen of ermee gepaard gaan.",
+      "cap": "Schema"
+    },
+    "cause": {
+      "title": "Een verband is geen oorzaak",
+      "how": "Tik de drie mogelijkheden een voor een aan.",
+      "aria": "Drie mogelijkheden",
+      "options": ["Oorzaak", "Gevolg", "Bijverschijnsel"],
+      "marker": ["Epigenetische", "marker"],
+      "disease": "Aandoening",
+      "together": "komen samen voor",
+      "say": [
+        "Mogelijkheid 1: de marker is de oorzaak van de aandoening.",
+        "Mogelijkheid 2: de marker is een gevolg van de aandoening.",
+        "Mogelijkheid 3: marker en aandoening komen samen voor, zonder dat het een het ander veroorzaakt."
+      ],
+      "tail": "Welke van de drie mogelijkheden klopt, moet afzonderlijk worden onderzocht."
+    },
+    "chainPsy": {
+      "title": "Van omgeving naar gedrag",
+      "how": "Doorloop de vijf niveaus stap voor stap.",
+      "steps": [
+        {
+          "label": "Omgeving",
+          "text": "Belasting en invloeden van buitenaf komen op het lichaam af."
+        },
+        {
+          "label": "Epigenetische regulatie",
+          "text": "Een deel van de reactie kan via epigenetische regulatie verlopen."
+        },
+        {
+          "label": "Genexpressie",
+          "text": "Daardoor kan veranderen welke genen sterker of zwakker worden afgelezen."
+        },
+        {
+          "label": "Hersenen & lichaam",
+          "text": "Dat kan de hersenfunctie en het lichaam betreffen."
+        },
+        {
+          "label": "Gedrag & zelfregulatie",
+          "text": "Zelfregulatie is het vermogen om gevoelens, aandacht, impulsen en stressreacties aan te passen aan de eisen die worden gesteld."
+        }
+      ],
+      "cap": "Zo beschrijven huidige modellen het · vereenvoudigd"
+    },
+    "chainTrain": {
+      "title": "Wat training in gang zet",
+      "how": "Doorloop de keten stap voor stap.",
+      "steps": [
+        {
+          "label": "Training",
+          "text": "Training wekt mechanische, metabole en hormonale signalen op."
+        },
+        {
+          "label": "Cellulaire prikkel",
+          "text": "De signalen komen in de cellen aan."
+        },
+        {
+          "label": "Epigenetische aanpassing",
+          "text": "Studies beschrijven na training veranderingen in DNA-methylatie, histonmarkeringen en regulerende RNA’s."
+        },
+        {
+          "label": "Veranderde genactiviteit",
+          "text": "Genen worden anders afgelezen dan voorheen."
+        },
+        {
+          "label": "Aanpassing op lange termijn",
+          "text": "Dat kan samenhangen met aanpassingen in stofwisseling, ontstekingsregulatie en weefselherstel."
+        }
+      ],
+      "cap": "Vereenvoudigde weergave"
+    },
+    "muscle": {
+      "title": "Muscle Memory: heeft de spier een geheugen?",
+      "how": "Druk de drie knoppen op volgorde in.",
+      "aria": "Schema: aanpassing bij de eerste training, in de pauze en bij de hervatting",
+      "buttons": ["Trainen", "Pauze", "Hervatten"],
+      "reset": "Resetten",
+      "labels": ["Eerste training", "Pauze", "Hervatting"],
+      "axisTime": "Tijd",
+      "axisLevel": "Aanpassing",
+      "sayIdle": "Start met “Trainen”.",
+      "say": [
+        "Eerste training: de aanpassing bouwt zich geleidelijk op.",
+        "Pauze: een deel van de aanpassing loopt terug.",
+        "Hervatting: eerder getrainde spieren kunnen bepaalde aanpassingen sneller weer opbouwen. De curve stijgt steiler dan de eerste keer."
+      ],
+      "sayReset": "Gereset. Start opnieuw met “Trainen”.",
+      "cap": "Schema ter illustratie · geen meetgegevens"
+    },
+    "trend": {
+      "title": "Eén waarde of een verloop?",
+      "how": "Sleep de regelaar en voeg metingen toe.",
+      "aria": "Schema: met elke extra meting worden losse waarden een verloop",
+      "point": "Meting {{n}}",
+      "count": "Metingen",
+      "countAria": "Aantal metingen",
+      "sayOne": "Eén enkele waarde: daaruit valt geen diagnose af te leiden.",
+      "sayMany": "{{n}} metingen: nu wordt een verloop zichtbaar. De vraag is: hoe verandert een marker in de loop van de tijd en in de context van gedocumenteerde leefstijlmaatregelen?",
+      "cap": "Schema · geen meetgegevens"
+    },
+    "exer": {
+      "title": "Exerkines: boodschapperstoffen onderweg",
+      "how": "Tik op een orgaan om boodschapperstoffen op pad te sturen.",
+      "from": "Komen uit",
+      "to": "Werken in op",
+      "sources": ["Spier", "Vetweefsel", "Lever", "Andere organen"],
+      "targets": ["Stofwisseling", "Bloedvaten", "Immuunsysteem", "Hersenen"],
+      "maybe": "mogelijk",
+      "studied": "Intensief onderzocht:",
+      "molecules": ["BDNF", "FGF21", "Irisine", "Interleukinen"],
+      "sayIdle": "Er is nog niets onderweg. Tik op “Spier”.",
+      "saySent": "{{name}} verstuurt boodschapperstoffen.",
+      "sayOther": "Ook andere organen kunnen boodschapperstoffen versturen.",
+      "sayTail": "Ze werken in op de stofwisseling, de bloedvaten, het immuunsysteem en mogelijk de hersenen.",
+      "cap": "Schema · welk orgaan welke boodschapperstof aanmaakt, is hier niet weergegeven"
+    },
+    "sort": {
+      "title": "Zinvol of niet?",
+      "how": "Geef aan waarvoor een epigenetische test geschikt is.",
+      "useful": "Zinvol",
+      "notUseful": "Niet zinvol",
+      "important": "Extra belangrijk",
+      "usefulItems": [
+        "Het verloop van geselecteerde biomarkers volgen.",
+        "Biologische veranderingen in de context van leefstijl en training plaatsen.",
+        "Een aanvullende basis leggen voor het gesprek bij preventie en advies."
+      ],
+      "notUsefulItems": [
+        "Uit één enkele waarde een diagnose afleiden.",
+        "Een marker als eenduidige oorzaak interpreteren.",
+        "Beweren dat genen zich gericht en naar believen laten “herprogrammeren”."
+      ],
+      "importantItems": [
+        "Rekening houden met meetmethode, weefsel, leeftijd, geslacht, medicijnen, aandoeningen en tijdscontext.",
+        "Resultaten altijd in een groter klinisch of preventief beeld plaatsen."
+      ],
+      "sayIdle": "Zes uitspraken. Beslis bij elke uitspraak: zinvol of niet?",
+      "right": "Juist.",
+      "wrong": "Niet helemaal.",
+      "isUseful": "Dat geldt als zinvol.",
+      "isNotUseful": "Dat geldt als niet zinvol.",
+      "result": "{{right}} van de {{total}} juist ingedeeld. Het overzicht toont alle uitspraken op hun plaats.",
+      "again": "Opnieuw indelen"
+    }
+  },
+  "closing": {
+    "eyebrow": "Het belangrijkste inzicht",
+    "quote": "Onze genen vormen het kader. Epigenetische regulatie is een deel van het dynamische antwoord van het lichaam op leven, omgeving en gedrag.",
+    "text": "Tussen genetische aanleg en de uitkomst voor de gezondheid ligt een complex regulatiesysteem dat reageert op omgeving, ontwikkeling en gedrag. Deze reacties zijn niet willekeurig en ook niet volledig beheersbaar, maar wel biologisch reëel en wetenschappelijk steeds beter meetbaar. Epigenetica zou niet overschat, maar ook niet onderschat moeten worden: haar grootste waarde ligt op dit moment in het genuanceerder begrijpen van biologische aanpassing en het beter duiden van veranderingen in de loop van de tijd."
+  },
+  "sources": {
+    "intro": "Dit artikel is inhoudelijk gebaseerd op twee actuele vakboeken van Springer.",
+    "note": "Opmerking: het artikel dient ter algemene informatie en vervangt geen medische diagnostiek of individueel advies van een arts."
+  }
+}

@@ -115,7 +115,8 @@ All six `PUBLISHED_LAUNCH` routes use one semantic `ArticlePage` template with t
 real Breadcrumb, one H1, locale lead, visible-truth metadata, lazy hero image when present, body
 sections, an optional sources section, taxonomy-derived related articles/services, an optional
 taxonomy-backed Epigenetics crosslink, and the existing general-sales CTA. There are no per-article
-layout forks and no new lead/API path.
+layout forks and no new lead/API path. (One owner-approved exception since 2026-11-18: see
+"SC-031 addendum" at the end of this document.)
 
 ### Metadata and reading time
 
@@ -343,3 +344,46 @@ PT17.4 result: PASS. AP17 remains IN_PROGRESS, AP17-CLOSURE is next, AP18 remain
   workflow was pulled forward. DEC-RL-010 remains explicitly BACKLOG.
 
 AP17-CLOSURE result: PASS. AP17 is COMPLETE. AP18 is the next work package and remains NOT STARTED.
+
+## SC-031 addendum: one interactive article with its own layout (2026-11-18, Preview only)
+
+Owner request of 2026-11-18 (wording in `SCOPE-CHANGELOG.md` SC-031). The seventh
+`PUBLISHED_LAUNCH` record `what_is_epigenetics` (`/articles/was-ist-epigenetik`) is the only article
+that does not render through `ArticlePage`. Everything the PT17 contract protects still holds for
+it; only the body layout differs.
+
+- **Unchanged from the template:** inventory record in `src/data/articles.ts` (canonical slug,
+  author, ISO publication date, taxonomy), registry-derived route, ID redirect, Search and Sitemap
+  entries, `SEOHead` with Article and BreadcrumbList schema from the same visible values, real
+  Breadcrumb, exactly one visible H1, visible author/date/reading time (`data-reading-minutes`,
+  computed from intro, chapters and closing), taxonomy-derived related articles and services, the
+  taxonomy-backed Epigenetics crosslink and the existing general-sales CTA. No new lead/API path.
+- **Different:** `src/components/explainer/ExplainerArticle.tsx` renders a pinned zoom stage
+  (`ExplainerStage`, canvas scene loaded lazily), then per chapter a light text band (question,
+  short answer, three points, long text in a native `<details>`) and a dark lab band with
+  interactive widgets. Stylesheet `src/components/sub/pages/explainer.css`, registered by the page
+  itself (`SubPage sheet`) instead of the shared `SUB_STYLES` list, so other routes carry no bytes
+  for it.
+- **Content:** ten files in `src/content/articles/was-ist-epigenetik/` (German is the source; the
+  other nine must match its structure and placeholders — `explainer.test.tsx`). The route module
+  `src/pages/articles/was-ist-epigenetik.tsx` loads all ten on the server and only the URL locale in
+  the browser. Title, teaser and SEO title live in `public/locales/*/articles.json` like every
+  other article.
+- **Metadata guard:** `validateArticleMetadata` (PT17.4) is no longer called when
+  `src/data/articles.ts` is loaded — that module is part of the entry script of every page. It now
+  runs at server start (`src/entry-server.tsx`), in the route guard (`npm run check:routes`) and in
+  `articles.test.ts`. Invalid metadata still fails before a page is served.
+- **Truth rules:** the text follows the owner's manuscript in plain language and keeps its hedges;
+  the zoom from body to cell to nucleus is general background, not from the manuscript. Every
+  widget is schematic and says so in its caption (no measured data, no direction of effect). The
+  two sources named in the manuscript are listed (`sources`, `[data-article-sources]`). The record
+  has no cover image: the index card shows the category icon, the Article schema carries no
+  `image`.
+- **Accessibility:** all six stage steps are in the server HTML and readable without scrolling;
+  each widget answers every input with one sentence in an `aria-live` region; with reduced motion
+  the canvas draws the scroll state only and CSS motion is off.
+- **Tests:** `src/components/explainer/explainer.test.tsx` (x10 structure, placeholders, widget
+  logic, per-locale loading), `e2e/articles-explainer.spec.ts` (x10 truth-safe render, stage,
+  widgets, responsive and Axe at 390/768/1440, own chunk only). The template suites now exclude
+  this record where they assert the shared body template and keep it where they assert routing,
+  SEO, schema, index order and sitemap.

@@ -384,7 +384,7 @@ const ArticlePage = ({ articleId, articleSlug, contentByLocale }: ArticlePagePro
               {article.sources?.length ? (
                 <section className="sc028-read-block">
                   <h2>{t('articles:detail.sources')}</h2>
-                  <ol className="sc028-sources">
+                  <ol className="sc028-sources" data-article-sources>
                     {article.sources.map((source) => (
                       <li key={`${source.title}:${source.url ?? ''}`}>
                         {source.url ? (

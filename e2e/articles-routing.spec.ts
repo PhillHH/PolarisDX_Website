@@ -9,7 +9,7 @@ function tagCount(html: string, pattern: RegExp): number {
   return html.match(pattern)?.length ?? 0
 }
 
-test('PT17.3 serves all 60 canonical slug routes with self-canonical output', async ({
+test('PT17.3 serves all canonical slug routes x10 with self-canonical output', async ({
   request,
 }) => {
   test.setTimeout(120_000)

@@ -39,6 +39,15 @@ type SubStageProps = {
 }
 
 /**
+ * Pfad einer dunklen Bühne. Auch Bühnen mit eigenem Aufbau nutzen ihn (SC-031, ExplainerStage) —
+ * so hängt jede Seite, die den Rahmen lädt, auch an diesem Modul, und der Bündler hält Rahmen und
+ * Bühne in einer Datei (getrennt lüde jede Unterseite eine Datei mehr).
+ */
+export const StageCrumbs = ({ items, label }: { items: BreadcrumbItem[]; label?: string }) => (
+  <Breadcrumbs variant="dark" items={items} ariaLabel={label} />
+)
+
+/**
  * SC-028: dunkle Bühne der Unterseiten — Pfad, Kennzeile, dünne große H1, Einleitung, Aktionen
  * und darunter die Lichtlinie mit den Eckdaten. Der Abstand nach oben kommt aus den
  * Kopfzeilen-Token (`pt-page-top`), damit die Bühne jeder Kopfzeilenhöhe folgt.
@@ -75,7 +84,7 @@ const SubStage = ({
       >
         <div>
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <Breadcrumbs variant="dark" items={breadcrumbs} ariaLabel={breadcrumbLabel} />
+            <StageCrumbs items={breadcrumbs} label={breadcrumbLabel} />
           )}
           {eyebrow && <p className="sc025-kicker">{eyebrow}</p>}
           <h1 id={titleId} className="sc028-h1">

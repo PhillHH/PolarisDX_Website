@@ -121,6 +121,13 @@
       "title": "Formuła wydajności w diagnostyce POC"
     }
   },
+  "what_is_epigenetics": {
+    "title": "Czym jest epigenetyka?",
+    "excerpt": "Geny są stosunkowo stabilne, ich aktywność już nie. Interaktywny przegląd: jak środowisko, styl życia i ruch wpływają na regulację genów.",
+    "seo": {
+      "title": "Czym jest epigenetyka? Przystępne wyjaśnienie"
+    }
+  },
   "seo": {
     "index_title": "Magazyn branżowy: diagnostyka POC i wiedza o laboratorium w gabinecie",
     "index_description": "Rzetelne artykuły o diagnostyce POC, testach chairside i laboratorium w gabinecie – dla stomatologów, lekarzy i personelu medycznego. Od ROI po praktykę."

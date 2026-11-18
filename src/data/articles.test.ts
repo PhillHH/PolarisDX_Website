@@ -22,10 +22,22 @@ const localeDocument = (locale: string) =>
 const articleContentDocument = (slug: string) =>
   JSON.parse(readFileSync(`src/content/articles/${slug}.json`, 'utf8')) as ArticleContentByLocale
 
+/**
+ * SC-031 (Owner 2026-11-18): der interaktive Artikel „Was ist Epigenetik?" hat einen eigenen
+ * Seitenaufbau. Seine Texte liegen je Sprache in `content/articles/was-ist-epigenetik/`, er nennt
+ * zwei Quellen und trägt kein Titelbild. Alle übrigen Artikel folgen der gemeinsamen Vorlage.
+ */
+const INTERACTIVE_ID = 'what_is_epigenetics'
+const templateArticles = articles.filter(({ id }) => id !== INTERACTIVE_ID)
+const interactiveDocument = (slug: string, locale: string) =>
+  JSON.parse(readFileSync(`src/content/articles/${slug}/${locale}.json`, 'utf8')) as {
+    chapters: { long: string[] }[]
+  }
+
 describe('PT17.1 article inventory and published index contract', () => {
   it('exposes only explicitly published launch records with canonical slug identity', () => {
-    expect(articleInventory).toHaveLength(6)
-    expect(articles).toHaveLength(6)
+    expect(articleInventory).toHaveLength(7)
+    expect(articles).toHaveLength(7)
     expect(articles.every(({ status }) => status === 'PUBLISHED_LAUNCH')).toBe(true)
     expect(new Set(articles.map(({ id }) => id)).size).toBe(articles.length)
     expect(new Set(articles.map(({ slug }) => slug)).size).toBe(articles.length)
@@ -35,7 +47,8 @@ describe('PT17.1 article inventory and published index contract', () => {
     )
     expect(articles.every(({ dateModified }) => dateModified === undefined)).toBe(true)
     expect(articles.every(({ reviewer }) => reviewer === undefined)).toBe(true)
-    expect(articles.every(({ sources }) => sources === undefined)).toBe(true)
+    expect(templateArticles.every(({ sources }) => sources === undefined)).toBe(true)
+    expect(articles.find(({ id }) => id === INTERACTIVE_ID)?.sources).toHaveLength(2)
 
     const routes = getCanonicalRouteEntries().filter(
       ({ familyId }) => familyId === 'article-detail',
@@ -86,7 +99,7 @@ describe('PT17.1 article inventory and published index contract', () => {
   })
 
   it('has complete, non-empty and independently localized launch content in all ten locales', () => {
-    for (const article of articles) {
+    for (const article of templateArticles) {
       const content = articleContentDocument(article.slug)
       expect(Object.keys(content).sort()).toEqual([...SUPPORTED_LANGUAGES].sort())
 
@@ -110,9 +123,25 @@ describe('PT17.1 article inventory and published index contract', () => {
     }
   })
 
+  it('localizes the interactive article in all ten locales (SC-031)', () => {
+    const interactive = articles.find(({ id }) => id === INTERACTIVE_ID)
+    expect(interactive?.slug).toBe('was-ist-epigenetik')
+    const documents = SUPPORTED_LANGUAGES.map((locale) => {
+      const metadata = localeDocument(locale)[INTERACTIVE_ID]
+      expect(metadata?.title?.trim(), `${locale}: title`).toBeTruthy()
+      expect(metadata?.excerpt?.trim(), `${locale}: excerpt`).toBeTruthy()
+      const body = interactiveDocument('was-ist-epigenetik', locale)
+      expect(body.chapters, `${locale}: eight chapters`).toHaveLength(8)
+      expect(body.chapters.every(({ long }) => long.length > 0)).toBe(true)
+      return JSON.stringify({ metadata, body })
+    })
+    expect(new Set(documents).size, 'no exact DE/EN fallback').toBe(SUPPORTED_LANGUAGES.length)
+  })
+
   it('resolves every declared card image (six photos from one pool, 2026-10-16)', () => {
     const withImage = articles.filter((article) => article.sections[0]?.image)
-    expect(withImage).toHaveLength(articles.length)
+    // Der interaktive Artikel (SC-031) ist bildlos; die sechs Vorlagen-Artikel tragen ein Foto.
+    expect(withImage).toHaveLength(templateArticles.length)
     expect(
       withImage.every((article) => Boolean(getArticleImageUrl(article.sections[0]?.image))),
     ).toBe(true)

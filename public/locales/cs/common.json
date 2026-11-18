@@ -246,6 +246,10 @@
       "article-precision_point_of_care": {
         "title": "Přesnost v Point-of-Care: Klíč k bezpečnosti pacientů",
         "description": "Proč validace testů Lateral Flow (LFT) přesahuje údaje výrobce."
+      },
+      "article-what_is_epigenetics": {
+        "title": "Co je epigenetika?",
+        "description": "Geny jsou relativně stabilní, jejich aktivita ne. Interaktivní přehled: jak prostředí, životní styl a pohyb ovlivňují regulaci genů."
       }
     }
   },

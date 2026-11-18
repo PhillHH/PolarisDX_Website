@@ -1,6 +1,6 @@
 import { useEffect, useState, useSyncExternalStore, type ReactNode } from 'react'
 import SubTrace from './SubTrace'
-import { SUB_STYLES, type SubPageStyle } from './styles'
+import { SUB_STYLES, type SubPageStyle, type SubSheet } from './styles'
 
 /**
  * Ist ein Stylesheet der Unterseiten schon im Dokument? Bei einem vollen Seitenaufruf liefert der
@@ -32,14 +32,17 @@ const SubPage = ({
   children,
   id,
   page,
+  sheet,
 }: {
   children: ReactNode
   id?: string
   /** Seitenart mit eigenem Stylesheet (pages/*.css). */
   page?: SubPageStyle
+  /** Stylesheet einer einzelnen Seite; muss wie die anderen seine Kennung auf `:root` setzen. */
+  sheet?: SubSheet
 }) => {
   const [trace, setTrace] = useState(false)
-  const sheets = page ? [SUB_STYLES.frame, SUB_STYLES[page]] : [SUB_STYLES.frame]
+  const sheets = [SUB_STYLES.frame, ...(page ? [SUB_STYLES[page]] : []), ...(sheet ? [sheet] : [])]
   // Je Blatt '1' (fehlt) oder '0'; auf dem Server und beim Hydrieren fehlt keines.
   const pending = useSyncExternalStore(
     never,

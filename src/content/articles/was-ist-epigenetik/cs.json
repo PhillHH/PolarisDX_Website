@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Kapitola",
+    "lab": "Laboratoř",
+    "labHint": "vyzkoušejte si sami",
+    "labAria": "Laboratoř ke kapitole {{n}}",
+    "tryout": "K vyzkoušení",
+    "more": "Číst podrobně",
+    "next": "Dále",
+    "back": "O krok zpět",
+    "restart": "Od začátku"
+  },
+  "stage": {
+    "label": "Cesta do nitra v šesti krocích",
+    "eyebrow": "Epigenetika · Základy",
+    "intro": "Cesta do nitra: od těla až k jednotlivé značce na DNA.",
+    "hint": "Posouvejte a přibližujte",
+    "skip": "Přímo k článku",
+    "steps": [
+      {
+        "tick": "Tělo",
+        "word": "Vaše tělo.",
+        "text": "Neustále reaguje na své okolí: na pohyb, výživu, spánek a stres."
+      },
+      {
+        "tick": "Buňka",
+        "word": "Buňka.",
+        "text": "V buňkách se průběžně řídí, které geny se čtou více a které méně."
+      },
+      {
+        "tick": "Jádro",
+        "word": "Buněčné jádro.",
+        "text": "V buněčném jádře je uložena DNA. Je navinutá na bílkoviny zvané histony."
+      },
+      {
+        "tick": "Sbalení",
+        "word": "Sbalení.",
+        "text": "Volně sbalenou DNA lze číst dobře, hustě sbalenou hůře."
+      },
+      {
+        "tick": "DNA",
+        "word": "DNA.",
+        "text": "Pořadí jejích písmen zůstává po velkou část života relativně stabilní."
+      },
+      {
+        "tick": "Značka",
+        "word": "Značka.",
+        "text": "Malé chemické skupiny na DNA: podle polohy může být gen méně nebo více aktivní."
+      }
+    ],
+    "canvas": {
+      "cell": "Jedna buňka",
+      "nucleus": "Buněčné jádro",
+      "dna": "DNA, navinutá",
+      "methyl": "Metylové skupiny",
+      "loose": "volně · dobře čitelná",
+      "dense": "hustě · těžko čitelná"
+    }
+  },
+  "intro": {
+    "eyebrow": "U cíle",
+    "title": "Tam, na DNA, přichází ke slovu epigenetika.",
+    "lead": "Geny jsou relativně stabilní. Jejich aktivita ne. Epigenetika popisuje část biologické regulace, pomocí které buňky reagují na vývoj, věk, prostředí a životní styl.",
+    "steps": [
+      {
+        "title": "DNA zůstává.",
+        "text": "Sekvence DNA člověka je po velkou část života relativně stabilní."
+      },
+      {
+        "title": "Aktivita se mění.",
+        "text": "Buňky průběžně řídí, které geny se čtou více a které méně."
+      },
+      {
+        "title": "Důležitý je vývoj v čase.",
+        "text": "Určité epigenetické vzorce se mohou v průběhu života měnit."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Podstata",
+      "question": "Co je epigenetika?",
+      "answer": "Vaše geny zůstávají do značné míry stejné. Mění se to, jak jsou aktivní. Epigenetika popisuje, jak buňky řídí aktivitu genů, aniž by měnily samotnou DNA.",
+      "points": [
+        "Sekvence DNA je po velkou část života relativně stabilní.",
+        "Buňky průběžně řídí, které geny se čtou více a které méně.",
+        "Určité epigenetické vzorce se mohou v průběhu života měnit."
+      ],
+      "long": [
+        "Při slově genetika si mnoho lidí představí neměnný stavební plán. Sekvence DNA člověka je skutečně po velkou část života relativně stabilní. Geny však nejsou neustále stejně aktivní: buňky průběžně regulují, které geny se čtou více a které méně, kdy se tvoří určité bílkoviny a jak se tkáně přizpůsobují zátěži.",
+        "Právě tady přichází ke slovu epigenetika. Zkoumá mechanismy, které ovlivňují aktivitu genů, aniž by měnily sekvenci DNA. Pomáhá tak vysvětlit, jak společně působí predispozice a prostředí, ve kterém člověk žije.",
+        "Pro prevenci, sportovní medicínu, Healthy Aging a zdravotní poradenství je tato úroveň obzvlášť zajímavá: základní genetická výbava zůstává do značné míry konstantní, určité epigenetické vzorce se mohou v průběhu života měnit."
+      ]
+    },
+    {
+      "nav": "Mechanismy",
+      "question": "Jak se gen zesiluje nebo zeslabuje?",
+      "answer": "Pomocí tří mechanismů, které spolupracují: značek na DNA, sbalení DNA a malých molekul RNA.",
+      "points": [
+        "Metylace: malé chemické skupiny jsou umístěny na určitých místech DNA.",
+        "Histony: DNA je navinutá na bílkoviny, někdy volněji, jindy hustěji.",
+        "RNA: malé molekuly RNA mohou ovlivňovat, jak se přepis genu využívá."
+      ],
+      "long": [
+        "Epigenetika není jeden jediný vypínač. Několik mechanismů do sebe zapadá a ovlivňuje, jak přístupná je genetická informace a jak silně se využívá.",
+        "Metylace DNA: na určitá místa DNA se připojují malé chemické skupiny. Podle polohy to může být spojeno s nižší nebo vyšší aktivitou genů. Metylace DNA patří k nejčastěji zkoumaným epigenetickým mechanismům.",
+        "Modifikace histonů: v buněčném jádře je DNA navinutá na histonové bílkoviny. Chemické změny těchto bílkovin mohou sbalení uvolnit nebo zhustit, a tím ovlivnit, jak dobře lze určité oblasti číst.",
+        "Regulace pomocí RNA: mikroRNA a další nekódující RNA mohou ovlivňovat, jak se genetická informace po transkripci zpracovává a využívá. Jsou považovány za důležitou další úroveň regulace genů."
+      ]
+    },
+    {
+      "nav": "Prostředí",
+      "question": "Co s tím má společného můj každodenní život?",
+      "answer": "Tělo neustále reaguje na své okolí. Část těchto reakcí může být zprostředkována nebo doprovázena epigenetickou regulací.",
+      "points": [
+        "Patří sem pohyb, výživa, spánek, stres, záněty a stárnutí.",
+        "Řadí se sem také škodliviny, léky a sociální vlivy.",
+        "Důležité: epigenetická změna není automaticky příčinou onemocnění."
+      ],
+      "long": [
+        "Lidský organismus nepřetržitě reaguje na své okolí. Patří sem fyzická aktivita, výživa, spánek, psychická zátěž, zánětlivé procesy, škodliviny, léky, sociální vlivy a procesy stárnutí. Část těchto reakcí může být zprostředkována nebo doprovázena epigenetickou regulací.",
+        "Epigenetická změna není automaticky příčinou onemocnění. Studie často nejprve ukazují souvislosti. Zda je marker příčinou, následkem nebo průvodním jevem, je třeba zkoumat samostatně."
+      ]
+    },
+    {
+      "nav": "Stres",
+      "question": "Co se děje, když stres působí na mozek?",
+      "answer": "Současné modely chápou duševní zdraví jako souhru několika úrovní: predispozice, prostředí, biologická regulace, mozek a seberegulace.",
+      "points": [
+        "Zkoumá se to mimo jiné u úzkostných poruch, deprese, ADHD a chronického stresu.",
+        "Seberegulace znamená přizpůsobovat pocity, pozornost, impulzy a chování požadavkům.",
+        "Výzkum v této oblasti se vyvíjí, v mnohém jde zatím o souvislosti."
+      ],
+      "long": [
+        "Obzvlášť zajímavý je výzkum tam, kde zátěž z prostředí působí na mozek a chování. Moderní modely stále častěji chápou duševní zdraví jako dynamickou souhru několika úrovní: genetická predispozice, prostředí, biologická regulace, funkce mozku a psychologická seberegulace.",
+        "Takové souvislosti se zkoumají mimo jiné u úzkostných poruch, deprese, ADHD, posttraumatické stresové poruchy a chronických stresových stavů.",
+        "Ústředním pojmem je seberegulace: schopnost přizpůsobovat emoce, pozornost, impulzy, stresové reakce a chování požadavkům."
+      ]
+    },
+    {
+      "nav": "Pohyb",
+      "question": "Co dělá pohyb s tělem?",
+      "answer": "Trénink vysílá signály, tělo odpovídá adaptací. Pravidelný pohyb mění metabolismus, cévy, svaly, imunitní systém a mozek.",
+      "points": [
+        "Studie popisují po tréninku také epigenetické změny.",
+        "Již dříve trénované svalstvo může po pauze určité adaptace znovu vybudovat rychleji.",
+        "Část tohoto výzkumu zatím pochází ze zvířecích modelů. U jednotlivých lidí je nutná opatrnost."
+      ],
+      "long": [
+        "Prostředí nepůsobí jen jako zátěž. Fyzická aktivita je obzvlášť názorným příkladem toho, jak přizpůsobivé jsou biologické systémy. Pravidelný pohyb mění metabolismus, funkci cév, svaly, imunitní systém a mozek a stále častěji se dává do souvislosti také s epigenetickými změnami.",
+        "Studie popisují po tréninku mimo jiné změny metylace DNA, histonových značek a regulačních RNA. Tyto změny mohou souviset s adaptacemi metabolismu, funkcí mitochondrií, regulací zánětu a opravou tkání.",
+        "Trénink vytváří mechanické, metabolické a hormonální signály. Tělo na ně reaguje adaptací.",
+        "U svalů se často mluví o „Muscle Memory“, tedy „svalové paměti“: již dříve trénované svalstvo může po tréninkové pauze určité adaptace znovu vybudovat rychleji. Vedle nervosvalových a strukturálních mechanismů se zkoumají také epigenetická vysvětlení.",
+        "Podobné otázky vyvstávají u metabolismu, regulace zánětu, kardiovaskulárního systému a mozku. Především pohyb v raném věku by mohl zanechat dlouhodobější biologické účinky. Část těchto důkazů zatím pochází ze zvířecích modelů, a proto se výroky o jednotlivých lidech musí formulovat opatrně."
+      ]
+    },
+    {
+      "nav": "Stárnutí",
+      "question": "Co měří epigenetické hodiny věku?",
+      "answer": "Snaží se z molekulárních dat odvodit tendenci stárnutí. Přesným měřením „skutečného biologického věku“ nejsou.",
+      "points": [
+        "S věkem se mění typické vzorce regulace genů.",
+        "Výsledky závisejí na modelu, tkáni, srovnávací skupině a metodě měření.",
+        "Obzvlášť smysluplný může být pohled na vývoj: jak se marker mění v čase?"
+      ],
+      "long": [
+        "S přibývajícím věkem se mění charakteristické vzorce regulace genů. Ze vzorců metylace DNA byly vyvinuty takzvané epigenetické hodiny věku. Snaží se z molekulárních dat odvodit tendenci stárnutí.",
+        "Takové metody jsou vědecky zajímavé, ale nejsou totožné s přesným měřením „skutečného biologického věku“. Výsledky závisejí na modelu, tkáni, referenční populaci a metodě měření. Obzvlášť smysluplné proto může být sledování vývoje: jak se marker mění v čase a v kontextu zdokumentovaných opatření v oblasti životního stylu?"
+      ]
+    },
+    {
+      "nav": "Exerkiny",
+      "question": "Jak spolu orgány při pohybu mluví?",
+      "answer": "Pomocí signálních látek zvaných exerkiny. Mohou pocházet ze svalů, tukové tkáně, jater a dalších orgánů.",
+      "points": [
+        "Působí na metabolismus, cévy, imunitní systém a možná i na mozek.",
+        "Intenzivně se zkoumají mimo jiné BDNF, FGF21, irisin a určité interleukiny.",
+        "Díky tomu je pochopitelné, proč pohyb působí daleko za hranice trénovaného svalu."
+      ],
+      "long": [
+        "Fyzická aktivita spouští uvolňování četných signálních molekul. Takové signální látky závislé na pohybu se označují jako exerkiny. K intenzivně zkoumaným kandidátům patří mimo jiné BDNF, FGF21, irisin a určité interleukiny.",
+        "Epigenetická regulace zase může ovlivňovat, jak se takové signální molekuly tvoří. Z toho je zřejmé, proč pohyb působí daleko za hranice trénovaného svalu."
+      ]
+    },
+    {
+      "nav": "Testy",
+      "question": "Co epigenetické testy dokážou – a co ne?",
+      "answer": "Smysl má sledovat vývoj vybraných markerů v souvislostech. Smysl nemá diagnóza z jednotlivé hodnoty.",
+      "points": [
+        "Testy mohou být doplňujícím podkladem pro rozhovor v prevenci a poradenství.",
+        "Marker není automaticky jednoznačnou příčinou.",
+        "Do interpretace vždy patří metoda měření, tkáň, věk, pohlaví, léky a onemocnění."
+      ],
+      "long": [
+        "Má smysl: sledovat vývoj vybraných biomarkerů; posuzovat biologické změny v kontextu životního stylu a tréninku; vytvořit doplňující podklad pro rozhovor v prevenci a poradenství.",
+        "Nemá smysl: odvozovat diagnózu z jednotlivé hodnoty; interpretovat marker jako jednoznačnou příčinu; tvrdit, že geny lze cíleně a libovolně „přeprogramovat“.",
+        "Zvlášť důležité: zohlednit metodu měření, tkáň, věk, pohlaví, léky, onemocnění a časový kontext. Výsledky by se měly vždy zasadit do širšího klinického nebo preventivního obrazu."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Pohyb", "Výživa", "Stres", "Spánek", "Zánět", "Stárnutí"],
+      "full": [
+        "Pohyb a tréninkové podněty",
+        "Výživové a metabolické signály",
+        "Stres a psychosociální zátěž",
+        "Spánek a cirkadiánní rytmy",
+        "Zánětlivé a imunitní procesy",
+        "Procesy stárnutí a buněčný stres"
+      ]
+    },
+    "pult": {
+      "title": "Mixážní pult genů",
+      "how": "Zapněte některý podnět a sledujte ovladače.",
+      "legendActivity": "Ovladače: aktivita genů",
+      "legendSequence": "Písmena: sekvence DNA",
+      "sayIdle": "Zatím není aktivní žádný podnět. Ovladače jsou ve výchozí poloze.",
+      "sayActive": "Aktivní podněty: {{n}} z 6. Posunuté ovladače: {{m}} z 16. Písmena sekvence zůstala stejná.",
+      "sayNone": "Žádný podnět už není aktivní. Ovladače jsou opět ve výchozí poloze.",
+      "cap": "Schéma · ukazuje princip, nikoli naměřená data ani směr účinku"
+    },
+    "methyl": {
+      "tab": "Metylace",
+      "title": "Metylace: přidávání značek",
+      "how": "Klepněte na některé místo na DNA a připojte metylovou skupinu.",
+      "group": "Osm míst na DNA",
+      "site": "Místo {{n}}",
+      "meter": "Aktivita genu",
+      "lower": "nižší",
+      "higher": "vyšší",
+      "sayIdle": "Zatím není přidána žádná značka. Aktivita genu je uprostřed.",
+      "saySetLower": "Značka přidána na místo {{n}}: aktivita genu se snížila. Vyzkoušejte jiné místo: podle polohy to může být naopak.",
+      "saySetHigher": "Značka přidána na místo {{n}}: aktivita genu se zvýšila. Vyzkoušejte jiné místo: podle polohy to může být naopak.",
+      "sayRemoved": "Značka z místa {{n}} odebrána. Aktivita genu se vrací směrem k výchozímu stavu.",
+      "cap": "Schéma · které místo jak působí, je zde zvoleno libovolně"
+    },
+    "histone": {
+      "tab": "Histony",
+      "title": "Histony: sbalení DNA",
+      "how": "Táhněte posuvníkem od volného sbalení k hustému.",
+      "loose": "volně",
+      "dense": "hustě",
+      "aria": "Sbalení DNA od volného po husté",
+      "stateLoose": "volně · dobře čitelná",
+      "stateDense": "hustě · těžko čitelná",
+      "sayLoose": "Volně sbalená: DNA je odkrytá a lze ji dobře číst.",
+      "sayDense": "Hustě sbalená: DNA je těžko přístupná. Čtení se tady nedostane dál.",
+      "cap": "Schéma · bod znázorňuje čtení DNA"
+    },
+    "rna": {
+      "tab": "RNA",
+      "title": "RNA: jemná regulace",
+      "how": "Klepněte na tlačítko a připojte mikroRNA.",
+      "dock": "Připojit mikroRNA",
+      "undock": "Uvolnit mikroRNA",
+      "mrna": "mRNA · přepis genu",
+      "mirna": "mikroRNA",
+      "sayIdle": "mRNA je přepis genu. Zatím není připojena žádná mikroRNA.",
+      "sayDocked": "MikroRNA se připojila. Může ovlivnit, jak se přepis dále zpracuje a využije.",
+      "sayFree": "MikroRNA se uvolnila. mRNA je opět volná.",
+      "cap": "Schéma"
+    },
+    "ring": {
+      "title": "Šest vlivů, jeden regulační systém",
+      "how": "Klepněte na některý vliv.",
+      "aria": "Šest vlivů na regulaci genů",
+      "core": ["Regulace", "genů"],
+      "sayIdle": "Tělo neustále reaguje na své okolí. Klepněte na jeden ze šesti vlivů.",
+      "sayPick": "„{{name}}“ – jeden ze šesti vlivů, na které tělo reaguje. Část těchto reakcí může být zprostředkována nebo doprovázena epigenetickou regulací.",
+      "cap": "Schéma"
+    },
+    "cause": {
+      "title": "Souvislost není příčina",
+      "how": "Postupně klepněte na všechny tři možnosti.",
+      "aria": "Tři možnosti",
+      "options": ["Příčina", "Následek", "Průvodní jev"],
+      "marker": ["Epigenetický", "marker"],
+      "disease": "Onemocnění",
+      "together": "vyskytují se spolu",
+      "say": [
+        "Možnost 1: marker je příčinou onemocnění.",
+        "Možnost 2: marker je následkem onemocnění.",
+        "Možnost 3: marker a onemocnění se vyskytují spolu, aniž by jedno vyvolávalo druhé."
+      ],
+      "tail": "Která ze tří možností platí, je třeba zkoumat samostatně."
+    },
+    "chainPsy": {
+      "title": "Od prostředí k chování",
+      "how": "Projděte všech pět úrovní krok za krokem.",
+      "steps": [
+        {
+          "label": "Prostředí",
+          "text": "Na tělo působí zátěž a vlivy zvenčí."
+        },
+        {
+          "label": "Epigenetická regulace",
+          "text": "Část reakce může být zprostředkována epigenetickou regulací."
+        },
+        {
+          "label": "Genová exprese",
+          "text": "Tím se může změnit, které geny se čtou více a které méně."
+        },
+        {
+          "label": "Mozek a tělo",
+          "text": "To se může týkat těla i funkce mozku."
+        },
+        {
+          "label": "Chování a seberegulace",
+          "text": "Seberegulace je schopnost přizpůsobovat pocity, pozornost, impulzy a stresové reakce požadavkům."
+        }
+      ],
+      "cap": "Tak to popisují současné modely · zjednodušeno"
+    },
+    "chainTrain": {
+      "title": "Co trénink spouští",
+      "how": "Projděte řetězec krok za krokem.",
+      "steps": [
+        {
+          "label": "Trénink",
+          "text": "Trénink vytváří mechanické, metabolické a hormonální signály."
+        },
+        {
+          "label": "Buněčný podnět",
+          "text": "Signály dorazí do buněk."
+        },
+        {
+          "label": "Epigenetická adaptace",
+          "text": "Studie popisují po tréninku změny metylace DNA, histonových značek a regulačních RNA."
+        },
+        {
+          "label": "Změněná aktivita genů",
+          "text": "Geny se čtou jinak než předtím."
+        },
+        {
+          "label": "Dlouhodobá adaptace",
+          "text": "To může souviset s adaptacemi v oblasti metabolismu, regulace zánětu a opravy tkání."
+        }
+      ],
+      "cap": "Zjednodušené znázornění"
+    },
+    "muscle": {
+      "title": "Muscle Memory: pamatuje si sval?",
+      "how": "Stiskněte všechna tři tlačítka jedno po druhém.",
+      "aria": "Schéma: adaptace při prvním tréninku, během pauzy a při návratu k tréninku",
+      "buttons": ["Trénovat", "Pauza", "Znovu trénovat"],
+      "reset": "Resetovat",
+      "labels": ["První trénink", "Pauza", "Návrat k tréninku"],
+      "axisTime": "Čas",
+      "axisLevel": "Adaptace",
+      "sayIdle": "Začněte tlačítkem „Trénovat“.",
+      "say": [
+        "První trénink: adaptace se buduje postupně.",
+        "Pauza: část adaptace ustupuje.",
+        "Návrat k tréninku: již dříve trénované svalstvo může určité adaptace znovu vybudovat rychleji. Křivka stoupá strměji než poprvé."
+      ],
+      "sayReset": "Resetováno. Začněte znovu tlačítkem „Trénovat“.",
+      "cap": "Schéma pro názornost · žádná naměřená data"
+    },
+    "trend": {
+      "title": "Jednotlivá hodnota, nebo vývoj v čase?",
+      "how": "Táhněte posuvníkem a přidávejte měření.",
+      "aria": "Schéma: s každým dalším měřením se z jednotlivých hodnot stává vývoj v čase",
+      "point": "Měření {{n}}",
+      "count": "Měření",
+      "countAria": "Počet měření",
+      "sayOne": "Jednotlivá hodnota: nelze z ní odvodit žádnou diagnózu.",
+      "sayMany": "{{n}} měření: nyní je vidět vývoj. Otázka zní: jak se marker mění v čase a v kontextu zdokumentovaných opatření v oblasti životního stylu?",
+      "cap": "Schéma · žádná naměřená data"
+    },
+    "exer": {
+      "title": "Exerkiny: signální látky na cestě",
+      "how": "Klepněte na některý orgán a vyšlete signální látky.",
+      "from": "Původ",
+      "to": "Působí na",
+      "sources": ["Sval", "Tuková tkáň", "Játra", "Jiné orgány"],
+      "targets": ["Metabolismus", "Cévy", "Imunitní systém", "Mozek"],
+      "maybe": "možná",
+      "studied": "Intenzivně zkoumané:",
+      "molecules": ["BDNF", "FGF21", "Irisin", "Interleukiny"],
+      "sayIdle": "Zatím není nic na cestě. Klepněte na „Sval“.",
+      "saySent": "{{name}}: odtud vycházejí signální látky.",
+      "sayOther": "Signální látky mohou vysílat i jiné orgány.",
+      "sayTail": "Tyto látky působí na metabolismus, cévy, imunitní systém a možná i na mozek.",
+      "cap": "Schéma · který orgán tvoří kterou signální látku, zde není znázorněno"
+    },
+    "sort": {
+      "title": "Má to smysl, nebo ne?",
+      "how": "Rozhodněte, k čemu se epigenetický test hodí.",
+      "useful": "Má smysl",
+      "notUseful": "Nemá smysl",
+      "important": "Zvlášť důležité",
+      "usefulItems": [
+        "Sledovat vývoj vybraných biomarkerů.",
+        "Posuzovat biologické změny v kontextu životního stylu a tréninku.",
+        "Vytvořit doplňující podklad pro rozhovor v prevenci a poradenství."
+      ],
+      "notUsefulItems": [
+        "Odvozovat diagnózu z jednotlivé hodnoty.",
+        "Interpretovat marker jako jednoznačnou příčinu.",
+        "Tvrdit, že geny lze cíleně a libovolně „přeprogramovat“."
+      ],
+      "importantItems": [
+        "Zohlednit metodu měření, tkáň, věk, pohlaví, léky, onemocnění a časový kontext.",
+        "Výsledky vždy zasadit do širšího klinického nebo preventivního obrazu."
+      ],
+      "sayIdle": "Šest tvrzení. U každého rozhodněte: má smysl, nebo ne?",
+      "right": "Správně.",
+      "wrong": "Ne tak docela.",
+      "isUseful": "To se považuje za smysluplné.",
+      "isNotUseful": "To se za smysluplné nepovažuje.",
+      "result": "Správně zařazeno: {{right}} z {{total}}. Přehled ukazuje všechna tvrzení na správném místě.",
+      "again": "Zařadit znovu"
+    }
+  },
+  "closing": {
+    "eyebrow": "Nejdůležitější poznatek",
+    "quote": "Naše geny tvoří rámec. Epigenetická regulace je součástí dynamické odpovědi těla na život, prostředí a chování.",
+    "text": "Mezi genetickou predispozicí a zdravotním výsledkem leží složitý regulační systém, který reaguje na prostředí, vývoj a chování. Tyto reakce nejsou ani libovolné, ani plně kontrolovatelné, jsou však biologicky reálné a vědecky stále lépe měřitelné. Epigenetika by se neměla přeceňovat ani podceňovat: její největší hodnota v současnosti spočívá v možnosti chápat biologickou adaptaci diferencovaněji a lépe zařazovat změny v čase do souvislostí."
+  },
+  "sources": {
+    "intro": "Tento článek obsahově vychází ze dvou aktuálních odborných knih nakladatelství Springer.",
+    "note": "Upozornění: článek slouží k obecné informaci a nenahrazuje lékařskou diagnostiku ani individuální lékařskou konzultaci."
+  }
+}

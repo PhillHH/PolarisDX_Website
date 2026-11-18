@@ -3,8 +3,13 @@ import { readFileSync } from 'node:fs'
 
 import { expect, test } from '@playwright/test'
 
-import { articles } from '../src/data/articles'
+import { articles as publishedArticles } from '../src/data/articles'
 import { calculateArticleReadMinutes } from '../src/lib/articleMeta'
+
+// SC-031 (Owner 2026-11-18): der interaktive Artikel „Was ist Epigenetik?" hat einen eigenen
+// Seitenaufbau und eigene Texte je Sprache; ihn prüft e2e/articles-explainer.spec.ts. Diese Suite
+// prüft die gemeinsame Vorlage der übrigen Artikel.
+const articles = publishedArticles.filter(({ id }) => id !== 'what_is_epigenetics')
 
 const require = createRequire(import.meta.url)
 const axePath = require.resolve('axe-core/axe.min.js')
@@ -14,7 +19,7 @@ type ArticleLocaleRecord = {
   excerpt: string
 }
 type ArticleLocaleResource = Record<string, ArticleLocaleRecord>
-type CommonLocaleResource = { nav: { cta_quote: string } }
+type CommonLocaleResource = { nav: { cta_quote: string }; a11y: { breadcrumb: string } }
 
 const resources = Object.fromEntries(
   locales.map((locale) => [
@@ -47,7 +52,10 @@ const commonResources = Object.fromEntries(
   ]),
 ) as Record<(typeof locales)[number], CommonLocaleResource>
 
-test('PT17.2 uses one truth-safe template for all six article types', async ({ page, request }) => {
+test('PT17.2 uses one truth-safe template for all template article types', async ({
+  page,
+  request,
+}) => {
   test.setTimeout(90_000)
 
   for (const [index, article] of articles.entries()) {
@@ -61,7 +69,7 @@ test('PT17.2 uses one truth-safe template for all six article types', async ({ p
     await expect(template).toHaveCount(1)
     await expect(template.locator('h1')).toHaveCount(1)
     await expect(template.locator('h1')).toHaveText(content.title)
-    await expect(template.locator('time')).toHaveAttribute('datetime', /^2025-\d{2}-\d{2}$/)
+    await expect(template.locator('time')).toHaveAttribute('datetime', article.datePublished)
     await expect(template).toContainText(article.author)
     await expect(template.locator('[data-reading-minutes]')).toHaveAttribute(
       'data-reading-minutes',
@@ -76,7 +84,10 @@ test('PT17.2 uses one truth-safe template for all six article types', async ({ p
       expect(headingLevels[heading] - headingLevels[heading - 1]).toBeLessThanOrEqual(1)
     }
 
-    const breadcrumb = template.locator('nav[aria-label="Breadcrumb"]')
+    // Der Name der Pfadnavigation ist lokalisiert (AP24 PT24.1, `common:a11y.breadcrumb`).
+    const breadcrumb = template.locator(
+      `nav[aria-label="${commonResources[locale].a11y.breadcrumb}"]`,
+    )
     await expect(breadcrumb.locator(`a[href="/${locale}"]`)).toHaveCount(1)
     await expect(breadcrumb.locator(`a[href="/${locale}/articles"]`)).toHaveCount(1)
     await expect(breadcrumb.locator('[aria-current="page"]')).toHaveText(content.title)
@@ -140,10 +151,12 @@ test('PT17.2 uses one truth-safe template for all six article types', async ({ p
 
     const image = template.locator('img').first()
     if (article.sections[0]?.image) {
+      // Das Titelbild ist seit SC-028 das größte Element im ersten Bildschirm (PT25.3): es lädt
+      // mit Vorrang statt lazy; feste Maße verhindern das Verrutschen der Seite.
       await expect(image).toHaveAttribute('alt', '')
-      await expect(image).toHaveAttribute('loading', 'lazy')
-      await expect(image).toHaveAttribute('width', /^(1024|1200)$/)
-      await expect(image).toHaveAttribute('height', /^(800|1024)$/)
+      await expect(image).toHaveAttribute('loading', 'eager')
+      await expect(image).toHaveAttribute('width', /^[1-9]\d+$/)
+      await expect(image).toHaveAttribute('height', /^[1-9]\d+$/)
     } else {
       await expect(template.locator('img')).toHaveCount(0)
     }
@@ -209,14 +222,16 @@ test('PT17.2 keeps detail navigation lightweight and pre-consent clean', async (
   expect(requests.filter((url) => /google-analytics|googletagmanager/u.test(url))).toEqual([])
   expect(requests.filter((url) => /\/locales\/(?!de\/|en\/)/u.test(url))).toEqual([])
   expect(requests.some((url) => url.includes('die-gruene-praxis'))).toBe(true)
-  for (const article of articles.slice(1)) {
+  for (const article of publishedArticles.slice(1)) {
     expect(
       requests.some((url) => url.includes(article.slug)),
       article.slug,
     ).toBe(false)
   }
-  // Titelbild nur, wenn der Artikel eines hat (seit 2026-10-16 ist der erste bildlos).
-  await expect(page.locator('article[data-article-template] img[loading="lazy"]')).toHaveCount(
+  // Genau ein Bild, wenn der Artikel ein Titelbild hat — und das lädt mit Vorrang (SC-028,
+  // PT25.3), nicht lazy.
+  await expect(page.locator('article[data-article-template] img')).toHaveCount(
     articles[0].sections[0]?.image ? 1 : 0,
   )
+  await expect(page.locator('article[data-article-template] img[loading="lazy"]')).toHaveCount(0)
 })

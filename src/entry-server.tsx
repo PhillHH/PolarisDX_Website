@@ -27,8 +27,13 @@ import {
   type SsrI18nState,
 } from './i18n'
 import App from './App'
+import { articleInventory, validateArticleMetadata } from './data/articles'
 
 import type { HelmetServerState } from 'react-helmet-async'
+
+// PT17.4 (seit SC-031 hier statt im Datenmodul): erfundene oder kaputte Artikel-Metadaten lassen
+// schon den Start des Servers scheitern — bevor eine Seite ausgeliefert wird.
+validateArticleMetadata(articleInventory)
 
 // =============================================================================
 // TYPES

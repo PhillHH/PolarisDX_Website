@@ -121,6 +121,13 @@
       "title": "The Performance Formula for POC Diagnostics"
     }
   },
+  "what_is_epigenetics": {
+    "title": "What is epigenetics?",
+    "excerpt": "Genes are relatively stable; their activity is not. An interactive overview: how environment, lifestyle and exercise influence gene regulation.",
+    "seo": {
+      "title": "What is epigenetics? Explained in plain language"
+    }
+  },
   "seo": {
     "index_title": "Magazine: Point-of-Care Diagnostics Insights",
     "index_description": "Expert articles on point-of-care diagnostics, chairside testing and in-practice labs for dentists, physicians and medical staff. From ROI to practice."

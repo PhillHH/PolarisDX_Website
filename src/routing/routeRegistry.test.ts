@@ -58,8 +58,9 @@ describe('G1 route registry truth', () => {
     expect(matrix.sitemapEligible).toEqual(getSitemapEligibleRouteEntries())
     expect(matrix.searchEligible).toEqual(getSearchEligibleRouteEntries())
     expect(matrix.redirectSources).toEqual(getRedirectRegistryEntries())
-    expect(matrix.sitemapEligible).toHaveLength(40)
-    expect(matrix.searchEligible).toHaveLength(37)
+    // SC-031: +1 Artikel („Was ist Epigenetik?")
+    expect(matrix.sitemapEligible).toHaveLength(41)
+    expect(matrix.searchEligible).toHaveLength(38)
     expect(matrix.noindex.map((route) => route.path).sort()).toEqual(
       ['/imprint', '/privacy', '/terms'].sort(),
     )

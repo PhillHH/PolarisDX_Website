@@ -20,7 +20,7 @@ const resources = Object.fromEntries(
   ]),
 ) as Record<(typeof locales)[number], Record<string, { title: string; excerpt: string }>>
 
-test('PT17.1 renders exactly six published canonical cards across x10', async ({
+test('PT17.1 renders exactly the published canonical cards across x10', async ({
   page,
   request,
 }) => {
@@ -39,7 +39,9 @@ test('PT17.1 renders exactly six published canonical cards across x10', async ({
     await expect(page.locator('[data-article-card] img')).toHaveCount(
       articles.filter((article) => article.sections[0]?.image).length,
     )
-    expect(await page.locator('a[href*="vitamin-d3-implantologie"]').count()).toBe(0)
+    // Im Magazin selbst kein Verweis auf die Implantologie-Seite; die Fußzeile nennt sie seit
+    // SC-024 („verwaiste Seiten anbinden") auf jeder Seite.
+    expect(await page.locator('main a[href*="vitamin-d3-implantologie"]').count()).toBe(0)
 
     for (const article of articles) {
       const card = page.locator(`[data-article-card="${article.slug}"]`)
@@ -50,7 +52,7 @@ test('PT17.1 renders exactly six published canonical cards across x10', async ({
         resources[locale][article.id].title,
       )
       await expect(card).toContainText(resources[locale][article.id].excerpt)
-      await expect(card.locator('time')).toHaveAttribute('datetime', /^2025-\d{2}-\d{2}$/)
+      await expect(card.locator('time')).toHaveAttribute('datetime', article.datePublished)
       if (!checkedTargets.has(target)) {
         const detail = await request.get(target, { maxRedirects: 0 })
         expect(detail.status(), target).toBe(200)
@@ -64,7 +66,7 @@ test('PT17.1 renders exactly six published canonical cards across x10', async ({
     }
     expect(await page.locator('a[href*="preview.polarisdx"]').count()).toBe(0)
   }
-  expect(checkedTargets.size).toBe(60)
+  expect(checkedTargets.size).toBe(articles.length * locales.length)
 })
 
 for (const [width, locale] of [
@@ -75,7 +77,7 @@ for (const [width, locale] of [
   test(`PT17.1 index is responsive and accessible at ${width}px in ${locale}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 })
     await page.goto(`/${locale}/articles`)
-    await expect(page.locator('[data-article-card]')).toHaveCount(6)
+    await expect(page.locator('[data-article-card]')).toHaveCount(articles.length)
     const overflow = await page.evaluate(
       () => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth,
     )
@@ -104,7 +106,7 @@ test('PT17.1 index does not fetch article images before they are rendered', asyn
   const requests: string[] = []
   page.on('request', (request) => requests.push(request.url()))
   await page.goto('/de/articles')
-  await expect(page.locator('[data-article-card]')).toHaveCount(6)
+  await expect(page.locator('[data-article-card]')).toHaveCount(articles.length)
   expect(requests.filter((url) => /preview\.polarisdx/u.test(url))).toEqual([])
   expect(requests.filter((url) => /google-analytics|googletagmanager/u.test(url))).toEqual([])
   // SC-021: mit der hoeheren Kopfzeile liegt auch das erste Artikelbild unter dem Falz — alle

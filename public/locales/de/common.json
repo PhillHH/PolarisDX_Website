@@ -220,6 +220,10 @@
       "article-precision_point_of_care": {
         "title": "Präzision im Point-of-Care: Der Schlüssel zur Patientensicherheit",
         "description": "Warum die Validierung von Lateral Flow Tests (LFT) über die Herstellerangabe hinausgeht."
+      },
+      "article-what_is_epigenetics": {
+        "title": "Was ist Epigenetik?",
+        "description": "Gene sind relativ stabil, ihre Aktivität nicht. Ein interaktiver Überblick: wie Umwelt, Lebensstil und Bewegung die Genregulation beeinflussen."
       }
     }
   },

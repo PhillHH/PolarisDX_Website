@@ -1,0 +1,425 @@
+{
+  "ui": {
+    "chapter": "Capítulo",
+    "lab": "Laboratorio",
+    "labHint": "pruébelo usted",
+    "labAria": "Laboratorio del capítulo {{n}}",
+    "tryout": "Para probar",
+    "more": "Leer en detalle",
+    "next": "Siguiente",
+    "back": "Paso atrás",
+    "restart": "Reiniciar"
+  },
+  "stage": {
+    "label": "Viaje al interior en seis pasos",
+    "eyebrow": "Epigenética · Fundamentos",
+    "intro": "Un viaje al interior: desde el cuerpo hasta la marca individual en el ADN.",
+    "hint": "Desplácese para acercarse",
+    "skip": "Directo al artículo",
+    "steps": [
+      {
+        "tick": "Cuerpo",
+        "word": "Su cuerpo.",
+        "text": "Reacciona constantemente a su entorno: al ejercicio, a la nutrición, al sueño y al estrés."
+      },
+      {
+        "tick": "Célula",
+        "word": "La célula.",
+        "text": "En las células se regula de forma continua qué genes se leen con mayor o menor intensidad."
+      },
+      {
+        "tick": "Núcleo",
+        "word": "El núcleo.",
+        "text": "En el núcleo celular se encuentra el ADN. Está enrollado alrededor de proteínas, las histonas."
+      },
+      {
+        "tick": "Empaquetado",
+        "word": "El empaquetado.",
+        "text": "Con un empaquetado suelto, el ADN se puede leer bien; con un empaquetado denso, peor."
+      },
+      {
+        "tick": "ADN",
+        "word": "El ADN.",
+        "text": "La secuencia de sus letras se mantiene relativamente estable durante gran parte de la vida."
+      },
+      {
+        "tick": "Marca",
+        "word": "La marca.",
+        "text": "Pequeños grupos químicos en el ADN: según la posición, un gen puede estar menos o más activo."
+      }
+    ],
+    "canvas": {
+      "cell": "Una célula",
+      "nucleus": "Núcleo celular",
+      "dna": "ADN, enrollado",
+      "methyl": "Grupos metilo",
+      "loose": "suelto · fácil de leer",
+      "dense": "denso · difícil de leer"
+    }
+  },
+  "intro": {
+    "eyebrow": "Hemos llegado",
+    "title": "Ahí, en el ADN, entra en juego la epigenética.",
+    "lead": "Los genes son relativamente estables. Su actividad no lo es. La epigenética describe una parte de la regulación biológica mediante la cual las células reaccionan al desarrollo, a la edad, al entorno y al estilo de vida.",
+    "steps": [
+      {
+        "title": "El ADN permanece.",
+        "text": "La secuencia de una persona es relativamente estable durante gran parte de la vida."
+      },
+      {
+        "title": "La actividad cambia.",
+        "text": "Las células regulan de forma continua qué genes se leen con mayor o menor intensidad."
+      },
+      {
+        "title": "La trayectoria cuenta.",
+        "text": "Determinados patrones epigenéticos pueden cambiar a lo largo de la vida."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav": "Idea básica",
+      "question": "¿Qué es la epigenética?",
+      "answer": "Sus genes se mantienen en gran medida iguales. Lo que cambia es su grado de actividad. La epigenética describe cómo las células regulan la actividad de los genes sin modificar el propio ADN.",
+      "points": [
+        "La secuencia del ADN es relativamente estable durante gran parte de la vida.",
+        "Las células regulan de forma continua qué genes se leen con mayor o menor intensidad.",
+        "Determinados patrones epigenéticos pueden cambiar a lo largo de la vida."
+      ],
+      "long": [
+        "Al pensar en la genética, muchas personas imaginan un plano inmutable. En efecto, la secuencia del ADN de una persona es relativamente estable durante gran parte de la vida. Pero los genes no están siempre igual de activos: las células regulan de forma continua qué genes se leen con mayor o menor intensidad, cuándo se producen determinadas proteínas y cómo se adaptan los tejidos a las cargas.",
+        "Aquí es precisamente donde entra en juego la epigenética. Estudia mecanismos que influyen en la actividad de los genes sin modificar la secuencia del ADN. Así ayuda a explicar cómo interactúan la predisposición y el entorno vital.",
+        "Para la prevención, la medicina deportiva, el Healthy Aging y el asesoramiento de salud, este nivel resulta especialmente interesante: la dotación genética básica se mantiene en gran medida constante; determinados patrones epigenéticos pueden cambiar a lo largo de la vida."
+      ]
+    },
+    {
+      "nav": "Mecanismos",
+      "question": "¿Cómo se sube o se baja el volumen de un gen?",
+      "answer": "Mediante tres mecanismos que trabajan juntos: marcas en el ADN, el empaquetado del ADN y pequeñas moléculas de ARN.",
+      "points": [
+        "Metilación: pequeños grupos químicos se encuentran en determinados sitios del ADN.",
+        "Histonas: el ADN está enrollado alrededor de proteínas, unas veces de forma más suelta y otras más densa.",
+        "ARN: pequeñas moléculas de ARN pueden influir en cómo se utiliza la copia de un gen."
+      ],
+      "long": [
+        "La epigenética no es un único interruptor. Varios mecanismos se engranan entre sí e influyen en lo accesible que es la información genética y en la intensidad con la que se utiliza.",
+        "Metilación del ADN: se añaden pequeños grupos químicos a determinados sitios del ADN. Según la posición, esto puede ir asociado a una actividad génica menor o mayor. Es uno de los mecanismos epigenéticos estudiados con más frecuencia.",
+        "Modificaciones de las histonas: en el núcleo celular, el ADN está enrollado alrededor de proteínas histonas. Los cambios químicos en estas proteínas pueden hacer el empaquetado más suelto o más denso y, con ello, influir en lo bien que pueden leerse determinadas regiones.",
+        "Regulación por ARN: los microARN y otros ARN no codificantes pueden influir en cómo se procesa y se utiliza la información genética después de la transcripción. Se consideran un importante nivel adicional de la regulación génica."
+      ]
+    },
+    {
+      "nav": "Entorno",
+      "question": "¿Qué tiene que ver mi día a día con esto?",
+      "answer": "El cuerpo reacciona constantemente a su entorno. Una parte de estas reacciones puede estar mediada o acompañada por la regulación epigenética.",
+      "points": [
+        "Esto incluye el ejercicio, la nutrición, el sueño, el estrés, las inflamaciones y el envejecimiento.",
+        "También forman parte de ello las sustancias nocivas, los medicamentos y las influencias sociales.",
+        "Importante: un cambio epigenético no es automáticamente la causa de una enfermedad."
+      ],
+      "long": [
+        "El organismo humano reacciona continuamente a su entorno. Esto incluye la actividad física, la nutrición, el sueño, la carga psíquica, los procesos inflamatorios, las sustancias nocivas, los medicamentos, las influencias sociales y los procesos de envejecimiento. Una parte de estas reacciones puede estar mediada o acompañada por la regulación epigenética.",
+        "Un cambio epigenético no es automáticamente la causa de una enfermedad. A menudo, los estudios muestran en un primer momento asociaciones. Si un marcador es causa, consecuencia o fenómeno acompañante es algo que debe investigarse por separado."
+      ]
+    },
+    {
+      "nav": "Estrés",
+      "question": "¿Qué ocurre cuando el estrés llega al cerebro?",
+      "answer": "Los modelos actuales ven la salud mental como una interacción de varios niveles: predisposición, entorno, regulación biológica, cerebro y autorregulación.",
+      "points": [
+        "Esto se estudia, entre otros, en los trastornos de ansiedad, la depresión, el TDAH y el estrés crónico.",
+        "Autorregulación significa adaptar los sentimientos, la atención, los impulsos y la conducta a las exigencias.",
+        "La investigación al respecto está en movimiento; muchas cosas son, por ahora, asociaciones."
+      ],
+      "long": [
+        "La investigación resulta especialmente apasionante allí donde las cargas del entorno se encuentran con el cerebro y la conducta. Los modelos modernos consideran cada vez más la salud mental como una interacción dinámica de varios niveles: predisposición genética, entorno, regulación biológica, función cerebral y autorregulación psicológica.",
+        "Estas asociaciones se estudian, entre otros, en los trastornos de ansiedad, la depresión, el TDAH, el trastorno de estrés postraumático y los estados de estrés crónico.",
+        "Un concepto central es la autorregulación: la capacidad de adaptar las emociones, la atención, los impulsos, las reacciones de estrés y la conducta a las exigencias."
+      ]
+    },
+    {
+      "nav": "Ejercicio",
+      "question": "¿Qué le hace el ejercicio al cuerpo?",
+      "answer": "El entrenamiento envía señales; el cuerpo responde con adaptación. El ejercicio regular cambia el metabolismo, los vasos sanguíneos, el músculo, el sistema inmunitario y el cerebro.",
+      "points": [
+        "Los estudios describen también cambios epigenéticos tras el entrenamiento.",
+        "La musculatura ya entrenada puede volver a desarrollar con más rapidez determinadas adaptaciones tras una pausa.",
+        "Una parte de esta investigación procede hasta ahora de modelos animales. En el caso de personas concretas hace falta cautela."
+      ],
+      "long": [
+        "El entorno no actúa únicamente como carga. La actividad física es un ejemplo especialmente ilustrativo de lo adaptables que son los sistemas biológicos. El ejercicio regular cambia el metabolismo, la función vascular, el músculo, el sistema inmunitario y el cerebro, y cada vez se relaciona más también con cambios epigenéticos.",
+        "Tras el entrenamiento, los estudios describen, entre otros, cambios en la metilación del ADN, en las marcas de las histonas y en los ARN reguladores. Pueden estar relacionados con adaptaciones metabólicas, la función mitocondrial, la regulación de la inflamación y la reparación de los tejidos.",
+        "El entrenamiento genera señales mecánicas, metabólicas y hormonales. El cuerpo reacciona a ellas con adaptación.",
+        "En el músculo se habla a menudo de «Muscle Memory», la «memoria muscular»: la musculatura ya entrenada puede volver a desarrollar con más rapidez determinadas adaptaciones tras una pausa en el entrenamiento. Además de los mecanismos neuromusculares y estructurales, también se estudian explicaciones epigenéticas.",
+        "Preguntas similares se plantean para el metabolismo, la regulación de la inflamación, el sistema cardiovascular y el cerebro. Sobre todo el ejercicio temprano podría dejar efectos biológicos a más largo plazo. Una parte de esta evidencia procede hasta ahora de modelos animales, por lo que las afirmaciones sobre personas concretas deben formularse con cautela."
+      ]
+    },
+    {
+      "nav": "Envejecimiento",
+      "question": "¿Qué mide un reloj de edad epigenético?",
+      "answer": "Intenta deducir, a partir de datos moleculares, una tendencia de envejecimiento. No es una medición exacta de la «verdadera edad biológica».",
+      "points": [
+        "Con la edad cambian patrones típicos de la regulación génica.",
+        "Los resultados dependen del modelo, el tejido, el grupo de comparación y el método de medición.",
+        "Puede tener especial sentido fijarse en la evolución: ¿cómo cambia un marcador a lo largo del tiempo?"
+      ],
+      "long": [
+        "A medida que avanza la edad, cambian patrones característicos de la regulación génica. A partir de patrones de metilación del ADN se han desarrollado los llamados relojes de edad epigenéticos. Intentan deducir, a partir de datos moleculares, una tendencia de envejecimiento.",
+        "Estos métodos son científicamente interesantes, pero no son lo mismo que una medición exacta de la «verdadera edad biológica». Los resultados dependen del modelo, el tejido, la población de referencia y el método de medición. Por eso puede tener especial sentido observar la evolución: ¿cómo cambia un marcador a lo largo del tiempo y en el contexto de medidas de estilo de vida documentadas?"
+      ]
+    },
+    {
+      "nav": "Exerquinas",
+      "question": "¿Cómo se comunican los órganos entre sí durante el ejercicio?",
+      "answer": "Mediante sustancias mensajeras, las exerquinas. Pueden proceder del músculo, del tejido adiposo, del hígado y de otros órganos.",
+      "points": [
+        "Actúan sobre el metabolismo, los vasos sanguíneos, el sistema inmunitario y posiblemente el cerebro.",
+        "Se estudian intensamente, entre otros, el BDNF, el FGF21, la irisina y determinadas interleucinas.",
+        "Así se entiende por qué el ejercicio actúa mucho más allá del músculo entrenado."
+      ],
+      "long": [
+        "La actividad física desencadena la liberación de numerosas moléculas de señalización. Estas sustancias mensajeras dependientes del ejercicio se denominan exerquinas. Los candidatos estudiados intensamente incluyen, entre otros, el BDNF, el FGF21, la irisina y determinadas interleucinas.",
+        "La regulación epigenética puede, a su vez, influir en cómo se forman estas moléculas de señalización. Esto deja claro por qué el ejercicio actúa mucho más allá del músculo entrenado."
+      ]
+    },
+    {
+      "nav": "Pruebas",
+      "question": "¿Qué aportan las pruebas epigenéticas y qué no?",
+      "answer": "Es adecuado observar la evolución de marcadores seleccionados en su contexto. No es adecuado un diagnóstico a partir de un único valor.",
+      "points": [
+        "Las pruebas pueden ser una base adicional para la conversación en prevención y asesoramiento.",
+        "Un marcador no es automáticamente una causa inequívoca.",
+        "El método de medición, el tejido, la edad, el sexo, los medicamentos y las enfermedades forman siempre parte de la interpretación."
+      ],
+      "long": [
+        "Adecuado: observar la evolución de biomarcadores seleccionados; situar los cambios biológicos en el contexto del estilo de vida y el entrenamiento; crear una base adicional para la conversación en prevención y asesoramiento.",
+        "No adecuado: deducir un diagnóstico a partir de un valor único; interpretar un marcador como causa inequívoca; afirmar que los genes pueden «reprogramarse» de forma dirigida y a voluntad.",
+        "Muy importante: tener en cuenta el método de medición, el tejido, la edad, el sexo, los medicamentos, las enfermedades y el contexto temporal. Los resultados deberían situarse siempre en un panorama clínico o preventivo más amplio."
+      ]
+    }
+  ],
+  "widgets": {
+    "influences": {
+      "short": ["Ejercicio", "Nutrición", "Estrés", "Sueño", "Inflamación", "Envejecer"],
+      "full": [
+        "Ejercicio y estímulos de entrenamiento",
+        "Señales nutricionales y metabólicas",
+        "Estrés y carga psicosocial",
+        "Sueño y ritmos circadianos",
+        "Procesos inflamatorios e inmunitarios",
+        "Procesos de envejecimiento y estrés celular"
+      ]
+    },
+    "pult": {
+      "title": "La mesa de mezclas de los genes",
+      "how": "Active un estímulo y observe los controles.",
+      "legendActivity": "Controles: actividad de los genes",
+      "legendSequence": "Letras: secuencia del ADN",
+      "sayIdle": "Todavía no hay ningún estímulo activo. Los controles están en su posición inicial.",
+      "sayActive": "Estímulos activos: {{n}} de 6. Controles que se han movido: {{m}} de 16. Las letras de la secuencia no han cambiado.",
+      "sayNone": "Ya no hay ningún estímulo activo. Los controles vuelven a estar en su posición inicial.",
+      "cap": "Esquema · muestra el principio, no datos de medición ni la dirección del efecto"
+    },
+    "methyl": {
+      "tab": "Metilación",
+      "title": "Metilación: colocar marcas",
+      "how": "Toque un sitio del ADN para añadir un grupo metilo.",
+      "group": "Ocho sitios en el ADN",
+      "site": "Sitio {{n}}",
+      "meter": "Actividad génica",
+      "lower": "menor",
+      "higher": "mayor",
+      "sayIdle": "Todavía no hay ninguna marca colocada. La actividad génica está en el centro.",
+      "saySetLower": "Marca colocada en el sitio {{n}}: la actividad génica es ahora menor. Pruebe otro sitio: según la posición, puede ser al revés.",
+      "saySetHigher": "Marca colocada en el sitio {{n}}: la actividad génica es ahora mayor. Pruebe otro sitio: según la posición, puede ser al revés.",
+      "sayRemoved": "Marca retirada del sitio {{n}}. La actividad génica vuelve hacia la posición inicial.",
+      "cap": "Esquema · aquí se ha elegido libremente qué sitio tiene qué efecto"
+    },
+    "histone": {
+      "tab": "Histonas",
+      "title": "Histonas: el empaquetado",
+      "how": "Arrastre el control deslizante de suelto a denso.",
+      "loose": "suelto",
+      "dense": "denso",
+      "aria": "Empaquetado del ADN, de suelto a denso",
+      "stateLoose": "suelto · fácil de leer",
+      "stateDense": "denso · difícil de leer",
+      "sayLoose": "Empaquetado suelto: el ADN queda al descubierto y se puede leer bien.",
+      "sayDense": "Empaquetado denso: el ADN es de difícil acceso. Aquí la lectura no avanza.",
+      "cap": "Esquema · el punto representa la lectura del ADN"
+    },
+    "rna": {
+      "tab": "ARN",
+      "title": "ARN: el ajuste fino",
+      "how": "Toque el botón y deje que un microARN se acople.",
+      "dock": "Acoplar microARN",
+      "undock": "Soltar microARN",
+      "mrna": "ARNm · copia de un gen",
+      "mirna": "microARN",
+      "sayIdle": "El ARNm es la copia de un gen. Todavía no se ha acoplado ningún microARN.",
+      "sayDocked": "El microARN se ha acoplado. Puede influir en cómo se sigue procesando y se utiliza la copia.",
+      "sayFree": "El microARN se ha soltado. El ARNm vuelve a estar libre.",
+      "cap": "Esquema"
+    },
+    "ring": {
+      "title": "Seis influencias, un sistema de regulación",
+      "how": "Toque una influencia.",
+      "aria": "Seis influencias sobre la regulación génica",
+      "core": ["Regulación", "génica"],
+      "sayIdle": "El cuerpo reacciona constantemente a su entorno. Toque una de las seis influencias.",
+      "sayPick": "«{{name}}» es una de seis influencias a las que reacciona el cuerpo. Una parte de estas reacciones puede estar mediada o acompañada por la regulación epigenética.",
+      "cap": "Esquema"
+    },
+    "cause": {
+      "title": "Asociación no es causa",
+      "how": "Toque las tres posibilidades una tras otra.",
+      "aria": "Tres posibilidades",
+      "options": ["Causa", "Consecuencia", "Fenómeno acompañante"],
+      "marker": ["Marcador", "epigenético"],
+      "disease": "Enfermedad",
+      "together": "aparecen juntos",
+      "say": [
+        "Posibilidad 1: el marcador es la causa de la enfermedad.",
+        "Posibilidad 2: el marcador es una consecuencia de la enfermedad.",
+        "Posibilidad 3: el marcador y la enfermedad aparecen juntos, sin que uno desencadene al otro."
+      ],
+      "tail": "Cuál de las tres posibilidades es la correcta debe investigarse por separado."
+    },
+    "chainPsy": {
+      "title": "Del entorno a la conducta",
+      "how": "Recorra los cinco niveles paso a paso.",
+      "steps": [
+        {
+          "label": "Entorno",
+          "text": "Las cargas y las influencias externas llegan al cuerpo."
+        },
+        {
+          "label": "Regulación epigenética",
+          "text": "Una parte de la reacción puede estar mediada por la regulación epigenética."
+        },
+        {
+          "label": "Expresión génica",
+          "text": "Con ello puede cambiar qué genes se leen con mayor o menor intensidad."
+        },
+        {
+          "label": "Cerebro y cuerpo",
+          "text": "Esto puede afectar a la función cerebral y al cuerpo."
+        },
+        {
+          "label": "Conducta y autorregulación",
+          "text": "La autorregulación es la capacidad de adaptar los sentimientos, la atención, los impulsos y las reacciones de estrés a las exigencias."
+        }
+      ],
+      "cap": "Así lo describen los modelos actuales · simplificado"
+    },
+    "chainTrain": {
+      "title": "Lo que el entrenamiento pone en marcha",
+      "how": "Recorra la cadena paso a paso.",
+      "steps": [
+        {
+          "label": "Entrenamiento",
+          "text": "El entrenamiento genera señales mecánicas, metabólicas y hormonales."
+        },
+        {
+          "label": "Estímulo celular",
+          "text": "Las señales llegan a las células."
+        },
+        {
+          "label": "Adaptación epigenética",
+          "text": "Tras el entrenamiento, los estudios describen cambios en la metilación del ADN, en las marcas de las histonas y en los ARN reguladores."
+        },
+        {
+          "label": "Actividad génica modificada",
+          "text": "Los genes se leen de forma distinta que antes."
+        },
+        {
+          "label": "Adaptación a largo plazo",
+          "text": "Esto puede estar relacionado con adaptaciones en el metabolismo, la regulación de la inflamación y la reparación de los tejidos."
+        }
+      ],
+      "cap": "Representación simplificada"
+    },
+    "muscle": {
+      "title": "«Muscle Memory»: ¿tiene memoria el músculo?",
+      "how": "Pulse los tres botones por orden.",
+      "aria": "Esquema: adaptación en el primer entrenamiento, en la pausa y en la reanudación",
+      "buttons": ["Entrenar", "Pausa", "Reanudar"],
+      "reset": "Restablecer",
+      "labels": ["Primer entrenamiento", "Pausa", "Reanudación"],
+      "axisTime": "Tiempo",
+      "axisLevel": "Adaptación",
+      "sayIdle": "Empiece con «Entrenar».",
+      "say": [
+        "Primer entrenamiento: la adaptación se va desarrollando poco a poco.",
+        "Pausa: una parte de la adaptación retrocede.",
+        "Reanudación: la musculatura ya entrenada puede volver a desarrollar con más rapidez determinadas adaptaciones. La curva sube de forma más pronunciada que la primera vez."
+      ],
+      "sayReset": "Restablecido. Empiece de nuevo con «Entrenar».",
+      "cap": "Esquema ilustrativo · no son datos de medición"
+    },
+    "trend": {
+      "title": "¿Valor único o evolución?",
+      "how": "Arrastre el control deslizante y añada mediciones.",
+      "aria": "Esquema: con cada medición adicional, los valores individuales se convierten en una evolución",
+      "point": "Medición {{n}}",
+      "count": "Mediciones",
+      "countAria": "Número de mediciones",
+      "sayOne": "Un único valor: de él no se puede deducir ningún diagnóstico.",
+      "sayMany": "Mediciones: {{n}}. Ahora se hace visible una evolución. La pregunta es: ¿cómo cambia un marcador a lo largo del tiempo y en el contexto de medidas de estilo de vida documentadas?",
+      "cap": "Esquema · no son datos de medición"
+    },
+    "exer": {
+      "title": "Exerquinas: sustancias mensajeras en camino",
+      "how": "Toque un órgano para enviar sustancias mensajeras.",
+      "from": "Proceden de",
+      "to": "Actúan sobre",
+      "sources": ["Músculo", "Tejido adiposo", "Hígado", "Otros órganos"],
+      "targets": ["Metabolismo", "Vasos sanguíneos", "Sistema inmunitario", "Cerebro"],
+      "maybe": "posiblemente",
+      "studied": "Se estudian intensamente:",
+      "molecules": ["BDNF", "FGF21", "Irisina", "Interleucinas"],
+      "sayIdle": "Todavía no hay nada en camino. Toque «Músculo».",
+      "saySent": "{{name}}: se envían sustancias mensajeras.",
+      "sayOther": "También otros órganos pueden enviar sustancias mensajeras.",
+      "sayTail": "Actúan sobre el metabolismo, los vasos sanguíneos, el sistema inmunitario y posiblemente el cerebro.",
+      "cap": "Esquema · aquí no se representa qué órgano produce qué sustancia mensajera"
+    },
+    "sort": {
+      "title": "¿Adecuado o no?",
+      "how": "Clasifique para qué sirve una prueba epigenética.",
+      "useful": "Adecuado",
+      "notUseful": "No adecuado",
+      "important": "Muy importante",
+      "usefulItems": [
+        "Observar la evolución de biomarcadores seleccionados.",
+        "Situar los cambios biológicos en el contexto del estilo de vida y el entrenamiento.",
+        "Crear una base adicional para la conversación en prevención y asesoramiento."
+      ],
+      "notUsefulItems": [
+        "Deducir un diagnóstico a partir de un valor único.",
+        "Interpretar un marcador como causa inequívoca.",
+        "Afirmar que los genes pueden «reprogramarse» de forma dirigida y a voluntad."
+      ],
+      "importantItems": [
+        "Tener en cuenta el método de medición, el tejido, la edad, el sexo, los medicamentos, las enfermedades y el contexto temporal.",
+        "Situar siempre los resultados en un panorama clínico o preventivo más amplio."
+      ],
+      "sayIdle": "Seis afirmaciones. Decida en cada una: ¿adecuado o no?",
+      "right": "Correcto.",
+      "wrong": "No del todo.",
+      "isUseful": "Esto se considera adecuado.",
+      "isNotUseful": "Esto se considera no adecuado.",
+      "result": "Aciertos: {{right}} de {{total}}. El resumen muestra todas las afirmaciones en su lugar.",
+      "again": "Clasificar de nuevo"
+    }
+  },
+  "closing": {
+    "eyebrow": "La conclusión más importante",
+    "quote": "Nuestros genes forman el marco. La regulación epigenética es una parte de la respuesta dinámica del cuerpo a la vida, al entorno y a la conducta.",
+    "text": "Entre la predisposición genética y el resultado en salud se sitúa un complejo sistema de regulación que reacciona al entorno, al desarrollo y a la conducta. Estas reacciones no son arbitrarias ni totalmente controlables, pero son biológicamente reales y cada vez más medibles científicamente. La epigenética no debería sobrestimarse ni subestimarse: su mayor valor reside actualmente en comprender de forma más matizada la adaptación biológica y en contextualizar mejor los cambios a lo largo del tiempo."
+  },
+  "sources": {
+    "intro": "El contenido de este artículo se basa en dos volúmenes especializados actuales de Springer.",
+    "note": "Aviso: el artículo tiene fines de información general y no sustituye el diagnóstico médico ni el asesoramiento médico individual."
+  }
+}

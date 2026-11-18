@@ -174,6 +174,6 @@ for (const id of ['DLI-01', 'DLI-02']) {
 }
 
 console.log(
-  `Internal findability PASS: ${services.length}/9 services, ${articles.length}/6 article mappings, ` +
+  `Internal findability PASS: ${services.length}/9 services, ${articles.length} article mappings, ` +
     '3 deepening routes, 6 reports, 10 locale labels, 0 legacy /services targets',
 )

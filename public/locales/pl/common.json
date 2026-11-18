@@ -246,6 +246,10 @@
       "article-precision_point_of_care": {
         "title": "Precyzja w Point-of-Care: Klucz do bezpieczeństwa pacjenta",
         "description": "Dlaczego walidacja testów przepływu bocznego (LFT) wykracza poza specyfikacje producenta."
+      },
+      "article-what_is_epigenetics": {
+        "title": "Czym jest epigenetyka?",
+        "description": "Geny są stosunkowo stabilne, ich aktywność już nie. Interaktywny przegląd: jak środowisko, styl życia i ruch wpływają na regulację genów."
       }
     }
   },
