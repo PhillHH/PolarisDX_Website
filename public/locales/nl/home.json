@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Film: Polaris One meet twee tests in één run",
     "cuts": [
-      "Eén druppel.",
+      "Elk één druppel.",
       "Tests aantikken.",
       "Twee cassettes.",
       "Eén run.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Monster",
-        "title": "Eén druppel.",
-        "text": "Het monster komt op de testcassette."
+        "title": "Elk één druppel.",
+        "text": "Eén druppel bloed op elke cassette."
       },
       {
         "label": "Keuze",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Monster aangebracht",
-        "text": "Capillair bloed op de cassette"
+        "text": "Eén druppel per cassette"
       },
       {
         "title": "Test gekozen",

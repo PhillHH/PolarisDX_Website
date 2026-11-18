@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Vídeo: Polaris One mide dos pruebas en una sola pasada",
     "cuts": [
-      "Una gota.",
+      "Una gota cada uno.",
       "Elija las pruebas.",
       "Dos casetes.",
       "Una pasada.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Muestra",
-        "title": "Una gota.",
-        "text": "La muestra se deposita en el casete de prueba."
+        "title": "Una gota cada uno.",
+        "text": "Una gota de sangre en cada casete."
       },
       {
         "label": "Selección",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Muestra aplicada",
-        "text": "Sangre capilar en el casete"
+        "text": "Una gota por casete"
       },
       {
         "title": "Prueba seleccionada",

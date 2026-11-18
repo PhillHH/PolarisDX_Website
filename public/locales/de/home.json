@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Film: Polaris One misst zwei Tests in einem Durchgang",
     "cuts": [
-      "Ein Tropfen.",
+      "Je ein Tropfen.",
       "Tests antippen.",
       "Zwei Kassetten.",
       "Ein Durchgang.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Probe",
-        "title": "Ein Tropfen.",
-        "text": "Die Probe kommt auf die Testkassette."
+        "title": "Je ein Tropfen.",
+        "text": "Ein Tropfen Blut auf jede Kassette."
       },
       {
         "label": "Auswahl",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Probe aufgetragen",
-        "text": "Kapillarblut auf der Kassette"
+        "text": "Ein Tropfen je Kassette"
       },
       {
         "title": "Test gewählt",

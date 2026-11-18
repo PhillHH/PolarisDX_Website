@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Film: Polaris One měří dva testy v jednom běhu",
     "cuts": [
-      "Jedna kapka.",
+      "Po jedné kapce.",
       "Vyberte testy.",
       "Dvě kazety.",
       "Jeden běh.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Vzorek",
-        "title": "Jedna kapka.",
-        "text": "Vzorek se nanese na testovací kazetu."
+        "title": "Po jedné kapce.",
+        "text": "Kapka krve na každou kazetu."
       },
       {
         "label": "Výběr",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Vzorek nanesen",
-        "text": "Kapilární krev na kazetě"
+        "text": "Jedna kapka na kazetu"
       },
       {
         "title": "Test vybrán",

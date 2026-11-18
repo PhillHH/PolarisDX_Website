@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Film: Polaris One måler to tests i én kørsel",
     "cuts": [
-      "Én dråbe.",
+      "Én dråbe hver.",
       "Vælg tests.",
       "To kassetter.",
       "Én kørsel.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Prøve",
-        "title": "Én dråbe.",
-        "text": "Prøven kommer på testkassetten."
+        "title": "Én dråbe hver.",
+        "text": "Én dråbe blod på hver kassette."
       },
       {
         "label": "Valg",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Prøve påført",
-        "text": "Kapillærblod på kassetten"
+        "text": "Én dråbe pr. kassette"
       },
       {
         "title": "Test valgt",

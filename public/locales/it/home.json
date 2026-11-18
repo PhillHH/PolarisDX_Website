@@ -392,7 +392,7 @@
     "name": "Polaris One.",
     "film_label": "Filmato: Polaris One misura due test in un unico passaggio",
     "cuts": [
-      "Una goccia.",
+      "Una goccia ciascuna.",
       "Scegli i test.",
       "Due cassette.",
       "Un passaggio.",
@@ -412,8 +412,8 @@
     "chapters": [
       {
         "label": "Campione",
-        "title": "Una goccia.",
-        "text": "Il campione viene posto sulla cassetta del test."
+        "title": "Una goccia ciascuna.",
+        "text": "Una goccia di sangue su ogni cassetta."
       },
       {
         "label": "Selezione",
@@ -439,7 +439,7 @@
     "log": [
       {
         "title": "Campione applicato",
-        "text": "Sangue capillare sulla cassetta"
+        "text": "Una goccia per cassetta"
       },
       {
         "title": "Test selezionato",
