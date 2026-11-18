@@ -170,19 +170,17 @@ describe('Header — General Sales CTA', () => {
 })
 
 describe('Header — „Infotermin buchen“ (SC-027)', () => {
-  it('fuehrt wie die Startseiten-Buehne schlicht zur Kontaktseite, ohne Verkaufs-Attribution', () => {
+  it('steht nicht mehr in der Leiste (Owner 2026-11-18)', () => {
     renderHeader()
-    const cta = within(mainNav()).getByRole('link', { name: 'nav.cta_appointment' })
-    expect(cta).toHaveAttribute('href', '/contact')
-    expect(cta).toHaveAttribute('data-header-cta')
-    expect(cta).not.toHaveAttribute('data-cta-role')
+    expect(within(mainNav()).queryByRole('link', { name: 'nav.cta_appointment' })).toBeNull()
   })
 
   it('steht unter xl in der Uebersicht, weil die Leiste ihn dort nicht traegt', () => {
     openMenu()
-    const ctas = within(mainNav()).getAllByRole('link', { name: 'nav.cta_appointment' })
-    expect(ctas).toHaveLength(2)
-    for (const cta of ctas) expect(cta).toHaveAttribute('href', '/contact')
+    const cta = within(mainNav()).getByRole('link', { name: 'nav.cta_appointment' })
+    expect(cta).toHaveAttribute('href', '/contact')
+    expect(cta).toHaveAttribute('data-header-cta')
+    expect(cta).not.toHaveAttribute('data-cta-role')
   })
 })
 

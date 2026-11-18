@@ -517,22 +517,8 @@ const Header = () => {
 
             {shopLinks('bar')}
 
-            {/*
-              SC-027: „Infotermin buchen“ wie in der Startseiten-Buehne (SC-023) — schlichter Weg zur
-              Kontaktseite, ohne Verkaufs-Attribution; „Angebot anfragen“ bleibt aus der Kopfzeile.
-              Der Knopf steht VOR Suche und Menue: die Sprachliste der Service-Zeile klappt ueber das
-              rechte Ende der Leiste und darf kein Ziel auf einen Rest unter 24 px zuschneiden
-              (axe `target-size`, Zustand „Sprachdropdown offen“).
-            */}
-            <Link
-              to="/contact"
-              data-header-cta
-              className={`ml-1 hidden h-11 max-w-[11rem] xl:inline-flex ${CTA}`}
-            >
-              {t('nav.cta_appointment')}
-              <ArrowRight className="hidden h-4 w-4 shrink-0 2xl:block" aria-hidden="true" />
-            </Link>
-
+            {/* Owner 2026-11-18: „Infotermin buchen“ steht nicht mehr in der Leiste, nur noch in der
+                Uebersicht unter xl. */}
             <button
               type="button"
               onClick={searchModal.onOpen}
