@@ -49,10 +49,14 @@ for (const locale of SUPPORTED_LANGUAGES) {
 
     const action = gate.getByRole('link', { name: copy.preorder })
     await expect(action).toBeVisible()
-    await expect(action).toHaveAttribute('href', `/${locale}/contact`)
+    // Owner 2026-11-18: Vorbestellung per E-Mail an die drei genannten Postfächer.
+    await expect(action).toHaveAttribute(
+      'href',
+      /^mailto:ulrikes@polarisdx\.net,adrianoz@polarisdx\.net,danielaj@polarisdx\.net\?subject=/,
+    )
     await expect(action).toHaveAttribute('data-home-hero-cta')
     await expect(action).not.toHaveAttribute('data-cta-intent')
-    expect((await page.request.get(`/${locale}/contact`)).status()).toBe(200)
+    await expect(gate.locator('.p1s-ticks button')).toHaveCount(5)
   })
 }
 

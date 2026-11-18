@@ -471,7 +471,9 @@
       "pause": "Pausar el vídeo",
       "timeline": "Línea de tiempo",
       "sound_on": "Activar sonido",
-      "sound_off": "Desactivar sonido"
+      "sound_off": "Desactivar sonido",
+      "fullscreen": "Pantalla completa",
+      "fullscreen_exit": "Salir de pantalla completa"
     },
     "end": {
       "eyebrow": "Reserva · desde el 2.º trimestre de 2027",
@@ -492,6 +494,16 @@
         "title": "Bandeja con adaptador",
         "text": "Dos casetes entran juntos."
       }
-    ]
+    ],
+    "log_title": "Registro de medición",
+    "log_note": "Secuencia y valores de la película · valores de demostración",
+    "mail": {
+      "subject": "Reserva de Polaris One",
+      "body": "Buenos días:\n\nDeseo reservar el Polaris One.\n\nConsulta / empresa:\nPersona de contacto:\nDirección:\nTeléfono:\nNúmero de equipos:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · entrega a partir del 2.º trimestre de 2027",
+      "today": "Disponible hoy: IglooPro"
+    }
   }
 }

@@ -471,7 +471,9 @@
       "pause": "Pozastavit film",
       "timeline": "Časová osa",
       "sound_on": "Zapnout zvuk",
-      "sound_off": "Vypnout zvuk"
+      "sound_off": "Vypnout zvuk",
+      "fullscreen": "Celá obrazovka",
+      "fullscreen_exit": "Ukončit celou obrazovku"
     },
     "end": {
       "eyebrow": "Předobjednávka · od 2. čtvrtletí 2027",
@@ -492,6 +494,16 @@
         "title": "Zásuvka s adaptérem",
         "text": "Dvě kazety zajedou společně."
       }
-    ]
+    ],
+    "log_title": "Protokol měření",
+    "log_note": "Průběh a hodnoty z filmu · ukázkové hodnoty",
+    "mail": {
+      "subject": "Předobjednávka Polaris One",
+      "body": "Dobrý den,\n\nchci si předobjednat Polaris One.\n\nOrdinace / firma:\nKontaktní osoba:\nAdresa:\nTelefon:\nPočet přístrojů:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · dodání od 2. čtvrtletí 2027",
+      "today": "Dnes k dodání: IglooPro"
+    }
   }
 }

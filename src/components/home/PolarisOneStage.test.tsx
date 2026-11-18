@@ -1,7 +1,15 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import PolarisOneStage from './PolarisOneStage'
+
+vi.stubGlobal(
+  'IntersectionObserver',
+  class {
+    observe() {}
+    disconnect() {}
+  },
+)
 
 const renderStage = () =>
   render(
@@ -11,7 +19,7 @@ const renderStage = () =>
   )
 
 describe('SC-030 Polaris One Trailer stage', () => {
-  it('keeps the complete H1 and offers the pre-order target before the film starts', () => {
+  it('keeps the complete H1 and offers the pre-order target before the film starts', async () => {
     const { container } = renderStage()
     const headings = screen.getAllByRole('heading', { level: 1 })
     expect(headings).toHaveLength(1)
@@ -19,11 +27,17 @@ describe('SC-030 Polaris One Trailer stage', () => {
 
     const stage = container.querySelector('[data-home-hero]')
     expect(stage).toHaveAttribute('data-mode', 'gate')
-    const links = screen.getAllByRole('link')
-    expect(links).toHaveLength(1)
-    expect(links[0]).toHaveAttribute('href', '/contact')
-    expect(links[0]).toHaveAttribute('data-home-hero-cta')
-    expect(links[0]).not.toHaveAttribute('data-cta-intent')
+    // Owner 2026-11-18: Vorbestellung per E-Mail an die drei genannten Postfächer. Die Adressen
+    // werden nachgeladen; bis dahin führt der Knopf zum Kontaktformular.
+    const action = screen.getByRole('link', { name: /polaris_one\.preorder/ })
+    expect(action).toHaveAttribute('data-home-hero-cta')
+    expect(action).not.toHaveAttribute('target')
+    expect(action).not.toHaveAttribute('data-cta-intent')
+    await waitFor(() =>
+      expect(action.getAttribute('href')).toMatch(
+        /^mailto:ulrikes@polarisdx\.net,adrianoz@polarisdx\.net,danielaj@polarisdx\.net\?subject=/,
+      ),
+    )
     expect(screen.getByText('polaris_one.price.amount')).toBeInTheDocument()
     expect(screen.getAllByText('polaris_one.price.deposit').length).toBeGreaterThan(0)
   })

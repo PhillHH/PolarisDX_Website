@@ -471,7 +471,9 @@
       "pause": "Pausar o filme",
       "timeline": "Linha de tempo",
       "sound_on": "Ligar som",
-      "sound_off": "Desligar som"
+      "sound_off": "Desligar som",
+      "fullscreen": "Ecrã inteiro",
+      "fullscreen_exit": "Sair do ecrã inteiro"
     },
     "end": {
       "eyebrow": "Pré-encomenda · a partir do 2.º trimestre de 2027",
@@ -492,6 +494,16 @@
         "title": "Gaveta com adaptador",
         "text": "Duas cassetes entram em conjunto."
       }
-    ]
+    ],
+    "log_title": "Registo de medição",
+    "log_note": "Sequência e valores do filme · valores de demonstração",
+    "mail": {
+      "subject": "Pré-encomenda Polaris One",
+      "body": "Bom dia,\n\ngostaria de pré-encomendar o Polaris One.\n\nConsultório / empresa:\nPessoa de contacto:\nMorada:\nTelefone:\nNúmero de aparelhos:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · entrega a partir do 2.º trimestre de 2027",
+      "today": "Disponível hoje: IglooPro"
+    }
   }
 }

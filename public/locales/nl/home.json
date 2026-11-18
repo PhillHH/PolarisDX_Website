@@ -471,7 +471,9 @@
       "pause": "Film pauzeren",
       "timeline": "Tijdlijn",
       "sound_on": "Geluid aan",
-      "sound_off": "Geluid uit"
+      "sound_off": "Geluid uit",
+      "fullscreen": "Volledig scherm",
+      "fullscreen_exit": "Volledig scherm sluiten"
     },
     "end": {
       "eyebrow": "Voorbestelling · vanaf Q2 2027",
@@ -492,6 +494,16 @@
         "title": "Lade met adapter",
         "text": "Twee cassettes schuiven samen naar binnen."
       }
-    ]
+    ],
+    "log_title": "Meetprotocol",
+    "log_note": "Verloop en waarden uit de film · demowaarden",
+    "mail": {
+      "subject": "Voorbestelling Polaris One",
+      "body": "Goedendag,\n\nik wil de Polaris One voorbestellen.\n\nPraktijk / bedrijf:\nContactpersoon:\nAdres:\nTelefoon:\nAantal apparaten:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · levering vanaf Q2 2027",
+      "today": "Vandaag leverbaar: IglooPro"
+    }
   }
 }

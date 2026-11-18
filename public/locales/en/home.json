@@ -471,7 +471,9 @@
       "pause": "Pause film",
       "timeline": "Timeline",
       "sound_on": "Sound on",
-      "sound_off": "Sound off"
+      "sound_off": "Sound off",
+      "fullscreen": "Full screen",
+      "fullscreen_exit": "Exit full screen"
     },
     "end": {
       "eyebrow": "Pre-order · from Q2 2027",
@@ -492,6 +494,16 @@
         "title": "Drawer with adapter",
         "text": "Two cassettes slide in together."
       }
-    ]
+    ],
+    "log_title": "Measurement log",
+    "log_note": "Sequence and values from the film · demo values",
+    "mail": {
+      "subject": "Pre-order Polaris One",
+      "body": "Hello,\n\nI would like to pre-order the Polaris One.\n\nPractice / company:\nContact person:\nAddress:\nPhone:\nNumber of devices:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · delivery from Q2 2027",
+      "today": "Available today: IglooPro"
+    }
   }
 }

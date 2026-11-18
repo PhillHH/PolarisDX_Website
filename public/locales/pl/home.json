@@ -471,7 +471,9 @@
       "pause": "Zatrzymaj film",
       "timeline": "Oś czasu",
       "sound_on": "Włącz dźwięk",
-      "sound_off": "Wyłącz dźwięk"
+      "sound_off": "Wyłącz dźwięk",
+      "fullscreen": "Pełny ekran",
+      "fullscreen_exit": "Zamknij pełny ekran"
     },
     "end": {
       "eyebrow": "Przedsprzedaż · od II kw. 2027",
@@ -492,6 +494,16 @@
         "title": "Szuflada z adapterem",
         "text": "Dwie kasety wsuwają się razem."
       }
-    ]
+    ],
+    "log_title": "Protokół pomiaru",
+    "log_note": "Przebieg i wartości z filmu · wartości demonstracyjne",
+    "mail": {
+      "subject": "Zamówienie przedpremierowe Polaris One",
+      "body": "Dzień dobry,\n\nchcę zamówić Polaris One w przedsprzedaży.\n\nGabinet / firma:\nOsoba kontaktowa:\nAdres:\nTelefon:\nLiczba urządzeń:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · dostawa od II kw. 2027",
+      "today": "Dostępny dziś: IglooPro"
+    }
   }
 }

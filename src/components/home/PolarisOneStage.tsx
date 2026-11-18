@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { useHref } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
 import { HOME_TARGETS } from './homeTargets'
 import { prefersReducedMotion } from './motion'
 
@@ -14,12 +14,26 @@ const MEDIA = '/media/polaris-one'
 /** Der Trailer ist ein eigener stummer Zusammenschnitt: fünf Szenen zu je 1,9 Sekunden. */
 const CUT_COUNT = 5
 const CUT_SECONDS = 1.9
-const wide = () => window.innerWidth > 900
+const wide = () => innerWidth > 900
+const run = (video: HTMLVideoElement) => video.play()?.catch(() => 0)
+const CUT_FRAMES = [
+  { opacity: 0, transform: 'scale(1.28)', filter: 'blur(16px)' },
+  { opacity: 1, transform: 'scale(1.23)', filter: 'none', offset: 0.16 },
+  { opacity: 1, transform: 'scale(1.04)', offset: 0.84 },
+  { opacity: 0, transform: 'none' },
+]
+const CUT_TIMING = {
+  duration: 1850,
+  easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+  fill: 'forwards' as const,
+}
 
 /**
  * SC-030 (Owner 2026-11-16, Entwurf „Trailer"): Die Startseiten-Bühne zeigt den Polaris One.
  * Hinter Überschrift und Preis läuft stumm ein Zusammenschnitt aus fünf Szenen, zu jeder steht
- * ein großes Wort im Bild. „Film mit Ton starten" holt den ganzen Film; Steuerung, Einblendungen
+ * ein großes Wort im Bild. Owner 2026-11-18 („volle Regie"): dazu Sucherecken, Lichtlinie, Zähler,
+ * der Schritt mit einem Satz und eine beschriftete Leiste, die den Film am gewählten Schritt
+ * startet. Vorbestellt wird per E-Mail. „Film mit Ton starten" holt den ganzen Film; Steuerung, Einblendungen
  * und Standbild liegen in `PolarisOnePlayer` und werden erst nach dem Seitenaufbau geladen.
  *
  * Der Trailer wird erst nach dem Laden der Seite geholt, nie im Datensparmodus und nie bei
@@ -40,23 +54,27 @@ const PolarisOneStage = () => {
   const cutRef = useRef<HTMLElement>(null)
   const [cut, setCut] = useState(0)
 
+  // Vorbestellt wird per E-Mail. Adressen und Mailtext kommen mit den Regie-Einblendungen nach dem
+  // Seitenaufbau; bis dahin – und ohne JavaScript – führt der Knopf zum Kontaktformular.
+  const contactHref = useHref(HOME_TARGETS.contact)
+  const [orderHref, setOrderHref] = useState('')
+
   const changeMode = (next: PolarisOneMode) => {
     modeRef.current = next
     setMode(next)
   }
 
-  const startFilm = () => {
+  const startFilm = (from = 0) => {
     const video = videoRef.current
     if (!video) return
     // Erst jetzt wird der ganze Film geholt. Abspielen muss in diesem Klick beginnen, sonst
     // verweigert der Browser den Ton.
     video.loop = false
-    video.src = `${MEDIA}/polaris-one-${wide() ? '1080' : '720'}.mp4`
+    video.src = `${MEDIA}/polaris-one-${wide() ? '1080' : '720'}.mp4${from ? `#t=${from}` : ''}`
     video.muted = false
-    video.load()
     video.play()?.catch(() => {
       video.muted = true
-      video.play()?.catch(() => undefined)
+      void run(video)
     })
     changeMode('play')
   }
@@ -67,10 +85,10 @@ const PolarisOneStage = () => {
     if (!section || !video) return undefined
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
     const autoplay = !prefersReducedMotion() && !connection?.saveData
-    const readyFrame = window.requestAnimationFrame(() => setReady(true))
+    const readyFrame = requestAnimationFrame(() => setReady(true))
     let seen = true
     let resume = false
-    let timer = 0
+    let timer: ReturnType<typeof setTimeout> | undefined
 
     let shown = -1
     const onTime = () => {
@@ -79,57 +97,45 @@ const PolarisOneStage = () => {
       if (next === shown) return
       shown = next
       setCut(next)
-      cutRef.current?.animate?.(
-        [
-          { opacity: 0, transform: 'scale(1.28)', filter: 'blur(16px)' },
-          { opacity: 1, transform: 'scale(1.23)', filter: 'blur(0)', offset: 0.16 },
-          { opacity: 1, transform: 'scale(1.04)', filter: 'blur(0)', offset: 0.84 },
-          { opacity: 0, transform: 'scale(1)', filter: 'blur(0)' },
-        ],
-        { duration: 1850, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)', fill: 'forwards' },
-      )
+      cutRef.current?.animate?.(CUT_FRAMES, CUT_TIMING)
     }
     video.addEventListener('timeupdate', onTime)
 
     // Außerhalb des Bildschirms ruht der Film und läuft beim Zurückkommen weiter.
-    let observer: IntersectionObserver | null = null
-    if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          seen = entries[0]?.isIntersecting ?? false
-          if (!seen) {
-            resume = !video.paused
-            video.pause()
-          } else if (resume) {
-            video.play()?.catch(() => undefined)
-          }
-        },
-        { threshold: 0.2 },
-      )
-      observer.observe(section)
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        seen = entries[0]?.isIntersecting ?? false
+        if (!seen) {
+          resume = !video.paused
+          video.pause()
+        } else if (resume) {
+          void run(video)
+        }
+      },
+      { threshold: 0.2 },
+    )
+    observer.observe(section)
 
     // Erst nach dem Laden der Seite: der erste Seitenaufbau bleibt vom Film unberührt.
     const schedule = () => {
-      timer = window.setTimeout(() => {
+      timer = setTimeout(() => {
         if (!autoplay || modeRef.current !== 'gate') return
         void loadPlayer().catch(() => undefined)
         video.loop = true
         video.src = `${MEDIA}/polaris-one-trailer-${wide() ? '720' : '480'}.mp4`
-        video.load()
-        if (seen) video.play()?.catch(() => undefined)
+        if (seen) void run(video)
         else resume = true
       }, 350)
     }
     if (document.readyState === 'complete') schedule()
-    else window.addEventListener('load', schedule, { once: true })
+    else addEventListener('load', schedule, { once: true })
 
     return () => {
-      window.cancelAnimationFrame(readyFrame)
-      window.clearTimeout(timer)
-      window.removeEventListener('load', schedule)
+      cancelAnimationFrame(readyFrame)
+      clearTimeout(timer)
+      removeEventListener('load', schedule)
       video.removeEventListener('timeupdate', onTime)
-      observer?.disconnect()
+      observer.disconnect()
       video.pause()
     }
   }, [])
@@ -191,34 +197,33 @@ const PolarisOneStage = () => {
                 </p>
               </div>
               <div className="p1s-actions">
-                <button type="button" className="p1s-btn p1s-btn-light" onClick={startFilm}>
+                <button type="button" className="p1s-btn p1s-btn-light" onClick={() => startFilm()}>
                   <span aria-hidden="true">▶</span>
                   {t('polaris_one.start')}
                 </button>
-                <Button
-                  to={HOME_TARGETS.contact}
-                  variant="secondary"
+                <a
+                  href={orderHref || contactHref}
                   data-home-hero-cta
-                  className="sc025-button"
+                  className="p1s-btn p1s-btn-order"
                 >
                   {t('polaris_one.preorder')}
                   <ArrowRight aria-hidden="true" />
-                </Button>
+                </a>
               </div>
             </div>
-            <div className="p1s-ticks" aria-hidden="true">
-              {Array.from({ length: CUT_COUNT }, (_, index) => (
-                <i key={index} className={index === cut ? 'is-on' : undefined} />
-              ))}
-            </div>
           </div>
-        ) : (
+        ) : null}
+        {/* Regie-Einblendungen vor dem Start, danach Steuerung und Standbild – ein Nachlade-Teil. */}
+        {ready && (
           <Suspense fallback={null}>
             <PolarisOnePlayer
               videoRef={videoRef}
               frameRef={frameRef}
               mode={mode}
               onMode={changeMode}
+              cut={cut}
+              onStart={startFilm}
+              onOrder={setOrderHref}
             />
           </Suspense>
         )}

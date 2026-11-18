@@ -471,7 +471,9 @@
       "pause": "Mettre le film en pause",
       "timeline": "Chronologie",
       "sound_on": "Activer le son",
-      "sound_off": "Couper le son"
+      "sound_off": "Couper le son",
+      "fullscreen": "Plein écran",
+      "fullscreen_exit": "Quitter le plein écran"
     },
     "end": {
       "eyebrow": "Précommande · dès le T2 2027",
@@ -492,6 +494,16 @@
         "title": "Tiroir avec adaptateur",
         "text": "Deux cassettes entrent ensemble."
       }
-    ]
+    ],
+    "log_title": "Journal de mesure",
+    "log_note": "Déroulement et valeurs issus du film · valeurs de démonstration",
+    "mail": {
+      "subject": "Précommande Polaris One",
+      "body": "Bonjour,\n\nje souhaite précommander le Polaris One.\n\nCabinet / société :\nInterlocuteur :\nAdresse :\nTéléphone :\nNombre d’appareils :\n"
+    },
+    "bridge": {
+      "note": "Polaris One · livraison à partir du T2 2027",
+      "today": "Disponible aujourd’hui : IglooPro"
+    }
   }
 }

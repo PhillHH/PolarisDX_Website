@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import type { KeyboardEvent, PointerEvent, RefObject } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Maximize, Minimize } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../ui/Button'
-import { HOME_TARGETS } from './homeTargets'
+import PolarisOneBridge from './PolarisOneBridge'
+import PolarisOneRegie from './PolarisOneRegie'
+import { CHAPTER_STARTS, preorderHref } from './polarisOneOrder'
 import type { PolarisOneMode } from './PolarisOneStage'
 
 type Chapter = { label: string; title: string; text: string }
@@ -16,7 +18,6 @@ type Props = {
 }
 
 const END = 35.7
-const CHAPTER_STARTS = [0, 4, 14, 19.5, 25]
 const LOG_STARTS = [0.6, 7, 11.6, 15, 20, 21.6, 26.2]
 /** Lage der drei Punkte im Standbild, als Anteil des Filmbilds (1920 × 1080). */
 const HOTSPOTS: Array<[number, number]> = [
@@ -34,8 +35,11 @@ const lastStarted = (starts: number[], time: number) => {
   return index
 }
 
+type WebkitVideo = HTMLVideoElement & { webkitEnterFullscreen?: () => void }
+
 /**
- * SC-030: Steuerung des Polaris-One-Films – Kopfzeile mit Preis, Einblendung der Schritte,
+ * SC-030: Steuerung des Polaris-One-Films – Kopfzeile mit Preis, Titelkarte je Abschnitt,
+ * mitlaufendes Messprotokoll, Vollbild,
  * Zeitleiste mit Kapiteln, Ton, und am Ende das Standbild mit Vorbestell-Karte und drei Punkten.
  * Wird von `PolarisOneStage` nachgeladen, sobald der Besucher den Film startet.
  */
@@ -48,10 +52,13 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
   const chapters = list<Chapter>('polaris_one.chapters')
   const log = list<Note>('polaris_one.log')
   const hotspots = list<Note>('polaris_one.hotspots')
+  const orderHref = preorderHref(t('polaris_one.mail.subject'), t('polaris_one.mail.body'))
 
   const fillRef = useRef<HTMLElement>(null)
   const headRef = useRef<HTMLElement>(null)
   const timeRef = useRef<HTMLSpanElement>(null)
+  const logTimeRef = useRef<HTMLElement>(null)
+  const barRef = useRef<HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
   const spotRefs = useRef<Array<HTMLDivElement | null>>([])
@@ -61,7 +68,10 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
   const [sound, setSound] = useState(true)
   const [chapter, setChapter] = useState(0)
   const [step, setStep] = useState(-1)
-  const [stepOn, setStepOn] = useState(false)
+  const [titleOn, setTitleOn] = useState(false)
+  const [full, setFull] = useState(false)
+  const [canFull, setCanFull] = useState(false)
+  const [frame, setFrame] = useState<HTMLDivElement | null>(null)
   const [blackout, setBlackout] = useState(true)
   const [openSpot, setOpenSpot] = useState(-1)
 
@@ -93,6 +103,13 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
     if (modeRef.current === 'done') again()
     else if (video.paused) play()
     else video.pause()
+  }
+  const toggleFull = () => {
+    const video = videoRef.current as WebkitVideo | null
+    const stage = video?.closest('section')
+    if (document.fullscreenElement) void document.exitFullscreen().catch(() => undefined)
+    else if (stage?.requestFullscreen) void stage.requestFullscreen().catch(() => undefined)
+    else video?.webkitEnterFullscreen?.()
   }
   const toggleSound = () => {
     const video = videoRef.current
@@ -130,15 +147,21 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
     const video = videoRef.current
     if (!video) return undefined
     let frame = 0
-    let lastChapter = 0
+    let lastChapter = -1
     let lastStep = -1
-    let stepTimer = 0
+    let titleTimer = 0
     let clearTimer = 0
 
     const sync = () => {
       setPlaying(!video.paused)
       setSound(!video.muted)
+      setFrame(frameRef.current)
+      setCanFull(
+        document.fullscreenEnabled || Boolean((video as WebkitVideo).webkitEnterFullscreen),
+      )
     }
+    const onFull = () => setFull(Boolean(document.fullscreenElement))
+    document.addEventListener('fullscreenchange', onFull)
     // Die Schwarzblende deckt den Wechsel vom Trailer zum Film, bis das erste Bild läuft.
     const clear = () => {
       clearTimer = window.setTimeout(() => setBlackout(false), 250)
@@ -164,7 +187,7 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
         modeRef.current = 'done'
         video.pause()
         onMode('done')
-        setStepOn(false)
+        setTitleOn(false)
       }
       video.volume = time > END - 0.8 ? Math.max(0, Math.min(1, (END - time) / 0.8)) : 1
       const progress = Math.min(1, time / END)
@@ -178,23 +201,29 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
       if (nextChapter !== lastChapter) {
         lastChapter = nextChapter
         setChapter(nextChapter)
+        if (modeRef.current === 'play' && !video.paused) {
+          setTitleOn(true)
+          window.clearTimeout(titleTimer)
+          titleTimer = window.setTimeout(() => setTitleOn(false), 2100)
+        }
       }
       const nextStep = lastStarted(LOG_STARTS, time)
       if (nextStep !== lastStep) {
         lastStep = nextStep
-        if (nextStep >= 0 && modeRef.current === 'play') {
-          setStep(nextStep)
-          setStepOn(true)
-          window.clearTimeout(stepTimer)
-          stepTimer = window.setTimeout(() => setStepOn(false), 3000)
-        }
+        setStep(nextStep)
+      }
+      if (logTimeRef.current) logTimeRef.current.textContent = clock(Math.min(time, END))
+      if (barRef.current) {
+        const measured = Math.max(0, Math.min(1, (time - LOG_STARTS[5]) / 3.4))
+        barRef.current.style.transform = `scaleX(${measured})`
       }
     }
     frame = window.requestAnimationFrame(tick)
 
     return () => {
       window.cancelAnimationFrame(frame)
-      window.clearTimeout(stepTimer)
+      window.clearTimeout(titleTimer)
+      document.removeEventListener('fullscreenchange', onFull)
       window.clearTimeout(clearTimer)
       window.clearTimeout(fallback)
       video.removeEventListener('playing', clear)
@@ -203,7 +232,7 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
       video.removeEventListener('volumechange', sync)
       video.removeEventListener('click', onClick)
     }
-  }, [videoRef, onMode])
+  }, [videoRef, frameRef, onMode])
 
   // Standbild: die drei Punkte sitzen auf dem beschnittenen Filmbild.
   useEffect(() => {
@@ -245,25 +274,59 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
   }, [mode, frameRef])
 
   const activeChapter = chapters[chapter]
-  const activeStep = step >= 0 ? log[step] : undefined
 
   return (
     <>
       {blackout && <i className="p1s-blackout" aria-hidden="true" />}
+      <PolarisOneBridge />
       <div className="p1s-top">
         <strong>{t('polaris_one.name')}</strong>
         <span className="p1s-top-price">{t('polaris_one.price.short')}</span>
-        <Button to={HOME_TARGETS.contact} variant="secondary" className="sc025-button p1s-btn-sm">
+        <a href={orderHref} className="p1s-btn p1s-btn-order p1s-btn-sm">
           {t('polaris_one.preorder')}
           <ArrowRight aria-hidden="true" />
-        </Button>
+        </a>
         <span className="p1s-dev">{t('polaris_one.dev_note')}</span>
       </div>
 
-      <div className={stepOn ? 'p1s-step is-on' : 'p1s-step'} aria-hidden="true">
-        <small>{activeStep?.title}</small>
-        <b>{activeStep?.text}</b>
-      </div>
+      {frame &&
+        createPortal(
+          <div className={titleOn ? 'p1s-title is-on' : 'p1s-title'} aria-hidden="true">
+            <small>
+              0{chapter + 1} · {activeChapter?.label}
+            </small>
+            <b>{activeChapter?.title}</b>
+          </div>,
+          frame,
+        )}
+
+      {mode === 'play' && (
+        <div className="p1s-log" aria-hidden="true">
+          <p className="p1s-log-head">
+            <span>{t('polaris_one.log_title')}</span>
+            <em ref={logTimeRef} />
+          </p>
+          <ol>
+            {log.map((item, index) => (
+              <li
+                key={`${item.title}-${item.text}`}
+                className={index === step ? 'is-on is-last' : index < step ? 'is-on' : undefined}
+              >
+                <span>
+                  {item.title}
+                  <small>{item.text}</small>
+                  {index === 5 && (
+                    <i className="p1s-log-bar">
+                      <b ref={barRef} />
+                    </i>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="p1s-log-note">{t('polaris_one.log_note')}</p>
+        </div>
+      )}
 
       {mode === 'play' && (
         <div
@@ -315,15 +378,25 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
             </div>
             <span className="p1s-time" ref={timeRef} aria-hidden="true" />
             <button type="button" className="p1s-icon p1s-sound" onClick={toggleSound}>
-              <span className="p1s-eq" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-              </span>
+              <span className="p1s-eq" aria-hidden="true"></span>
               <span>
                 {sound ? t('polaris_one.controls.sound_off') : t('polaris_one.controls.sound_on')}
               </span>
             </button>
+            {canFull && (
+              <button
+                type="button"
+                className="p1s-icon"
+                onClick={toggleFull}
+                aria-label={
+                  full
+                    ? t('polaris_one.controls.fullscreen_exit')
+                    : t('polaris_one.controls.fullscreen')
+                }
+              >
+                {full ? <Minimize aria-hidden="true" /> : <Maximize aria-hidden="true" />}
+              </button>
+            )}
           </div>
         </div>
       )}
@@ -338,10 +411,10 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
               {t('polaris_one.end.deposit_note')}
             </p>
             <div className="p1s-actions">
-              <Button to={HOME_TARGETS.contact} variant="secondary" className="sc025-button">
+              <a href={orderHref} className="p1s-btn p1s-btn-order">
                 {t('polaris_one.preorder')}
                 <ArrowRight aria-hidden="true" />
-              </Button>
+              </a>
               <button type="button" className="p1s-btn p1s-btn-line" onClick={again}>
                 <span aria-hidden="true">↺</span>
                 {t('polaris_one.end.again')}
@@ -376,4 +449,18 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
   )
 }
 
-export default PolarisOnePlayer
+type OverlayProps = Props & {
+  cut: number
+  onStart: (from: number) => void
+  onOrder: (href: string) => void
+}
+
+/** Vor dem Start die Regie-Einblendungen, danach Steuerung und Standbild. */
+const PolarisOneOverlay = ({ cut, onStart, onOrder, ...player }: OverlayProps) =>
+  player.mode === 'gate' ? (
+    <PolarisOneRegie cut={cut} onStart={onStart} onOrder={onOrder} />
+  ) : (
+    <PolarisOnePlayer {...player} />
+  )
+
+export default PolarisOneOverlay

@@ -471,7 +471,9 @@
       "pause": "Metti in pausa il filmato",
       "timeline": "Linea temporale",
       "sound_on": "Attiva audio",
-      "sound_off": "Disattiva audio"
+      "sound_off": "Disattiva audio",
+      "fullscreen": "Schermo intero",
+      "fullscreen_exit": "Esci da schermo intero"
     },
     "end": {
       "eyebrow": "Preordine · dal 2° trimestre 2027",
@@ -492,6 +494,16 @@
         "title": "Cassetto con adattatore",
         "text": "Due cassette entrano insieme."
       }
-    ]
+    ],
+    "log_title": "Registro di misura",
+    "log_note": "Sequenza e valori tratti dal film · valori dimostrativi",
+    "mail": {
+      "subject": "Preordine Polaris One",
+      "body": "Buongiorno,\n\ndesidero preordinare Polaris One.\n\nStudio / azienda:\nReferente:\nIndirizzo:\nTelefono:\nNumero di dispositivi:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · consegna dal 2° trimestre 2027",
+      "today": "Disponibile oggi: IglooPro"
+    }
   }
 }

@@ -471,7 +471,9 @@
       "pause": "Sæt filmen på pause",
       "timeline": "Tidslinje",
       "sound_on": "Lyd til",
-      "sound_off": "Lyd fra"
+      "sound_off": "Lyd fra",
+      "fullscreen": "Fuld skærm",
+      "fullscreen_exit": "Afslut fuld skærm"
     },
     "end": {
       "eyebrow": "Forudbestilling · fra 2. kvartal 2027",
@@ -492,6 +494,16 @@
         "title": "Skuffe med adapter",
         "text": "To kassetter kører ind sammen."
       }
-    ]
+    ],
+    "log_title": "Måleprotokol",
+    "log_note": "Forløb og værdier fra filmen · demoværdier",
+    "mail": {
+      "subject": "Forudbestilling Polaris One",
+      "body": "Hej,\n\njeg vil gerne forudbestille Polaris One.\n\nKlinik / firma:\nKontaktperson:\nAdresse:\nTelefon:\nAntal apparater:\n"
+    },
+    "bridge": {
+      "note": "Polaris One · levering fra 2. kvartal 2027",
+      "today": "Kan leveres i dag: IglooPro"
+    }
   }
 }
