@@ -56,7 +56,7 @@ for (const locale of SUPPORTED_LANGUAGES) {
     )
     await expect(action).toHaveAttribute('data-home-hero-cta')
     await expect(action).not.toHaveAttribute('data-cta-intent')
-    await expect(gate.locator('.p1s-ticks button')).toHaveCount(5)
+    await expect(stage.locator('.p1s-ticks button')).toHaveCount(5)
   })
 }
 
@@ -72,7 +72,7 @@ test('SC-030 the film is fetched after load, starts on request and shows its con
     'src',
     /\/media\/polaris-one\/polaris-one-trailer-(480|720)\.mp4$/,
   )
-  await stage.getByRole('button', { name: resources.de.polaris_one.start }).click()
+  await stage.getByRole('button', { name: resources.de.polaris_one.start, exact: true }).click()
   await expect(stage).toHaveAttribute('data-mode', 'play')
   await expect(video).toHaveAttribute('src', /\/media\/polaris-one\/polaris-one-(720|1080)\.mp4$/)
   await expect(stage.locator('[data-polaris-gate]')).toBeHidden()
@@ -96,7 +96,7 @@ test('SC-030 without motion the film is not fetched until the visitor starts it'
   expect(await video.getAttribute('src')).toBeNull()
   await expect(stage.locator('.p1s-frame img')).toBeVisible()
   await expect(page.locator('.sc025-trace')).toHaveAttribute('aria-hidden', 'true')
-  await stage.getByRole('button', { name: resources.de.polaris_one.start }).click()
+  await stage.getByRole('button', { name: resources.de.polaris_one.start, exact: true }).click()
   await expect(video).toHaveAttribute('src', /polaris-one-(720|1080)\.mp4$/)
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
 })
