@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-032 — Polaris-One-Film: schärfer und ruhiger (Preview)
+
+- **Datum:** 2026-11-19
+- **Status:** ACCEPTED (Owner-Auftrag); Ausrollen nur auf die Preview
+- **Betroffene IDs:** SC-030 (Polaris-One-Bühne der Startseite), AP25 (Bytes), AP27 (Tests)
+- **Vorheriger Zustand:** Vorschau-Schleife in 480p/720p mit 0,34/0,7 Mbit/s, am Desktop lief 720p hochskaliert; Film in 720p/1080p mit CRF 27 und einem Vollbild alle 15 Bilder. Gemessen am Original: Bildsprung an jedem Vollbild rund 50 % über der sonstigen Bewegung (sichtbares „Pumpen" zweimal pro Sekunde), dünne Linien und Schrift der Schleife verwaschen. Die Steuerung schrieb in jedem Bildschirmtakt Text, Attribut, Lautstärke und `left` ins Dokument.
+- **Neuer Zustand:** Schleife und Film neu aus dem Original gerechnet (1080p, 36 Mbit/s): Schleife 720p (1,5 MB) und 1080p (3,6 MB), Film 720p (7,4 MB) und 1080p (18,9 MB, Datei bis 36,3 s, die Steuerung endet bei 35,7 s). Bildgruppen 3 s statt 0,5 s, Vollbilder an Kapitelanfängen und Schnitten, leichte Entrauschung des Renderkorns, 30 Bilder/s. Die 1080er-Fassungen kommen ab 1300 Gerätepixeln Breite (vorher Film ab 900 px, Schleife nie in 1080p), am Telefon 720p statt 480p. Neue Dateinamen (`-v2-`), die alten Dateien sind entfernt. Die Steuerung schreibt nur noch, wenn der Film weitergelaufen ist und sich etwas ändert; die Marke der Zeitleiste bewegt sich über `transform`.
+- **Begründung:** Owner wörtlich am 19.11.2026: „Das Video auf der Production Site ist ziemlich hakend, kannst du das noch oprimieren und das ist auch etwas unscharf"; dazu: „Kannst du die Resolution probleme selbst ggf. mit gecachten renderings?"
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-19, Sitzung über Remote Control. Ausrollen nur auf die Preview.
+- **Auswirkung auf Scope:** Nur die Bühne der Startseite. Inhalt, Schnitt der Schleife (fünf Szenen zu 1,9 s) und Kapitelzeiten unverändert — alte und neue Dateien bildgenau abgeglichen. Standbilder (Poster) unverändert.
+- **Auswirkung auf Abhängigkeiten:** Keine neue Bibliothek. Mehr Daten: Schleife am Telefon 1,5 statt 0,4 MB, am Desktop 3,6 statt 0,85 MB (weiter erst nach dem Seitenaufbau, nie im Datensparmodus oder bei „Bewegung reduzieren"); Film 18,9 statt 10,3 MB bzw. 7,4 statt 5,5 MB (weiter erst auf Klick).
+- **Auswirkung auf Gates:** Byte-Budget 851/852 (rot wie zuvor nur `igloo-pro routeJsGzip`); Start-Skript +18 Bytes — `service-detail jsBytes` hat damit nur noch 22 Bytes Luft, die nächste Änderung am Start-Skript braucht dort eine Owner-Entscheidung oder Einsparung. Startseiten-E2E 74/74, Vitest `components/home` 17/17. Videodateien sind kein Messpunkt des Budgets.
+- **Aktualisierte kanonische Dokumente:** `building-docs/state/AP-STATE.md`.
+
 ### SC-031 — Interaktiver Artikel „Was ist Epigenetik?" mit eigenem Seitenaufbau (Preview)
 
 - **Datum:** 2026-11-18

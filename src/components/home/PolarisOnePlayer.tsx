@@ -175,6 +175,14 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
     video.addEventListener('click', onClick)
     sync()
 
+    // Die Anzeige folgt dem Film. Geschrieben wird nur, wenn der Film weitergelaufen ist und nur,
+    // was sich geändert hat; Leiste und Marke bewegen sich über `transform` (kein neues Layout).
+    // Vorher schrieb jeder Bildschirmtakt Text, Attribut, Lautstärke und `left` ins Dokument —
+    // Arbeit, die neben dem Film läuft (Owner 2026-11-19: „ziemlich hakend").
+    let lastTime = -1
+    let lastClock = ''
+    let lastSecond = -1
+    let lastVolume = -1
     const tick = () => {
       frame = window.requestAnimationFrame(tick)
       const time = video.currentTime
@@ -183,14 +191,26 @@ const PolarisOnePlayer = ({ videoRef, frameRef, mode, onMode }: Props) => {
         video.pause()
         onMode('done')
       }
-      video.volume = time > END - 0.8 ? Math.max(0, Math.min(1, (END - time) / 0.8)) : 1
+      if (time === lastTime) return
+      lastTime = time
+      const volume = time > END - 0.8 ? Math.max(0, Math.min(1, (END - time) / 0.8)) : 1
+      if (volume !== lastVolume) {
+        lastVolume = volume
+        video.volume = volume
+      }
       const progress = Math.min(1, time / END)
       if (fillRef.current) fillRef.current.style.transform = `scaleX(${progress})`
-      if (headRef.current) headRef.current.style.left = `${progress * 100}%`
-      if (timeRef.current) {
-        timeRef.current.textContent = `${clock(Math.min(time, END))} / ${clock(END)}`
+      if (headRef.current) headRef.current.style.transform = `translateX(${progress * 100}%)`
+      const second = Math.round(time)
+      if (second !== lastSecond) {
+        lastSecond = second
+        sliderRef.current?.setAttribute('aria-valuenow', String(second))
       }
-      sliderRef.current?.setAttribute('aria-valuenow', String(Math.round(time)))
+      const shown = `${clock(Math.min(time, END))} / ${clock(END)}`
+      if (shown !== lastClock && timeRef.current) {
+        lastClock = shown
+        timeRef.current.textContent = shown
+      }
       const nextChapter = Math.max(0, lastStarted(CHAPTER_STARTS, time))
       if (nextChapter !== lastChapter) {
         lastChapter = nextChapter

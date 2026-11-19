@@ -15,7 +15,12 @@ const MEDIA = '/media/polaris-one'
 /** Der Trailer ist ein eigener stummer Zusammenschnitt: fünf Szenen zu je 1,9 Sekunden. */
 const CUT_COUNT = 5
 const CUT_SECONDS = 1.9
-const wide = () => innerWidth > 900
+/**
+ * Ab 1300 Gerätepixeln Breite (Laptop, Desktop, Tablet) kommt die 1080er-Fassung, am Telefon 720.
+ * Owner 2026-11-19 („etwas unscharf"): vorher lief am Desktop der 720er-Zusammenschnitt
+ * hochskaliert. Die Dateien `-v2-` sind neu aus dem Original gerechnet (SC-032).
+ */
+const sharp = () => innerWidth * devicePixelRatio > 1299
 const run = (video: HTMLVideoElement) => video.play()?.catch(() => 0)
 const CUT_FRAMES = [
   { opacity: 0, transform: 'translateY(8px)' },
@@ -74,7 +79,7 @@ const PolarisOneStage = () => {
     // Erst jetzt wird der ganze Film geholt. Abspielen muss in diesem Klick beginnen, sonst
     // verweigert der Browser den Ton.
     video.loop = false
-    video.src = `${MEDIA}/polaris-one-${wide() ? '1080' : '720'}.mp4${from ? `#t=${from}` : ''}`
+    video.src = `${MEDIA}/polaris-one-v2-${sharp() ? '1080' : '720'}.mp4${from ? `#t=${from}` : ''}`
     video.muted = false
     video.play()?.catch(() => {
       video.muted = true
@@ -126,7 +131,7 @@ const PolarisOneStage = () => {
         if (!autoplay || modeRef.current !== 'gate') return
         void loadPlayer().catch(() => undefined)
         video.loop = true
-        video.src = `${MEDIA}/polaris-one-trailer-${wide() ? '720' : '480'}.mp4`
+        video.src = `${MEDIA}/polaris-one-trailer-v2-${sharp() ? '1080' : '720'}.mp4`
         if (seen) void run(video)
         else resume = true
       }, 350)

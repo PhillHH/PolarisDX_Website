@@ -70,11 +70,14 @@ test('SC-030 the film is fetched after load, starts on request and shows its con
   const video = stage.locator('video')
   await expect(video).toHaveAttribute(
     'src',
-    /\/media\/polaris-one\/polaris-one-trailer-(480|720)\.mp4$/,
+    /\/media\/polaris-one\/polaris-one-trailer-v2-(720|1080)\.mp4$/,
   )
   await stage.getByRole('button', { name: resources.de.polaris_one.start, exact: true }).click()
   await expect(stage).toHaveAttribute('data-mode', 'play')
-  await expect(video).toHaveAttribute('src', /\/media\/polaris-one\/polaris-one-(720|1080)\.mp4$/)
+  await expect(video).toHaveAttribute(
+    'src',
+    /\/media\/polaris-one\/polaris-one-v2-(720|1080)\.mp4$/,
+  )
   await expect(stage.locator('[data-polaris-gate]')).toBeHidden()
   await expect(
     stage.getByRole('slider', { name: resources.de.polaris_one.controls.timeline }),
@@ -97,6 +100,6 @@ test('SC-030 without motion the film is not fetched until the visitor starts it'
   await expect(stage.locator('.p1s-frame img')).toBeVisible()
   await expect(page.locator('.sc025-trace')).toHaveAttribute('aria-hidden', 'true')
   await stage.getByRole('button', { name: resources.de.polaris_one.start, exact: true }).click()
-  await expect(video).toHaveAttribute('src', /polaris-one-(720|1080)\.mp4$/)
+  await expect(video).toHaveAttribute('src', /polaris-one-v2-(720|1080)\.mp4$/)
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
 })

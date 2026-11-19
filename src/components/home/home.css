@@ -1514,14 +1514,24 @@ footer {
   transform: scaleX(0);
   transform-origin: left;
 }
+/* Die Marke sitzt am linken Ende einer Ebene in Leistenbreite; verschoben wird die Ebene
+   (`translateX` in Prozent ihrer Breite) — so braucht die laufende Marke kein neues Layout. */
 .p1s-head {
   position: absolute;
   top: 16px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  pointer-events: none;
+}
+.p1s-head::before {
+  position: absolute;
+  left: -5px;
   width: 10px;
   height: 10px;
-  margin-left: -5px;
   background: #fff;
   box-shadow: 0 0 14px 3px #8fd8fb;
+  content: '';
   transform: rotate(45deg);
 }
 .p1s-mark {

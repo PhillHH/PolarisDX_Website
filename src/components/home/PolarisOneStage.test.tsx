@@ -60,7 +60,7 @@ describe('SC-030 Polaris One Trailer stage', () => {
     expect(stage).toHaveAttribute('data-mode', 'play')
     expect(container.querySelector('[data-polaris-gate]')).toBeNull()
     expect(container.querySelector('video')?.getAttribute('src')).toMatch(
-      /^\/media\/polaris-one\/polaris-one-(720|1080)\.mp4$/,
+      /^\/media\/polaris-one\/polaris-one-v2-(720|1080)\.mp4$/,
     )
     expect(
       await screen.findByRole('slider', { name: 'polaris_one.controls.timeline' }),
