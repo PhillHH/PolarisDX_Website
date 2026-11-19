@@ -10,6 +10,22 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-19 (SC-032, nur Preview):** Polaris-One-Film der Startseite schärfer und ruhiger.
+Schleife und Film neu aus dem Original gerechnet (`public/media/polaris-one/polaris-one-trailer-v2-{720,1080}.mp4`,
+`polaris-one-v2-{720,1080}.mp4`; alte Dateien entfernt): Bildgruppen 3 s statt eines Vollbilds alle
+15 Bilder, Vollbilder an Kapitelanfängen und Schnitten, leichte Entrauschung, 30 Bilder/s. Die
+1080er-Fassungen kommen ab 1300 Gerätepixeln Breite (`sharp()` in `PolarisOneStage.tsx`), sonst 720p. Die
+Steuerung (`PolarisOnePlayer.tsx`) schreibt nur noch bei Änderung; die Marke der Zeitleiste läuft über
+`transform`. Gates: tsc, eslint, prettier, Vitest `components/home` 17/17, Startseiten-E2E 74/74,
+Byte-Budget 851/852 (rot wie zuvor nur `igloo-pro routeJsGzip`; Start-Skript 161136 → 161154 —
+`service-detail jsBytes` 175376 bei 175398 Budget, also 22 Bytes Luft). Commit `5a4e2ea`;
+**Preview-Release `5a4e2ea51789`** (Health, Identität, Smoke grün; im Test-Browser Dateiwahl bei
+1440@1x/1280@1x/1280@2x/390@3x, Filmstart und Zeitleiste ohne Fehler; Bildabstand der Schleife im Mittel
+33,7 ms). Dieses Release enthält auch den Artikel aus SC-031. Produktion unverändert `ec33a2398f2e`.
+Nicht geprüft: echte Geräte, Safari/Firefox, langsame Leitung. Offen beim Owner: Freigabe für
+polarisdx.net — zusammen mit dem Artikel oder Film allein. Die Rechenvorschrift der Dateien liegt in
+`~/polarisdx-werkstatt/entwuerfe/polaris-one/video/encode-v2.sh`. Details: `SCOPE-CHANGELOG.md` SC-032.
+
 **Stand 2026-11-18 (SC-031, nur Preview):** Interaktiver Artikel „Was ist Epigenetik?"
 (`/articles/was-ist-epigenetik`, zehn Sprachen) mit eigenem Seitenaufbau nach dem Owner-Entwurf „Reise
 ins Innere": Zoom-Bühne, Textbänder, Labor-Bänder mit elf Bausteinen zum Ausprobieren
