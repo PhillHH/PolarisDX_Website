@@ -8,7 +8,21 @@
     "more": "Uitgebreid lezen",
     "next": "Verder",
     "back": "Stap terug",
-    "restart": "Opnieuw"
+    "restart": "Opnieuw",
+    "guide": {
+      "shows": "Dit laat het zien",
+      "result": "Dit gebeurt er",
+      "learn": "Onthoud",
+      "how": "Zo werkt het",
+      "step": "Stap {{n}} van {{total}}",
+      "look": "Goed. Hieronder staat wat er zojuist is gebeurd.",
+      "next": "Verder",
+      "understood": "Begrepen",
+      "again": "Opnieuw beginnen",
+      "free": "Probeer nu vrij verder.",
+      "tap": "Tik hier",
+      "drag": "Sleep hier"
+    }
   },
   "stage": {
     "label": "Reis naar binnen in zes stappen",
@@ -54,8 +68,21 @@
       "dna": "DNA, opgewikkeld",
       "methyl": "Methylgroepen",
       "loose": "los · goed afleesbaar",
-      "dense": "strak · moeilijk afleesbaar"
-    }
+      "dense": "strak · moeilijk afleesbaar",
+      "legend": [
+        "De stip in het midden: één enkele cel",
+        "De cirkel in het midden: de celkern",
+        "De draden: opgerold DNA",
+        "De cirkels: histonen · de draad: DNA",
+        "De letters: bouwstenen van het DNA",
+        "De oplichtende punten: methylgroepen"
+      ]
+    },
+    "cueTouch": "Veeg om in te zoomen",
+    "cueAuto": "Loopt vanzelf · vegen kan altijd",
+    "cueEnd": "Het artikel begint verder naar beneden",
+    "play": "Afspelen",
+    "pause": "Pauzeren"
   },
   "intro": {
     "eyebrow": "Aangekomen",
@@ -212,18 +239,24 @@
     },
     "pult": {
       "title": "Het mengpaneel van de genen",
-      "how": "Schakel een prikkel in en kijk naar de regelaars.",
       "legendActivity": "Regelaars: activiteit van de genen",
       "legendSequence": "Letters: sequentie van het DNA",
       "sayIdle": "Er is nog geen prikkel actief. De regelaars staan in hun beginstand.",
       "sayActive": "{{n}} van de 6 prikkels actief: {{m}} van de 16 regelaars verschoven. De letters van de sequentie zijn hetzelfde gebleven.",
       "sayNone": "Er is geen prikkel meer actief. De regelaars staan weer in hun beginstand.",
-      "cap": "Schema · toont het principe, geen meetgegevens en geen richting van het effect"
+      "cap": "Schema · toont het principe, geen meetgegevens en geen richting van het effect",
+      "guide": {
+        "shows": "Prikkels uit het dagelijks leven kunnen veranderen hoe actief afzonderlijke genen zijn. Het DNA zelf blijft daarbij gelijk.",
+        "steps": [
+          "Tik op “{{label}}”.",
+          "Schakel een tweede prikkel in, bijvoorbeeld “{{label}}”."
+        ],
+        "learn": "De activiteit van de genen verandert. De letters van het DNA blijven gelijk."
+      }
     },
     "methyl": {
       "tab": "Methylatie",
       "title": "Methylatie: markeringen aanbrengen",
-      "how": "Tik op een plaats op het DNA om een methylgroep toe te voegen.",
       "group": "Acht plaatsen op het DNA",
       "site": "Plaats {{n}}",
       "meter": "Genactiviteit",
@@ -233,12 +266,16 @@
       "saySetLower": "Markering op plaats {{n}} aangebracht: de genactiviteit is lager geworden. Probeer een andere plaats: afhankelijk van de positie kan het omgekeerd zijn.",
       "saySetHigher": "Markering op plaats {{n}} aangebracht: de genactiviteit is sterker geworden. Probeer een andere plaats: afhankelijk van de positie kan het omgekeerd zijn.",
       "sayRemoved": "Markering op plaats {{n}} verwijderd. De genactiviteit gaat terug in de richting van de beginstand.",
-      "cap": "Schema · welke plaats welk effect heeft, is hier vrij gekozen"
+      "cap": "Schema · welke plaats welk effect heeft, is hier vrij gekozen",
+      "guide": {
+        "shows": "Kleine chemische groepen op het DNA, de methylgroepen, kunnen een gen zwakker of sterker zetten. Het hangt af van de plaats.",
+        "steps": ["Tik op “{{label}}”.", "Tik nu op “{{label}}”."],
+        "learn": "Dezelfde markering kan per plaats anders werken."
+      }
     },
     "histone": {
       "tab": "Histonen",
       "title": "Histonen: de verpakking",
-      "how": "Sleep de regelaar van los naar strak.",
       "loose": "los",
       "dense": "strak",
       "aria": "Verpakking van het DNA van los tot strak",
@@ -246,12 +283,19 @@
       "stateDense": "strak · moeilijk afleesbaar",
       "sayLoose": "Los verpakt: het DNA ligt vrij en kan goed worden afgelezen.",
       "sayDense": "Strak verpakt: het DNA is moeilijk toegankelijk. Het aflezen komt hier niet verder.",
-      "cap": "Schema · de stip staat voor het aflezen van het DNA"
+      "cap": "Schema · de stip staat voor het aflezen van het DNA",
+      "guide": {
+        "shows": "Het DNA is om eiwitten gewikkeld, de histonen. Los gewikkeld is het goed af te lezen, strak gewikkeld minder goed.",
+        "steps": [
+          "Sleep de regelaar naar rechts, naar “{{label}}”.",
+          "Sleep de regelaar terug naar “{{label}}”."
+        ],
+        "learn": "Hoe dicht het DNA is verpakt, beïnvloedt hoe goed het kan worden afgelezen."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: de fijnafstemming",
-      "how": "Tik op de knop en laat een microRNA aankoppelen.",
       "dock": "microRNA aankoppelen",
       "undock": "microRNA weer loskoppelen",
       "mrna": "mRNA · afschrift van een gen",
@@ -259,20 +303,28 @@
       "sayIdle": "Het mRNA is het afschrift van een gen. Er is nog geen microRNA aangekoppeld.",
       "sayDocked": "Het microRNA is aangekoppeld. Het kan beïnvloeden hoe het afschrift verder wordt verwerkt en gebruikt.",
       "sayFree": "Het microRNA is losgekoppeld. Het mRNA ligt weer vrij.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Van een gen wordt een afschrift gemaakt, het mRNA. Kleine RNA-moleculen kunnen beïnvloeden hoe dat afschrift wordt gebruikt.",
+        "steps": ["Tik op “{{label}}”."],
+        "learn": "Kleine RNA-moleculen kunnen mede bepalen hoe een genafschrift wordt gebruikt."
+      }
     },
     "ring": {
       "title": "Zes invloeden, één regelsysteem",
-      "how": "Tik op een invloed.",
       "aria": "Zes invloeden op de genregulatie",
       "core": ["Gen-", "regulatie"],
       "sayIdle": "Het lichaam reageert voortdurend op zijn omgeving. Tik op een van de zes invloeden.",
       "sayPick": "“{{name}}” is een van zes invloeden waarop het lichaam reageert. Een deel van deze reacties kan via epigenetische regulatie verlopen of ermee gepaard gaan.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Het lichaam reageert op veel invloeden. Een deel van die reacties kan via de regulatie van de genen verlopen.",
+        "steps": ["Tik op “{{label}}”.", "Tik op een tweede invloed, bijvoorbeeld “{{label}}”."],
+        "learn": "Heel verschillende invloeden komen bij hetzelfde regelsysteem uit."
+      }
     },
     "cause": {
       "title": "Een verband is geen oorzaak",
-      "how": "Tik de drie mogelijkheden een voor een aan.",
       "aria": "Drie mogelijkheden",
       "options": ["Oorzaak", "Gevolg", "Bijverschijnsel"],
       "marker": ["Epigenetische", "marker"],
@@ -283,11 +335,15 @@
         "Mogelijkheid 2: de marker is een gevolg van de aandoening.",
         "Mogelijkheid 3: marker en aandoening komen samen voor, zonder dat het een het ander veroorzaakt."
       ],
-      "tail": "Welke van de drie mogelijkheden klopt, moet afzonderlijk worden onderzocht."
+      "tail": "Welke van de drie mogelijkheden klopt, moet afzonderlijk worden onderzocht.",
+      "guide": {
+        "shows": "Als een marker en een aandoening samen voorkomen, is nog open wat oorzaak en wat gevolg is.",
+        "steps": ["Tik op “{{label}}”.", "Tik nu op “{{label}}”."],
+        "learn": "Een verband alleen laat nog niet zien wat de oorzaak is."
+      }
     },
     "chainPsy": {
       "title": "Van omgeving naar gedrag",
-      "how": "Doorloop de vijf niveaus stap voor stap.",
       "steps": [
         {
           "label": "Omgeving",
@@ -310,11 +366,15 @@
           "text": "Zelfregulatie is het vermogen om gevoelens, aandacht, impulsen en stressreacties aan te passen aan de eisen die worden gesteld."
         }
       ],
-      "cap": "Zo beschrijven huidige modellen het · vereenvoudigd"
+      "cap": "Zo beschrijven huidige modellen het · vereenvoudigd",
+      "guide": {
+        "shows": "Zo beschrijven actuele modellen de weg van invloeden van buitenaf naar gedrag: in vijf niveaus.",
+        "steps": ["Tik op “{{label}}” tot het vijfde niveau oplicht."],
+        "learn": "Tussen omgeving en gedrag liggen meerdere niveaus. De epigenetische regulatie is er één van."
+      }
     },
     "chainTrain": {
       "title": "Wat training in gang zet",
-      "how": "Doorloop de keten stap voor stap.",
       "steps": [
         {
           "label": "Training",
@@ -337,11 +397,15 @@
           "text": "Dat kan samenhangen met aanpassingen in stofwisseling, ontstekingsregulatie en weefselherstel."
         }
       ],
-      "cap": "Vereenvoudigde weergave"
+      "cap": "Vereenvoudigde weergave",
+      "guide": {
+        "shows": "Wat training in het lichaam in gang kan zetten: vijf stappen van prikkel tot aanpassing op lange termijn.",
+        "steps": ["Tik op “{{label}}” tot de vijfde stap oplicht."],
+        "learn": "Tussen training en aanpassing op lange termijn liggen meerdere stappen. De epigenetische aanpassing is er één van."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: heeft de spier een geheugen?",
-      "how": "Druk de drie knoppen op volgorde in.",
       "aria": "Schema: aanpassing bij de eerste training, in de pauze en bij de hervatting",
       "buttons": ["Trainen", "Pauze", "Hervatten"],
       "reset": "Resetten",
@@ -355,22 +419,30 @@
         "Hervatting: eerder getrainde spieren kunnen bepaalde aanpassingen sneller weer opbouwen. De curve stijgt steiler dan de eerste keer."
       ],
       "sayReset": "Gereset. Start opnieuw met “Trainen”.",
-      "cap": "Schema ter illustratie · geen meetgegevens"
+      "cap": "Schema ter illustratie · geen meetgegevens",
+      "guide": {
+        "shows": "Een spier die al eens getraind was, kan bepaalde aanpassingen sneller weer opbouwen.",
+        "steps": ["Tik op “{{label}}”.", "Tik nu op “{{label}}”.", "Tik tot slot op “{{label}}”."],
+        "learn": "Dit snellere opnieuw opbouwen heet Muscle Memory."
+      }
     },
     "trend": {
       "title": "Eén waarde of een verloop?",
-      "how": "Sleep de regelaar en voeg metingen toe.",
       "aria": "Schema: met elke extra meting worden losse waarden een verloop",
       "point": "Meting {{n}}",
       "count": "Metingen",
       "countAria": "Aantal metingen",
       "sayOne": "Eén enkele waarde: daaruit valt geen diagnose af te leiden.",
       "sayMany": "{{n}} metingen: nu wordt een verloop zichtbaar. De vraag is: hoe verandert een marker in de loop van de tijd en in de context van gedocumenteerde leefstijlmaatregelen?",
-      "cap": "Schema · geen meetgegevens"
+      "cap": "Schema · geen meetgegevens",
+      "guide": {
+        "shows": "Eén enkele meetwaarde zegt weinig. Pas meerdere metingen laten zien hoe een waarde zich ontwikkelt.",
+        "steps": ["Sleep de regelaar naar rechts."],
+        "learn": "Het gaat om het verloop in de tijd, niet om de afzonderlijke waarde."
+      }
     },
     "exer": {
       "title": "Exerkines: boodschapperstoffen onderweg",
-      "how": "Tik op een orgaan om boodschapperstoffen op pad te sturen.",
       "from": "Komen uit",
       "to": "Werken in op",
       "sources": ["Spier", "Vetweefsel", "Lever", "Andere organen"],
@@ -382,11 +454,15 @@
       "saySent": "{{name}} verstuurt boodschapperstoffen.",
       "sayOther": "Ook andere organen kunnen boodschapperstoffen versturen.",
       "sayTail": "Ze werken in op de stofwisseling, de bloedvaten, het immuunsysteem en mogelijk de hersenen.",
-      "cap": "Schema · welk orgaan welke boodschapperstof aanmaakt, is hier niet weergegeven"
+      "cap": "Schema · welk orgaan welke boodschapperstof aanmaakt, is hier niet weergegeven",
+      "guide": {
+        "shows": "Bij beweging geven organen boodschapperstoffen af, de exerkines. Ze werken op andere plaatsen in het lichaam.",
+        "steps": ["Tik op “{{label}}”."],
+        "learn": "Zo werkt beweging tot ver buiten de getrainde spier."
+      }
     },
     "sort": {
       "title": "Zinvol of niet?",
-      "how": "Geef aan waarvoor een epigenetische test geschikt is.",
       "useful": "Zinvol",
       "notUseful": "Niet zinvol",
       "important": "Extra belangrijk",
@@ -410,7 +486,12 @@
       "isUseful": "Dat geldt als zinvol.",
       "isNotUseful": "Dat geldt als niet zinvol.",
       "result": "{{right}} van de {{total}} juist ingedeeld. Het overzicht toont alle uitspraken op hun plaats.",
-      "again": "Opnieuw indelen"
+      "again": "Opnieuw indelen",
+      "guide": {
+        "shows": "Waarvoor een epigenetische test geschikt is en waarvoor niet.",
+        "steps": ["Lees de uitspraak. Tik daarna op “{{label}}” of “{{other}}”."],
+        "learn": "Na zes uitspraken laat het overzicht alles op zijn plaats zien."
+      }
     }
   },
   "closing": {

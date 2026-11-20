@@ -14,6 +14,28 @@ type Props = {
 
 /** Sieben Zustände: der Titel und die sechs Schritte der Reise. */
 const STATES = 7
+/** Selbstlauf: so lange dauert die Fahrt zum nächsten Schritt, so lange die Lesepause dort. */
+const TRAVEL_MS = 1500
+const READ_MS = 3200
+/** Der Selbstlauf beginnt, wenn die Seite so lange unberührt und frei oben steht. */
+const IDLE_MS = 2400
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value))
+const ease = (t: number) => t * t * (3 - 2 * t)
+
+/**
+ * Liegt etwas über der Seite oder ist sie nicht zu sehen? Cookie-Hinweis (`--cookie-banner-height`
+ * setzt der CookieBanner, solange er offen ist), ein Dialog, gesperrtes Scrollen (Menü, Suche) oder
+ * ein Tab im Hintergrund. Dann wartet der Selbstlauf.
+ */
+const covered = () => {
+  const banner = document.documentElement.style.getPropertyValue('--cookie-banner-height')
+  return (
+    document.hidden ||
+    (banner !== '' && banner !== '0px') ||
+    document.body.style.overflow === 'hidden' ||
+    document.querySelector('[aria-modal="true"]') !== null
+  )
+}
 
 /**
  * SC-031 (Owner 2026-11-18, Entwurf „Reise ins Innere"): große Bühne am Kopf des Artikels. Sie
@@ -23,6 +45,12 @@ const STATES = 7
  * ist der zum Scroll-Stand passende (`is-on`). So bleibt die Überschrift eine echte, sichtbare
  * `h1`, und Vorleseprogramme lesen die ganze Reise ohne Scrollen. Die Zeichnung wird nachgeladen.
  * `data-sub-stage`: Die Lichtlinie der Unterseiten (SubTrace) beginnt am Fuß der Bühne.
+ *
+ * SC-033 (Owner 2026-11-19, Entwurf „Geführt": „mehr zum Scrollen animiert … vielleicht mit einer
+ * Art Automatismus, vor allem mobil"): Die Reise läuft von selbst. Steht die Seite ein paar
+ * Sekunden unberührt und frei oben, scrollt sie sanft von Schritt zu Schritt, mit Pause zum Lesen.
+ * Jede Eingabe übernimmt; der Knopf hält an und setzt fort. Wer weniger Bewegung wünscht, bekommt
+ * keinen Selbststart — der Knopf blättert dann ohne Fahrt.
  */
 const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -31,7 +59,12 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
   const footRef = useRef<HTMLDivElement>(null)
   const tickRefs = useRef<Array<HTMLElement | null>>([])
   const progressRef = useRef(0)
+  const controls = useRef<{ toggle: () => void; jump: (index: number) => void }>({
+    toggle: () => {},
+    jump: () => {},
+  })
   const [state, setState] = useState(0)
+  const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -51,13 +84,15 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(loop)
     }
+    const span = () => section.offsetHeight - innerHeight
+    const top = () => scrollY + section.getBoundingClientRect().top
     const measure = () => {
       const bounds = section.getBoundingClientRect()
       const total = bounds.height - innerHeight
-      const progress = Math.max(0, Math.min(0.9999, total > 0 ? -bounds.top / total : 0)) * STATES
+      const progress = clamp(total > 0 ? -bounds.top / total : 0, 0, 0.9999) * STATES
       progressRef.current = progress
       tickRefs.current.forEach((tick, index) => {
-        tick?.style.setProperty('--f', String(Math.max(0, Math.min(1, progress - (index + 1)))))
+        tick?.style.setProperty('--f', String(clamp(progress - (index + 1), 0, 1)))
       })
       setState(Math.floor(progress))
       if (still) kick()
@@ -67,6 +102,121 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
       measure()
       kick()
     }
+
+    // ---- Selbstlauf: Die Seite scrollt von Schritt zu Schritt, mit Pause zum Lesen. ----
+    /** Kennung des laufenden Selbstlaufs; 0 = es läuft keiner. */
+    let run = 0
+    let runs = 0
+    let pause = 0
+    let glide = 0
+    /** Die Scroll-Lage, die der Selbstlauf zuletzt selbst gesetzt hat. */
+    let ownY = 0
+    /** Darf der Selbstlauf noch von selbst beginnen? */
+    let armed = !still
+    let idleSince = performance.now()
+
+    const stop = () => {
+      if (!run) return
+      run = 0
+      window.clearTimeout(pause)
+      cancelAnimationFrame(glide)
+      setPlaying(false)
+    }
+    /** Hat jemand anderes gescrollt (Scrollleiste, Tastatur, Sprungmarke, Suche im Browser)? */
+    const moved = () => Math.abs(scrollY - ownY) > 2
+    const glideTo = (to: number, duration: number, then: () => void) => {
+      const mine = run
+      const from = scrollY
+      const begin = performance.now()
+      ownY = from
+      const step = (now: number) => {
+        if (run !== mine) return
+        if (moved() || covered()) {
+          stop()
+          return
+        }
+        const t = duration > 0 ? clamp((now - begin) / duration, 0, 1) : 1
+        scrollTo(0, from + (to - from) * ease(t))
+        ownY = scrollY
+        if (t < 1) glide = requestAnimationFrame(step)
+        else then()
+      }
+      glide = requestAnimationFrame(step)
+    }
+    const next = () => {
+      const mine = run
+      if (!mine) return
+      if (moved() || covered()) {
+        stop()
+        return
+      }
+      const current = Math.floor(progressRef.current)
+      if (current >= STATES - 1) {
+        stop()
+        return
+      }
+      glideTo(top() + ((current + 1.45) / STATES) * span(), still ? 0 : TRAVEL_MS, () => {
+        pause = window.setTimeout(() => {
+          if (run === mine) next()
+        }, READ_MS)
+      })
+    }
+    const start = () => {
+      armed = false
+      runs += 1
+      run = runs
+      const mine = run
+      ownY = scrollY
+      setPlaying(true)
+      // Am Ende angekommen: zurück an den Anfang und von vorn.
+      if (Math.floor(progressRef.current) >= STATES - 1) {
+        glideTo(top(), still ? 0 : 700, () => {
+          pause = window.setTimeout(() => {
+            if (run === mine) next()
+          }, 900)
+        })
+      } else next()
+    }
+    /** Jede echte Eingabe übernimmt: Der Selbstlauf hält an. */
+    const takeOver = (event: Event) => {
+      if (!event.isTrusted) return
+      idleSince = performance.now()
+      // Scrollrad und Tastatur zeigen: Hier steuert jemand selbst — kein Selbststart mehr.
+      if (event.type === 'wheel' || event.type === 'keydown') armed = false
+      if ((event.target as Element | null)?.closest?.('[data-stage-control]')) return
+      stop()
+    }
+    const onHide = () => {
+      if (document.hidden) stop()
+    }
+    // Selbststart: sobald die Seite frei, sichtbar und eine Weile unberührt oben steht.
+    const watch = still
+      ? 0
+      : window.setInterval(() => {
+          if (scrollY >= 40) armed = false
+          if (!armed) {
+            window.clearInterval(watch)
+            return
+          }
+          if (covered()) idleSince = performance.now()
+          else if (performance.now() - idleSince >= IDLE_MS) start()
+        }, 400)
+
+    controls.current = {
+      toggle: () => {
+        if (run) stop()
+        else start()
+      },
+      jump: (index: number) => {
+        armed = false
+        stop()
+        scrollTo({
+          top: top() + ((index + 0.45) / STATES) * span(),
+          behavior: still ? 'auto' : 'smooth',
+        })
+      },
+    }
+
     const observer = new IntersectionObserver((entries) => {
       visible = entries[0]?.isIntersecting ?? false
       if (visible) kick()
@@ -75,6 +225,11 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
     observer.observe(section)
     addEventListener('scroll', measure, { passive: true })
     addEventListener('resize', onResize)
+    addEventListener('wheel', takeOver, { passive: true })
+    addEventListener('touchstart', takeOver, { passive: true })
+    addEventListener('keydown', takeOver)
+    addEventListener('mousedown', takeOver)
+    document.addEventListener('visibilitychange', onHide)
     measure()
 
     void import('./zoomScene').then(({ createZoomScene }) => {
@@ -96,22 +251,23 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
 
     return () => {
       alive = false
+      stop()
+      window.clearInterval(watch)
       cancelAnimationFrame(frame)
       observer.disconnect()
       removeEventListener('scroll', measure)
       removeEventListener('resize', onResize)
+      removeEventListener('wheel', takeOver)
+      removeEventListener('touchstart', takeOver)
+      removeEventListener('keydown', takeOver)
+      removeEventListener('mousedown', takeOver)
+      document.removeEventListener('visibilitychange', onHide)
     }
   }, [stage.canvas])
 
-  const jump = (index: number) => {
-    const section = sectionRef.current
-    if (!section) return
-    const total = section.offsetHeight - innerHeight
-    scrollTo({
-      top: scrollY + section.getBoundingClientRect().top + ((index + 0.45) / STATES) * total,
-      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
-    })
-  }
+  /** Am letzten Schritt angekommen und nichts läuft: Der Hinweis zeigt nach unten zum Artikel. */
+  const ended = state === STATES - 1 && !playing
+  const cueName = ended ? ' is-on is-end' : playing ? ' is-on is-auto' : state === 0 ? ' is-on' : ''
 
   return (
     <section
@@ -121,6 +277,7 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
       data-explainer-stage
       data-sub-stage
       data-state={state}
+      data-playing={playing ? 'true' : undefined}
     >
       <div className="xp-pin">
         <canvas ref={canvasRef} className="xp-cv" aria-hidden="true" />
@@ -159,7 +316,8 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
                   type="button"
                   aria-label={`${index + 1} · ${item.tick}`}
                   aria-current={index + 1 === state ? 'step' : undefined}
-                  onClick={() => jump(index + 1)}
+                  data-stage-control
+                  onClick={() => controls.current.jump(index + 1)}
                 >
                   <i
                     ref={(element) => {
@@ -174,13 +332,41 @@ const ExplainerStage = ({ title, breadcrumbs, stage, bodyId }: Props) => {
             ))}
           </ol>
           <div className="xp-stage-foot">
-            <p className="xp-hint" aria-hidden="true">
-              {stage.hint}
+            <button
+              type="button"
+              className={playing ? 'xp-play is-on' : 'xp-play'}
+              aria-label={playing ? stage.pause : stage.play}
+              data-stage-control
+              onClick={() => controls.current.toggle()}
+            >
+              <svg viewBox="0 0 12 12" aria-hidden="true">
+                <path d={playing ? 'M2 1h3v10H2zM7 1h3v10H7z' : 'M2.5 1l8.5 5-8.5 5z'} />
+              </svg>
+              <span className="xp-play-t">{playing ? stage.pause : stage.play}</span>
+            </button>
+            {/* Hinweis in einfachen Worten; Maus und Finger bekommen je ihren Satz (CSS). Für
+                Vorleseprogramme stehen der Knopf und die sechs Schritte bereit. */}
+            <p className={`xp-cue${cueName}`} aria-hidden="true">
+              <i className="xp-cue-i">
+                <b />
+                <b />
+                <b />
+              </i>
+              {ended ? (
+                stage.cueEnd
+              ) : playing ? (
+                <span className="xp-touch">{stage.cueAuto}</span>
+              ) : (
+                <>
+                  <span className="xp-mouse">{stage.hint}</span>
+                  <span className="xp-touch">{stage.cueTouch}</span>
+                </>
+              )}
             </p>
             <span className="xp-cnt" aria-hidden="true">
               0{state} / 0{stage.steps.length}
             </span>
-            <a href={`#${bodyId}`} className="xp-skip">
+            <a href={`#${bodyId}`} className={ended ? 'xp-skip is-end' : 'xp-skip'}>
               {stage.skip} <span aria-hidden="true">↓</span>
             </a>
           </div>

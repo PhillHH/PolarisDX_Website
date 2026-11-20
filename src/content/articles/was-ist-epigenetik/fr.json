@@ -8,7 +8,21 @@
     "more": "Lire en détail",
     "next": "Suivant",
     "back": "Étape précédente",
-    "restart": "Recommencer"
+    "restart": "Recommencer",
+    "guide": {
+      "shows": "Ce que cela montre",
+      "result": "Ce qui se passe",
+      "learn": "À retenir",
+      "how": "Mode d’emploi",
+      "step": "Étape {{n}} sur {{total}}",
+      "look": "Bien. Plus bas, vous lisez ce qui vient de se passer.",
+      "next": "Suivant",
+      "understood": "Compris",
+      "again": "Recommencer",
+      "free": "Essayez maintenant librement.",
+      "tap": "Appuyez ici",
+      "drag": "Faites glisser ici"
+    }
   },
   "stage": {
     "label": "Voyage vers l’intérieur en six étapes",
@@ -54,8 +68,21 @@
       "dna": "ADN, enroulé",
       "methyl": "Groupes méthyle",
       "loose": "lâche · bien lisible",
-      "dense": "serré · difficile à lire"
-    }
+      "dense": "serré · difficile à lire",
+      "legend": [
+        "Le point au centre : une seule cellule",
+        "Le cercle au centre : le noyau cellulaire",
+        "Les fils : l’ADN enroulé",
+        "Les cercles : les histones · le fil : l’ADN",
+        "Les lettres : les éléments de l’ADN",
+        "Les points lumineux : des groupes méthyle"
+      ]
+    },
+    "cueTouch": "Balayez pour zoomer",
+    "cueAuto": "Défile tout seul · balayez à tout moment",
+    "cueEnd": "L’article commence plus bas",
+    "play": "Lire",
+    "pause": "Mettre en pause"
   },
   "intro": {
     "eyebrow": "Vous y êtes",
@@ -212,18 +239,24 @@
     },
     "pult": {
       "title": "La table de mixage des gènes",
-      "how": "Activez un stimulus et observez les curseurs.",
       "legendActivity": "Curseurs : activité des gènes",
       "legendSequence": "Lettres : séquence de l’ADN",
       "sayIdle": "Aucun stimulus n’est encore actif. Les curseurs sont dans leur position de départ.",
       "sayActive": "Stimuli actifs : {{n}} sur 6. Curseurs qui ont bougé : {{m}} sur 16. Les lettres de la séquence sont restées les mêmes.",
       "sayNone": "Plus aucun stimulus n’est actif. Les curseurs sont revenus à leur position de départ.",
-      "cap": "Schéma · montre le principe, sans données de mesure ni sens de l’effet"
+      "cap": "Schéma · montre le principe, sans données de mesure ni sens de l’effet",
+      "guide": {
+        "shows": "Les stimuli du quotidien peuvent modifier l’activité de certains gènes. L’ADN lui-même reste identique.",
+        "steps": [
+          "Appuyez sur « {{label}} ».",
+          "Activez un deuxième stimulus, par exemple « {{label}} »."
+        ],
+        "learn": "L’activité des gènes change. Les lettres de l’ADN restent les mêmes."
+      }
     },
     "methyl": {
       "tab": "Méthylation",
       "title": "Méthylation : poser des marques",
-      "how": "Appuyez sur un emplacement de l’ADN pour y ajouter un groupe méthyle.",
       "group": "Huit emplacements sur l’ADN",
       "site": "Emplacement {{n}}",
       "meter": "Activité du gène",
@@ -233,12 +266,16 @@
       "saySetLower": "Marque posée à l’emplacement {{n}} : l’activité du gène est devenue plus faible. Essayez un autre emplacement : selon la position, cela peut être l’inverse.",
       "saySetHigher": "Marque posée à l’emplacement {{n}} : l’activité du gène est devenue plus forte. Essayez un autre emplacement : selon la position, cela peut être l’inverse.",
       "sayRemoved": "Marque retirée de l’emplacement {{n}}. L’activité du gène revient vers sa position de départ.",
-      "cap": "Schéma · l’effet de chaque emplacement est ici choisi librement"
+      "cap": "Schéma · l’effet de chaque emplacement est ici choisi librement",
+      "guide": {
+        "shows": "De petits groupes chimiques sur l’ADN, les groupes méthyle, peuvent affaiblir ou renforcer un gène. Tout dépend de l’emplacement.",
+        "steps": ["Appuyez sur « {{label}} ».", "Appuyez maintenant sur « {{label}} »."],
+        "learn": "Une même marque peut agir différemment selon l’emplacement."
+      }
     },
     "histone": {
       "tab": "Histones",
       "title": "Histones : l’emballage",
-      "how": "Faites glisser le curseur de lâche à serré.",
       "loose": "lâche",
       "dense": "serré",
       "aria": "Emballage de l’ADN, de lâche à serré",
@@ -246,12 +283,19 @@
       "stateDense": "serré · difficile à lire",
       "sayLoose": "Emballage lâche : l’ADN est dégagé et peut être bien lu.",
       "sayDense": "Emballage serré : l’ADN est difficile d’accès. Ici, la lecture n’avance plus.",
-      "cap": "Schéma · le point représente la lecture de l’ADN"
+      "cap": "Schéma · le point représente la lecture de l’ADN",
+      "guide": {
+        "shows": "L’ADN est enroulé autour de protéines, les histones. Enroulé de façon lâche, il se lit bien ; serré, moins bien.",
+        "steps": [
+          "Faites glisser le curseur vers la droite, vers « {{label}} ».",
+          "Ramenez le curseur vers « {{label}} »."
+        ],
+        "learn": "La densité de l’ADN influence la facilité avec laquelle il peut être lu."
+      }
     },
     "rna": {
       "tab": "ARN",
       "title": "ARN : le réglage fin",
-      "how": "Appuyez sur le bouton et laissez un microARN se fixer.",
       "dock": "Fixer un microARN",
       "undock": "Détacher le microARN",
       "mrna": "ARNm · copie d’un gène",
@@ -259,20 +303,31 @@
       "sayIdle": "L’ARNm est la copie d’un gène. Aucun microARN n’y est encore fixé.",
       "sayDocked": "Le microARN s’est fixé. Il peut influencer la façon dont la copie est ensuite traitée et utilisée.",
       "sayFree": "Le microARN s’est détaché. L’ARNm est de nouveau libre.",
-      "cap": "Schéma"
+      "cap": "Schéma",
+      "guide": {
+        "shows": "Une copie d’un gène est produite, l’ARNm. De petites molécules d’ARN peuvent influencer l’usage de cette copie.",
+        "steps": ["Appuyez sur « {{label}} »."],
+        "learn": "De petites molécules d’ARN peuvent contribuer à déterminer l’usage d’une copie de gène."
+      }
     },
     "ring": {
       "title": "Six influences, un seul système de régulation",
-      "how": "Appuyez sur une influence.",
       "aria": "Six influences sur la régulation des gènes",
       "core": ["Régulation", "des gènes"],
       "sayIdle": "Le corps réagit en permanence à son environnement. Appuyez sur l’une des six influences.",
       "sayPick": "« {{name}} » : l’une des six influences auxquelles le corps réagit. Une partie de ces réactions peut passer par la régulation épigénétique ou être accompagnée par elle.",
-      "cap": "Schéma"
+      "cap": "Schéma",
+      "guide": {
+        "shows": "Le corps réagit à de nombreuses influences. Une partie de ces réactions peut passer par la régulation des gènes.",
+        "steps": [
+          "Appuyez sur « {{label}} ».",
+          "Appuyez sur une deuxième influence, par exemple « {{label}} »."
+        ],
+        "learn": "Des influences très différentes rencontrent le même système de régulation."
+      }
     },
     "cause": {
       "title": "Un lien n’est pas une cause",
-      "how": "Essayez tour à tour les trois possibilités.",
       "aria": "Trois possibilités",
       "options": ["Cause", "Conséquence", "Phénomène associé"],
       "marker": ["Marqueur", "épigénétique"],
@@ -283,11 +338,15 @@
         "Possibilité 2 : le marqueur est une conséquence de la maladie.",
         "Possibilité 3 : le marqueur et la maladie apparaissent ensemble, sans que l’un déclenche l’autre."
       ],
-      "tail": "Il faut examiner séparément laquelle des trois possibilités s’applique."
+      "tail": "Il faut examiner séparément laquelle des trois possibilités s’applique.",
+      "guide": {
+        "shows": "Quand un marqueur et une maladie apparaissent ensemble, on ne sait pas encore lequel est la cause et lequel la conséquence.",
+        "steps": ["Appuyez sur « {{label}} ».", "Appuyez maintenant sur « {{label}} »."],
+        "learn": "Un lien seul ne montre pas encore quelle est la cause."
+      }
     },
     "chainPsy": {
       "title": "De l’environnement au comportement",
-      "how": "Parcourez les cinq niveaux étape par étape.",
       "steps": [
         {
           "label": "Environnement",
@@ -310,11 +369,15 @@
           "text": "L’autorégulation est la capacité d’adapter aux exigences ses émotions, son attention, ses impulsions et ses réactions au stress."
         }
       ],
-      "cap": "Tel que le décrivent les modèles actuels · simplifié"
+      "cap": "Tel que le décrivent les modèles actuels · simplifié",
+      "guide": {
+        "shows": "Voici comment les modèles actuels décrivent le chemin des influences extérieures au comportement : en cinq niveaux.",
+        "steps": ["Appuyez sur « {{label}} » jusqu’à ce que le cinquième niveau s’allume."],
+        "learn": "Plusieurs niveaux séparent l’environnement du comportement. La régulation épigénétique en est un."
+      }
     },
     "chainTrain": {
       "title": "Ce que l’entraînement déclenche",
-      "how": "Parcourez la chaîne étape par étape.",
       "steps": [
         {
           "label": "Entraînement",
@@ -337,11 +400,15 @@
           "text": "Cela peut être lié à des adaptations du métabolisme, de la régulation de l’inflammation et de la réparation des tissus."
         }
       ],
-      "cap": "Représentation simplifiée"
+      "cap": "Représentation simplifiée",
+      "guide": {
+        "shows": "Ce que l’entraînement peut déclencher dans le corps : cinq étapes du stimulus à l’adaptation à long terme.",
+        "steps": ["Appuyez sur « {{label}} » jusqu’à ce que la cinquième étape s’allume."],
+        "learn": "Plusieurs étapes séparent l’entraînement de l’adaptation à long terme. L’adaptation épigénétique en est une."
+      }
     },
     "muscle": {
       "title": "Muscle Memory : le muscle se souvient-il ?",
-      "how": "Appuyez sur les trois boutons, l’un après l’autre.",
       "aria": "Schéma : adaptation lors du premier entraînement, pendant la pause et à la reprise",
       "buttons": ["S’entraîner", "Pause", "Reprendre"],
       "reset": "Réinitialiser",
@@ -355,22 +422,34 @@
         "Reprise : un muscle déjà entraîné peut reconstruire plus vite certaines adaptations. La pente de la courbe est plus raide que la première fois."
       ],
       "sayReset": "Réinitialisé. Recommencez par « S’entraîner ».",
-      "cap": "Schéma à titre d’illustration · pas de données de mesure"
+      "cap": "Schéma à titre d’illustration · pas de données de mesure",
+      "guide": {
+        "shows": "Un muscle déjà entraîné peut reconstruire plus vite certaines adaptations.",
+        "steps": [
+          "Appuyez sur « {{label}} ».",
+          "Appuyez maintenant sur « {{label}} ».",
+          "Pour finir, appuyez sur « {{label}} »."
+        ],
+        "learn": "Cette reconstruction plus rapide s’appelle la Muscle Memory."
+      }
     },
     "trend": {
       "title": "Valeur unique ou évolution ?",
-      "how": "Faites glisser le curseur et ajoutez des mesures.",
       "aria": "Schéma : à chaque nouvelle mesure, les valeurs isolées dessinent une évolution",
       "point": "Mesure {{n}}",
       "count": "Mesures",
       "countAria": "Nombre de mesures",
       "sayOne": "Une seule valeur : on ne peut pas en déduire un diagnostic.",
       "sayMany": "Nombre de mesures : {{n}}. Une évolution devient maintenant visible. La question est : comment un marqueur change-t-il au fil du temps et dans le contexte d’interventions documentées sur le mode de vie ?",
-      "cap": "Schéma · pas de données de mesure"
+      "cap": "Schéma · pas de données de mesure",
+      "guide": {
+        "shows": "Une valeur isolée dit peu. Seules plusieurs mesures montrent comment une valeur évolue.",
+        "steps": ["Faites glisser le curseur vers la droite."],
+        "learn": "L’important est l’évolution dans le temps, pas la valeur isolée."
+      }
     },
     "exer": {
       "title": "Exerkines : des messagers en route",
-      "how": "Appuyez sur un organe pour envoyer des messagers.",
       "from": "Viennent de",
       "to": "Agissent sur",
       "sources": ["Muscle", "Tissu adipeux", "Foie", "Autres organes"],
@@ -382,11 +461,15 @@
       "saySent": "{{name}} : des messagers sont envoyés.",
       "sayOther": "D’autres organes peuvent aussi envoyer des messagers.",
       "sayTail": "Ces messagers agissent sur le métabolisme, les vaisseaux, le système immunitaire et peut-être sur le cerveau.",
-      "cap": "Schéma · quel organe produit quel messager n’est pas représenté ici"
+      "cap": "Schéma · quel organe produit quel messager n’est pas représenté ici",
+      "guide": {
+        "shows": "Pendant l’effort, des organes libèrent des messagers, les exerkines. Ils agissent ailleurs dans le corps.",
+        "steps": ["Appuyez sur « {{label}} »."],
+        "learn": "L’activité physique agit ainsi bien au-delà du muscle entraîné."
+      }
     },
     "sort": {
       "title": "Pertinent ou non ?",
-      "how": "Classez ce à quoi un test épigénétique est adapté.",
       "useful": "Pertinent",
       "notUseful": "Non pertinent",
       "important": "Très important",
@@ -410,7 +493,12 @@
       "isUseful": "C’est considéré comme pertinent.",
       "isNotUseful": "C’est considéré comme non pertinent.",
       "result": "Réponses correctes : {{right}} sur {{total}}. La vue d’ensemble montre toutes les affirmations à leur place.",
-      "again": "Classer à nouveau"
+      "again": "Classer à nouveau",
+      "guide": {
+        "shows": "À quoi un test épigénétique est adapté, et à quoi il ne l’est pas.",
+        "steps": ["Lisez l’affirmation. Appuyez ensuite sur « {{label}} » ou « {{other}} »."],
+        "learn": "Après six affirmations, la vue d’ensemble montre chaque élément à sa place."
+      }
     }
   },
   "closing": {

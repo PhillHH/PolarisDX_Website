@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { fill } from '../../content/articles/was-ist-epigenetik'
 import { prefersReducedMotion } from '../home/motion'
-import { WidgetFrame, type UiTexts, type WidgetTexts } from './widgetParts'
+import { withLabels, type CoachStep } from './useCoach'
+import { CoachHost, WidgetFrame, type UiTexts, type WidgetTexts } from './widgetParts'
 
 type Props = { texts: WidgetTexts; ui: UiTexts }
 
@@ -17,11 +18,21 @@ const RING: Array<[number, number, 'start' | 'middle' | 'end', number, number]> 
 ]
 
 /** Sechs Einflüsse um die Genregulation: antippen, eine Linie läuft zur Mitte. */
-export const Ring = ({ texts, ui }: Props) => {
+const RingInner = ({ texts, ui }: Props) => {
   const t = texts.ring
   const [picked, setPicked] = useState<{ index: number; turn: number } | null>(null)
-  const pick = (index: number) =>
+  /** Schon angetippte Einflüsse bleiben markiert. */
+  const [seen, setSeen] = useState<number[]>([])
+  const pick = (index: number) => {
     setPicked((current) => ({ index, turn: (current?.turn ?? 0) + 1 }))
+    setSeen((current) => (current.includes(index) ? current : [...current, index]))
+  }
+  // Geführt: zuerst der vierte Einfluss, dann einer, der noch nicht angetippt wurde.
+  const second = seen.includes(2) ? (seen.includes(3) ? 0 : 3) : 2
+  const steps: CoachStep[] = [
+    { target: '.xp-ring g:nth-of-type(4)', watch: '.xp-ring .core' },
+    { target: `.xp-ring g:nth-of-type(${second + 1})`, watch: '.xp-ring .core' },
+  ]
   const onKey = (event: KeyboardEvent<SVGGElement>, index: number) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
@@ -31,9 +42,15 @@ export const Ring = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="ring"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(
+        t.guide,
+        { label: texts.influences.short[3] },
+        { label: texts.influences.short[second] },
+      )}
+      steps={steps}
+      done={[seen.length >= 1, seen.length >= 2]}
       say={picked ? fill(t.sayPick, { name: texts.influences.full[picked.index] }) : t.sayIdle}
       sayKey={picked?.turn ?? 0}
       cap={t.cap}
@@ -43,7 +60,9 @@ export const Ring = ({ texts, ui }: Props) => {
         {RING.map(([x, y], index) => (
           <path
             key={`${index}-${picked?.index === index ? picked.turn : 0}`}
-            className={picked?.index === index ? 'ln is-on' : 'ln'}
+            className={
+              picked?.index === index ? 'ln is-on' : seen.includes(index) ? 'ln is-seen' : 'ln'
+            }
             pathLength={1}
             d={`M${x} ${y}L300 175`}
           />
@@ -68,7 +87,9 @@ export const Ring = ({ texts, ui }: Props) => {
             tabIndex={0}
             aria-label={texts.influences.full[index]}
             aria-pressed={picked?.index === index}
-            className={picked?.index === index ? 'is-on' : undefined}
+            className={
+              picked?.index === index ? 'is-on' : seen.includes(index) ? 'is-seen' : undefined
+            }
             onClick={() => pick(index)}
             onKeyDown={(event) => onKey(event, index)}
           >
@@ -83,18 +104,32 @@ export const Ring = ({ texts, ui }: Props) => {
     </WidgetFrame>
   )
 }
+export const Ring = (props: Props) => (
+  <CoachHost>
+    <RingInner {...props} />
+  </CoachHost>
+)
+
+const CAUSE_STEPS: CoachStep[] = [
+  { target: '.xp-cause-op button:nth-child(2)', watch: '.xp-cause svg' },
+  { target: '.xp-cause-op button:nth-child(3)', watch: '.xp-cause svg' },
+]
 
 /** Ursache, Folge oder Begleiterscheinung: drei Lesarten desselben Zusammenhangs. */
-export const Cause = ({ texts, ui }: Props) => {
+const CauseInner = ({ texts, ui }: Props) => {
   const t = texts.cause
   const [option, setOption] = useState(0)
   const [touched, setTouched] = useState(false)
+  /** Welche Lesarten schon angesehen wurden (für die Führung). */
+  const [visited, setVisited] = useState([true, false, false])
   return (
     <WidgetFrame
       name="cause"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: t.options[1] }, { label: t.options[2] })}
+      steps={CAUSE_STEPS}
+      done={[visited[1], visited[2]]}
       say={
         <>
           {t.say[option]} <span className="xp-tail">{t.tail}</span>
@@ -114,6 +149,7 @@ export const Cause = ({ texts, ui }: Props) => {
             onClick={() => {
               setOption(index)
               setTouched(true)
+              setVisited((current) => current.map((was, i) => was || i === index))
             }}
           >
             {name}
@@ -157,10 +193,20 @@ export const Cause = ({ texts, ui }: Props) => {
   )
 }
 
+export const Cause = (props: Props) => (
+  <CoachHost>
+    <CauseInner {...props} />
+  </CoachHost>
+)
+
 type ChainProps = Props & { chain: 'chainPsy' | 'chainTrain' }
+/** Ein Handgriff: „Weiter" drücken, bis die letzte Stufe erreicht ist. */
+const CHAIN_STEPS: CoachStep[] = [
+  { target: '.xp-ctl .xp-btn.is-pri', watch: '.xp-chain', tag: 'right' },
+]
 
 /** Eine Kette in fünf Schritten zum Durchklicken (Umwelt → Verhalten, Training → Anpassung). */
-export const Chain = ({ texts, ui, chain }: ChainProps) => {
+const ChainInner = ({ texts, ui, chain }: ChainProps) => {
   const t = texts[chain]
   const [step, setStep] = useState(0)
   const [touched, setTouched] = useState(false)
@@ -172,9 +218,11 @@ export const Chain = ({ texts, ui, chain }: ChainProps) => {
   return (
     <WidgetFrame
       name={chain}
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: ui.next })}
+      steps={CHAIN_STEPS}
+      done={[step === last]}
       say={t.steps[step].text}
       sayKey={step}
       cap={t.cap}
@@ -219,8 +267,19 @@ export const Chain = ({ texts, ui, chain }: ChainProps) => {
   )
 }
 
+export const Chain = (props: ChainProps) => (
+  <CoachHost>
+    <ChainInner {...props} />
+  </CoachHost>
+)
+
+const MUSCLE_STEPS: CoachStep[] = [1, 2, 3].map((n) => ({
+  target: `.xp-ctl button:nth-of-type(${n})`,
+  watch: '.xp-muscle',
+}))
+
 /** Muscle Memory: Trainieren, Pause, Wiedereinstieg — die Kurve baut sich Stück für Stück auf. */
-export const Muscle = ({ texts, ui }: Props) => {
+const MuscleInner = ({ texts, ui }: Props) => {
   const t = texts.muscle
   const [phase, setPhase] = useState(0)
   const [reset, setReset] = useState(false)
@@ -228,9 +287,14 @@ export const Muscle = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="muscle"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(
+        t.guide,
+        ...t.buttons.map((name, index) => ({ label: `${index + 1} · ${name}` })),
+      )}
+      steps={MUSCLE_STEPS}
+      done={[phase >= 1, phase >= 2, phase >= 3]}
       say={phase ? t.say[phase - 1] : reset ? t.sayReset : t.sayIdle}
       sayKey={`${phase}-${reset}`}
       cap={t.cap}
@@ -291,6 +355,12 @@ export const Muscle = ({ texts, ui }: Props) => {
   )
 }
 
+export const Muscle = (props: Props) => (
+  <CoachHost>
+    <MuscleInner {...props} />
+  </CoachHost>
+)
+
 /** Fünf schematische Messpunkte; keine Messdaten. */
 const TREND_POINTS = [
   [100, 104],
@@ -300,17 +370,24 @@ const TREND_POINTS = [
   [580, 46],
 ]
 
+/** Das Schildchen sitzt unter dem Regler — darüber stehen die Namen der Messungen. */
+const TREND_STEPS: CoachStep[] = [
+  { target: '.xp-range input', watch: '.xp-trend', drag: true, tag: 'below' },
+]
+
 /** Einzelwert oder Verlauf: mit dem Regler kommen Messungen dazu. */
-export const Trend = ({ texts, ui }: Props) => {
+const TrendInner = ({ texts, ui }: Props) => {
   const t = texts.trend
   const [count, setCount] = useState(1)
   const [touched, setTouched] = useState(false)
   return (
     <WidgetFrame
       name="trend"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={t.guide}
+      steps={TREND_STEPS}
+      done={[count >= 3]}
       say={count > 1 ? fill(t.sayMany, { n: count }) : t.sayOne}
       sayKey={count}
       cap={t.cap}
@@ -353,11 +430,21 @@ export const Trend = ({ texts, ui }: Props) => {
   )
 }
 
+export const Trend = (props: Props) => (
+  <CoachHost>
+    <TrendInner {...props} />
+  </CoachHost>
+)
+
+const EXER_STEPS: CoachStep[] = [
+  { target: '.xp-exer > div:first-child button:first-of-type', watch: '.xp-exer > div:last-child' },
+]
+
 /**
  * Exerkine: ein Organ antippen, Botenstoffe laufen zu den Zielen. Welches Organ welchen Botenstoff
  * bildet, sagt der Artikel nicht — deshalb gehen von jedem Organ dieselben Punkte aus.
  */
-export const Exerkines = ({ texts, ui }: Props) => {
+const ExerkinesInner = ({ texts, ui }: Props) => {
   const t = texts.exer
   const boxRef = useRef<HTMLDivElement>(null)
   const targetRefs = useRef<Array<HTMLDivElement | null>>([])
@@ -412,9 +499,11 @@ export const Exerkines = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="exer"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: t.sources[0] })}
+      steps={EXER_STEPS}
+      done={[sent !== null]}
       say={say}
       sayKey={sent?.turn ?? 0}
       cap={t.cap}
@@ -460,8 +549,16 @@ export const Exerkines = ({ texts, ui }: Props) => {
   )
 }
 
+export const Exerkines = (props: Props) => (
+  <CoachHost>
+    <ExerkinesInner {...props} />
+  </CoachHost>
+)
+
+const SORT_STEPS: CoachStep[] = [{ target: '.xp-sort-bt', watch: '.xp-sort-pg' }]
+
 /** Sinnvoll oder nicht: sechs Aussagen einordnen, danach die Übersicht. */
-export const Sorter = ({ texts, ui }: Props) => {
+const SorterInner = ({ texts, ui }: Props) => {
   const t = texts.sort
   // abwechselnd sinnvoll / nicht sinnvoll
   const statements = t.usefulItems.flatMap((text, index) => [
@@ -501,9 +598,11 @@ export const Sorter = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="sort"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: t.useful, other: t.notUseful })}
+      steps={SORT_STEPS}
+      done={[answers.length >= 1]}
       say={say}
       sayKey={`${answers.length}-${done}`}
       tried={answers.length > 0}
@@ -587,3 +686,8 @@ export const Sorter = ({ texts, ui }: Props) => {
     </WidgetFrame>
   )
 }
+export const Sorter = (props: Props) => (
+  <CoachHost>
+    <SorterInner {...props} />
+  </CoachHost>
+)

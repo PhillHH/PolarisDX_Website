@@ -8,7 +8,21 @@
     "more": "Ausführlich lesen",
     "next": "Weiter",
     "back": "Schritt zurück",
-    "restart": "Von vorn"
+    "restart": "Von vorn",
+    "guide": {
+      "shows": "Das zeigt es",
+      "result": "Das passiert",
+      "learn": "Merke",
+      "how": "So geht’s",
+      "step": "Schritt {{n}} von {{total}}",
+      "look": "Gut. Unten steht, was gerade passiert ist.",
+      "next": "Weiter",
+      "understood": "Verstanden",
+      "again": "Noch einmal von vorn",
+      "free": "Probieren Sie jetzt frei weiter.",
+      "tap": "Hier tippen",
+      "drag": "Hier ziehen"
+    }
   },
   "stage": {
     "label": "Reise ins Innere in sechs Schritten",
@@ -54,8 +68,21 @@
       "dna": "DNA, aufgewickelt",
       "methyl": "Methylgruppen",
       "loose": "locker · gut ablesbar",
-      "dense": "dicht · schwer ablesbar"
-    }
+      "dense": "dicht · schwer ablesbar",
+      "legend": [
+        "Der Punkt in der Mitte: eine einzelne Zelle",
+        "Der Kreis in der Mitte: der Zellkern",
+        "Die Fäden: aufgewickelte DNA",
+        "Die Kreise: Histone · der Faden: DNA",
+        "Die Buchstaben: Bausteine der DNA",
+        "Die leuchtenden Punkte: Methylgruppen"
+      ]
+    },
+    "cueTouch": "Wischen, um hineinzuzoomen",
+    "cueAuto": "Läuft von selbst · Wischen geht jederzeit",
+    "cueEnd": "Weiter unten beginnt der Artikel",
+    "play": "Abspielen",
+    "pause": "Anhalten"
   },
   "intro": {
     "eyebrow": "Angekommen",
@@ -212,18 +239,24 @@
     },
     "pult": {
       "title": "Das Mischpult der Gene",
-      "how": "Schalten Sie einen Reiz ein und beobachten Sie die Regler.",
       "legendActivity": "Regler: Aktivität der Gene",
       "legendSequence": "Buchstaben: Sequenz der DNA",
       "sayIdle": "Noch ist kein Reiz aktiv. Die Regler stehen in ihrer Ausgangslage.",
       "sayActive": "{{n}} von 6 Reizen aktiv: {{m}} von 16 Reglern haben sich bewegt. Die Buchstaben der Sequenz sind gleich geblieben.",
       "sayNone": "Kein Reiz mehr aktiv. Die Regler stehen wieder in ihrer Ausgangslage.",
-      "cap": "Schema · zeigt das Prinzip, keine Messdaten und keine Wirkrichtung"
+      "cap": "Schema · zeigt das Prinzip, keine Messdaten und keine Wirkrichtung",
+      "guide": {
+        "shows": "Reize aus dem Alltag können verändern, wie aktiv einzelne Gene sind. Die DNA selbst bleibt dabei gleich.",
+        "steps": [
+          "Tippen Sie auf „{{label}}“.",
+          "Schalten Sie einen zweiten Reiz dazu, zum Beispiel „{{label}}“."
+        ],
+        "learn": "Die Aktivität der Gene ändert sich. Die Buchstaben der DNA bleiben gleich."
+      }
     },
     "methyl": {
       "tab": "Methylierung",
       "title": "Methylierung: Marken setzen",
-      "how": "Tippen Sie auf eine Stelle der DNA, um eine Methylgruppe anzufügen.",
       "group": "Acht Stellen auf der DNA",
       "site": "Stelle {{n}}",
       "meter": "Genaktivität",
@@ -233,12 +266,16 @@
       "saySetLower": "Marke an Stelle {{n}} gesetzt: Die Genaktivität ist geringer geworden. Probieren Sie eine andere Stelle: Je nach Position kann es umgekehrt sein.",
       "saySetHigher": "Marke an Stelle {{n}} gesetzt: Die Genaktivität ist stärker geworden. Probieren Sie eine andere Stelle: Je nach Position kann es umgekehrt sein.",
       "sayRemoved": "Marke an Stelle {{n}} entfernt. Die Genaktivität geht zurück in Richtung Ausgangslage.",
-      "cap": "Schema · welche Stelle wie wirkt, ist hier frei gewählt"
+      "cap": "Schema · welche Stelle wie wirkt, ist hier frei gewählt",
+      "guide": {
+        "shows": "Kleine chemische Gruppen an der DNA, die Methylgruppen, können ein Gen schwächer oder stärker stellen. Es kommt auf die Stelle an.",
+        "steps": ["Tippen Sie auf „{{label}}“.", "Tippen Sie jetzt auf „{{label}}“."],
+        "learn": "Dieselbe Markierung kann je nach Stelle unterschiedlich wirken."
+      }
     },
     "histone": {
       "tab": "Histone",
       "title": "Histone: die Verpackung",
-      "how": "Ziehen Sie den Regler von locker nach dicht.",
       "loose": "locker",
       "dense": "dicht",
       "aria": "Verpackung der DNA von locker bis dicht",
@@ -246,12 +283,19 @@
       "stateDense": "dicht · schwer ablesbar",
       "sayLoose": "Locker gepackt: Die DNA liegt frei und kann gut abgelesen werden.",
       "sayDense": "Dicht gepackt: Die DNA ist schwer zugänglich. Das Ablesen kommt hier nicht weiter.",
-      "cap": "Schema · der Punkt steht für das Ablesen der DNA"
+      "cap": "Schema · der Punkt steht für das Ablesen der DNA",
+      "guide": {
+        "shows": "Die DNA ist um Proteine gewickelt, die Histone. Locker gewickelt lässt sie sich gut ablesen, dicht gewickelt schlechter.",
+        "steps": [
+          "Ziehen Sie den Regler nach rechts zu „{{label}}“.",
+          "Ziehen Sie den Regler zurück zu „{{label}}“."
+        ],
+        "learn": "Wie dicht die DNA gepackt ist, beeinflusst, wie gut sie abgelesen werden kann."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: die Feinsteuerung",
-      "how": "Tippen Sie auf den Knopf und lassen Sie eine microRNA andocken.",
       "dock": "microRNA andocken",
       "undock": "microRNA wieder lösen",
       "mrna": "mRNA · Abschrift eines Gens",
@@ -259,20 +303,31 @@
       "sayIdle": "Die mRNA ist die Abschrift eines Gens. Noch ist keine microRNA angedockt.",
       "sayDocked": "Die microRNA hat angedockt. Sie kann beeinflussen, wie die Abschrift weiterverarbeitet und genutzt wird.",
       "sayFree": "Die microRNA ist gelöst. Die mRNA liegt wieder frei.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Von einem Gen wird eine Abschrift erstellt, die mRNA. Kleine RNA-Moleküle können beeinflussen, wie diese Abschrift genutzt wird.",
+        "steps": ["Tippen Sie auf „{{label}}“."],
+        "learn": "Kleine RNA-Moleküle können mitbestimmen, wie eine Gen-Abschrift genutzt wird."
+      }
     },
     "ring": {
       "title": "Sechs Einflüsse, ein Regelsystem",
-      "how": "Tippen Sie auf einen Einfluss.",
       "aria": "Sechs Einflüsse auf die Genregulation",
       "core": ["Gen-", "regulation"],
       "sayIdle": "Der Körper reagiert ständig auf seine Umgebung. Tippen Sie auf einen der sechs Einflüsse.",
       "sayPick": "„{{name}}“ ist einer von sechs Einflüssen, auf die der Körper reagiert. Ein Teil dieser Reaktionen kann über epigenetische Regulation vermittelt oder begleitet werden.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Der Körper reagiert auf viele Einflüsse. Ein Teil dieser Reaktionen kann über die Regulation der Gene laufen.",
+        "steps": [
+          "Tippen Sie auf „{{label}}“.",
+          "Tippen Sie auf einen zweiten Einfluss, zum Beispiel „{{label}}“."
+        ],
+        "learn": "Ganz verschiedene Einflüsse treffen auf dasselbe Regelsystem."
+      }
     },
     "cause": {
       "title": "Zusammenhang ist nicht Ursache",
-      "how": "Tippen Sie die drei Möglichkeiten durch.",
       "aria": "Drei Möglichkeiten",
       "options": ["Ursache", "Folge", "Begleiterscheinung"],
       "marker": ["Epigenetischer", "Marker"],
@@ -283,11 +338,15 @@
         "Möglichkeit 2: Der Marker ist eine Folge der Erkrankung.",
         "Möglichkeit 3: Marker und Erkrankung treten gemeinsam auf, ohne dass eines das andere auslöst."
       ],
-      "tail": "Welche der drei Möglichkeiten zutrifft, muss gesondert untersucht werden."
+      "tail": "Welche der drei Möglichkeiten zutrifft, muss gesondert untersucht werden.",
+      "guide": {
+        "shows": "Treten ein Marker und eine Erkrankung gemeinsam auf, ist noch offen, was Ursache und was Folge ist.",
+        "steps": ["Tippen Sie auf „{{label}}“.", "Tippen Sie jetzt auf „{{label}}“."],
+        "learn": "Ein Zusammenhang allein zeigt noch nicht, was die Ursache ist."
+      }
     },
     "chainPsy": {
       "title": "Von der Umwelt zum Verhalten",
-      "how": "Gehen Sie die fünf Ebenen Schritt für Schritt durch.",
       "steps": [
         {
           "label": "Umwelt",
@@ -310,11 +369,15 @@
           "text": "Selbstregulation ist die Fähigkeit, Gefühle, Aufmerksamkeit, Impulse und Stressreaktionen an Anforderungen anzupassen."
         }
       ],
-      "cap": "So beschreiben es aktuelle Modelle · vereinfacht"
+      "cap": "So beschreiben es aktuelle Modelle · vereinfacht",
+      "guide": {
+        "shows": "So beschreiben aktuelle Modelle den Weg von äußeren Einflüssen bis zum Verhalten: in fünf Ebenen.",
+        "steps": ["Tippen Sie auf „{{label}}“, bis die fünfte Ebene leuchtet."],
+        "learn": "Zwischen Umwelt und Verhalten liegen mehrere Ebenen. Die epigenetische Regulation ist eine davon."
+      }
     },
     "chainTrain": {
       "title": "Was Training anstößt",
-      "how": "Gehen Sie die Kette Schritt für Schritt durch.",
       "steps": [
         {
           "label": "Training",
@@ -337,11 +400,15 @@
           "text": "Das kann mit Anpassungen bei Stoffwechsel, Entzündungsregulation und Gewebereparatur zusammenhängen."
         }
       ],
-      "cap": "Vereinfachte Darstellung"
+      "cap": "Vereinfachte Darstellung",
+      "guide": {
+        "shows": "Was Training im Körper anstoßen kann: fünf Schritte vom Reiz bis zur langfristigen Anpassung.",
+        "steps": ["Tippen Sie auf „{{label}}“, bis der fünfte Schritt leuchtet."],
+        "learn": "Zwischen Training und langfristiger Anpassung liegen mehrere Schritte. Die epigenetische Anpassung ist einer davon."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: Erinnert sich der Muskel?",
-      "how": "Drücken Sie die drei Knöpfe der Reihe nach.",
       "aria": "Schema: Anpassung im ersten Training, in der Pause und beim Wiedereinstieg",
       "buttons": ["Trainieren", "Pause", "Wieder einsteigen"],
       "reset": "Zurücksetzen",
@@ -355,22 +422,34 @@
         "Wiedereinstieg: Bereits trainierte Muskulatur kann bestimmte Anpassungen schneller wieder aufbauen. Die Kurve steigt steiler als beim ersten Mal."
       ],
       "sayReset": "Zurückgesetzt. Starten Sie wieder mit „Trainieren“.",
-      "cap": "Schema zur Veranschaulichung · keine Messdaten"
+      "cap": "Schema zur Veranschaulichung · keine Messdaten",
+      "guide": {
+        "shows": "Ein Muskel, der schon einmal trainiert war, kann bestimmte Anpassungen schneller wieder aufbauen.",
+        "steps": [
+          "Tippen Sie auf „{{label}}“.",
+          "Tippen Sie jetzt auf „{{label}}“.",
+          "Tippen Sie zum Schluss auf „{{label}}“."
+        ],
+        "learn": "Dieses schnellere Wiederaufbauen nennt man Muscle Memory."
+      }
     },
     "trend": {
       "title": "Einzelwert oder Verlauf?",
-      "how": "Ziehen Sie den Regler und fügen Sie Messungen hinzu.",
       "aria": "Schema: mit jeder weiteren Messung wird aus Einzelwerten ein Verlauf",
       "point": "Messung {{n}}",
       "count": "Messungen",
       "countAria": "Anzahl Messungen",
       "sayOne": "Ein einzelner Wert: Daraus lässt sich keine Diagnose ableiten.",
       "sayMany": "{{n}} Messungen: Jetzt wird ein Verlauf sichtbar. Die Frage lautet: Wie verändert sich ein Marker über die Zeit und im Kontext dokumentierter Lebensstilmaßnahmen?",
-      "cap": "Schema · keine Messdaten"
+      "cap": "Schema · keine Messdaten",
+      "guide": {
+        "shows": "Ein einzelner Messwert sagt wenig. Erst mehrere Messungen zeigen, wie sich ein Wert entwickelt.",
+        "steps": ["Ziehen Sie den Regler nach rechts."],
+        "learn": "Wichtig ist der Verlauf über die Zeit, nicht der einzelne Wert."
+      }
     },
     "exer": {
       "title": "Exerkine: Botenstoffe auf dem Weg",
-      "how": "Tippen Sie auf ein Organ, um Botenstoffe loszuschicken.",
       "from": "Stammen aus",
       "to": "Wirken auf",
       "sources": ["Muskel", "Fettgewebe", "Leber", "Andere Organe"],
@@ -382,11 +461,15 @@
       "saySent": "{{name}} sendet Botenstoffe.",
       "sayOther": "Auch andere Organe können Botenstoffe senden.",
       "sayTail": "Sie wirken auf Stoffwechsel, Gefäße, Immunsystem und möglicherweise das Gehirn.",
-      "cap": "Schema · welches Organ welchen Botenstoff bildet, ist hier nicht dargestellt"
+      "cap": "Schema · welches Organ welchen Botenstoff bildet, ist hier nicht dargestellt",
+      "guide": {
+        "shows": "Bei Bewegung geben Organe Botenstoffe ab, die Exerkine. Sie wirken an anderen Stellen im Körper.",
+        "steps": ["Tippen Sie auf „{{label}}“."],
+        "learn": "So wirkt Bewegung weit über den trainierten Muskel hinaus."
+      }
     },
     "sort": {
       "title": "Sinnvoll oder nicht?",
-      "how": "Ordnen Sie ein, wofür ein epigenetischer Test taugt.",
       "useful": "Sinnvoll",
       "notUseful": "Nicht sinnvoll",
       "important": "Besonders wichtig",
@@ -410,7 +493,12 @@
       "isUseful": "Das gilt als sinnvoll.",
       "isNotUseful": "Das gilt als nicht sinnvoll.",
       "result": "{{right}} von {{total}} richtig eingeordnet. Die Übersicht zeigt alle Aussagen an ihrem Platz.",
-      "again": "Noch einmal einordnen"
+      "again": "Noch einmal einordnen",
+      "guide": {
+        "shows": "Wofür ein epigenetischer Test taugt und wofür nicht.",
+        "steps": ["Lesen Sie die Aussage. Tippen Sie dann auf „{{label}}“ oder „{{other}}“."],
+        "learn": "Nach sechs Aussagen zeigt die Übersicht alles an seinem Platz."
+      }
     }
   },
   "closing": {

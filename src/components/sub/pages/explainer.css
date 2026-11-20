@@ -178,43 +178,111 @@
   margin-top: 12px;
   gap: 20px;
 }
-.xp-hint {
+/* Hinweis am Fuß der Bühne: Scroll- bzw. Wischzeichen und ein Satz in einfachen Worten */
+.xp-cue {
   display: flex;
   align-items: center;
-  color: #9fb6cc;
-  font-size: 10.5px;
-  gap: 10px;
-  letter-spacing: 0.2em;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  gap: 12px;
+  letter-spacing: 0.04em;
   opacity: 0;
-  text-transform: uppercase;
   transition: opacity 0.4s;
 }
-.xp-stage[data-state='0'] .xp-hint {
+.xp-cue.is-on {
   opacity: 1;
 }
-.xp-hint::before {
-  width: 1px;
-  height: 22px;
-  background: linear-gradient(#8fd8fb, #8fd8fb00);
-  animation: xp-drop 2.2s ease-in-out infinite;
-  content: '';
+.xp-touch,
+.xp-cue.is-auto .xp-cue-i {
+  display: none;
 }
-@keyframes xp-drop {
+.xp-cue-i {
+  position: relative;
+  width: 24px;
+  height: 38px;
+  flex: none;
+  border: 1.5px solid #8fd8fb;
+  border-radius: 12px;
+}
+.xp-cue-i b {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-left: -2px;
+  animation: xp-wheel 1.6s ease-in-out infinite;
+  background: #8fd8fb;
+  opacity: 0;
+}
+.xp-cue-i b:nth-child(2) {
+  animation-delay: 0.22s;
+}
+.xp-cue-i b:nth-child(3) {
+  animation-delay: 0.44s;
+}
+@keyframes xp-wheel {
   0% {
-    transform: scaleY(0);
-    transform-origin: top;
+    opacity: 0;
+    transform: translateY(0);
   }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform-origin: bottom;
+  30% {
+    opacity: 1;
   }
   100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
+    opacity: 0;
+    transform: translateY(20px);
   }
+}
+@keyframes xp-swipe {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+/* Am Touch-Gerät wischt der Finger nach oben, und der Satz spricht vom Wischen. */
+@media (hover: none) and (pointer: coarse) {
+  .xp-mouse {
+    display: none;
+  }
+  .xp-touch {
+    display: inline;
+  }
+  .xp-cue-i b {
+    top: 26px;
+    animation-name: xp-swipe;
+  }
+}
+/* Selbstlauf anhalten und fortsetzen */
+.xp-play {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid #ffffff57;
+  font-size: 13px;
+  font-weight: 500;
+  gap: 8px;
+  white-space: nowrap;
+}
+.xp-play svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.xp-play:hover,
+.xp-play.is-on {
+  border-color: #8fd8fb;
+  color: #8fd8fb;
 }
 .xp-cnt {
   margin-left: auto;
@@ -234,7 +302,8 @@
   text-underline-offset: 5px;
   white-space: nowrap;
 }
-.xp-skip:hover {
+.xp-skip:hover,
+.xp-skip.is-end {
   color: #8fd8fb;
 }
 
@@ -442,27 +511,250 @@
   letter-spacing: -0.02em;
   line-height: 1.3;
 }
-.xp-how {
-  display: flex;
-  align-items: baseline;
-  margin-top: 6px;
-  color: #9fb6cc;
-  font-size: 15px;
-  gap: 10px;
+.xp-shows {
+  margin-top: 10px;
+  font-size: 16.5px;
   line-height: 1.5;
 }
-.xp-how::before {
-  width: 8px;
-  height: 8px;
-  flex: none;
-  border-radius: 50%;
+.xp-shows b,
+.xp-res-k {
+  display: block;
+  margin-bottom: 4px;
+  color: #8fd8fb;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+/* Hinweiszeile: der nächste Handgriff, hell abgesetzt */
+.xp-coach {
+  display: grid;
+  align-items: center;
+  padding: 12px 14px;
+  margin-top: 16px;
   background: #8fd8fb;
-  animation: xp-pulse 1.8s ease-in-out infinite;
+  color: #041a2e;
+  gap: 10px 14px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  transition: background-color 0.3s;
+}
+.xp-coach-n {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #041a2e;
+  color: #8fd8fb;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  place-items: center;
+}
+.xp-coach p small {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.xp-coach p span {
+  display: block;
+  animation: xp-say 0.4s both;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.xp-coach-a:empty {
+  display: none;
+}
+.xp-coach .xp-btn {
+  min-height: 40px;
+  padding: 0 12px;
+  border-color: #041a2e;
+  color: #041a2e;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+.xp-coach .xp-btn:hover {
+  background: #041a2e;
+  color: #8fd8fb;
+}
+.xp-coach-dots {
+  display: flex;
+  gap: 5px;
+  grid-column: 1 / -1;
+}
+.xp-coach-dots i {
+  height: 3px;
+  flex: 1;
+  background: #041a2e33;
+}
+.xp-coach-dots .is-on {
+  background: #041a2e;
+}
+.xp-coach-dots .is-done {
+  background: #041a2e99;
+}
+/* Ergebnis ansehen: Die Zeile tritt zurück, das Ergebnis darunter leuchtet. */
+.xp-w[data-phase='see'] .xp-coach {
+  background: #ffffff29;
+  color: #fff;
+}
+.xp-w[data-phase='see'] .xp-coach-n {
+  background: #8fd8fb;
+  color: #041a2e;
+}
+.xp-w[data-phase='see'] .xp-coach-dots i {
+  background: #ffffff57;
+}
+.xp-w[data-phase='see'] .xp-coach-dots .is-on,
+.xp-w[data-phase='see'] .xp-coach-dots .is-done {
+  background: #8fd8fb;
+}
+.xp-w[data-phase='learn'] .xp-coach {
+  background: #fff;
+}
+/* Ergebnissatz und „Weiter" in der Hinweiszeile: nur am Telefon (siehe unten). */
+.xp-coach .xp-coach-say,
+.xp-coach .xp-coach-next {
+  display: none;
+}
+.xp-w .xp-coach .xp-btn.is-pri {
+  border-color: #8fd8fb;
+  background: #8fd8fb;
+  color: #041a2e;
+}
+.xp-res {
+  margin-top: 16px;
+}
+.xp-res .xp-say {
+  margin-top: 0;
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s;
+}
+.xp-res > .xp-btn {
+  margin-top: 10px;
+}
+.xp-w[data-phase='see'] .xp-say {
+  background: #8fd8fb3d;
+  box-shadow: 0 0 0 2px #8fd8fb;
+}
+/* Markierung des Bedienelements und des Bereichs mit der Wirkung */
+.xp-w .is-coach {
+  animation: xp-halo 1.5s ease-out infinite;
+  outline: 2px solid #8fd8fb;
+  outline-offset: 3px;
+}
+.xp-w .is-coach:focus-visible {
+  outline: 3px solid #fff;
+}
+@keyframes xp-halo {
+  from {
+    box-shadow: 0 0 0 0 #8fd8fb99;
+  }
+  to {
+    box-shadow: 0 0 0 14px #8fd8fb00;
+  }
+}
+.xp-w .is-watch {
+  outline: 1px dashed #8fd8fb;
+  outline-offset: 6px;
+}
+.xp-ring g.is-coach {
+  animation: none;
+  outline: none;
+}
+.xp-ring g.is-coach .dt {
+  animation: xp-pulse 1.2s ease-in-out infinite;
+  fill: #8fd8fb;
+}
+.xp-ring .ln.is-seen {
+  opacity: 0.6;
+  stroke: #8fd8fb;
+  stroke-dasharray: none;
+}
+.xp-ring g.is-seen .dt {
+  fill: #8fd8fb99;
+}
+/* Schildchen „Hier tippen" am Bedienelement */
+.xp-tag {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 10px;
+  animation: xp-bob 1.2s ease-in-out infinite;
+  background: #fff;
+  color: #041a2e;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+  white-space: nowrap;
+}
+.xp-tag::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 6px solid #ffffff00;
+  border-top-color: #fff;
+  margin-left: -6px;
   content: '';
 }
-.xp-w.is-tried .xp-how::before {
-  animation: none;
-  opacity: 0.45;
+.xp-tag.is-below {
+  transform: translate(-50%, 12px);
+}
+.xp-tag.is-below::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: #ffffff00;
+  border-bottom-color: #fff;
+}
+.xp-tag.is-right {
+  animation-name: xp-nudge;
+  transform: translate(14px, -50%);
+}
+.xp-tag.is-right::after {
+  top: 50%;
+  right: 100%;
+  left: auto;
+  border-top-color: #ffffff00;
+  border-right-color: #fff;
+  margin: -6px 0 0;
+}
+@keyframes xp-nudge {
+  50% {
+    margin-left: 5px;
+  }
+}
+@keyframes xp-bob {
+  50% {
+    margin-top: -5px;
+  }
+}
+@container (max-width: 540px) {
+  .xp-coach {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .xp-coach-a {
+    grid-column: 1 / -1;
+  }
+  .xp-coach p span {
+    font-size: 15px;
+  }
+}
+@media (max-width: 819px) {
+  /* Telefon: Was passiert ist, steht direkt in der Hinweiszeile, „Weiter" gleich darunter. */
+  .xp-coach p.has-say .xp-coach-look,
+  .xp-res > .xp-btn {
+    display: none;
+  }
+  .xp-coach p.has-say .xp-coach-say {
+    display: block;
+  }
+  .xp-coach .xp-coach-next {
+    display: inline-flex;
+  }
 }
 .xp-w-body {
   margin-top: 18px;
@@ -1433,7 +1725,7 @@
 @media (max-width: 819px) {
   .xp-mid {
     align-items: end;
-    padding-bottom: calc(104px + var(--xp-dock));
+    padding-bottom: calc(152px + var(--xp-dock));
   }
   .xp-txt {
     width: auto;
@@ -1462,15 +1754,47 @@
     margin: 11px 0 0;
   }
   .xp-stage-foot {
+    flex-wrap: wrap;
     margin-top: 4px;
-    gap: 12px;
+    gap: 2px 12px;
+  }
+  /* Der Abspielknopf teilt sich die Zeile mit dem Hinweis (nur Zeichen; der Name steht im
+     `aria-label`). */
+  .xp-play {
+    width: 44px;
+    flex: none;
+    justify-content: center;
+    padding: 0;
+  }
+  .xp-play-t,
+  .xp-cue-i {
+    display: none;
+  }
+  .xp-cue {
+    min-height: 44px;
+    flex: 1 1 calc(100% - 56px);
+    font-size: 12.5px;
   }
   .xp-cnt {
     font-size: 16px;
   }
-  .xp-hint {
-    font-size: 9.5px;
-    letter-spacing: 0.12em;
+}
+/* Niedrige Telefone: Der Hinweissatz entfällt, der Abspielknopf rückt in die Zeile des Zählers —
+   so bleibt der Zeichnung genug Höhe. */
+@media (max-width: 819px) and (max-height: 700px) {
+  .xp-mid {
+    padding-bottom: calc(104px + var(--xp-dock));
+  }
+  .xp-cue {
+    display: none;
+  }
+  .xp-word {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+  .xp-sen {
+    margin-top: 8px;
+    font-size: 14.5px;
+    line-height: 1.45;
   }
 }
 @media (prefers-reduced-motion: reduce) {

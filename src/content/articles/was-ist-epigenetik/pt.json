@@ -8,7 +8,21 @@
     "more": "Ler em detalhe",
     "next": "Seguinte",
     "back": "Passo anterior",
-    "restart": "Recomeçar"
+    "restart": "Recomeçar",
+    "guide": {
+      "shows": "O que mostra",
+      "result": "O que acontece",
+      "learn": "A reter",
+      "how": "Como funciona",
+      "step": "Passo {{n}} de {{total}}",
+      "look": "Muito bem. Mais abaixo pode ler o que acabou de acontecer.",
+      "next": "Seguinte",
+      "understood": "Entendido",
+      "again": "Recomeçar do início",
+      "free": "Agora experimente livremente.",
+      "tap": "Toque aqui",
+      "drag": "Arraste aqui"
+    }
   },
   "stage": {
     "label": "Viagem ao interior do corpo em seis passos",
@@ -54,8 +68,21 @@
       "dna": "ADN, enrolado",
       "methyl": "Grupos metilo",
       "loose": "solta · fácil de ler",
-      "dense": "apertada · difícil de ler"
-    }
+      "dense": "apertada · difícil de ler",
+      "legend": [
+        "O ponto no centro: uma única célula",
+        "O círculo no centro: o núcleo celular",
+        "Os fios: ADN enrolado",
+        "Os círculos: histonas · o fio: ADN",
+        "As letras: os componentes do ADN",
+        "Os pontos luminosos: grupos metilo"
+      ]
+    },
+    "cueTouch": "Deslize para aproximar",
+    "cueAuto": "Avança sozinho · pode deslizar a qualquer momento",
+    "cueEnd": "O artigo começa mais abaixo",
+    "play": "Reproduzir",
+    "pause": "Pausar"
   },
   "intro": {
     "eyebrow": "Chegámos",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "A mesa de mistura dos genes",
-      "how": "Ative um estímulo e observe os controlos.",
       "legendActivity": "Controlos: atividade dos genes",
       "legendSequence": "Letras: sequência do ADN",
       "sayIdle": "Ainda não há nenhum estímulo ativo. Os controlos estão na posição inicial.",
       "sayActive": "Estímulos ativos: {{n}} de 6. Controlos que se moveram: {{m}} de 16. As letras da sequência mantiveram-se iguais.",
       "sayNone": "Já não há nenhum estímulo ativo. Os controlos estão de novo na posição inicial.",
-      "cap": "Esquema · mostra o princípio, não dados de medição nem a direção do efeito"
+      "cap": "Esquema · mostra o princípio, não dados de medição nem a direção do efeito",
+      "guide": {
+        "shows": "Os estímulos do dia a dia podem alterar a atividade de genes individuais. O ADN em si permanece igual.",
+        "steps": ["Toque em «{{label}}».", "Ative um segundo estímulo, por exemplo «{{label}}»."],
+        "learn": "A atividade dos genes altera-se. As letras do ADN permanecem iguais."
+      }
     },
     "methyl": {
       "tab": "Metilação",
       "title": "Metilação: colocar marcas",
-      "how": "Toque num local do ADN para adicionar um grupo metilo.",
       "group": "Oito locais no ADN",
       "site": "Local {{n}}",
       "meter": "Atividade génica",
@@ -233,12 +263,16 @@
       "saySetLower": "Marca colocada no local {{n}}: a atividade génica diminuiu. Experimente outro local: consoante a posição, pode ser o contrário.",
       "saySetHigher": "Marca colocada no local {{n}}: a atividade génica aumentou. Experimente outro local: consoante a posição, pode ser o contrário.",
       "sayRemoved": "Marca removida do local {{n}}. A atividade génica volta em direção à posição inicial.",
-      "cap": "Esquema · o efeito de cada local foi aqui escolhido livremente"
+      "cap": "Esquema · o efeito de cada local foi aqui escolhido livremente",
+      "guide": {
+        "shows": "Pequenos grupos químicos no ADN, os grupos metilo, podem enfraquecer ou reforçar um gene. Depende do local.",
+        "steps": ["Toque em «{{label}}».", "Agora toque em «{{label}}»."],
+        "learn": "A mesma marca pode atuar de forma diferente consoante o local."
+      }
     },
     "histone": {
       "tab": "Histonas",
       "title": "Histonas: a embalagem",
-      "how": "Arraste o controlo deslizante de «solta» para «apertada».",
       "loose": "solta",
       "dense": "apertada",
       "aria": "Embalagem do ADN, de solta a apertada",
@@ -246,12 +280,19 @@
       "stateDense": "apertada · difícil de ler",
       "sayLoose": "Embalagem solta: o ADN está exposto e pode ser lido com facilidade.",
       "sayDense": "Embalagem apertada: o ADN é de difícil acesso. Aqui, a leitura não avança.",
-      "cap": "Esquema · o ponto representa a leitura do ADN"
+      "cap": "Esquema · o ponto representa a leitura do ADN",
+      "guide": {
+        "shows": "O ADN está enrolado em torno de proteínas, as histonas. Enrolado de forma solta lê-se bem; apertado, pior.",
+        "steps": [
+          "Arraste o cursor para a direita, até «{{label}}».",
+          "Arraste o cursor de volta até «{{label}}»."
+        ],
+        "learn": "A densidade com que o ADN está compactado influencia a facilidade com que pode ser lido."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: o ajuste fino",
-      "how": "Toque no botão e deixe um microRNA acoplar-se.",
       "dock": "Acoplar microRNA",
       "undock": "Soltar microRNA",
       "mrna": "mRNA · cópia de um gene",
@@ -259,20 +300,31 @@
       "sayIdle": "O mRNA é a cópia de um gene. Ainda não há nenhum microRNA acoplado.",
       "sayDocked": "O microRNA acoplou-se. Pode influenciar a forma como a cópia é depois processada e utilizada.",
       "sayFree": "O microRNA soltou-se. O mRNA está novamente livre.",
-      "cap": "Esquema"
+      "cap": "Esquema",
+      "guide": {
+        "shows": "De um gene é feita uma cópia, o ARNm. Pequenas moléculas de ARN podem influenciar a forma como essa cópia é utilizada.",
+        "steps": ["Toque em «{{label}}»."],
+        "learn": "Pequenas moléculas de ARN podem ajudar a determinar como é utilizada a cópia de um gene."
+      }
     },
     "ring": {
       "title": "Seis influências, um sistema de regulação",
-      "how": "Toque numa influência.",
       "aria": "Seis influências sobre a regulação dos genes",
       "core": ["Regulação", "dos genes"],
       "sayIdle": "O corpo reage constantemente ao ambiente que o rodeia. Toque numa das seis influências.",
       "sayPick": "«{{name}}» é uma das seis influências a que o corpo reage. Uma parte destas reações pode ser mediada ou acompanhada por regulação epigenética.",
-      "cap": "Esquema"
+      "cap": "Esquema",
+      "guide": {
+        "shows": "O corpo reage a muitas influências. Parte dessas reações pode passar pela regulação dos genes.",
+        "steps": [
+          "Toque em «{{label}}».",
+          "Toque numa segunda influência, por exemplo «{{label}}»."
+        ],
+        "learn": "Influências muito diferentes encontram o mesmo sistema de regulação."
+      }
     },
     "cause": {
       "title": "Associação não é causa",
-      "how": "Toque nas três possibilidades, uma após a outra.",
       "aria": "Três possibilidades",
       "options": ["Causa", "Consequência", "Fenómeno paralelo"],
       "marker": ["Marcador", "epigenético"],
@@ -283,11 +335,15 @@
         "Possibilidade 2: o marcador é uma consequência da doença.",
         "Possibilidade 3: o marcador e a doença surgem em conjunto, sem que um desencadeie o outro."
       ],
-      "tail": "Qual das três possibilidades se verifica é algo que tem de ser investigado separadamente."
+      "tail": "Qual das três possibilidades se verifica é algo que tem de ser investigado separadamente.",
+      "guide": {
+        "shows": "Quando um marcador e uma doença surgem em conjunto, ainda está em aberto qual é a causa e qual a consequência.",
+        "steps": ["Toque em «{{label}}».", "Agora toque em «{{label}}»."],
+        "learn": "Uma associação, por si só, ainda não mostra qual é a causa."
+      }
     },
     "chainPsy": {
       "title": "Do ambiente ao comportamento",
-      "how": "Percorra os cinco níveis, passo a passo.",
       "steps": [
         {
           "label": "Ambiente",
@@ -310,11 +366,15 @@
           "text": "A autorregulação é a capacidade de adaptar sentimentos, atenção, impulsos e reações de stress às exigências."
         }
       ],
-      "cap": "Assim o descrevem modelos atuais · simplificado"
+      "cap": "Assim o descrevem modelos atuais · simplificado",
+      "guide": {
+        "shows": "É assim que os modelos atuais descrevem o caminho das influências externas até ao comportamento: em cinco níveis.",
+        "steps": ["Toque em «{{label}}» até o quinto nível se iluminar."],
+        "learn": "Entre o ambiente e o comportamento há vários níveis. A regulação epigenética é um deles."
+      }
     },
     "chainTrain": {
       "title": "O que o treino desencadeia",
-      "how": "Percorra a cadeia, passo a passo.",
       "steps": [
         {
           "label": "Treino",
@@ -337,11 +397,15 @@
           "text": "Isso pode estar relacionado com adaptações no metabolismo, na regulação da inflamação e na reparação dos tecidos."
         }
       ],
-      "cap": "Representação simplificada"
+      "cap": "Representação simplificada",
+      "guide": {
+        "shows": "O que o treino pode desencadear no corpo: cinco passos do estímulo à adaptação a longo prazo.",
+        "steps": ["Toque em «{{label}}» até o quinto passo se iluminar."],
+        "learn": "Entre o treino e a adaptação a longo prazo há vários passos. A adaptação epigenética é um deles."
+      }
     },
     "muscle": {
       "title": "«Muscle Memory»: o músculo lembra-se?",
-      "how": "Prima os três botões, um após o outro.",
       "aria": "Esquema: adaptação no primeiro treino, na pausa e na retoma",
       "buttons": ["Treinar", "Pausa", "Retomar"],
       "reset": "Reiniciar",
@@ -355,22 +419,34 @@
         "Retoma: a musculatura já treinada pode voltar a desenvolver determinadas adaptações mais depressa. A curva sobe de forma mais acentuada do que da primeira vez."
       ],
       "sayReset": "Reiniciado. Comece novamente com «Treinar».",
-      "cap": "Esquema ilustrativo · não são dados de medição"
+      "cap": "Esquema ilustrativo · não são dados de medição",
+      "guide": {
+        "shows": "Um músculo que já foi treinado pode reconstruir mais depressa determinadas adaptações.",
+        "steps": [
+          "Toque em «{{label}}».",
+          "Agora toque em «{{label}}».",
+          "Para terminar, toque em «{{label}}»."
+        ],
+        "learn": "A esta reconstrução mais rápida chama-se «Muscle Memory»."
+      }
     },
     "trend": {
       "title": "Valor isolado ou evolução?",
-      "how": "Arraste o controlo deslizante e adicione medições.",
       "aria": "Esquema: com cada nova medição, os valores isolados transformam-se numa evolução",
       "point": "Medição {{n}}",
       "count": "Medições",
       "countAria": "Número de medições",
       "sayOne": "Um único valor: daí não é possível deduzir um diagnóstico.",
       "sayMany": "{{n}} medições: agora torna-se visível uma evolução. A pergunta é: como se altera um marcador ao longo do tempo e no contexto de medidas de estilo de vida documentadas?",
-      "cap": "Esquema · não são dados de medição"
+      "cap": "Esquema · não são dados de medição",
+      "guide": {
+        "shows": "Um valor isolado diz pouco. Só várias medições mostram como um valor evolui.",
+        "steps": ["Arraste o cursor para a direita."],
+        "learn": "O importante é a evolução ao longo do tempo, não o valor isolado."
+      }
     },
     "exer": {
       "title": "Exercinas: mensageiros químicos a caminho",
-      "how": "Toque num órgão para enviar mensageiros químicos.",
       "from": "Provêm de",
       "to": "Atuam sobre",
       "sources": ["Músculo", "Tecido adiposo", "Fígado", "Outros órgãos"],
@@ -382,11 +458,15 @@
       "saySent": "{{name}}: a enviar mensageiros químicos.",
       "sayOther": "Outros órgãos também podem enviar mensageiros químicos.",
       "sayTail": "Estes atuam sobre o metabolismo, os vasos sanguíneos, o sistema imunitário e, possivelmente, o cérebro.",
-      "cap": "Esquema · aqui não se mostra que órgão produz cada mensageiro químico"
+      "cap": "Esquema · aqui não se mostra que órgão produz cada mensageiro químico",
+      "guide": {
+        "shows": "Durante o movimento, os órgãos libertam mensageiros, as exercinas. Atuam noutros locais do corpo.",
+        "steps": ["Toque em «{{label}}»."],
+        "learn": "É assim que o movimento atua muito para além do músculo treinado."
+      }
     },
     "sort": {
       "title": "Faz sentido ou não?",
-      "how": "Classifique as afirmações: para que serve um teste epigenético?",
       "useful": "Faz sentido",
       "notUseful": "Não faz sentido",
       "important": "Muito importante",
@@ -410,7 +490,12 @@
       "isUseful": "Considera-se que isto faz sentido.",
       "isNotUseful": "Considera-se que isto não faz sentido.",
       "result": "Classificadas corretamente: {{right}} de {{total}}. A visão geral mostra todas as afirmações no seu lugar.",
-      "again": "Classificar de novo"
+      "again": "Classificar de novo",
+      "guide": {
+        "shows": "Para que serve um teste epigenético e para que não serve.",
+        "steps": ["Leia a afirmação. Depois toque em «{{label}}» ou «{{other}}»."],
+        "learn": "Após seis afirmações, o resumo mostra tudo no seu lugar."
+      }
     }
   },
   "closing": {

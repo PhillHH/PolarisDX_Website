@@ -8,7 +8,7 @@ import {
 } from '../../content/articles/was-ist-epigenetik'
 import de from '../../content/articles/was-ist-epigenetik/de.json'
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '../../i18n'
-import { Chain, Muscle, Sorter, Trend } from './widgetsContext'
+import { Chain, Muscle, Ring, Sorter, Trend } from './widgetsContext'
 import { Mechanisms, Pult } from './widgetsRegulation'
 
 /** Alle Sprachfassungen, so wie sie im Ordner liegen: Dateiname = Sprache. */
@@ -89,22 +89,25 @@ describe('SC-031 explainer content x10', () => {
 
 describe('SC-031 explainer widgets', () => {
   afterEach(() => vi.useRealTimers())
+  /** Der Satz unter dem Baustein (im Schritt „ansehen" steht er am Telefon zusätzlich oben). */
+  const said = (text: string | RegExp) =>
+    expect(document.querySelector('.xp-say')).toHaveTextContent(text)
 
   it('Pult: a stimulus moves faders, the sequence stays and one sentence explains it', () => {
     const { container } = render(<Pult texts={de.widgets} ui={de.ui} />)
     const switches = screen.getAllByRole('switch')
     expect(switches).toHaveLength(6)
     const sequence = container.querySelector('.xp-seq')?.textContent
-    expect(screen.getByText(de.widgets.pult.sayIdle)).toBeInTheDocument()
+    said(de.widgets.pult.sayIdle)
 
     fireEvent.click(switches[0])
     expect(switches[0]).toHaveAttribute('aria-checked', 'true')
     expect(container.querySelectorAll('.xp-faders .is-moved').length).toBeGreaterThan(0)
-    expect(screen.getByText(/1 von 6 Reizen aktiv/)).toBeInTheDocument()
+    said(/1 von 6 Reizen aktiv/)
     expect(container.querySelector('.xp-seq')?.textContent).toBe(sequence)
 
     fireEvent.click(switches[0])
-    expect(screen.getByText(de.widgets.pult.sayNone)).toBeInTheDocument()
+    said(de.widgets.pult.sayNone)
     expect(container.querySelectorAll('.xp-faders .is-moved')).toHaveLength(0)
   })
 
@@ -116,13 +119,13 @@ describe('SC-031 explainer widgets', () => {
 
     fireEvent.click(site(1))
     expect(site(1)).toHaveAttribute('aria-pressed', 'true')
-    expect(screen.getByText(fill(de.widgets.methyl.saySetLower, { n: 1 }))).toBeInTheDocument()
+    said(fill(de.widgets.methyl.saySetLower, { n: 1 }))
 
     fireEvent.click(site(3))
-    expect(screen.getByText(fill(de.widgets.methyl.saySetHigher, { n: 3 }))).toBeInTheDocument()
+    said(fill(de.widgets.methyl.saySetHigher, { n: 3 }))
 
     fireEvent.click(site(3))
-    expect(screen.getByText(fill(de.widgets.methyl.sayRemoved, { n: 3 }))).toBeInTheDocument()
+    said(fill(de.widgets.methyl.sayRemoved, { n: 3 }))
   })
 
   it('Mechanisms: the RNA tab docks and releases the microRNA', () => {
@@ -130,21 +133,21 @@ describe('SC-031 explainer widgets', () => {
     fireEvent.click(screen.getByRole('tab', { name: /RNA/ }))
     const button = screen.getByRole('button', { name: de.widgets.rna.dock })
     fireEvent.click(button)
-    expect(screen.getByText(de.widgets.rna.sayDocked)).toBeInTheDocument()
+    said(de.widgets.rna.sayDocked)
     fireEvent.click(screen.getByRole('button', { name: de.widgets.rna.undock }))
-    expect(screen.getByText(de.widgets.rna.sayFree)).toBeInTheDocument()
+    said(de.widgets.rna.sayFree)
   })
 
   it('Chain: walks the five levels and starts over', () => {
     render(<Chain texts={de.widgets} ui={de.ui} chain="chainPsy" />)
     const steps = de.widgets.chainPsy.steps
-    expect(screen.getByText(steps[0].text)).toBeInTheDocument()
+    said(steps[0].text)
     for (let index = 1; index < steps.length; index++) {
       fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${de.ui.next}`) }))
-      expect(screen.getByText(steps[index].text)).toBeInTheDocument()
+      said(steps[index].text)
     }
     fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${de.ui.restart}`) }))
-    expect(screen.getByText(steps[0].text)).toBeInTheDocument()
+    said(steps[0].text)
   })
 
   it('Muscle: the three phases unlock one after another', () => {
@@ -154,20 +157,20 @@ describe('SC-031 explainer widgets', () => {
       screen.getByRole('button', { name: `${index + 1} · ${t.buttons[index]}` })
     expect(button(1)).toBeDisabled()
     fireEvent.click(button(0))
-    expect(screen.getByText(t.say[0])).toBeInTheDocument()
+    said(t.say[0])
     fireEvent.click(button(1))
     fireEvent.click(button(2))
-    expect(screen.getByText(t.say[2])).toBeInTheDocument()
+    said(t.say[2])
     fireEvent.click(screen.getByRole('button', { name: t.reset }))
-    expect(screen.getByText(t.sayReset)).toBeInTheDocument()
+    said(t.sayReset)
   })
 
   it('Trend: one value is no trend, several measurements are', () => {
     render(<Trend texts={de.widgets} ui={de.ui} />)
     const t = de.widgets.trend
-    expect(screen.getByText(t.sayOne)).toBeInTheDocument()
+    said(t.sayOne)
     fireEvent.change(screen.getByRole('slider', { name: t.countAria }), { target: { value: '4' } })
-    expect(screen.getByText(fill(t.sayMany, { n: 4 }))).toBeInTheDocument()
+    said(fill(t.sayMany, { n: 4 }))
   })
 
   it('Sorter: counts correct answers and ends with the overview', () => {
@@ -182,9 +185,92 @@ describe('SC-031 explainer widgets', () => {
         vi.advanceTimersByTime(1200)
       })
     }
-    expect(screen.getByText(fill(t.result, { right: 5, total: 6 }))).toBeInTheDocument()
+    said(fill(t.result, { right: 5, total: 6 }))
     expect(screen.getByText(t.importantItems[0])).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: t.again }))
     expect(screen.getByText(t.usefulItems[0])).toBeInTheDocument()
+  })
+
+  it('SC-033 guide: leads step by step, shows the result and ends with the take-away', () => {
+    const { container } = render(<Pult texts={de.widgets} ui={de.ui} />)
+    const g = de.ui.guide
+    const guide = de.widgets.pult.guide
+    const [first, second, , fourth] = de.widgets.influences.short
+    const widget = container.querySelector('[data-explainer-widget="pult"]')!
+    const coach = container.querySelector('.xp-coach')!
+    const switches = screen.getAllByRole('switch')
+
+    // Zweck, erster Handgriff mit der echten Beschriftung, markiertes Bedienelement
+    expect(container.querySelector('.xp-shows')).toHaveTextContent(guide.shows)
+    expect(widget).toHaveAttribute('data-phase', 'do')
+    expect(coach).toHaveTextContent(fill(g.step, { n: 1, total: 2 }))
+    expect(coach).toHaveTextContent(fill(guide.steps[0], { label: first }))
+    expect(switches[0]).toHaveClass('is-coach')
+    expect(container.querySelector('.xp-tag')).toHaveTextContent(g.tap)
+    expect(screen.queryByRole('button', { name: new RegExp(g.next) })).toBeNull()
+
+    // Handgriff getan: Blick auf das Ergebnis, „Weiter" erscheint
+    fireEvent.click(switches[0])
+    expect(widget).toHaveAttribute('data-phase', 'see')
+    expect(coach).toHaveTextContent(g.look)
+    expect(container.querySelector('.xp-faders')).toHaveClass('is-watch')
+    expect(switches[0]).not.toHaveClass('is-coach')
+    expect(container.querySelector('.xp-tag')).toBeNull()
+    fireEvent.click(container.querySelector('.xp-res-next')!)
+
+    // Zweiter Handgriff: der Fokus liegt auf dem nächsten Bedienelement
+    expect(widget).toHaveAttribute('data-phase', 'do')
+    expect(coach).toHaveTextContent(fill(guide.steps[1], { label: fourth }))
+    expect(switches[3]).toHaveClass('is-coach')
+    expect(switches[3]).toHaveFocus()
+    fireEvent.click(switches[1])
+    expect(widget).toHaveAttribute('data-phase', 'see')
+    expect(container.querySelector('.xp-res-next')).toHaveTextContent(g.understood)
+    fireEvent.click(container.querySelector('.xp-res-next')!)
+
+    // Merksatz, frei weiter; „Noch einmal von vorn" setzt den Baustein zurück
+    expect(widget).toHaveAttribute('data-phase', 'learn')
+    expect(coach).toHaveTextContent(guide.learn)
+    const again = screen.getByRole('button', { name: g.again })
+    expect(again).toHaveFocus()
+    expect(second).toBeTruthy()
+    fireEvent.click(again)
+    const fresh = screen.getAllByRole('switch')
+    expect(fresh.every((item) => item.getAttribute('aria-checked') === 'false')).toBe(true)
+    expect(container.querySelector('[data-explainer-widget="pult"]')).toHaveAttribute(
+      'data-phase',
+      'do',
+    )
+    expect(fresh[0]).toHaveFocus()
+  })
+
+  it('SC-033 guide: the keyboard completes a step and a single step says how it works', () => {
+    const { container } = render(<Ring texts={de.widgets} ui={de.ui} />)
+    const nodes = container.querySelectorAll('.xp-ring g[role="button"]')
+    expect(nodes[3]).toHaveClass('is-coach')
+    fireEvent.keyDown(nodes[3], { key: 'Enter' })
+    expect(container.querySelector('[data-explainer-widget="ring"]')).toHaveAttribute(
+      'data-phase',
+      'see',
+    )
+    expect(nodes[3]).toHaveClass('is-on')
+
+    const single = render(<Trend texts={de.widgets} ui={de.ui} />)
+    const coach = single.container.querySelector('.xp-coach')!
+    expect(coach).toHaveTextContent(de.ui.guide.how)
+    expect(single.container.querySelector('.xp-coach-dots')).toBeNull()
+    expect(single.container.querySelector('.xp-tag')).toHaveTextContent(de.ui.guide.drag)
+  })
+
+  it('SC-033 guide: every step text names a control label in all ten locales', () => {
+    for (const locale of SUPPORTED_LANGUAGES) {
+      const { ui, widgets } = explainerContent[locale]
+      for (const key of Object.keys(ui.guide) as Array<keyof typeof ui.guide>) {
+        expect(ui.guide[key].length, `${locale} ui.guide.${key}`).toBeGreaterThan(1)
+      }
+      expect(widgets.pult.guide.steps[0], locale).toContain('{{label}}')
+      expect(widgets.sort.guide.steps[0], locale).toContain('{{other}}')
+      expect(explainerContent[locale].stage.canvas.legend).toHaveLength(6)
+    }
   })
 })

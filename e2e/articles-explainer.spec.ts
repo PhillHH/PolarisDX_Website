@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { expect, test } from '@playwright/test'
 
 import { articles } from '../src/data/articles'
+import { events } from '../src/data/events'
 import { calculateArticleReadMinutes } from '../src/lib/articleMeta'
 
 /**
@@ -265,6 +266,153 @@ test('SC-031 widgets answer every input with one explaining sentence', async ({ 
     await useful.click()
   }
   await expect(sort.locator('.xp-sort-res')).toBeVisible()
+})
+
+/** Einwilligung entschieden und Messe-Hinweis schon gesehen: Nichts liegt über der Seite. */
+const EVENT_IDS = events.map(({ id }) => id)
+const CLEAR_PAGE = (ids: string[]) => {
+  for (const id of ids) sessionStorage.setItem(`polaris-event-popup:${id}`, '1')
+  localStorage.setItem(
+    'cookie-consent',
+    JSON.stringify({
+      version: 2,
+      decidedAt: '2026-10-16T00:00:00.000Z',
+      analytics: false,
+      marketing: false,
+    }),
+  )
+}
+
+test('SC-033 a widget leads step by step and ends with the take-away', async ({ page }) => {
+  await page.addInitScript(CLEAR_PAGE, EVENT_IDS)
+  await page.setViewportSize({ width: 1280, height: 900 })
+  const { ui, widgets } = JSON.parse(
+    readFileSync(`src/content/articles/${article.slug}/de.json`, 'utf8'),
+  ) as {
+    ui: { guide: Record<string, string> }
+    widgets: {
+      influences: { short: string[] }
+      pult: { guide: { shows: string; steps: string[]; learn: string } }
+    }
+  }
+  await page.goto(`/de/articles/${article.slug}`)
+  const pult = page.locator('[data-explainer-widget="pult"]')
+  await pult.scrollIntoViewIfNeeded()
+  const coach = pult.locator('.xp-coach')
+  const switches = pult.getByRole('switch')
+
+  await expect(pult.locator('.xp-shows')).toContainText(widgets.pult.guide.shows)
+  await expect(pult).toHaveAttribute('data-phase', 'do')
+  await expect(coach).toContainText(
+    fill(widgets.pult.guide.steps[0], { label: widgets.influences.short[0] }),
+  )
+  await expect(switches.first()).toHaveClass(/is-coach/)
+  await expect(pult.locator('.xp-tag')).toHaveText(ui.guide.tap)
+  // Das Schildchen sitzt am markierten Bedienelement und bleibt im Baustein.
+  const tag = (await pult.locator('.xp-tag').boundingBox())!
+  const frame = (await pult.boundingBox())!
+  const target = (await switches.first().boundingBox())!
+  expect(tag.x).toBeGreaterThanOrEqual(frame.x)
+  expect(tag.x + tag.width).toBeLessThanOrEqual(frame.x + frame.width)
+  expect(Math.abs(tag.y + tag.height - target.y)).toBeLessThan(30)
+
+  await switches.first().click()
+  await expect(pult).toHaveAttribute('data-phase', 'see')
+  await expect(coach).toContainText(ui.guide.look)
+  await expect(pult.locator('.xp-coach-next')).toBeHidden()
+  await pult.locator('.xp-res-next').click()
+
+  await expect(pult).toHaveAttribute('data-phase', 'do')
+  await expect(switches.nth(3)).toBeFocused()
+  await page.keyboard.press('Space')
+  await expect(pult).toHaveAttribute('data-phase', 'see')
+  await pult.locator('.xp-res-next').click()
+  await expect(pult).toHaveAttribute('data-phase', 'learn')
+  await expect(coach).toContainText(widgets.pult.guide.learn)
+  await expect(pult.getByRole('button', { name: ui.guide.again })).toBeFocused()
+
+  await page.keyboard.press('Enter')
+  await expect(pult).toHaveAttribute('data-phase', 'do')
+  await expect(pult.locator('[role="switch"][aria-checked="true"]')).toHaveCount(0)
+})
+
+test('SC-033 on a phone the result and the next button sit in the hint bar', async ({ page }) => {
+  await page.addInitScript(CLEAR_PAGE, EVENT_IDS)
+  await page.setViewportSize({ width: 390, height: 780 })
+  await page.goto(`/de/articles/${article.slug}`)
+  const pult = page.locator('[data-explainer-widget="pult"]')
+  await pult.scrollIntoViewIfNeeded()
+  await pult.getByRole('switch').first().click()
+  await expect(pult).toHaveAttribute('data-phase', 'see')
+  await expect(pult.locator('.xp-coach-say')).toBeVisible()
+  await expect(pult.locator('.xp-coach-look')).toBeHidden()
+  await expect(pult.locator('.xp-coach-next')).toBeVisible()
+  await expect(pult.locator('.xp-res-next')).toBeHidden()
+  await pult.locator('.xp-coach-next').click()
+  await expect(pult).toHaveAttribute('data-phase', 'do')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+})
+
+test('SC-033 the journey runs by itself, waits for the cookie notice and yields to input', async ({
+  page,
+}) => {
+  test.setTimeout(60_000)
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+  await page.setViewportSize({ width: 1280, height: 800 })
+
+  // Cookie-Hinweis offen: kein Selbststart.
+  await page.goto(`/de/articles/${article.slug}`)
+  const stage = page.locator('[data-explainer-stage]')
+  await expect(stage).toHaveAttribute('data-state', '0')
+  await page.waitForTimeout(4500)
+  await expect(stage).not.toHaveAttribute('data-playing', 'true')
+  await expect(stage).toHaveAttribute('data-state', '0')
+
+  // Seite frei: Nach kurzer Ruhe läuft die Reise los und erreicht den ersten Schritt.
+  await page.addInitScript(CLEAR_PAGE, EVENT_IDS)
+  await page.reload()
+  await expect(stage).toHaveAttribute('data-playing', 'true', { timeout: 8000 })
+  await expect(stage).toHaveAttribute('data-state', '1', { timeout: 8000 })
+  const content = documentFor('de')
+  const pauseName = (
+    JSON.parse(readFileSync(`src/content/articles/${article.slug}/de.json`, 'utf8')) as {
+      stage: { play: string; pause: string }
+    }
+  ).stage
+  await expect(stage.getByRole('button', { name: pauseName.pause })).toBeVisible()
+
+  // Eine Eingabe übernimmt.
+  await page.mouse.move(640, 400)
+  await page.mouse.wheel(0, 10)
+  await expect(stage).not.toHaveAttribute('data-playing', 'true')
+  const y = await page.evaluate(() => scrollY)
+  await page.waitForTimeout(1500)
+  expect(Math.abs((await page.evaluate(() => scrollY)) - y)).toBeLessThan(40)
+
+  // Der Knopf setzt fort und hält an.
+  await stage.getByRole('button', { name: pauseName.play }).click()
+  await expect(stage).toHaveAttribute('data-playing', 'true')
+  await stage.getByRole('button', { name: pauseName.pause }).click()
+  await expect(stage).not.toHaveAttribute('data-playing', 'true')
+  expect(content.stage.steps.length).toBe(6)
+})
+
+test('SC-033 with reduced motion nothing starts by itself; the button steps through', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.addInitScript(CLEAR_PAGE, EVENT_IDS)
+  await page.setViewportSize({ width: 1280, height: 800 })
+  await page.goto(`/de/articles/${article.slug}`)
+  const stage = page.locator('[data-explainer-stage]')
+  await page.waitForTimeout(4000)
+  await expect(stage).toHaveAttribute('data-state', '0')
+  await expect(stage).not.toHaveAttribute('data-playing', 'true')
+  await stage.locator('.xp-play').click()
+  await expect(stage).toHaveAttribute('data-state', '1')
+  await expect(stage).toHaveAttribute('data-playing', 'true')
+  await stage.locator('.xp-play').click()
+  await expect(stage).not.toHaveAttribute('data-playing', 'true')
 })
 
 for (const [width, locale] of [

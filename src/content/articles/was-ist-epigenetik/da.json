@@ -8,7 +8,21 @@
     "more": "Læs i dybden",
     "next": "Videre",
     "back": "Trin tilbage",
-    "restart": "Forfra"
+    "restart": "Forfra",
+    "guide": {
+      "shows": "Det viser den",
+      "result": "Det sker der",
+      "learn": "Husk",
+      "how": "Sådan gør du",
+      "step": "Trin {{n}} af {{total}}",
+      "look": "Godt. Nedenfor står, hvad der lige er sket.",
+      "next": "Videre",
+      "understood": "Forstået",
+      "again": "Forfra igen",
+      "free": "Prøv nu frit videre.",
+      "tap": "Tryk her",
+      "drag": "Træk her"
+    }
   },
   "stage": {
     "label": "Rejse ind i det indre i seks trin",
@@ -54,8 +68,21 @@
       "dna": "DNA, viklet op",
       "methyl": "Methylgrupper",
       "loose": "løst · let at aflæse",
-      "dense": "tæt · svært at aflæse"
-    }
+      "dense": "tæt · svært at aflæse",
+      "legend": [
+        "Punktet i midten: en enkelt celle",
+        "Cirklen i midten: cellekernen",
+        "Trådene: oprullet DNA",
+        "Cirklerne: histoner · tråden: DNA",
+        "Bogstaverne: DNA’ets byggesten",
+        "De lysende punkter: methylgrupper"
+      ]
+    },
+    "cueTouch": "Stryg for at zoome ind",
+    "cueAuto": "Kører af sig selv · du kan altid stryge",
+    "cueEnd": "Artiklen begynder længere nede",
+    "play": "Afspil",
+    "pause": "Pause"
   },
   "intro": {
     "eyebrow": "Ankommet",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "Genernes mixerpult",
-      "how": "Slå en påvirkning til, og hold øje med skyderne.",
       "legendActivity": "Skydere: genernes aktivitet",
       "legendSequence": "Bogstaver: DNA’ets sekvens",
       "sayIdle": "Endnu er ingen påvirkning slået til. Skyderne står i deres udgangsposition.",
       "sayActive": "{{n}} af 6 påvirkninger er slået til: {{m}} af 16 skydere har flyttet sig. Bogstaverne i sekvensen er forblevet de samme.",
       "sayNone": "Ingen påvirkning er slået til længere. Skyderne står igen i deres udgangsposition.",
-      "cap": "Skematisk fremstilling · viser princippet, ikke måledata og ikke virkningens retning"
+      "cap": "Skematisk fremstilling · viser princippet, ikke måledata og ikke virkningens retning",
+      "guide": {
+        "shows": "Påvirkninger fra hverdagen kan ændre, hvor aktive enkelte gener er. Selve DNA’et forbliver det samme.",
+        "steps": ["Tryk på »{{label}}«.", "Slå en påvirkning mere til, for eksempel »{{label}}«."],
+        "learn": "Genernes aktivitet ændrer sig. DNA’ets bogstaver forbliver de samme."
+      }
     },
     "methyl": {
       "tab": "Methylering",
       "title": "Methylering: at sætte mærker",
-      "how": "Tryk på et sted på DNA’et for at tilføje en methylgruppe.",
       "group": "Otte steder på DNA’et",
       "site": "Sted {{n}}",
       "meter": "Genaktivitet",
@@ -233,12 +263,16 @@
       "saySetLower": "Mærke sat på sted {{n}}: Genaktiviteten er blevet lavere. Prøv et andet sted: Afhængigt af positionen kan det være omvendt.",
       "saySetHigher": "Mærke sat på sted {{n}}: Genaktiviteten er blevet højere. Prøv et andet sted: Afhængigt af positionen kan det være omvendt.",
       "sayRemoved": "Mærke fjernet fra sted {{n}}. Genaktiviteten går tilbage i retning af udgangspositionen.",
-      "cap": "Skematisk fremstilling · hvilket sted der virker hvordan, er frit valgt her"
+      "cap": "Skematisk fremstilling · hvilket sted der virker hvordan, er frit valgt her",
+      "guide": {
+        "shows": "Små kemiske grupper på DNA’et, methylgrupperne, kan skrue et gen ned eller op. Det afhænger af stedet.",
+        "steps": ["Tryk på »{{label}}«.", "Tryk nu på »{{label}}«."],
+        "learn": "Den samme markering kan virke forskelligt alt efter stedet."
+      }
     },
     "histone": {
       "tab": "Histoner",
       "title": "Histoner: pakningen",
-      "how": "Træk skyderen fra løst til tæt.",
       "loose": "løst",
       "dense": "tæt",
       "aria": "DNA’ets pakning: fra løst til tæt pakket",
@@ -246,12 +280,19 @@
       "stateDense": "tæt · svært at aflæse",
       "sayLoose": "Løst pakket: DNA’et ligger frit og kan let aflæses.",
       "sayDense": "Tæt pakket: DNA’et er svært tilgængeligt. Her kommer aflæsningen ikke videre.",
-      "cap": "Skematisk fremstilling · prikken står for aflæsningen af DNA’et"
+      "cap": "Skematisk fremstilling · prikken står for aflæsningen af DNA’et",
+      "guide": {
+        "shows": "DNA’et er viklet om proteiner, histonerne. Løst viklet er det let at aflæse, tæt viklet sværere.",
+        "steps": [
+          "Træk skyderen til højre mod »{{label}}«.",
+          "Træk skyderen tilbage mod »{{label}}«."
+        ],
+        "learn": "Hvor tæt DNA’et er pakket, påvirker, hvor godt det kan aflæses."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: finjusteringen",
-      "how": "Tryk på knappen, og lad et mikroRNA koble sig på.",
       "dock": "Kobl mikroRNA på",
       "undock": "Kobl mikroRNA fra igen",
       "mrna": "mRNA · afskrift af et gen",
@@ -259,20 +300,28 @@
       "sayIdle": "mRNA’et er afskriften af et gen. Endnu er intet mikroRNA koblet på.",
       "sayDocked": "MikroRNA’et har koblet sig på. Det kan påvirke, hvordan afskriften bliver bearbejdet videre og brugt.",
       "sayFree": "MikroRNA’et er koblet fra. mRNA’et ligger frit igen.",
-      "cap": "Skematisk fremstilling"
+      "cap": "Skematisk fremstilling",
+      "guide": {
+        "shows": "Der laves en afskrift af et gen, mRNA’et. Små RNA-molekyler kan påvirke, hvordan afskriften bruges.",
+        "steps": ["Tryk på »{{label}}«."],
+        "learn": "Små RNA-molekyler kan være med til at bestemme, hvordan en genafskrift bruges."
+      }
     },
     "ring": {
       "title": "Seks påvirkninger, ét reguleringssystem",
-      "how": "Tryk på en påvirkning.",
       "aria": "Seks påvirkninger af genreguleringen",
       "core": ["Gen-", "regulering"],
       "sayIdle": "Kroppen reagerer hele tiden på sine omgivelser. Tryk på en af de seks påvirkninger.",
       "sayPick": "»{{name}}« er en af seks påvirkninger, som kroppen reagerer på. En del af disse reaktioner kan formidles eller ledsages af epigenetisk regulering.",
-      "cap": "Skematisk fremstilling"
+      "cap": "Skematisk fremstilling",
+      "guide": {
+        "shows": "Kroppen reagerer på mange påvirkninger. En del af reaktionerne kan gå via reguleringen af generne.",
+        "steps": ["Tryk på »{{label}}«.", "Tryk på en påvirkning mere, for eksempel »{{label}}«."],
+        "learn": "Vidt forskellige påvirkninger rammer det samme reguleringssystem."
+      }
     },
     "cause": {
       "title": "Sammenhæng er ikke årsag",
-      "how": "Tryk dig igennem de tre muligheder.",
       "aria": "Tre muligheder",
       "options": ["Årsag", "Følge", "Ledsagefænomen"],
       "marker": ["Epigenetisk", "markør"],
@@ -283,11 +332,15 @@
         "Mulighed 2: Markøren er en følge af sygdommen.",
         "Mulighed 3: Markør og sygdom optræder sammen, uden at den ene udløser den anden."
       ],
-      "tail": "Hvilken af de tre muligheder der gælder, skal undersøges særskilt."
+      "tail": "Hvilken af de tre muligheder der gælder, skal undersøges særskilt.",
+      "guide": {
+        "shows": "Når en markør og en sygdom optræder sammen, er det stadig åbent, hvad der er årsag, og hvad der er følge.",
+        "steps": ["Tryk på »{{label}}«.", "Tryk nu på »{{label}}«."],
+        "learn": "En sammenhæng alene viser endnu ikke, hvad årsagen er."
+      }
     },
     "chainPsy": {
       "title": "Fra miljø til adfærd",
-      "how": "Gå de fem niveauer igennem trin for trin.",
       "steps": [
         {
           "label": "Miljø",
@@ -310,11 +363,15 @@
           "text": "Selvregulering er evnen til at tilpasse følelser, opmærksomhed, impulser og stressreaktioner til de krav, der stilles."
         }
       ],
-      "cap": "Sådan beskriver aktuelle modeller det · forenklet"
+      "cap": "Sådan beskriver aktuelle modeller det · forenklet",
+      "guide": {
+        "shows": "Sådan beskriver aktuelle modeller vejen fra ydre påvirkninger til adfærd: i fem niveauer.",
+        "steps": ["Tryk på »{{label}}«, indtil det femte niveau lyser."],
+        "learn": "Mellem miljø og adfærd ligger flere niveauer. Den epigenetiske regulering er et af dem."
+      }
     },
     "chainTrain": {
       "title": "Hvad træning sætter i gang",
-      "how": "Gå kæden igennem trin for trin.",
       "steps": [
         {
           "label": "Træning",
@@ -337,11 +394,15 @@
           "text": "Det kan hænge sammen med tilpasninger i stofskifte, regulering af inflammation og reparation af væv."
         }
       ],
-      "cap": "Forenklet fremstilling"
+      "cap": "Forenklet fremstilling",
+      "guide": {
+        "shows": "Hvad træning kan sætte i gang i kroppen: fem trin fra påvirkning til langsigtet tilpasning.",
+        "steps": ["Tryk på »{{label}}«, indtil det femte trin lyser."],
+        "learn": "Mellem træning og langsigtet tilpasning ligger flere trin. Den epigenetiske tilpasning er et af dem."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: Husker musklen?",
-      "how": "Tryk på de tre knapper i rækkefølge.",
       "aria": "Skematisk fremstilling: tilpasning under første træning, i pausen og ved genoptagelsen",
       "buttons": ["Træn", "Pause", "Genoptag"],
       "reset": "Nulstil",
@@ -355,22 +416,34 @@
         "Genoptagelse: Muskulatur, der allerede er trænet, kan genopbygge bestemte tilpasninger hurtigere. Kurven stiger stejlere end første gang."
       ],
       "sayReset": "Nulstillet. Start igen med »Træn«.",
-      "cap": "Skematisk fremstilling til illustration · ingen måledata"
+      "cap": "Skematisk fremstilling til illustration · ingen måledata",
+      "guide": {
+        "shows": "En muskel, der har været trænet før, kan hurtigere genopbygge bestemte tilpasninger.",
+        "steps": [
+          "Tryk på »{{label}}«.",
+          "Tryk nu på »{{label}}«.",
+          "Tryk til sidst på »{{label}}«."
+        ],
+        "learn": "Denne hurtigere genopbygning kaldes Muscle Memory."
+      }
     },
     "trend": {
       "title": "Enkeltværdi eller forløb?",
-      "how": "Træk i skyderen, og tilføj målinger.",
       "aria": "Skematisk fremstilling: med hver ny måling bliver enkeltværdier til et forløb",
       "point": "Måling {{n}}",
       "count": "Målinger",
       "countAria": "Antal målinger",
       "sayOne": "En enkelt værdi: Ud fra den kan man ikke udlede en diagnose.",
       "sayMany": "{{n}} målinger: Nu bliver et forløb synligt. Spørgsmålet lyder: Hvordan ændrer en markør sig over tid og i sammenhæng med dokumenterede livsstilstiltag?",
-      "cap": "Skematisk fremstilling · ingen måledata"
+      "cap": "Skematisk fremstilling · ingen måledata",
+      "guide": {
+        "shows": "En enkelt måleværdi siger ikke meget. Først flere målinger viser, hvordan en værdi udvikler sig.",
+        "steps": ["Træk skyderen til højre."],
+        "learn": "Det vigtige er forløbet over tid, ikke den enkelte værdi."
+      }
     },
     "exer": {
       "title": "Exerkiner: signalstoffer på vej",
-      "how": "Tryk på et organ for at sende signalstoffer af sted.",
       "from": "Stammer fra",
       "to": "Virker på",
       "sources": ["Muskel", "Fedtvæv", "Lever", "Andre organer"],
@@ -382,11 +455,15 @@
       "saySent": "{{name}} sender signalstoffer.",
       "sayOther": "Også andre organer kan sende signalstoffer.",
       "sayTail": "De virker på stofskifte, blodkar, immunsystem og muligvis hjernen.",
-      "cap": "Skematisk fremstilling · hvilket organ der danner hvilket signalstof, er ikke vist her"
+      "cap": "Skematisk fremstilling · hvilket organ der danner hvilket signalstof, er ikke vist her",
+      "guide": {
+        "shows": "Ved bevægelse afgiver organer signalstoffer, exerkinerne. De virker andre steder i kroppen.",
+        "steps": ["Tryk på »{{label}}«."],
+        "learn": "Sådan virker bevægelse langt ud over den trænede muskel."
+      }
     },
     "sort": {
       "title": "Fornuftigt eller ej?",
-      "how": "Sortér efter, hvad en epigenetisk test egner sig til.",
       "useful": "Fornuftigt",
       "notUseful": "Ikke fornuftigt",
       "important": "Særlig vigtigt",
@@ -410,7 +487,12 @@
       "isUseful": "Det regnes for fornuftigt.",
       "isNotUseful": "Det regnes ikke for fornuftigt.",
       "result": "{{right}} af {{total}} sorteret rigtigt. Oversigten viser alle udsagn på deres plads.",
-      "again": "Sortér igen"
+      "again": "Sortér igen",
+      "guide": {
+        "shows": "Hvad en epigenetisk test egner sig til, og hvad den ikke egner sig til.",
+        "steps": ["Læs udsagnet. Tryk derefter på »{{label}}« eller »{{other}}«."],
+        "learn": "Efter seks udsagn viser oversigten alt på sin plads."
+      }
     }
   },
   "closing": {

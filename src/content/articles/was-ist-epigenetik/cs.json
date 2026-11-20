@@ -8,7 +8,21 @@
     "more": "Číst podrobně",
     "next": "Dále",
     "back": "O krok zpět",
-    "restart": "Od začátku"
+    "restart": "Od začátku",
+    "guide": {
+      "shows": "Co to ukazuje",
+      "result": "Co se děje",
+      "learn": "Zapamatujte si",
+      "how": "Jak na to",
+      "step": "Krok {{n}} z {{total}}",
+      "look": "Dobře. Níže se dočtete, co se právě stalo.",
+      "next": "Dále",
+      "understood": "Rozumím",
+      "again": "Ještě jednou od začátku",
+      "free": "Teď zkoušejte volně dál.",
+      "tap": "Klepněte sem",
+      "drag": "Táhněte zde"
+    }
   },
   "stage": {
     "label": "Cesta do nitra v šesti krocích",
@@ -54,8 +68,21 @@
       "dna": "DNA, navinutá",
       "methyl": "Metylové skupiny",
       "loose": "volně · dobře čitelná",
-      "dense": "hustě · těžko čitelná"
-    }
+      "dense": "hustě · těžko čitelná",
+      "legend": [
+        "Bod uprostřed: jediná buňka",
+        "Kruh uprostřed: buněčné jádro",
+        "Vlákna: navinutá DNA",
+        "Kruhy: histony · vlákno: DNA",
+        "Písmena: stavební kameny DNA",
+        "Svítící body: methylové skupiny"
+      ]
+    },
+    "cueTouch": "Přejeďte prstem pro přiblížení",
+    "cueAuto": "Běží samo · přejet prstem můžete kdykoli",
+    "cueEnd": "Článek začíná níže",
+    "play": "Přehrát",
+    "pause": "Pozastavit"
   },
   "intro": {
     "eyebrow": "U cíle",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "Mixážní pult genů",
-      "how": "Zapněte některý podnět a sledujte ovladače.",
       "legendActivity": "Ovladače: aktivita genů",
       "legendSequence": "Písmena: sekvence DNA",
       "sayIdle": "Zatím není aktivní žádný podnět. Ovladače jsou ve výchozí poloze.",
       "sayActive": "Aktivní podněty: {{n}} z 6. Posunuté ovladače: {{m}} z 16. Písmena sekvence zůstala stejná.",
       "sayNone": "Žádný podnět už není aktivní. Ovladače jsou opět ve výchozí poloze.",
-      "cap": "Schéma · ukazuje princip, nikoli naměřená data ani směr účinku"
+      "cap": "Schéma · ukazuje princip, nikoli naměřená data ani směr účinku",
+      "guide": {
+        "shows": "Podněty z běžného života mohou měnit, jak aktivní jsou jednotlivé geny. Samotná DNA přitom zůstává stejná.",
+        "steps": ["Klepněte na „{{label}}“.", "Zapněte druhý podnět, například „{{label}}“."],
+        "learn": "Aktivita genů se mění. Písmena DNA zůstávají stejná."
+      }
     },
     "methyl": {
       "tab": "Metylace",
       "title": "Metylace: přidávání značek",
-      "how": "Klepněte na některé místo na DNA a připojte metylovou skupinu.",
       "group": "Osm míst na DNA",
       "site": "Místo {{n}}",
       "meter": "Aktivita genu",
@@ -233,12 +263,16 @@
       "saySetLower": "Značka přidána na místo {{n}}: aktivita genu se snížila. Vyzkoušejte jiné místo: podle polohy to může být naopak.",
       "saySetHigher": "Značka přidána na místo {{n}}: aktivita genu se zvýšila. Vyzkoušejte jiné místo: podle polohy to může být naopak.",
       "sayRemoved": "Značka z místa {{n}} odebrána. Aktivita genu se vrací směrem k výchozímu stavu.",
-      "cap": "Schéma · které místo jak působí, je zde zvoleno libovolně"
+      "cap": "Schéma · které místo jak působí, je zde zvoleno libovolně",
+      "guide": {
+        "shows": "Malé chemické skupiny na DNA, methylové skupiny, mohou gen zeslabit nebo zesílit. Záleží na místě.",
+        "steps": ["Klepněte na „{{label}}“.", "Nyní klepněte na „{{label}}“."],
+        "learn": "Stejná značka může podle místa působit různě."
+      }
     },
     "histone": {
       "tab": "Histony",
       "title": "Histony: sbalení DNA",
-      "how": "Táhněte posuvníkem od volného sbalení k hustému.",
       "loose": "volně",
       "dense": "hustě",
       "aria": "Sbalení DNA od volného po husté",
@@ -246,12 +280,19 @@
       "stateDense": "hustě · těžko čitelná",
       "sayLoose": "Volně sbalená: DNA je odkrytá a lze ji dobře číst.",
       "sayDense": "Hustě sbalená: DNA je těžko přístupná. Čtení se tady nedostane dál.",
-      "cap": "Schéma · bod znázorňuje čtení DNA"
+      "cap": "Schéma · bod znázorňuje čtení DNA",
+      "guide": {
+        "shows": "DNA je navinuta na bílkoviny, histony. Volně navinutou lze dobře číst, těsně navinutou hůře.",
+        "steps": [
+          "Táhněte posuvník doprava k „{{label}}“.",
+          "Táhněte posuvník zpět k „{{label}}“."
+        ],
+        "learn": "To, jak hustě je DNA sbalena, ovlivňuje, jak dobře ji lze číst."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: jemná regulace",
-      "how": "Klepněte na tlačítko a připojte mikroRNA.",
       "dock": "Připojit mikroRNA",
       "undock": "Uvolnit mikroRNA",
       "mrna": "mRNA · přepis genu",
@@ -259,20 +300,28 @@
       "sayIdle": "mRNA je přepis genu. Zatím není připojena žádná mikroRNA.",
       "sayDocked": "MikroRNA se připojila. Může ovlivnit, jak se přepis dále zpracuje a využije.",
       "sayFree": "MikroRNA se uvolnila. mRNA je opět volná.",
-      "cap": "Schéma"
+      "cap": "Schéma",
+      "guide": {
+        "shows": "Z genu vzniká přepis, mRNA. Malé molekuly RNA mohou ovlivnit, jak se tento přepis využije.",
+        "steps": ["Klepněte na „{{label}}“."],
+        "learn": "Malé molekuly RNA mohou spolurozhodovat o tom, jak se přepis genu využije."
+      }
     },
     "ring": {
       "title": "Šest vlivů, jeden regulační systém",
-      "how": "Klepněte na některý vliv.",
       "aria": "Šest vlivů na regulaci genů",
       "core": ["Regulace", "genů"],
       "sayIdle": "Tělo neustále reaguje na své okolí. Klepněte na jeden ze šesti vlivů.",
       "sayPick": "„{{name}}“ – jeden ze šesti vlivů, na které tělo reaguje. Část těchto reakcí může být zprostředkována nebo doprovázena epigenetickou regulací.",
-      "cap": "Schéma"
+      "cap": "Schéma",
+      "guide": {
+        "shows": "Tělo reaguje na mnoho vlivů. Část těchto reakcí může probíhat přes regulaci genů.",
+        "steps": ["Klepněte na „{{label}}“.", "Klepněte na druhý vliv, například „{{label}}“."],
+        "learn": "Zcela odlišné vlivy se setkávají se stejným regulačním systémem."
+      }
     },
     "cause": {
       "title": "Souvislost není příčina",
-      "how": "Postupně klepněte na všechny tři možnosti.",
       "aria": "Tři možnosti",
       "options": ["Příčina", "Následek", "Průvodní jev"],
       "marker": ["Epigenetický", "marker"],
@@ -283,11 +332,15 @@
         "Možnost 2: marker je následkem onemocnění.",
         "Možnost 3: marker a onemocnění se vyskytují spolu, aniž by jedno vyvolávalo druhé."
       ],
-      "tail": "Která ze tří možností platí, je třeba zkoumat samostatně."
+      "tail": "Která ze tří možností platí, je třeba zkoumat samostatně.",
+      "guide": {
+        "shows": "Když se marker a onemocnění vyskytují společně, zůstává otevřené, co je příčina a co následek.",
+        "steps": ["Klepněte na „{{label}}“.", "Nyní klepněte na „{{label}}“."],
+        "learn": "Samotná souvislost ještě neukazuje, co je příčinou."
+      }
     },
     "chainPsy": {
       "title": "Od prostředí k chování",
-      "how": "Projděte všech pět úrovní krok za krokem.",
       "steps": [
         {
           "label": "Prostředí",
@@ -310,11 +363,15 @@
           "text": "Seberegulace je schopnost přizpůsobovat pocity, pozornost, impulzy a stresové reakce požadavkům."
         }
       ],
-      "cap": "Tak to popisují současné modely · zjednodušeno"
+      "cap": "Tak to popisují současné modely · zjednodušeno",
+      "guide": {
+        "shows": "Takto současné modely popisují cestu od vnějších vlivů k chování: v pěti úrovních.",
+        "steps": ["Klepejte na „{{label}}“, dokud se nerozsvítí pátá úroveň."],
+        "learn": "Mezi prostředím a chováním leží několik úrovní. Epigenetická regulace je jednou z nich."
+      }
     },
     "chainTrain": {
       "title": "Co trénink spouští",
-      "how": "Projděte řetězec krok za krokem.",
       "steps": [
         {
           "label": "Trénink",
@@ -337,11 +394,15 @@
           "text": "To může souviset s adaptacemi v oblasti metabolismu, regulace zánětu a opravy tkání."
         }
       ],
-      "cap": "Zjednodušené znázornění"
+      "cap": "Zjednodušené znázornění",
+      "guide": {
+        "shows": "Co může trénink v těle spustit: pět kroků od podnětu k dlouhodobé adaptaci.",
+        "steps": ["Klepejte na „{{label}}“, dokud se nerozsvítí pátý krok."],
+        "learn": "Mezi tréninkem a dlouhodobou adaptací leží několik kroků. Epigenetická adaptace je jedním z nich."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: pamatuje si sval?",
-      "how": "Stiskněte všechna tři tlačítka jedno po druhém.",
       "aria": "Schéma: adaptace při prvním tréninku, během pauzy a při návratu k tréninku",
       "buttons": ["Trénovat", "Pauza", "Znovu trénovat"],
       "reset": "Resetovat",
@@ -355,22 +416,34 @@
         "Návrat k tréninku: již dříve trénované svalstvo může určité adaptace znovu vybudovat rychleji. Křivka stoupá strměji než poprvé."
       ],
       "sayReset": "Resetováno. Začněte znovu tlačítkem „Trénovat“.",
-      "cap": "Schéma pro názornost · žádná naměřená data"
+      "cap": "Schéma pro názornost · žádná naměřená data",
+      "guide": {
+        "shows": "Sval, který už byl jednou trénován, dokáže určité adaptace obnovit rychleji.",
+        "steps": [
+          "Klepněte na „{{label}}“.",
+          "Nyní klepněte na „{{label}}“.",
+          "Nakonec klepněte na „{{label}}“."
+        ],
+        "learn": "Této rychlejší obnově se říká Muscle Memory."
+      }
     },
     "trend": {
       "title": "Jednotlivá hodnota, nebo vývoj v čase?",
-      "how": "Táhněte posuvníkem a přidávejte měření.",
       "aria": "Schéma: s každým dalším měřením se z jednotlivých hodnot stává vývoj v čase",
       "point": "Měření {{n}}",
       "count": "Měření",
       "countAria": "Počet měření",
       "sayOne": "Jednotlivá hodnota: nelze z ní odvodit žádnou diagnózu.",
       "sayMany": "{{n}} měření: nyní je vidět vývoj. Otázka zní: jak se marker mění v čase a v kontextu zdokumentovaných opatření v oblasti životního stylu?",
-      "cap": "Schéma · žádná naměřená data"
+      "cap": "Schéma · žádná naměřená data",
+      "guide": {
+        "shows": "Jediná naměřená hodnota řekne málo. Teprve více měření ukáže, jak se hodnota vyvíjí.",
+        "steps": ["Táhněte posuvník doprava."],
+        "learn": "Důležitý je průběh v čase, ne jednotlivá hodnota."
+      }
     },
     "exer": {
       "title": "Exerkiny: signální látky na cestě",
-      "how": "Klepněte na některý orgán a vyšlete signální látky.",
       "from": "Původ",
       "to": "Působí na",
       "sources": ["Sval", "Tuková tkáň", "Játra", "Jiné orgány"],
@@ -382,11 +455,15 @@
       "saySent": "{{name}}: odtud vycházejí signální látky.",
       "sayOther": "Signální látky mohou vysílat i jiné orgány.",
       "sayTail": "Tyto látky působí na metabolismus, cévy, imunitní systém a možná i na mozek.",
-      "cap": "Schéma · který orgán tvoří kterou signální látku, zde není znázorněno"
+      "cap": "Schéma · který orgán tvoří kterou signální látku, zde není znázorněno",
+      "guide": {
+        "shows": "Při pohybu orgány uvolňují signální látky, exerkiny. Působí na jiných místech těla.",
+        "steps": ["Klepněte na „{{label}}“."],
+        "learn": "Tak pohyb působí daleko za hranice trénovaného svalu."
+      }
     },
     "sort": {
       "title": "Má to smysl, nebo ne?",
-      "how": "Rozhodněte, k čemu se epigenetický test hodí.",
       "useful": "Má smysl",
       "notUseful": "Nemá smysl",
       "important": "Zvlášť důležité",
@@ -410,7 +487,12 @@
       "isUseful": "To se považuje za smysluplné.",
       "isNotUseful": "To se za smysluplné nepovažuje.",
       "result": "Správně zařazeno: {{right}} z {{total}}. Přehled ukazuje všechna tvrzení na správném místě.",
-      "again": "Zařadit znovu"
+      "again": "Zařadit znovu",
+      "guide": {
+        "shows": "K čemu se epigenetický test hodí a k čemu ne.",
+        "steps": ["Přečtěte si tvrzení. Poté klepněte na „{{label}}“ nebo „{{other}}“."],
+        "learn": "Po šesti tvrzeních přehled ukáže vše na svém místě."
+      }
     }
   },
   "closing": {

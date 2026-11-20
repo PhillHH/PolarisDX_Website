@@ -2,7 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { fill } from '../../content/articles/was-ist-epigenetik'
 import { prefersReducedMotion } from '../home/motion'
-import { InfluenceIcon, WidgetFrame, type UiTexts, type WidgetTexts } from './widgetParts'
+import { withLabels, type CoachStep } from './useCoach'
+import {
+  CoachHost,
+  InfluenceIcon,
+  WidgetFrame,
+  type UiTexts,
+  type WidgetTexts,
+} from './widgetParts'
 
 type Props = { texts: WidgetTexts; ui: UiTexts }
 
@@ -25,7 +32,8 @@ const FADERS = (() => {
 })()
 
 /** Mischpult: Reize zuschalten, die Regler bewegen sich, die Sequenz bleibt stehen. */
-export const Pult = ({ texts, ui }: Props) => {
+const PultInner = ({ texts, ui }: Props) => {
+  const t = texts.pult
   const [active, setActive] = useState<boolean[]>(() => Array<boolean>(6).fill(false))
   const [touched, setTouched] = useState(false)
   const levels = FADERS.base.map((start, index) =>
@@ -38,20 +46,32 @@ export const Pult = ({ texts, ui }: Props) => {
   const moved = levels.map((level, index) => Math.abs(level - FADERS.base[index]) > 0.02)
   const count = active.filter(Boolean).length
   const say = !touched
-    ? texts.pult.sayIdle
+    ? t.sayIdle
     : count
-      ? fill(texts.pult.sayActive, { n: count, m: moved.filter(Boolean).length })
-      : texts.pult.sayNone
+      ? fill(t.sayActive, { n: count, m: moved.filter(Boolean).length })
+      : t.sayNone
+  // Zweiter Handgriff: ein Reiz, der noch aus ist — am liebsten der vierte, sonst der erste.
+  const second = active[3] ? (active[0] ? 1 : 0) : 3
+  const steps: CoachStep[] = [
+    { target: '.xp-pult-sw li:nth-child(1) button', watch: '.xp-faders' },
+    { target: `.xp-pult-sw li:nth-child(${second + 1}) button`, watch: '.xp-seq' },
+  ]
 
   return (
     <WidgetFrame
       name="pult"
-      kicker={ui.tryout}
-      title={texts.pult.title}
-      how={texts.pult.how}
+      ui={ui}
+      title={t.title}
+      guide={withLabels(
+        t.guide,
+        { label: texts.influences.short[0] },
+        { label: texts.influences.short[second] },
+      )}
+      steps={steps}
+      done={[count >= 1, count >= 2]}
       say={say}
       sayKey={active.join()}
-      cap={texts.pult.cap}
+      cap={t.cap}
       tried={touched}
       className="xp-pult"
     >
@@ -90,19 +110,29 @@ export const Pult = ({ texts, ui }: Props) => {
           ))}
         </div>
         <p className="xp-legend">
-          <span>{texts.pult.legendActivity}</span>
-          <span>{texts.pult.legendSequence}</span>
+          <span>{t.legendActivity}</span>
+          <span>{t.legendSequence}</span>
         </p>
       </div>
     </WidgetFrame>
   )
 }
+export const Pult = (props: Props) => (
+  <CoachHost>
+    <PultInner {...props} />
+  </CoachHost>
+)
 
 /**
  * Wirkung einer Methylgruppe je Stelle (−1 geringer, +1 stärker). Frei gewählt: Der Artikel sagt
  * nur, dass die Wirkung von der Position abhängt — genau das lässt der Baustein erleben.
  */
 const SITE_EFFECT = [-1, -1, 1, -1, 1, -1, -1, 1]
+/** Geführt werden Stelle 1 (stellt schwächer) und Stelle 3 (stellt stärker): der Gegensatz. */
+const METHYL_STEPS: CoachStep[] = [
+  { target: '.xp-sites button:nth-of-type(1)', watch: '.xp-meter' },
+  { target: '.xp-sites button:nth-of-type(3)', watch: '.xp-meter' },
+]
 
 const Methyl = ({ texts, ui }: Props) => {
   const t = texts.methyl
@@ -122,9 +152,15 @@ const Methyl = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="methyl"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(
+        t.guide,
+        { label: fill(t.site, { n: 1 }) },
+        { label: fill(t.site, { n: 3 }) },
+      )}
+      steps={METHYL_STEPS}
+      done={[marks[0], marks[2]]}
       say={say.text}
       sayKey={say.turn}
       cap={t.cap}
@@ -161,6 +197,10 @@ const Methyl = ({ texts, ui }: Props) => {
 /** Lage der fünf Spulen: locker verteilt und dicht gepackt. */
 const SPOOLS_LOOSE = [90, 195, 300, 405, 510]
 const SPOOLS_DENSE = [222, 261, 300, 339, 378]
+const HISTONE_STEPS: CoachStep[] = [
+  { target: '.xp-range input', watch: '.xp-histone', drag: true },
+  { target: '.xp-range input', watch: '.xp-histone', drag: true },
+]
 
 const Histone = ({ texts, ui }: Props) => {
   const t = texts.histone
@@ -228,9 +268,11 @@ const Histone = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="histone"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: t.dense }, { label: t.loose })}
+      steps={HISTONE_STEPS}
+      done={[dense, !dense]}
       say={dense ? t.sayDense : t.sayLoose}
       sayKey={dense ? 'dense' : 'loose'}
       cap={t.cap}
@@ -274,6 +316,8 @@ const Histone = ({ texts, ui }: Props) => {
   )
 }
 
+const RNA_STEPS: CoachStep[] = [{ target: '.xp-w-body > .xp-btn', watch: '.xp-rna' }]
+
 const Rna = ({ texts, ui }: Props) => {
   const t = texts.rna
   const [docked, setDocked] = useState(false)
@@ -281,9 +325,11 @@ const Rna = ({ texts, ui }: Props) => {
   return (
     <WidgetFrame
       name="rna"
-      kicker={ui.tryout}
+      ui={ui}
       title={t.title}
-      how={t.how}
+      guide={withLabels(t.guide, { label: t.dock })}
+      steps={RNA_STEPS}
+      done={[docked]}
       say={!touched ? t.sayIdle : docked ? t.sayDocked : t.sayFree}
       sayKey={`${touched}-${docked}`}
       cap={t.cap}
@@ -352,13 +398,16 @@ export const Mechanisms = ({ texts, ui }: Props) => {
         role="tabpanel"
         aria-labelledby={`xp-tab-${tab}`}
       >
-        {tab === 0 ? (
-          <Methyl texts={texts} ui={ui} />
-        ) : tab === 1 ? (
-          <Histone texts={texts} ui={ui} />
-        ) : (
-          <Rna texts={texts} ui={ui} />
-        )}
+        {/* Jeder Reiter hat seine eigene Führung; sie beginnt beim Wechsel von vorn. */}
+        <CoachHost key={tab}>
+          {tab === 0 ? (
+            <Methyl texts={texts} ui={ui} />
+          ) : tab === 1 ? (
+            <Histone texts={texts} ui={ui} />
+          ) : (
+            <Rna texts={texts} ui={ui} />
+          )}
+        </CoachHost>
       </div>
     </div>
   )

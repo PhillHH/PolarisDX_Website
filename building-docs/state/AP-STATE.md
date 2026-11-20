@@ -10,6 +10,15 @@ kein `work-packages/APxx-STATE.md`).
 
 <!-- AP34 (SC-002, 2026-10-15): Design-AP vor AP28. -->
 
+**Stand 2026-11-20 (SC-033, nur Preview):** Artikel „Was ist Epigenetik?" nach dem Owner-Entwurf
+„Geführt": Bausteine führen Schritt für Schritt (`useCoach.ts`, `CoachHost`/`WidgetFrame` in
+`widgetParts.tsx`; je Baustein Handgriffe und `done` aus dem eigenen Zustand), die Bühne läuft von selbst
+(`ExplainerStage.tsx`: wartet bei Cookie-Hinweis/Dialog, jede Eingabe übernimmt). Texte x10 ergänzt.
+Gates: tsc, eslint, prettier, Guards, Claims, Vitest 699/699, Artikel-E2E 31/31, Byte-Budget 851/852
+(rot nur `igloo-pro routeJsGzip`). Nicht geprüft: echte Geräte, Safari/Firefox, Vorleseprogramm. Offen
+beim Owner: angekündigte Korrekturen, Durchsicht der Übersetzungen, Freigabe. Details:
+`SCOPE-CHANGELOG.md` SC-033.
+
 **Stand 2026-11-19 (SC-032, nur Preview):** Polaris-One-Film der Startseite schärfer und ruhiger.
 Schleife und Film neu aus dem Original gerechnet (`public/media/polaris-one/polaris-one-trailer-v2-{720,1080}.mp4`,
 `polaris-one-v2-{720,1080}.mp4`; alte Dateien entfernt): Bildgruppen 3 s statt eines Vollbilds alle

@@ -8,7 +8,21 @@
     "more": "Approfondire",
     "next": "Avanti",
     "back": "Passo indietro",
-    "restart": "Da capo"
+    "restart": "Da capo",
+    "guide": {
+      "shows": "Che cosa mostra",
+      "result": "Che cosa succede",
+      "learn": "Da ricordare",
+      "how": "Come funziona",
+      "step": "Passo {{n}} di {{total}}",
+      "look": "Bene. Più in basso legge che cosa è appena successo.",
+      "next": "Avanti",
+      "understood": "Ho capito",
+      "again": "Ricomincia da capo",
+      "free": "Ora provi liberamente.",
+      "tap": "Tocchi qui",
+      "drag": "Trascini qui"
+    }
   },
   "stage": {
     "label": "Viaggio all’interno in sei tappe",
@@ -54,8 +68,21 @@
       "dna": "DNA, avvolto",
       "methyl": "Gruppi metilici",
       "loose": "allentato · facile da leggere",
-      "dense": "compatto · difficile da leggere"
-    }
+      "dense": "compatto · difficile da leggere",
+      "legend": [
+        "Il punto al centro: una singola cellula",
+        "Il cerchio al centro: il nucleo cellulare",
+        "I fili: DNA avvolto",
+        "I cerchi: istoni · il filo: DNA",
+        "Le lettere: i mattoni del DNA",
+        "I punti luminosi: gruppi metilici"
+      ]
+    },
+    "cueTouch": "Scorra con il dito per ingrandire",
+    "cueAuto": "Procede da solo · può scorrere in ogni momento",
+    "cueEnd": "L’articolo inizia più in basso",
+    "play": "Riproduci",
+    "pause": "Metti in pausa"
   },
   "intro": {
     "eyebrow": "A destinazione",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "Il mixer dei geni",
-      "how": "Attivi uno stimolo e osservi i cursori.",
       "legendActivity": "Cursori: attività dei geni",
       "legendSequence": "Lettere: sequenza del DNA",
       "sayIdle": "Nessuno stimolo è ancora attivo. I cursori sono nella posizione iniziale.",
       "sayActive": "Stimoli attivi: {{n}} su 6. Cursori che si sono mossi: {{m}} su 16. Le lettere della sequenza sono rimaste uguali.",
       "sayNone": "Nessuno stimolo è più attivo. I cursori sono di nuovo nella posizione iniziale.",
-      "cap": "Schema · mostra il principio, non dati misurati né una direzione dell’effetto"
+      "cap": "Schema · mostra il principio, non dati misurati né una direzione dell’effetto",
+      "guide": {
+        "shows": "Gli stimoli quotidiani possono modificare l’attività di singoli geni. Il DNA in sé resta uguale.",
+        "steps": ["Tocchi «{{label}}».", "Attivi un secondo stimolo, per esempio «{{label}}»."],
+        "learn": "L’attività dei geni cambia. Le lettere del DNA restano uguali."
+      }
     },
     "methyl": {
       "tab": "Metilazione",
       "title": "Metilazione: aggiungere marcature",
-      "how": "Tocchi un punto del DNA per aggiungere un gruppo metilico.",
       "group": "Otto punti sul DNA",
       "site": "Punto {{n}}",
       "meter": "Attività genica",
@@ -233,12 +263,16 @@
       "saySetLower": "Marcatura aggiunta nel punto {{n}}: l’attività genica è diminuita. Provi un altro punto: a seconda della posizione può essere il contrario.",
       "saySetHigher": "Marcatura aggiunta nel punto {{n}}: l’attività genica è aumentata. Provi un altro punto: a seconda della posizione può essere il contrario.",
       "sayRemoved": "Marcatura rimossa dal punto {{n}}. L’attività genica torna verso la posizione iniziale.",
-      "cap": "Schema · l’effetto di ciascun punto è qui scelto liberamente"
+      "cap": "Schema · l’effetto di ciascun punto è qui scelto liberamente",
+      "guide": {
+        "shows": "Piccoli gruppi chimici sul DNA, i gruppi metilici, possono indebolire o rafforzare un gene. Dipende dalla posizione.",
+        "steps": ["Tocchi «{{label}}».", "Ora tocchi «{{label}}»."],
+        "learn": "La stessa marcatura può agire in modo diverso a seconda della posizione."
+      }
     },
     "histone": {
       "tab": "Istoni",
       "title": "Istoni: la compattazione",
-      "how": "Trascini il cursore da allentato a compatto.",
       "loose": "allentato",
       "dense": "compatto",
       "aria": "Compattazione del DNA, da allentato a compatto",
@@ -246,12 +280,19 @@
       "stateDense": "compatto · difficile da leggere",
       "sayLoose": "Allentato: il DNA è libero e può essere letto bene.",
       "sayDense": "Compatto: il DNA è difficilmente accessibile. Qui la lettura non riesce ad andare avanti.",
-      "cap": "Schema · il pallino rappresenta la lettura del DNA"
+      "cap": "Schema · il pallino rappresenta la lettura del DNA",
+      "guide": {
+        "shows": "Il DNA è avvolto attorno a proteine, gli istoni. Avvolto in modo lasco si legge bene, stretto meno bene.",
+        "steps": [
+          "Trascini il cursore verso destra, verso «{{label}}».",
+          "Riporti il cursore verso «{{label}}»."
+        ],
+        "learn": "Quanto è compatto il DNA influisce su quanto bene può essere letto."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: la regolazione fine",
-      "how": "Tocchi il pulsante e faccia agganciare un microRNA.",
       "dock": "Agganciare il microRNA",
       "undock": "Sganciare il microRNA",
       "mrna": "mRNA · copia di un gene",
@@ -259,20 +300,28 @@
       "sayIdle": "L’mRNA è la copia di un gene. Nessun microRNA è ancora agganciato.",
       "sayDocked": "Il microRNA si è agganciato. Può influenzare il modo in cui la copia viene ulteriormente elaborata e utilizzata.",
       "sayFree": "Il microRNA si è sganciato. L’mRNA è di nuovo libero.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Di un gene viene prodotta una copia, l’mRNA. Piccole molecole di RNA possono influenzare come questa copia viene utilizzata.",
+        "steps": ["Tocchi «{{label}}»."],
+        "learn": "Piccole molecole di RNA possono contribuire a determinare come viene utilizzata la copia di un gene."
+      }
     },
     "ring": {
       "title": "Sei influenze, un solo sistema di regolazione",
-      "how": "Tocchi una delle influenze.",
       "aria": "Sei influenze sulla regolazione genica",
       "core": ["Regolazione", "genica"],
       "sayIdle": "Il corpo reagisce costantemente al suo ambiente. Tocchi una delle sei influenze.",
       "sayPick": "«{{name}}» è una delle sei influenze a cui il corpo reagisce. Una parte di queste reazioni può essere mediata o accompagnata dalla regolazione epigenetica.",
-      "cap": "Schema"
+      "cap": "Schema",
+      "guide": {
+        "shows": "Il corpo reagisce a molti influssi. Una parte di queste reazioni può passare attraverso la regolazione dei geni.",
+        "steps": ["Tocchi «{{label}}».", "Tocchi un secondo influsso, per esempio «{{label}}»."],
+        "learn": "Influssi molto diversi incontrano lo stesso sistema di regolazione."
+      }
     },
     "cause": {
       "title": "Un’associazione non è una causa",
-      "how": "Tocchi una dopo l’altra le tre possibilità.",
       "aria": "Tre possibilità",
       "options": ["Causa", "Conseguenza", "Fenomeno concomitante"],
       "marker": ["Marcatore", "epigenetico"],
@@ -283,11 +332,15 @@
         "Possibilità 2: il marcatore è una conseguenza della malattia.",
         "Possibilità 3: marcatore e malattia compaiono insieme, senza che l’uno provochi l’altro."
       ],
-      "tail": "Quale delle tre possibilità sia quella giusta deve essere studiato separatamente."
+      "tail": "Quale delle tre possibilità sia quella giusta deve essere studiato separatamente.",
+      "guide": {
+        "shows": "Se un marcatore e una malattia compaiono insieme, resta aperto quale sia la causa e quale la conseguenza.",
+        "steps": ["Tocchi «{{label}}».", "Ora tocchi «{{label}}»."],
+        "learn": "Un’associazione da sola non mostra ancora quale sia la causa."
+      }
     },
     "chainPsy": {
       "title": "Dall’ambiente al comportamento",
-      "how": "Percorra i cinque livelli passo dopo passo.",
       "steps": [
         {
           "label": "Ambiente",
@@ -310,11 +363,15 @@
           "text": "L’autoregolazione è la capacità di adattare emozioni, attenzione, impulsi e reazioni allo stress alle richieste."
         }
       ],
-      "cap": "Così lo descrivono i modelli attuali · semplificato"
+      "cap": "Così lo descrivono i modelli attuali · semplificato",
+      "guide": {
+        "shows": "Così i modelli attuali descrivono il percorso dagli influssi esterni al comportamento: in cinque livelli.",
+        "steps": ["Tocchi «{{label}}» finché si illumina il quinto livello."],
+        "learn": "Tra ambiente e comportamento ci sono più livelli. La regolazione epigenetica è uno di questi."
+      }
     },
     "chainTrain": {
       "title": "Ciò che l’allenamento mette in moto",
-      "how": "Percorra la catena passo dopo passo.",
       "steps": [
         {
           "label": "Allenamento",
@@ -337,11 +394,15 @@
           "text": "Questo può essere collegato ad adattamenti del metabolismo, della regolazione dell’infiammazione e della riparazione dei tessuti."
         }
       ],
-      "cap": "Rappresentazione semplificata"
+      "cap": "Rappresentazione semplificata",
+      "guide": {
+        "shows": "Che cosa può avviare l’allenamento nel corpo: cinque passi dallo stimolo all’adattamento a lungo termine.",
+        "steps": ["Tocchi «{{label}}» finché si illumina il quinto passo."],
+        "learn": "Tra allenamento e adattamento a lungo termine ci sono più passi. L’adattamento epigenetico è uno di questi."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: il muscolo ricorda?",
-      "how": "Prema i tre pulsanti uno dopo l’altro.",
       "aria": "Schema: adattamento nel primo allenamento, nella pausa e alla ripresa",
       "buttons": ["Allenarsi", "Pausa", "Riprendere"],
       "reset": "Reimpostare",
@@ -355,22 +416,34 @@
         "Ripresa: una muscolatura già allenata può ricostruire più rapidamente determinati adattamenti. La curva sale più ripida rispetto alla prima volta."
       ],
       "sayReset": "Reimpostato. Ricominci con «Allenarsi».",
-      "cap": "Schema illustrativo · nessun dato misurato"
+      "cap": "Schema illustrativo · nessun dato misurato",
+      "guide": {
+        "shows": "Un muscolo già allenato in passato può ricostruire più rapidamente determinati adattamenti.",
+        "steps": [
+          "Tocchi «{{label}}».",
+          "Ora tocchi «{{label}}».",
+          "Per finire, tocchi «{{label}}»."
+        ],
+        "learn": "Questa ricostruzione più rapida si chiama Muscle Memory."
+      }
     },
     "trend": {
       "title": "Singolo valore o andamento?",
-      "how": "Trascini il cursore e aggiunga misurazioni.",
       "aria": "Schema: con ogni misurazione in più, i singoli valori diventano un andamento",
       "point": "Misurazione {{n}}",
       "count": "Misurazioni",
       "countAria": "Numero di misurazioni",
       "sayOne": "Un singolo valore: da questo non si può ricavare una diagnosi.",
       "sayMany": "Misurazioni: {{n}}. Ora diventa visibile un andamento. La domanda è: come cambia un marcatore nel tempo e nel contesto di interventi documentati sullo stile di vita?",
-      "cap": "Schema · nessun dato misurato"
+      "cap": "Schema · nessun dato misurato",
+      "guide": {
+        "shows": "Un singolo valore dice poco. Solo più misurazioni mostrano come evolve un valore.",
+        "steps": ["Trascini il cursore verso destra."],
+        "learn": "Conta l’andamento nel tempo, non il singolo valore."
+      }
     },
     "exer": {
       "title": "Exerchine: molecole messaggere in viaggio",
-      "how": "Tocchi un organo per far partire le molecole messaggere.",
       "from": "Provengono da",
       "to": "Agiscono su",
       "sources": ["Muscolo", "Tessuto adiposo", "Fegato", "Altri organi"],
@@ -382,11 +455,15 @@
       "saySent": "{{name}}: partono molecole messaggere.",
       "sayOther": "Anche altri organi possono inviare molecole messaggere.",
       "sayTail": "Queste agiscono su metabolismo, vasi sanguigni, sistema immunitario e forse sul cervello.",
-      "cap": "Schema · qui non è rappresentato quale organo produce quale molecola messaggera"
+      "cap": "Schema · qui non è rappresentato quale organo produce quale molecola messaggera",
+      "guide": {
+        "shows": "Durante il movimento gli organi rilasciano messaggeri, le exerchine. Agiscono in altre parti del corpo.",
+        "steps": ["Tocchi «{{label}}»."],
+        "learn": "Così il movimento agisce ben oltre il muscolo allenato."
+      }
     },
     "sort": {
       "title": "Sensato o no?",
-      "how": "Valuti a che cosa serve un test epigenetico.",
       "useful": "Sensato",
       "notUseful": "Non sensato",
       "important": "Molto importante",
@@ -410,7 +487,12 @@
       "isUseful": "Questo è considerato sensato.",
       "isNotUseful": "Questo è considerato non sensato.",
       "result": "Classificate correttamente: {{right}} su {{total}}. La panoramica mostra tutte le affermazioni al loro posto.",
-      "again": "Classificare di nuovo"
+      "again": "Classificare di nuovo",
+      "guide": {
+        "shows": "A che cosa serve un test epigenetico e a che cosa no.",
+        "steps": ["Legga l’affermazione. Poi tocchi «{{label}}» oppure «{{other}}»."],
+        "learn": "Dopo sei affermazioni la panoramica mostra tutto al suo posto."
+      }
     }
   },
   "closing": {

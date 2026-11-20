@@ -122,6 +122,20 @@ Widersprechen sich zwei kanonische Quellen und ist kein `ACCEPTED`-Change vorhan
 
 ## 6. Änderungshistorie
 
+### SC-033 — Artikel „Was ist Epigenetik?": geführte Bausteine, Bühne läuft von selbst (Preview)
+
+- **Datum:** 2026-11-20
+- **Status:** ACCEPTED (Owner-Auftrag); Ausrollen nur auf die Preview
+- **Betroffene IDs:** SC-031 (interaktiver Artikel), AP25 (Bytes), AP27 (Tests)
+- **Vorheriger Zustand:** Jeder Baustein hatte eine Zeile Anleitung und einen Ergebnissatz; die Bühne bewegte sich nur beim Scrollen.
+- **Neuer Zustand:** Entwurf „Geführt" aus Runde 4. Jeder Baustein nennt seinen Zweck („Das zeigt es") und führt Schritt für Schritt: Hinweiszeile mit dem nächsten Handgriff, das Bedienelement ist markiert („Hier tippen/ziehen"), danach Ergebnis („Das passiert") und „Weiter", am Ende der Merksatz und „Noch einmal von vorn". Am Telefon stehen Ergebnis und „Weiter" in der Hinweiszeile. Die Bühne läuft von selbst (Seite scrollt von Schritt zu Schritt, Lesepause dazwischen), mit Knopf zum Anhalten/Abspielen, Bildzeile unter der Zeichnung und Hinweis für Maus bzw. Finger.
+- **Begründung:** Owner wörtlich am 19.11.2026: „die Elemente sollten viel mehr selbsterklärend sein", „Auch sollte mehr zum Scrollen in der HERO animiert werden; vielleicht mit einer Art Automatismus auch; vor allem mobil"; am 19.11. nach vier Entwürfen: „Bringe Epigenetic geführt auf preview, danach kommen kleinere Korrekturen und so".
+- **Bestätigende menschliche Entscheidung:** Projekt-Owner, 2026-11-19, Sitzung über Remote Control. Ausrollen nur auf die Preview.
+- **Abweichungen vom Entwurf (bewusst):** (1) Der Baustein meldet erledigte Handgriffe aus seinem Zustand statt über mitgehörte Klicks — so zählt auch die Tastatur. (2) Die Anleitungssätze setzen die echten Beschriftungen der Bedienelemente ein (`{{label}}`), damit sie in allen zehn Sprachen stimmen. (3) Die beiden Ketten haben einen Handgriff statt zwei (sonst stünden zwei Knöpfe „Weiter" nebeneinander). (4) Der Selbstlauf wartet, solange Cookie-Hinweis, Dialog oder Menü offen sind oder der Tab im Hintergrund liegt, endet bei jeder Eingabe und bei fremdem Scrollen; mit „Bewegung reduzieren" startet er nicht von selbst, der Knopf blättert dann ohne Fahrt. (5) Nach „Weiter" und „Noch einmal von vorn" geht der Fokus zum nächsten Bedienelement. (6) Auf niedrigen Telefonen entfallen Hinweissatz und Bildzeile zugunsten der Zeichnung. (7) Die Zeile `how` je Baustein ist entfallen (ersetzt durch Zweckzeile und Handgriffe).
+- **Auswirkung auf Scope:** Nur dieser Artikel. Neue Texte in allen zehn Sprachen (`ui.guide`, `stage.cue*`, `stage.play/pause`, `stage.canvas.legend`, je Baustein `guide`); neun Sprachen maschinell übersetzt, fachliche Durchsicht offen.
+- **Auswirkung auf Gates:** tsc, eslint, prettier, Guards, Claims, Farben grün; Vitest unit+component 699/699; Artikel-E2E 31/31 (neu: Führung Desktop/Telefon, Selbstlauf mit Cookie-Hinweis und Übernahme, reduzierte Bewegung); Byte-Budget 851/852 (rot wie zuvor nur `igloo-pro routeJsGzip`), Start-Skript 161145.
+- **Aktualisierte kanonische Dokumente:** `building-docs/state/AP-STATE.md`.
+
 ### SC-032 — Polaris-One-Film: schärfer und ruhiger (Preview)
 
 - **Datum:** 2026-11-19

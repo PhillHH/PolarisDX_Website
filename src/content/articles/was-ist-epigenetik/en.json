@@ -8,7 +8,21 @@
     "more": "Read in detail",
     "next": "Next",
     "back": "Previous step",
-    "restart": "Start again"
+    "restart": "Start again",
+    "guide": {
+      "shows": "What it shows",
+      "result": "What happens",
+      "learn": "Remember",
+      "how": "How it works",
+      "step": "Step {{n}} of {{total}}",
+      "look": "Good. Below you can read what just happened.",
+      "next": "Next",
+      "understood": "Got it",
+      "again": "Start over",
+      "free": "Now try it freely.",
+      "tap": "Tap here",
+      "drag": "Drag here"
+    }
   },
   "stage": {
     "label": "Journey inside in six steps",
@@ -54,8 +68,21 @@
       "dna": "DNA, coiled up",
       "methyl": "Methyl groups",
       "loose": "loose · easy to read",
-      "dense": "tight · hard to read"
-    }
+      "dense": "tight · hard to read",
+      "legend": [
+        "The dot in the middle: a single cell",
+        "The circle in the middle: the cell nucleus",
+        "The threads: coiled-up DNA",
+        "The circles: histones · the thread: DNA",
+        "The letters: building blocks of DNA",
+        "The glowing dots: methyl groups"
+      ]
+    },
+    "cueTouch": "Swipe to zoom in",
+    "cueAuto": "Runs by itself · swipe at any time",
+    "cueEnd": "The article starts further down",
+    "play": "Play",
+    "pause": "Pause"
   },
   "intro": {
     "eyebrow": "Arrived",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "The gene mixing desk",
-      "how": "Switch on a stimulus and watch the sliders.",
       "legendActivity": "Sliders: gene activity",
       "legendSequence": "Letters: DNA sequence",
       "sayIdle": "No stimulus is active yet. The sliders are in their starting position.",
       "sayActive": "{{n}} of 6 stimuli active: {{m}} of 16 sliders moved. The letters of the sequence stayed the same.",
       "sayNone": "No stimulus is active any more. The sliders are back in their starting position.",
-      "cap": "Schematic · shows the principle, no measured data and no direction of effect"
+      "cap": "Schematic · shows the principle, no measured data and no direction of effect",
+      "guide": {
+        "shows": "Everyday stimuli can change how active individual genes are. The DNA itself stays the same.",
+        "steps": ["Tap “{{label}}”.", "Switch on a second stimulus, for example “{{label}}”."],
+        "learn": "The activity of the genes changes. The letters of the DNA stay the same."
+      }
     },
     "methyl": {
       "tab": "Methylation",
       "title": "Methylation: placing marks",
-      "how": "Tap a site on the DNA to attach a methyl group.",
       "group": "Eight sites on the DNA",
       "site": "Site {{n}}",
       "meter": "Gene activity",
@@ -233,12 +263,16 @@
       "saySetLower": "Mark placed at site {{n}}: gene activity is now lower. Try another site: depending on the position, it can be the other way round.",
       "saySetHigher": "Mark placed at site {{n}}: gene activity is now higher. Try another site: depending on the position, it can be the other way round.",
       "sayRemoved": "Mark removed from site {{n}}. Gene activity moves back towards the starting position.",
-      "cap": "Schematic · which site has which effect is chosen arbitrarily here"
+      "cap": "Schematic · which site has which effect is chosen arbitrarily here",
+      "guide": {
+        "shows": "Small chemical groups on the DNA, the methyl groups, can turn a gene down or up. It depends on the site.",
+        "steps": ["Tap “{{label}}”.", "Now tap “{{label}}”."],
+        "learn": "The same mark can act differently depending on the site."
+      }
     },
     "histone": {
       "tab": "Histones",
       "title": "Histones: the packaging",
-      "how": "Drag the slider from loose to tight.",
       "loose": "loose",
       "dense": "tight",
       "aria": "Packaging of the DNA from loose to tight",
@@ -246,12 +280,19 @@
       "stateDense": "tight · hard to read",
       "sayLoose": "Loosely packed: the DNA is exposed and can be read easily.",
       "sayDense": "Tightly packed: the DNA is hard to access. Reading gets stuck here.",
-      "cap": "Schematic · the dot stands for the reading of the DNA"
+      "cap": "Schematic · the dot stands for the reading of the DNA",
+      "guide": {
+        "shows": "DNA is wound around proteins, the histones. Loosely wound it is easy to read, tightly wound it is harder.",
+        "steps": [
+          "Drag the slider to the right towards “{{label}}”.",
+          "Drag the slider back towards “{{label}}”."
+        ],
+        "learn": "How tightly DNA is packed affects how well it can be read."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: the fine-tuning",
-      "how": "Tap the button and let a microRNA dock.",
       "dock": "Dock microRNA",
       "undock": "Undock microRNA",
       "mrna": "mRNA · transcript of a gene",
@@ -259,20 +300,28 @@
       "sayIdle": "The mRNA is the transcript of a gene. No microRNA has docked yet.",
       "sayDocked": "The microRNA has docked. It can influence how the transcript is processed further and used.",
       "sayFree": "The microRNA has undocked. The mRNA is free again.",
-      "cap": "Schematic"
+      "cap": "Schematic",
+      "guide": {
+        "shows": "A copy is made of a gene, the mRNA. Small RNA molecules can influence how this copy is used.",
+        "steps": ["Tap “{{label}}”."],
+        "learn": "Small RNA molecules can help determine how a gene copy is used."
+      }
     },
     "ring": {
       "title": "Six influences, one regulatory system",
-      "how": "Tap an influence.",
       "aria": "Six influences on gene regulation",
       "core": ["Gene", "regulation"],
       "sayIdle": "The body constantly responds to its surroundings. Tap one of the six influences.",
       "sayPick": "“{{name}}” is one of six influences the body responds to. Some of these responses can be mediated or accompanied by epigenetic regulation.",
-      "cap": "Schematic"
+      "cap": "Schematic",
+      "guide": {
+        "shows": "The body responds to many influences. Some of these responses can run through gene regulation.",
+        "steps": ["Tap “{{label}}”.", "Tap a second influence, for example “{{label}}”."],
+        "learn": "Very different influences meet the same regulatory system."
+      }
     },
     "cause": {
       "title": "An association is not a cause",
-      "how": "Tap through the three possibilities.",
       "aria": "Three possibilities",
       "options": ["Cause", "Consequence", "Bystander"],
       "marker": ["Epigenetic", "marker"],
@@ -283,11 +332,15 @@
         "Possibility 2: the marker is a consequence of the disease.",
         "Possibility 3: marker and disease occur together, without one triggering the other."
       ],
-      "tail": "Which of the three possibilities applies must be investigated separately."
+      "tail": "Which of the three possibilities applies must be investigated separately.",
+      "guide": {
+        "shows": "If a marker and a disease occur together, it is still open which is cause and which is consequence.",
+        "steps": ["Tap “{{label}}”.", "Now tap “{{label}}”."],
+        "learn": "An association alone does not show what the cause is."
+      }
     },
     "chainPsy": {
       "title": "From environment to behaviour",
-      "how": "Go through the five levels step by step.",
       "steps": [
         {
           "label": "Environment",
@@ -310,11 +363,15 @@
           "text": "Self-regulation is the ability to adapt feelings, attention, impulses and stress responses to demands."
         }
       ],
-      "cap": "As current models describe it · simplified"
+      "cap": "As current models describe it · simplified",
+      "guide": {
+        "shows": "This is how current models describe the path from outside influences to behaviour: in five levels.",
+        "steps": ["Tap “{{label}}” until the fifth level lights up."],
+        "learn": "Several levels lie between environment and behaviour. Epigenetic regulation is one of them."
+      }
     },
     "chainTrain": {
       "title": "What training sets in motion",
-      "how": "Go through the chain step by step.",
       "steps": [
         {
           "label": "Training",
@@ -337,11 +394,15 @@
           "text": "This can be related to adaptations in metabolism, regulation of inflammation and tissue repair."
         }
       ],
-      "cap": "Simplified illustration"
+      "cap": "Simplified illustration",
+      "guide": {
+        "shows": "What training can set in motion in the body: five steps from stimulus to long-term adaptation.",
+        "steps": ["Tap “{{label}}” until the fifth step lights up."],
+        "learn": "Several steps lie between training and long-term adaptation. Epigenetic adaptation is one of them."
+      }
     },
     "muscle": {
       "title": "Muscle memory: does the muscle remember?",
-      "how": "Press the three buttons in order.",
       "aria": "Schematic: adaptation during the first training, the break and the return to training",
       "buttons": ["Train", "Take a break", "Train again"],
       "reset": "Reset",
@@ -355,22 +416,30 @@
         "Return to training: previously trained muscle can rebuild certain adaptations more quickly. The curve rises more steeply than the first time."
       ],
       "sayReset": "Reset. Start again with “Train”.",
-      "cap": "Schematic for illustration · no measured data"
+      "cap": "Schematic for illustration · no measured data",
+      "guide": {
+        "shows": "A muscle that has been trained before can rebuild certain adaptations faster.",
+        "steps": ["Tap “{{label}}”.", "Now tap “{{label}}”.", "Finally, tap “{{label}}”."],
+        "learn": "This faster rebuilding is called muscle memory."
+      }
     },
     "trend": {
       "title": "Single value or trend?",
-      "how": "Drag the slider and add measurements.",
       "aria": "Schematic: with each additional measurement, single values become a trend",
       "point": "Measurement {{n}}",
       "count": "Measurements",
       "countAria": "Number of measurements",
       "sayOne": "A single value: no diagnosis can be derived from it.",
       "sayMany": "{{n}} measurements: now a trend becomes visible. The question is: how does a marker change over time and in the context of documented lifestyle measures?",
-      "cap": "Schematic · no measured data"
+      "cap": "Schematic · no measured data",
+      "guide": {
+        "shows": "A single value says little. Only several measurements show how a value develops.",
+        "steps": ["Drag the slider to the right."],
+        "learn": "What matters is the course over time, not the single value."
+      }
     },
     "exer": {
       "title": "Exerkines: messengers on their way",
-      "how": "Tap an organ to send out messengers.",
       "from": "Come from",
       "to": "Act on",
       "sources": ["Muscle", "Fat tissue", "Liver", "Other organs"],
@@ -382,11 +451,15 @@
       "saySent": "{{name}} sends out messengers.",
       "sayOther": "Other organs can send out messengers too.",
       "sayTail": "They act on metabolism, blood vessels, the immune system and possibly the brain.",
-      "cap": "Schematic · which organ produces which messenger is not shown here"
+      "cap": "Schematic · which organ produces which messenger is not shown here",
+      "guide": {
+        "shows": "During exercise, organs release messenger substances, the exerkines. They act elsewhere in the body.",
+        "steps": ["Tap “{{label}}”."],
+        "learn": "This is how exercise acts far beyond the trained muscle."
+      }
     },
     "sort": {
       "title": "Useful or not?",
-      "how": "Sort out what an epigenetic test is good for.",
       "useful": "Useful",
       "notUseful": "Not useful",
       "important": "Very important",
@@ -410,7 +483,12 @@
       "isUseful": "This is considered useful.",
       "isNotUseful": "This is considered not useful.",
       "result": "{{right}} of {{total}} sorted correctly. The overview shows all statements in their place.",
-      "again": "Sort again"
+      "again": "Sort again",
+      "guide": {
+        "shows": "What an epigenetic test is good for and what it is not.",
+        "steps": ["Read the statement. Then tap “{{label}}” or “{{other}}”."],
+        "learn": "After six statements the overview shows everything in its place."
+      }
     }
   },
   "closing": {

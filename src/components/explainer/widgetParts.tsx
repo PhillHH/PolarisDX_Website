@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
-import type { ExplainerContent } from '../../content/articles/was-ist-epigenetik'
+import { Fragment, useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
+import { fill, type ExplainerContent } from '../../content/articles/was-ist-epigenetik'
+import { CoachRestart, useCoach, type CoachStep, type GuideTexts } from './useCoach'
 
 export type WidgetTexts = ExplainerContent['widgets']
 export type UiTexts = ExplainerContent['ui']
@@ -7,9 +8,13 @@ export type UiTexts = ExplainerContent['ui']
 type FrameProps = {
   /** Kennung für Tests (`data-explainer-widget`). */
   name: string
-  kicker: string
+  ui: UiTexts
   title: string
-  how: string
+  guide: GuideTexts
+  /** Die Handgriffe in derselben Reihenfolge wie `guide.steps`. */
+  steps: readonly CoachStep[]
+  /** Je Handgriff: erledigt? Kommt aus dem Zustand des Bausteins. */
+  done: readonly boolean[]
   /** Der Satz, der erklärt, was gerade passiert ist. */
   say: ReactNode
   /** Wechselt mit jeder neuen Aussage, damit sie neu eingeblendet wird. */
@@ -21,35 +26,148 @@ type FrameProps = {
 }
 
 /**
- * SC-031: gemeinsamer Rahmen der Bausteine zum Ausprobieren — Titel, eine Zeile Anleitung, der
- * Baustein und darunter ein Satz in einfachen Worten, der auf jede Eingabe antwortet
- * (`aria-live`, wird vorgelesen).
+ * Hülle um einen geführten Baustein: „Noch einmal von vorn" setzt ihn neu auf (neuer `key`, der
+ * Baustein beginnt in seinem Anfangszustand).
+ */
+export const CoachHost = ({ children }: { children: ReactNode }) => {
+  const [run, setRun] = useState(0)
+  const restart = useCallback(() => setRun((current) => current + 1), [])
+  const value = useMemo(() => ({ run, restart }), [run, restart])
+  return (
+    <CoachRestart.Provider value={value}>
+      <Fragment key={run}>{children}</Fragment>
+    </CoachRestart.Provider>
+  )
+}
+
+/**
+ * SC-031/SC-033: gemeinsamer Rahmen der Bausteine zum Ausprobieren. Er sagt in dieser Reihenfolge,
+ * was der Baustein zeigt, welcher Handgriff ansteht (Hinweiszeile, das Bedienelement ist markiert)
+ * und was daraufhin passiert ist (`aria-live`, wird vorgelesen). Nach dem letzten Handgriff steht
+ * in der Hinweiszeile der Merksatz.
  */
 export const WidgetFrame = ({
   name,
-  kicker,
+  ui,
   title,
-  how,
+  guide,
+  steps,
+  done,
   say,
   sayKey,
   cap,
   tried,
   className,
   children,
-}: FrameProps) => (
-  <div className={tried ? 'xp-w is-tried' : 'xp-w'} data-explainer-widget={name}>
-    <div className="xp-w-head">
-      <small>{kicker}</small>
-      <h3>{title}</h3>
-      <p className="xp-how">{how}</p>
+}: FrameProps) => {
+  const rootRef = useRef<HTMLDivElement>(null)
+  const tagRef = useRef<HTMLSpanElement>(null)
+  const coach = useCoach(rootRef, tagRef, steps, done)
+  const x = ui.guide
+  const total = steps.length
+  const nextLabel = coach.index + 1 >= total ? x.understood : x.next
+
+  // Hinweiszeile: der nächste Handgriff, der Blick auf das Ergebnis oder der Merksatz.
+  let label = total > 1 ? fill(x.step, { n: coach.index + 1, total }) : x.how
+  let text = guide.steps[Math.min(coach.index, guide.steps.length - 1)]
+  if (coach.phase === 'see') text = x.look
+  if (coach.phase === 'learn') {
+    label = x.learn
+    text = `${guide.learn} ${x.free}`
+  }
+
+  return (
+    <div
+      ref={rootRef}
+      className={tried ? 'xp-w is-tried' : 'xp-w'}
+      data-explainer-widget={name}
+      data-phase={coach.phase}
+    >
+      <div className="xp-w-head">
+        <small>{ui.tryout}</small>
+        <h3>{title}</h3>
+        <p className="xp-shows">
+          <b>{x.shows}</b>
+          {guide.shows}
+        </p>
+      </div>
+
+      <div className="xp-coach">
+        <i className="xp-coach-n" aria-hidden="true">
+          {coach.phase === 'learn' ? '✓' : coach.index + 1}
+        </i>
+        <p className={coach.phase === 'see' ? 'has-say' : undefined} aria-live="polite">
+          <small>{label}</small>
+          <span key={`${coach.phase}-${coach.index}`} className="xp-coach-look">
+            {text}
+          </span>
+          {/* Am Telefon liegt der Ergebnissatz unter dem Bild oft außerhalb des Bildschirms — dort
+              steht er zusätzlich hier oben (vorgelesen wird er einmal, über `.xp-say`). */}
+          {coach.phase === 'see' ? (
+            <span className="xp-coach-say" aria-hidden="true">
+              {say}
+            </span>
+          ) : null}
+        </p>
+        <div className="xp-coach-a">
+          {/* Derselbe Knopf wie unter dem Ergebnis — am Telefon ist dieser hier zu sehen. */}
+          {coach.phase === 'see' ? (
+            <button type="button" className="xp-btn is-pri xp-coach-next" onClick={coach.next}>
+              {nextLabel} <span aria-hidden="true">→</span>
+            </button>
+          ) : null}
+          {coach.phase === 'learn' ? (
+            <button type="button" className="xp-btn" onClick={coach.restart}>
+              {x.again}
+            </button>
+          ) : null}
+        </div>
+        {total > 1 ? (
+          <span className="xp-coach-dots" aria-hidden="true">
+            {steps.map((_, index) => (
+              <i
+                key={index}
+                className={
+                  coach.phase === 'learn' || index < coach.index
+                    ? 'is-done'
+                    : index === coach.index
+                      ? 'is-on'
+                      : undefined
+                }
+              />
+            ))}
+          </span>
+        ) : null}
+      </div>
+
+      <div className={className ? `xp-w-body ${className}` : 'xp-w-body'}>{children}</div>
+
+      <div className="xp-res">
+        <b className="xp-res-k">{x.result}</b>
+        <p className="xp-say" aria-live="polite">
+          <span key={sayKey}>{say}</span>
+        </p>
+        {coach.phase === 'see' ? (
+          <button type="button" className="xp-btn is-pri xp-res-next" onClick={coach.next}>
+            {nextLabel} <span aria-hidden="true">→</span>
+          </button>
+        ) : null}
+      </div>
+      {cap ? <p className="xp-cap">{cap}</p> : null}
+
+      {coach.tag ? (
+        <span
+          ref={tagRef}
+          className={`xp-tag is-${coach.tag.place}`}
+          style={{ left: coach.tag.x, top: coach.tag.y }}
+          aria-hidden="true"
+        >
+          {coach.step.drag ? x.drag : x.tap}
+        </span>
+      ) : null}
     </div>
-    <div className={className ? `xp-w-body ${className}` : 'xp-w-body'}>{children}</div>
-    <p className="xp-say" aria-live="polite">
-      <span key={sayKey}>{say}</span>
-    </p>
-    {cap ? <p className="xp-cap">{cap}</p> : null}
-  </div>
-)
+  )
+}
 
 /** Zeichen der sechs Einflüsse, in der Reihenfolge von `widgets.influences`. */
 const INFLUENCE_PATHS: ReactNode[] = [

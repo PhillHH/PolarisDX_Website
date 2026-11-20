@@ -8,7 +8,21 @@
     "more": "Czytaj więcej",
     "next": "Dalej",
     "back": "Krok wstecz",
-    "restart": "Od początku"
+    "restart": "Od początku",
+    "guide": {
+      "shows": "Co to pokazuje",
+      "result": "Co się dzieje",
+      "learn": "Zapamiętaj",
+      "how": "Jak to działa",
+      "step": "Krok {{n}} z {{total}}",
+      "look": "Dobrze. Niżej przeczytasz, co się właśnie stało.",
+      "next": "Dalej",
+      "understood": "Rozumiem",
+      "again": "Jeszcze raz od początku",
+      "free": "Teraz próbuj dowolnie.",
+      "tap": "Kliknij tutaj",
+      "drag": "Przeciągnij tutaj"
+    }
   },
   "stage": {
     "label": "Podróż do wnętrza w sześciu krokach",
@@ -54,8 +68,21 @@
       "dna": "DNA, nawinięte",
       "methyl": "Grupy metylowe",
       "loose": "luźno · łatwo odczytać",
-      "dense": "ciasno · trudno odczytać"
-    }
+      "dense": "ciasno · trudno odczytać",
+      "legend": [
+        "Punkt pośrodku: pojedyncza komórka",
+        "Okrąg pośrodku: jądro komórkowe",
+        "Nici: nawinięte DNA",
+        "Okręgi: histony · nić: DNA",
+        "Litery: elementy budujące DNA",
+        "Świecące punkty: grupy metylowe"
+      ]
+    },
+    "cueTouch": "Przesuń palcem, aby przybliżyć",
+    "cueAuto": "Działa samo · możesz przesunąć w każdej chwili",
+    "cueEnd": "Artykuł zaczyna się niżej",
+    "play": "Odtwórz",
+    "pause": "Zatrzymaj"
   },
   "intro": {
     "eyebrow": "U celu",
@@ -212,18 +239,21 @@
     },
     "pult": {
       "title": "Stół mikserski genów",
-      "how": "Włącz bodziec i obserwuj suwaki.",
       "legendActivity": "Suwaki: aktywność genów",
       "legendSequence": "Litery: sekwencja DNA",
       "sayIdle": "Żaden bodziec nie jest jeszcze aktywny. Suwaki są w położeniu wyjściowym.",
       "sayActive": "Aktywne bodźce: {{n}} z 6. Przesunięte suwaki: {{m}} z 16. Litery sekwencji pozostały takie same.",
       "sayNone": "Żaden bodziec nie jest już aktywny. Suwaki znów są w położeniu wyjściowym.",
-      "cap": "Schemat · pokazuje zasadę, a nie dane pomiarowe ani kierunek działania"
+      "cap": "Schemat · pokazuje zasadę, a nie dane pomiarowe ani kierunek działania",
+      "guide": {
+        "shows": "Codzienne bodźce mogą zmieniać aktywność poszczególnych genów. Samo DNA pozostaje takie samo.",
+        "steps": ["Kliknij „{{label}}”.", "Włącz drugi bodziec, na przykład „{{label}}”."],
+        "learn": "Aktywność genów się zmienia. Litery DNA pozostają takie same."
+      }
     },
     "methyl": {
       "tab": "Metylacja",
       "title": "Metylacja: dodawanie znaczników",
-      "how": "Kliknij jedno z miejsc na DNA, aby przyłączyć grupę metylową.",
       "group": "Osiem miejsc na DNA",
       "site": "Miejsce {{n}}",
       "meter": "Aktywność genu",
@@ -233,12 +263,16 @@
       "saySetLower": "Dodano znacznik w miejscu {{n}}: aktywność genu stała się słabsza. Wypróbuj inne miejsce: zależnie od położenia może być odwrotnie.",
       "saySetHigher": "Dodano znacznik w miejscu {{n}}: aktywność genu stała się silniejsza. Wypróbuj inne miejsce: zależnie od położenia może być odwrotnie.",
       "sayRemoved": "Usunięto znacznik z miejsca {{n}}. Aktywność genu wraca w stronę poziomu wyjściowego.",
-      "cap": "Schemat · działanie poszczególnych miejsc wybrano tu dowolnie"
+      "cap": "Schemat · działanie poszczególnych miejsc wybrano tu dowolnie",
+      "guide": {
+        "shows": "Małe grupy chemiczne na DNA, grupy metylowe, mogą osłabiać lub wzmacniać gen. Zależy to od miejsca.",
+        "steps": ["Kliknij „{{label}}”.", "Teraz kliknij „{{label}}”."],
+        "learn": "To samo oznaczenie może działać różnie w zależności od miejsca."
+      }
     },
     "histone": {
       "tab": "Histony",
       "title": "Histony: upakowanie",
-      "how": "Przesuń suwak od luźnego do ciasnego upakowania.",
       "loose": "luźno",
       "dense": "ciasno",
       "aria": "Upakowanie DNA od luźnego do ciasnego",
@@ -246,12 +280,19 @@
       "stateDense": "ciasno · trudno odczytać",
       "sayLoose": "Luźno upakowane: DNA jest odsłonięte i można je dobrze odczytać.",
       "sayDense": "Ciasno upakowane: DNA jest trudno dostępne. Odczytywanie nie posuwa się tu dalej.",
-      "cap": "Schemat · punkt oznacza odczytywanie DNA"
+      "cap": "Schemat · punkt oznacza odczytywanie DNA",
+      "guide": {
+        "shows": "DNA jest nawinięte na białka, histony. Luźno nawinięte łatwo odczytać, ciasno nawinięte trudniej.",
+        "steps": [
+          "Przeciągnij suwak w prawo, w stronę „{{label}}”.",
+          "Przeciągnij suwak z powrotem w stronę „{{label}}”."
+        ],
+        "learn": "To, jak ciasno upakowane jest DNA, wpływa na to, jak dobrze można je odczytać."
+      }
     },
     "rna": {
       "tab": "RNA",
       "title": "RNA: precyzyjne dostrajanie",
-      "how": "Kliknij przycisk i pozwól cząsteczce mikroRNA się przyłączyć.",
       "dock": "Przyłącz mikroRNA",
       "undock": "Odłącz mikroRNA",
       "mrna": "mRNA · kopia genu",
@@ -259,20 +300,28 @@
       "sayIdle": "mRNA to kopia genu. Żadna cząsteczka mikroRNA jeszcze się nie przyłączyła.",
       "sayDocked": "Cząsteczka mikroRNA się przyłączyła. Może wpływać na to, jak ta kopia jest dalej przetwarzana i wykorzystywana.",
       "sayFree": "Cząsteczka mikroRNA się odłączyła. mRNA jest znów wolne.",
-      "cap": "Schemat"
+      "cap": "Schemat",
+      "guide": {
+        "shows": "Z genu powstaje kopia, mRNA. Małe cząsteczki RNA mogą wpływać na to, jak ta kopia jest wykorzystywana.",
+        "steps": ["Kliknij „{{label}}”."],
+        "learn": "Małe cząsteczki RNA mogą współdecydować o tym, jak wykorzystywana jest kopia genu."
+      }
     },
     "ring": {
       "title": "Sześć czynników, jeden system regulacji",
-      "how": "Kliknij jeden z czynników.",
       "aria": "Sześć czynników wpływających na regulację genów",
       "core": ["Regulacja", "genów"],
       "sayIdle": "Ciało stale reaguje na swoje otoczenie. Kliknij jeden z sześciu czynników.",
       "sayPick": "„{{name}}” to jeden z sześciu czynników, na które reaguje ciało. W części tych reakcji regulacja epigenetyczna może pośredniczyć lub im towarzyszyć.",
-      "cap": "Schemat"
+      "cap": "Schemat",
+      "guide": {
+        "shows": "Organizm reaguje na wiele wpływów. Część tych reakcji może przebiegać poprzez regulację genów.",
+        "steps": ["Kliknij „{{label}}”.", "Kliknij drugi wpływ, na przykład „{{label}}”."],
+        "learn": "Bardzo różne wpływy trafiają na ten sam system regulacji."
+      }
     },
     "cause": {
       "title": "Powiązanie to nie przyczyna",
-      "how": "Kliknij kolejno trzy możliwości.",
       "aria": "Trzy możliwości",
       "options": ["Przyczyna", "Skutek", "Zjawisko towarzyszące"],
       "marker": ["Marker", "epigenetyczny"],
@@ -283,11 +332,15 @@
         "Możliwość 2: marker jest skutkiem choroby.",
         "Możliwość 3: marker i choroba występują razem, przy czym jedno nie wywołuje drugiego."
       ],
-      "tail": "To, która z trzech możliwości jest prawdziwa, trzeba zbadać osobno."
+      "tail": "To, która z trzech możliwości jest prawdziwa, trzeba zbadać osobno.",
+      "guide": {
+        "shows": "Gdy marker i choroba występują razem, nie wiadomo jeszcze, co jest przyczyną, a co skutkiem.",
+        "steps": ["Kliknij „{{label}}”.", "Teraz kliknij „{{label}}”."],
+        "learn": "Sam związek nie pokazuje jeszcze, co jest przyczyną."
+      }
     },
     "chainPsy": {
       "title": "Od środowiska do zachowania",
-      "how": "Przejdź krok po kroku przez pięć poziomów.",
       "steps": [
         {
           "label": "Środowisko",
@@ -310,11 +363,15 @@
           "text": "Samoregulacja to zdolność dostosowywania uczuć, uwagi, impulsów i reakcji na stres do wymagań."
         }
       ],
-      "cap": "Tak opisują to aktualne modele · w uproszczeniu"
+      "cap": "Tak opisują to aktualne modele · w uproszczeniu",
+      "guide": {
+        "shows": "Tak aktualne modele opisują drogę od wpływów zewnętrznych do zachowania: w pięciu poziomach.",
+        "steps": ["Klikaj „{{label}}”, aż zaświeci się piąty poziom."],
+        "learn": "Między środowiskiem a zachowaniem leży kilka poziomów. Regulacja epigenetyczna jest jednym z nich."
+      }
     },
     "chainTrain": {
       "title": "Co trening wprawia w ruch",
-      "how": "Przejdź łańcuch krok po kroku.",
       "steps": [
         {
           "label": "Trening",
@@ -337,11 +394,15 @@
           "text": "Może się to wiązać z adaptacjami w zakresie metabolizmu, regulacji stanu zapalnego i naprawy tkanek."
         }
       ],
-      "cap": "Przedstawienie uproszczone"
+      "cap": "Przedstawienie uproszczone",
+      "guide": {
+        "shows": "Co trening może uruchomić w organizmie: pięć kroków od bodźca do długotrwałej adaptacji.",
+        "steps": ["Klikaj „{{label}}”, aż zaświeci się piąty krok."],
+        "learn": "Między treningiem a długotrwałą adaptacją leży kilka kroków. Adaptacja epigenetyczna jest jednym z nich."
+      }
     },
     "muscle": {
       "title": "Muscle Memory: czy mięsień pamięta?",
-      "how": "Naciśnij kolejno trzy przyciski.",
       "aria": "Schemat: adaptacja podczas pierwszego treningu, w przerwie i po wznowieniu treningu",
       "buttons": ["Trenuj", "Zrób przerwę", "Wznów trening"],
       "reset": "Resetuj",
@@ -355,22 +416,34 @@
         "Wznowienie treningu: trenowane już wcześniej mięśnie mogą szybciej odbudować określone adaptacje. Krzywa rośnie bardziej stromo niż za pierwszym razem."
       ],
       "sayReset": "Zresetowano. Zacznij ponownie od „Trenuj”.",
-      "cap": "Schemat poglądowy · nie są to dane pomiarowe"
+      "cap": "Schemat poglądowy · nie są to dane pomiarowe",
+      "guide": {
+        "shows": "Mięsień, który był już trenowany, może szybciej odbudować określone adaptacje.",
+        "steps": [
+          "Kliknij „{{label}}”.",
+          "Teraz kliknij „{{label}}”.",
+          "Na koniec kliknij „{{label}}”."
+        ],
+        "learn": "Tę szybszą odbudowę nazywa się Muscle Memory."
+      }
     },
     "trend": {
       "title": "Pojedyncza wartość czy trend?",
-      "how": "Przesuń suwak i dodaj pomiary.",
       "aria": "Schemat: z każdym kolejnym pomiarem pojedyncze wartości układają się w trend",
       "point": "Pomiar {{n}}",
       "count": "Pomiary",
       "countAria": "Liczba pomiarów",
       "sayOne": "Pojedyncza wartość: na jej podstawie nie da się postawić diagnozy.",
       "sayMany": "Liczba pomiarów: {{n}}. Teraz widać trend. Pytanie brzmi: jak marker zmienia się w czasie i w kontekście udokumentowanych działań dotyczących stylu życia?",
-      "cap": "Schemat · nie są to dane pomiarowe"
+      "cap": "Schemat · nie są to dane pomiarowe",
+      "guide": {
+        "shows": "Pojedynczy wynik mówi niewiele. Dopiero kilka pomiarów pokazuje, jak zmienia się wartość.",
+        "steps": ["Przeciągnij suwak w prawo."],
+        "learn": "Ważny jest przebieg w czasie, a nie pojedyncza wartość."
+      }
     },
     "exer": {
       "title": "Egzerkiny: substancje sygnałowe w drodze",
-      "how": "Kliknij narząd, aby wysłać substancje sygnałowe.",
       "from": "Skąd pochodzą",
       "to": "Na co działają",
       "sources": ["Mięsień", "Tkanka tłuszczowa", "Wątroba", "Inne narządy"],
@@ -382,11 +455,15 @@
       "saySent": "{{name}} wysyła substancje sygnałowe.",
       "sayOther": "Także inne narządy mogą wysyłać substancje sygnałowe.",
       "sayTail": "Działają one na metabolizm, naczynia krwionośne, układ odpornościowy i być może na mózg.",
-      "cap": "Schemat · nie pokazano tu, który narząd wytwarza którą substancję sygnałową"
+      "cap": "Schemat · nie pokazano tu, który narząd wytwarza którą substancję sygnałową",
+      "guide": {
+        "shows": "Podczas ruchu narządy uwalniają substancje sygnałowe, egzerkiny. Działają one w innych miejscach organizmu.",
+        "steps": ["Kliknij „{{label}}”."],
+        "learn": "Tak ruch działa daleko poza trenowanym mięśniem."
+      }
     },
     "sort": {
       "title": "Ma sens czy nie?",
-      "how": "Oceń, do czego nadaje się test epigenetyczny.",
       "useful": "Ma sens",
       "notUseful": "Nie ma sensu",
       "important": "Szczególnie ważne",
@@ -410,7 +487,12 @@
       "isUseful": "Uznaje się, że to ma sens.",
       "isNotUseful": "Uznaje się, że to nie ma sensu.",
       "result": "Poprawnie oceniono: {{right}} z {{total}}. Zestawienie pokazuje wszystkie stwierdzenia na swoim miejscu.",
-      "again": "Oceń jeszcze raz"
+      "again": "Oceń jeszcze raz",
+      "guide": {
+        "shows": "Do czego nadaje się test epigenetyczny, a do czego nie.",
+        "steps": ["Przeczytaj stwierdzenie. Następnie kliknij „{{label}}” lub „{{other}}”."],
+        "learn": "Po sześciu stwierdzeniach przegląd pokazuje wszystko na swoim miejscu."
+      }
     }
   },
   "closing": {

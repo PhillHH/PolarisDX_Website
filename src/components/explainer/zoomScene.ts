@@ -11,6 +11,8 @@ export type ZoomLabels = {
   methyl: string
   loose: string
   dense: string
+  /** Ein Satz je Schritt, der sagt, was im Bild zu sehen ist (unter der Zeichnung). */
+  legend: string[]
 }
 
 type SceneOptions = {
@@ -377,7 +379,10 @@ export function createZoomScene(canvas: HTMLCanvasElement, options: SceneOptions
     const compact = width < 820
     // Am Telefon: unter dem Pfad beginnen, über dem Textblock enden.
     const top = headerHeight() + (compact ? 56 : 70)
-    const bottom = compact ? Math.max(top + 120, textTop() - 20) : footTop() - 28
+    // Unter der Zeichnung bleibt Platz für die Bildzeile — außer auf niedrigen Telefonen: Dort
+    // braucht die Zeichnung selbst jeden Pixel.
+    const captioned = !compact || textTop() - top >= 200
+    const bottom = compact ? Math.max(top + 96, textTop() - (captioned ? 50 : 16)) : footTop() - 58
     const centerY = (top + bottom) / 2
     const centerX = compact ? width / 2 : width * 0.66
     const radius = Math.min((bottom - top) / 2, compact ? width * 0.36 : width * 0.17)
@@ -415,6 +420,25 @@ export function createZoomScene(canvas: HTMLCanvasElement, options: SceneOptions
       )
     }
     ctx.restore()
+
+    // Bildzeile: sagt in einem Satz, was gerade zu sehen ist — auf jeder Bildschirmbreite.
+    // Sie blendet mit der Fahrt aus und nach einem Bildwechsel wieder ein.
+    const caption = labels.legend[Math.max(0, state - 1)]
+    const arrived = state > 0 && SCENE_OF_STATE[state] !== SCENE_OF_STATE[state - 1]
+    const captionAlpha = Math.max(0, 1 - travel / 0.3) * (arrived ? smooth(0, 0.12, within) : 1)
+    if (captioned && caption && captionAlpha > 0.01) {
+      const face = '"Inter Variable", Inter, system-ui, sans-serif'
+      let size = compact ? 13 : 14
+      ctx.font = `500 ${size}px ${face}`
+      const room = compact ? width - 40 : radius * 2.6
+      const wide = ctx.measureText(caption).width
+      if (wide > room) size = Math.max(11, Math.floor((size * room) / wide))
+      ctx.font = `500 ${size}px ${face}`
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.fillStyle = light(captionAlpha)
+      ctx.fillText(caption, centerX, bottom + (compact ? 24 : 30))
+    }
 
     // Beschriftungen rechts neben dem Bild — nur, wo dafür Platz ist
     if (width >= 1180 && travel < 0.3) {
